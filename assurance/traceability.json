@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "baseline": "dialysislab-assurance-baseline-2026-10-07",
+  "baseline": "dialysislab-m1-b598a5c-2026-10-07",
   "description": "Six original, incomplete roadmap chains plus seven implemented M1 synthetic requirements. M1 evidence does not close broad roadmap requirements or standards obligations.",
   "needs": [
     {
@@ -611,8 +611,16 @@
       ],
       "procedure": "Execute native build, Compose nominal/occlusion runs, publication and container boundary tests.",
       "expected": "CMake builds successfully; Compose runs five isolated services and records source, binary and configuration identities.",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m1/summary.json",
+        "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
+        "baseline": "dialysislab-m1-b598a5c-2026-10-07",
+        "run_id": "m1-b598a5c-2026-10-07",
+        "executed_at": "2026-10-07T21:37:39.907885+00:00",
+        "reviewer": "Codex automated execution and result inspection only; independent review and risk acceptance pending.",
+        "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; container GCC 14.2.0/Python 3.12.14; Docker 29.3.1/Compose v5.1.1"
+      }
     },
     {
       "id": "M1-TEST-002",
@@ -621,8 +629,16 @@
       ],
       "procedure": "Run same-seed replay, cross-build comparison and clean-build binary hash comparison.",
       "expected": "Identical configuration and seed yield byte-identical same-build trajectories; cross-build numerics agree within absolute/relative 1e-9; clean same-toolchain CMake builds produce identical executables.",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m1/summary.json",
+        "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
+        "baseline": "dialysislab-m1-b598a5c-2026-10-07",
+        "run_id": "m1-b598a5c-2026-10-07",
+        "executed_at": "2026-10-07T21:37:39.907885+00:00",
+        "reviewer": "Codex automated execution and result inspection only; independent review and risk acceptance pending.",
+        "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; container GCC 14.2.0/Python 3.12.14; Docker 29.3.1/Compose v5.1.1"
+      }
     },
     {
       "id": "M1-TEST-003",
@@ -631,8 +647,16 @@
       ],
       "procedure": "Calculate expected fluid loss from input rates, interval duration and independently specified active interval count; compare both service totals and patient volume.",
       "expected": "Nominal, zero-UF, stopped-flow and partial-flow runs match independent Decimal balances within 1e-8 mL; long patient ledger drift stays below 1e-8 mL.",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m1/summary.json",
+        "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
+        "baseline": "dialysislab-m1-b598a5c-2026-10-07",
+        "run_id": "m1-b598a5c-2026-10-07",
+        "executed_at": "2026-10-07T21:37:39.907885+00:00",
+        "reviewer": "Codex automated execution and result inspection only; independent review and risk acceptance pending.",
+        "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; container GCC 14.2.0/Python 3.12.14; Docker 29.3.1/Compose v5.1.1"
+      }
     },
     {
       "id": "M1-TEST-004",
@@ -641,8 +665,16 @@
       ],
       "procedure": "Run occlusion scenario and kill control at fault onset; inspect protection observation, decision and applied actuator state.",
       "expected": "Tick-5 resistance increase produces a measured pressure of 600 mmHg; the synthetic 250 mmHg trip stops blood/UF and closes clamp within one 100 ms virtual interval, including when control has died.",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m1/summary.json",
+        "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
+        "baseline": "dialysislab-m1-b598a5c-2026-10-07",
+        "run_id": "m1-b598a5c-2026-10-07",
+        "executed_at": "2026-10-07T21:37:39.907885+00:00",
+        "reviewer": "Codex automated execution and result inspection only; independent review and risk acceptance pending.",
+        "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; container GCC 14.2.0/Python 3.12.14; Docker 29.3.1/Compose v5.1.1"
+      }
     },
     {
       "id": "M1-TEST-005",
@@ -651,8 +683,16 @@
       ],
       "procedure": "Continue conflicting control demand after occlusion; issue role-forged and duplicate commands and inspect resulting state.",
       "expected": "Repeated 300 mL/min control demand and later PERMIT cannot release latched zero blood/UF and closed clamp; unauthorized role and duplicate tick messages fail closed.",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m1/summary.json",
+        "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
+        "baseline": "dialysislab-m1-b598a5c-2026-10-07",
+        "run_id": "m1-b598a5c-2026-10-07",
+        "executed_at": "2026-10-07T21:37:39.907885+00:00",
+        "reviewer": "Codex automated execution and result inspection only; independent review and risk acceptance pending.",
+        "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; container GCC 14.2.0/Python 3.12.14; Docker 29.3.1/Compose v5.1.1"
+      }
     },
     {
       "id": "M1-TEST-006",
@@ -661,8 +701,16 @@
       ],
       "procedure": "Inject every supported sensor fault at tick 5 and verify timing, channel separation, and conservation.",
       "expected": "Invalid, missing, stale, future and replayed protection samples trip within one 100 ms interval; a control-only fault does not corrupt the protection channel.",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m1/summary.json",
+        "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
+        "baseline": "dialysislab-m1-b598a5c-2026-10-07",
+        "run_id": "m1-b598a5c-2026-10-07",
+        "executed_at": "2026-10-07T21:37:39.907885+00:00",
+        "reviewer": "Codex automated execution and result inspection only; independent review and risk acceptance pending.",
+        "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; container GCC 14.2.0/Python 3.12.14; Docker 29.3.1/Compose v5.1.1"
+      }
     },
     {
       "id": "M1-TEST-007",
@@ -671,8 +719,16 @@
       ],
       "procedure": "Kill each service, kill an actual scheduler heartbeat subprocess, and compare paused versus uninterrupted runs; retain build/configuration identities.",
       "expected": "Missing control/protection prevents nonzero commit; plant/patient loss aborts; killed runner causes independent plant latch within 3 wall seconds without virtual advancement; a 2.3 s heartbeat pause preserves trajectory.",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m1/summary.json",
+        "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
+        "baseline": "dialysislab-m1-b598a5c-2026-10-07",
+        "run_id": "m1-b598a5c-2026-10-07",
+        "executed_at": "2026-10-07T21:37:39.907885+00:00",
+        "reviewer": "Codex automated execution and result inspection only; independent review and risk acceptance pending.",
+        "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; container GCC 14.2.0/Python 3.12.14; Docker 29.3.1/Compose v5.1.1"
+      }
     }
   ],
   "prerequisites": [

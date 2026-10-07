@@ -1,0 +1,92 @@
+{
+  "executed_at": "2026-10-07T21:41:30.311835+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "tools/check_traceability.py",
+        "assurance/traceability.json"
+      ],
+      "actual_exit_code": 0,
+      "expected_exit_code": 0,
+      "details": {
+        "structural_errors": 0,
+        "release_gaps": 60
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/check_standards.py"
+      ],
+      "actual_exit_code": 0,
+      "expected_exit_code": 0,
+      "details": {
+        "structural_errors": [],
+        "open_checklist_entries": 184,
+        "open_gaps": 12,
+        "scope": "Draft data integrity only. Not clause completeness, evidence adequacy or conformity."
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/check_traceability.py",
+        "assurance/traceability.json",
+        "--release"
+      ],
+      "actual_exit_code": 1,
+      "expected_exit_code": 1,
+      "details": {
+        "structural_errors": 0,
+        "release_gaps": 60
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/check_standards.py",
+        "--release"
+      ],
+      "actual_exit_code": 1,
+      "expected_exit_code": 1,
+      "details": {
+        "structural_errors": [],
+        "open_checklist_entries": 184,
+        "open_gaps": 12,
+        "scope": "Draft data integrity only. Not clause completeness, evidence adequacy or conformity."
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/check_publication.py"
+      ],
+      "actual_exit_code": 0,
+      "expected_exit_code": 0,
+      "details": {}
+    },
+    {
+      "command": [
+        "python3",
+        "tools/package_release.py",
+        "--output",
+        "/tmp/DialysisLab-m1.zip"
+      ],
+      "actual_exit_code": 0,
+      "expected_exit_code": 0,
+      "details": {}
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "actual_exit_code": 0,
+      "expected_exit_code": 0,
+      "details": {}
+    }
+  ],
+  "note": "Release failures are required outcomes; no gate was weakened."
+}

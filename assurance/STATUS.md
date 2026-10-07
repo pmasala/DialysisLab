@@ -1,27 +1,70 @@
 # Current status
 
-As of 7 October 2026, this is an expanded project baseline and initial assurance infrastructure, not a complete working dialysis system.
+As of 7 October 2026, M1 is implemented and its declared synthetic acceptance
+checks have passed on the recorded WSL2 environment. This is a limited headless HD
+reference slice, not a complete dialysis system, calibrated physiology, clinically
+usable software, or a standards-conforming medical device.
 
-| Area | Actual status |
+## Implemented M1 behavior
+
+- Reproducible CMake C++17 builds for separate control, protection and plant
+  processes; separate Python patient and deterministic scenario runner.
+- Five non-root, network-disabled Compose services with role-specific socket
+  mounts. Control/protection receive modeled observations and cannot reach
+  administration/patient endpoints in the container configuration.
+- Fixed virtual ticks, a versioned DL1 interface, explicit sequences/validity and
+  a separate wall-clock liveness lease. Pause heartbeats do not integrate fluid.
+- Synthetic HD resistance, capped blood flow, measured circuit pressure and
+  separate patient/effluent ledgers. Independent Decimal conservation checks.
+- Occlusion and invalid/missing/stale/future/replayed observations; protection
+  sends direct plant constraints. Conflicting control commands and subsequent
+  permits cannot clear a latch. Process failures follow documented abort policies.
+
+## Actual verification
+
+Tested implementation revision: `b598a5c` (full source and executable hashes in
+[evidence/m1/summary.json](evidence/m1/summary.json)). The subsequent evidence/status
+commit does not change executable sources. Commands and raw records are indexed in
+[evidence/m1/README.md](evidence/m1/README.md) and [the runbook](../docs/M1_RUNBOOK.md).
+
+| Check | Observed result |
 | --- | --- |
-| Functional scope and container/UI boundaries | Recorded baseline; detailed engineering remains. |
-| Dependency policy | Written policy and exception template. |
-| Assurance, safety/security, verification strategy | Initial plans written; substantive review pending. |
-| Traceability tooling | Executable structural checker; 12 self-tests executed and passed in the development environment. |
-| Starter trace graph | Six illustrative project-derived chains; not an exhaustive requirements/risk/test database. |
-| Standards checklist | 184 original grouped entries derived from the supplied sources and project/EU screening; all open. Detailed equipment/annex coverage and substantive review remain incomplete. |
-| Market and risk-standard decision | ISO 14971 confirmed; EU-first adaptation, US later. |
-| Edition/applicability gaps | 12 open gaps recorded, including newer IEC texts and European material. |
-| Hazard/threat files and essential-performance limits | Incomplete; starting obligations identified. |
-| C/C++ device software, LVGL UI, plant and Python physiology | Not implemented. |
-| Dialysis unit/integration/system/security/UI/model tests | Not executed. |
-| Model calibration/validation | Not performed. |
-| Regulatory/standards conformity | Not established. |
-| Repository | Project owner confirmed the empty `pmasala/DialysisLab` repository. |
-| Repository baseline | Builds on the existing MIT-license commit; software implementation and compliance evidence remain incomplete. |
+| Native Release build | GCC 13.3.0, CMake 3.28.3, Python 3.12.3; warnings treated as errors; succeeded. |
+| Native suite | 32 tests passed, including all 12 original traceability tests. |
+| AddressSanitizer + UBSan Debug suite | Same 32 tests passed; fatal sanitizer errors enabled; service logs checked. |
+| Pinned container build | GCC 14.2.0, CMake 3.31.6, Python 3.12.14; succeeded. Exact package inventories retained. |
+| Compose acceptance | Four 20-tick runs (nominal twice, occlusion twice), all completed; two actual role-boundary probes denied access. |
+| Reproduction | Same-configuration repeats and native/container trajectories byte-identical; two separately configured native builds have identical executable SHA-256 values. No cross-toolchain binary identity claim. |
+| Fluid conservation | Nominal 1/3 mL removal; occlusion 1/12 mL; zero/partial-flow and 100000-step patient ledger cases within 1e-8 mL. |
+| Protection | Tick-5 occlusion observed at 600 mmHg against a synthetic 250 mmHg threshold; zero blood/UF and closed clamp by the end of that 100 ms interval. Also passes with control killed. |
+| Failure/clock policy | Invalid sensor cases, killed services, killed scheduler heartbeat process and a 2.3 s virtual pause pass; wall timeout latches without advancing virtual time. |
+| Assurance checks | Zero structural errors. All 184 standards entries and 12 edition/applicability gaps remain open. |
+| Release gates | Trace release gate remains blocked (60 gaps); standards release gate remains blocked. No check was weakened. |
 
-The traceability report is a mechanical snapshot of entered records. It must not be presented as a percentage of standard compliance. All seed requirements remain draft and all seed protocols remain planned. Release checking intentionally fails until missing evidence and prerequisites are resolved.
+M1 requirements are **implemented**, with passing execution records and independent
+review still pending. Six broader starter requirements remain draft and their six
+protocols remain planned. All nine release prerequisites remain open. Test passes
+are neither reviewer approval nor risk acceptance.
 
-Verification performed on this package: the seed graph has zero structural errors; the checker reports 39 release gaps and returns nonzero exit status in release mode. The 12 helper tests cover missing evidence, stale baseline, tampered hashes, orphan references, reverse-link errors, duplicate IDs, out-of-root artifacts, incomplete requirements/protocols/prerequisites and a synthetic complete fixture. These results are not dialysis verification evidence and are not an independent qualification of the checker.
+## Remaining roadmap and decisions
 
-Standards-package verification on 7 October 2026: the 184-entry register and six starter requirement chains have no structural errors. Twelve edition/applicability gaps remain open. Three negative register checks rejected an unknown source, a broken requirement link and an unsupported completion claim. Three publication checks rejected path escape, PDF inclusion and duplicate entries. Both release-mode checks returned the expected nonzero status. The existing 12 trace-checker self-tests passed again. These are checks of the assurance tooling/data only, not dialysis or standards-conformity evidence.
+Full HD treatment workflows, pre/post HDF, online substitution preparation
+(mixing, thermal behavior, filtration, hydraulics and delivery), configurable
+circuits and multiple dialyzers, electrolyte/solute and acid-base models, LVGL
+device UI and the separate experiment console all remain required. No feature
+was removed to make M1 pass.
+
+Open work includes independent model calibration/validation and authorized data;
+approved clinical/essential-performance limits and hazard-specific recovery;
+substantive safety/security/standards and EU-first applicability reviews; complete
+risk analysis, SBOM/vulnerability triage, UI/usability and downstream physical-device
+evidence; and validation on native Linux beyond this WSL2 host. The M1 model omits
+compliance, realistic transients, refill, chemistry and clearance. Shared
+kernel/runner/transport/plant remain common causes. Native same-user mode does not
+provide container isolation. Patient failure after plant commit is explicitly
+recorded as an incomplete tick in an aborted run, without distributed rollback.
+
+The exact M1 dependency pins, original-source publication allowlist and Docker
+context are documented; image redistribution and the full reference release have
+not been approved. Licensed standards and derived private source material remain
+outside the repository and Docker context.
