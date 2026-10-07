@@ -3,16 +3,18 @@
 ## Integrated execution checkpoint — 2026-10-08
 
 Branch `feat/integrated-dialysis-roadmap`, published through M3 candidate; local
-M3 corrections/evidence follow. M1–M3 technical scope COMPLETE; M4 next; M5–M9
+M3 corrections/evidence follow. M1–M3 technical scope COMPLETE; M4 IN PROGRESS; M5–M9
 PLANNED. Full project remains incomplete. M3 implementation `64645fd` passed
 72/72 native and 72/72 sanitizer tests, eight native/eight Compose patient runs,
 six M2 and four M1 Compose regressions plus two isolation probes. Native/container
 trajectories match exactly. Five findings from the sole M3 review are corrected.
 See [M3 evidence](evidence/m3/README.md). No M1/M2/M3 review may be rerun.
 
-Next executable step: freeze the M3 evidence commit as M4 base; define and
-implement HD/pre/post HDF, online preparation, independent gross/net replacement
-ledgers and observed quality-fault protection. Preserve prior contracts/regressions.
+M4 base `47ffc5e`; contracts/requirements and tolerances are frozen in
+`docs/M4_TREATMENT.md`. The implementation passed 81/81 native and sanitizer tests, 10/10 targeted
+treatment tests and 24 native/24 Compose scenarios with exact reproduction.
+Next executable step: commit candidate and invoke the single M4 review; preserve
+its findings/output, fix applicable issues, then repeat affected regressions.
 
 Persistent checkpoints: [plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md). The synthetic M2 model is

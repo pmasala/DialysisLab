@@ -105,3 +105,13 @@ Official sources checked 2026-10-07:
 - IEC 60601-1 scope: https://webstore.iec.ch/en/publication/67497
 - IEC 60601-2-16 scope: https://webstore.iec.ch/en/publication/68379
 - ISO 14971 scope: https://www.iso.org/standard/72704.html
+
+## Implemented M4 increment
+
+Schema-4 treatment adds a C++ preparation model to plant, explicit pre-circuit or
+post-return substitution, and conservative Python ADVANCE4 coupling. STEP4 control
+and protection consume frozen OBS4 sensor frames. QUALITY4 directly blocks UF,
+replacement and dialysate exchange at plant arbitration; hard blood TRIP/HALT
+still dominates. Atomic COMMIT4 binds actual water/transport/preparation snapshots.
+Hidden contaminant/breach truth remains admin-only. See `M4_TREATMENT.md` for
+units, timing, numerical acceptance, supported ranges and quality-barrier limits.

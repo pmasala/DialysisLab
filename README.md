@@ -59,6 +59,23 @@ SOURCE_REVISION=$(git rev-parse HEAD) docker compose build
 python3 tools/verify_models.py --compose --scenarios patient_baseline patient_overload patient_imbalance patient_large --output build/patient-compose
 ```
 
+## HD, HDF and online preparation
+
+M4 adds conservative pre/post replacement, a mixed/heated preparation reservoir,
+two filter surrogates and observed quality-fault arbitration. Quality stops block
+replacement/UF/dialysate exchange while separate blood protection remains active.
+Read [equations, synthetic limits and quality caveats](docs/M4_TREATMENT.md).
+
+```bash
+PYTHONPATH=python python3 -m dialysislab.runner --local --config scenarios/treatment_hdf_pre.json --output build/hdf-demo
+python3 tools/verify_models.py --scenarios treatment_hd treatment_hdf_pre treatment_hdf_post --output build/treatment-native
+SOURCE_REVISION=$(git rev-parse HEAD) docker compose build
+python3 tools/verify_models.py --compose --scenarios treatment_hd treatment_hdf_pre treatment_hdf_post treatment_temperature treatment_ratio treatment_supply treatment_integrity treatment_route treatment_filter1 treatment_contaminant treatment_hdf_large treatment_hdf_imbalance --output build/treatment-compose
+```
+
+Hidden contamination is deliberately absent from protection observations. No
+sterility, clinical threshold or calibrated physiology claim follows from these runs.
+
 ## Agreed scope
 
 - Intermittent haemodialysis and both predilution and postdilution haemodiafiltration.

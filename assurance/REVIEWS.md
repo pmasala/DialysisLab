@@ -63,6 +63,16 @@ Compose M3 runs, six M2/four M1 Compose runs and two isolation probes passed.
 [Evidence](evidence/m3/README.md) records exact identities and limits.
 Automatic review is not independent physiological or regulatory approval.
 
-## M4–M9
+## M4 — tested candidate; one review reserved
+
+Base `47ffc5efa5ca1cd2878a2924b182d1bb72a7a8e3`. Candidate is the commit
+containing this entry; capture exact SHA in `build/reviews/m4.json` before the
+single invocation. Command: read-only `codex review --base 47ffc5e`, no approvals,
+no code edits or recursive reviewers. Candidate results: 81/81 native and
+sanitizer tests, then 10/10 targeted treatment tests including added hard-trip
+regression; 24 native/24 Compose runs with exact cross-build reproduction.
+Review findings, corrections and final regressions remain pending.
+
+## M5–M9
 
 Not yet invoked. Freeze phase base/candidate and retain one command/output per phase.

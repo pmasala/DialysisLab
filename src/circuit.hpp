@@ -14,6 +14,8 @@ struct Circuit {
     std::vector<CircuitEdge> edges;
     int pump_node = 1, sensor_node = 1, sensor_edge = 0, dialyzer_edge = 0;
     double head = 600, kuf = 0, dialysate = 0;
+    int sub_node = 0;
+    double sub_command = 0, sub_head = 600, sub_flow = 0;
     std::array<double, solutes> koa{}, sieving{}, blood_c{}, dialysate_c{}, diffusion{}, convection{}, clearances{};
     double pump = 0, returned = 0, uf = 0, stored = 0, delta = 0;
     double draw_tick = 0, return_tick = 0, uf_tick = 0;
@@ -22,7 +24,7 @@ struct Circuit {
         pressure.assign(compliance.size() + 1, 0);
         flow.assign(edges.size(), 0);
     }
-    std::vector<double> solve(double demand, double removal, double minutes, bool pump_on = true) const {
+    std::vector<double> solve(double demand, double removal, double minutes, bool pump_on = true, bool sub_on = true) const {
         const auto count = compliance.size();
         std::vector<std::vector<double>> a(count, std::vector<double>(count + 1, 0));
         for (std::size_t i = 0; i < count; ++i) {
@@ -43,6 +45,10 @@ struct Circuit {
             a[pump_node - 1][pump_node - 1] += demand / head;
             a[pump_node - 1][count] += demand;
         }
+        if (sub_node && sub_on) {
+            a[sub_node - 1][sub_node - 1] += sub_command / sub_head;
+            a[sub_node - 1][count] += sub_command;
+        }
         a[edges[dialyzer_edge].a - 1][count] -= removal;
         for (std::size_t col = 0; col < count; ++col) {
             std::size_t pivot = col;
@@ -61,11 +67,12 @@ struct Circuit {
             for (std::size_t col = row + 1; col < count; ++col) value -= a[row][col] * result[col + 1];
             result[row + 1] = value / a[row][row];
         }
-        if (pump_on && result[pump_node] > head) return solve(demand, removal, minutes, false);
+        if (pump_on && result[pump_node] > head) return solve(demand, removal, minutes, false, sub_on);
+        if (sub_node && sub_on && result[sub_node] > sub_head) return solve(demand, removal, minutes, pump_on, false);
         return result;
     }
     void isolate() {
-        pump = returned = uf = delta = draw_tick = return_tick = uf_tick = 0;
+        pump = returned = uf = delta = draw_tick = return_tick = uf_tick = sub_flow = 0;
         std::fill(flow.begin(), flow.end(), 0);
         diffusion.fill(0); convection.fill(0); clearances.fill(0);
     }
@@ -96,6 +103,7 @@ struct Circuit {
         stored = 0;
         for (std::size_t i = 0; i < compliance.size(); ++i) stored += compliance[i] * pressure[i + 1];
         pump = std::max(0.0, demand * (1 - pressure[pump_node] / head));
+        sub_flow = sub_node ? std::max(0.0, sub_command * (1 - pressure[sub_node] / sub_head)) : 0;
         returned = 0;
         for (std::size_t i = 0; i < edges.size(); ++i) {
             const auto& edge = edges[i];
@@ -106,7 +114,7 @@ struct Circuit {
         draw_tick = pump * minutes;
         return_tick = returned * minutes;
         uf_tick = uf * minutes;
-        if (std::abs(draw_tick - return_tick - uf_tick - delta) > 1e-8)
+        if (std::abs(draw_tick + sub_flow * minutes - return_tick - uf_tick - delta) > 1e-8)
             throw std::runtime_error("circuit water conservation");
         double qb = std::abs(flow[dialyzer_edge]);
         for (std::size_t i = 0; i < solutes; ++i) {

@@ -47,6 +47,11 @@
       "id": "M3-NEED-001",
       "statement": "Explore conservative synthetic patient fluid and electrolyte compartments coupled to the circuit.",
       "status": "implemented"
+    },
+    {
+      "id": "M4-NEED-001",
+      "statement": "Explore HD and pre/post HDF with observable online preparation and conservative replacement accounting.",
+      "status": "implemented"
     }
   ],
   "hazards": [
@@ -213,6 +218,26 @@
       "description": "Couple real Python patient to atomic C++ circuit coefficients; docs/M3_PATIENT.md.",
       "status": "implemented",
       "scope": "Synthetic conservative model; independent physiological validation pending."
+    },
+    {
+      "id": "M4-DES-001",
+      "description": "Implement explicit HD/pre/post HDF water and solute delivery; docs/M4_TREATMENT.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M4-DES-002",
+      "description": "Model preparation reservoir, thermal and filter/delivery hydraulics; docs/M4_TREATMENT.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M4-DES-003",
+      "description": "Enforce observed quality protection at plant arbitration; docs/M4_TREATMENT.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M4-DES-004",
+      "description": "Verify real treatment processes and deployment evidence; docs/M4_TREATMENT.md.",
+      "status": "implemented"
     }
   ],
   "requirements": [
@@ -418,11 +443,11 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32"
+          "sha256": "bfcc401b1be7e5b6ec6251ac3faa0cb31f0be068d6cf2161c6133784331479ae"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488"
+          "sha256": "983275a854d5e959035d3eac38178509c24e917fc61552667b1d1876fd8902d5"
         }
       ],
       "unresolved": [
@@ -455,11 +480,11 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488"
+          "sha256": "983275a854d5e959035d3eac38178509c24e917fc61552667b1d1876fd8902d5"
         },
         {
           "path": "python/dialysislab/patient.py",
-          "sha256": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251"
+          "sha256": "75cfd50d4dff7ccd69d45fd08b63045c6eaa6aa13618059f1a93ed972d6f681d"
         }
       ],
       "unresolved": [
@@ -488,11 +513,11 @@
       "implementation": [
         {
           "path": "src/protection.cpp",
-          "sha256": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566"
+          "sha256": "684ddeb8005223ee06776ffa0928f243f1ee3eee3c81d45ead100ed59671744d"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488"
+          "sha256": "983275a854d5e959035d3eac38178509c24e917fc61552667b1d1876fd8902d5"
         }
       ],
       "unresolved": [
@@ -521,11 +546,11 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488"
+          "sha256": "983275a854d5e959035d3eac38178509c24e917fc61552667b1d1876fd8902d5"
         },
         {
           "path": "src/control.cpp",
-          "sha256": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7"
+          "sha256": "f83e14e66d1702c3f00b43151b533a604aa84b44f27ee4c422bbc7f5c302cc54"
         }
       ],
       "unresolved": [
@@ -558,15 +583,15 @@
         },
         {
           "path": "src/control.cpp",
-          "sha256": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7"
+          "sha256": "f83e14e66d1702c3f00b43151b533a604aa84b44f27ee4c422bbc7f5c302cc54"
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566"
+          "sha256": "684ddeb8005223ee06776ffa0928f243f1ee3eee3c81d45ead100ed59671744d"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488"
+          "sha256": "983275a854d5e959035d3eac38178509c24e917fc61552667b1d1876fd8902d5"
         }
       ],
       "unresolved": [
@@ -596,7 +621,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488"
+          "sha256": "983275a854d5e959035d3eac38178509c24e917fc61552667b1d1876fd8902d5"
         },
         {
           "path": "src/wire.hpp",
@@ -604,7 +629,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32"
+          "sha256": "bfcc401b1be7e5b6ec6251ac3faa0cb31f0be068d6cf2161c6133784331479ae"
         }
       ],
       "unresolved": [
@@ -638,7 +663,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32"
+          "sha256": "bfcc401b1be7e5b6ec6251ac3faa0cb31f0be068d6cf2161c6133784331479ae"
         },
         {
           "path": "tools/recover_trajectory.py",
@@ -699,7 +724,7 @@
       "implementation": [
         {
           "path": "src/circuit.hpp",
-          "sha256": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b"
+          "sha256": "2f902f7e4fb538cfcf362ae0cfd55eae65407ae0b1166605db15303e0f2e21c4"
         }
       ],
       "unresolved": [
@@ -727,7 +752,7 @@
       "implementation": [
         {
           "path": "src/circuit.hpp",
-          "sha256": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b"
+          "sha256": "2f902f7e4fb538cfcf362ae0cfd55eae65407ae0b1166605db15303e0f2e21c4"
         }
       ],
       "unresolved": [
@@ -755,7 +780,7 @@
       "implementation": [
         {
           "path": "src/circuit.hpp",
-          "sha256": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b"
+          "sha256": "2f902f7e4fb538cfcf362ae0cfd55eae65407ae0b1166605db15303e0f2e21c4"
         }
       ],
       "unresolved": [
@@ -785,7 +810,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/circuit.py",
-          "sha256": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40"
+          "sha256": "f88fcefafe538d09996ed6bea896d0018596635c931a3a4314f5f04b7c2d4928"
         }
       ],
       "unresolved": [
@@ -814,7 +839,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/compartments.py",
-          "sha256": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e"
+          "sha256": "2471a2ba07a366b10bc8ae51c1f93809403ee9321cc158cee2977315d79384ef"
         }
       ],
       "unresolved": [
@@ -842,7 +867,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/compartments.py",
-          "sha256": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e"
+          "sha256": "2471a2ba07a366b10bc8ae51c1f93809403ee9321cc158cee2977315d79384ef"
         }
       ],
       "unresolved": [
@@ -870,7 +895,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/compartments.py",
-          "sha256": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e"
+          "sha256": "2471a2ba07a366b10bc8ae51c1f93809403ee9321cc158cee2977315d79384ef"
         }
       ],
       "unresolved": [
@@ -900,11 +925,129 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32"
+          "sha256": "bfcc401b1be7e5b6ec6251ac3faa0cb31f0be068d6cf2161c6133784331479ae"
         }
       ],
       "unresolved": [
         "Independent physiology/model review, calibration, validation and residual-risk acceptance pending."
+      ]
+    },
+    {
+      "id": "M4-REQ-001",
+      "statement": "Implement explicit HD/pre/post HDF water and solute delivery",
+      "acceptance": "Independent whole-system balances <=1e-6 mL/mmol; distinct gross UF/substitution/storage/net loss.",
+      "needs": [
+        "M4-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-003"
+      ],
+      "designs": [
+        "M4-DES-001"
+      ],
+      "tests": [
+        "M4-TEST-001"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "2471a2ba07a366b10bc8ae51c1f93809403ee9321cc158cee2977315d79384ef"
+        }
+      ],
+      "unresolved": [
+        "Synthetic thresholds, model/quality validation and independent risk acceptance remain open."
+      ]
+    },
+    {
+      "id": "M4-REQ-002",
+      "statement": "Model preparation reservoir, thermal and filter/delivery hydraulics",
+      "acceptance": "Analytic equilibrium/transient, convergence and filter pressure-loss checks.",
+      "needs": [
+        "M4-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-003",
+        "HAZ-006"
+      ],
+      "designs": [
+        "M4-DES-002"
+      ],
+      "tests": [
+        "M4-TEST-002"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/online.hpp",
+          "sha256": "0d05aa4d7454118685063aa7855b3ad19b0834a3e80c06254797902881682af6"
+        }
+      ],
+      "unresolved": [
+        "Synthetic thresholds, model/quality validation and independent risk acceptance remain open."
+      ]
+    },
+    {
+      "id": "M4-REQ-003",
+      "statement": "Enforce observed quality protection at plant arbitration",
+      "acceptance": "Quality latch within one dt after observable threshold; no delivery/UF/dialysate despite conflicting control.",
+      "needs": [
+        "M4-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "M4-DES-003"
+      ],
+      "tests": [
+        "M4-TEST-003"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/plant.cpp",
+          "sha256": "983275a854d5e959035d3eac38178509c24e917fc61552667b1d1876fd8902d5"
+        }
+      ],
+      "unresolved": [
+        "Synthetic thresholds, model/quality validation and independent risk acceptance remain open."
+      ]
+    },
+    {
+      "id": "M4-REQ-004",
+      "statement": "Verify real treatment processes and deployment evidence",
+      "acceptance": "Repeat native/Compose modes/faults; exact build/config identity and compatibility regressions.",
+      "needs": [
+        "M4-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-003",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "M4-DES-004"
+      ],
+      "tests": [
+        "M4-TEST-004"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "bfcc401b1be7e5b6ec6251ac3faa0cb31f0be068d6cf2161c6133784331479ae"
+        }
+      ],
+      "unresolved": [
+        "Synthetic thresholds, model/quality validation and independent risk acceptance remain open."
       ]
     }
   ],
@@ -1561,6 +1704,46 @@
         "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
         "environment": "WSL2 x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 in pinned Docker."
       }
+    },
+    {
+      "id": "M4-TEST-001",
+      "requirements": [
+        "M4-REQ-001"
+      ],
+      "procedure": "Run treatment numerical/process tests and real Compose mode/fault matrix.",
+      "expected": "Independent whole-system balances <=1e-6 mL/mmol; distinct gross UF/substitution/storage/net loss.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M4-TEST-002",
+      "requirements": [
+        "M4-REQ-002"
+      ],
+      "procedure": "Run treatment numerical/process tests and real Compose mode/fault matrix.",
+      "expected": "Analytic equilibrium/transient, convergence and filter pressure-loss checks.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M4-TEST-003",
+      "requirements": [
+        "M4-REQ-003"
+      ],
+      "procedure": "Run treatment numerical/process tests and real Compose mode/fault matrix.",
+      "expected": "Quality latch within one dt after observable threshold; no delivery/UF/dialysate despite conflicting control.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M4-TEST-004",
+      "requirements": [
+        "M4-REQ-004"
+      ],
+      "procedure": "Run treatment numerical/process tests and real Compose mode/fault matrix.",
+      "expected": "Repeat native/Compose modes/faults; exact build/config identity and compatibility regressions.",
+      "result": "planned",
+      "evidence": null
     }
   ],
   "prerequisites": [

@@ -32,6 +32,9 @@ def verify(directory, expected_config, expected_sources):
     maximum_error = 0
     maximum_mass_error = 0
     integrated_diffusion, integrated_convection = [0.0] * 6, [0.0] * 6
+    replacement = 0.0
+    replacement_mass = [0.0] * 6
+    first_quality_ms = None
     patient_config = config.get('patient')
     initial_mass = None
     if patient_config:
@@ -43,7 +46,22 @@ def verify(directory, expected_config, expected_sources):
         storage = record.get('circuit', {}).get('stored_mL', 0)
         error = abs(config['patient_volume_mL'] - record['patient_volume_mL'] - storage - record['removed_total_mL'])
         if patient_config:
-            p, c = validate_snapshot(record['patient']), record['circuit']
+            p, c = validate_snapshot(record['patient'], config['schema_version'] >= 4), record['circuit']
+            online = record.get('online')
+            dialysate = config['transport']['dialysate_mmol_L']
+            if online:
+                if online['sequence'] != record['sequence'] or online['time_ms'] != record['time_ms']:
+                    raise ValueError('online clock mismatch in evidence')
+                volume = online['pre_tick_mL'] + online['post_tick_mL']
+                replacement += volume
+                dialysate = online['concentration_mmol_L']
+                for i in range(6): replacement_mass[i] += volume * dialysate[i] / 1000
+                if abs(replacement - online['substitution_total_mL']) > 1e-6 or abs(replacement - p['substitution_mL']) > 1e-6:
+                    raise ValueError('substitution ledger mismatch')
+                if online['quality_latched']:
+                    first_quality_ms = first_quality_ms if first_quality_ms is not None else record['time_ms']
+                    if volume != 0 or record['uf_mL_min'] != 0 or any(c['clearance_mL_min']):
+                        raise ValueError('active fluid output despite quality latch')
             if p['sequence'] != record['sequence'] or p['time_ms'] != record['time_ms']:
                 raise ValueError('patient/plant clock mismatch in evidence')
             body = math.fsum(p['volume_mL'][:2])
@@ -53,15 +71,15 @@ def verify(directory, expected_config, expected_sources):
             elapsed = record['time_ms'] / 60000
             incoming = elapsed * patient_config['external_in_mL_min']
             outgoing = elapsed * patient_config['external_out_mL_min']
-            error = abs(config['patient_volume_mL'] + patient_config['prime_mL'] + incoming - outgoing
+            error = abs(config['patient_volume_mL'] + patient_config['prime_mL'] + incoming - outgoing + replacement
                         - math.fsum(p['volume_mL']) - record['removed_total_mL'])
             for i in range(6):
                 concentration = p['concentration_mmol_L'][2][i]
-                integrated_diffusion[i] += c['clearance_mL_min'][i] * config['dt_ms'] / 60000 * (concentration - config['transport']['dialysate_mmol_L'][i]) / 1000
+                integrated_diffusion[i] += c['clearance_mL_min'][i] * config['dt_ms'] / 60000 * (concentration - dialysate[i]) / 1000
                 integrated_convection[i] += c['uf_tick_mL'] * config['circuit']['profile']['sieving'][i] * concentration / 1000
                 inputs = incoming * patient_config['external_mmol_L'][i] / 1000 + elapsed * patient_config['generation_mmol_min'][i]
                 residual = abs(math.fsum(row[i] for row in p['mass_mmol']) + integrated_diffusion[i] + integrated_convection[i]
-                               + p['output_mmol'][i] - inputs - initial_mass[i])
+                               + p['output_mmol'][i] - inputs - replacement_mass[i] - initial_mass[i])
                 if not math.isfinite(residual) or residual > 1e-6:
                     raise ValueError('independent solute conservation: ' + str(residual))
                 maximum_mass_error = max(maximum_mass_error, residual)
@@ -73,7 +91,7 @@ def verify(directory, expected_config, expected_sources):
             raise ValueError('water conservation: ' + str(error))
         maximum_error = max(maximum_error, error)
     return dict(manifest=manifest, scan=summary, maximum_water_error_mL=maximum_error,
-                expected_water_error_mL=1e-6, first_latch_ms=first_latch_ms,
+                expected_water_error_mL=1e-6, first_latch_ms=first_latch_ms, first_quality_ms=first_quality_ms,
                 maximum_mass_error_mmol=maximum_mass_error if patient_config else None,
                 requested_configuration_sha256=expected_digest)
 
@@ -108,6 +126,10 @@ def main():
                 case = verify(directory, config, expected_sources)
                 if name == 'circuit_occlusion' and not (case['first_latch_ms'] is not None and 2000 <= case['first_latch_ms'] <= 3000):
                     raise ValueError('circuit occlusion did not trip within the declared 1000 ms bound')
+                if name in ('treatment_temperature', 'treatment_ratio', 'treatment_supply', 'treatment_integrity', 'treatment_route', 'treatment_filter1'):
+                    event_ms = config['faults'][0]['tick'] * config['dt_ms']
+                    if case['first_quality_ms'] is None or not event_ms <= case['first_quality_ms'] <= event_ms + 10000 + config['dt_ms']:
+                        raise ValueError('quality fixture failed to latch within declared bound')
                 case.update(scenario=name, repeat=repeat, collection=collected,
                             directory=str(directory))
                 report['cases'].append(case)

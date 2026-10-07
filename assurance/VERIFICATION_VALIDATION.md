@@ -47,3 +47,15 @@ For a downstream medical device, identify and retain obligations for real electr
 ## Completion rule
 
 Reference release requires reviewed results for all applicable requirements and risk/security controls, with justified dispositions for issues and documented model validity. A finished-device claim additionally requires its external evidence and responsible approvals. The project cannot become complete merely by creating this strategy or filling a trace matrix.
+
+## M4 evidence protocol
+
+Run `tests/test_treatment.py` plus all existing regressions, and
+`tools/verify_models.py` over treatment HD/pre/post modes, large/imbalance fixtures,
+and temperature/ratio/supply/integrity/route/filter/hidden-contamination faults in
+native and Compose deployments. Predeclared water/solute tolerance is 1e-6 mL/mmol.
+Check reservoir analytic transients/convergence, actual sensor-to-latch time,
+continued blood circulation under quality-only faults, conflicting DEMAND4, and
+lost STEP4 replies before commit. Retain exact build/config/hash and partial-failure
+artifacts. Hidden contamination must not acquire an invented protective sensor.
+Numerical/software verification remains separate from quality-barrier validation.

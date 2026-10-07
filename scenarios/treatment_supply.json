@@ -1,0 +1,184 @@
+{
+  "schema_version": 4,
+  "model": "m4-treatment-1",
+  "seed": 42,
+  "ticks": 300,
+  "dt_ms": 100,
+  "blood_mL_min": 300,
+  "uf_mL_min": 5,
+  "resistance_mmHg_min_mL": 0.5,
+  "pressure_limit_mmHg": 250,
+  "patient_volume_mL": 40000,
+  "faults": [
+    {
+      "tick": 30,
+      "target": "online:supply",
+      "value": 0
+    }
+  ],
+  "circuit": {
+    "compliance_mL_mmHg": [
+      0.005,
+      0.005,
+      0.005
+    ],
+    "edges": [
+      [
+        1,
+        2,
+        0.1,
+        "tube",
+        false
+      ],
+      [
+        2,
+        3,
+        0.3,
+        "dialyzer",
+        false
+      ],
+      [
+        3,
+        0,
+        0.1,
+        "clamp",
+        false
+      ]
+    ],
+    "pump_node": 1,
+    "pump_head_mmHg": 600,
+    "sensor_node": 1,
+    "sensor_edge": 0,
+    "dialyzer_edge": 1,
+    "profile": {
+      "id": "synthetic-small",
+      "provenance": "synthetic",
+      "resistance_mmHg_min_mL": 0.3,
+      "kuf_mL_min_mmHg": 0.8,
+      "koa_mL_min": [
+        300,
+        200,
+        220,
+        200,
+        180,
+        100
+      ],
+      "sieving": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0.7
+      ]
+    }
+  },
+  "transport": {
+    "blood_mmol_L": [
+      20,
+      140,
+      5,
+      105,
+      22,
+      2.4
+    ],
+    "dialysate_mmol_L": [
+      0,
+      138,
+      2,
+      105,
+      30,
+      1.5
+    ],
+    "dialysate_mL_min": 500
+  },
+  "patient": {
+    "id": "synthetic-baseline",
+    "provenance": "synthetic",
+    "volume_mL": [
+      14000,
+      26000
+    ],
+    "concentration_mmol_L": [
+      [
+        20,
+        140,
+        5,
+        105,
+        22,
+        2.4
+      ],
+      [
+        20,
+        14,
+        100,
+        10.5,
+        22,
+        2.4
+      ]
+    ],
+    "exchange_mL_min": [
+      600,
+      80,
+      200,
+      80,
+      100,
+      50
+    ],
+    "partition": [
+      1,
+      0.1,
+      20,
+      0.1,
+      1,
+      1
+    ],
+    "refill_mL_min": 500,
+    "prime_mL": 200,
+    "initial_weight_kg": 70,
+    "pco2_mmHg": 40,
+    "external_in_mL_min": 0,
+    "external_out_mL_min": 0,
+    "external_mmol_L": [
+      0,
+      140,
+      4,
+      105,
+      24,
+      2.4
+    ],
+    "generation_mmol_min": [
+      0.05,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "treatment": {
+    "mode": "HDF_POST",
+    "replacement_mL_min": 60,
+    "reservoir_mL": 50,
+    "ratio": 0.04,
+    "inlet_temperature_C": 37,
+    "setpoint_C": 37,
+    "heater_min_inverse": 30,
+    "initial_temperature_C": 37,
+    "head_mmHg": 600,
+    "filter1_R": 0.2,
+    "filter2_R": 0.2,
+    "line_R": 0.1,
+    "penetration1": 0.001,
+    "penetration2": 0.001,
+    "source_contaminant": 1,
+    "concentrate_mmol_L": [
+      0,
+      3500,
+      100,
+      2625,
+      600,
+      60
+    ]
+  }
+}

@@ -54,7 +54,13 @@ def validate_scenario(config, validate_circuit):
     return config
 
 
-def validate_snapshot(state):
+def validate_snapshot(state, online=False):
+    if online:
+        number(state.get('substitution_mL'), 0, 1e9)
+        vector(state.get('substitution_mmol'), 0, 1e9)
+        base = {k: v for k, v in state.items() if k not in ('substitution_mL', 'substitution_mmol')}
+        validate_snapshot(base)
+        return state
     keys(state, 'sequence time_ms volume_mL mass_mmol concentration_mmol_L gross_uf_mL external_in_mL '
                 'external_out_mL net_patient_loss_mL weight_kg illustrative_pH mass_residual_mmol '
                 'diffusive_mmol convective_mmol input_mmol output_mmol')
@@ -107,22 +113,24 @@ def solve(matrix, rhs):
 
 
 class Compartments:
-    def __init__(self, config):
+    def __init__(self, config, online=False):
+        self.online = online
         self.config = copy.deepcopy(validate(config))
         self.volume = [*map(float, config['volume_mL']), float(config['prime_mL'])]
         self.initial_body = sum(self.volume[:2])
         self.concentration = copy.deepcopy(config['concentration_mmol_L']) + [list(config['concentration_mmol_L'][0])]
         self.mass = [[v * c / 1000 for c in values] for v, values in zip(self.volume, self.concentration)]
         self.initial_mass = [math.fsum(row[i] for row in self.mass) for i in range(6)]
-        self.water = {name: Sum() for name in ('uf', 'in', 'out')}
-        self.solute = {name: [Sum() for _ in range(6)] for name in ('diffusive', 'convective', 'input', 'output')}
+        self.water = {name: Sum() for name in (('uf', 'in', 'out', 'sub') if online else ('uf', 'in', 'out'))}
+        self.solute = {name: [Sum() for _ in range(6)] for name in (('diffusive', 'convective', 'input', 'output', 'substitution') if online else ('diffusive', 'convective', 'input', 'output'))}
         self.next_sequence = self.time_ms = self.sequence = 0
         self.mass_residual = [0.0] * 6
 
     def snapshot(self):
         body = math.fsum(self.volume[:2])
         bicarbonate = self.concentration[0][4]
-        return dict(sequence=self.sequence, time_ms=self.time_ms,
+        return dict(**(dict(substitution_mL=self.water['sub'].value) if self.online else {}),
+                    sequence=self.sequence, time_ms=self.time_ms,
                     volume_mL=list(self.volume), mass_mmol=copy.deepcopy(self.mass),
                     concentration_mmol_L=copy.deepcopy(self.concentration),
                     gross_uf_mL=self.water['uf'].value, external_in_mL=self.water['in'].value,
@@ -134,29 +142,38 @@ class Compartments:
                     **{name + '_mmol': [s.value for s in values] for name, values in self.solute.items()})
 
     def advance(self, request):
-        keys(request, 'sequence time_ms dt_ms draw_mL return_mL uf_mL stored_mL clearance_mL_min sieving dialysate_mmol_L')
+        keys(request, 'sequence time_ms dt_ms draw_mL return_mL uf_mL stored_mL clearance_mL_min sieving dialysate_mmol_L'
+             + (' pre_mL post_mL substitution_mmol_L' if self.online else ''))
         for key in ('sequence', 'time_ms', 'dt_ms'):
             if type(request[key]) is not int: raise ProtocolError('clock type')
         if (request['sequence'] != self.next_sequence or request['time_ms'] != self.time_ms
                 or not 1 <= request['dt_ms'] <= 1000 or self.next_sequence >= 100000):
             raise ProtocolError('patient tick order')
         dt = request['dt_ms'] / 60000
-        for key, high in [('draw_mL', 500 * dt), ('return_mL', 100000), ('uf_mL', 20 * dt), ('stored_mL', 96000)]:
+        for key, high in [('draw_mL', 500 * dt), ('return_mL', 100000), ('uf_mL', (140 if self.online else 20) * dt), ('stored_mL', 96000)]:
             number(request[key], 0, high)
         vector(request['clearance_mL_min'], 0, 2000)
         vector(request['sieving'], 0, 1)
         vector(request['dialysate_mmol_L'], 0, 1000)
         draw, returned, uf = (request[k] for k in ('draw_mL', 'return_mL', 'uf_mL'))
+        pre = post = 0
+        replacement_c = [0] * 6
+        if self.online:
+            pre, post = (number(request[k], 0, 120 * dt) for k in ('pre_mL', 'post_mL'))
+            if pre > 0 and post > 0: raise ProtocolError('two simultaneous replacement routes')
+            replacement_c = request['substitution_mmol_L']
+            vector(replacement_c, 0, CONCENTRATION_CEILING)
         circuit_volume = self.config['prime_mL'] + request['stored_mL']
-        if abs(circuit_volume - self.volume[2] - draw + returned + uf) > 1e-8:
+        if abs(circuit_volume - self.volume[2] - draw - pre + returned + uf) > 1e-8:
             raise ProtocolError('circuit water mismatch')
         incoming, outgoing = (self.config[k] * dt for k in ('external_in_mL_min', 'external_out_mL_min'))
         water = copy.deepcopy(self.water)
         for name, value in [('uf', uf), ('in', incoming), ('out', outgoing)]: water[name].add(value)
+        if self.online: water['sub'].add(pre + post)
         # Reconstruct body total from absolute conserved ledgers, avoiding drainage
         # drift at the volume ceiling; compare independent hydraulic deltas above.
         body = math.fsum([self.initial_body, water['in'].value, -water['out'].value,
-                          -water['uf'].value, -request['stored_mL']])
+                          -water['uf'].value, water['sub'].value if self.online else 0, -request['stored_mL']])
         ve, vi = body - self.volume[1], self.volume[1]
         te, ti = self.config['volume_mL']
         kd = self.config['refill_mL_min'] * dt
@@ -180,8 +197,8 @@ class Compartments:
             matrix = [[ve + draw + outgoing + exchange + ei, -reverse - ie, -returned],
                       [-exchange - ei, vi + reverse + ie, 0],
                       [-draw, 0, circuit_volume + returned + kd + conv]]
-            rhs = [self.mass[0][i] * 1000 + external, self.mass[1][i] * 1000,
-                   self.mass[2][i] * 1000 + kd * request['dialysate_mmol_L'][i]]
+            rhs = [self.mass[0][i] * 1000 + external + post * replacement_c[i], self.mass[1][i] * 1000,
+                   self.mass[2][i] * 1000 + kd * request['dialysate_mmol_L'][i] + pre * replacement_c[i]]
             result = solve(matrix, rhs)
             for j in range(3):
                 concentrations[j][i] = result[j]
@@ -190,9 +207,10 @@ class Compartments:
                                 ('diffusive', kd * (result[2] - request['dialysate_mmol_L'][i]) / 1000),
                                 ('convective', conv * result[2] / 1000)]:
                 solute[name][i].add(value)
+            if self.online: solute['substitution'][i].add((pre + post) * replacement_c[i] / 1000)
             residual = math.fsum([*(row[i] for row in masses), solute['diffusive'][i].value,
                                   solute['convective'][i].value, solute['output'][i].value,
-                                  -solute['input'][i].value, -self.initial_mass[i]])
+                                  -solute['input'][i].value, -solute['substitution'][i].value if self.online else 0, -self.initial_mass[i]])
             if abs(residual) > 1e-6: raise ProtocolError('patient mass conservation residual')
             residuals.append(residual)
         # Validate the complete prospective response before mutating accepted state.
@@ -202,6 +220,6 @@ class Compartments:
         proposed.sequence = self.next_sequence
         proposed.next_sequence += 1
         proposed.time_ms += request['dt_ms']
-        snapshot = validate_snapshot(proposed.snapshot())
+        snapshot = validate_snapshot(proposed.snapshot(), self.online)
         self.__dict__.update(proposed.__dict__)
         return snapshot

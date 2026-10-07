@@ -32,18 +32,19 @@ class Patient:
             if self.compartments is not None:
                 raise ProtocolError('coupled patient requires STATUS3')
             return self.status()
-        if len(request) == 2 and request[0] == 'INIT3' and self.initial is None and self.compartments is None:
+        if len(request) == 2 and request[0] in ('INIT3', 'INIT4') and self.initial is None and self.compartments is None:
             from .compartments import Compartments
-            self.compartments = Compartments(json.loads(request[1]))
+            self.compartments = Compartments(json.loads(request[1]), online=request[0] == 'INIT4')
             return 'DL1 OK'
         if self.compartments is not None:
-            if request == ['STATUS3']:
+            version = '4' if self.compartments.online else '3'
+            if request == ['STATUS' + version]:
                 result = self.compartments.snapshot()
-            elif len(request) == 2 and request[0] == 'ADVANCE3':
+            elif len(request) == 2 and request[0] == 'ADVANCE' + version:
                 result = self.compartments.advance(json.loads(request[1]))
             else:
                 raise ProtocolError('coupled patient operation')
-            return message('PATIENT3', json.dumps(result, sort_keys=True, separators=(',', ':'), allow_nan=False))
+            return message('PATIENT' + version, json.dumps(result, sort_keys=True, separators=(',', ':'), allow_nan=False))
         if len(request) == 2 and request[0] == 'INIT' and self.initial is None:
             real(request[1], 1000, 100000)
             self.initial = self.volume = Decimal(request[1])

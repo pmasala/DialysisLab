@@ -19,6 +19,9 @@
 
 | M3-004 | Preserve computed concentration roundoff without clipping, reject oversized numeric inputs, and validate proposed patient replies before committing state. Evidence checks require finite inventories and compartment/summary consistency. | Five findings from the single M3 review; targeted real-service and tampered-evidence regressions. |
 
+| M4-001 | Use a mixed preparation reservoir, two hydraulic/contaminant-surrogate barriers and explicit pre-circuit versus post-body delivery. Preserve separate actual gross/net ledgers. | No sterility, axial dialyzer, thermal blood model or exact net-prescription claim. |
+| M4-002 | Quality protection blocks replacement, UF and dialysate exchange while blood circulation remains subject to independent pressure/validity protection. | Synthetic observed thresholds only; hidden contamination is deliberately not observable. |
+
 The WSL2 environment has an X11 socket (`/tmp/.X11-unix/X0`) but DISPLAY is
 unset; desktop availability remains to be tested in M6. SDL development headers
 are currently absent. No global environment, credential, certificate or permission

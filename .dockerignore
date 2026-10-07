@@ -28,3 +28,17 @@
 !scenarios/patient_overload.json
 !scenarios/patient_imbalance.json
 !scenarios/patient_large.json
+!src/online.hpp
+!python/dialysislab/treatment.py
+!scenarios/treatment_contaminant.json
+!scenarios/treatment_filter1.json
+!scenarios/treatment_hd.json
+!scenarios/treatment_hdf_post.json
+!scenarios/treatment_hdf_pre.json
+!scenarios/treatment_integrity.json
+!scenarios/treatment_ratio.json
+!scenarios/treatment_route.json
+!scenarios/treatment_supply.json
+!scenarios/treatment_temperature.json
+!scenarios/treatment_hdf_large.json
+!scenarios/treatment_hdf_imbalance.json

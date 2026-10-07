@@ -24,6 +24,9 @@ def digest(data):
 
 
 def validate(config):
+    if isinstance(config, dict) and config.get('schema_version') == 4:
+        from .treatment import validate as validate_treatment
+        return validate_treatment(config, validate)
     if isinstance(config, dict) and config.get('schema_version') == 3:
         from .compartments import validate_scenario
         return validate_scenario(config, validate)
@@ -141,7 +144,7 @@ def build_identity(build_dir):
     return identity
 
 
-def stop_plant(admin):
+def stop_plant(admin, online=False):
     """Keep HALT acknowledgment separate from an actual STATUS observation."""
     result = dict(command='HALT', requested=True, acknowledged=False,
                   request_error=None, observed_state=None, observation_error=None,
@@ -153,10 +156,15 @@ def stop_plant(admin):
     except (OSError, ValueError) as exc:
         result['request_error'] = type(exc).__name__ + ': ' + str(exc)
     try:
-        observed = state(rpc(admin, 'STATUS'))
+        if online:
+            from .treatment import live
+            observed = live(rpc(admin, 'STATUS4'))
+        else:
+            observed = state(rpc(admin, 'STATUS'))
         result['observed_state'] = observed
         result['outputs_zero_observed'] = (observed['latched'] and observed['clamp_closed']
-                                          and observed['blood_mL_min'] == 0 and observed['uf_mL_min'] == 0)
+                                          and observed['blood_mL_min'] == 0 and observed['uf_mL_min'] == 0
+                                          and (not online or observed['online']['replacement_mL_min'] == 0))
     except (OSError, ValueError) as exc:
         result['observation_error'] = type(exc).__name__ + ': ' + str(exc)
     return result
@@ -182,16 +190,20 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
     pending_plant_state = None
     tick_context = None
     extended = config['schema_version'] >= 2
-    coupled = config['schema_version'] == 3
+    coupled = config['schema_version'] >= 3
+    online = config['schema_version'] == 4
     patient_snapshot = None
     try:
         wait_ready(runtime)
         if extended:
             from . import circuit
             circuit.configure(admin, config)
+        if online:
+            from . import treatment
+            treatment.configure(admin, config)
         if coupled:
             from .compartments import validate_snapshot
-            expect(rpc(patient, 'INIT3', canonical(config['patient'])), 'OK', 1)
+            expect(rpc(patient, 'INIT4' if online else 'INIT3', canonical(config['patient'])), 'OK', 1)
         else:
             expect(rpc(patient, 'INIT', config['patient_volume_mL']), 'OK', 1)
         for n in range(config['ticks']):
@@ -203,7 +215,9 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
                 circuit.transport(admin, config, patient_snapshot['concentration_mmol_L'][2])
             for fault in config['faults']:
                 if fault['tick'] == n:
-                    if extended and fault['target'].startswith('edge:'):
+                    if online and fault['target'].startswith('online:'):
+                        expect(rpc(admin, 'FAULT4', fault['target'][7:], fault['value']), 'OK', 1)
+                    elif extended and fault['target'].startswith('edge:'):
                         expect(rpc(admin, 'EDGE2', int(fault['target'][5:]), fault['value']['resistance'],
                                    int(fault['value']['closed'])), 'OK', 1)
                     elif fault['target'] == 'resistance':
@@ -212,17 +226,19 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
                         sensor[fault['target']] = fault['value']
             expect(rpc(admin, 'PREPARE', n, t, config['dt_ms'], resistance,
                        sensor['control_sensor'], sensor['protection_sensor']), 'OK', 1)
-            measurements = {role: observation(rpc(runtime / role / 'plant.sock', 'SENSE', n, t))
+            measurements = {role: (treatment.observation if online else observation)(rpc(runtime / role / 'plant.sock', 'SENSE4' if online else 'SENSE', n, t))
                             for role in ('control', 'protection')}
             failures = []
             try:
-                expect(rpc(runtime / 'control/service.sock', 'STEP', n, t,
-                           config['blood_mL_min'], config['uf_mL_min']), 'OK', 1)
+                extra = [config['treatment']['replacement_mL_min'], treatment.MODES.index(config['treatment']['mode'])] if online else []
+                expect(rpc(runtime / 'control/service.sock', 'STEP4' if online else 'STEP', n, t,
+                           config['blood_mL_min'], config['uf_mL_min'], *extra), 'OK', 1)
             except (OSError, ValueError) as exc:
                 failures.append('control:' + type(exc).__name__)
             try:
-                decision = expect(rpc(runtime / 'protection/service.sock', 'STEP', n, t,
-                                      config['pressure_limit_mmHg']), 'DECISION', 2)[1]
+                extra = [treatment.MODES.index(config['treatment']['mode'])] if online else []
+                decision = expect(rpc(runtime / 'protection/service.sock', 'STEP4' if online else 'STEP', n, t,
+                                      config['pressure_limit_mmHg'], *extra), 'DECISION', 2)[1]
             except (OSError, ValueError) as exc:
                 decision = 'unavailable'
                 failures.append('protection:' + type(exc).__name__)
@@ -230,7 +246,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
             if failures:
                 manifest['rpc_failures'] = failures
                 raise RuntimeError(','.join(failures))
-            physical = (circuit.committed(rpc(admin, 'COMMIT3' if coupled else 'COMMIT2', n, t), coupled) if extended
+            physical = treatment.committed(rpc(admin, 'COMMIT4', n, t)) if online else (circuit.committed(rpc(admin, 'COMMIT3' if coupled else 'COMMIT2', n, t), coupled) if extended
                         else state(rpc(admin, 'COMMIT', n, t)))
             pending_plant_state = physical
             if physical['sequence'] != n or physical['time_ms'] != t + config['dt_ms']:
@@ -246,8 +262,14 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
                                    return_mL=c['return_tick_mL'], uf_mL=c['uf_tick_mL'], stored_mL=c['stored_mL'],
                                    clearance_mL_min=c['clearance_mL_min'], sieving=config['circuit']['profile']['sieving'],
                                    dialysate_mmol_L=config['transport']['dialysate_mmol_L'])
-                reply = expect(rpc(patient, 'ADVANCE3', canonical(transaction)), 'PATIENT3', 2)
-                patient_snapshot = validate_snapshot(json.loads(reply[1]))
+                if online:
+                    o = physical['online']
+                    if o['sequence'] != n or o['time_ms'] != t + config['dt_ms']:
+                        raise ValueError('online clock mismatch')
+                    transaction.update(pre_mL=o['pre_tick_mL'], post_mL=o['post_tick_mL'],
+                                       substitution_mmol_L=o['concentration_mmol_L'], dialysate_mmol_L=o['concentration_mmol_L'])
+                reply = expect(rpc(patient, 'ADVANCE4' if online else 'ADVANCE3', canonical(transaction)), 'PATIENT4' if online else 'PATIENT3', 2)
+                patient_snapshot = validate_snapshot(json.loads(reply[1]), online)
                 physical['patient'] = patient_snapshot
                 volume = ['VOLUME', str(patient_snapshot['sequence']), str(patient_snapshot['time_ms']),
                           str(math.fsum(patient_snapshot['volume_mL'][:2])), str(patient_snapshot['net_patient_loss_mL'])]
@@ -265,7 +287,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
             if physical['reason'] in ('liveness', 'protocol', 'control_missing', 'protection_missing'):
                 raise RuntimeError('unexpected plant failure: ' + physical['reason'])
         if extended:
-            manifest['final_plant_observation'] = state(rpc(admin, 'STATUS'))
+            manifest['final_plant_observation'] = treatment.live(rpc(admin, 'STATUS4')) if online else state(rpc(admin, 'STATUS'))
             if manifest['final_plant_observation']['reason'] in ('liveness', 'protocol', 'control_missing', 'protection_missing'):
                 raise RuntimeError('plant stopped after commit: ' + manifest['final_plant_observation']['reason'])
         manifest['outcome'] = 'completed'
@@ -274,7 +296,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
         manifest['errors'].append(str(exc))
         manifest['uncommitted_plant_state'] = pending_plant_state
         manifest['aborted_tick'] = tick_context
-        manifest['stop'] = stop_plant(admin)
+        manifest['stop'] = stop_plant(admin, online)
     finally:
         writer.close()
     manifest['completed_ticks'] = len(records)
@@ -289,7 +311,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
     try:
         writer.write_manifest(manifest)
     except OSError:
-        stop_plant(admin)
+        stop_plant(admin, online)
         raise
     return records, manifest
 

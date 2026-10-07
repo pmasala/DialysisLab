@@ -122,7 +122,7 @@ def configure(admin, config):
 
 def transport(admin, config, blood):
     p, tr = config['circuit']['profile'], config['transport']
-    expect(rpc(admin, 'TRANSPORT3' if config['schema_version'] == 3 else 'TRANSPORT2',
+    expect(rpc(admin, 'TRANSPORT3' if config['schema_version'] >= 3 else 'TRANSPORT2',
                tr['dialysate_mL_min'], *p['koa_mL_min'], *p['sieving'], *blood, *tr['dialysate_mmol_L']), 'OK', 1)
 
 

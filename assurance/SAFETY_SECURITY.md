@@ -50,3 +50,16 @@ Security controls must preserve required safety response bounds. Validate behavi
 Risk controls need both implementation verification and effectiveness verification. Evaluate new risks introduced by controls. Record risk acceptability criteria and authorized residual/overall risk decisions; a test pass is not risk acceptance. Findings from tests, dependencies, misuse, incidents, and security updates feed back into the risk/threat files.
 
 Formal classification, numerical response limits, residual-risk decisions and the full hazard/threat analyses remain open in this package.
+
+## M4 treatment increment
+
+HAZ-003/006 include wrong route/composition/temperature, interruption of replacement
+with continuing gross UF, occluded filters and unobserved quality-barrier failure.
+M4 observed quality signals latch fluid-only isolation directly at the plant;
+blood circulation remains subject to HAZ-002/004 pressure/validity protection.
+Sensor snapshots precede integration: a physical deviation arising during a tick
+can be delivered until the next observation. Synthetic timing tests measure this
+latency; it is not a clinical acceptance of delivered exposure. Conductivity cannot
+identify individual species; hidden contamination/breaches without a failed modeled
+integrity test remain latent. Shared sensors/plant/runner/host remain common causes.
+No sterility, hardware independence or residual-risk acceptance is claimed.
