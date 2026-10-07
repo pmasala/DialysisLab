@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "baseline": "dialysislab-assurance-baseline-2026-10-07",
-  "description": "Six illustrative project-derived trace chains, now linked to a draft source-derived checklist. Not exhaustive; no dialysis tests executed.",
+  "description": "Six original, incomplete roadmap chains plus seven implemented M1 synthetic requirements. M1 evidence does not close broad roadmap requirements or standards obligations.",
   "needs": [
     {
       "id": "NEED-001",
@@ -32,6 +32,11 @@
       "id": "NEED-006",
       "statement": "Model online substitution preparation with declared limits",
       "status": "draft"
+    },
+    {
+      "id": "M1-NEED-001",
+      "statement": "Run a deterministic, separately protected headless synthetic HD experiment with configuration-bound evidence.",
+      "status": "implemented"
     }
   ],
   "hazards": [
@@ -96,6 +101,48 @@
       "id": "DES-006",
       "description": "Mixing/heating/filtration/route models expose measurements and test outcomes; no direct protective access to hidden contamination truth.",
       "status": "proposed"
+    },
+    {
+      "id": "M1-DES-001",
+      "description": "CMake build identities and role-specific Unix socket mounts; separate processes and no application library dependencies.",
+      "status": "implemented",
+      "scope": "Synthetic M1 only; substantive review pending."
+    },
+    {
+      "id": "M1-DES-002",
+      "description": "Single scheduler with serial barriers, explicit seed/configuration, integer time and separate wall-clock metadata.",
+      "status": "implemented",
+      "scope": "Synthetic M1 only; substantive review pending."
+    },
+    {
+      "id": "M1-DES-003",
+      "description": "Algebraic resistive blood circuit, capped synthetic flow, compensated effluent accumulation and separate Decimal patient ledger.",
+      "status": "implemented",
+      "scope": "Synthetic M1 only; substantive review pending."
+    },
+    {
+      "id": "M1-DES-004",
+      "description": "Protection fetches its own sensor sample and directly sends TRIP; plant latches at arbitration.",
+      "status": "implemented",
+      "scope": "Synthetic M1 only; substantive review pending."
+    },
+    {
+      "id": "M1-DES-005",
+      "description": "First-cause, process-lifetime latch; no reset endpoint; fresh decisions required per commit.",
+      "status": "implemented",
+      "scope": "Synthetic M1 only; substantive review pending."
+    },
+    {
+      "id": "M1-DES-006",
+      "description": "Frozen role-specific observations with bounded ranges, validity, sequence and virtual timestamp; independent channel fault injection.",
+      "status": "implemented",
+      "scope": "Synthetic M1 only; substantive review pending."
+    },
+    {
+      "id": "M1-DES-007",
+      "description": "Per-role 2 s monotonic leases plus per-tick decisions; bounded transport; no command retry or automatic restart; explicit aborted records.",
+      "status": "implemented",
+      "scope": "Synthetic M1 only; substantive review pending."
     }
   ],
   "requirements": [
@@ -242,6 +289,258 @@
         "Define chemistry/integrity models, sensors/tests, acceptance envelope and residual detection limitations."
       ],
       "normative_mapping": "Draft links in standards/checklist.json: HD-030. Applicability and adequacy remain unreviewed."
+    },
+    {
+      "id": "M1-REQ-001",
+      "statement": "Build three C++17 services and deploy them with separate Python patient and runner services.",
+      "acceptance": "CMake builds successfully; Compose runs five isolated services and records source, binary and configuration identities.",
+      "needs": [
+        "M1-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001"
+      ],
+      "designs": [
+        "M1-DES-001"
+      ],
+      "tests": [
+        "M1-TEST-001"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/wire.hpp",
+          "sha256": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9"
+        },
+        {
+          "path": "CMakeLists.txt",
+          "sha256": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10"
+        },
+        {
+          "path": "compose.yaml",
+          "sha256": "ba43ccca55f0de3261d7ceb49fbabae8825bcdba9936e7687e6315d113c2c6ae"
+        }
+      ],
+      "unresolved": [
+        "Independent requirements/design/evidence review and residual-risk acceptance remain open."
+      ],
+      "normative_mapping": "Project-derived M1 scope; standards mappings remain draft and do not establish conformity."
+    },
+    {
+      "id": "M1-REQ-002",
+      "statement": "Advance simulation solely through contiguous integer virtual ticks and reproduce declared trajectories.",
+      "acceptance": "Identical configuration and seed yield byte-identical same-build trajectories; cross-build numerics agree within absolute/relative 1e-9; clean same-toolchain CMake builds produce identical executables.",
+      "needs": [
+        "M1-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004"
+      ],
+      "designs": [
+        "M1-DES-002"
+      ],
+      "tests": [
+        "M1-TEST-002"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "67399ec1eaae0a255c3482509355a38f81b0fffa45982ac14a7912c2f096ef25"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e"
+        }
+      ],
+      "unresolved": [
+        "Independent requirements/design/evidence review and residual-risk acceptance remain open."
+      ],
+      "normative_mapping": "Project-derived M1 scope; standards mappings remain draft and do not establish conformity."
+    },
+    {
+      "id": "M1-REQ-003",
+      "statement": "Conserve fluid in the limited HD model with separate patient and effluent accounting.",
+      "acceptance": "Nominal, zero-UF, stopped-flow and partial-flow runs match independent Decimal balances within 1e-8 mL; long patient ledger drift stays below 1e-8 mL.",
+      "needs": [
+        "M1-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-003"
+      ],
+      "designs": [
+        "M1-DES-003"
+      ],
+      "tests": [
+        "M1-TEST-003"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/model.hpp",
+          "sha256": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e"
+        },
+        {
+          "path": "python/dialysislab/patient.py",
+          "sha256": "8613dd04857033721227aa541f11c821baedcb9abd7f07fd45031a706f1565d9"
+        }
+      ],
+      "unresolved": [
+        "Independent requirements/design/evidence review and residual-risk acceptance remain open."
+      ],
+      "normative_mapping": "Project-derived M1 scope; standards mappings remain draft and do not establish conformity."
+    },
+    {
+      "id": "M1-REQ-004",
+      "statement": "Detect synthetic occlusion and send a protective command directly to plant arbitration.",
+      "acceptance": "Tick-5 resistance increase produces a measured pressure of 600 mmHg; the synthetic 250 mmHg trip stops blood/UF and closes clamp within one 100 ms virtual interval, including when control has died.",
+      "needs": [
+        "M1-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-002"
+      ],
+      "designs": [
+        "M1-DES-004"
+      ],
+      "tests": [
+        "M1-TEST-004"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/protection.cpp",
+          "sha256": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e"
+        }
+      ],
+      "unresolved": [
+        "Independent requirements/design/evidence review and residual-risk acceptance remain open."
+      ],
+      "normative_mapping": "Project-derived M1 scope; standards mappings remain draft and do not establish conformity."
+    },
+    {
+      "id": "M1-REQ-005",
+      "statement": "Preserve an active protective latch against conflicting commands and subsequent permits.",
+      "acceptance": "Repeated 300 mL/min control demand and later PERMIT cannot release latched zero blood/UF and closed clamp; unauthorized role and duplicate tick messages fail closed.",
+      "needs": [
+        "M1-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-002"
+      ],
+      "designs": [
+        "M1-DES-005"
+      ],
+      "tests": [
+        "M1-TEST-005"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/plant.cpp",
+          "sha256": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e"
+        },
+        {
+          "path": "src/control.cpp",
+          "sha256": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7"
+        }
+      ],
+      "unresolved": [
+        "Independent requirements/design/evidence review and residual-risk acceptance remain open."
+      ],
+      "normative_mapping": "Project-derived M1 scope; standards mappings remain draft and do not establish conformity."
+    },
+    {
+      "id": "M1-REQ-006",
+      "statement": "Validate separate modeled control/protection observations before using them.",
+      "acceptance": "Invalid, missing, stale, future and replayed protection samples trip within one 100 ms interval; a control-only fault does not corrupt the protection channel.",
+      "needs": [
+        "M1-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004"
+      ],
+      "designs": [
+        "M1-DES-006"
+      ],
+      "tests": [
+        "M1-TEST-006"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/wire.hpp",
+          "sha256": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9"
+        },
+        {
+          "path": "src/control.cpp",
+          "sha256": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7"
+        },
+        {
+          "path": "src/protection.cpp",
+          "sha256": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e"
+        }
+      ],
+      "unresolved": [
+        "Independent requirements/design/evidence review and residual-risk acceptance remain open."
+      ],
+      "normative_mapping": "Project-derived M1 scope; standards mappings remain draft and do not establish conformity."
+    },
+    {
+      "id": "M1-REQ-007",
+      "statement": "Handle missing processes and distinguish virtual pause from wall-clock liveness.",
+      "acceptance": "Missing control/protection prevents nonzero commit; plant/patient loss aborts; killed runner causes independent plant latch within 3 wall seconds without virtual advancement; a 2.3 s heartbeat pause preserves trajectory.",
+      "needs": [
+        "M1-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M1-DES-007"
+      ],
+      "tests": [
+        "M1-TEST-007"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/plant.cpp",
+          "sha256": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e"
+        },
+        {
+          "path": "src/wire.hpp",
+          "sha256": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "67399ec1eaae0a255c3482509355a38f81b0fffa45982ac14a7912c2f096ef25"
+        }
+      ],
+      "unresolved": [
+        "Independent requirements/design/evidence review and residual-risk acceptance remain open."
+      ],
+      "normative_mapping": "Project-derived M1 scope; standards mappings remain draft and do not establish conformity."
     }
   ],
   "tests": [
@@ -302,6 +601,76 @@
       ],
       "procedure": "Inject composition, thermal, route and integrity faults, including faults without a corresponding measurement/test signal.",
       "expected": "Observable cases follow the protective policy; unobservable cases are not falsely reported as detected or proof of sterility.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M1-TEST-001",
+      "requirements": [
+        "M1-REQ-001"
+      ],
+      "procedure": "Execute native build, Compose nominal/occlusion runs, publication and container boundary tests.",
+      "expected": "CMake builds successfully; Compose runs five isolated services and records source, binary and configuration identities.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M1-TEST-002",
+      "requirements": [
+        "M1-REQ-002"
+      ],
+      "procedure": "Run same-seed replay, cross-build comparison and clean-build binary hash comparison.",
+      "expected": "Identical configuration and seed yield byte-identical same-build trajectories; cross-build numerics agree within absolute/relative 1e-9; clean same-toolchain CMake builds produce identical executables.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M1-TEST-003",
+      "requirements": [
+        "M1-REQ-003"
+      ],
+      "procedure": "Calculate expected fluid loss from input rates, interval duration and independently specified active interval count; compare both service totals and patient volume.",
+      "expected": "Nominal, zero-UF, stopped-flow and partial-flow runs match independent Decimal balances within 1e-8 mL; long patient ledger drift stays below 1e-8 mL.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M1-TEST-004",
+      "requirements": [
+        "M1-REQ-004"
+      ],
+      "procedure": "Run occlusion scenario and kill control at fault onset; inspect protection observation, decision and applied actuator state.",
+      "expected": "Tick-5 resistance increase produces a measured pressure of 600 mmHg; the synthetic 250 mmHg trip stops blood/UF and closes clamp within one 100 ms virtual interval, including when control has died.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M1-TEST-005",
+      "requirements": [
+        "M1-REQ-005"
+      ],
+      "procedure": "Continue conflicting control demand after occlusion; issue role-forged and duplicate commands and inspect resulting state.",
+      "expected": "Repeated 300 mL/min control demand and later PERMIT cannot release latched zero blood/UF and closed clamp; unauthorized role and duplicate tick messages fail closed.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M1-TEST-006",
+      "requirements": [
+        "M1-REQ-006"
+      ],
+      "procedure": "Inject every supported sensor fault at tick 5 and verify timing, channel separation, and conservation.",
+      "expected": "Invalid, missing, stale, future and replayed protection samples trip within one 100 ms interval; a control-only fault does not corrupt the protection channel.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M1-TEST-007",
+      "requirements": [
+        "M1-REQ-007"
+      ],
+      "procedure": "Kill each service, kill an actual scheduler heartbeat subprocess, and compare paused versus uninterrupted runs; retain build/configuration identities.",
+      "expected": "Missing control/protection prevents nonzero commit; plant/patient loss aborts; killed runner causes independent plant latch within 3 wall seconds without virtual advancement; a 2.3 s heartbeat pause preserves trajectory.",
       "result": "planned",
       "evidence": null
     }

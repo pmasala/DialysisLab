@@ -2,6 +2,10 @@
 
 Status: project-derived design obligations for development; not a completed risk management file, threat model, or normative clause assessment.
 
+M1's implemented subset, failure sequences, controls, common causes and residual
+limitations are recorded in `docs/M1_RISKS.md` and linked through M1 requirements
+in `traceability.json`. Its synthetic thresholds are not clinical safety limits.
+
 ## Functional safety work
 
 Define essential performance with measurable limits and exposure-time bounds before claiming protective coverage. Record the path hazard -> foreseeable events -> hazardous situation -> harm -> initial risk -> controls -> verification -> residual risk. Include normal operation, startup, treatment transitions, interruption/recovery, single faults, relevant combinations and common causes.

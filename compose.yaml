@@ -1,0 +1,54 @@
+name: dialysislab-m1
+x-common: &common
+  image: dialysislab-m1:local
+  platform: linux/amd64
+  network_mode: none
+  user: "10001:10001"
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  pids_limit: 32
+  mem_limit: 128m
+  cpus: 1
+  restart: "no"
+  stop_grace_period: 3s
+services:
+  plant:
+    <<: *common
+    build:
+      context: .
+      args:
+        SOURCE_REVISION: ${SOURCE_REVISION:-unavailable}
+    command: [/opt/bin/plant, --runtime-dir, /run/dialysis]
+    volumes:
+      - admin:/run/dialysis/admin
+      - control:/run/dialysis/control
+      - protection:/run/dialysis/protection
+  control:
+    <<: *common
+    command: [/opt/bin/control, --runtime-dir, /run/dialysis]
+    volumes: [control:/run/dialysis/control]
+  protection:
+    <<: *common
+    command: [/opt/bin/protection, --runtime-dir, /run/dialysis]
+    volumes: [protection:/run/dialysis/protection]
+  patient:
+    <<: *common
+    command: [python3, -m, dialysislab.patient, --runtime-dir, /run/dialysis]
+    volumes: [patient:/run/dialysis/patient]
+  runner:
+    <<: *common
+    depends_on: [plant, control, protection, patient]
+    command: [python3, -m, dialysislab.runner, --config, "/opt/dialysislab/scenarios/${SCENARIO:-hd_occlusion}.json", --output, "/results/${RUN_NAME:-run}", --build-dir, /opt/bin]
+    volumes:
+      - admin:/run/dialysis/admin
+      - control:/run/dialysis/control
+      - protection:/run/dialysis/protection
+      - patient:/run/dialysis/patient
+      - results:/results
+volumes:
+  admin:
+  control:
+  protection:
+  patient:
+  results:

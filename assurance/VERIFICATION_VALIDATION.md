@@ -1,6 +1,8 @@
 # Verification and validation strategy
 
-Status: proposed strategy. No dialysis application tests or model validation have been executed.
+Status: broader strategy remains proposed. M1 executes synthetic service,
+conservation, fault and process-liveness tests; see STATUS.md for actual results
+and exact evidence. No calibrated physiology or clinical model validation is claimed.
 
 ## Evidence contract
 

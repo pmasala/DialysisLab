@@ -23,7 +23,8 @@ def collect(root, manifest):
             raise ValueError('symlink publication input rejected')
         if root not in path.resolve().parents:
             raise ValueError('publication input outside project')
-        if path.suffix not in {'.md', '.json', '.py'} and name not in {'.gitignore', 'LICENSE'}:
+        if path.suffix not in {'.md', '.json', '.py', '.cpp', '.hpp', '.yaml'} and name not in {
+                '.gitignore', '.dockerignore', 'LICENSE', 'Dockerfile', 'CMakeLists.txt'}:
             raise ValueError('unsupported publication format: ' + name)
         raw = path.read_bytes()
         raw.decode('utf-8')

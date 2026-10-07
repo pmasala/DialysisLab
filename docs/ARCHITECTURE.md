@@ -1,6 +1,10 @@
 # Architecture baseline
 
-Status: functional scope and UI separation agreed; implementation details below are proposed. No executable dialysis components exist in this package. Assurance helper tooling is described in the project README.
+Status: functional scope and UI separation agreed. M1 now implements the limited
+headless HD slice described in [M1_PLAN.md](M1_PLAN.md), with versioned
+[interfaces](M1_INTERFACES.md), [model equations](M1_MODEL.md) and
+[risk boundaries](M1_RISKS.md). The broader architecture below remains the required
+roadmap; UI, HDF, fluid preparation and calibrated physiology are not implemented.
 
 ## Deployment boundaries
 

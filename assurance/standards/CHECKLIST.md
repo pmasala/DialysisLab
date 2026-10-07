@@ -426,6 +426,8 @@ Allocate requirements to components and describe all interfaces, including contr
 
 **Owner role:** Software lifecycle lead. **Applicability:** proposed. **Completion:** open. **Reviewer/date:** unassigned.
 
+Starter trace links: M1-REQ-001, M1-REQ-002, M1-REQ-004, M1-REQ-006, M1-REQ-007, M1-TEST-001, M1-TEST-002, M1-TEST-004, M1-TEST-006, M1-TEST-007 (draft/planned; not complete coverage).
+
 ### SW-014 — SOUP assumptions
 
 **References:** 5.3.3; 5.3.4. **Basis:** supplied-standard.
@@ -888,7 +890,7 @@ Define trust boundaries, least privilege and layered defenses compatible with pr
 
 **Owner role:** Security lead. **Applicability:** proposed. **Completion:** open. **Reviewer/date:** unassigned.
 
-Starter trace links: REQ-001, TEST-001 (draft/planned; not complete coverage).
+Starter trace links: REQ-001, M1-REQ-001, TEST-001, M1-TEST-001 (draft/planned; not complete coverage).
 
 ### SEC-014 — Architecture review
 
@@ -1552,6 +1554,8 @@ Distinguish pump setting from delivered blood flow; model pressure-dependent del
 
 **Owner role:** Dialysis system lead. **Applicability:** proposed. **Completion:** open. **Reviewer/date:** unassigned.
 
+Starter trace links: M1-REQ-003, M1-TEST-003 (draft/planned; not complete coverage).
+
 ### HD-004 — Dialysate flow
 
 **References:** 201.4.3.103. **Basis:** supplied-standard.
@@ -1575,6 +1579,8 @@ Measure net removal independently of gross membrane transfer and challenge press
 **Scope:** reference. Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.
 
 **Owner role:** Dialysis system lead. **Applicability:** proposed. **Completion:** open. **Reviewer/date:** unassigned.
+
+Starter trace links: M1-REQ-003, M1-TEST-003 (draft/planned; not complete coverage).
 
 ### HD-006 — Substitution delivery
 
@@ -1920,7 +1926,7 @@ Verify that failed or corrupted network exchanges cannot cause unacceptable mode
 
 **Owner role:** Dialysis system lead. **Applicability:** proposed. **Completion:** open. **Reviewer/date:** unassigned.
 
-Starter trace links: REQ-004, TEST-004 (draft/planned; not complete coverage).
+Starter trace links: REQ-004, M1-REQ-006, M1-REQ-007, TEST-004, M1-TEST-006, M1-TEST-007 (draft/planned; not complete coverage).
 
 ### HD-034 — Connection and transducer interfaces
 
@@ -2194,7 +2200,7 @@ Allow protection to constrain plant actuators without relying on the control pro
 
 **Owner role:** Project maintainer. **Applicability:** proposed. **Completion:** open. **Reviewer/date:** unassigned.
 
-Starter trace links: REQ-002, TEST-002 (draft/planned; not complete coverage).
+Starter trace links: REQ-002, M1-REQ-004, M1-REQ-005, M1-REQ-007, TEST-002, M1-TEST-004, M1-TEST-005, M1-TEST-007 (draft/planned; not complete coverage).
 
 ### PRJ-004 — Model independence and fidelity
 
@@ -2207,6 +2213,8 @@ Document equations, units, solver convergence, conservation, parameter provenanc
 **Scope:** reference. Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.
 
 **Owner role:** Project maintainer. **Applicability:** proposed. **Completion:** open. **Reviewer/date:** unassigned.
+
+Starter trace links: M1-REQ-003, M1-TEST-003 (draft/planned; not complete coverage).
 
 ### PRJ-005 — HDF fluid and weight accounting
 
@@ -2245,6 +2253,8 @@ Record seeds, parameters, software/model versions, solver settings and fault tim
 **Scope:** reference. Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.
 
 **Owner role:** Project maintainer. **Applicability:** proposed. **Completion:** open. **Reviewer/date:** unassigned.
+
+Starter trace links: M1-REQ-001, M1-REQ-002, M1-REQ-007, M1-TEST-001, M1-TEST-002, M1-TEST-007 (draft/planned; not complete coverage).
 
 ### PRJ-008 — License and SOUP review
 

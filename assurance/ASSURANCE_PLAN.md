@@ -2,6 +2,10 @@
 
 Revision: 2026-10-07. Status: proposed detailed baseline; not a conformity assessment.
 
+M1 development is authorized and scoped by `docs/M1_PLAN.md`. Its synthetic
+implementation/evidence is a first vertical slice of WP-07/08/09/13/14/15/17/19/20;
+it does not close those work packages, G0-G5 reviews or the full roadmap below.
+
 ## Mission and evidence boundaries
 
 Deliver a fully working, open-source dialysis software reference implementation and a reusable, evidence-producing lifecycle template. Support HD, HDF predilution/postdilution, online fluid preparation, LVGL device UI, separate control/protection, configurable circuits/dialyzers, and external Python patient simulation. Preserve WSL2/native Linux support and the dependency policy.

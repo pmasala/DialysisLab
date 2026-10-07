@@ -14,7 +14,7 @@ Paths are relative to `--runtime-dir` (default `/run/dialysis`).
 
 | Socket | Caller | Requests |
 | --- | --- | --- |
-| `admin/plant.sock` | Runner | PREPARE, COMMIT, STATUS, PING, STOP |
+| `admin/plant.sock` | Runner | PREPARE, COMMIT, STATUS, PING, HALT, STOP |
 | `control/plant.sock` | Control | SENSE, DEMAND, PING |
 | `protection/plant.sock` | Protection | SENSE, PERMIT, TRIP, PING |
 | `control/service.sock` | Runner | STEP, PING, STOP |
@@ -58,10 +58,10 @@ measurements must be finite and in range: blood 0..500, pressure 0..1000, UF 0..
 Pressure is positive circuit gauge pressure, not patient blood pressure. Sensors
 are noiseless in M1. Faults: `none`, `invalid` (valid=0), `missing` (valid=0 with zero
 values), `stale` (previous frozen sample), `future` (timestamp + dt), `replay`
-(sequence + 1). Invalid startup stale samples carry valid=0. Physical occlusion
+(previous sequence with current timestamp; sequence 1 at startup). Invalid startup stale samples carry valid=0. Physical occlusion
 changes resistance separately from sensor faults.
 
-STATE: `DL1 STATE n t_end blood pressure uf removed_total removed_tick latched reason`.
+STATE: `DL1 STATE n t_end blood pressure uf removed_total removed_tick latched clamp_closed reason`.
 It is observer-only truth and never sent to control/protection. Before any tick,
 STATUS uses n=0, t_end=0 and zero outputs. Reasons additionally include
 `control_missing`, `protection_missing`, `liveness`, `protocol`, `shutdown`.
@@ -93,7 +93,9 @@ without advancing another tick. Lost acknowledgments are never retried as tick
 commands; an ambiguous run is aborted. On runner loss the plant watchdog remains
 independently active. STOP and SIGTERM latch zero outputs and exit; SIGKILL of the
 plant removes the simulated plant itself (no physical device is controlled).
-STOP has no clinical recovery meaning. Fresh processes and sockets are required
+HALT latches zero outputs while leaving the process alive for observation and
+Compose orchestration. STOP additionally exits. Neither has clinical recovery meaning.
+Fresh processes and sockets are required
 for a new run. Malformed commands on plant decision/admin listeners latch
 `protocol`; denied role operations also fail closed. Availability under hostile
 flooding and shared-host failures is outside M1's verified envelope.

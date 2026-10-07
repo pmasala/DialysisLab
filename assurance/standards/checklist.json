@@ -566,7 +566,7 @@
       "id": "SW-003",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "4.4.1\u20134.4.5"
+        "4.4.1–4.4.5"
       ],
       "topic": "Legacy route decision",
       "project_action": "Treat new project code as new development. If legacy software is later introduced, explicitly assess its risk, evidence gaps, gap closure, maintenance and rationale for continued use.",
@@ -690,7 +690,7 @@
       "id": "SW-008",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "5.1.9\u20135.1.11"
+        "5.1.9–5.1.11"
       ],
       "topic": "Configuration planning",
       "project_action": "Identify controlled items, change authority, supporting tools and the point at which items enter control; baseline items before their verification.",
@@ -765,7 +765,7 @@
       "id": "SW-011",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "5.2.3\u20135.2.5"
+        "5.2.3–5.2.5"
       ],
       "topic": "Risk and system feedback",
       "project_action": "Express software controls as requirements, revisit risk analysis when requirements evolve, and propagate conflicts or new constraints to system requirements.",
@@ -831,8 +831,20 @@
       "reviewer": null,
       "review_date": null,
       "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
-      "requirement_ids": [],
-      "test_ids": [],
+      "requirement_ids": [
+        "M1-REQ-001",
+        "M1-REQ-002",
+        "M1-REQ-004",
+        "M1-REQ-006",
+        "M1-REQ-007"
+      ],
+      "test_ids": [
+        "M1-TEST-001",
+        "M1-TEST-002",
+        "M1-TEST-004",
+        "M1-TEST-006",
+        "M1-TEST-007"
+      ],
       "evidence": []
     },
     {
@@ -889,7 +901,7 @@
       "id": "SW-016",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "5.4.1\u20135.4.4"
+        "5.4.1–5.4.4"
       ],
       "topic": "Detailed unit design",
       "project_action": "Identify software units and document their behavior and interfaces at the applicable class rigor; review consistency with architecture before implementation is accepted.",
@@ -940,7 +952,7 @@
       "id": "SW-018",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "5.5.3\u20135.5.5"
+        "5.5.3–5.5.5"
       ],
       "topic": "Unit acceptance",
       "project_action": "Define acceptance before integration and check relevant control/data flow, initialization, memory, error and boundary behavior; retain actual results.",
@@ -964,7 +976,7 @@
       "id": "SW-019",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "5.6.1\u20135.6.4"
+        "5.6.1–5.6.4"
       ],
       "topic": "Integration behavior",
       "project_action": "Integrate according to the plan and verify interfaces, sequences and required behavior, including abnormal conditions and timing.",
@@ -988,7 +1000,7 @@
       "id": "SW-020",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "5.6.5\u20135.6.8"
+        "5.6.5–5.6.8"
       ],
       "topic": "Integration adequacy and regression",
       "project_action": "Assess coverage of integration tests, repeat affected checks after change and record reproducible results and anomalies.",
@@ -1039,7 +1051,7 @@
       "id": "SW-022",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "5.7.3\u20135.7.5"
+        "5.7.3–5.7.5"
       ],
       "topic": "System-test completeness",
       "project_action": "Retest after change, evaluate risk impact, check adequacy and retain configuration, procedure, expected/actual outcomes and tester identity.",
@@ -1064,7 +1076,7 @@
       "id": "SW-023",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "5.8.1\u20135.8.3"
+        "5.8.1–5.8.3"
       ],
       "topic": "Release readiness and anomalies",
       "project_action": "Complete required verification, list unresolved anomalies and evaluate their acceptability for the declared use before release.",
@@ -1088,7 +1100,7 @@
       "id": "SW-024",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "5.8.4\u20135.8.6"
+        "5.8.4–5.8.6"
       ],
       "topic": "Release identity and completion",
       "project_action": "Identify the exact released version and reproducible build process; verify that required lifecycle activities are complete.",
@@ -1163,7 +1175,7 @@
       "id": "SW-027",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "6.2.1.1\u20136.2.1.3",
+        "6.2.1.1–6.2.1.3",
         "6.2.2"
       ],
       "topic": "Feedback assessment",
@@ -1188,7 +1200,7 @@
       "id": "SW-028",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "6.2.3\u20136.2.5"
+        "6.2.3–6.2.5"
       ],
       "topic": "Change impact and communication",
       "project_action": "Analyze and approve maintenance changes and decide who needs safety or update information, including downstream users and authorities when applicable.",
@@ -1238,7 +1250,7 @@
       "id": "SW-030",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "7.1.1\u20137.1.4"
+        "7.1.1–7.1.4"
       ],
       "topic": "Software hazard contribution",
       "project_action": "Identify software items that can contribute to hazardous situations, causal failures and relevant published SOUP anomalies; record causal chains.",
@@ -1311,7 +1323,7 @@
       "id": "SW-033",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "7.4.1\u20137.4.3"
+        "7.4.1–7.4.3"
       ],
       "topic": "Risk impact of modification",
       "project_action": "Analyze how code, SOUP and configuration changes affect safety and existing controls; repeat affected risk activities.",
@@ -1335,7 +1347,7 @@
       "id": "SW-034",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "8.1.1\u20138.1.3"
+        "8.1.1–8.1.3"
       ],
       "topic": "Configuration identification",
       "project_action": "Identify exact controlled source, documents, build inputs and third-party versions, and reconstruct the composition of a released configuration.",
@@ -1360,7 +1372,7 @@
       "id": "SW-035",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "8.2.1\u20138.2.4",
+        "8.2.1–8.2.4",
         "8.3"
       ],
       "topic": "Controlled change history",
@@ -1412,7 +1424,7 @@
       "id": "SW-037",
       "standard_id": "IEC62304-2015",
       "clauses": [
-        "9.3\u20139.6"
+        "9.3–9.6"
       ],
       "topic": "Problem communication and trends",
       "project_action": "Inform relevant parties, apply change control, retain records and inspect recurring problems for systemic causes.",
@@ -1463,7 +1475,7 @@
       "id": "SEC-001",
       "standard_id": "IEC81001-2021",
       "clauses": [
-        "4.1.1\u20134.1.4"
+        "4.1.1–4.1.4"
       ],
       "topic": "Security governance",
       "project_action": "Integrate security into quality work, define accountable roles and software scope, and document required competence.",
@@ -1777,10 +1789,12 @@
       "review_date": null,
       "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
       "requirement_ids": [
-        "REQ-001"
+        "REQ-001",
+        "M1-REQ-001"
       ],
       "test_ids": [
-        "TEST-001"
+        "TEST-001",
+        "M1-TEST-001"
       ],
       "evidence": []
     },
@@ -1812,7 +1826,7 @@
       "id": "SEC-015",
       "standard_id": "IEC81001-2021",
       "clauses": [
-        "5.4.1\u20135.4.4"
+        "5.4.1–5.4.4"
       ],
       "topic": "Security detail and interface design",
       "project_action": "Document threat mitigations, interface permissions, input validation, assets and error handling; review internal and external interface assumptions.",
@@ -2403,7 +2417,7 @@
       "id": "SEC-039",
       "standard_id": "IEC81001-2021",
       "clauses": [
-        "F.1\u2013F.4"
+        "F.1–F.4"
       ],
       "topic": "Transitional-software decision",
       "project_action": "Do not use the transitional route for new project code. If introduced later, scope the claim, close required gaps and plan ongoing support and migration.",
@@ -2551,7 +2565,7 @@
       "id": "GEN-005",
       "standard_id": "AAMI60601-2012",
       "clauses": [
-        "4.6\u20134.10"
+        "4.6–4.10"
       ],
       "topic": "Physical design assumptions",
       "project_action": "Record patient contact, components, high-integrity claims, power and single-fault assumptions; keep physical verification as a downstream obligation.",
@@ -2677,7 +2691,7 @@
       "standard_id": "AAMI60601-2012",
       "clauses": [
         "12.1",
-        "12.4.1\u201312.4.4"
+        "12.4.1–12.4.4"
       ],
       "topic": "Accuracy and hazardous output",
       "project_action": "Specify accuracy, safe parameter entry and output indications; analyze both incorrect output and deliberate limit changes.",
@@ -2778,7 +2792,7 @@
       "id": "GEN-014",
       "standard_id": "AAMI60601-2012",
       "clauses": [
-        "14.1\u201314.3"
+        "14.1–14.3"
       ],
       "topic": "Programmable-system governance",
       "project_action": "Document applicability of programmable-system requirements, control the resulting records and connect system validation to the risk plan.",
@@ -3001,7 +3015,7 @@
       "id": "GEN-023",
       "standard_id": "AAMI60601-2012",
       "clauses": [
-        "15.2\u201315.5",
+        "15.2–15.5",
         "16",
         "17"
       ],
@@ -3116,8 +3130,12 @@
       "reviewer": null,
       "review_date": null,
       "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
-      "requirement_ids": [],
-      "test_ids": [],
+      "requirement_ids": [
+        "M1-REQ-003"
+      ],
+      "test_ids": [
+        "M1-TEST-003"
+      ],
       "evidence": []
     },
     {
@@ -3164,8 +3182,12 @@
       "reviewer": null,
       "review_date": null,
       "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
-      "requirement_ids": [],
-      "test_ids": [],
+      "requirement_ids": [
+        "M1-REQ-003"
+      ],
+      "test_ids": [
+        "M1-TEST-003"
+      ],
       "evidence": []
     },
     {
@@ -3867,10 +3889,14 @@
       "review_date": null,
       "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
       "requirement_ids": [
-        "REQ-004"
+        "REQ-004",
+        "M1-REQ-006",
+        "M1-REQ-007"
       ],
       "test_ids": [
-        "TEST-004"
+        "TEST-004",
+        "M1-TEST-006",
+        "M1-TEST-007"
       ],
       "evidence": []
     },
@@ -4272,7 +4298,7 @@
       "id": "EU-007",
       "standard_id": "EU-MDR",
       "clauses": [
-        "Articles 83\u201392"
+        "Articles 83–92"
       ],
       "topic": "Post-market work",
       "project_action": "Allocate surveillance, vigilance and corrective-action responsibilities to the future manufacturer.",
@@ -4388,10 +4414,16 @@
       "review_date": null,
       "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
       "requirement_ids": [
-        "REQ-002"
+        "REQ-002",
+        "M1-REQ-004",
+        "M1-REQ-005",
+        "M1-REQ-007"
       ],
       "test_ids": [
-        "TEST-002"
+        "TEST-002",
+        "M1-TEST-004",
+        "M1-TEST-005",
+        "M1-TEST-007"
       ],
       "evidence": []
     },
@@ -4416,8 +4448,12 @@
       "reviewer": null,
       "review_date": null,
       "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
-      "requirement_ids": [],
-      "test_ids": [],
+      "requirement_ids": [
+        "M1-REQ-003"
+      ],
+      "test_ids": [
+        "M1-TEST-003"
+      ],
       "evidence": []
     },
     {
@@ -4494,8 +4530,16 @@
       "reviewer": null,
       "review_date": null,
       "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
-      "requirement_ids": [],
-      "test_ids": [],
+      "requirement_ids": [
+        "M1-REQ-001",
+        "M1-REQ-002",
+        "M1-REQ-007"
+      ],
+      "test_ids": [
+        "M1-TEST-001",
+        "M1-TEST-002",
+        "M1-TEST-007"
+      ],
       "evidence": []
     },
     {

@@ -4,7 +4,24 @@ Project baseline, 7 October 2026. Confirmed project name: DialysisLab.
 
 Repository: [pmasala/DialysisLab](https://github.com/pmasala/DialysisLab). SSH remote: `git@github.com:pmasala/DialysisLab.git`.
 
-An open-source dialysis software reference project, intended to democratize access to a working implementation together with its development and assurance evidence. Execution remains limited to simulated patients and equipment. This package contains the project baseline and an executable traceability checker, but no executable dialysis simulator.
+An open-source dialysis software reference project, intended to democratize access to a working implementation together with its development and assurance evidence. Execution remains limited to simulated patients and equipment. M1 implements a deliberately limited, deterministic headless HD demonstration with separate control, protection, plant, patient and scenario-runner processes. It is uncalibrated and does not establish clinical safety or standards conformity.
+
+## Run M1
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --parallel 3
+ctest --test-dir build --output-on-failure
+PYTHONPATH=python python3 -m dialysislab.runner --local --config scenarios/hd_occlusion.json --output build/occlusion
+SOURCE_REVISION=$(git rev-parse HEAD) docker compose build
+docker compose up --no-build --abort-on-container-exit --exit-code-from runner
+```
+
+See the [M1 runbook](docs/M1_RUNBOOK.md) for result extraction, Compose cleanup,
+repeatability/failure tests, exact dependencies and assurance commands. The
+[plan](docs/M1_PLAN.md), [interfaces](docs/M1_INTERFACES.md), [model](docs/M1_MODEL.md)
+and [risk analysis](docs/M1_RISKS.md) define the narrow scope. All features below
+remain required; M1 does not complete the roadmap.
 
 ## Agreed scope
 
@@ -44,7 +61,7 @@ python3 tools/check_traceability.py assurance/traceability.json --release
 python3 tools/check_standards.py --release
 ```
 
-The normal commands check trace/register structure and report gaps. The tests exercise the original trace checker only. Both release commands deliberately fail on this incomplete baseline. None of these commands verifies dialysis software or certifies conformity.
+The normal commands check trace/register structure and report gaps. Build M1 before running the full test suite; it now exercises the synthetic services, publication boundaries and original trace checker. Both release commands deliberately fail while roadmap work and reviews remain incomplete. Passing these checks does not establish standards conformity.
 
 ## Engineering intent
 
@@ -56,7 +73,7 @@ Calibration may use public papers, manufacturer specifications, shareable bench 
 
 ## Open project decisions
 
-Exact dependency versions and numerical acceptance tolerances remain to be selected. The project uses the [MIT license](LICENSE) already established in the repository. Third-party standards and dependencies retain their own licensing terms.
+M1's exact build dependencies and synthetic tolerances are recorded in its runbook and model specification. Versions, numerical acceptance limits and validation sources for the broader roadmap remain open. The project uses the [MIT license](LICENSE); third-party standards and dependencies retain their own licensing terms.
 
 ## Package the reviewed public files
 

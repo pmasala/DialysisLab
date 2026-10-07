@@ -1,0 +1,18 @@
+# Deny by default. Every build input is explicitly named; never include .git or assurance sources.
+**
+!CMakeLists.txt
+!Dockerfile
+!.dockerignore
+!LICENSE
+!src/wire.hpp
+!src/model.hpp
+!src/plant.cpp
+!src/control.cpp
+!src/protection.cpp
+!python/dialysislab/__init__.py
+!python/dialysislab/protocol.py
+!python/dialysislab/patient.py
+!python/dialysislab/runner.py
+!scenarios/hd_nominal.json
+!scenarios/hd_occlusion.json
+!tools/build_identity.py

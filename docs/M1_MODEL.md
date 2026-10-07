@@ -39,7 +39,8 @@ fault instructions, patient truth or effluent truth.
 
 ## Numerical and validity limits
 
-IEEE binary64, C++17 without fast-math, Python float, integer virtual clock.
+IEEE binary64 hydraulics, C++17 without fast-math, compensated plant accumulation,
+Decimal patient accumulation of the received decimal deltas, integer virtual clock.
 Independent tests use Decimal arithmetic from configuration and expected active
 interval counts, rather than trusting the plant's accumulated removal as an oracle.
 Balance tolerance: absolute 1e-8 mL over <=100000 ticks; compare cross-build physical
