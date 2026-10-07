@@ -10,11 +10,13 @@ six M2 and four M1 Compose regressions plus two isolation probes. Native/contain
 trajectories match exactly. Five findings from the sole M3 review are corrected.
 See [M3 evidence](evidence/m3/README.md). No M1/M2/M3 review may be rerun.
 
-M4 base `47ffc5e`; contracts/requirements and tolerances are frozen in
-`docs/M4_TREATMENT.md`. The implementation passed 81/81 native and sanitizer tests, 10/10 targeted
-treatment tests and 24 native/24 Compose scenarios with exact reproduction.
-Next executable step: commit candidate and invoke the single M4 review; preserve
-its findings/output, fix applicable issues, then repeat affected regressions.
+M4 base `47ffc5e`; candidate `9a2d2df` passed 81 native/sanitizer tests and
+24 native/24 Compose runs. Its single review returned one P1 and five P2 findings.
+Corrections pass 15 targeted treatment regressions, including immediate live
+quality isolation without COMMIT. No M4 review may be rerun.
+Next executable step: commit corrections; run complete regressions and repeated
+100000-tick native/Compose treatment with large gross UF and confirmed native stop;
+retain evidence and freeze the final M4 commit as M5 base.
 
 Persistent checkpoints: [plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md). The synthetic M2 model is

@@ -1,0 +1,69 @@
+{
+  "phase": "M4",
+  "base": "47ffc5efa5ca1cd2878a2924b182d1bb72a7a8e3",
+  "candidate": "9a2d2df97eeb8cfa1784d6300a3d516f39d8ad51",
+  "command": [
+    "codex",
+    "-c",
+    "sandbox_mode=\"read-only\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "-c",
+    "developer_instructions=\"Perform a read-only defect review of the complete M4 phase diff against the fixed base. Do not modify code, spawn reviewers, or invoke another review. Look for concrete behavior, numerical, concurrency, resource, safety, versioned interface, and evidence-integrity defects with reproducible scenarios. Do not read private/licensed standards, credentials, or external accounts. Use rg and git ls-files for project discovery; ignore build dependencies except relevant verification reports. Distinguish synthetic verification from clinical or microbiological validation. Earlier M1-M3 reviews are consumed: review new M4 changes and regressions only. Review candidate 9a2d2df97eeb8cfa1784d6300a3d516f39d8ad51.\"",
+    "review",
+    "--base",
+    "47ffc5efa5ca1cd2878a2924b182d1bb72a7a8e3"
+  ],
+  "started_at": "2026-10-07T23:45:45.601683+00:00",
+  "status": "FINDINGS_FIXED_TARGETED_TESTS_PASSED",
+  "invocations": 1,
+  "exit_code": 0,
+  "finished_at": "2026-10-07T23:53:40.480395+00:00",
+  "full_output_path": "build/reviews/m4-output.txt",
+  "full_output_sha256": "2bb5f740af52f64600ed85f698bddfd1d3b13cb6f65bc671d578aaadd6ed0eed",
+  "final_output": "M4 introduces delayed live-output isolation, rejects supported numerical configurations and long runs, and accepts inconsistent treatment evidence. Passing nominal synthetic verification does not cover these defects.\n\nFull review comments:\n\n- [P1] Apply fluid-only isolation when accepting QUALITY4 \u2014 /home/pietro/DialysisLab/src/plant.cpp:216-216\n  After a nonzero-UF commit, issuing PREPARE, QUALITY4, then STATUS4 reports `quality_latched=true` but retains the previous nonzero UF rate; CSTATE3 likewise retains clearance coefficients. `online.latch()` stops only replacement, while UF/exchange isolation waits for COMMIT4. A stalled coordinator therefore delays the advertised direct protective action until commit or watchdog shutdown. Zero the live fluid outputs when accepting QUALITY4, preserving blood circulation and cumulative ledgers.\n\n- [P2] Preserve the concentration roundoff allowance through ADVANCE4 \u2014 /home/pietro/DialysisLab/python/dialysislab/runner.py:269-271\n  Using `treatment_hdf_post` with `dt_ms=1` and concentrate component 0 set to 25000 passes configuration validation, but the first tank update produces `1000.0000000000001`. The online decoder accepts this roundoff, then this transaction passes it to `Compartments.advance()`, whose dialysate-vector check still requires strictly <=1000. The valid run consequently aborts on its first tick. Apply the existing computed-concentration allowance at the ADVANCE4 dialysate boundary without relaxing initial configuration bounds or clipping mass.\n\n- [P2] Include the replacement head in the circuit pressure bound \u2014 /home/pietro/DialysisLab/src/circuit.hpp:70-71\n  With independently configured pump heads, disabling the blood pump can legitimately leave pressure above its head. An accepted one-node HDF_PRE configuration with compliance 0.001, dialyzer resistance 2, KUF 0, blood command/head 300/100, replacement command/head 120/600, filter/line resistances 0.01 each, and dt=1000 yields approximately 157.2 mmHg after disabling the blood pump. `Circuit::advance()` then rejects it because its unchanged ceiling uses only `head=100`, terminally aborting the first commit. Update that ceiling to account for the replacement pressure source.\n\n- [P2] Give STATE4 its own cumulative gross-UF bound \u2014 /home/pietro/DialysisLab/python/dialysislab/treatment.py:94-97\n  Delegating to `physical_state()` retains the v1 `removed_total_mL <= 100000` limit, although replacement permits larger gross removal without exhausting body water. For example, an accepted one-node HDF_POST configuration with resistance 3, compliance 0.01, KUF 1, blood command 300, replacement 100, net UF 0, and dt=1000 crosses that limit at tick 60001 while body volume remains about 32307 mL. This decoder then aborts the run and also prevents decoding the subsequent HALT observation. Version the cumulative bound alongside the instantaneous UF bounds.\n\n- [P2] Check replacement actuator rates in the evidence safety gate \u2014 /home/pietro/DialysisLab/tools/verify_models.py:61-64\n  Changing `online.replacement_mL_min` to 120 in quality-latched `treatment_integrity` records and recomputing the trajectory hash still passes verification. This check examines integrated volumes but ignores the recorded replacement actuator; the hard-latch check also omits it. Consequently, the verifier accepts evidence explicitly showing an active replacement output during isolation. Check replacement rates under both latches and their consistency with tick volumes, with a rehashed-record rejection regression ([AGENTS.md:36](/home/pietro/DialysisLab/AGENTS.md#L36)).\n\n- [P2] Cross-check the reported substitution-solute ledger \u2014 /home/pietro/DialysisLab/tools/verify_models.py:58-60\n  The independently integrated `replacement_mass` is never compared with the new patient `substitution_mmol` ledger. Replacing every such ledger with `[999]*6` in the integrity fixture and recomputing the trajectory hash still passes with the original tiny mass-error result. Range validation alone therefore permits fabricated substitution-solute totals in verified evidence. Compare each reported component against its integrated replacement mass and cover this rejection case ([AGENTS.md:36](/home/pietro/DialysisLab/AGENTS.md#L36)).\n",
+  "findings": [
+    {
+      "id": "M4-R1",
+      "severity": "P1",
+      "disposition": "fixed",
+      "test": "test_quality_command_isolates_live_fluids_before_any_commit",
+      "correction_commit": "pending checkpoint"
+    },
+    {
+      "id": "M4-R2",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_computed_mixture_ceiling_passes_patient_boundary",
+      "correction_commit": "pending checkpoint"
+    },
+    {
+      "id": "M4-R3",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_replacement_head_can_exceed_blood_pump_head",
+      "correction_commit": "pending checkpoint"
+    },
+    {
+      "id": "M4-R4",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_state4_versions_cumulative_gross_uf_and_stop_decoding; treatment_100000 integration",
+      "correction_commit": "pending checkpoint"
+    },
+    {
+      "id": "M4-R5",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_evidence_rejects_forged_replacement_rates_and_solute_ledger",
+      "correction_commit": "pending checkpoint"
+    },
+    {
+      "id": "M4-R6",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_evidence_rejects_forged_replacement_rates_and_solute_ledger",
+      "correction_commit": "pending checkpoint"
+    }
+  ]
+}

@@ -63,15 +63,23 @@ Compose M3 runs, six M2/four M1 Compose runs and two isolation probes passed.
 [Evidence](evidence/m3/README.md) records exact identities and limits.
 Automatic review is not independent physiological or regulatory approval.
 
-## M4 — tested candidate; one review reserved
+## M4 — single review completed; corrections under regression
 
-Base `47ffc5efa5ca1cd2878a2924b182d1bb72a7a8e3`. Candidate is the commit
-containing this entry; capture exact SHA in `build/reviews/m4.json` before the
-single invocation. Command: read-only `codex review --base 47ffc5e`, no approvals,
-no code edits or recursive reviewers. Candidate results: 81/81 native and
-sanitizer tests, then 10/10 targeted treatment tests including added hard-trip
-regression; 24 native/24 Compose runs with exact cross-build reproduction.
-Review findings, corrections and final regressions remain pending.
+Base `47ffc5efa5ca1cd2878a2924b182d1bb72a7a8e3`; candidate
+`9a2d2df97eeb8cfa1784d6300a3d516f39d8ad51`. One read-only invocation returned
+zero and **one P1 plus five P2 findings**. Exact argv/output: [review.json](evidence/m4/review.json).
+No second review will run. All 15 targeted treatment regressions pass after fixes.
+
+| Finding | Scenario / correction | Regression |
+| --- | --- | --- |
+| M4-R1 P1 | QUALITY4 delayed UF/exchange isolation until COMMIT; immediately zero live fluid actuators/coefficients, preserving blood and ledgers. | Real STATUS4/CSTATE3 without COMMIT, then conflicting demand and commit. |
+| M4-R2 P2 | Computed mixture 1000.0000000000001 rejected by ADVANCE4; preserve bounded computed slack through the dialysate boundary. | Actual 1 ms run at concentration ceiling; strict initial limit retained. |
+| M4-R3 P2 | Higher substitution head violates blood-only ceiling; use the envelope of configured pressure sources. | Real one-node unequal-head pre-HDF, no invented pressure clipping. |
+| M4-R4 P2 | Gross UF above 100000 mL inherits v1 volume limit; STATE4 has duration/rate-derived gross limit. | Decoder/stop boundary test and full treatment_100000 native/Compose acceptance. |
+| M4-R5 P2 | Forged replacement rate passes evidence safety checks; require zero under both latches and consistency with tick volumes. | Rehashed hard/quality latch and nominal rate corruption rejected. |
+| M4-R6 P2 | Forged substitution-solute totals pass; compare every species with independent integration. | Rehashed ledger corruption rejected for both latch types. |
+
+Correction commit and full regression/long-run evidence remain to be recorded.
 
 ## M5–M9
 

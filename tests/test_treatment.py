@@ -30,6 +30,86 @@ def config(name='hdf_post', ticks=100):
 
 
 class TreatmentTests(unittest.TestCase):
+    def test_quality_command_isolates_live_fluids_before_any_commit(self):
+        c=config()
+        with LocalCluster(BUILD) as cluster:
+            admin=cluster.runtime/'admin/plant.sock';control=cluster.runtime/'control/plant.sock';protection=cluster.runtime/'protection/plant.sock'
+            circuit.configure(admin,c);treatment.configure(admin,c)
+            for n in range(2):
+                rpc(admin,'PREPARE',n,n*100,100,.5,'none','none')
+                rpc(control,'DEMAND4',n,n*100,300,10,60);rpc(protection,'PERMIT',n,n*100)
+                previous=treatment.committed(rpc(admin,'COMMIT4',n,n*100))
+            self.assertGreater(previous['uf_mL_min'],0)
+            self.assertGreater(previous['online']['replacement_mL_min'],0)
+            self.assertTrue(any(previous['circuit']['clearance_mL_min']))
+            rpc(admin,'PREPARE',2,200,100,.5,'none','none')
+            rpc(protection,'QUALITY4',2,200,'integrity')
+            live=treatment.live(rpc(admin,'STATUS4'));physical=circuit.state(rpc(admin,'CSTATE3'))
+            self.assertEqual(live['uf_mL_min'],0);self.assertEqual(live['online']['replacement_mL_min'],0)
+            self.assertEqual(physical['uf_mL_min'],0);self.assertEqual(physical['clearance_mL_min'],[0]*6)
+            self.assertEqual(physical['boundary_diffusion_mmol_min'],[0]*6)
+            self.assertEqual(physical['boundary_convection_mmol_min'],[0]*6)
+            self.assertEqual(live['removed_total_mL'],previous['removed_total_mL'])
+            self.assertEqual(physical['stored_mL'],previous['circuit']['stored_mL'])
+            self.assertEqual(live['blood_mL_min'],previous['blood_mL_min'])
+            self.assertEqual(live['time_ms'],previous['time_ms'])
+            # A late conflicting command cannot reactivate live fluid actuators.
+            rpc(control,'DEMAND4',2,200,300,20,120)
+            self.assertEqual(treatment.live(rpc(admin,'STATUS4'))['uf_mL_min'],0)
+            committed=treatment.committed(rpc(admin,'COMMIT4',2,200))
+            self.assertEqual(committed['uf_mL_min'],0);self.assertEqual(committed['online']['replacement_mL_min'],0)
+            self.assertGreater(committed['blood_mL_min'],0)
+
+    def test_computed_mixture_ceiling_passes_patient_boundary(self):
+        c=config(ticks=10);c['dt_ms']=1;c['treatment']['concentrate_mmol_L'][0]=25000
+        with LocalCluster(BUILD) as cluster: records,manifest=simulate(c,cluster.runtime,BUILD)
+        self.assertEqual(manifest['outcome'],'completed',manifest['errors'])
+        self.assertGreater(records[0]['online']['concentration_mmol_L'][0],1000)
+        for r in records:self.assertLess(max(map(abs,r['patient']['mass_residual_mmol'])),1e-6)
+        c['treatment']['concentrate_mmol_L'][0]=25000.1
+        with self.assertRaises(ValueError):validate(c)
+
+    def test_replacement_head_can_exceed_blood_pump_head(self):
+        c=config('hdf_pre',10);c['dt_ms']=1000;c['pressure_limit_mmHg']=400
+        c['circuit'].update(compliance_mL_mmHg=[.001],edges=[[1,0,2,'dialyzer',False]],pump_node=1,pump_head_mmHg=100,sensor_node=1,sensor_edge=0,dialyzer_edge=0)
+        c['circuit']['profile'].update(resistance_mmHg_min_mL=2,kuf_mL_min_mmHg=0)
+        c['treatment'].update(replacement_mL_min=120,head_mmHg=600,filter1_R=.01,filter2_R=.01,line_R=.01)
+        with LocalCluster(BUILD) as cluster:records,manifest=simulate(c,cluster.runtime,BUILD)
+        self.assertEqual(manifest['outcome'],'completed',manifest['errors'])
+        self.assertGreater(records[0]['pressure_mmHg'],100);self.assertLess(records[0]['pressure_mmHg'],600)
+        self.assertEqual(records[0]['blood_mL_min'],0)
+        for r in records:
+            self.assertAlmostEqual(sum(r['patient']['volume_mL'])+r['removed_total_mL'],40200+r['online']['substitution_total_mL'],delta=1e-7)
+
+    def test_state4_versions_cumulative_gross_uf_and_stop_decoding(self):
+        # Parser boundary regression; full 100000-tick plant/Compose evidence is separate.
+        response=['STATE4','60001','60002000','100','240','100','100001','1.6666666666667','0','0','none']
+        state=treatment.state(response);self.assertEqual(state['removed_total_mL'],100001)
+        response[3]=response[5]=response[7]='0';response[8]=response[9]='1';response[10]='shutdown'
+        self.assertEqual(treatment.state(response)['removed_total_mL'],100001)
+        response[6]='233334'
+        with self.assertRaises(ValueError):treatment.state(response)
+
+    def test_evidence_rejects_forged_replacement_rates_and_solute_ledger(self):
+        for fault in ('integrity','hard'):
+            c=config('integrity',35)
+            if fault=='hard':c['faults']=[dict(tick=30,target='protection_sensor',value='invalid')]
+            with tempfile.TemporaryDirectory() as tmp,LocalCluster(BUILD) as cluster:
+                directory=Path(tmp)/'run';records,manifest=simulate(c,cluster.runtime,BUILD,directory)
+                self.assertEqual(manifest['outcome'],'completed',manifest['errors'])
+                baseline=list(records);sources=manifest['build']['source_sha256']
+                verify_models.verify(directory,c,sources)
+                for kind in ('rate','substitution_solute','unlatched_rate'):
+                    corrupted=copy.deepcopy(baseline)
+                    if kind=='rate':corrupted[30]['online']['replacement_mL_min']=120
+                    elif kind=='unlatched_rate':corrupted[0]['online']['replacement_mL_min']=0
+                    else:corrupted[30]['patient']['substitution_mmol']=[999]*6
+                    raw=''.join(json.dumps(r,sort_keys=True,separators=(',',':'))+'\n' for r in corrupted).encode()
+                    (directory/'trajectory.jsonl').write_bytes(raw)
+                    manifest['trajectory_sha256']=hashlib.sha256(raw).hexdigest()
+                    (directory/'manifest.json').write_text(json.dumps(manifest))
+                    with self.subTest(fault=fault,kind=kind),self.assertRaises(ValueError):verify_models.verify(directory,c,sources)
+
     def test_modes_independent_gross_net_water_and_solutes(self):
         outputs = {}
         for mode in ('hd', 'hdf_pre', 'hdf_post', 'hdf_large', 'hdf_imbalance'):

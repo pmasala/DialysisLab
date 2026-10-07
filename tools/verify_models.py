@@ -9,7 +9,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'python'))
-from dialysislab.runner import LocalCluster, simulate, build_identity, canonical, digest, validate
+from dialysislab.runner import LocalCluster, simulate, build_identity, canonical, digest, validate, stop_plant
 from dialysislab.trajectory import scan, read_records, strict_json
 from dialysislab.compartments import validate_snapshot
 from verify_compose import collect_case, ComposeRunFailure
@@ -49,19 +49,29 @@ def verify(directory, expected_config, expected_sources):
             p, c = validate_snapshot(record['patient'], config['schema_version'] >= 4), record['circuit']
             online = record.get('online')
             dialysate = config['transport']['dialysate_mmol_L']
+            if config['schema_version'] >= 4 and not isinstance(online, dict):
+                raise ValueError('missing online evidence')
             if online:
                 if online['sequence'] != record['sequence'] or online['time_ms'] != record['time_ms']:
                     raise ValueError('online clock mismatch in evidence')
                 volume = online['pre_tick_mL'] + online['post_tick_mL']
+                rate = online['replacement_mL_min']
+                if not math.isfinite(rate) or not 0 <= rate <= 120 or abs(rate * config['dt_ms'] / 60000 - volume) > 1e-8:
+                    raise ValueError('replacement actuator/tick volume mismatch')
                 replacement += volume
                 dialysate = online['concentration_mmol_L']
-                for i in range(6): replacement_mass[i] += volume * dialysate[i] / 1000
+                for i in range(6):
+                    replacement_mass[i] += volume * dialysate[i] / 1000
+                    if abs(replacement_mass[i] - p['substitution_mmol'][i]) > 1e-6:
+                        raise ValueError('substitution solute ledger mismatch')
                 if abs(replacement - online['substitution_total_mL']) > 1e-6 or abs(replacement - p['substitution_mL']) > 1e-6:
                     raise ValueError('substitution ledger mismatch')
                 if online['quality_latched']:
                     first_quality_ms = first_quality_ms if first_quality_ms is not None else record['time_ms']
-                    if volume != 0 or record['uf_mL_min'] != 0 or any(c['clearance_mL_min']):
+                    if volume != 0 or rate != 0 or record['uf_mL_min'] != 0 or any(c['clearance_mL_min']):
                         raise ValueError('active fluid output despite quality latch')
+                if record['latched'] and rate != 0:
+                    raise ValueError('active replacement output despite blood isolation')
             if p['sequence'] != record['sequence'] or p['time_ms'] != record['time_ms']:
                 raise ValueError('patient/plant clock mismatch in evidence')
             body = math.fsum(p['volume_mL'][:2])
@@ -113,6 +123,7 @@ def main():
             hashes = []
             for repeat in (1, 2):
                 config = json.loads((ROOT / 'scenarios' / (name + '.json')).read_text())
+                observed_stop = None
                 if args.compose:
                     collected = collect_case(name, repeat, args.output, timeout=900)
                     if collected['compose_exit_code'] or collected['collection_errors'] or collected['cleanup_errors']:
@@ -122,6 +133,10 @@ def main():
                     directory = args.output / (name + '-' + str(repeat))
                     with LocalCluster(args.build_dir) as cluster:
                         simulate(config, cluster.runtime, args.build_dir, directory)
+                        if config['schema_version'] >= 4:
+                            observed_stop = stop_plant(cluster.runtime / 'admin/plant.sock', online=True)
+                            if not observed_stop['acknowledged'] or not observed_stop['outputs_zero_observed']:
+                                raise ValueError('treatment stop not confirmed by live observation')
                     collected = None
                 case = verify(directory, config, expected_sources)
                 if name == 'circuit_occlusion' and not (case['first_latch_ms'] is not None and 2000 <= case['first_latch_ms'] <= 3000):
@@ -131,7 +146,7 @@ def main():
                     if case['first_quality_ms'] is None or not event_ms <= case['first_quality_ms'] <= event_ms + 10000 + config['dt_ms']:
                         raise ValueError('quality fixture failed to latch within declared bound')
                 case.update(scenario=name, repeat=repeat, collection=collected,
-                            directory=str(directory))
+                            directory=str(directory), observed_stop=observed_stop)
                 report['cases'].append(case)
                 hashes.append(case['scan']['sha256'])
             if hashes[0] != hashes[1]:

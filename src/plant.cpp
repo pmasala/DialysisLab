@@ -86,6 +86,7 @@ public:
             r.end();
             for (std::size_t i = 0; i < 6; ++i) o.concentration[i] = o.ratio * o.concentrate[i];
             online = o; online_set = true;
+            circuit.pressure_ceiling = std::max(circuit.head, online.head);
             return "DL1 OK";
         }
         if (role == 0 && op == "FAULT4") {
@@ -214,6 +215,10 @@ public:
             dl::require(cause == "temperature" || cause == "composition" || cause == "filter_pressure"
                      || cause == "integrity" || cause == "route" || cause == "supply");
             decision_seen = true; online.latch(cause);
+            // A protective command changes live outputs now, even if the runner
+            // never commits this tick. Retain blood circulation and water ledgers.
+            output.uf = circuit.uf = circuit.sub_command = circuit.sub_flow = 0;
+            circuit.diffusion.fill(0); circuit.convection.fill(0); circuit.clearances.fill(0);
         } else if (role == 2 && (op == "PERMIT" || op == "TRIP")) {
             tick(r);
             std::string cause = op == "TRIP" ? r.take() : "none";

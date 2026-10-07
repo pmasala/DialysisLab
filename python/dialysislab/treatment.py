@@ -91,9 +91,10 @@ def online_state(response):
 def state(response):
     expect(response, 'STATE4', 11)
     # Keep the v1 decoder's strict UF bounds untouched.
-    surrogate = list(response); surrogate[0] = 'STATE'; surrogate[5] = surrogate[7] = '0'
+    surrogate = list(response); surrogate[0] = 'STATE'; surrogate[5] = surrogate[6] = surrogate[7] = '0'
     result = physical_state(surrogate)
     result['uf_mL_min'] = real(response[5], 0, 140)
+    result['removed_total_mL'] = real(response[6], 0, 140 * 100000 / 60 + 1e-6)
     result['removed_tick_mL'] = real(response[7], 0, 140 / 60)
     return result
 

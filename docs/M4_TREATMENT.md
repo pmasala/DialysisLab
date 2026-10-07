@@ -79,7 +79,9 @@ by any DEMAND4. Existing hard TRIP/HALT dominates all outputs.
 
 Synthetic quality limits: 35–39 C, conductivity 12–16, filter pressure <=300 mmHg,
 intact integrity-test signal, matching route, replacement flow >=1 mL/min after
-startup in HDF. A quality fault latches until a new run in M4; reset/recovery is
+startup in HDF. QUALITY4 zeros live UF, replacement and membrane coefficients immediately on
+acceptance, before any later COMMIT; circulating blood, stored volume and
+cumulative accounting remain intact. A quality fault latches until a new run in M4; reset/recovery is
 reserved for M5. Acknowledgment cannot alter arbitration. Invalid observations
 and communication failures retain terminal/fail-safe M1 policies. Wall-clock
 watchdog remains separate from virtual-time quality detection.
@@ -88,8 +90,12 @@ INIT4/ADVANCE4/STATUS4 and PATIENT4 version the Python patient transaction.
 ADVANCE4 extends ADVANCE3 by pre_mL, post_mL and substitution_mmol_L; gross UF
 numerical bound is 140 mL/min, replacement command <=120 mL/min and blood + replacement commands <=500 mL/min
 to stay within the modeled blood-flow sensor range. Patient responses
-add substitution_mL and substitution_mmol. Initial patient configuration remains
-schema-3 compatible. JSONL v1 streaming and 4096-byte bounded frames remain in use;
+add substitution_mL and substitution_mmol. STATE4 cumulative gross UF is bounded by 140 * 100000 / 60 mL plus 1e-6
+roundoff, independently of body volume: replacement permits gross removal above
+100000 mL. The hydraulic pressure envelope includes both configured pump heads,
+even while a source is disabled. Computed ADVANCE4 dialysate concentrations admit
+the existing 1e-9 mmol/L slack; initial/configured concentrations remain strictly
+bounded, without clipping. Initial patient configuration remains schema-3 compatible. JSONL v1 streaming and 4096-byte bounded frames remain in use;
 no silent format reinterpretation. Restart is a new run, no ambiguous transaction retry.
 
 ## Verification and limitations
@@ -105,3 +111,16 @@ No third-party application dependency is added; M1–M3 pinned toolchain/license
 remain applicable. Standards and private sources remain outside all build contexts
 and public artifacts. M5–M9, physiological calibration, bench validation, quality
 barrier validation and human risk acceptance remain required work/gaps.
+
+## Review correction protocol
+
+The sole M4 review found delayed live quality isolation, three numerical/version
+boundary defects and two missing evidence cross-checks. Regressions observe plant
+STATUS4/CSTATE3 after QUALITY4 without COMMIT, challenge late demands, exercise
+computed concentration ceilings and unequal pump heads, and reject rehashed forged
+actuator rates/substitution-solute ledgers. Evidence checks compare actual rates
+with tick volumes and enforce zero replacement under either protective latch.
+`treatment_100000` tests gross UF above 100000 mL with positive body water, native
+confirmed HALT decoding, streaming output, independent conservation, exact replay
+and the unchanged 128 MiB Compose limit. Long trajectories remain in ignored build
+outputs; committed reports identify hashes/counts/RSS and all configurations.

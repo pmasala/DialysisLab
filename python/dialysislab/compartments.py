@@ -154,7 +154,7 @@ class Compartments:
             number(request[key], 0, high)
         vector(request['clearance_mL_min'], 0, 2000)
         vector(request['sieving'], 0, 1)
-        vector(request['dialysate_mmol_L'], 0, 1000)
+        vector(request['dialysate_mmol_L'], 0, CONCENTRATION_CEILING if self.online else 1000)
         draw, returned, uf = (request[k] for k in ('draw_mL', 'return_mL', 'uf_mL'))
         pre = post = 0
         replacement_c = [0] * 6

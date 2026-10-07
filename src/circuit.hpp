@@ -13,7 +13,7 @@ struct Circuit {
     std::vector<double> compliance, pressure, flow;
     std::vector<CircuitEdge> edges;
     int pump_node = 1, sensor_node = 1, sensor_edge = 0, dialyzer_edge = 0;
-    double head = 600, kuf = 0, dialysate = 0;
+    double head = 600, pressure_ceiling = 600, kuf = 0, dialysate = 0;
     int sub_node = 0;
     double sub_command = 0, sub_head = 600, sub_flow = 0;
     std::array<double, solutes> koa{}, sieving{}, blood_c{}, dialysate_c{}, diffusion{}, convection{}, clearances{};
@@ -21,6 +21,7 @@ struct Circuit {
     double draw_tick = 0, return_tick = 0, uf_tick = 0;
 
     void initialize() {
+        pressure_ceiling = head;
         pressure.assign(compliance.size() + 1, 0);
         flow.assign(edges.size(), 0);
     }
@@ -94,7 +95,7 @@ struct Circuit {
             next = solve(demand, uf, minutes);
         }
         for (double p : next)
-            if (!std::isfinite(p) || p < -1e-10 || p > head + 1e-7)
+            if (!std::isfinite(p) || p < -1e-10 || p > pressure_ceiling + 1e-7)
                 throw std::runtime_error("circuit pressure bounds");
         delta = 0;
         for (std::size_t i = 0; i < compliance.size(); ++i)
