@@ -17,6 +17,8 @@
 | M3-002 | Keep the circuit prime outside the initial body volume; separately account for compliant storage, gross UF, external input/output and net body loss. | Weight change assumes water density 1 kg/L and fixed nonwater mass; it is not a measured patient weight. |
 | M3-003 | Implement a clearly named fixed-pCO2 equilibrium indicator and conserve bicarbonate as a transported inventory. | Dynamic CO2, respiratory control and non-carbonic buffering remain model-validation/development gaps, not evidence inferred from pH curves. |
 
+| M3-004 | Preserve computed concentration roundoff without clipping, reject oversized numeric inputs, and validate proposed patient replies before committing state. Evidence checks require finite inventories and compartment/summary consistency. | Five findings from the single M3 review; targeted real-service and tampered-evidence regressions. |
+
 The WSL2 environment has an X11 socket (`/tmp/.X11-unix/X0`) but DISPLAY is
 unset; desktop availability remains to be tested in M6. SDL development headers
 are currently absent. No global environment, credential, certificate or permission

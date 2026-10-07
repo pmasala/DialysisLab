@@ -13,7 +13,8 @@ def keys(value, names):
 
 
 def number(value, low, high):
-    if type(value) not in (int, float) or not math.isfinite(value) or not low <= value <= high:
+    # Compare bounded JSON integers before math.isfinite converts them to double.
+    if type(value) not in (int, float) or not low <= value <= high or not math.isfinite(value):
         raise ValueError('configuration numeric range')
     return value
 

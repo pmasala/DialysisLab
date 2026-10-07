@@ -43,20 +43,24 @@ passed. Native/container trajectories match. [Final evidence](evidence/m2/README
 identifies each build/configuration. Independent model calibration and risk
 acceptance remain open.
 
-## M3 — tested candidate; one review reserved
+## M3 — single review completed; corrections under integration test
 
-Base `40533e4d09643d8913ecc4795757362e034cbb20`. Candidate is the commit containing
-this entry; its exact SHA will be captured before invocation in `build/reviews/m3.json`.
-Command: `codex -c sandbox_mode='"read-only"' -c approval_policy='"never"'
--c developer_instructions=<read-only defect review instructions> review --base 40533e4`.
-Candidate results: native 67/67, sanitizer 67/67, eight native and eight Compose
-patient runs, six M2 Compose regressions. Patient 100000-step peak RSS 13025280
-bytes; mass residual 5.256e-9 mmol. No M3 review has yet run; reserve one invocation
-and retain its report without repeating it after fixes.
+Base `40533e4d09643d8913ecc4795757362e034cbb20`; candidate
+`ec832d00b6d6ba42aff8591778f2fb50ffd8b348`. One read-only invocation returned
+zero and five applicable findings. Exact command/output: [review.json](evidence/m3/review.json).
+No second review will run. All 14 targeted patient tests pass after corrections.
+
+| Finding | Scenario / correction | Regression |
+| --- | --- | --- |
+| M3-R1 P2 | Equilibrium at 1000 mmol/L rejected roundoff; retain bounded computed slack without clipping mass. | Concentration ceiling numerical and real transport tests. |
+| M3-R2 P2 | JSON integer 10**400 terminated patient; bound integers before float conversion. | Actual INIT3/ADVANCE3 rejection, service survival and unchanged state. |
+| M3-R3 P2 | Forged compartment volumes passed evidence checks; cross-check all three volumes with prime/storage and totals. | Rehashed corrupt body/circuit volume evidence rejected. |
+| M3-R4 P2 | NaN/overflowing JSON numbers passed residual comparisons; strict finite JSON and residual checks. | Rehashed NaN/1e999 evidence rejected. |
+| M3-R5 P3 | Indicator error after commit advanced rejected transaction; validate complete proposed state before accepting, subtract logarithms. | Subnormal bicarbonate and forced response validation failure leave state atomic. |
+
+Final integration results and correction commit will be recorded with M3 evidence.
+Automatic review is not independent physiological or regulatory approval.
 
 ## M4–M9
 
-Not yet invoked. Before each invocation, record the phase, base SHA, candidate
-SHA, exact command and report destination here. Retain output and exit status;
-read all findings even when the command exits zero. Register blocked attempts
-without replacing them with a self-review approval.
+Not yet invoked. Freeze phase base/candidate and retain one command/output per phase.

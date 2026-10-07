@@ -1,0 +1,62 @@
+{
+  "phase": "M3",
+  "base": "40533e4d09643d8913ecc4795757362e034cbb20",
+  "candidate": "ec832d00b6d6ba42aff8591778f2fb50ffd8b348",
+  "command": [
+    "codex",
+    "-c",
+    "sandbox_mode=\"read-only\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "-c",
+    "developer_instructions=\"Perform a read-only code review of the entire M3 phase diff against the specified base. Do not modify files, spawn reviewers, or invoke another review. Seek concrete behavioral, safety, numerical, protocol, concurrency, resource, and evidence-integrity bugs with reproducible scenarios. Use git ls-files or rg within this repository; do not recursively traverse parent directories. Do not access private/licensed standards, credentials, or external accounts. Distinguish numerical verification from clinical validation. Prior M1/M2 reviews are consumed; review M3 changes and their regressions only. Reports under build/m3-candidate-* contain actual executed tests and configurations.\"",
+    "review",
+    "--base",
+    "40533e4"
+  ],
+  "started_at": "2026-10-07T23:14:54.463278+00:00",
+  "status": "FINDINGS_FIXED_TARGETED_TESTS_PASSED",
+  "invocations": 1,
+  "exit_code": 0,
+  "finished_at": "2026-10-07T23:21:33.859218+00:00",
+  "full_output_path": "build/reviews/m3-output.txt",
+  "full_output_sha256": "db06cf71b59ef7a34661d3ba2f96039f8e5665be97dbb3cfc4d77a3be13f78b9",
+  "final_output": "The recorded candidate runs and six numerical tests pass, but reproducible numerical-boundary, protocol-rejection, transaction-atomicity, and evidence-verification defects remain. These findings concern software and numerical verification, not clinical validation.\n\nFull review comments:\n\n- [P2] Account for roundoff at the concentration ceiling \u2014 /home/pietro/DialysisLab/python/dialysislab/compartments.py:101-102\n  A zero-flow 100 ms step using the baseline patient with both concentration rows set to `[1000]*6`, partition ratios `[1]*6`, and zero generation should preserve equilibrium. Instead, the solver produces `1000.0000000000001` and rejects the first tick. Handle bounded numerical roundoff consistently with conservation and snapshot validation so valid equilibrium inputs do not abort.\n\n- [P2] Reject oversized JSON integers without terminating the service \u2014 /home/pietro/DialysisLab/python/dialysislab/patient.py:35-37\n  An otherwise valid `INIT3` payload with `prime_mL` set to the integer `10**400` fits within the frame limit, but `number()` raises `OverflowError` when calling `math.isfinite()`. `Patient.main()` does not catch that exception, so malformed input terminates the patient service instead of returning a protocol rejection. The same failure is reachable through numeric `ADVANCE3` fields. Check integer bounds before conversion or translate the overflow into a protocol error.\n\n- [P2] Verify water conservation against the patient compartments \u2014 /home/pietro/DialysisLab/tools/verify_models.py:45-49\n  The M3 water check never examines `patient.volume_mL`. Increasing its extracellular volume by 1000 mL in an otherwise valid trajectory, while retaining the summary fields and updating the trajectory hash, still passes verification. Cross-check the body-volume summary and circuit storage against the three compartment volumes, including the declared prime, so internally inconsistent patient water inventories cannot receive a successful conservation result.\n\n- [P2] Reject nonfinite solute residuals explicitly \u2014 /home/pietro/DialysisLab/tools/verify_models.py:55-58\n  Python's JSON parser accepts `NaN`. Replacing `patient.mass_mmol[0][0]` with `NaN` in the candidate trajectory and updating its hash still passes `verify()`: the residual becomes NaN, `max()` retains the previous maximum, and the threshold comparison is false. Validate finiteness before accumulating or comparing residuals; otherwise invalid solute evidence is reported as satisfying the numerical tolerance.\n\n- [P3] Validate the proposed snapshot before committing patient state \u2014 /home/pietro/DialysisLab/python/dialysislab/compartments.py:196-201\n  With accepted extracellular bicarbonate `5e-324` and `pco2_mmHg=100`, an idle advance reaches `snapshot()`, where the logarithm argument underflows to zero and raises `ValueError`. By then, this block has already advanced the sequence, time, and inventories, so the service rejects a transaction whose state changes remain committed. Construct and validate the proposed response before committing, and handle the indicator's numerical limits explicitly.\nThe recorded candidate runs and six numerical tests pass, but reproducible numerical-boundary, protocol-rejection, transaction-atomicity, and evidence-verification defects remain. These findings concern software and numerical verification, not clinical validation.\n\nFull review comments:\n\n- [P2] Account for roundoff at the concentration ceiling \u2014 /home/pietro/DialysisLab/python/dialysislab/compartments.py:101-102\n  A zero-flow 100 ms step using the baseline patient with both concentration rows set to `[1000]*6`, partition ratios `[1]*6`, and zero generation should preserve equilibrium. Instead, the solver produces `1000.0000000000001` and rejects the first tick. Handle bounded numerical roundoff consistently with conservation and snapshot validation so valid equilibrium inputs do not abort.\n\n- [P2] Reject oversized JSON integers without terminating the service \u2014 /home/pietro/DialysisLab/python/dialysislab/patient.py:35-37\n  An otherwise valid `INIT3` payload with `prime_mL` set to the integer `10**400` fits within the frame limit, but `number()` raises `OverflowError` when calling `math.isfinite()`. `Patient.main()` does not catch that exception, so malformed input terminates the patient service instead of returning a protocol rejection. The same failure is reachable through numeric `ADVANCE3` fields. Check integer bounds before conversion or translate the overflow into a protocol error.\n\n- [P2] Verify water conservation against the patient compartments \u2014 /home/pietro/DialysisLab/tools/verify_models.py:45-49\n  The M3 water check never examines `patient.volume_mL`. Increasing its extracellular volume by 1000 mL in an otherwise valid trajectory, while retaining the summary fields and updating the trajectory hash, still passes verification. Cross-check the body-volume summary and circuit storage against the three compartment volumes, including the declared prime, so internally inconsistent patient water inventories cannot receive a successful conservation result.\n\n- [P2] Reject nonfinite solute residuals explicitly \u2014 /home/pietro/DialysisLab/tools/verify_models.py:55-58\n  Python's JSON parser accepts `NaN`. Replacing `patient.mass_mmol[0][0]` with `NaN` in the candidate trajectory and updating its hash still passes `verify()`: the residual becomes NaN, `max()` retains the previous maximum, and the threshold comparison is false. Validate finiteness before accumulating or comparing residuals; otherwise invalid solute evidence is reported as satisfying the numerical tolerance.\n\n- [P3] Validate the proposed snapshot before committing patient state \u2014 /home/pietro/DialysisLab/python/dialysislab/compartments.py:196-201\n  With accepted extracellular bicarbonate `5e-324` and `pco2_mmHg=100`, an idle advance reaches `snapshot()`, where the logarithm argument underflows to zero and raises `ValueError`. By then, this block has already advanced the sequence, time, and inventories, so the service rejects a transaction whose state changes remain committed. Construct and validate the proposed response before committing, and handle the indicator's numerical limits explicitly.\n",
+  "findings": [
+    {
+      "id": "M3-R1",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_concentration_ceiling_roundoff_retains_mass_without_clipping",
+      "correction_commit": "pending integration checkpoint"
+    },
+    {
+      "id": "M3-R2",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_oversized_json_integers_reject_without_killing_service",
+      "correction_commit": "pending integration checkpoint"
+    },
+    {
+      "id": "M3-R3",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_evidence_rejects_inconsistent_water_and_nonfinite_mass",
+      "correction_commit": "pending integration checkpoint"
+    },
+    {
+      "id": "M3-R4",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_evidence_rejects_inconsistent_water_and_nonfinite_mass",
+      "correction_commit": "pending integration checkpoint"
+    },
+    {
+      "id": "M3-R5",
+      "severity": "P3",
+      "disposition": "fixed",
+      "test": "test_subnormal_bicarbonate_and_prospective_response_atomicity",
+      "correction_commit": "pending integration checkpoint"
+    }
+  ]
+}

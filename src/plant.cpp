@@ -92,7 +92,9 @@ public:
             c.dialysate = r.real(0, 1000);
             for (auto& x : c.koa) x = r.real(0, 2000);
             for (auto& x : c.sieving) x = r.real(0, 1);
-            for (auto& x : c.blood_c) x = r.real(0, 1000);
+            // Coupled end-state roundoff allowance; initial configuration stays
+            // strictly <=1000 and patient mass conservation is not relaxed.
+            for (auto& x : c.blood_c) x = r.real(0, op == "TRANSPORT3" ? 1000 + 1e-9 : 1000);
             for (auto& x : c.dialysate_c) x = r.real(0, 1000);
             r.end(); circuit = std::move(c); transport_set = true; patient_coupled = (op == "TRANSPORT3");
             return "DL1 OK";

@@ -12,9 +12,11 @@ and verified. No M1 or M2 review may be rerun. See [M2 evidence](evidence/m2/REA
 M3 base is `40533e4`; contracts and numerical acceptance are fixed in
 `docs/M3_PATIENT.md`. The coupled implementation passed 67 native/67 sanitizer
 tests, eight native/eight Compose patient runs and six M2 Compose regressions.
-Next executable step: commit the candidate and run the single M3 review against
-`40533e4`; record/fix findings and repeat affected regressions. Preserve atomic COMMIT2 snapshots, bounded/recorded
-roundoff, exact configuration/build evidence binding and streaming outputs.
+The single M3 review of `ec832d0` returned five findings, now corrected with
+14/14 targeted regressions passing. Next executable step: commit corrections,
+run full native/sanitizer and Compose integration, retain evidence, then start M4.
+Do not rerun the M3 review. Preserve atomic committed snapshots, explicit
+roundoff, configuration/build evidence binding and streaming outputs.
 
 Persistent checkpoints: [plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md). The synthetic M2 model is

@@ -2,11 +2,24 @@
 import hashlib
 import itertools
 import json
+import math
 from pathlib import Path
 import tempfile
 
 FORMAT = 'dialysislab.trajectory.jsonl.v1'
 MAX_RECORD_BYTES = 16384
+
+
+def strict_json(raw):
+    """JSON evidence cannot contain NaN/Infinity or overflowing float literals."""
+    def nonfinite(token):
+        raise ValueError('nonfinite JSON number: ' + token)
+    def finite_float(token):
+        value = float(token)
+        if not math.isfinite(value):
+            nonfinite(token)
+        return value
+    return json.loads(raw, parse_constant=nonfinite, parse_float=finite_float)
 
 
 def canonical(data):
@@ -26,7 +39,7 @@ def read_records(path, recover=False):
                 if recover:
                     return
                 raise ValueError('incomplete final trajectory record')
-            record = json.loads(raw)
+            record = strict_json(raw)
             if type(record.get('sequence')) is not int or record['sequence'] != expected:
                 raise ValueError('trajectory sequence mismatch')
             yield record
@@ -48,7 +61,7 @@ def scan(path, recover=False):
                 if recover:
                     break
                 raise ValueError('incomplete final trajectory record')
-            record = json.loads(raw)
+            record = strict_json(raw)
             if type(record.get('sequence')) is not int or record['sequence'] != count:
                 raise ValueError('trajectory sequence mismatch')
             hasher.update(raw)

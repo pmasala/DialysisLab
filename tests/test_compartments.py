@@ -1,5 +1,6 @@
 """M3 analytic/independent ledgers and actual coupled service regressions."""
 import copy
+import hashlib
 import json
 import math
 import os
@@ -7,13 +8,17 @@ from pathlib import Path
 import random
 import subprocess
 import sys
+import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'python'))
 from dialysislab.compartments import Compartments, validate_snapshot
 from dialysislab.protocol import ProtocolError, rpc
 from dialysislab.runner import LocalCluster, simulate, validate
+sys.path.insert(0, str(ROOT / 'tools'))
+import verify_models
 
 BUILD = Path(os.environ.get('DIALYSISLAB_BUILD_DIR', ROOT / 'build'))
 CONFIG = json.loads((ROOT / 'scenarios/patient_baseline.json').read_text())
@@ -34,6 +39,35 @@ def inert_config():
 
 
 class CompartmentNumerics(unittest.TestCase):
+    def test_concentration_ceiling_roundoff_retains_mass_without_clipping(self):
+        config = inert_config()
+        config.update(concentration_mmol_L=[[1000] * 6, [1000] * 6], partition=[1] * 6,
+                      exchange_mL_min=CONFIG['patient']['exchange_mL_min'])
+        patient = Compartments(config)
+        initial = patient.snapshot()
+        for n in range(1000):
+            state = patient.advance(transaction(n))
+            self.assertLess(max(map(abs, state['mass_residual_mmol'])), 1e-6)
+        for old, new in zip(initial['mass_mmol'], state['mass_mmol']):
+            for a, b in zip(old, new): self.assertAlmostEqual(a, b, delta=1e-7)
+        config['concentration_mmol_L'][0][0] = 1000.000001
+        with self.assertRaises(ValueError): Compartments(config)
+
+    def test_subnormal_bicarbonate_and_prospective_response_atomicity(self):
+        config = inert_config()
+        config['concentration_mmol_L'][0][4] = 5e-324
+        config['pco2_mmHg'] = 100
+        patient = Compartments(config)
+        self.assertTrue(math.isfinite(patient.snapshot()['illustrative_pH']))
+        result = patient.advance(transaction(0))
+        self.assertEqual(patient.next_sequence, 1)
+        self.assertTrue(result['illustrative_pH'] is None or math.isfinite(result['illustrative_pH']))
+        before = patient.snapshot()
+        with patch('dialysislab.compartments.validate_snapshot', side_effect=ValueError('response validation failed')):
+            with self.assertRaises(ValueError): patient.advance(transaction(1))
+        self.assertEqual(patient.snapshot(), before)
+        self.assertEqual(patient.next_sequence, 1)
+
     def test_100000_steps_rss_and_mass_ledger(self):
         result = subprocess.run([sys.executable, str(ROOT / 'tests/patient_memory_probe.py')],
                                 capture_output=True, text=True, timeout=180, check=True)
@@ -126,6 +160,58 @@ class CompartmentNumerics(unittest.TestCase):
 
 
 class CoupledProcesses(unittest.TestCase):
+    def test_oversized_json_integers_reject_without_killing_service(self):
+        with LocalCluster(BUILD) as cluster:
+            path = cluster.runtime / 'patient/service.sock'
+            bad = inert_config(); bad['prime_mL'] = 10**400
+            with self.assertRaises(ProtocolError): rpc(path, 'INIT3', json.dumps(bad, separators=(',', ':')))
+            self.assertIsNone(cluster.processes['patient'].poll())
+            self.assertEqual(rpc(path, 'PING'), ['OK'])
+            self.assertEqual(rpc(path, 'INIT3', json.dumps(inert_config(), separators=(',', ':'))), ['OK'])
+            before = rpc(path, 'STATUS3')
+            for changes in [dict(draw_mL=10**400), dict(clearance_mL_min=[10**400] * 6)]:
+                with self.assertRaises(ProtocolError):
+                    rpc(path, 'ADVANCE3', json.dumps(transaction(0, **changes), separators=(',', ':')))
+                self.assertIsNone(cluster.processes['patient'].poll())
+                self.assertEqual(rpc(path, 'STATUS3'), before)
+            self.assertEqual(rpc(path, 'ADVANCE3', json.dumps(transaction(0), separators=(',', ':')))[0], 'PATIENT3')
+
+    def test_equilibrium_ceiling_crosses_the_real_transport_boundary(self):
+        config = copy.deepcopy(CONFIG)
+        config.update(ticks=30, uf_mL_min=0)
+        config['patient'].update(concentration_mmol_L=[[1000] * 6, [1000] * 6],
+                                 partition=[1] * 6, generation_mmol_min=[0] * 6)
+        config['transport'].update(blood_mmol_L=[1000] * 6, dialysate_mmol_L=[1000] * 6)
+        with LocalCluster(BUILD) as cluster:
+            records, manifest = simulate(config, cluster.runtime, BUILD)
+        self.assertEqual(manifest['outcome'], 'completed', manifest['errors'])
+        for record in records:
+            self.assertLess(max(map(abs, record['patient']['mass_residual_mmol'])), 1e-6)
+
+    def test_evidence_rejects_inconsistent_water_and_nonfinite_mass(self):
+        config = copy.deepcopy(CONFIG); config['ticks'] = 2
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp) / 'run'
+            with LocalCluster(BUILD) as cluster:
+                records, manifest = simulate(config, cluster.runtime, BUILD, directory)
+            self.assertEqual(manifest['outcome'], 'completed', manifest['errors'])
+            source_records = list(records)
+            sources = manifest['build']['source_sha256']
+            verify_models.verify(directory, config, sources)
+            for kind in ('body_volume', 'prime_volume', 'nan', 'infinity_literal'):
+                corrupted = copy.deepcopy(source_records)
+                if kind == 'body_volume': corrupted[0]['patient']['volume_mL'][0] += 1000
+                elif kind == 'prime_volume': corrupted[0]['patient']['volume_mL'][2] += 1
+                else: corrupted[0]['patient']['mass_mmol'][0][0] = float('nan')
+                raw = ''.join(json.dumps(r, sort_keys=True, separators=(',', ':')) + '\n' for r in corrupted).encode()
+                if kind == 'infinity_literal': raw = raw.replace(b'NaN', b'1e999')
+                (directory / 'trajectory.jsonl').write_bytes(raw)
+                manifest['trajectory_sha256'] = hashlib.sha256(raw).hexdigest()
+                manifest['trajectory_bytes'] = len(raw)
+                (directory / 'manifest.json').write_text(json.dumps(manifest))
+                with self.subTest(kind=kind), self.assertRaises(ValueError):
+                    verify_models.verify(directory, config, sources)
+
     def test_synthetic_scenarios_mass_water_and_profile_effect(self):
         removals = {}
         for name in ('patient_baseline', 'patient_overload', 'patient_imbalance', 'patient_large'):

@@ -7,6 +7,9 @@ from .protocol import ProtocolError
 FIELDS = ('id provenance volume_mL concentration_mmol_L exchange_mL_min partition '
           'refill_mL_min prime_mL initial_weight_kg pco2_mmHg external_in_mL_min '
           'external_out_mL_min external_mmol_L generation_mmol_min')
+# At the largest supported compartment this slack represents <=1e-7 mmol,
+# below the unchanged whole-system 1e-6 mmol residual criterion. Never clip mass.
+CONCENTRATION_CEILING = 1000 + 1e-9
 
 
 def validate(config):
@@ -59,7 +62,7 @@ def validate_snapshot(state):
     if not isinstance(state['volume_mL'], list) or len(state['volume_mL']) != 3:
         raise ProtocolError('compartment volume vector')
     for v in state['volume_mL']: number(v, 1, 100000)
-    for name, limit in [('mass_mmol', 100000), ('concentration_mmol_L', 1000)]:
+    for name, limit in [('mass_mmol', 100000), ('concentration_mmol_L', CONCENTRATION_CEILING)]:
         if not isinstance(state[name], list) or len(state[name]) != 3:
             raise ProtocolError('compartment matrix')
         for row in state[name]: vector(row, 0, limit)
@@ -69,7 +72,7 @@ def validate_snapshot(state):
     for name in ('gross_uf_mL', 'external_in_mL', 'external_out_mL'): number(state[name], 0, 1e9)
     number(state['net_patient_loss_mL'], -100000, 100000)
     number(state['weight_kg'], 0, 400)
-    if state['illustrative_pH'] is not None: number(state['illustrative_pH'], -100, 100)
+    if state['illustrative_pH'] is not None: number(state['illustrative_pH'], -400, 400)
     return state
 
 
@@ -98,7 +101,7 @@ def solve(matrix, rhs):
     result = [0.0] * 3
     for row in range(2, -1, -1):
         result[row] = (a[row][3] - math.fsum(a[row][j] * result[j] for j in range(row + 1, 3))) / a[row][row]
-    if not all(math.isfinite(x) and 0 <= x <= 1000 for x in result):
+    if not all(math.isfinite(x) and 0 <= x <= CONCENTRATION_CEILING for x in result):
         raise ProtocolError('concentration outside model bounds')
     return result
 
@@ -125,7 +128,7 @@ class Compartments:
                     gross_uf_mL=self.water['uf'].value, external_in_mL=self.water['in'].value,
                     external_out_mL=self.water['out'].value, net_patient_loss_mL=self.initial_body - body,
                     weight_kg=self.config['initial_weight_kg'] + (body - self.initial_body) / 1000,
-                    illustrative_pH=(6.1 + math.log10(bicarbonate / (0.03 * self.config['pco2_mmHg']))
+                    illustrative_pH=(6.1 + math.log10(bicarbonate) - math.log10(0.03 * self.config['pco2_mmHg'])
                                      if bicarbonate > 0 else None),
                     mass_residual_mmol=list(self.mass_residual),
                     **{name + '_mmol': [s.value for s in values] for name, values in self.solute.items()})
@@ -192,10 +195,13 @@ class Compartments:
                                   -solute['input'][i].value, -self.initial_mass[i]])
             if abs(residual) > 1e-6: raise ProtocolError('patient mass conservation residual')
             residuals.append(residual)
-        # Commit only after every species, ledger and bound has passed.
-        self.volume, self.concentration, self.mass = volumes, concentrations, masses
-        self.water, self.solute, self.mass_residual = water, solute, residuals
-        self.sequence = self.next_sequence
-        self.next_sequence += 1
-        self.time_ms += request['dt_ms']
-        return self.snapshot()
+        # Validate the complete prospective response before mutating accepted state.
+        proposed = copy.copy(self)
+        proposed.volume, proposed.concentration, proposed.mass = volumes, concentrations, masses
+        proposed.water, proposed.solute, proposed.mass_residual = water, solute, residuals
+        proposed.sequence = self.next_sequence
+        proposed.next_sequence += 1
+        proposed.time_ms += request['dt_ms']
+        snapshot = validate_snapshot(proposed.snapshot())
+        self.__dict__.update(proposed.__dict__)
+        return snapshot

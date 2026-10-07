@@ -10,12 +10,13 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'python'))
 from dialysislab.runner import LocalCluster, simulate, build_identity, canonical, digest, validate
-from dialysislab.trajectory import scan, read_records
+from dialysislab.trajectory import scan, read_records, strict_json
+from dialysislab.compartments import validate_snapshot
 from verify_compose import collect_case, ComposeRunFailure
 
 
 def verify(directory, expected_config, expected_sources):
-    manifest = json.loads((directory / 'manifest.json').read_text())
+    manifest = strict_json((directory / 'manifest.json').read_text())
     summary = scan(directory / 'trajectory.jsonl')
     config = manifest['configuration']
     validate(config)
@@ -42,11 +43,18 @@ def verify(directory, expected_config, expected_sources):
         storage = record.get('circuit', {}).get('stored_mL', 0)
         error = abs(config['patient_volume_mL'] - record['patient_volume_mL'] - storage - record['removed_total_mL'])
         if patient_config:
-            p, c = record['patient'], record['circuit']
+            p, c = validate_snapshot(record['patient']), record['circuit']
+            if p['sequence'] != record['sequence'] or p['time_ms'] != record['time_ms']:
+                raise ValueError('patient/plant clock mismatch in evidence')
+            body = math.fsum(p['volume_mL'][:2])
+            if (abs(body - record['patient_volume_mL']) > 1e-8
+                    or abs(p['volume_mL'][2] - patient_config['prime_mL'] - storage) > 1e-8):
+                raise ValueError('patient compartment/summary volume mismatch')
             elapsed = record['time_ms'] / 60000
             incoming = elapsed * patient_config['external_in_mL_min']
             outgoing = elapsed * patient_config['external_out_mL_min']
-            error = abs(config['patient_volume_mL'] + incoming - outgoing - record['patient_volume_mL'] - storage - record['removed_total_mL'])
+            error = abs(config['patient_volume_mL'] + patient_config['prime_mL'] + incoming - outgoing
+                        - math.fsum(p['volume_mL']) - record['removed_total_mL'])
             for i in range(6):
                 concentration = p['concentration_mmol_L'][2][i]
                 integrated_diffusion[i] += c['clearance_mL_min'][i] * config['dt_ms'] / 60000 * (concentration - config['transport']['dialysate_mmol_L'][i]) / 1000
@@ -54,16 +62,16 @@ def verify(directory, expected_config, expected_sources):
                 inputs = incoming * patient_config['external_mmol_L'][i] / 1000 + elapsed * patient_config['generation_mmol_min'][i]
                 residual = abs(math.fsum(row[i] for row in p['mass_mmol']) + integrated_diffusion[i] + integrated_convection[i]
                                + p['output_mmol'][i] - inputs - initial_mass[i])
-                maximum_mass_error = max(maximum_mass_error, residual)
-                if residual > 1e-6:
+                if not math.isfinite(residual) or residual > 1e-6:
                     raise ValueError('independent solute conservation: ' + str(residual))
-        maximum_error = max(maximum_error, error)
+                maximum_mass_error = max(maximum_mass_error, residual)
         if record['latched'] and first_latch_ms is None:
             first_latch_ms = record['time_ms']
         if record['latched'] and (record['blood_mL_min'] != 0 or record['uf_mL_min'] != 0):
             raise ValueError('active output despite protective latch')
-        if error > 1e-6:
+        if not math.isfinite(error) or error > 1e-6:
             raise ValueError('water conservation: ' + str(error))
+        maximum_error = max(maximum_error, error)
     return dict(manifest=manifest, scan=summary, maximum_water_error_mL=maximum_error,
                 expected_water_error_mL=1e-6, first_latch_ms=first_latch_ms,
                 maximum_mass_error_mmol=maximum_mass_error if patient_config else None,

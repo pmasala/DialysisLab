@@ -50,6 +50,13 @@ nonnegative results and conservation before accepting a transaction. Cumulative
 external/diffusive/convective ledgers use compensated sums. Patient transaction
 failure leaves the patient's previously accepted state intact.
 
+The 1000 mmol/L numerical ceiling admits up to 1e-9 mmol/L floating-point slack
+in computed states only, consistently in the solver, response validator and
+TRANSPORT3 boundary. Values/masses are retained without clipping. At the largest
+allowed compartment this slack represents at most 1e-7 mmol; the original 1e-6
+mmol whole-system conservation limit remains unchanged. Initial concentrations
+and deliberate excess beyond this slack are still rejected.
+
 The plant supplies hydraulic state and membrane coefficients; M3's patient service
 owns the conservative coupled mass solve. M2's prescribed-boundary rates are
 retained only as explicitly named boundary estimates in M3 records; the patient's
@@ -69,6 +76,10 @@ when bicarbonate is zero. These apparent constants are illustrative, not calibra
 There is no dynamic CO2, ventilation, non-carbonic buffer, ionized calcium or
 acid-production chemistry. The indicator cannot assess clinical acid-base status.
 It is explicitly distinct from a validated acid-base model.
+
+The implementation subtracts logarithms instead of dividing subnormal values
+before taking a logarithm. The complete proposed snapshot, including this indicator,
+is constructed and validated before accepting any time, sequence or inventory update.
 
 Research context (read 2026-10-08):
 [Pietribiasi et al., 2018](https://doi.org/10.1371/journal.pone.0209553) models
@@ -102,6 +113,12 @@ concentrations and conservation ledgers. JSON must be finite, exact-key bounded
 objects; the existing 4096-byte frame/deadline limit still applies. Restart creates
 a new run; no implicit restoration or retries of ambiguous ADVANCE are permitted.
 Plant commit followed by patient loss is an aborted partial transaction, not rollback.
+
+Oversized JSON integers are range-checked before conversion to floating point;
+malformed requests return ERR and leave the patient service/state available.
+Evidence readers reject NaN/Infinity and overflowing float literals. Verification
+cross-checks the two body volumes and the circuit volume (including prime) against
+their summaries and physical storage; a matching hash is insufficient by itself.
 
 JSONL v1 remains streaming; records add `patient` with explicit units and separate
 gross/net/circuit ledgers. A water-only weight estimate assumes density 1 kg/L and
