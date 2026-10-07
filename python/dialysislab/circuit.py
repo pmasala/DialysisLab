@@ -1,7 +1,7 @@
 """Strict scenario-v2 configuration and authorized circuit truth decoding."""
 import math
 import re
-from .protocol import ProtocolError, expect, integer, real, rpc
+from .protocol import ProtocolError, expect, integer, real, rpc, state as plant_state
 
 SOLUTES = ('urea', 'sodium', 'potassium', 'chloride', 'bicarbonate', 'calcium')
 KINDS = ('tube', 'resistor', 'clamp', 'dialyzer')
@@ -135,4 +135,12 @@ def state(response):
                         ('diffusion_mmol_min', 6), ('convection_mmol_min', 6)):
         result[field] = [real(x, -1e9, 1e9) for x in response[offset:offset + size]]
         offset += size
+    return result
+
+
+def committed(response):
+    if not response or response[0] != 'COMMITTED2':
+        raise ProtocolError('atomic circuit commit schema')
+    result = plant_state(response[1:12])
+    result['circuit'] = state(response[12:])
     return result

@@ -84,6 +84,14 @@ The DL1 bounded transport carries these explicitly suffixed v2 payloads on the
 - `CSTATE2`: `CIRCUIT2 n end_ms N E pump return UF stored delta draw_tick`
   `return_tick uf_tick` then N pressures, E signed edge flows, six diffusive
   and six convective mmol/min rates. Status does not advance time.
+- `COMMIT2 n start_ms` replaces COMMIT for a configured circuit. Its single reply
+  is `COMMITTED2 STATE ... CIRCUIT2 ...`, concatenating the two complete payloads
+  without additional DL1 prefixes. Both describe the same committed tick and are
+  sealed before a later watchdog/HALT can alter live diagnostics. The runner uses
+  this atomic snapshot for accounting; CSTATE2 remains live diagnostic state and
+  must not be read separately to reconstruct a committed transaction. Old COMMIT
+  is rejected on a configured circuit. An end-of-run STATUS detects observed
+  liveness/protocol stops without invalidating the already committed water ledger.
 
 Existing PREPARE freezes both modeled observations; sensor flow is the magnitude
 of the selected edge, pressure the configured node. Control/protection receive
@@ -100,9 +108,24 @@ are test-fixture thresholds/budgets, not clinical pressure or timing limits.
 
 Patient `FLUID2 n start_ms dt_ms net_loss_mL` advances its water ledger by actual
 pump draw minus return (= UF + circuit storage change); permits negative net
-loss on drainage, rejects depletion/overfill and sequence errors. M1 ADVANCE is
-unchanged. Schema-2 manifests/JSONL v1 persist; extended records add `circuit`
+loss on drainage, rejects depletion/overfill and sequence errors. It returns
+`FLUID_VOLUME2 n end_ms volume_mL net_loss_total_mL numerical_correction_mL`.
+A boundary overshoot <=1e-9 mL can be rounded to zero/100000 mL; the sum of absolute
+corrections is capped at 1e-8 mL per run. The signed correction is explicitly
+recorded in every extended trajectory record, and true overfill is still rejected.
+This bounds floating-point hydraulic-to-Decimal conversion drift, not physiological
+volume. M1 ADVANCE keeps its strict bounds and original response unchanged.
+Schema-2 manifests/JSONL v1 persist; extended records add `circuit`
 with units in field names. Readers that consume only M1 fields remain usable.
 Startup is zero pressure/excess storage, zero actuators; full restart starts a
 new run, never silently restores a partial treatment. Failed RPC policy remains
 terminal HALT with separate acknowledged and observed stop evidence.
+
+## Executed-evidence identity
+
+`verify_models.py` compares the executed configuration, its independently computed
+digest and the full build-input hash map with the requested scenario/current
+configured build before accepting any artifacts. A stale `--no-build` image is
+an error even if its trajectory is internally consistent. The named occlusion
+fixture must actually latch within its declared virtual-time bound; hash equality
+alone is not evidence that a fault was exercised.

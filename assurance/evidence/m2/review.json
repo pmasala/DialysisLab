@@ -1,0 +1,54 @@
+{
+  "phase": "M2",
+  "base": "1999741a63c57ed25b236c8739bfd4408a5cbd7f",
+  "candidate": "9aeee604b7c63d7a607786340a00a477721cbae8",
+  "command": [
+    "codex",
+    "-c",
+    "sandbox_mode=\"read-only\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "-c",
+    "developer_instructions=\"Perform a read-only code review of the entire M2 phase diff against the specified base. Do not modify files, spawn reviewers, or invoke another review. Seek concrete behavioral, safety, numerical, protocol, concurrency, resource, and evidence-integrity bugs with reproducible scenarios. Do not access private/licensed standards, credentials, or external accounts. Distinguish numerical verification from clinical validation. Existing M1 supplied review is already resolved; evaluate regressions and new changes, not a recursive review campaign.\"",
+    "review",
+    "--base",
+    "1999741"
+  ],
+  "started_at": "2026-10-07T22:43:45.879758+00:00",
+  "status": "FINDINGS_APPLICABLE",
+  "invocations": 1,
+  "exit_code": 0,
+  "finished_at": "2026-10-07T22:50:12.641625+00:00",
+  "full_output_path": "build/reviews/m2-output.txt",
+  "full_output_sha256": "17ffd0467eab396b6e0e6a7cdc23345c7ffee4be7e131eac1e6f475a7063406c",
+  "final_output": "The patch can corrupt water accounting after post-commit isolation, abort valid drainage scenarios through roundoff, and report successful Compose verification for a different configuration. Structural checks and read-only patient/configuration tests passed, but do not cover these failures.\n\nFull review comments:\n\n- [P2] Preserve committed water deltas across protective isolation \u2014 /home/pietro/DialysisLab/src/circuit.hpp:67-70\n  If the runner pauses for over two seconds between COMMIT and CSTATE2, the watchdog calls `isolate()`, erasing the committed water deltas without changing the sequence or timestamp. The runner accepts that snapshot and sends zero loss to FLUID2 despite increased circuit storage. Replaying the first small-circuit tick produces a 0.373 mL conservation error; a one-tick run still reports completed. Preserve an immutable committed snapshot or return it atomically with COMMIT.\n\n- [P2] Bind Compose verification to the requested configuration \u2014 /home/pietro/DialysisLab/tools/verify_models.py:60-63\n  In Compose mode, the host configuration loaded above is never compared with the executed manifest. Because `collect_case()` uses `--no-build`, a stale image with different profile parameters or fault timing can receive a successful verification report. Supplying nominal artifacts for `circuit_occlusion` currently passes despite executing no occlusion. Compare the executed configuration and its digest with the requested configuration before accepting the case, consistent with the executed-evidence requirement in [AGENTS.md:36](/home/pietro/DialysisLab/AGENTS.md#L36).\n\n- [P2] Account for floating-point roundoff at the volume ceiling \u2014 /home/pietro/DialysisLab/python/dialysislab/patient.py:42-44\n  A valid one-node configuration with initial volume 100000 mL, C=0.02, R=0.5, demand 300, dt=100 ms, zero UF, and a missing control sensor from tick 1 drains back toward its initial volume. Floating-point draw/return accounting makes the proposed Decimal volume reach `100000.0000000000000000016533` at tick 240, so this strict comparison aborts an otherwise valid run. Apply a bounded roundoff policy to FLUID2 accounting while continuing to reject genuine overfill.\nThe patch can corrupt water accounting after post-commit isolation, abort valid drainage scenarios through roundoff, and report successful Compose verification for a different configuration. Structural checks and read-only patient/configuration tests passed, but do not cover these failures.\n\nFull review comments:\n\n- [P2] Preserve committed water deltas across protective isolation \u2014 /home/pietro/DialysisLab/src/circuit.hpp:67-70\n  If the runner pauses for over two seconds between COMMIT and CSTATE2, the watchdog calls `isolate()`, erasing the committed water deltas without changing the sequence or timestamp. The runner accepts that snapshot and sends zero loss to FLUID2 despite increased circuit storage. Replaying the first small-circuit tick produces a 0.373 mL conservation error; a one-tick run still reports completed. Preserve an immutable committed snapshot or return it atomically with COMMIT.\n\n- [P2] Bind Compose verification to the requested configuration \u2014 /home/pietro/DialysisLab/tools/verify_models.py:60-63\n  In Compose mode, the host configuration loaded above is never compared with the executed manifest. Because `collect_case()` uses `--no-build`, a stale image with different profile parameters or fault timing can receive a successful verification report. Supplying nominal artifacts for `circuit_occlusion` currently passes despite executing no occlusion. Compare the executed configuration and its digest with the requested configuration before accepting the case, consistent with the executed-evidence requirement in [AGENTS.md:36](/home/pietro/DialysisLab/AGENTS.md#L36).\n\n- [P2] Account for floating-point roundoff at the volume ceiling \u2014 /home/pietro/DialysisLab/python/dialysislab/patient.py:42-44\n  A valid one-node configuration with initial volume 100000 mL, C=0.02, R=0.5, demand 300, dt=100 ms, zero UF, and a missing control sensor from tick 1 drains back toward its initial volume. Floating-point draw/return accounting makes the proposed Decimal volume reach `100000.0000000000000000016533` at tick 240, so this strict comparison aborts an otherwise valid run. Apply a bounded roundoff policy to FLUID2 accounting while continuing to reject genuine overfill.\n",
+  "findings": [
+    {
+      "id": "M2-R1",
+      "severity": "P2",
+      "problem": "Post-COMMIT isolation erases water deltas before a separate CSTATE2 read.",
+      "correction": "Atomic COMMIT2 response and final observed liveness check.",
+      "tests": [
+        "test_watchdog_after_commit_preserves_atomic_water_snapshot"
+      ]
+    },
+    {
+      "id": "M2-R2",
+      "severity": "P2",
+      "problem": "Compose verifier accepts an internally consistent but wrong configuration/image.",
+      "correction": "Compare requested canonical config/digest and source hashes; require actual occlusion response.",
+      "tests": [
+        "test_evidence_rejects_wrong_configuration_digest_and_stale_build"
+      ]
+    },
+    {
+      "id": "M2-R3",
+      "severity": "P2",
+      "problem": "Floating-point drainage aborts at the 100000 mL boundary.",
+      "correction": "Explicit <=1e-9 mL boundary correction and <=1e-8 mL absolute run budget with recorded signed adjustment; genuine overfill remains rejected.",
+      "tests": [
+        "test_volume_ceiling_drainage_and_explicit_roundoff_budget"
+      ]
+    }
+  ]
+}

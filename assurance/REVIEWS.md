@@ -21,17 +21,26 @@ review identified three concrete P2 defects in the original M1 implementation.
 Evidence checkpoint `1999741`; native and sanitizer suites each 47/47; actual
 Compose and repeatability checks passed. Release gaps remain open.
 
-## M2 — candidate ready; one invocation reserved
+## M2 — single review completed; corrections under regression
 
-Base `1999741`; candidate is the commit containing this entry. Before invocation,
-`build/reviews/m2.json` records the full candidate SHA and exact argv. Planned
-command: `codex -c sandbox_mode='"read-only"' -c approval_policy='"never"'
--c developer_instructions=<read-only defect review instructions> review --base 1999741`.
-The full output and return code will be retained and copied into committed evidence.
-No second review is authorized after fixes. Candidate checks: native 55/55,
-sanitizer 55/55, six M2 Compose runs, four M1 Compose runs and two isolation probes
-passed. Maximum measured M2 water residual was 3.644e-12 mL; repeated native and
-container trajectory hashes matched.
+Base `1999741a63c57ed25b236c8739bfd4408a5cbd7f`; candidate
+`9aeee604b7c63d7a607786340a00a477721cbae8`. One invocation of `codex review --base
+1999741`, with read-only sandbox, no approvals, and explicit defect-review
+instructions. CLI 0.161.0 returned zero and **three applicable P2 findings**.
+Exact argv, timestamps and final output: [review.json](evidence/m2/review.json).
+Full local transcript: `build/reviews/m2-output.txt`, hash retained in the report.
+No second review will be invoked.
+
+| Finding | Scenario | Correction | Regression |
+| --- | --- | --- | --- |
+| M2-R1, P2 | Watchdog between COMMIT and CSTATE2 loses the just-committed draw/return ledger. | Atomic COMMIT2 reply includes physical and circuit states; end-of-run observed failure is recorded. | Real watchdog after commit; preserve water/storage, observe stopped outputs and abort. |
+| M2-R2, P2 | Stale Compose image/nominal artifacts can satisfy a requested occlusion run. | Compare full canonical configuration/digest and source hash map; require actual named occlusion timing. | Reject wrong config, forged digest and stale source hashes. |
+| M2-R3, P2 | Drainage toward initial 100000 mL fails on a 1.65e-18 mL overshoot. | Bounded explicit FLUID2 roundoff (1e-9 per correction, 1e-8 absolute run budget), reported separately. | Real 300-tick drainage, genuine overfill rejection and exhausted correction budget. |
+
+Candidate tests before review: native/sanitizer 55/55 each; six M2 Compose runs,
+four M1 Compose runs and two isolation probes passed. These do not replace final
+regressions of the corrections. Commit/evidence dispositions will be added after
+those checks. Independent model calibration and risk acceptance remain open.
 
 ## M3–M9
 

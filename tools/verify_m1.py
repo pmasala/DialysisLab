@@ -55,7 +55,7 @@ def main():
                     command='python3 tools/verify_m1.py --build-dir ' + str(args.build_dir) + ' --output ' + str(args.output),
                     build=build_identity(args.build_dir), tests_run=result.testsRun,
                     successful=result.wasSuccessful() and not result.skipped, cases=result.cases,
-                    output=stream.getvalue(), scope='Synthetic M1 and assurance tooling only; independent review pending',
+                    output=stream.getvalue(), scope='Synthetic simulator regression and assurance tooling; no calibration or independent assurance approval',
                     test_source_sha256={str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                                         for p in sorted((ROOT / 'tests').glob('test_*.py'))},
                     configurations={p.name: json.loads(p.read_text()) for p in sorted((ROOT / 'scenarios').glob('*.json'))})

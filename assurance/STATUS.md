@@ -3,9 +3,9 @@
 ## Integrated execution checkpoint — 2026-10-08
 
 Branch `feat/integrated-dialysis-roadmap`, starting commit `1999741`. M1 technical
-scope COMPLETE with its supplied review resolved; M2 IN PROGRESS (candidate implemented and tested; single review next); M3–M9 PLANNED. Full project remains incomplete. The next executable
-step is to commit the tested M2 candidate and invoke its single read-only review
-against `1999741`; then address findings and retain final evidence. See
+scope COMPLETE with its supplied review resolved; M2 IN PROGRESS (single review complete; three P2 corrections under regression); M3–M9 PLANNED. Full project remains incomplete. The next executable
+step is to commit the three M2 corrections, execute full native/sanitizer/Compose
+regressions, retain evidence and start M3. The M2 review must not be invoked again. See
 [the persistent plan](../docs/MILESTONES.md), [decisions](../docs/DECISIONS.md) and
 [review register](REVIEWS.md). Baseline structural checks were repeated: zero
 errors; 66 trace release gaps, 184 open standards entries and 12 gaps remain.

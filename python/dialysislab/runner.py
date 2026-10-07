@@ -219,26 +219,32 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
             if failures:
                 manifest['rpc_failures'] = failures
                 raise RuntimeError(','.join(failures))
-            physical = state(rpc(admin, 'COMMIT', n, t))
+            physical = (circuit.committed(rpc(admin, 'COMMIT2', n, t)) if extended
+                        else state(rpc(admin, 'COMMIT', n, t)))
             pending_plant_state = physical
             if physical['sequence'] != n or physical['time_ms'] != t + config['dt_ms']:
                 raise ValueError('plant clock mismatch')
             water = physical['removed_tick_mL']
             if extended:
-                physical['circuit'] = circuit.state(rpc(admin, 'CSTATE2'))
                 if physical['circuit']['sequence'] != n or physical['circuit']['time_ms'] != t + config['dt_ms']:
                     raise ValueError('circuit clock mismatch')
                 water = physical['circuit']['draw_tick_mL'] - physical['circuit']['return_tick_mL']
             volume = expect(rpc(patient, 'FLUID2' if extended else 'ADVANCE', n, t, config['dt_ms'], water),
-                            'VOLUME', 5)
+                            'FLUID_VOLUME2' if extended else 'VOLUME', 6 if extended else 5)
             if integer(volume[1]) != n or integer(volume[2]) != t + config['dt_ms']:
                 raise ValueError('patient clock mismatch')
+            if extended:
+                physical['patient_numerical_correction_mL'] = real(volume[5], -1e-8, 1e-8)
             writer.append(dict(physical, patient_volume_mL=real(volume[3], 0, 100000),
                                 patient_removed_mL=real(volume[4], -100000, 100000), observations=measurements,
                                 protection_decision=decision))
             pending_plant_state = None
             if physical['reason'] in ('liveness', 'protocol', 'control_missing', 'protection_missing'):
                 raise RuntimeError('unexpected plant failure: ' + physical['reason'])
+        if extended:
+            manifest['final_plant_observation'] = state(rpc(admin, 'STATUS'))
+            if manifest['final_plant_observation']['reason'] in ('liveness', 'protocol', 'control_missing', 'protection_missing'):
+                raise RuntimeError('plant stopped after commit: ' + manifest['final_plant_observation']['reason'])
         manifest['outcome'] = 'completed'
     except (OSError, ValueError, RuntimeError) as exc:
         manifest['outcome'] = 'aborted'

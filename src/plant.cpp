@@ -43,6 +43,17 @@ public:
         return dl::msg("STATE", n, end_t, output.blood, output.pressure, output.uf,
                        total, removed, latched ? 1 : 0, (latched || !armed) ? 1 : 0, reason);
     }
+    std::string circuit_state() const {
+        std::ostringstream out;
+        out << dl::msg("CIRCUIT2", n, end_t, circuit.compliance.size(), circuit.edges.size(),
+            circuit.pump, circuit.returned, circuit.uf, circuit.stored, circuit.delta,
+            circuit.draw_tick, circuit.return_tick, circuit.uf_tick) << std::setprecision(17);
+        for (std::size_t i = 1; i < circuit.pressure.size(); ++i) out << ' ' << circuit.pressure[i];
+        for (double x : circuit.flow) out << ' ' << x;
+        for (double x : circuit.diffusion) out << ' ' << x;
+        for (double x : circuit.convection) out << ' ' << x;
+        return out.str();
+    }
     std::string handle(std::size_t role, dl::Tokens& r) {
         auto op = r.take();
         if (role == 0 && op == "CONFIG2") {
@@ -93,15 +104,7 @@ public:
         }
         if (role == 0 && op == "CSTATE2") {
             r.end(); dl::require(configured);
-            std::ostringstream out;
-            out << dl::msg("CIRCUIT2", n, end_t, circuit.compliance.size(), circuit.edges.size(),
-                circuit.pump, circuit.returned, circuit.uf, circuit.stored, circuit.delta,
-                circuit.draw_tick, circuit.return_tick, circuit.uf_tick) << std::setprecision(17);
-            for (std::size_t i = 1; i < circuit.pressure.size(); ++i) out << ' ' << circuit.pressure[i];
-            for (double x : circuit.flow) out << ' ' << x;
-            for (double x : circuit.diffusion) out << ' ' << x;
-            for (double x : circuit.convection) out << ' ' << x;
-            return out.str();
+            return circuit_state();
         }
         if (op == "PING") { r.end(); heartbeat[role] = dl::Clock::now(); return "DL1 OK"; }
         if (role == 0 && op == "STATUS") { r.end(); return state(); }
@@ -148,8 +151,9 @@ public:
             dl::require(op != "TRIP" || cause != "none");
             decision_seen = true;
             if (op == "TRIP") latch(cause);
-        } else if (role == 0 && op == "COMMIT") {
+        } else if (role == 0 && (op == "COMMIT" || op == "COMMIT2")) {
             tick(r); r.end();
+            dl::require((op == "COMMIT2") == configured);
             if (!decision_seen) latch("protection_missing");
             if (!demand_seen) latch("control_missing");
             watchdog();
@@ -166,7 +170,9 @@ public:
             total = updated; end_t = t + dt;
             next_n = n + 1; next_t = end_t; prepared = false;
             heartbeat[role] = dl::Clock::now();
-            return state();
+            // Seal the integrated state in a single reply before any asynchronous
+            // watchdog/HALT can change live rates or per-step circuit diagnostics.
+            return configured ? "DL1 COMMITTED2 " + state().substr(4) + " " + circuit_state().substr(4) : state();
         } else throw std::runtime_error("role or operation");
         heartbeat[role] = dl::Clock::now();
         return "DL1 OK";

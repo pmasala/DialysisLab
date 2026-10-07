@@ -14,6 +14,8 @@ class Patient:
         self.volume = self.removed = 0.0
         self.next_sequence = self.time_ms = self.last_sequence = 0
         self.stopping = False
+        self.numerical_correction = Decimal(0)
+        self.numerical_correction_absolute = Decimal(0)
 
     def status(self):
         return message('VOLUME', self.last_sequence, self.time_ms, self.volume, self.removed)
@@ -40,13 +42,26 @@ class Patient:
             else:
                 real(request[4], -100000, 100000)
             removed = Decimal(request[4])
-            if not 0 <= self.volume - removed <= 100000:
+            proposed = self.volume - removed
+            correction = Decimal(0)
+            if request[0] == 'FLUID2':
+                bounded = max(Decimal(0), min(Decimal(100000), proposed))
+                correction = bounded - proposed
+                if abs(correction) > Decimal('1e-9') or self.numerical_correction_absolute + abs(correction) > Decimal('1e-8'):
+                    raise ProtocolError('volume bounds / numerical correction budget')
+                proposed = bounded
+            if not 0 <= proposed <= 100000:
                 raise ProtocolError('volume bounds')
-            self.volume -= removed
+            self.volume = proposed
             self.removed += removed
+            self.numerical_correction += correction
+            self.numerical_correction_absolute += abs(correction)
             self.last_sequence = seq
             self.next_sequence += 1
             self.time_ms += dt
+            if request[0] == 'FLUID2':
+                return message('FLUID_VOLUME2', self.last_sequence, self.time_ms, self.volume,
+                               self.removed, self.numerical_correction)
             return self.status()
         raise ProtocolError('operation')
 

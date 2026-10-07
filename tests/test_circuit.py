@@ -6,6 +6,8 @@ import math
 import os
 from pathlib import Path
 import sys
+import time
+import tempfile
 import unittest
 from unittest.mock import patch
 
@@ -13,6 +15,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'python'))
 from dialysislab import circuit, runner
 from dialysislab.protocol import ProtocolError, rpc, state
+from dialysislab.patient import Patient
+sys.path.insert(0, str(ROOT / 'tools'))
+import verify_models
 
 BUILD = Path(os.environ.get('DIALYSISLAB_BUILD_DIR', ROOT / 'build'))
 CONFIG = json.loads((ROOT / 'scenarios/circuit_small.json').read_text())
@@ -159,13 +164,85 @@ class CircuitTests(unittest.TestCase):
                 self.assertEqual(len(records), 5)
                 self.assertEqual(manifest['outcome'], 'aborted')
                 self.assertTrue(manifest['stop']['outputs_zero_observed'])
-                self.assertFalse(any(f[0] in ('COMMIT', 'FLUID2') and f[1] == 5 for f in calls))
+                self.assertFalse(any(f[0] in ('COMMIT', 'COMMIT2', 'FLUID2') and f[1] == 5 for f in calls))
                 physical = circuit.state(rpc(cluster.runtime / 'admin/plant.sock', 'CSTATE2'))
                 self.assertEqual(physical['stored_mL'], records[-1]['circuit']['stored_mL'])
                 self.assertEqual(physical['pump_mL_min'], 0)
-                for command in [('COMMIT', 5, 500), ('EDGE2', 0, 1, 0)]:
+                for command in [('COMMIT2', 5, 500), ('EDGE2', 0, 1, 0)]:
                     with self.assertRaises(ProtocolError): rpc(cluster.runtime / 'admin/plant.sock', *command)
                 self.assertEqual(circuit.state(rpc(cluster.runtime / 'admin/plant.sock', 'CSTATE2')), physical)
+
+    def test_watchdog_after_commit_preserves_atomic_water_snapshot(self):
+        config = copy.deepcopy(CONFIG)
+        config['ticks'] = 1
+        with runner.LocalCluster(BUILD) as cluster:
+            calls = []
+            def routed(path, *fields):
+                calls.append(fields[0])
+                reply = rpc(path, *fields)
+                if fields[0] == 'COMMIT2':
+                    time.sleep(2.15)  # Real plant watchdog expires after the committed reply.
+                return reply
+            with patch.object(runner, 'rpc', side_effect=routed):
+                records, manifest = runner.simulate(config, cluster.runtime, BUILD)
+            self.assertEqual(manifest['outcome'], 'aborted')
+            self.assertEqual(manifest['final_plant_observation']['reason'], 'liveness')
+            self.assertEqual(len(records), 1)  # The already integrated tick remains accounted for.
+            record = records[0]
+            self.assertGreater(record['circuit']['draw_tick_mL'], 0)
+            self.assertLess(abs(config['patient_volume_mL'] - record['patient_volume_mL']
+                                - record['circuit']['stored_mL'] - record['removed_total_mL']), 1e-8)
+            live = circuit.state(rpc(cluster.runtime / 'admin/plant.sock', 'CSTATE2'))
+            self.assertEqual(live['draw_tick_mL'], 0)
+            self.assertEqual(live['stored_mL'], record['circuit']['stored_mL'])
+            self.assertNotIn('CSTATE2', calls)  # No split read for accounting.
+            self.assertTrue(manifest['stop']['outputs_zero_observed'])
+
+    def test_volume_ceiling_drainage_and_explicit_roundoff_budget(self):
+        config = self.single_node(ticks=300)
+        config.update(patient_volume_mL=100000,
+                      faults=[dict(tick=1, target='control_sensor', value='missing')])
+        records, _ = self.run_scenario(config)
+        for record in records:
+            self.assertLessEqual(record['patient_volume_mL'], 100000)
+            self.assertLessEqual(abs(record['patient_numerical_correction_mL']), 1e-8)
+            self.assertLess(abs(record['patient_volume_mL'] + record['circuit']['stored_mL'] - 100000), 1e-8)
+        self.assertAlmostEqual(records[-1]['patient_volume_mL'], 100000, delta=1e-8)
+        patient = Patient()
+        patient.handle(['INIT', '100000'])
+        with self.assertRaises(ProtocolError):
+            patient.handle(['FLUID2', '0', '0', '100', '-0.000001'])
+        self.assertEqual(patient.volume, 100000)
+        reply = patient.handle(['FLUID2', '0', '0', '100', '-0.0000000001'])
+        self.assertTrue(reply.startswith('DL1 FLUID_VOLUME2'))
+        self.assertEqual(patient.volume, 100000)
+        self.assertEqual(patient.numerical_correction, Decimal('-1e-10'))
+        for n in range(1, 100):
+            patient.handle(['FLUID2', str(n), str(n * 100), '100', '-0.0000000001'])
+        with self.assertRaises(ProtocolError):
+            patient.handle(['FLUID2', '100', '10000', '100', '-0.0000000001'])
+        self.assertEqual(patient.next_sequence, 100)
+
+    def test_evidence_rejects_wrong_configuration_digest_and_stale_build(self):
+        config = copy.deepcopy(CONFIG)
+        config['ticks'] = 2
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp) / 'run'
+            with runner.LocalCluster(BUILD) as cluster:
+                _, manifest = runner.simulate(config, cluster.runtime, BUILD, directory)
+            sources = manifest['build']['source_sha256']
+            verify_models.verify(directory, config, sources)
+            requested = copy.deepcopy(config)
+            requested['faults'] = [dict(tick=1, target='edge:2', value=dict(resistance=0.1, closed=True))]
+            with self.assertRaisesRegex(ValueError, 'configuration'):
+                verify_models.verify(directory, requested, sources)
+            stale = dict(sources, **{'src/circuit.hpp': '0' * 64})
+            with self.assertRaisesRegex(ValueError, 'build sources'):
+                verify_models.verify(directory, config, stale)
+            manifest['configuration_sha256'] = '0' * 64
+            (directory / 'manifest.json').write_text(json.dumps(manifest))
+            with self.assertRaisesRegex(ValueError, 'configuration'):
+                verify_models.verify(directory, config, sources)
 
 
 if __name__ == '__main__':

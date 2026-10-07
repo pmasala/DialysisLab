@@ -57,6 +57,7 @@
     "assurance/evidence/m1/reproducibility.json",
     "assurance/evidence/m1/sanitizer-tests.json",
     "assurance/evidence/m1/summary.json",
+    "assurance/evidence/m2/review.json",
     "assurance/standards/CHECKLIST.md",
     "assurance/standards/EDITION_GAPS.md",
     "assurance/standards/PUBLICATION_POLICY.md",
