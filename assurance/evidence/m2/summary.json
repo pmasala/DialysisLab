@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "phase": "M2",
+  "technical_status": "COMPLETE",
+  "executed_at": "2026-10-07T22:56:47.548109+00:00",
+  "implementation_commit": "2108e552e49e769a419cc8bd357676caa8a2d34b",
+  "build_worktree_clean": true,
+  "native_tests": 58,
+  "sanitizer_tests": 58,
+  "m2_process_runs": 6,
+  "m2_compose_runs": 6,
+  "m1_compose_runs": 4,
+  "isolation_probes": 2,
+  "cross_build_exact_replay": true,
+  "maximum_water_residual_mL": 3.643974011424689e-12,
+  "water_tolerance_mL": 1e-06,
+  "occlusion_first_latch_ms": 2900,
+  "occlusion_deadline_ms": 3000,
+  "review_invocations": 1,
+  "review_findings_fixed": 3,
+  "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image.",
+  "scope": "Synthetic circuit software/numerical verification only; no model calibration, clinical validation, independent risk acceptance or standards conformity.",
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m2/circuit_large/manifest.json",
+      "sha256": "1f9797f565b3e8d32029aab83dc23592e43c10faed178b384d05c89bdfd93feb"
+    },
+    {
+      "path": "assurance/evidence/m2/circuit_large/trajectory.jsonl",
+      "sha256": "19bfef7b9fce804b45a4a7a9643fd0d1696efe66e946c1357b4c2e81ab751db4"
+    },
+    {
+      "path": "assurance/evidence/m2/circuit_occlusion/manifest.json",
+      "sha256": "f8236afe3f2701be19ce301f0e1a711383912d439379cfff45d3c78ee6f42396"
+    },
+    {
+      "path": "assurance/evidence/m2/circuit_occlusion/trajectory.jsonl",
+      "sha256": "cdc6d90f5cd6d110626733b429df8e864c47b16f3356a98e0da6b2fb50019693"
+    },
+    {
+      "path": "assurance/evidence/m2/circuit_small/manifest.json",
+      "sha256": "014f0d594f22c27421cac8c7fe7075e7177206a88ce1d8a3340ddf039dc0a2e9"
+    },
+    {
+      "path": "assurance/evidence/m2/circuit_small/trajectory.jsonl",
+      "sha256": "df0f2ae40c474d97d317610232ff4ab080c95702a18000f18d63884d985afd13"
+    },
+    {
+      "path": "assurance/evidence/m2/compose-models.json",
+      "sha256": "3e9ce9bdaed39f35421f4ae34e7c8bef2b5008c7b076ef7d83d6edd662e0114e"
+    },
+    {
+      "path": "assurance/evidence/m2/m1-compose.json",
+      "sha256": "0a5ac2b2f6423b2a1bcb70756b4453cf10d2926d9b0ab9e9485638f52c3e47c8"
+    },
+    {
+      "path": "assurance/evidence/m2/native-models.json",
+      "sha256": "94854d6a358bc7772d3055c13f4d22bc3b38440c0c4b97ead74cc7d8e61a1349"
+    },
+    {
+      "path": "assurance/evidence/m2/native-tests.json",
+      "sha256": "9433f0b56ef8173a6b1ebcd3e8298baa357b6e4c6e63149900de3b572ad3173f"
+    },
+    {
+      "path": "assurance/evidence/m2/review.json",
+      "sha256": "71b975b68bd00d1f43c6b601c97674fc3af5e96f986eded4d54ef3289274537e"
+    },
+    {
+      "path": "assurance/evidence/m2/sanitizer-tests.json",
+      "sha256": "f078aa63e919c01d6ac81c02f7bc3060b16202dc549f014f1704c54974fdd94b"
+    }
+  ]
+}

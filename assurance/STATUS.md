@@ -2,14 +2,23 @@
 
 ## Integrated execution checkpoint — 2026-10-08
 
-Branch `feat/integrated-dialysis-roadmap`, starting commit `1999741`. M1 technical
-scope COMPLETE with its supplied review resolved; M2 IN PROGRESS (single review complete; three P2 corrections under regression); M3–M9 PLANNED. Full project remains incomplete. The next executable
-step is to commit the three M2 corrections, execute full native/sanitizer/Compose
-regressions, retain evidence and start M3. The M2 review must not be invoked again. See
-[the persistent plan](../docs/MILESTONES.md), [decisions](../docs/DECISIONS.md) and
-[review register](REVIEWS.md). Baseline structural checks were repeated: zero
-errors; 66 trace release gaps, 184 open standards entries and 12 gaps remain.
+Branch `feat/integrated-dialysis-roadmap`, published to origin. M1 and M2 technical
+scope COMPLETE; M3 NEXT; M4–M9 PLANNED. Full project remains incomplete. M2
+implementation `2108e55` passed 58 native and 58 sanitizer tests, six native/six
+Compose model runs, four M1 Compose regressions and two isolation probes. Its
+single review of `9aeee60` against `1999741` returned three P2 findings, all fixed
+and verified. No M1 or M2 review may be rerun. See [M2 evidence](evidence/m2/README.md).
 
+Next executable step: commit this M2 evidence checkpoint, fix that commit as the
+M3 base, define M3 conservative compartment/transport contracts and implement the
+Python patient coupling. Preserve atomic COMMIT2 snapshots, bounded/recorded
+roundoff, exact configuration/build evidence binding and streaming outputs.
+
+Persistent checkpoints: [plan](../docs/MILESTONES.md),
+[decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md). The synthetic M2 model is
+numerically tested but uncalibrated; physiology, treatment modes/state machines,
+UI/console, hardening/CI and final integration remain to be implemented. All
+independent assurance and regulatory release obligations remain open.
 
 Review update, 8 October 2026: the three M1 review defects are corrected and have
 passed real process and Docker regression checks. The tested implementation is

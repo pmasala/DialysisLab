@@ -21,7 +21,7 @@ review identified three concrete P2 defects in the original M1 implementation.
 Evidence checkpoint `1999741`; native and sanitizer suites each 47/47; actual
 Compose and repeatability checks passed. Release gaps remain open.
 
-## M2 — single review completed; corrections under regression
+## M2 — single review completed; corrections verified
 
 Base `1999741a63c57ed25b236c8739bfd4408a5cbd7f`; candidate
 `9aeee604b7c63d7a607786340a00a477721cbae8`. One invocation of `codex review --base
@@ -37,10 +37,11 @@ No second review will be invoked.
 | M2-R2, P2 | Stale Compose image/nominal artifacts can satisfy a requested occlusion run. | Compare full canonical configuration/digest and source hash map; require actual named occlusion timing. | Reject wrong config, forged digest and stale source hashes. |
 | M2-R3, P2 | Drainage toward initial 100000 mL fails on a 1.65e-18 mL overshoot. | Bounded explicit FLUID2 roundoff (1e-9 per correction, 1e-8 absolute run budget), reported separately. | Real 300-tick drainage, genuine overfill rejection and exhausted correction budget. |
 
-Candidate tests before review: native/sanitizer 55/55 each; six M2 Compose runs,
-four M1 Compose runs and two isolation probes passed. These do not replace final
-regressions of the corrections. Commit/evidence dispositions will be added after
-those checks. Independent model calibration and risk acceptance remain open.
+Corrections committed as `2108e55`. Final native and sanitizer suites passed
+58/58 each; six M2 Compose runs, four M1 Compose runs and two isolation probes
+passed. Native/container trajectories match. [Final evidence](evidence/m2/README.md)
+identifies each build/configuration. Independent model calibration and risk
+acceptance remain open.
 
 ## M3–M9
 

@@ -15,7 +15,7 @@
     "1999741"
   ],
   "started_at": "2026-10-07T22:43:45.879758+00:00",
-  "status": "FINDINGS_APPLICABLE",
+  "status": "FINDINGS_FIXED_AND_REGRESSION_PASSED",
   "invocations": 1,
   "exit_code": 0,
   "finished_at": "2026-10-07T22:50:12.641625+00:00",
@@ -30,7 +30,10 @@
       "correction": "Atomic COMMIT2 response and final observed liveness check.",
       "tests": [
         "test_watchdog_after_commit_preserves_atomic_water_snapshot"
-      ]
+      ],
+      "disposition": "fixed",
+      "correction_commit": "2108e552e49e769a419cc8bd357676caa8a2d34b",
+      "evidence": "assurance/evidence/m2/native-tests.json"
     },
     {
       "id": "M2-R2",
@@ -39,7 +42,10 @@
       "correction": "Compare requested canonical config/digest and source hashes; require actual occlusion response.",
       "tests": [
         "test_evidence_rejects_wrong_configuration_digest_and_stale_build"
-      ]
+      ],
+      "disposition": "fixed",
+      "correction_commit": "2108e552e49e769a419cc8bd357676caa8a2d34b",
+      "evidence": "assurance/evidence/m2/native-tests.json"
     },
     {
       "id": "M2-R3",
@@ -48,7 +54,11 @@
       "correction": "Explicit <=1e-9 mL boundary correction and <=1e-8 mL absolute run budget with recorded signed adjustment; genuine overfill remains rejected.",
       "tests": [
         "test_volume_ceiling_drainage_and_explicit_roundoff_budget"
-      ]
+      ],
+      "disposition": "fixed",
+      "correction_commit": "2108e552e49e769a419cc8bd357676caa8a2d34b",
+      "evidence": "assurance/evidence/m2/native-tests.json"
     }
-  ]
+  ],
+  "correction_commit": "2108e552e49e769a419cc8bd357676caa8a2d34b"
 }

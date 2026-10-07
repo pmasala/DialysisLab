@@ -11,6 +11,8 @@
 | M2-001 | Use a positive-compliance resistive graph and implicit Euler with bounded pivoted solves. It supports arbitrary branches and clamps without an external solver dependency. | First-order lumped model, no pulsatility/inertance/rheology. Analytic convergence tests define numerical evidence only. |
 | M2-002 | Count patient draw minus return, including circuit storage; freeze storage on protective isolation. | Stopping pumps does not prove the circuit is empty or depressurized. Recovery semantics follow in M5. |
 | M2-003 | Adopt project-authored mixed-cell transport and synthetic profiles, not a commercial countercurrent dialyzer specification. | M2 prescribes concentration boundaries; M3 must conserve compartment masses before dynamic physiology is claimed. |
+| M2-004 | Review fixes require atomic committed snapshots, requested/executed evidence binding and explicit bounded drainage roundoff. | Three applicable P2 findings from the sole M2 review; regression evidence at `assurance/evidence/m2/`. |
+| INT-007 | M2 migrates optional `historical_evidence` from a single object to an ordered list, retaining the original object plus superseded evidence. Active schema-1 evidence still must match the current baseline. | No historical record is relabeled as a current execution; release requirements and checker behavior are unchanged. |
 
 The WSL2 environment has an X11 socket (`/tmp/.X11-unix/X0`) but DISPLAY is
 unset; desktop availability remains to be tested in M6. SDL development headers

@@ -1,0 +1,786 @@
+{
+  "schema_version": 1,
+  "executed_at": "2026-10-07T22:55:31.368219+00:00",
+  "command": "python3 tools/verify_compose.py --output build/m2-final-m1-compose",
+  "successful": true,
+  "cases": [
+    {
+      "scenario": "hd_nominal",
+      "index": 1,
+      "services": [
+        {
+          "service": "control",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/control"
+          ]
+        },
+        {
+          "service": "patient",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/patient"
+          ]
+        },
+        {
+          "service": "plant",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/admin",
+            "/run/dialysis/control",
+            "/run/dialysis/protection"
+          ]
+        },
+        {
+          "service": "protection",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/protection"
+          ]
+        },
+        {
+          "service": "runner",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/control",
+            "/run/dialysis/protection",
+            "/run/dialysis/patient",
+            "/results",
+            "/run/dialysis/admin"
+          ]
+        }
+      ],
+      "manifest": {
+        "schema_version": 2,
+        "executed_at": "2026-10-07T22:55:28.848970+00:00",
+        "configuration": {
+          "schema_version": 1,
+          "model": "m1-hd-1",
+          "seed": 42,
+          "ticks": 20,
+          "dt_ms": 100,
+          "blood_mL_min": 300,
+          "uf_mL_min": 10,
+          "resistance_mmHg_min_mL": 0.5,
+          "pressure_limit_mmHg": 250,
+          "patient_volume_mL": 40000,
+          "faults": []
+        },
+        "configuration_sha256": "b40f8ba47f31e7992abdf7cb8f9c2a84e5436778483f28c50dcb22176986e495",
+        "build": {
+          "source_revision": "2108e552e49e769a419cc8bd357676caa8a2d34b",
+          "worktree_dirty_at_configure": null,
+          "compiler_id": "GNU",
+          "compiler_version": "14.2.0",
+          "build_type": "Release",
+          "source_sha256": {
+            "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+            "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+            "src/circuit.hpp": "d4c8f198d78520dc4b93ed83400177e560c776c63f69bd92350f4526d497dd21",
+            "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+            "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+            "src/plant.cpp": "6edfde71355b8cff41b080329e91fde63c8a05b6a5ec4cbc72e1fc3c2e821092",
+            "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+            "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "6ee709aad17f3ee5455e92c0ff368052b2583f54846729782d4d1a853be03662",
+            "python/dialysislab/patient.py": "91dbb2342f607118c8f782dfcc92c59be7d30fa8735689c61139e143d75e402c",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "b9a9b841f259c8562bac7de911d49f307389bf0e799524a4623670c0bd76e613",
+            "python/dialysislab/trajectory.py": "3356980b564f04cdb375559f12bbfedb328d892925cdbd4cd1712ec56104edf8",
+            "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+            "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+            "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+            "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+            "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+            "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d"
+          },
+          "binary_sha256": {
+            "plant": "b39c554de1f0bda34da3d75b1c3eac8a3bb244a62b13dfaea2a9157b1117e683",
+            "control": "cf486b2f0287ee30b856583342c9c5442a6b1d8899e26971633fb939bb3f192a",
+            "protection": "0be665fe19b7f68b3d07add7c3989f8765d2e02ebd74db450f80c42d15d1f9f9"
+          },
+          "python_sha256": {
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "6ee709aad17f3ee5455e92c0ff368052b2583f54846729782d4d1a853be03662",
+            "python/dialysislab/patient.py": "91dbb2342f607118c8f782dfcc92c59be7d30fa8735689c61139e143d75e402c",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "b9a9b841f259c8562bac7de911d49f307389bf0e799524a4623670c0bd76e613",
+            "python/dialysislab/trajectory.py": "3356980b564f04cdb375559f12bbfedb328d892925cdbd4cd1712ec56104edf8"
+          }
+        },
+        "python": "3.12.14",
+        "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+        "interface": "DL1",
+        "model": "m1-hd-1",
+        "simulation_only": true,
+        "outcome": "completed",
+        "errors": [],
+        "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+        "trajectory_file": "trajectory.jsonl",
+        "completed_ticks": 20,
+        "trajectory_sha256": "0fd2f18189870775e68b31cc9ce1c67584745271005479da56311c51b031ab41",
+        "trajectory_bytes": 11176,
+        "memory": {
+          "peak_rss_bytes": 23498752,
+          "memory.peak": 14450688,
+          "memory.max": 134217728
+        }
+      },
+      "trajectory_path": "hd_nominal-1/results/run/trajectory.jsonl",
+      "expected_removed_mL": "0.3333333333333333333333333333",
+      "actual_removed_mL": 0.3333333333333333
+    },
+    {
+      "scenario": "hd_nominal",
+      "index": 2,
+      "services": [
+        {
+          "service": "control",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/control"
+          ]
+        },
+        {
+          "service": "patient",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/patient"
+          ]
+        },
+        {
+          "service": "plant",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/control",
+            "/run/dialysis/protection",
+            "/run/dialysis/admin"
+          ]
+        },
+        {
+          "service": "protection",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/protection"
+          ]
+        },
+        {
+          "service": "runner",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/protection",
+            "/run/dialysis/patient",
+            "/results",
+            "/run/dialysis/admin",
+            "/run/dialysis/control"
+          ]
+        }
+      ],
+      "manifest": {
+        "schema_version": 2,
+        "executed_at": "2026-10-07T22:55:29.569174+00:00",
+        "configuration": {
+          "schema_version": 1,
+          "model": "m1-hd-1",
+          "seed": 42,
+          "ticks": 20,
+          "dt_ms": 100,
+          "blood_mL_min": 300,
+          "uf_mL_min": 10,
+          "resistance_mmHg_min_mL": 0.5,
+          "pressure_limit_mmHg": 250,
+          "patient_volume_mL": 40000,
+          "faults": []
+        },
+        "configuration_sha256": "b40f8ba47f31e7992abdf7cb8f9c2a84e5436778483f28c50dcb22176986e495",
+        "build": {
+          "source_revision": "2108e552e49e769a419cc8bd357676caa8a2d34b",
+          "worktree_dirty_at_configure": null,
+          "compiler_id": "GNU",
+          "compiler_version": "14.2.0",
+          "build_type": "Release",
+          "source_sha256": {
+            "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+            "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+            "src/circuit.hpp": "d4c8f198d78520dc4b93ed83400177e560c776c63f69bd92350f4526d497dd21",
+            "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+            "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+            "src/plant.cpp": "6edfde71355b8cff41b080329e91fde63c8a05b6a5ec4cbc72e1fc3c2e821092",
+            "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+            "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "6ee709aad17f3ee5455e92c0ff368052b2583f54846729782d4d1a853be03662",
+            "python/dialysislab/patient.py": "91dbb2342f607118c8f782dfcc92c59be7d30fa8735689c61139e143d75e402c",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "b9a9b841f259c8562bac7de911d49f307389bf0e799524a4623670c0bd76e613",
+            "python/dialysislab/trajectory.py": "3356980b564f04cdb375559f12bbfedb328d892925cdbd4cd1712ec56104edf8",
+            "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+            "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+            "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+            "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+            "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+            "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d"
+          },
+          "binary_sha256": {
+            "plant": "b39c554de1f0bda34da3d75b1c3eac8a3bb244a62b13dfaea2a9157b1117e683",
+            "control": "cf486b2f0287ee30b856583342c9c5442a6b1d8899e26971633fb939bb3f192a",
+            "protection": "0be665fe19b7f68b3d07add7c3989f8765d2e02ebd74db450f80c42d15d1f9f9"
+          },
+          "python_sha256": {
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "6ee709aad17f3ee5455e92c0ff368052b2583f54846729782d4d1a853be03662",
+            "python/dialysislab/patient.py": "91dbb2342f607118c8f782dfcc92c59be7d30fa8735689c61139e143d75e402c",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "b9a9b841f259c8562bac7de911d49f307389bf0e799524a4623670c0bd76e613",
+            "python/dialysislab/trajectory.py": "3356980b564f04cdb375559f12bbfedb328d892925cdbd4cd1712ec56104edf8"
+          }
+        },
+        "python": "3.12.14",
+        "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+        "interface": "DL1",
+        "model": "m1-hd-1",
+        "simulation_only": true,
+        "outcome": "completed",
+        "errors": [],
+        "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+        "trajectory_file": "trajectory.jsonl",
+        "completed_ticks": 20,
+        "trajectory_sha256": "0fd2f18189870775e68b31cc9ce1c67584745271005479da56311c51b031ab41",
+        "trajectory_bytes": 11176,
+        "memory": {
+          "peak_rss_bytes": 23191552,
+          "memory.peak": 15171584,
+          "memory.max": 134217728
+        }
+      },
+      "trajectory_path": "hd_nominal-2/results/run/trajectory.jsonl",
+      "expected_removed_mL": "0.3333333333333333333333333333",
+      "actual_removed_mL": 0.3333333333333333
+    },
+    {
+      "scenario": "hd_occlusion",
+      "index": 1,
+      "services": [
+        {
+          "service": "control",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/control"
+          ]
+        },
+        {
+          "service": "patient",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/patient"
+          ]
+        },
+        {
+          "service": "plant",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/admin",
+            "/run/dialysis/control",
+            "/run/dialysis/protection"
+          ]
+        },
+        {
+          "service": "protection",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/protection"
+          ]
+        },
+        {
+          "service": "runner",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/control",
+            "/run/dialysis/protection",
+            "/run/dialysis/patient",
+            "/results",
+            "/run/dialysis/admin"
+          ]
+        }
+      ],
+      "manifest": {
+        "schema_version": 2,
+        "executed_at": "2026-10-07T22:55:30.322673+00:00",
+        "configuration": {
+          "schema_version": 1,
+          "model": "m1-hd-1",
+          "seed": 42,
+          "ticks": 20,
+          "dt_ms": 100,
+          "blood_mL_min": 300,
+          "uf_mL_min": 10,
+          "resistance_mmHg_min_mL": 0.5,
+          "pressure_limit_mmHg": 250,
+          "patient_volume_mL": 40000,
+          "faults": [
+            {
+              "tick": 5,
+              "target": "resistance",
+              "value": 4.0
+            }
+          ]
+        },
+        "configuration_sha256": "2b7ae337cba48b610ef21304446f6de016cf20a353fbcbcb89e49b2d39f0c942",
+        "build": {
+          "source_revision": "2108e552e49e769a419cc8bd357676caa8a2d34b",
+          "worktree_dirty_at_configure": null,
+          "compiler_id": "GNU",
+          "compiler_version": "14.2.0",
+          "build_type": "Release",
+          "source_sha256": {
+            "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+            "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+            "src/circuit.hpp": "d4c8f198d78520dc4b93ed83400177e560c776c63f69bd92350f4526d497dd21",
+            "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+            "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+            "src/plant.cpp": "6edfde71355b8cff41b080329e91fde63c8a05b6a5ec4cbc72e1fc3c2e821092",
+            "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+            "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "6ee709aad17f3ee5455e92c0ff368052b2583f54846729782d4d1a853be03662",
+            "python/dialysislab/patient.py": "91dbb2342f607118c8f782dfcc92c59be7d30fa8735689c61139e143d75e402c",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "b9a9b841f259c8562bac7de911d49f307389bf0e799524a4623670c0bd76e613",
+            "python/dialysislab/trajectory.py": "3356980b564f04cdb375559f12bbfedb328d892925cdbd4cd1712ec56104edf8",
+            "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+            "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+            "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+            "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+            "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+            "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d"
+          },
+          "binary_sha256": {
+            "plant": "b39c554de1f0bda34da3d75b1c3eac8a3bb244a62b13dfaea2a9157b1117e683",
+            "control": "cf486b2f0287ee30b856583342c9c5442a6b1d8899e26971633fb939bb3f192a",
+            "protection": "0be665fe19b7f68b3d07add7c3989f8765d2e02ebd74db450f80c42d15d1f9f9"
+          },
+          "python_sha256": {
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "6ee709aad17f3ee5455e92c0ff368052b2583f54846729782d4d1a853be03662",
+            "python/dialysislab/patient.py": "91dbb2342f607118c8f782dfcc92c59be7d30fa8735689c61139e143d75e402c",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "b9a9b841f259c8562bac7de911d49f307389bf0e799524a4623670c0bd76e613",
+            "python/dialysislab/trajectory.py": "3356980b564f04cdb375559f12bbfedb328d892925cdbd4cd1712ec56104edf8"
+          }
+        },
+        "python": "3.12.14",
+        "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+        "interface": "DL1",
+        "model": "m1-hd-1",
+        "simulation_only": true,
+        "outcome": "completed",
+        "errors": [],
+        "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+        "trajectory_file": "trajectory.jsonl",
+        "completed_ticks": 20,
+        "trajectory_sha256": "819729e3d8941b059d151c10b959bfcd61e96254819a672c5c526bcd79d11756",
+        "trajectory_bytes": 10927,
+        "memory": {
+          "peak_rss_bytes": 23220224,
+          "memory.peak": 14589952,
+          "memory.max": 134217728
+        }
+      },
+      "trajectory_path": "hd_occlusion-1/results/run/trajectory.jsonl",
+      "expected_removed_mL": "0.08333333333333333333333333333",
+      "actual_removed_mL": 0.08333333333333333
+    },
+    {
+      "scenario": "hd_occlusion",
+      "index": 2,
+      "services": [
+        {
+          "service": "control",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/control"
+          ]
+        },
+        {
+          "service": "patient",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/patient"
+          ]
+        },
+        {
+          "service": "plant",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/admin",
+            "/run/dialysis/control",
+            "/run/dialysis/protection"
+          ]
+        },
+        {
+          "service": "protection",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/protection"
+          ]
+        },
+        {
+          "service": "runner",
+          "image": "sha256:f71e629ce517930099da05aebec6856723b9ca6ed2fe84a3bc5cee91be2adfc7",
+          "exit_code": 0,
+          "user": "10001:10001",
+          "oom_killed": false,
+          "memory_limit_bytes": 134217728,
+          "network": "none",
+          "read_only": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_opt": [
+            "no-new-privileges:true"
+          ],
+          "mounts": [
+            "/run/dialysis/control",
+            "/run/dialysis/protection",
+            "/run/dialysis/patient",
+            "/results",
+            "/run/dialysis/admin"
+          ]
+        }
+      ],
+      "manifest": {
+        "schema_version": 2,
+        "executed_at": "2026-10-07T22:55:31.054589+00:00",
+        "configuration": {
+          "schema_version": 1,
+          "model": "m1-hd-1",
+          "seed": 42,
+          "ticks": 20,
+          "dt_ms": 100,
+          "blood_mL_min": 300,
+          "uf_mL_min": 10,
+          "resistance_mmHg_min_mL": 0.5,
+          "pressure_limit_mmHg": 250,
+          "patient_volume_mL": 40000,
+          "faults": [
+            {
+              "tick": 5,
+              "target": "resistance",
+              "value": 4.0
+            }
+          ]
+        },
+        "configuration_sha256": "2b7ae337cba48b610ef21304446f6de016cf20a353fbcbcb89e49b2d39f0c942",
+        "build": {
+          "source_revision": "2108e552e49e769a419cc8bd357676caa8a2d34b",
+          "worktree_dirty_at_configure": null,
+          "compiler_id": "GNU",
+          "compiler_version": "14.2.0",
+          "build_type": "Release",
+          "source_sha256": {
+            "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+            "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+            "src/circuit.hpp": "d4c8f198d78520dc4b93ed83400177e560c776c63f69bd92350f4526d497dd21",
+            "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+            "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+            "src/plant.cpp": "6edfde71355b8cff41b080329e91fde63c8a05b6a5ec4cbc72e1fc3c2e821092",
+            "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+            "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "6ee709aad17f3ee5455e92c0ff368052b2583f54846729782d4d1a853be03662",
+            "python/dialysislab/patient.py": "91dbb2342f607118c8f782dfcc92c59be7d30fa8735689c61139e143d75e402c",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "b9a9b841f259c8562bac7de911d49f307389bf0e799524a4623670c0bd76e613",
+            "python/dialysislab/trajectory.py": "3356980b564f04cdb375559f12bbfedb328d892925cdbd4cd1712ec56104edf8",
+            "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+            "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+            "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+            "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+            "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+            "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d"
+          },
+          "binary_sha256": {
+            "plant": "b39c554de1f0bda34da3d75b1c3eac8a3bb244a62b13dfaea2a9157b1117e683",
+            "control": "cf486b2f0287ee30b856583342c9c5442a6b1d8899e26971633fb939bb3f192a",
+            "protection": "0be665fe19b7f68b3d07add7c3989f8765d2e02ebd74db450f80c42d15d1f9f9"
+          },
+          "python_sha256": {
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "6ee709aad17f3ee5455e92c0ff368052b2583f54846729782d4d1a853be03662",
+            "python/dialysislab/patient.py": "91dbb2342f607118c8f782dfcc92c59be7d30fa8735689c61139e143d75e402c",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "b9a9b841f259c8562bac7de911d49f307389bf0e799524a4623670c0bd76e613",
+            "python/dialysislab/trajectory.py": "3356980b564f04cdb375559f12bbfedb328d892925cdbd4cd1712ec56104edf8"
+          }
+        },
+        "python": "3.12.14",
+        "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+        "interface": "DL1",
+        "model": "m1-hd-1",
+        "simulation_only": true,
+        "outcome": "completed",
+        "errors": [],
+        "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+        "trajectory_file": "trajectory.jsonl",
+        "completed_ticks": 20,
+        "trajectory_sha256": "819729e3d8941b059d151c10b959bfcd61e96254819a672c5c526bcd79d11756",
+        "trajectory_bytes": 10927,
+        "memory": {
+          "peak_rss_bytes": 22962176,
+          "memory.peak": 14721024,
+          "memory.max": 134217728
+        }
+      },
+      "trajectory_path": "hd_occlusion-2/results/run/trajectory.jsonl",
+      "expected_removed_mL": "0.08333333333333333333333333333",
+      "actual_removed_mL": 0.08333333333333333
+    }
+  ],
+  "boundary_probes": [
+    {
+      "role": "control",
+      "output": "DENIED /run/dialysis/admin/plant.sock\nDENIED /run/dialysis/patient/service.sock\n"
+    },
+    {
+      "role": "protection",
+      "output": "DENIED /run/dialysis/admin/plant.sock\nDENIED /run/dialysis/patient/service.sock\n"
+    }
+  ],
+  "docker": "Docker version 29.3.1, build c2be9cc",
+  "compose": "Docker Compose version v5.1.1",
+  "deployment_sha256": {
+    "Dockerfile": "2d03ba2d4606acc520a68f1c27b4711ab08cf34eb421cb209d82399a4d3caa93",
+    ".dockerignore": "37ab7e6cc79dd3454b856f096831c01020b97fed92dd8b61a5526c5891565d64",
+    "compose.yaml": "ba43ccca55f0de3261d7ceb49fbabae8825bcdba9936e7687e6315d113c2c6ae"
+  },
+  "scope": "Local WSL2 Docker engine, synthetic configurations only; independent review pending"
+}
