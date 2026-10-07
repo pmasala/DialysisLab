@@ -15,7 +15,7 @@
     "40533e4"
   ],
   "started_at": "2026-10-07T23:14:54.463278+00:00",
-  "status": "FINDINGS_FIXED_TARGETED_TESTS_PASSED",
+  "status": "FINDINGS_FIXED_AND_REGRESSION_PASSED",
   "invocations": 1,
   "exit_code": 0,
   "finished_at": "2026-10-07T23:21:33.859218+00:00",
@@ -28,35 +28,41 @@
       "severity": "P2",
       "disposition": "fixed",
       "test": "test_concentration_ceiling_roundoff_retains_mass_without_clipping",
-      "correction_commit": "pending integration checkpoint"
+      "correction_commit": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+      "evidence": "assurance/evidence/m3/native-tests.json"
     },
     {
       "id": "M3-R2",
       "severity": "P2",
       "disposition": "fixed",
       "test": "test_oversized_json_integers_reject_without_killing_service",
-      "correction_commit": "pending integration checkpoint"
+      "correction_commit": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+      "evidence": "assurance/evidence/m3/native-tests.json"
     },
     {
       "id": "M3-R3",
       "severity": "P2",
       "disposition": "fixed",
       "test": "test_evidence_rejects_inconsistent_water_and_nonfinite_mass",
-      "correction_commit": "pending integration checkpoint"
+      "correction_commit": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+      "evidence": "assurance/evidence/m3/native-tests.json"
     },
     {
       "id": "M3-R4",
       "severity": "P2",
       "disposition": "fixed",
       "test": "test_evidence_rejects_inconsistent_water_and_nonfinite_mass",
-      "correction_commit": "pending integration checkpoint"
+      "correction_commit": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+      "evidence": "assurance/evidence/m3/native-tests.json"
     },
     {
       "id": "M3-R5",
       "severity": "P3",
       "disposition": "fixed",
       "test": "test_subnormal_bicarbonate_and_prospective_response_atomicity",
-      "correction_commit": "pending integration checkpoint"
+      "correction_commit": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+      "evidence": "assurance/evidence/m3/native-tests.json"
     }
-  ]
+  ],
+  "correction_commit": "64645fdea8067731a0879b6e801f8e01d9e5c3a9"
 }

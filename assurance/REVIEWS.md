@@ -43,7 +43,7 @@ passed. Native/container trajectories match. [Final evidence](evidence/m2/README
 identifies each build/configuration. Independent model calibration and risk
 acceptance remain open.
 
-## M3 — single review completed; corrections under integration test
+## M3 — single review completed; corrections verified
 
 Base `40533e4d09643d8913ecc4795757362e034cbb20`; candidate
 `ec832d00b6d6ba42aff8591778f2fb50ffd8b348`. One read-only invocation returned
@@ -58,7 +58,9 @@ No second review will run. All 14 targeted patient tests pass after corrections.
 | M3-R4 P2 | NaN/overflowing JSON numbers passed residual comparisons; strict finite JSON and residual checks. | Rehashed NaN/1e999 evidence rejected. |
 | M3-R5 P3 | Indicator error after commit advanced rejected transaction; validate complete proposed state before accepting, subtract logarithms. | Subnormal bicarbonate and forced response validation failure leave state atomic. |
 
-Final integration results and correction commit will be recorded with M3 evidence.
+Corrections: `64645fd`. Final native/sanitizer 72/72 each; eight native/eight
+Compose M3 runs, six M2/four M1 Compose runs and two isolation probes passed.
+[Evidence](evidence/m3/README.md) records exact identities and limits.
 Automatic review is not independent physiological or regulatory approval.
 
 ## M4–M9

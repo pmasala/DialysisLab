@@ -2,21 +2,17 @@
 
 ## Integrated execution checkpoint — 2026-10-08
 
-Branch `feat/integrated-dialysis-roadmap`, published to origin. M1 and M2 technical
-scope COMPLETE; M3 IN PROGRESS; M4–M9 PLANNED. Full project remains incomplete. M2
-implementation `2108e55` passed 58 native and 58 sanitizer tests, six native/six
-Compose model runs, four M1 Compose regressions and two isolation probes. Its
-single review of `9aeee60` against `1999741` returned three P2 findings, all fixed
-and verified. No M1 or M2 review may be rerun. See [M2 evidence](evidence/m2/README.md).
+Branch `feat/integrated-dialysis-roadmap`, published through M3 candidate; local
+M3 corrections/evidence follow. M1–M3 technical scope COMPLETE; M4 next; M5–M9
+PLANNED. Full project remains incomplete. M3 implementation `64645fd` passed
+72/72 native and 72/72 sanitizer tests, eight native/eight Compose patient runs,
+six M2 and four M1 Compose regressions plus two isolation probes. Native/container
+trajectories match exactly. Five findings from the sole M3 review are corrected.
+See [M3 evidence](evidence/m3/README.md). No M1/M2/M3 review may be rerun.
 
-M3 base is `40533e4`; contracts and numerical acceptance are fixed in
-`docs/M3_PATIENT.md`. The coupled implementation passed 67 native/67 sanitizer
-tests, eight native/eight Compose patient runs and six M2 Compose regressions.
-The single M3 review of `ec832d0` returned five findings, now corrected with
-14/14 targeted regressions passing. Next executable step: commit corrections,
-run full native/sanitizer and Compose integration, retain evidence, then start M4.
-Do not rerun the M3 review. Preserve atomic committed snapshots, explicit
-roundoff, configuration/build evidence binding and streaming outputs.
+Next executable step: freeze the M3 evidence commit as M4 base; define and
+implement HD/pre/post HDF, online preparation, independent gross/net replacement
+ledgers and observed quality-fault protection. Preserve prior contracts/regressions.
 
 Persistent checkpoints: [plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md). The synthetic M2 model is

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+  "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08",
   "description": "Six incomplete roadmap chains and nine implemented M1 requirements, including review corrections for failed RPCs, streaming memory and failed Compose evidence. Historical M1 records remain preserved; current records do not close independent review or standards obligations.",
   "needs": [
     {
@@ -978,13 +978,9 @@
       "expected": "CMake builds successfully; Compose runs five isolated services and records source, binary and configuration identities.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
       },
       "historical_evidence": [
         {
@@ -1004,6 +1000,15 @@
           "executed_at": "2026-10-07T22:16:51.857444+00:00",
           "reviewer": "Codex execution and inspection only; independent assurance review and risk acceptance pending.",
           "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; Docker GCC 14.2.0/Python 3.12.14, 128 MiB runner limit."
+        },
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
         }
       ]
     },
@@ -1016,13 +1021,9 @@
       "expected": "Identical configuration and seed yield byte-identical same-build trajectories; cross-build numerics agree within absolute/relative 1e-9; clean same-toolchain CMake builds produce identical executables.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
       },
       "historical_evidence": [
         {
@@ -1042,6 +1043,15 @@
           "executed_at": "2026-10-07T22:16:51.857444+00:00",
           "reviewer": "Codex execution and inspection only; independent assurance review and risk acceptance pending.",
           "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; Docker GCC 14.2.0/Python 3.12.14, 128 MiB runner limit."
+        },
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
         }
       ]
     },
@@ -1054,13 +1064,9 @@
       "expected": "Nominal, zero-UF, stopped-flow and partial-flow runs match independent Decimal balances within 1e-8 mL; long patient ledger drift stays below 1e-8 mL.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
       },
       "historical_evidence": [
         {
@@ -1080,6 +1086,15 @@
           "executed_at": "2026-10-07T22:16:51.857444+00:00",
           "reviewer": "Codex execution and inspection only; independent assurance review and risk acceptance pending.",
           "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; Docker GCC 14.2.0/Python 3.12.14, 128 MiB runner limit."
+        },
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
         }
       ]
     },
@@ -1092,13 +1107,9 @@
       "expected": "Tick-5 resistance increase produces a measured pressure of 600 mmHg; the synthetic 250 mmHg trip stops blood/UF and closes clamp within one 100 ms virtual interval, including when control has died.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
       },
       "historical_evidence": [
         {
@@ -1118,6 +1129,15 @@
           "executed_at": "2026-10-07T22:16:51.857444+00:00",
           "reviewer": "Codex execution and inspection only; independent assurance review and risk acceptance pending.",
           "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; Docker GCC 14.2.0/Python 3.12.14, 128 MiB runner limit."
+        },
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
         }
       ]
     },
@@ -1130,13 +1150,9 @@
       "expected": "Repeated 300 mL/min control demand and later PERMIT cannot release latched zero blood/UF and closed clamp; unauthorized role and duplicate tick messages fail closed.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
       },
       "historical_evidence": [
         {
@@ -1156,6 +1172,15 @@
           "executed_at": "2026-10-07T22:16:51.857444+00:00",
           "reviewer": "Codex execution and inspection only; independent assurance review and risk acceptance pending.",
           "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; Docker GCC 14.2.0/Python 3.12.14, 128 MiB runner limit."
+        },
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
         }
       ]
     },
@@ -1168,13 +1193,9 @@
       "expected": "Invalid, missing, stale, future and replayed protection samples trip within one 100 ms interval; a control-only fault does not corrupt the protection channel.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
       },
       "historical_evidence": [
         {
@@ -1194,6 +1215,15 @@
           "executed_at": "2026-10-07T22:16:51.857444+00:00",
           "reviewer": "Codex execution and inspection only; independent assurance review and risk acceptance pending.",
           "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; Docker GCC 14.2.0/Python 3.12.14, 128 MiB runner limit."
+        },
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
         }
       ]
     },
@@ -1206,13 +1236,9 @@
       "expected": "Failed STEP (including lost reply after plant acceptance) sends no COMMIT/ADVANCE; HALT cancels pending decisions and rejects later commits. Abort cause, stop acknowledgment and observed outputs are distinct; failed stop/observation never implies confirmed zero. Plant/patient loss aborts; runner loss trips the wall lease without virtual advancement.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
       },
       "historical_evidence": [
         {
@@ -1232,6 +1258,15 @@
           "executed_at": "2026-10-07T22:16:51.857444+00:00",
           "reviewer": "Codex execution and inspection only; independent assurance review and risk acceptance pending.",
           "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; Docker GCC 14.2.0/Python 3.12.14, 128 MiB runner limit."
+        },
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
         }
       ]
     },
@@ -1244,13 +1279,9 @@
       "expected": "Two actual 100000-tick Compose runs complete under 128 MiB with peak runner RSS <=64 MiB. Records are ordered/complete and repeated hashes agree with independently hashed written bytes. SIGKILL preserves a recoverable complete prefix.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
       },
       "historical_evidence": [
         {
@@ -1261,6 +1292,15 @@
           "executed_at": "2026-10-07T22:16:51.857444+00:00",
           "reviewer": "Codex execution and inspection only; independent assurance review and risk acceptance pending.",
           "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; Docker GCC 14.2.0/Python 3.12.14, 128 MiB runner limit."
+        },
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
         }
       ]
     },
@@ -1273,13 +1313,9 @@
       "expected": "Aborted runner, pre-start failure and failed extraction retain logs/reports; original exit code is preserved. Failed extraction retains volumes and stopped containers with usable recovery commands; verify actual artifact recovery before cleanup.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
       },
       "historical_evidence": [
         {
@@ -1290,6 +1326,15 @@
           "executed_at": "2026-10-07T22:16:51.857444+00:00",
           "reviewer": "Codex execution and inspection only; independent assurance review and risk acceptance pending.",
           "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; Docker GCC 14.2.0/Python 3.12.14, 128 MiB runner limit."
+        },
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
         }
       ]
     },
@@ -1302,14 +1347,21 @@
       "expected": "Analytic RC and resistor solutions, decreasing step-halving errors, clamps and component changes.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
-      }
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
+      },
+      "historical_evidence": [
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        }
+      ]
     },
     {
       "id": "M2-TEST-002",
@@ -1320,14 +1372,21 @@
       "expected": "Per-tick residual <=1e-8 mL and cumulative <=1e-6 mL with independent node-volume accounting.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
-      }
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
+      },
+      "historical_evidence": [
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        }
+      ]
     },
     {
       "id": "M2-TEST-003",
@@ -1338,14 +1397,21 @@
       "expected": "Two profiles, independent clearance formula, equilibrium and zero-flow/zero-membrane cases.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
-      }
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
+      },
+      "historical_evidence": [
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        }
+      ]
     },
     {
       "id": "M2-TEST-004",
@@ -1356,14 +1422,21 @@
       "expected": "Actual process/Compose runs; repeated hashes; occlusion latch by 1000 ms and lost STEP cancels commit.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m2/summary.json",
-        "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
-        "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
-        "run_id": "m2-2108e55-2026-10-08",
-        "executed_at": "2026-10-07T22:56:47.548109+00:00",
-        "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
-      }
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
+      },
+      "historical_evidence": [
+        {
+          "path": "assurance/evidence/m2/summary.json",
+          "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+          "baseline": "dialysislab-integrated-m2-2108e55-2026-10-08",
+          "run_id": "m2-2108e55-2026-10-08",
+          "executed_at": "2026-10-07T22:56:47.548109+00:00",
+          "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
+        }
+      ]
     },
     {
       "id": "M3-TEST-001",
@@ -1372,8 +1445,12 @@
       ],
       "procedure": "Run tests/test_compartments.py and tools/verify_models.py with patient scenarios natively/in Compose.",
       "expected": "Ordered bounded transactions preserve positive mass and concentration; rejected updates leave the prior state intact.",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
+      }
     },
     {
       "id": "M3-TEST-002",
@@ -1382,8 +1459,12 @@
       ],
       "procedure": "Run tests/test_compartments.py and tools/verify_models.py with patient scenarios natively/in Compose.",
       "expected": "Independent balances <=1e-6 mL/mmol, analytic transient and step-halving tests, 100000-step process RSS below 64 MiB.",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
+      }
     },
     {
       "id": "M3-TEST-003",
@@ -1392,8 +1473,12 @@
       ],
       "procedure": "Run tests/test_compartments.py and tools/verify_models.py with patient scenarios natively/in Compose.",
       "expected": "Synthetic baseline/overload/imbalance scenarios and independently calculated infusion/generation/excretion cases.",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
+      }
     },
     {
       "id": "M3-TEST-004",
@@ -1402,8 +1487,12 @@
       ],
       "procedure": "Run tests/test_compartments.py and tools/verify_models.py with patient scenarios natively/in Compose.",
       "expected": "Native and Compose runs repeat, identify exact build/config, enforce protective stops and retain partial transactions on patient failure.",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m3/summary.json",
+        "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+        "baseline": "dialysislab-integrated-m3-64645fd-2026-10-08"
+      }
     }
   ],
   "prerequisites": [
