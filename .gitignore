@@ -1,0 +1,15 @@
+# Restricted analysis/source material must remain outside this repository.
+/private-standards/
+/restricted/
+/upload/
+*.pdf
+*.zip
+*.png
+*.jpg
+*.jpeg
+*.tiff
+# New project-owned binary assets require deliberate publication-policy review.
+__pycache__/
+*.pyc
+.venv/
+build/

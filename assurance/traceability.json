@@ -1,0 +1,374 @@
+{
+  "schema_version": 1,
+  "baseline": "dialysislab-assurance-baseline-2026-10-07",
+  "description": "Six illustrative project-derived trace chains, now linked to a draft source-derived checklist. Not exhaustive; no dialysis tests executed.",
+  "needs": [
+    {
+      "id": "NEED-001",
+      "statement": "Operate the simulated machine without access to simulation internals",
+      "status": "draft"
+    },
+    {
+      "id": "NEED-002",
+      "statement": "Preserve protective authority during control faults",
+      "status": "draft"
+    },
+    {
+      "id": "NEED-003",
+      "statement": "Distinguish HDF fluid exchange from patient weight change",
+      "status": "draft"
+    },
+    {
+      "id": "NEED-004",
+      "statement": "Respond to invalid measurements without assuming they are safe",
+      "status": "draft"
+    },
+    {
+      "id": "NEED-005",
+      "statement": "Present alarms without defeating protection",
+      "status": "draft"
+    },
+    {
+      "id": "NEED-006",
+      "statement": "Model online substitution preparation with declared limits",
+      "status": "draft"
+    }
+  ],
+  "hazards": [
+    {
+      "id": "HAZ-001",
+      "description": "Unauthorized alteration of patient truth or bypass of protective behavior",
+      "risk_evaluation": "Not performed; event sequences, harms, initial/residual risks and acceptance decisions remain open."
+    },
+    {
+      "id": "HAZ-002",
+      "description": "Unsafe actuator output persists or resumes during a protective constraint",
+      "risk_evaluation": "Not performed; event sequences, harms, initial/residual risks and acceptance decisions remain open."
+    },
+    {
+      "id": "HAZ-003",
+      "description": "Excessive or insufficient net patient fluid removal",
+      "risk_evaluation": "Not performed; event sequences, harms, initial/residual risks and acceptance decisions remain open."
+    },
+    {
+      "id": "HAZ-004",
+      "description": "Unsafe treatment continues on stale or corrupted measurements",
+      "risk_evaluation": "Not performed; event sequences, harms, initial/residual risks and acceptance decisions remain open."
+    },
+    {
+      "id": "HAZ-005",
+      "description": "Acknowledgment conceals a continuing hazard or releases a protective action",
+      "risk_evaluation": "Not performed; event sequences, harms, initial/residual risks and acceptance decisions remain open."
+    },
+    {
+      "id": "HAZ-006",
+      "description": "Incorrectly prepared or contaminated substitution fluid reaches the modeled blood circuit",
+      "risk_evaluation": "Not performed; event sequences, harms, initial/residual risks and acceptance decisions remain open."
+    }
+  ],
+  "designs": [
+    {
+      "id": "DES-001",
+      "description": "Separate application identities and enforced device/admin interface boundaries.",
+      "status": "proposed"
+    },
+    {
+      "id": "DES-002",
+      "description": "Protection issues requests directly to plant actuator arbitration; latching/reset logic is separate from control.",
+      "status": "proposed"
+    },
+    {
+      "id": "DES-003",
+      "description": "Conserved fluid/solute exchange between patient, circuit and dialyzer; independent balance observer.",
+      "status": "proposed"
+    },
+    {
+      "id": "DES-004",
+      "description": "Separate sensor channels with timestamps/sequence/validity; explicit simulation-clock and liveness policies.",
+      "status": "proposed"
+    },
+    {
+      "id": "DES-005",
+      "description": "LVGL renders authoritative alarm state; protection owns hazard/action state; UI submits validated operator requests.",
+      "status": "proposed"
+    },
+    {
+      "id": "DES-006",
+      "description": "Mixing/heating/filtration/route models expose measurements and test outcomes; no direct protective access to hidden contamination truth.",
+      "status": "proposed"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "statement": "Device UI access shall be restricted to permitted machine command and telemetry interfaces.",
+      "acceptance": "Calls from the device-ui identity to patient/scenario administration are denied; permitted treatment requests remain available.",
+      "needs": [
+        "NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001"
+      ],
+      "designs": [
+        "DES-001"
+      ],
+      "tests": [
+        "TEST-001"
+      ],
+      "status": "draft",
+      "reviewer": null,
+      "implementation": [],
+      "unresolved": [
+        "Select transport/identity mechanism and endpoint policy."
+      ],
+      "normative_mapping": "Draft links in standards/checklist.json: SEC-013, PRJ-002. Applicability and adequacy remain unreviewed."
+    },
+    {
+      "id": "REQ-002",
+      "statement": "Control commands shall not override an active protective constraint at actuator arbitration.",
+      "acceptance": "For every approved active protection state, all conflicting control commands preserve the specified protective outputs until the approved reset sequence completes.",
+      "needs": [
+        "NEED-002"
+      ],
+      "hazards": [
+        "HAZ-002"
+      ],
+      "designs": [
+        "DES-002"
+      ],
+      "tests": [
+        "TEST-002"
+      ],
+      "status": "draft",
+      "reviewer": null,
+      "implementation": [],
+      "unresolved": [
+        "Complete hazard-specific outputs, recovery rules and response-time budgets."
+      ],
+      "normative_mapping": "Draft links in standards/checklist.json: GEN-018, PRJ-003. Applicability and adequacy remain unreviewed."
+    },
+    {
+      "id": "REQ-003",
+      "statement": "Fluid accounting shall separately track gross membrane transfer, substitution, other inputs/outputs and circuit storage.",
+      "acceptance": "Patient and whole-system fluid-balance residuals stay within independently justified tolerances in HD and both HDF routes, including substitution interruption.",
+      "needs": [
+        "NEED-003"
+      ],
+      "hazards": [
+        "HAZ-003"
+      ],
+      "designs": [
+        "DES-003"
+      ],
+      "tests": [
+        "TEST-003"
+      ],
+      "status": "draft",
+      "reviewer": null,
+      "implementation": [],
+      "unresolved": [
+        "Define solver, uncertainty budget, tolerances and independent oracle."
+      ],
+      "normative_mapping": "Draft links in standards/checklist.json: HD-021, PRJ-005. Applicability and adequacy remain unreviewed."
+    },
+    {
+      "id": "REQ-004",
+      "statement": "Protection shall evaluate measurement validity and age and apply the approved hazard-specific response to unusable data.",
+      "acceptance": "All invalidity/staleness cases trigger the specified response within the allocated detection/action budget; paused virtual time follows its documented semantics.",
+      "needs": [
+        "NEED-004"
+      ],
+      "hazards": [
+        "HAZ-004"
+      ],
+      "designs": [
+        "DES-004"
+      ],
+      "tests": [
+        "TEST-004"
+      ],
+      "status": "draft",
+      "reviewer": null,
+      "implementation": [],
+      "unresolved": [
+        "Derive validity rules, clock policy and justified response bounds."
+      ],
+      "normative_mapping": "Draft links in standards/checklist.json: HD-027, HD-033. Applicability and adequacy remain unreviewed."
+    },
+    {
+      "id": "REQ-005",
+      "statement": "Alarm acknowledgment or permitted silence shall not by itself clear an active hazardous condition or protective constraint.",
+      "acceptance": "Each alarm follows its reviewed priority/state/silence/reset specification; a continuing hazard retains the required protective outputs.",
+      "needs": [
+        "NEED-005"
+      ],
+      "hazards": [
+        "HAZ-005"
+      ],
+      "designs": [
+        "DES-005"
+      ],
+      "tests": [
+        "TEST-005"
+      ],
+      "status": "draft",
+      "reviewer": null,
+      "implementation": [],
+      "unresolved": [
+        "Complete alarm catalog, timing, audio delivery and critical-task usability evaluation."
+      ],
+      "normative_mapping": "Draft links in standards/checklist.json: HD-026, HD-038. Applicability and adequacy remain unreviewed."
+    },
+    {
+      "id": "REQ-006",
+      "statement": "Substitution delivery shall be conditioned on approved preparation and observable integrity criteria.",
+      "acceptance": "All specified preparation/integrity failures with modeled observable evidence produce the approved response; unobservable failures are identified as detection gaps.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-006"
+      ],
+      "designs": [
+        "DES-006"
+      ],
+      "tests": [
+        "TEST-006"
+      ],
+      "status": "draft",
+      "reviewer": null,
+      "implementation": [],
+      "unresolved": [
+        "Define chemistry/integrity models, sensors/tests, acceptance envelope and residual detection limitations."
+      ],
+      "normative_mapping": "Draft links in standards/checklist.json: HD-030. Applicability and adequacy remain unreviewed."
+    }
+  ],
+  "tests": [
+    {
+      "id": "TEST-001",
+      "requirements": [
+        "REQ-001"
+      ],
+      "procedure": "Attempt patient edits, fault injection and simulation clock changes from the device-ui identity; repeat from the authorized external console.",
+      "expected": "Device identity requests are denied; authorized console requests are recorded and allowed.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "TEST-002",
+      "requirements": [
+        "REQ-002"
+      ],
+      "procedure": "Inject each approved protection state and conflicting control commands, including control restart and duplicate messages.",
+      "expected": "Protective outputs persist; reset only follows the approved hazard-specific conditions.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "TEST-003",
+      "requirements": [
+        "REQ-003"
+      ],
+      "procedure": "Run zero-removal, constant-flow, pre/post HDF and interrupted-substitution scenarios against independently derived balances.",
+      "expected": "Recorded balances agree with the independent oracle within predeclared tolerances.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "TEST-004",
+      "requirements": [
+        "REQ-004"
+      ],
+      "procedure": "Inject stale, missing, reordered, invalid and biased measurements; pause/accelerate the simulation and separately kill a process.",
+      "expected": "Responses match the approved fault policy, with measured timing and no mistaken pause-induced result.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "TEST-005",
+      "requirements": [
+        "REQ-005"
+      ],
+      "procedure": "Acknowledge and silence persistent alarms, disconnect the UI and attempt invalid resets.",
+      "expected": "Protective behavior and displayed/alarm-delivery state match the approved alarm catalog.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "TEST-006",
+      "requirements": [
+        "REQ-006"
+      ],
+      "procedure": "Inject composition, thermal, route and integrity faults, including faults without a corresponding measurement/test signal.",
+      "expected": "Observable cases follow the protective policy; unobservable cases are not falsely reported as detected or proof of sterility.",
+      "result": "planned",
+      "evidence": null
+    }
+  ],
+  "prerequisites": [
+    {
+      "id": "PRE-001",
+      "title": "Approve EU-first regulatory/standards baseline after confirmed ISO 14971 and market decision",
+      "status": "open",
+      "reviewer": null,
+      "evidence": null
+    },
+    {
+      "id": "PRE-002",
+      "title": "Complete authorized normative clause applicability review",
+      "status": "open",
+      "reviewer": null,
+      "evidence": null
+    },
+    {
+      "id": "PRE-003",
+      "title": "Approve essential performance and risk criteria",
+      "status": "open",
+      "reviewer": null,
+      "evidence": null
+    },
+    {
+      "id": "PRE-004",
+      "title": "Complete reviewed risk/threat assessments and classifications",
+      "status": "open",
+      "reviewer": null,
+      "evidence": null
+    },
+    {
+      "id": "PRE-005",
+      "title": "Implement and verify all agreed reference features",
+      "status": "open",
+      "reviewer": null,
+      "evidence": null
+    },
+    {
+      "id": "PRE-006",
+      "title": "Validate models using declared independent reference data",
+      "status": "open",
+      "reviewer": null,
+      "evidence": null
+    },
+    {
+      "id": "PRE-007",
+      "title": "Complete UI/usability and alarm evaluation for intended reference use",
+      "status": "open",
+      "reviewer": null,
+      "evidence": null
+    },
+    {
+      "id": "PRE-008",
+      "title": "Complete dependency inventory and security evidence",
+      "status": "open",
+      "reviewer": null,
+      "evidence": null
+    },
+    {
+      "id": "PRE-009",
+      "title": "Review reference release and external product obligations",
+      "status": "open",
+      "reviewer": null,
+      "evidence": null
+    }
+  ]
+}

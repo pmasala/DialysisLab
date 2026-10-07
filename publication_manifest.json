@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "purpose": "Explicit public package allowlist; additions require content/rights review.",
+  "files": [
+    ".gitignore",
+    "DEPENDENCY_POLICY.md",
+    "LICENSE",
+    "README.md",
+    "assurance/ASSURANCE_PLAN.md",
+    "assurance/SAFETY_SECURITY.md",
+    "assurance/STATUS.md",
+    "assurance/VERIFICATION_VALIDATION.md",
+    "assurance/standards/CHECKLIST.md",
+    "assurance/standards/EDITION_GAPS.md",
+    "assurance/standards/PUBLICATION_POLICY.md",
+    "assurance/standards/README.md",
+    "assurance/standards/checklist.json",
+    "assurance/standards/gaps.json",
+    "assurance/standards/sources.json",
+    "assurance/traceability.json",
+    "docs/ARCHITECTURE.md",
+    "docs/DEPENDENCY_CANDIDATES.md",
+    "docs/templates/DEPENDENCY_EXCEPTION.md",
+    "publication_manifest.json",
+    "tests/test_traceability.py",
+    "tools/check_standards.py",
+    "tools/check_traceability.py",
+    "tools/package_release.py",
+    "tools/render_checklist.py"
+  ]
+}

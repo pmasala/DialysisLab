@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "gaps": [
+    {
+      "id": "GAP-01",
+      "title": "General-standard IEC/EN edition",
+      "status": "open",
+      "detail": "EDITION_GAPS.md",
+      "reviewer": null,
+      "evidence": []
+    },
+    {
+      "id": "GAP-02",
+      "title": "Dialysis 2025 delta and EU adoption",
+      "status": "open",
+      "detail": "EDITION_GAPS.md",
+      "reviewer": null,
+      "evidence": []
+    },
+    {
+      "id": "GAP-03",
+      "title": "ISO 14971 European amendment",
+      "status": "open",
+      "detail": "EDITION_GAPS.md",
+      "reviewer": null,
+      "evidence": []
+    },
+    {
+      "id": "GAP-04",
+      "title": "Security 2025 interpretation",
+      "status": "open",
+      "detail": "EDITION_GAPS.md",
+      "reviewer": null,
+      "evidence": []
+    },
+    {
+      "id": "GAP-05",
+      "title": "Software lifecycle EN package",
+      "status": "open",
+      "detail": "EDITION_GAPS.md",
+      "reviewer": null,
+      "evidence": []
+    },
+    {
+      "id": "GAP-06",
+      "title": "Usability/alarm/EMC sources",
+      "status": "open",
+      "detail": "EDITION_GAPS.md",
+      "reviewer": null,
+      "evidence": []
+    },
+    {
+      "id": "GAP-07",
+      "title": "Fluid/dialyzer/quality sources",
+      "status": "open",
+      "detail": "EDITION_GAPS.md",
+      "reviewer": null,
+      "evidence": []
+    },
+    {
+      "id": "GAP-08",
+      "title": "Detailed physical/annex tests",
+      "status": "open",
+      "detail": "EDITION_GAPS.md",
+      "reviewer": null,
+      "evidence": []
+    },
+    {
+      "id": "GAP-09",
+      "title": "Feature/envelope/role decisions",
+      "status": "open",
+      "detail": "EDITION_GAPS.md",
+      "reviewer": null,
+      "evidence": []
+    },
+    {
+      "id": "GAP-10",
+      "title": "EU regulatory and GSPR assessment",
+      "status": "open",
+      "detail": "EDITION_GAPS.md",
+      "reviewer": null,
+      "evidence": []
+    },
+    {
+      "id": "GAP-11",
+      "title": "Later US assessment",
+      "status": "open",
+      "detail": "EDITION_GAPS.md",
+      "reviewer": null,
+      "evidence": []
+    },
+    {
+      "id": "GAP-12",
+      "title": "Substantive checklist and evidence review",
+      "status": "open",
+      "detail": "EDITION_GAPS.md",
+      "reviewer": null,
+      "evidence": []
+    }
+  ]
+}

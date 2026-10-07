@@ -1,0 +1,48 @@
+# Safety and cybersecurity design obligations
+
+Status: project-derived design obligations for development; not a completed risk management file, threat model, or normative clause assessment.
+
+## Functional safety work
+
+Define essential performance with measurable limits and exposure-time bounds before claiming protective coverage. Record the path hazard -> foreseeable events -> hazardous situation -> harm -> initial risk -> controls -> verification -> residual risk. Include normal operation, startup, treatment transitions, interruption/recovery, single faults, relevant combinations and common causes.
+
+Starting hazard families to analyze include: excessive/insufficient fluid removal; electrolyte/composition error; temperature error; air delivery; blood loss/leak/disconnection; excessive pressure/suction; clotting/flow interruption; incorrect substitution routing or balancing; contaminated substitution fluid; sensor bias/stale data; pump/valve/clamp failure; loss of power/process/communications; alarm failure; use error; and corrupted configuration/software. This seed list is not an exhaustive analysis and does not assign clinical thresholds.
+
+### Control/protection independence
+
+Maintain separate state and decisions, independently modeled measurement faults and a direct protection-to-actuator-arbitration path. Assess shared algorithm, configuration, libraries, messaging, clock, kernel, resource exhaustion, sensors and power as common causes. A container split is not proof of independence. Define what faults the model can demonstrate and what would require hardware separation or other downstream risk controls.
+
+Specify hazard-specific protective states, outputs, timing, alarm behavior, latching, permitted operator action and recovery conditions. Do not use an unanalysed global "stop everything" rule. Define behavior when protection itself fails or communications disappear. No automatic restart/recovery may bypass safety-state evaluation.
+
+For every measurement specify units, sign convention, range, update rate, age/validity, calibration, noise/bias/delay and plausibility checks. For every command define authority, state-dependent permission, limits, acknowledgment, timeouts, duplicate handling and failure behavior.
+
+### Examples requiring particular attention
+
+- HDF gross ultrafiltration and replacement fluid must not be confused with net patient fluid loss. Evaluate substitution interruption, incorrect routing and mismatched estimates.
+- Circuit pressure, patient blood pressure and hidden model truth must remain distinct variables; sensing assumptions must match the chosen circuit.
+- Loss of a UI display or alarm-delivery path needs a defined response. Acknowledgment/silence is distinct from hazard removal and reset.
+- Sterility/contamination models are surrogate assumptions; no hydraulic calculation can establish actual fluid microbial quality.
+
+## Cybersecurity work
+
+Create a versioned asset inventory, data-flow/trust-boundary model, attacker assumptions and threat register. Relate threats to hazardous situations where loss of integrity/availability can affect simulated treatment. Assess the reference project's real host/data exposure as well as the future device implications.
+
+| Boundary/asset | Candidate abuse | Required design/verification work |
+| --- | --- | --- |
+| Device commands | Forged, replayed, reordered or unauthorized commands | Endpoint identity/authorization, freshness/sequence policy, state validation and negative tests. |
+| Simulator administration | Device UI changes patient truth or bypasses protection | Distinct privileges and APIs, enforced network/access boundaries, denial tests. |
+| Telemetry | Stale/corrupt values accepted as current | Schema/range/unit validation, age and validity handling, deterministic fault tests. |
+| Host/container runtime | Privilege escalation or resource starvation | Least privilege, narrow mounts, no Docker socket, resource budgets, host failure analysis. |
+| Configurations and models | Silent modification of patient/circuit/limits | Schema validation, provenance/integrity, controlled changes, recorded run snapshots. |
+| Updates and dependencies | Malicious or incompatible artifact | Provenance/integrity verification, pinning, dependency assessment and update/recovery tests. |
+| Logs/results/datasets | Tampering, leakage or storage exhaustion | Appropriate access controls, privacy-aware data use, audit integrity and retention/resource behavior. |
+
+Choose cryptographic protocols only after the trust model is set; do not invent custom cryptography. Include credential provisioning/rotation/revocation, absence of default shared secrets, authentication failures, secure update rollback constraints, vulnerability disclosure/intake, triage/patch response and support lifetime in the secure lifecycle.
+
+Security controls must preserve required safety response bounds. Validate behavior under denied traffic, flooding, invalid messages, full disks and corrupted state. Encryption or a vulnerability scan alone is not a cybersecurity assurance case.
+
+## Evidence and review
+
+Risk controls need both implementation verification and effectiveness verification. Evaluate new risks introduced by controls. Record risk acceptability criteria and authorized residual/overall risk decisions; a test pass is not risk acceptance. Findings from tests, dependencies, misuse, incidents, and security updates feed back into the risk/threat files.
+
+Formal classification, numerical response limits, residual-risk decisions and the full hazard/threat analyses remain open in this package.

@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-10-07",
+  "publication": "Metadata only; licensed files and extracted content excluded.",
+  "standards": [
+    {
+      "id": "AAMI60601-2012",
+      "reference": "ANSI/AAMI ES60601-1:2005/(R)2012 with listed amendments",
+      "review_note": "US consolidated redline and separate IEC AMD1:2012. Not IEC edition 3.2 or an EN adoption. AAMI A2:2010 must not be confused with IEC AMD2:2020. Programmable-system changes cross-checked against amendment; physical coverage is chapter-level only.",
+      "edition_gap_ids": [
+        "GAP-01",
+        "GAP-08"
+      ],
+      "supplied_sources": [
+        {
+          "id": "source-01",
+          "sha256": "4adaee2cd849a89b0fc694d577c0e584686081b834b0cbedf535bd8340f65630",
+          "pages": 428,
+          "redistribute": false
+        },
+        {
+          "id": "source-05",
+          "sha256": "9a2f5ab6857a5685a671b4061f4f735bfe8d642ba727076285b1b12e286d82b1",
+          "pages": 236,
+          "redistribute": false
+        }
+      ]
+    },
+    {
+      "id": "AAMI60601-2-16-2018",
+      "reference": "ANSI/AAMI/IEC 60601-2-16:2018",
+      "review_note": "Two copies of the US adoption approved in 2020, based on international edition 5 (2018). Normalized extracted text matches after watermark removal; different PDF hashes. Copy 02 is the primary review source.",
+      "edition_gap_ids": [
+        "GAP-02"
+      ],
+      "supplied_sources": [
+        {
+          "id": "source-02",
+          "sha256": "98b85733b2657e33a78e1cf829389892f1d79c5a0ef2b9bbb140bc1916920678",
+          "pages": 75,
+          "redistribute": false
+        },
+        {
+          "id": "source-03",
+          "sha256": "51c05ce5e6b519dc6304d5386345e4e7b047dab33cd7f14658831cf1a959acfa",
+          "pages": 75,
+          "redistribute": false
+        }
+      ]
+    },
+    {
+      "id": "IEC81001-2021",
+      "reference": "IEC 81001-5-1:2021",
+      "review_note": "Supplied original 2021 bilingual text; clauses 4\u20139 and Annexes F/G reviewed. Corrected 2025-12 version and interpretation reconciliation remain open.",
+      "edition_gap_ids": [
+        "GAP-04"
+      ],
+      "supplied_sources": [
+        {
+          "id": "source-04",
+          "sha256": "23f5a1e828610a6022f0d640661b5ddbda73869673779db6c371b71a21c10027",
+          "pages": 118,
+          "redistribute": false
+        }
+      ]
+    },
+    {
+      "id": "IEC60601-2-24-2012",
+      "reference": "IEC 60601-2-24:2012, edition 2",
+      "review_note": "Scope reviewed only. Excludes extracorporeal blood circulation devices; conditional component applicability remains open.",
+      "edition_gap_ids": [
+        "GAP-09",
+        "GAP-12"
+      ],
+      "supplied_sources": [
+        {
+          "id": "source-06",
+          "sha256": "1e6969919a162d6c5f491bb8f7603dddd959f6b136db9cb74d0840449d7276c1",
+          "pages": 128,
+          "redistribute": false
+        }
+      ]
+    },
+    {
+      "id": "IEC62304-2015",
+      "reference": "IEC 62304:2006+AMD1:2015 CSV, edition 1.1",
+      "review_note": "Consolidated source contains redline and final bilingual versions. Checklist uses final English clauses 4\u20139. Separate amendment is redundant input, not a separate compliance target.",
+      "edition_gap_ids": [
+        "GAP-05"
+      ],
+      "supplied_sources": [
+        {
+          "id": "source-07",
+          "sha256": "96489ae945e2fc9e8d86ce652ce02d814ca38d723518c7592614989112c3b1ec",
+          "pages": 356,
+          "redistribute": false
+        },
+        {
+          "id": "source-08",
+          "sha256": "b700da2953fabd767792d7274281cdbd0e9cbffbdce2153be87513c8bd3edcca",
+          "pages": 86,
+          "redistribute": false
+        }
+      ]
+    },
+    {
+      "id": "ISO14971-2019",
+      "reference": "ISO 14971:2019, edition 3",
+      "review_note": "Supplied English international edition; clauses 4\u201310 reviewed. European A11 material not supplied.",
+      "edition_gap_ids": [
+        "GAP-03"
+      ],
+      "supplied_sources": [
+        {
+          "id": "source-09",
+          "sha256": "2a0d01ad4720b77394332248c17b5375eebdc9c14513bcc68276e3c5ad401fdb",
+          "pages": 46,
+          "redistribute": false
+        }
+      ]
+    },
+    {
+      "id": "BACKGROUND-1993",
+      "reference": "C. Basile, La temperatura del liquido di dialisi: aspetti tecnologici e clinici (1993)",
+      "review_note": "Historical article, not a standard. Potential background only; not adopted as a validation dataset or evidence of model accuracy.",
+      "edition_gap_ids": [
+        "GAP-12"
+      ],
+      "supplied_sources": [
+        {
+          "id": "source-10",
+          "sha256": "e641872b08a00aa27cdaebab8b4d75f28e8e9844b66e6279460428b27b391038",
+          "pages": 5,
+          "redistribute": false
+        }
+      ]
+    },
+    {
+      "id": "EU-MDR",
+      "reference": "Regulation (EU) 2017/745",
+      "review_note": "Public legal-source screening only; original text and 10 January 2025 consolidated text consulted. Exact applicable amendments and product-specific obligations require baseline review.",
+      "edition_gap_ids": [
+        "GAP-10"
+      ],
+      "supplied_sources": []
+    },
+    {
+      "id": "PROJECT",
+      "reference": "DialysisLab user decisions and engineering policy",
+      "review_note": "Project-derived obligations. These do not claim to be requirements quoted from a standard.",
+      "edition_gap_ids": [],
+      "supplied_sources": []
+    }
+  ],
+  "public_references": [
+    {
+      "id": "WEB-IEC-GEN",
+      "url": "https://webstore.iec.ch/en/publication/67497",
+      "finding": "International general-standard edition 3.2 includes AMD2:2020."
+    },
+    {
+      "id": "WEB-IEC-HD",
+      "url": "https://webstore.iec.ch/en/publication/68379",
+      "finding": "International dialysis standard has a 2025 sixth edition; its normative delta has not been reviewed."
+    },
+    {
+      "id": "WEB-IEC-SEC",
+      "url": "https://webstore.iec.ch/en/publication/63293",
+      "finding": "Catalog identifies corrected 2025-12 copy with Interpretation Sheet 1."
+    },
+    {
+      "id": "WEB-EU-HARM",
+      "url": "https://health.ec.europa.eu/medical-devices-topics-interest/harmonised-standards_en",
+      "finding": "OJ citation, edition and covered legal requirements govern presumption of conformity."
+    },
+    {
+      "id": "WEB-EU-2026",
+      "url": "https://eur-lex.europa.eu/eli/dec_impl/2026/1231/oj",
+      "finding": "Annex adds EN 60601-1:2006 with A13:2024 to MDR list."
+    },
+    {
+      "id": "WEB-EU-CORR",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32026D1231R%2801%29",
+      "finding": "Corrects application date of Annex point (5)."
+    },
+    {
+      "id": "WEB-ISO-EU",
+      "url": "https://committee.iso.org/sites/tc210/home/news/content-left-area/news-and-updates/recognition-of-en-iso-14971-as-a.html",
+      "finding": "EN ISO 14971:2019 with A11:2021 cited for European medical-device regulations."
+    },
+    {
+      "id": "WEB-MDR",
+      "url": "https://eur-lex.europa.eu/eli/reg/2017/745/oj",
+      "finding": "Legal basis for downstream EU adaptation workstreams."
+    },
+    {
+      "id": "WEB-MDR-CONS",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02017R0745-20250110",
+      "finding": "Consolidated documentation text consulted; current product-specific review remains open."
+    }
+  ]
+}

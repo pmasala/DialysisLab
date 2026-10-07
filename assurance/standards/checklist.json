@@ -1,0 +1,4577 @@
+{
+  "schema_version": 1,
+  "baseline": "dialysislab-assurance-baseline-2026-10-07",
+  "revision": "2026-10-07-source-review-1",
+  "status": "draft-for-substantive-review",
+  "coverage_claim": "Original grouped project checklist based on specified sources. Not a transcription, exhaustive equipment test schedule, or conformity finding.",
+  "closure_rule": "Every item starts open. Closure requires confirmed applicability, real evidence, reviewer/date and exact configuration; conditional or downstream scope never counts as a passed simulation test.",
+  "items": [
+    {
+      "id": "RM-001",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "4.1"
+      ],
+      "topic": "Lifecycle risk work",
+      "project_action": "Keep one risk process covering design, experiments, release, maintenance and retirement, with a separate downstream device boundary.",
+      "evidence_required": [
+        "Risk procedure",
+        "lifecycle interfaces and responsibility map"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-002",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "4.2"
+      ],
+      "topic": "Management responsibility",
+      "project_action": "Assign accountable leadership, resources and risk policy; review whether the process remains effective.",
+      "evidence_required": [
+        "Approved policy",
+        "resource and management-review records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-003",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "4.3"
+      ],
+      "topic": "Competence",
+      "project_action": "Record the expertise needed for physiology, dialysis engineering, software, security and safety review; identify missing expertise.",
+      "evidence_required": [
+        "Role competence matrix",
+        "training and reviewer records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-004",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "4.4"
+      ],
+      "topic": "Risk plan",
+      "project_action": "Define scope, responsibilities, review points, individual and aggregate acceptance criteria and how controls and field feedback will be evaluated before scoring risks.",
+      "evidence_required": [
+        "Versioned risk plan",
+        "acceptance criteria",
+        "monitoring plan"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-005",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "4.5"
+      ],
+      "topic": "Risk evidence navigation",
+      "project_action": "Connect each hazard to analysis, evaluation, control decisions, effectiveness evidence and residual conclusions so a reviewer can follow the complete argument.",
+      "evidence_required": [
+        "Risk file index",
+        "bidirectional trace report"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-006",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "5.1"
+      ],
+      "topic": "Analysis provenance",
+      "project_action": "Identify the analyzed configuration, scope, participants and date; changing a dialyzer or patient envelope must not silently reuse an unrelated assessment.",
+      "evidence_required": [
+        "Configuration-specific risk-analysis records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-007",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "5.2"
+      ],
+      "topic": "Use and misuse",
+      "project_action": "Describe intended simulation users, expected operation and plausible misuse, including mistaken interpretation as a validated clinical system.",
+      "evidence_required": [
+        "Intended-use specification",
+        "misuse scenarios"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-008",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "5.3"
+      ],
+      "topic": "Safety characteristics",
+      "project_action": "Identify safety-relevant flows, pressures, composition, temperature, volumes, time and interfaces, including justified operating boundaries.",
+      "evidence_required": [
+        "Safety characteristics register",
+        "limit rationale"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-009",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "5.4"
+      ],
+      "topic": "Hazard sequences",
+      "project_action": "Trace foreseeable combinations of normal operation, faults and user actions to hazardous situations and harms, throughout the lifecycle.",
+      "evidence_required": [
+        "Hazard analysis",
+        "event sequences",
+        "normal and fault scenarios"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-010",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "5.5"
+      ],
+      "topic": "Risk estimates",
+      "project_action": "Explain severity and probability assumptions using suitable evidence; record uncertainty and consequences where probabilities cannot be estimated.",
+      "evidence_required": [
+        "Risk estimates",
+        "data provenance and uncertainty rationale"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-011",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "6"
+      ],
+      "topic": "Individual risk decisions",
+      "project_action": "Evaluate each estimated risk against the predeclared plan and document whether further reduction is required.",
+      "evidence_required": [
+        "Evaluation records linked to plan version"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-012",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "7.1"
+      ],
+      "topic": "Control selection",
+      "project_action": "Consider safer design first, then protective measures, then information/training; explain rejected options and whether additional reduction is practicable.",
+      "evidence_required": [
+        "Control-option analysis",
+        "design decisions"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-013",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "7.2"
+      ],
+      "topic": "Control implementation and effectiveness",
+      "project_action": "Verify both that each control exists and that it reduces the intended risk under the stated conditions; passing a code-path test alone is insufficient.",
+      "evidence_required": [
+        "Implementation evidence",
+        "effectiveness tests with justified acceptance criteria"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-014",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "7.3"
+      ],
+      "topic": "Residual risk",
+      "project_action": "Re-evaluate each controlled risk, document acceptability and identify necessary residual-risk communication.",
+      "evidence_required": [
+        "Residual-risk decisions",
+        "user-information links"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-015",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "7.4"
+      ],
+      "topic": "Benefit-risk escalation",
+      "project_action": "Where residual risk exceeds criteria and further reduction is impracticable, obtain a documented evidence-based benefit-risk decision; otherwise change the design or intended use.",
+      "evidence_required": [
+        "Benefit-risk assessment or documented non-applicability for each case"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-016",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "7.5"
+      ],
+      "topic": "Control side effects",
+      "project_action": "Check whether clamps, pump stops, bypasses, alarms and recovery actions introduce new risks or change existing ones.",
+      "evidence_required": [
+        "Secondary-hazard analysis",
+        "additional control traces"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-017",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "7.6"
+      ],
+      "topic": "Coverage of risk controls",
+      "project_action": "Review every identified hazardous situation to ensure that planned control decisions and their verification are accounted for.",
+      "evidence_required": [
+        "Control completeness review"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-018",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "8"
+      ],
+      "topic": "Combined residual risk",
+      "project_action": "Evaluate the combined remaining risk against the plan and intended benefits, including interacting failures and cumulative exposure.",
+      "evidence_required": [
+        "Overall residual-risk report",
+        "residual-risk disclosures"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-019",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "9"
+      ],
+      "topic": "Release risk review",
+      "project_action": "Before release, verify execution of the plan, acceptability of overall residual risk and readiness to collect feedback; record accountable authorization.",
+      "evidence_required": [
+        "Risk-management report",
+        "actual release review"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-020",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "10.1",
+        "10.2"
+      ],
+      "topic": "Feedback acquisition",
+      "project_action": "Collect issue reports, usage findings, supplier notices and relevant public/state-of-art information using defined responsibilities and routes.",
+      "evidence_required": [
+        "Feedback procedure",
+        "intake log",
+        "supplier monitoring records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "RM-021",
+      "standard_id": "ISO14971-2019",
+      "clauses": [
+        "10.3",
+        "10.4"
+      ],
+      "topic": "Feedback action",
+      "project_action": "Assess new information for changed hazards or acceptance assumptions, act on affected versions and process weaknesses, and return decisions to management review.",
+      "evidence_required": [
+        "Safety triage",
+        "change and corrective-action records",
+        "updated risk file"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-001",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "4.1",
+        "4.2"
+      ],
+      "topic": "Quality and risk framework",
+      "project_action": "Tie software work to controlled quality and ISO 14971 processes; a GitHub workflow does not itself establish an operating QMS.",
+      "evidence_required": [
+        "Quality process map",
+        "software-to-system risk interface"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-002",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "4.3"
+      ],
+      "topic": "Safety classification",
+      "project_action": "Document classification for each software system and any differently classified item; until assigned, use Class C requirements where the standard applies. Justify claimed segregation and external controls.",
+      "evidence_required": [
+        "Classification report",
+        "segregation argument",
+        "item allocation"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-003",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "4.4.1\u20134.4.5"
+      ],
+      "topic": "Legacy route decision",
+      "project_action": "Treat new project code as new development. If legacy software is later introduced, explicitly assess its risk, evidence gaps, gap closure, maintenance and rationale for continued use.",
+      "evidence_required": [
+        "Legacy applicability decision",
+        "item-specific gap plan and version rationale"
+      ],
+      "scope": "conditional",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "A documented feature/scope decision is required. Absence of evidence is not a not-applicable decision.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-004",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.1.1",
+        "5.1.2"
+      ],
+      "topic": "Development plan",
+      "project_action": "Define lifecycle activities, deliverables, traceability, configuration and problem handling; maintain the plan when the work changes.",
+      "evidence_required": [
+        "Software development plan",
+        "controlled revisions"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-005",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.1.3",
+        "5.1.4"
+      ],
+      "topic": "System coordination and tools",
+      "project_action": "Connect software requirements and validation to system engineering; select documented methods, languages and tools suitable for the planned safety rigor.",
+      "evidence_required": [
+        "System/software responsibility map",
+        "tool and method rationale"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-006",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.1.5",
+        "5.1.6"
+      ],
+      "topic": "Integration and verification planning",
+      "project_action": "Plan build-up of components and SOUP, verification methods, reviewers, milestones and acceptance criteria before execution.",
+      "evidence_required": [
+        "Integration plan",
+        "verification plan"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-007",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.1.7",
+        "5.1.8"
+      ],
+      "topic": "Risk and document planning",
+      "project_action": "Plan software risk tasks including third-party behavior, and assign owners and review/approval rules to lifecycle documents.",
+      "evidence_required": [
+        "Software risk plan",
+        "document-control matrix"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-008",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.1.9\u20135.1.11"
+      ],
+      "topic": "Configuration planning",
+      "project_action": "Identify controlled items, change authority, supporting tools and the point at which items enter control; baseline items before their verification.",
+      "evidence_required": [
+        "Configuration plan",
+        "toolchain inventory",
+        "baseline records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-009",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.1.12"
+      ],
+      "topic": "Technology-specific defects",
+      "project_action": "Identify likely C/C++, concurrency, numeric and Python-tool defects and choose checks with a rationale for the selected technology.",
+      "evidence_required": [
+        "Defect taxonomy",
+        "analysis rules",
+        "verification rationale"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-010",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.2.1",
+        "5.2.2"
+      ],
+      "topic": "Requirements content",
+      "project_action": "Derive uniquely identified software requirements covering function, platform, timing, I/O, interfaces, security, alarms, data, installation, maintenance and user interaction as relevant.",
+      "evidence_required": [
+        "Reviewed software requirements",
+        "system-source links"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-011",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.2.3\u20135.2.5"
+      ],
+      "topic": "Risk and system feedback",
+      "project_action": "Express software controls as requirements, revisit risk analysis when requirements evolve, and propagate conflicts or new constraints to system requirements.",
+      "evidence_required": [
+        "Risk-control requirements",
+        "change-impact records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-012",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.2.6"
+      ],
+      "topic": "Requirements review",
+      "project_action": "Review each requirement for clarity, consistency, traceability and verifiability; numerical acceptance limits need a justified source.",
+      "evidence_required": [
+        "Review records",
+        "resolved requirement issues"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-013",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.3.1",
+        "5.3.2"
+      ],
+      "topic": "Architecture and interfaces",
+      "project_action": "Allocate requirements to components and describe all interfaces, including control/protection arbitration, clock semantics and failure behavior.",
+      "evidence_required": [
+        "Architecture",
+        "interface contracts",
+        "allocation matrix"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-014",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.3.3",
+        "5.3.4"
+      ],
+      "topic": "SOUP assumptions",
+      "project_action": "Record needed behavior and platform/resource assumptions for LVGL, transport, numerical and other third-party components.",
+      "evidence_required": [
+        "SOUP specifications",
+        "platform and version constraints"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-015",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.3.5",
+        "5.3.6"
+      ],
+      "topic": "Segregation and architecture review",
+      "project_action": "Specify how risk-related segregation is achieved and verify the architecture against requirements and SOUP assumptions; shared host/kernel failures remain in the argument.",
+      "evidence_required": [
+        "Segregation specification",
+        "architecture review and analysis"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-016",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.4.1\u20135.4.4"
+      ],
+      "topic": "Detailed unit design",
+      "project_action": "Identify software units and document their behavior and interfaces at the applicable class rigor; review consistency with architecture before implementation is accepted.",
+      "evidence_required": [
+        "Unit design",
+        "state machines",
+        "design review"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-017",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.5.1",
+        "5.5.2"
+      ],
+      "topic": "Implementation and unit strategy",
+      "project_action": "Implement the designed units and justify the verification methods used to expose relevant defects.",
+      "evidence_required": [
+        "Versioned source",
+        "coding review",
+        "unit-verification strategy"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-018",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.5.3\u20135.5.5"
+      ],
+      "topic": "Unit acceptance",
+      "project_action": "Define acceptance before integration and check relevant control/data flow, initialization, memory, error and boundary behavior; retain actual results.",
+      "evidence_required": [
+        "Unit acceptance criteria",
+        "test and analysis results"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-019",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.6.1\u20135.6.4"
+      ],
+      "topic": "Integration behavior",
+      "project_action": "Integrate according to the plan and verify interfaces, sequences and required behavior, including abnormal conditions and timing.",
+      "evidence_required": [
+        "Integration build records",
+        "interface and fault-test evidence"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-020",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.6.5\u20135.6.8"
+      ],
+      "topic": "Integration adequacy and regression",
+      "project_action": "Assess coverage of integration tests, repeat affected checks after change and record reproducible results and anomalies.",
+      "evidence_required": [
+        "Integration review",
+        "regression report",
+        "issue links"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-021",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.7.1",
+        "5.7.2"
+      ],
+      "topic": "System tests and anomalies",
+      "project_action": "Define tests or other verification for every software requirement and enter failures into controlled problem resolution.",
+      "evidence_required": [
+        "Requirement-to-test mapping",
+        "system protocols",
+        "anomaly log"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-022",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.7.3\u20135.7.5"
+      ],
+      "topic": "System-test completeness",
+      "project_action": "Retest after change, evaluate risk impact, check adequacy and retain configuration, procedure, expected/actual outcomes and tester identity.",
+      "evidence_required": [
+        "System test report",
+        "regression rationale",
+        "execution metadata"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-023",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.8.1\u20135.8.3"
+      ],
+      "topic": "Release readiness and anomalies",
+      "project_action": "Complete required verification, list unresolved anomalies and evaluate their acceptability for the declared use before release.",
+      "evidence_required": [
+        "Verification closure review",
+        "known-anomaly assessment"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-024",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.8.4\u20135.8.6"
+      ],
+      "topic": "Release identity and completion",
+      "project_action": "Identify the exact released version and reproducible build process; verify that required lifecycle activities are complete.",
+      "evidence_required": [
+        "Release manifest",
+        "build instructions",
+        "completion review"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-025",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "5.8.7",
+        "5.8.8"
+      ],
+      "topic": "Retention and delivery",
+      "project_action": "Retain software and records for the justified lifetime/regulatory period and deliver releases with controlled integrity and version identification.",
+      "evidence_required": [
+        "Retention policy",
+        "archived build inputs",
+        "delivery verification"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-026",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "6.1"
+      ],
+      "topic": "Maintenance planning",
+      "project_action": "Plan feedback intake, risk-based triage, changes, regression, third-party updates and obsolescence throughout support.",
+      "evidence_required": [
+        "Maintenance plan",
+        "SOUP update strategy"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-027",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "6.2.1.1\u20136.2.1.3",
+        "6.2.2"
+      ],
+      "topic": "Feedback assessment",
+      "project_action": "Document feedback, evaluate safety implications and activate problem resolution when investigation is needed.",
+      "evidence_required": [
+        "Feedback assessments",
+        "problem records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-028",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "6.2.3\u20136.2.5"
+      ],
+      "topic": "Change impact and communication",
+      "project_action": "Analyze and approve maintenance changes and decide who needs safety or update information, including downstream users and authorities when applicable.",
+      "evidence_required": [
+        "Approved changes",
+        "impact analysis",
+        "communication records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-029",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "6.3.1",
+        "6.3.2"
+      ],
+      "topic": "Maintenance implementation",
+      "project_action": "Repeat relevant development and verification activities for a change, then release it through the controlled process.",
+      "evidence_required": [
+        "Maintenance evidence package",
+        "updated release record"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-030",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "7.1.1\u20137.1.4"
+      ],
+      "topic": "Software hazard contribution",
+      "project_action": "Identify software items that can contribute to hazardous situations, causal failures and relevant published SOUP anomalies; record causal chains.",
+      "evidence_required": [
+        "Software hazard analysis",
+        "SOUP anomaly evaluation"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-031",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "7.2.1",
+        "7.2.2"
+      ],
+      "topic": "Software risk-control allocation",
+      "project_action": "Allocate each control to requirements and revisit safety classification when new software controls or items are introduced.",
+      "evidence_required": [
+        "Allocation and classification updates"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-032",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "7.3.1",
+        "7.3.3"
+      ],
+      "topic": "Control verification and trace",
+      "project_action": "Verify software risk controls, assess new hazardous situations, and trace each hazard through item, cause, control and evidence.",
+      "evidence_required": [
+        "Risk-control test report",
+        "full causal trace"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-033",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "7.4.1\u20137.4.3"
+      ],
+      "topic": "Risk impact of modification",
+      "project_action": "Analyze how code, SOUP and configuration changes affect safety and existing controls; repeat affected risk activities.",
+      "evidence_required": [
+        "Change-specific risk analysis",
+        "regression selection"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-034",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "8.1.1\u20138.1.3"
+      ],
+      "topic": "Configuration identification",
+      "project_action": "Identify exact controlled source, documents, build inputs and third-party versions, and reconstruct the composition of a released configuration.",
+      "evidence_required": [
+        "Configuration index",
+        "SBOM",
+        "baseline manifest"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-035",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "8.2.1\u20138.2.4",
+        "8.3"
+      ],
+      "topic": "Controlled change history",
+      "project_action": "Authorize, implement and verify changes with traceable relationships and maintain recoverable configuration history.",
+      "evidence_required": [
+        "Change records",
+        "approvals",
+        "verification and history"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-036",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "9.1",
+        "9.2"
+      ],
+      "topic": "Problem intake and investigation",
+      "project_action": "Record reproducible problems and their criticality; investigate cause and safety impact, including documented rationale for no change.",
+      "evidence_required": [
+        "Problem reports",
+        "investigations",
+        "risk links"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-037",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "9.3\u20139.6"
+      ],
+      "topic": "Problem communication and trends",
+      "project_action": "Inform relevant parties, apply change control, retain records and inspect recurring problems for systemic causes.",
+      "evidence_required": [
+        "Communication log",
+        "issue history",
+        "trend reviews"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SW-038",
+      "standard_id": "IEC62304-2015",
+      "clauses": [
+        "9.7",
+        "9.8"
+      ],
+      "topic": "Resolution verification",
+      "project_action": "Verify that fixes resolve the reported problem without unacceptable side effects and retain repeatable test details.",
+      "evidence_required": [
+        "Fix verification",
+        "regression results",
+        "closure review"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Software lifecycle lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-001",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "4.1.1\u20134.1.4"
+      ],
+      "topic": "Security governance",
+      "project_action": "Integrate security into quality work, define accountable roles and software scope, and document required competence.",
+      "evidence_required": [
+        "Security lifecycle plan",
+        "role and competence records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-002",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "4.1.5"
+      ],
+      "topic": "Contracted development",
+      "project_action": "For contracted custom components, specify the security work and evidence expected from suppliers and assess delivery.",
+      "evidence_required": [
+        "Supplier agreements",
+        "supplier evidence review"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-003",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "4.1.6",
+        "4.1.8",
+        "4.1.9"
+      ],
+      "topic": "Security process improvement",
+      "project_action": "Track process problems and review security issues at the required cadence, using findings to improve development and close documentation defects.",
+      "evidence_required": [
+        "Process reviews",
+        "improvement actions",
+        "security-document issue log"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-004",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "4.1.7"
+      ],
+      "topic": "Vulnerability disclosure",
+      "project_action": "Define timely communication of affected versions, severity, available mitigations and fixes without exposing unnecessary exploit detail.",
+      "evidence_required": [
+        "Disclosure policy",
+        "advisory template",
+        "communication decisions"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-005",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "4.2"
+      ],
+      "topic": "Security risk policy",
+      "project_action": "Define security risk acceptance and relate threats, residual exposure and compensating controls to safety and intended use.",
+      "evidence_required": [
+        "Security risk plan",
+        "acceptance policy"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-006",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "4.3"
+      ],
+      "topic": "Support responsibility",
+      "project_action": "Classify software by who maintains or supports it, including dependencies and required external software, so patch obligations are not lost.",
+      "evidence_required": [
+        "Support responsibility inventory",
+        "end-of-support policy"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-007",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.1.1"
+      ],
+      "topic": "Integrated secure lifecycle",
+      "project_action": "Plan security tasks across the lifecycle and justify any tailoring with the required review; absence of internet access is not a blanket exclusion.",
+      "evidence_required": [
+        "Integrated plan",
+        "tailoring review"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-008",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.1.2"
+      ],
+      "topic": "Development infrastructure",
+      "project_action": "Protect source, CI, build environments, credentials and release artifacts against unauthorized modification or disclosure.",
+      "evidence_required": [
+        "Infrastructure threat model",
+        "access policy",
+        "build provenance"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-009",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.1.3",
+        "5.5.1"
+      ],
+      "topic": "Secure implementation rules",
+      "project_action": "Define language-specific secure coding rules for parsing, numeric limits, memory, concurrency and error handling and apply them to project code.",
+      "evidence_required": [
+        "Coding standard",
+        "review records",
+        "deviations"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-010",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.2.1"
+      ],
+      "topic": "Lifecycle security requirements",
+      "project_action": "Specify security needs for installation, operation, updates, service and retirement, including the external experiment console.",
+      "evidence_required": [
+        "Security requirements",
+        "lifecycle use cases"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-011",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.2.2"
+      ],
+      "topic": "Requirements review",
+      "project_action": "Review security requirements with relevant disciplines and document review objectivity and conflicts of interest.",
+      "evidence_required": [
+        "Security requirements review",
+        "participants and conflict record"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-012",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.2.3"
+      ],
+      "topic": "External software risk",
+      "project_action": "Evaluate required third-party and external software against the security context rather than assuming a permissive license implies trustworthiness.",
+      "evidence_required": [
+        "Dependency risk assessments",
+        "required-software assumptions"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-013",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.3.1",
+        "5.3.2"
+      ],
+      "topic": "Layered security architecture",
+      "project_action": "Define trust boundaries, least privilege and layered defenses compatible with protective functions; isolate simulation administration from device operations.",
+      "evidence_required": [
+        "Trust-boundary diagram",
+        "authorization model",
+        "debug-interface policy"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [
+        "REQ-001"
+      ],
+      "test_ids": [
+        "TEST-001"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "SEC-014",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.3.3"
+      ],
+      "topic": "Architecture review",
+      "project_action": "Review boundary enforcement and adverse behavior, including shared-host compromise and failure of a security control.",
+      "evidence_required": [
+        "Architecture review",
+        "attack and common-cause analysis"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-015",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.4.1\u20135.4.4"
+      ],
+      "topic": "Security detail and interface design",
+      "project_action": "Document threat mitigations, interface permissions, input validation, assets and error handling; review internal and external interface assumptions.",
+      "evidence_required": [
+        "Interface security contracts",
+        "detailed-design review"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-016",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.5.2"
+      ],
+      "topic": "Implementation review",
+      "project_action": "Review implementation against security design using suitable manual and automated methods and resolve or justify findings.",
+      "evidence_required": [
+        "Code review",
+        "static-analysis results",
+        "deviation dispositions"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-017",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.6"
+      ],
+      "topic": "Security integration",
+      "project_action": "Check that interacting components enforce compatible permissions and policies; choose integration tests for changes in trust or execution environment.",
+      "evidence_required": [
+        "Integration security analysis",
+        "boundary-test evidence"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-018",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.7.1"
+      ],
+      "topic": "Security requirement tests",
+      "project_action": "Exercise authorized and unauthorized operations, malformed input, stress and resource behavior against security requirements.",
+      "evidence_required": [
+        "Security protocols",
+        "measured results"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-019",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.7.2"
+      ],
+      "topic": "Mitigation challenge tests",
+      "project_action": "Attempt to defeat modeled mitigations and check for newly introduced attack paths or safety hazards.",
+      "evidence_required": [
+        "Adversarial test report",
+        "mitigation trace",
+        "risk updates"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-020",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.7.3"
+      ],
+      "topic": "Vulnerability discovery",
+      "project_action": "Assess supplied software and dependencies using current vulnerability information and appropriate composition, static, dynamic and malformed-input checks.",
+      "evidence_required": [
+        "Dated scan results",
+        "SBOM",
+        "findings and triage rationale"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-021",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.7.4",
+        "5.7.5"
+      ],
+      "topic": "Penetration testing and objectivity",
+      "project_action": "Plan penetration testing with scope, competence and independence appropriate to the required review level; document conflicts rather than claiming self-review is independent.",
+      "evidence_required": [
+        "Penetration-test plan/report",
+        "independence rationale"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-022",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.8.1",
+        "5.8.5",
+        "5.8.6"
+      ],
+      "topic": "Security release closure",
+      "project_action": "Route findings through problem handling and complete required security activities and unresolved-risk review before release.",
+      "evidence_required": [
+        "Security closure report",
+        "accepted findings",
+        "release authorization"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-023",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.8.2"
+      ],
+      "topic": "Secure-use documentation",
+      "project_action": "Explain supported configurations, secure operation, accounts, boundary assumptions and remaining security risks to the relevant user roles.",
+      "evidence_required": [
+        "Security operating guide",
+        "account guide",
+        "residual-risk information"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-024",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.8.3",
+        "5.8.4"
+      ],
+      "topic": "Release integrity and signing keys",
+      "project_action": "Provide an integrity-verification mechanism for released files; if signing is used, protect private keys and document ownership and recovery.",
+      "evidence_required": [
+        "Artifact verification procedure",
+        "signing-key controls where applicable"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-025",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "5.8.7"
+      ],
+      "topic": "Retirement guidance",
+      "project_action": "Document how to remove deployments, credentials, configuration and sensitive data safely at end of use.",
+      "evidence_required": [
+        "Decommissioning procedure",
+        "retirement verification"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-026",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "6.1.1"
+      ],
+      "topic": "Security update policy",
+      "project_action": "Define update priorities and timeframes using exposure, exploitability, affected installations and available mitigations.",
+      "evidence_required": [
+        "Support/update policy",
+        "prioritization decisions"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-027",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "6.2.1",
+        "6.2.2"
+      ],
+      "topic": "Patch monitoring and verification",
+      "project_action": "Monitor vulnerabilities and verify that updates actually fix the issue without unacceptable safety or security regression, including supplier patches.",
+      "evidence_required": [
+        "Monitoring records",
+        "patch and regression evidence"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-028",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "6.3.1"
+      ],
+      "topic": "Update compatibility",
+      "project_action": "Define supported update paths and mitigations where a dependency update cannot yet be approved.",
+      "evidence_required": [
+        "Compatibility matrix",
+        "temporary mitigation decisions"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-029",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "6.3.2",
+        "6.3.3"
+      ],
+      "topic": "Secure update delivery",
+      "project_action": "Maintain the update-delivery mechanism and verify authenticity and integrity before accepting updates.",
+      "evidence_required": [
+        "Update mechanism tests",
+        "delivery and recovery records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-030",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "7.1.1",
+        "7.1.2"
+      ],
+      "topic": "Security operating context",
+      "project_action": "Describe deployment, users, networks, physical access and assumed controls for WSL2 and Linux profiles.",
+      "evidence_required": [
+        "Security context",
+        "deployment assumptions"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-031",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "7.2"
+      ],
+      "topic": "Maintained threat model",
+      "project_action": "Identify assets, processes, data flows, interfaces and dependencies; review the threat model with the required cadence and after relevant changes.",
+      "evidence_required": [
+        "Versioned threat model",
+        "periodic and change reviews"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-032",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "7.3"
+      ],
+      "topic": "Security risk evaluation",
+      "project_action": "Assess realistic threat consequences and likelihood/exploitability; connect safety consequences to the risk file rather than treating a vulnerability score as clinical risk.",
+      "evidence_required": [
+        "Threat risk decisions",
+        "safety-security cross references"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-033",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "7.4"
+      ],
+      "topic": "Mitigation effectiveness",
+      "project_action": "Implement selected mitigations, verify their effectiveness and assess new risk introduced by authentication, rate limiting or recovery mechanisms.",
+      "evidence_required": [
+        "Mitigation requirements",
+        "effectiveness tests",
+        "residual review"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-034",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "7.5"
+      ],
+      "topic": "Security monitoring",
+      "project_action": "Use supplier and field information to reassess security assumptions and affected releases throughout support.",
+      "evidence_required": [
+        "Monitoring and reassessment records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-035",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "8"
+      ],
+      "topic": "Reconstructable security configuration",
+      "project_action": "Retain enough configuration and third-party version information to identify affected products and reproduce their security-relevant composition.",
+      "evidence_required": [
+        "Versioned configuration",
+        "dependency and build records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-036",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "9.1",
+        "9.2"
+      ],
+      "topic": "Security problem intake",
+      "project_action": "Provide maintained routes for receiving internal, external and supplier security reports.",
+      "evidence_required": [
+        "Security issue procedure",
+        "intake records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-037",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "9.3",
+        "9.4"
+      ],
+      "topic": "Security investigation",
+      "project_action": "Triage promptly, determine affected versions and safety impact, investigate causes and assess related issues.",
+      "evidence_required": [
+        "Triage deadlines",
+        "investigation and impact records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-038",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "9.5"
+      ],
+      "topic": "Security resolution and disclosure",
+      "project_action": "Resolve or mitigate findings, review remaining issues for each release and communicate relevant effects to users and suppliers.",
+      "evidence_required": [
+        "Resolution records",
+        "residual review",
+        "advisories"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-039",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "F.1\u2013F.4"
+      ],
+      "topic": "Transitional-software decision",
+      "project_action": "Do not use the transitional route for new project code. If introduced later, scope the claim, close required gaps and plan ongoing support and migration.",
+      "evidence_required": [
+        "Applicability decision",
+        "transitional gap/closure/migration records if invoked"
+      ],
+      "scope": "conditional",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "A documented feature/scope decision is required. Absence of evidence is not a not-applicable decision.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "SEC-040",
+      "standard_id": "IEC81001-2021",
+      "clauses": [
+        "G"
+      ],
+      "topic": "Conformance identifier accuracy",
+      "project_action": "If publishing a machine-readable conformance identifier, verify its intended claim and evidence; do not label a documentation-only result as full conformity.",
+      "evidence_required": [
+        "Claim review",
+        "identifier selection rationale if used"
+      ],
+      "scope": "conditional",
+      "basis": "supplied-standard",
+      "owner_role": "Security lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "A documented feature/scope decision is required. Absence of evidence is not a not-applicable decision.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-001",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "1",
+        "2",
+        "3"
+      ],
+      "topic": "General-standard applicability",
+      "project_action": "Define the reference and future equipment boundaries, applicable particular/collateral documents and interpretation of terms; reconcile US adoption with the selected EU package.",
+      "evidence_required": [
+        "Applicability report",
+        "edition and terminology baseline"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-002",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "4.1",
+        "4.2"
+      ],
+      "topic": "System safety basis",
+      "project_action": "Analyze normal use and foreseeable misuse across software, physical plant assumptions and operators, including hazards not bounded by a prescriptive test.",
+      "evidence_required": [
+        "System risk file",
+        "general-standard coverage review"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-003",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "4.3"
+      ],
+      "topic": "Essential performance",
+      "project_action": "Identify functions whose loss or degradation can cause unacceptable risk and define measurable normal/fault limits for the selected configuration.",
+      "evidence_required": [
+        "Essential-performance specification",
+        "limit derivation"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-004",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "4.4",
+        "4.5"
+      ],
+      "topic": "Lifetime and alternative controls",
+      "project_action": "Specify the modeled/product lifetime and justify any alternative safety approach with equivalent risk reasoning, not convenience.",
+      "evidence_required": [
+        "Lifetime assumptions",
+        "equivalence justification where invoked"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-005",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "4.6\u20134.10"
+      ],
+      "topic": "Physical design assumptions",
+      "project_action": "Record patient contact, components, high-integrity claims, power and single-fault assumptions; keep physical verification as a downstream obligation.",
+      "evidence_required": [
+        "Hardware assumptions",
+        "component evidence",
+        "single-fault analysis"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-006",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "5",
+        "6"
+      ],
+      "topic": "Test and equipment baseline",
+      "project_action": "Plan the actual equipment configuration, classifications, environmental conditions and test sequence; simulator execution cannot substitute for equipment type tests.",
+      "evidence_required": [
+        "Equipment test plan",
+        "classification rationale"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-007",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "7"
+      ],
+      "topic": "Information and identification",
+      "project_action": "Define safety information, labels, units, configuration identity and instructions; distinguish device operating information from experiment controls.",
+      "evidence_required": [
+        "Information specification",
+        "LVGL review",
+        "labeling/IFU evidence"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-008",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "8",
+        "9",
+        "10"
+      ],
+      "topic": "Electrical, mechanical and radiation hazards",
+      "project_action": "Maintain downstream obligations for relevant hardware tests and design review. Model selected failure consequences without reporting simulated electrical or mechanical compliance.",
+      "evidence_required": [
+        "Downstream hardware test matrix",
+        "relevance decisions"
+      ],
+      "scope": "downstream",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-009",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "11"
+      ],
+      "topic": "Thermal, fluid and biological interfaces",
+      "project_action": "Map heating, liquid ingress, cleaning, fluid quality and interruption hazards to software interlocks and to separate physical/biological evidence.",
+      "evidence_required": [
+        "Thermal/fluid hazard controls",
+        "downstream test and validation plans"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-010",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "12.1",
+        "12.4.1\u201312.4.4"
+      ],
+      "topic": "Accuracy and hazardous output",
+      "project_action": "Specify accuracy, safe parameter entry and output indications; analyze both incorrect output and deliberate limit changes.",
+      "evidence_required": [
+        "Accuracy budget",
+        "range-check design",
+        "abnormal-output tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-011",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "12.2",
+        "12.3",
+        "15.1"
+      ],
+      "topic": "Usability and alarm integration",
+      "project_action": "Link user tasks, control placement and alarms to use-related risks and applicable collateral requirements.",
+      "evidence_required": [
+        "Usability file",
+        "alarm catalog",
+        "critical-task evidence"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-012",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "12.4.5",
+        "12.4.6"
+      ],
+      "topic": "Other output modalities",
+      "project_action": "Screen radiation and therapeutic/diagnostic acoustic-output provisions against the actual configuration; document non-applicability where absent.",
+      "evidence_required": [
+        "Reviewed applicability rationale"
+      ],
+      "scope": "conditional",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "A documented feature/scope decision is required. Absence of evidence is not a not-applicable decision.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-013",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "13"
+      ],
+      "topic": "Fault conditions",
+      "project_action": "Define single faults and relevant combinations, including protective failure, and test hazardous consequences with justified fault assumptions.",
+      "evidence_required": [
+        "Fault model",
+        "single-fault test matrix",
+        "downstream physical tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-014",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "14.1\u201314.3"
+      ],
+      "topic": "Programmable-system governance",
+      "project_action": "Document applicability of programmable-system requirements, control the resulting records and connect system validation to the risk plan.",
+      "evidence_required": [
+        "PEMS applicability decision",
+        "controlled plans and records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-015",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "14.4",
+        "14.5"
+      ],
+      "topic": "Lifecycle and problem handling",
+      "project_action": "Define phase inputs/outputs and reviews; feed hardware/software integration problems into controlled resolution.",
+      "evidence_required": [
+        "PEMS lifecycle",
+        "review gates",
+        "issue records"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-016",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "14.6.1",
+        "14.6.2"
+      ],
+      "topic": "Programmable hazards and tools",
+      "project_action": "Analyze erroneous, delayed or missing data, third-party behavior, networks and security; justify tools used to implement and verify controls.",
+      "evidence_required": [
+        "PEMS hazard analysis",
+        "tool-suitability evidence"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-017",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "14.7"
+      ],
+      "topic": "System safety requirements",
+      "project_action": "State basic-safety and essential-performance requirements and allocate software and non-software controls explicitly.",
+      "evidence_required": [
+        "System requirements",
+        "control allocation"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-018",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "14.8"
+      ],
+      "topic": "Safety architecture",
+      "project_action": "Analyze fail-safe behavior, redundancy/diversity where used, diagnostics, partitioning and common causes; container count is not an independence argument.",
+      "evidence_required": [
+        "Safety architecture",
+        "dependency/common-cause analysis"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [
+        "REQ-002"
+      ],
+      "test_ids": [
+        "TEST-002"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "GEN-019",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "14.9",
+        "14.10"
+      ],
+      "topic": "Design and verification",
+      "project_action": "Document design environment and verify safety/performance requirements with planned methods, coverage and appropriate reviewer independence.",
+      "evidence_required": [
+        "Design records",
+        "PEMS verification plan and report"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-020",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "14.11"
+      ],
+      "topic": "System validation independence",
+      "project_action": "Plan and execute system validation with documented methods and results; separate responsibility from the design team and record professional relationships and independence rationale.",
+      "evidence_required": [
+        "PEMS validation plan/report",
+        "team independence record"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-021",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "14.12"
+      ],
+      "topic": "Modification",
+      "project_action": "Reassess reused design evidence after change and repeat affected software/system lifecycle activities.",
+      "evidence_required": [
+        "Change-impact and evidence-reuse decisions"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-022",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "14.13"
+      ],
+      "topic": "External network assumptions",
+      "project_action": "For connections outside the validated system, document purpose, network properties, configuration, security, flows and failure hazards; describe reassessment after network changes.",
+      "evidence_required": [
+        "Network integration guide",
+        "failure analysis"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-023",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "15.2\u201315.5",
+        "16",
+        "17"
+      ],
+      "topic": "Construction, systems and EMC",
+      "project_action": "Screen serviceability, construction, equipment combinations and electromagnetic behavior. Carry needed laboratory evidence into downstream adaptation.",
+      "evidence_required": [
+        "Detailed hardware/system/EMC applicability and test plans"
+      ],
+      "scope": "downstream",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "GEN-024",
+      "standard_id": "AAMI60601-2012",
+      "clauses": [
+        "Annexes"
+      ],
+      "topic": "Annex applicability completion",
+      "project_action": "Complete the annex-by-annex normative/informative applicability review against the selected full edition; this first checklist does not reproduce its physical test methods.",
+      "evidence_required": [
+        "Reviewed annex register",
+        "linked physical test evidence"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-001",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.1",
+        "201.2",
+        "201.3"
+      ],
+      "topic": "Dialysis scope and precedence",
+      "project_action": "Scope HD and pre/post HDF, identify applicable collateral changes and system boundaries, and define pressure/flow terminology consistently.",
+      "evidence_required": [
+        "Dialysis applicability and terminology specification"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-002",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.4.3.101"
+      ],
+      "topic": "Dialysis performance baseline",
+      "project_action": "Create a measurable performance matrix for delivered flows, patient fluid removal, timing, composition and temperatures across all supported modes.",
+      "evidence_required": [
+        "Essential-performance matrix",
+        "configuration envelope"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-003",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.4.3.102"
+      ],
+      "topic": "Delivered blood flow",
+      "project_action": "Distinguish pump setting from delivered blood flow; model pressure-dependent delivery and tubing effects over the declared treatment duration.",
+      "evidence_required": [
+        "Flow model",
+        "accuracy protocols",
+        "bench/reference comparison"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-004",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.4.3.103"
+      ],
+      "topic": "Dialysate flow",
+      "project_action": "Verify delivered dialysate flow at relevant operating extremes and conditions rather than only a nominal setting.",
+      "evidence_required": [
+        "Dialysate flow tests",
+        "calibrated reference rationale"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-005",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.4.3.104"
+      ],
+      "topic": "Net patient fluid removal",
+      "project_action": "Measure net removal independently of gross membrane transfer and challenge pressure/rate extremes and balance errors.",
+      "evidence_required": [
+        "Fluid balance specification",
+        "independent mass-balance tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-006",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.4.3.105"
+      ],
+      "topic": "Substitution delivery",
+      "project_action": "Verify substitution delivery and its effect on net fluid balance in both HDF routes and after interruption.",
+      "evidence_required": [
+        "Pre/post HDF protocols",
+        "delivered volume results"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-007",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.4.3.106"
+      ],
+      "topic": "Treatment timing",
+      "project_action": "Define treatment-time semantics during pauses, faults and recovery and verify against an independent time reference.",
+      "evidence_required": [
+        "Timing requirements",
+        "interruption/recovery tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-008",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.4.3.107"
+      ],
+      "topic": "Dialysate composition",
+      "project_action": "Specify composition measurement and accuracy; conductivity alone must not become proof of each electrolyte concentration in the model.",
+      "evidence_required": [
+        "Chemistry/sensor model",
+        "composition validation"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-009",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.4.3.108",
+        "201.4.3.109"
+      ],
+      "topic": "Delivered fluid temperature",
+      "project_action": "Evaluate dialysate and substitution temperature at the relevant delivery points, including transport delay and operating extremes.",
+      "evidence_required": [
+        "Thermal model",
+        "temperature accuracy evidence"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-010",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.4.7"
+      ],
+      "topic": "Protective failure",
+      "project_action": "Include failure of protection itself in single-fault analysis and distinguish normally present air from an injected abnormal event.",
+      "evidence_required": [
+        "Protection fault matrix",
+        "normal/fault scenario definitions"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-011",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.5",
+        "201.6"
+      ],
+      "topic": "Test setup and classification",
+      "project_action": "Retain the general-standard equipment test/classification obligations alongside dialysis-specific protocols.",
+      "evidence_required": [
+        "Integrated test plan",
+        "downstream equipment classification"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-012",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.7.4.3",
+        "201.7.8.2"
+      ],
+      "topic": "Units and control meaning",
+      "project_action": "Use consistent pressure units and review control colors and emergency/blood-pump behavior with the intended user workflow.",
+      "evidence_required": [
+        "UI specification",
+        "unit and control review"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-013",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.7.9.2.2"
+      ],
+      "topic": "Residual-risk information",
+      "project_action": "Explain connection, concentration, fluid contamination, blood-loss detection and other relevant residual limitations; do not imply venous pressure detects every disconnection.",
+      "evidence_required": [
+        "Risk-linked warnings",
+        "operator workflow review"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-014",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.7.9.2.5",
+        "201.7.9.2.6"
+      ],
+      "topic": "Configuration and installation information",
+      "project_action": "Document pressure definitions, fluid-input conditions, configurable protection settings, network/environment assumptions and their verification.",
+      "evidence_required": [
+        "Configuration guide",
+        "installation checks"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-015",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.7.9.2.12",
+        "201.7.9.3.1"
+      ],
+      "topic": "Cleaning and technical support information",
+      "project_action": "Describe supported cleaning/disinfection sequences, servicing, replacement intervals and evidence limits; define information needed by operators and maintainers.",
+      "evidence_required": [
+        "Operating/technical guide",
+        "maintenance and hygiene assumptions"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-016",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.8"
+      ],
+      "topic": "Electrical patient interfaces",
+      "project_action": "Carry patient-contact classification, leakage and supply-interface obligations into downstream hardware adaptation; a simulated circuit provides no leakage-current evidence.",
+      "evidence_required": [
+        "Physical electrical-safety plan",
+        "applicability rationale"
+      ],
+      "scope": "downstream",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-017",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.11.6.3",
+        "201.11.6.6"
+      ],
+      "topic": "Spillage and fluid-path hygiene",
+      "project_action": "Model leakage consequences and disinfection state interlocks; separate physical ingress tests and microbiological effectiveness validation.",
+      "evidence_required": [
+        "Leak/disinfection scenarios",
+        "downstream hygiene and ingress evidence plan"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-018",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.11.8"
+      ],
+      "topic": "Power interruption",
+      "project_action": "Specify behavior for loss of power, backup depletion and restoration, including alarm availability and safe restart; process-kill tests cover only modeled effects.",
+      "evidence_required": [
+        "Power-state machine",
+        "interruption tests",
+        "physical backup/alarm obligations"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-019",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.101"
+      ],
+      "topic": "Composition protection",
+      "project_action": "Provide protection independent of preparation control and verify actions on composition faults, wrong/missing concentrates and applicable profiles or boluses.",
+      "evidence_required": [
+        "Composition protection requirements",
+        "independence analysis",
+        "fault tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-020",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.102"
+      ],
+      "topic": "Temperature protection",
+      "project_action": "Separate regulation from protection and derive approved delivery-temperature limits and reaction budgets from the selected edition and risk analysis.",
+      "evidence_required": [
+        "Thermal protection requirements",
+        "independent sensing/action tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-021",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.103"
+      ],
+      "topic": "Patient balance protection",
+      "project_action": "Protect against unacceptable patient fluid imbalance independently of UF/substitution control; include interrupted substitution and any optional profiles/boluses.",
+      "evidence_required": [
+        "Independent balance observer",
+        "imbalance scenarios",
+        "response evidence"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [
+        "REQ-003"
+      ],
+      "test_ids": [
+        "TEST-003"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "HD-022",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.104.1"
+      ],
+      "topic": "External blood loss",
+      "project_action": "Analyze venous disconnection, pressure limits and circuit rupture; verify responses while explicitly retaining detection limitations.",
+      "evidence_required": [
+        "Blood-loss hazard analysis",
+        "pressure/fault tests",
+        "residual-risk information"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-023",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.104.2"
+      ],
+      "topic": "Blood leak through membrane",
+      "project_action": "Model blood leak into dialysate and realistic detector sensitivity/delay, including flow extremes; verify protective response.",
+      "evidence_required": [
+        "Leak/sensor model",
+        "sensitivity and reaction tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-024",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.104.3"
+      ],
+      "topic": "Coagulation hazards",
+      "project_action": "Assess prolonged stopped blood flow and interaction with substitution and anticoagulation; an indiscriminate all-pumps-stop rule needs hazard review.",
+      "evidence_required": [
+        "Stagnation/coagulation scenarios",
+        "coordinated response specification"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-025",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.105"
+      ],
+      "topic": "Air protection",
+      "project_action": "Analyze air entry in normal and fault conditions, detector coverage and downstream travel time/volume; challenge both discrete and continuing air entry.",
+      "evidence_required": [
+        "Air model",
+        "detector-to-actuator timing budget",
+        "fault tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-026",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.106"
+      ],
+      "topic": "Protection availability and overrides",
+      "project_action": "Define when each protection must be active and distinguish audio pause from any explicitly permitted protection override, including duration and restoration.",
+      "evidence_required": [
+        "Mode/protection matrix",
+        "override access and expiry tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [
+        "REQ-005"
+      ],
+      "test_ids": [
+        "TEST-005"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "HD-027",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.107"
+      ],
+      "topic": "Protective-system diagnostics",
+      "project_action": "Define self-check coverage and intervals, detect protective failure within the hazard time budget, and inhibit the affected function with appropriate indication.",
+      "evidence_required": [
+        "Diagnostic specification",
+        "latent-fault analysis",
+        "self-check tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [
+        "REQ-004"
+      ],
+      "test_ids": [
+        "TEST-004"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "HD-028",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.108"
+      ],
+      "topic": "Cleaning/treatment exclusion",
+      "project_action": "Prevent patient treatment during cleaning/disinfection and analyze backflow and unsafe route transitions, including faults.",
+      "evidence_required": [
+        "Fluid-route state machine",
+        "incompatible-mode and backflow tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-029",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.109",
+        "201.12.4.4.110"
+      ],
+      "topic": "Unintended direction and mode changes",
+      "project_action": "Prevent unintended blood-pump reversal and treatment-mode changes through validated commands and state transitions.",
+      "evidence_required": [
+        "Command validation",
+        "transition and reversal tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-030",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.111"
+      ],
+      "topic": "Online substitution quality",
+      "project_action": "Model preparation barriers, monitoring and observable integrity criteria in normal/fault cases; simulation cannot prove microbiological quality of intravenous fluid.",
+      "evidence_required": [
+        "Preparation barrier model",
+        "integrity scenarios",
+        "external fluid-quality validation obligations"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [
+        "REQ-006"
+      ],
+      "test_ids": [
+        "TEST-006"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "HD-031",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.12.4.4.112"
+      ],
+      "topic": "Anticoagulation option",
+      "project_action": "Decide whether integrated anticoagulation is in the first configuration; if included, address dosing faults, pressure effects, misconnections, unintended flow and coordination with blood flow.",
+      "evidence_required": [
+        "Feature decision",
+        "infusion risk analysis and coordinated tests if included"
+      ],
+      "scope": "conditional",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "A documented feature/scope decision is required. Absence of evidence is not a not-applicable decision.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-032",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.13.2.6"
+      ],
+      "topic": "Liquid leakage into equipment",
+      "project_action": "Model consequences of leaking paths where useful, while retaining physical shielding and electrical safety testing as product obligations.",
+      "evidence_required": [
+        "Leak fault scenarios",
+        "downstream ingress/electrical tests"
+      ],
+      "scope": "downstream",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-033",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.14.13"
+      ],
+      "topic": "Network single faults",
+      "project_action": "Verify that failed or corrupted network exchanges cannot cause unacceptable modeled treatment behavior; include stale, repeated and missing messages.",
+      "evidence_required": [
+        "Network fault protocols",
+        "hazard-linked results"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [
+        "REQ-004"
+      ],
+      "test_ids": [
+        "TEST-004"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "HD-034",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.15.4.1.101",
+        "201.15.4.1.102"
+      ],
+      "topic": "Connection and transducer interfaces",
+      "project_action": "Model wrong concentrate connections, pressure-port leaks and contamination paths; define downstream connector and barrier requirements.",
+      "evidence_required": [
+        "Connection model",
+        "transducer failure analysis",
+        "physical interface plan"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-035",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "201.16"
+      ],
+      "topic": "Connected system effects",
+      "project_action": "Assess central fluid and equipment connections as a whole system; preserve combined leakage and integration obligations.",
+      "evidence_required": [
+        "System interface analysis",
+        "downstream system test plan"
+      ],
+      "scope": "downstream",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-036",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "202"
+      ],
+      "topic": "Electromagnetic disturbance effects",
+      "project_action": "Challenge modeled sensor, communication and actuator disturbances with explicit essential-performance outcomes; laboratory EMC remains external evidence.",
+      "evidence_required": [
+        "EMC-derived fault scenarios",
+        "physical EMC plan"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-037",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "208.4",
+        "208.5.2.1"
+      ],
+      "topic": "Alarm context and catalog",
+      "project_action": "Choose intended care/use environments for the template and derive the correct particular/collateral alarm behavior and documented catalog.",
+      "evidence_required": [
+        "Alarm applicability decision",
+        "complete alarm catalog"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-038",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "208.6.3.1",
+        "208.6.3.3.2",
+        "208.6.3.3.3"
+      ],
+      "topic": "Alarm delivery and muting",
+      "project_action": "Verify required visual/audio persistence and permitted muting behavior; assess loss of speakers/UI and retain acoustic measurements for final equipment.",
+      "evidence_required": [
+        "Alarm state tests",
+        "delivery failure tests",
+        "physical acoustic test plan"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [
+        "REQ-005"
+      ],
+      "test_ids": [
+        "TEST-005"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "HD-039",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "208.6.3.3.101"
+      ],
+      "topic": "Audio pause behavior",
+      "project_action": "Use edition-specific pause rules, automatic restoration and interruption by newly relevant alarms; pausing sound never implicitly authorizes a protective override.",
+      "evidence_required": [
+        "Audio-pause state machine",
+        "timer and new-alarm tests"
+      ],
+      "scope": "reference",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-040",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "209",
+        "210",
+        "211"
+      ],
+      "topic": "Conditional collateral scope",
+      "project_action": "Review environmental, physiological closed-loop and home-use provisions for the selected edition/configuration. A simulated patient alone is not a physiological controller.",
+      "evidence_required": [
+        "Collateral applicability decisions",
+        "change triggers"
+      ],
+      "scope": "conditional",
+      "basis": "supplied-standard",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "A documented feature/scope decision is required. Absence of evidence is not a not-applicable decision.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "HD-041",
+      "standard_id": "AAMI60601-2-16-2018",
+      "clauses": [
+        "Annex AA",
+        "Annex BB"
+      ],
+      "topic": "Informative rationale use",
+      "project_action": "Use rationale and hazard examples to challenge the project's analysis; do not turn informative examples into universal numeric limits or independent normative requirements.",
+      "evidence_required": [
+        "Hazard-review notes",
+        "justified numerical limits"
+      ],
+      "scope": "reference",
+      "basis": "informative-guidance",
+      "owner_role": "Dialysis system lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "INF-001",
+      "standard_id": "IEC60601-2-24-2012",
+      "clauses": [
+        "201.1.1"
+      ],
+      "topic": "Infusion standard scope decision",
+      "project_action": "The supplied infusion standard excludes extracorporeal blood circulation devices. Assess any separately scoped infusion or anticoagulation component explicitly; do not apply this standard automatically to the dialysis blood pump.",
+      "evidence_required": [
+        "Component intended-use decision",
+        "relationship to dialysis particular standard"
+      ],
+      "scope": "conditional",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "A documented feature/scope decision is required. Absence of evidence is not a not-applicable decision.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "INF-002",
+      "standard_id": "IEC60601-2-24-2012",
+      "clauses": [
+        "Remaining clauses"
+      ],
+      "topic": "Conditional detailed assessment",
+      "project_action": "If the scoped component falls within the infusion standard, open a full clause assessment and test plan before claiming coverage; only scope screening is completed here.",
+      "evidence_required": [
+        "Detailed clause register and evidence plan if applicable"
+      ],
+      "scope": "conditional",
+      "basis": "supplied-standard",
+      "owner_role": "System safety lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "A documented feature/scope decision is required. Absence of evidence is not a not-applicable decision.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "EU-001",
+      "standard_id": "EU-MDR",
+      "clauses": [
+        "Article 2",
+        "Annex VIII"
+      ],
+      "topic": "Qualification and classification",
+      "project_action": "Record separate intended uses and qualification/classification rationales for the simulator and any future product.",
+      "evidence_required": [
+        "Regulatory scope decision"
+      ],
+      "scope": "downstream",
+      "basis": "public-regulation-screening",
+      "owner_role": "Regulatory lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "EU-002",
+      "standard_id": "EU-MDR",
+      "clauses": [
+        "Article 10(9)"
+      ],
+      "topic": "Manufacturer quality system",
+      "project_action": "Map reusable project procedures to the future manufacturer's operating QMS responsibilities.",
+      "evidence_required": [
+        "QMS responsibility and gap map"
+      ],
+      "scope": "downstream",
+      "basis": "public-regulation-screening",
+      "owner_role": "Regulatory lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "EU-003",
+      "standard_id": "EU-MDR",
+      "clauses": [
+        "Annex I"
+      ],
+      "topic": "GSPR evidence",
+      "project_action": "Create a product-specific GSPR matrix with applicability, evidence and remaining gaps.",
+      "evidence_required": [
+        "Reviewed GSPR matrix"
+      ],
+      "scope": "downstream",
+      "basis": "public-regulation-screening",
+      "owner_role": "Regulatory lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "EU-004",
+      "standard_id": "EU-MDR",
+      "clauses": [
+        "Annex II",
+        "Annex III"
+      ],
+      "topic": "Technical documentation",
+      "project_action": "Organize design, verification and surveillance evidence for downstream adaptation.",
+      "evidence_required": [
+        "Technical-file index",
+        "surveillance plan"
+      ],
+      "scope": "downstream",
+      "basis": "public-regulation-screening",
+      "owner_role": "Regulatory lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "EU-005",
+      "standard_id": "EU-MDR",
+      "clauses": [
+        "Article 61",
+        "Annex XIV"
+      ],
+      "topic": "Clinical evidence boundary",
+      "project_action": "Keep numerical model validation distinct from clinical evaluation and PMCF obligations.",
+      "evidence_required": [
+        "Clinical evidence strategy"
+      ],
+      "scope": "downstream",
+      "basis": "public-regulation-screening",
+      "owner_role": "Regulatory lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "EU-006",
+      "standard_id": "EU-MDR",
+      "clauses": [
+        "Article 52"
+      ],
+      "topic": "Conformity route",
+      "project_action": "Determine the downstream assessment route from the actual product and class.",
+      "evidence_required": [
+        "Conformity-assessment strategy"
+      ],
+      "scope": "downstream",
+      "basis": "public-regulation-screening",
+      "owner_role": "Regulatory lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "EU-007",
+      "standard_id": "EU-MDR",
+      "clauses": [
+        "Articles 83\u201392"
+      ],
+      "topic": "Post-market work",
+      "project_action": "Allocate surveillance, vigilance and corrective-action responsibilities to the future manufacturer.",
+      "evidence_required": [
+        "Responsibility map",
+        "downstream procedures"
+      ],
+      "scope": "downstream",
+      "basis": "public-regulation-screening",
+      "owner_role": "Regulatory lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "EU-008",
+      "standard_id": "EU-MDR",
+      "clauses": [
+        "Article 8"
+      ],
+      "topic": "Standards use",
+      "project_action": "Record exact EN editions, OJ citations, restrictions and coverage; do not equate latest IEC publication with EU presumption.",
+      "evidence_required": [
+        "Dated standards/adoption register"
+      ],
+      "scope": "downstream",
+      "basis": "public-regulation-screening",
+      "owner_role": "Regulatory lead",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Retained for a future manufacturer/product. It is not a claim that the simulation-only project is placed on the market as a medical device.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "PRJ-001",
+      "standard_id": "PROJECT",
+      "clauses": [
+        "Scope decision 2026-10-07"
+      ],
+      "topic": "Simulation-only boundary",
+      "project_action": "Keep all patients and equipment simulated; exclude real actuation and clinical decision interfaces from the supported release.",
+      "evidence_required": [
+        "Intended-use statement",
+        "interface review"
+      ],
+      "scope": "reference",
+      "basis": "project-derived",
+      "owner_role": "Project maintainer",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "PRJ-002",
+      "standard_id": "PROJECT",
+      "clauses": [
+        "Architecture decision"
+      ],
+      "topic": "Separate operator and experiment tools",
+      "project_action": "Implement LVGL device operation separately from the Python patient administration, hidden truth, fault injection and experiment console.",
+      "evidence_required": [
+        "Interface access policy",
+        "UI separation tests"
+      ],
+      "scope": "reference",
+      "basis": "project-derived",
+      "owner_role": "Project maintainer",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [
+        "REQ-001"
+      ],
+      "test_ids": [
+        "TEST-001"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "PRJ-003",
+      "standard_id": "PROJECT",
+      "clauses": [
+        "Architecture decision"
+      ],
+      "topic": "Protection authority",
+      "project_action": "Allow protection to constrain plant actuators without relying on the control process; analyze shared runtime and transport failures.",
+      "evidence_required": [
+        "Arbitration design",
+        "control/protection fault tests"
+      ],
+      "scope": "reference",
+      "basis": "project-derived",
+      "owner_role": "Project maintainer",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [
+        "REQ-002"
+      ],
+      "test_ids": [
+        "TEST-002"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "PRJ-004",
+      "standard_id": "PROJECT",
+      "clauses": [
+        "Model assurance"
+      ],
+      "topic": "Model independence and fidelity",
+      "project_action": "Document equations, units, solver convergence, conservation, parameter provenance and uncertainty; validate with reference data independent of calibration.",
+      "evidence_required": [
+        "Model specifications",
+        "numerical verification",
+        "calibration/validation separation"
+      ],
+      "scope": "reference",
+      "basis": "project-derived",
+      "owner_role": "Project maintainer",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "PRJ-005",
+      "standard_id": "PROJECT",
+      "clauses": [
+        "Model assurance"
+      ],
+      "topic": "HDF fluid and weight accounting",
+      "project_action": "Account separately for gross transfer, substitution, other intake/output and circuit storage; justify conversion from volume to predicted weight change.",
+      "evidence_required": [
+        "Balance equations",
+        "independent oracles",
+        "density and physiological assumptions"
+      ],
+      "scope": "reference",
+      "basis": "project-derived",
+      "owner_role": "Project maintainer",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [
+        "REQ-003"
+      ],
+      "test_ids": [
+        "TEST-003"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "PRJ-006",
+      "standard_id": "PROJECT",
+      "clauses": [
+        "Model assurance"
+      ],
+      "topic": "Dialyzer profiles",
+      "project_action": "Version membrane area, hydraulic/solute transport characteristics and supporting data for every profile; distinguish fitted parameters from manufacturer specifications.",
+      "evidence_required": [
+        "Dialyzer registry",
+        "provenance",
+        "per-profile validation envelope"
+      ],
+      "scope": "reference",
+      "basis": "project-derived",
+      "owner_role": "Project maintainer",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "PRJ-007",
+      "standard_id": "PROJECT",
+      "clauses": [
+        "Reproducibility"
+      ],
+      "topic": "Clock and run identity",
+      "project_action": "Record seeds, parameters, software/model versions, solver settings and fault timelines; distinguish virtual time from wall-clock liveness.",
+      "evidence_required": [
+        "Run manifest",
+        "replay and process-failure tests"
+      ],
+      "scope": "reference",
+      "basis": "project-derived",
+      "owner_role": "Project maintainer",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "PRJ-008",
+      "standard_id": "PROJECT",
+      "clauses": [
+        "Dependency policy"
+      ],
+      "topic": "License and SOUP review",
+      "project_action": "Prefer MIT, BSD, Apache-2.0 or zlib application libraries; review exceptions and all transitive/package/asset obligations explicitly, separately from safety/security review.",
+      "evidence_required": [
+        "SBOM",
+        "license inventory",
+        "exception decisions",
+        "SOUP records"
+      ],
+      "scope": "reference",
+      "basis": "project-derived",
+      "owner_role": "Project maintainer",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "PRJ-009",
+      "standard_id": "PROJECT",
+      "clauses": [
+        "Publication policy"
+      ],
+      "topic": "Restricted standards sources",
+      "project_action": "Keep licensed PDFs, extracted text, screenshots and copied tables outside GitHub history, CI artifacts and public archives; publish original explanations and references only.",
+      "evidence_required": [
+        "Publication manifest",
+        "package checks",
+        "human content review"
+      ],
+      "scope": "reference",
+      "basis": "project-derived",
+      "owner_role": "Project maintainer",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    },
+    {
+      "id": "PRJ-010",
+      "standard_id": "PROJECT",
+      "clauses": [
+        "Release governance"
+      ],
+      "topic": "Claims bounded by evidence",
+      "project_action": "Never present this checklist, passing CI or simulated protective behavior as full equipment conformity; specify exact evidence scope and unresolved product obligations.",
+      "evidence_required": [
+        "Release claim review",
+        "limitations and open-gap report"
+      ],
+      "scope": "reference",
+      "basis": "project-derived",
+      "owner_role": "Project maintainer",
+      "applicability_status": "proposed",
+      "completion_status": "open",
+      "reviewer": null,
+      "review_date": null,
+      "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
+      "requirement_ids": [],
+      "test_ids": [],
+      "evidence": []
+    }
+  ]
+}
