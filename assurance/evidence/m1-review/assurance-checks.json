@@ -1,0 +1,91 @@
+{
+  "executed_at": "2026-10-07T22:24:40.167824+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "tools/check_traceability.py",
+        "assurance/traceability.json"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "details": {
+        "structural_errors": [],
+        "release_gaps": 66
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/check_standards.py"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "details": {
+        "structural_errors": [],
+        "open_checklist_entries": 184,
+        "open_gaps": 12,
+        "scope": "Draft data integrity only. Not clause completeness, evidence adequacy or conformity."
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/check_traceability.py",
+        "assurance/traceability.json",
+        "--release"
+      ],
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "details": {
+        "structural_errors": [],
+        "release_gaps": 66
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/check_standards.py",
+        "--release"
+      ],
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "details": {
+        "structural_errors": [],
+        "open_checklist_entries": 184,
+        "open_gaps": 12,
+        "scope": "Draft data integrity only. Not clause completeness, evidence adequacy or conformity."
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/check_publication.py"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "details": {}
+    },
+    {
+      "command": [
+        "python3",
+        "tools/package_release.py",
+        "--output",
+        "/tmp/DialysisLab-m1-review.zip"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "details": {}
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "details": {}
+    }
+  ]
+}

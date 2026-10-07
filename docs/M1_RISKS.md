@@ -34,3 +34,19 @@ Full HDF, online preparation, alarms/UI, multiple dialyzers, physical validation
 threat modeling, vulnerability scanning, risk acceptance and the release gates in
 ASSURANCE_PLAN remain required. No existing requirement or standards item is
 closed merely because M1's narrower synthetic tests pass.
+
+## Review corrections and remaining uncertainty
+
+M1-REQ-007 now covers replies lost after plant command acceptance: the runner does
+not commit that tick. HALT cancels pending decisions permanently; an unsuccessful
+HALT delivery leaves stop state unconfirmed until observed. Tests keep requested,
+acknowledged and observed state distinct, then challenge the real plant with late
+commands and a separately observed watchdog timeout. This does not remove the
+shared-host or wall-clock scheduling limitations.
+
+M1-REQ-008 links trajectory memory exhaustion to HAZ-003/004. Versioned streaming
+records avoid full-run accumulation and retain a complete prefix after process
+interruption. There is still no power-loss durability or distributed rollback.
+M1-REQ-009 links failed-run evidence loss to HAZ-001: logs and available artifacts
+are collected before cleanup, and failed extraction retains volumes for verified
+recovery. The current results and actual memory margins are in STATUS.md.

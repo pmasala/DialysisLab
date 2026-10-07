@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "run_id": "m1-review-da5ccc2-2026-10-08",
+  "source_revision": "da5ccc26c5be63c7836f4970ebac5f0335007d9f",
+  "executed_at": "2026-10-07T22:16:51.857444+00:00",
+  "scope": "Three M1 review corrections; synthetic simulation only; independent review pending.",
+  "results": {
+    "native_tests": 47,
+    "sanitizer_tests": 47,
+    "original_compose_runs": 4,
+    "boundary_probes": 2,
+    "docker_failure_regressions": 3,
+    "full_100000_tick_runs": 2,
+    "peak_runner_rss_bytes": 23597056,
+    "peak_cgroup_bytes": 74592256,
+    "compose_limit_bytes": 134217728,
+    "rss_acceptance_bytes": 67108864,
+    "rss_headroom_bytes": 110620672,
+    "long_run_trajectory_sha256": "90312c41c6e67f713cc8e3ae0ba85b8d2d43bb020f641183a1f0573a45c68963",
+    "long_run_bytes": 57694662,
+    "repeatability": "Exact JSONL bytes and independent hash match; clean native binary hashes identical."
+  },
+  "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; Docker GCC 14.2.0/Python 3.12.14, 128 MiB runner limit.",
+  "review": "Codex execution and inspection only; independent assurance review and risk acceptance pending.",
+  "artifact_policy": "Small raw runs, failed-run logs/manifests and reports retained here. Full 100000-tick streams remain in build/review-docker; hashes, counts, first/last records and measurements are retained in review-docker.json.",
+  "helper_source_sha256": {
+    "tests/test_compose_collection.py": "29e4b034810a4a9f5c1c67fe83d47884a257d39d5a89c659c4401875d67ffd41",
+    "tests/test_m1.py": "5ba9db3624aabb029675648e028d1de1f43a3123074765791df9f42035ddbe35",
+    "tests/test_publication.py": "fe13df6fb31e056db0eae32d78851a76ac99ca8dfda24d351c84e52d30b688ba",
+    "tests/test_rpc_abort.py": "37e8e325a307bd8de9dbdffe4fad867684b2283092df40871c1898592df9c32b",
+    "tests/test_traceability.py": "b51e3ab211592525bb035c52e7642120b9ad054739b9cbc6f881fa85b620019f",
+    "tests/test_trajectory.py": "4073d0e184fe793497b9a9a1bdcbf241648d629e7014b5d2318c971331d6d74e",
+    "tests/trajectory_memory_probe.py": "a8e5b74bfede1da548afe0ce726e04d25895a63ee0b413391478063591c5ddde"
+  },
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m1-review/compose-results.json",
+      "sha256": "0b83e73a3ac5dfd8944f5196fe27be3ff00d6655b82d0398bd72dc9c662daf61"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-1/results/run/manifest.json",
+      "sha256": "388842e8f7f6a0b3e5d4eb07df62cc0fb7d013c1483c7effbddbd25b3019b396"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-1/results/run/trajectory.jsonl",
+      "sha256": "0fd2f18189870775e68b31cc9ce1c67584745271005479da56311c51b031ab41"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-2/results/run/manifest.json",
+      "sha256": "8a309ce7750519562c33457e13122005a6bb8f997e98dfa370706772b995eb02"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-2/results/run/trajectory.jsonl",
+      "sha256": "0fd2f18189870775e68b31cc9ce1c67584745271005479da56311c51b031ab41"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-before_runner_start/collection.json",
+      "sha256": "9e8827612b856507ff71c726b243fb6c5eacb1125a17fdfa355b9f2cf30ec46c"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-before_runner_start/logs.json",
+      "sha256": "319445f0532e2fb585cb36ecba638c071ae48f502d2679c2c79c21a6b14cba94"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-extraction_failure/collection.json",
+      "sha256": "8c597273402645c95cd4c603a2260fab07ba87d146c029ba20f2f47bfc909ef7"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-extraction_failure/logs.json",
+      "sha256": "fbac05b2f615da9dbdd94ca7d5272285881268fa102e5f5a6811c680b100dbef"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-extraction_failure/manifest.json",
+      "sha256": "8fdea544f95f47d330fb281fd4a4c2a670172e9e05729fceb0315c4da3e014a7"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-extraction_failure/trajectory.jsonl",
+      "sha256": "d560c460beddf3ccb6f60b2d805977f81d65d616b7721d39b3189dae8226ca03"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-runner_aborted/collection.json",
+      "sha256": "4bacf64e9934c9b8e6bb4a937fa3954d62042582831800c63acdec00f1774a62"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-runner_aborted/logs.json",
+      "sha256": "9ba9f0e45010940f087d0a3852ed5c5eb628ff0cb0231d107605a97ef0d445e6"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-runner_aborted/manifest.json",
+      "sha256": "db9fac6c25f5a46a1eb4aad345f6834e5a4ef4c5efd47d9d21b0c1caed8f55e8"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_nominal-runner_aborted/trajectory.jsonl",
+      "sha256": "d560c460beddf3ccb6f60b2d805977f81d65d616b7721d39b3189dae8226ca03"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_occlusion-1/results/run/manifest.json",
+      "sha256": "c771b851eca631668b58f7399f6cd0fbe696781d9f5499fcb40b9b0526b26b0b"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_occlusion-1/results/run/trajectory.jsonl",
+      "sha256": "819729e3d8941b059d151c10b959bfcd61e96254819a672c5c526bcd79d11756"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_occlusion-2/results/run/manifest.json",
+      "sha256": "a5ff92bab78e3dab19b94e34ebbdb99d721482a6b7c8c656d0e10a2203ad94d7"
+    },
+    {
+      "path": "assurance/evidence/m1-review/hd_occlusion-2/results/run/trajectory.jsonl",
+      "sha256": "819729e3d8941b059d151c10b959bfcd61e96254819a672c5c526bcd79d11756"
+    },
+    {
+      "path": "assurance/evidence/m1-review/native-tests.json",
+      "sha256": "9bafba13d7161ef867ffff0f8855672759d805fd03ac03c13f068ff2cbe68b6f"
+    },
+    {
+      "path": "assurance/evidence/m1-review/reproducibility.json",
+      "sha256": "2c9e341bdfcb6d8deb3f700bfe2aa561489184b0b6e8eaf9afab692860fc0210"
+    },
+    {
+      "path": "assurance/evidence/m1-review/review-docker.json",
+      "sha256": "4f208a69945388605b5e341d481c41b2386e6036e780e4f15f56ade327c79dac"
+    },
+    {
+      "path": "assurance/evidence/m1-review/sanitizer-tests.json",
+      "sha256": "909b5c513ca4180ad7e287ccea641f5ed39b24b511dbee99f2a9a9a4153bbded"
+    },
+    {
+      "path": "assurance/evidence/m1-review/assurance-checks.json",
+      "sha256": "2b71167a3500ecb8b26ff7cf0775749a36ced74f9666dfb1381b4fbfe45485fd"
+    }
+  ]
+}
