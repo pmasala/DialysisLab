@@ -23,6 +23,26 @@ repeatability/failure tests, exact dependencies and assurance commands. The
 and [risk analysis](docs/M1_RISKS.md) define the narrow scope. All features below
 remain required; M1 does not complete the roadmap.
 
+## Configurable circuit increment (M2)
+
+The opt-in circuit model adds compliant nodes, tube/resistor/clamp/dialyzer edges,
+a finite-head pump, synthetic small/large dialyzers, membrane transfer rates and
+separate patient/circuit/effluent water ledgers. See its
+[equations, limits and contracts](docs/M2_MODEL_INTERFACES.md). M2 uses prescribed
+solute concentration boundaries; dynamic patient solute coupling follows in M3.
+
+```bash
+PYTHONPATH=python python3 -m dialysislab.runner --local --config scenarios/circuit_occlusion.json --output build/circuit-demo
+python3 tools/verify_models.py --output build/circuit-native
+SOURCE_REVISION=$(git rev-parse HEAD) docker compose build
+python3 tools/verify_models.py --compose --output build/circuit-compose
+```
+
+Choose new output paths for each invocation. The verification command collects
+Compose logs and results before cleanup, including failure artifacts. See the
+[complete milestone plan](docs/MILESTONES.md) and
+[current execution checkpoint](assurance/STATUS.md) for remaining phases.
+
 ## Agreed scope
 
 - Intermittent haemodialysis and both predilution and postdilution haemodiafiltration.

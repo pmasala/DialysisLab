@@ -37,6 +37,11 @@
       "id": "M1-NEED-001",
       "statement": "Run a deterministic, separately protected headless synthetic HD experiment with configuration-bound evidence.",
       "status": "implemented"
+    },
+    {
+      "id": "M2-NEED-001",
+      "statement": "Explore configurable synthetic circuits and dialyzers with conserved water and declared transport.",
+      "status": "implemented"
     }
   ],
   "hazards": [
@@ -155,6 +160,30 @@
       "description": "Unconditional best-effort collection with stage-specific errors before conditional cleanup; stop-only on incomplete extraction.",
       "status": "implemented",
       "scope": "M1 review fixes only; independent review pending."
+    },
+    {
+      "id": "M2-DES-001",
+      "description": "Configurable compliant hydraulic network and measured sensors; docs/M2_MODEL_INTERFACES.md.",
+      "status": "implemented",
+      "scope": "Synthetic numerical model; independent model validation pending."
+    },
+    {
+      "id": "M2-DES-002",
+      "description": "Conserve patient, circuit and effluent water; docs/M2_MODEL_INTERFACES.md.",
+      "status": "implemented",
+      "scope": "Synthetic numerical model; independent model validation pending."
+    },
+    {
+      "id": "M2-DES-003",
+      "description": "Synthetic dialyzer diffusion, convection and pressure-limited UF; docs/M2_MODEL_INTERFACES.md.",
+      "status": "implemented",
+      "scope": "Synthetic numerical model; independent model validation pending."
+    },
+    {
+      "id": "M2-DES-004",
+      "description": "Integrate extended circuit without losing independent protection or reproducibility; docs/M2_MODEL_INTERFACES.md.",
+      "status": "implemented",
+      "scope": "Synthetic numerical model; independent model validation pending."
     }
   ],
   "requirements": [
@@ -360,11 +389,11 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "e84d21888a398ea02e81378bb7e9252ce9054ab757bd43ec0ae8f1815badb74f"
+          "sha256": "b7ac49ba91694d02e1c840365adfebfc186b88226f98d5f283c3f585880cca4a"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0db42fd76f31ac004f4149fbb43001c2c7b8e5de7c3f233eac2b1573fff2d2b5"
+          "sha256": "be4890cc19abf4fa17062ebbff1bd84a49047376997109e246c1956fc93e31ce"
         }
       ],
       "unresolved": [
@@ -397,11 +426,11 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0db42fd76f31ac004f4149fbb43001c2c7b8e5de7c3f233eac2b1573fff2d2b5"
+          "sha256": "be4890cc19abf4fa17062ebbff1bd84a49047376997109e246c1956fc93e31ce"
         },
         {
           "path": "python/dialysislab/patient.py",
-          "sha256": "8613dd04857033721227aa541f11c821baedcb9abd7f07fd45031a706f1565d9"
+          "sha256": "174a474088f53291a5825999bd13263a2da3e1cf19aad7ca57a596db83ad5da6"
         }
       ],
       "unresolved": [
@@ -434,7 +463,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0db42fd76f31ac004f4149fbb43001c2c7b8e5de7c3f233eac2b1573fff2d2b5"
+          "sha256": "be4890cc19abf4fa17062ebbff1bd84a49047376997109e246c1956fc93e31ce"
         }
       ],
       "unresolved": [
@@ -463,7 +492,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "0db42fd76f31ac004f4149fbb43001c2c7b8e5de7c3f233eac2b1573fff2d2b5"
+          "sha256": "be4890cc19abf4fa17062ebbff1bd84a49047376997109e246c1956fc93e31ce"
         },
         {
           "path": "src/control.cpp",
@@ -508,7 +537,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0db42fd76f31ac004f4149fbb43001c2c7b8e5de7c3f233eac2b1573fff2d2b5"
+          "sha256": "be4890cc19abf4fa17062ebbff1bd84a49047376997109e246c1956fc93e31ce"
         }
       ],
       "unresolved": [
@@ -538,7 +567,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "0db42fd76f31ac004f4149fbb43001c2c7b8e5de7c3f233eac2b1573fff2d2b5"
+          "sha256": "be4890cc19abf4fa17062ebbff1bd84a49047376997109e246c1956fc93e31ce"
         },
         {
           "path": "src/wire.hpp",
@@ -546,7 +575,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "e84d21888a398ea02e81378bb7e9252ce9054ab757bd43ec0ae8f1815badb74f"
+          "sha256": "b7ac49ba91694d02e1c840365adfebfc186b88226f98d5f283c3f585880cca4a"
         }
       ],
       "unresolved": [
@@ -580,7 +609,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "e84d21888a398ea02e81378bb7e9252ce9054ab757bd43ec0ae8f1815badb74f"
+          "sha256": "b7ac49ba91694d02e1c840365adfebfc186b88226f98d5f283c3f585880cca4a"
         },
         {
           "path": "tools/recover_trajectory.py",
@@ -617,6 +646,121 @@
       ],
       "unresolved": [
         "Independent requirements/design/evidence review and residual-risk acceptance remain open."
+      ]
+    },
+    {
+      "id": "M2-REQ-001",
+      "statement": "Configurable compliant hydraulic network and measured sensors",
+      "acceptance": "Analytic RC and resistor solutions, decreasing step-halving errors, clamps and component changes.",
+      "needs": [
+        "M2-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M2-DES-001"
+      ],
+      "tests": [
+        "M2-TEST-001"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/circuit.hpp",
+          "sha256": "d4c8f198d78520dc4b93ed83400177e560c776c63f69bd92350f4526d497dd21"
+        }
+      ],
+      "unresolved": [
+        "Independent model/design/evidence review, calibration and residual-risk acceptance pending."
+      ]
+    },
+    {
+      "id": "M2-REQ-002",
+      "statement": "Conserve patient, circuit and effluent water",
+      "acceptance": "Per-tick residual <=1e-8 mL and cumulative <=1e-6 mL with independent node-volume accounting.",
+      "needs": [
+        "M2-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-003"
+      ],
+      "designs": [
+        "M2-DES-002"
+      ],
+      "tests": [
+        "M2-TEST-002"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/circuit.hpp",
+          "sha256": "d4c8f198d78520dc4b93ed83400177e560c776c63f69bd92350f4526d497dd21"
+        }
+      ],
+      "unresolved": [
+        "Independent model/design/evidence review, calibration and residual-risk acceptance pending."
+      ]
+    },
+    {
+      "id": "M2-REQ-003",
+      "statement": "Synthetic dialyzer diffusion, convection and pressure-limited UF",
+      "acceptance": "Two profiles, independent clearance formula, equilibrium and zero-flow/zero-membrane cases.",
+      "needs": [
+        "M2-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-003"
+      ],
+      "designs": [
+        "M2-DES-003"
+      ],
+      "tests": [
+        "M2-TEST-003"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/circuit.hpp",
+          "sha256": "d4c8f198d78520dc4b93ed83400177e560c776c63f69bd92350f4526d497dd21"
+        }
+      ],
+      "unresolved": [
+        "Independent model/design/evidence review, calibration and residual-risk acceptance pending."
+      ]
+    },
+    {
+      "id": "M2-REQ-004",
+      "statement": "Integrate extended circuit without losing independent protection or reproducibility",
+      "acceptance": "Actual process/Compose runs; repeated hashes; occlusion latch by 1000 ms and lost STEP cancels commit.",
+      "needs": [
+        "M2-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-002",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M2-DES-004"
+      ],
+      "tests": [
+        "M2-TEST-004"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/circuit.py",
+          "sha256": "1f194f89e8ebc10c626eb9daf484f10e5abc7d10ad70a63dd18eba7eea7fbace"
+        }
+      ],
+      "unresolved": [
+        "Independent model/design/evidence review, calibration and residual-risk acceptance pending."
       ]
     }
   ],
@@ -905,6 +1049,46 @@
         "reviewer": "Codex execution and inspection only; independent assurance review and risk acceptance pending.",
         "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; Docker GCC 14.2.0/Python 3.12.14, 128 MiB runner limit."
       }
+    },
+    {
+      "id": "M2-TEST-001",
+      "requirements": [
+        "M2-REQ-001"
+      ],
+      "procedure": "Run tests/test_circuit.py and tools/verify_models.py natively and in Compose.",
+      "expected": "Analytic RC and resistor solutions, decreasing step-halving errors, clamps and component changes.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M2-TEST-002",
+      "requirements": [
+        "M2-REQ-002"
+      ],
+      "procedure": "Run tests/test_circuit.py and tools/verify_models.py natively and in Compose.",
+      "expected": "Per-tick residual <=1e-8 mL and cumulative <=1e-6 mL with independent node-volume accounting.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M2-TEST-003",
+      "requirements": [
+        "M2-REQ-003"
+      ],
+      "procedure": "Run tests/test_circuit.py and tools/verify_models.py natively and in Compose.",
+      "expected": "Two profiles, independent clearance formula, equilibrium and zero-flow/zero-membrane cases.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M2-TEST-004",
+      "requirements": [
+        "M2-REQ-004"
+      ],
+      "procedure": "Run tests/test_circuit.py and tools/verify_models.py natively and in Compose.",
+      "expected": "Actual process/Compose runs; repeated hashes; occlusion latch by 1000 ms and lost STEP cancels commit.",
+      "result": "planned",
+      "evidence": null
     }
   ],
   "prerequisites": [

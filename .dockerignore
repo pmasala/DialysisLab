@@ -18,3 +18,8 @@
 !scenarios/hd_occlusion.json
 !tools/build_identity.py
 !scenarios/hd_100000.json
+!python/dialysislab/circuit.py
+!src/circuit.hpp
+!scenarios/circuit_small.json
+!scenarios/circuit_large.json
+!scenarios/circuit_occlusion.json

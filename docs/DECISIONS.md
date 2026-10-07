@@ -8,6 +8,9 @@
 | INT-004 | Keep standard-library numerical and service cores; select only pinned, policy-compatible GUI dependencies when required. | Record transitive libraries, fonts, notices, build/system packages and failure implications before adoption. |
 | INT-005 | Preserve shared-kernel/plant/runner/protocol common-cause risks and existing release gaps. Automatic review is defect finding only. | Human risk acceptance, applicable standards, clinical/physical evidence cannot be supplied by software tests. |
 | INT-006 | Use `assurance/STATUS.md` as the single progress/next-action checkpoint, this file for decisions, `MILESTONES.md` for the plan, and `assurance/REVIEWS.md` for reviews. | Re-read these checkpoints after context compaction. |
+| M2-001 | Use a positive-compliance resistive graph and implicit Euler with bounded pivoted solves. It supports arbitrary branches and clamps without an external solver dependency. | First-order lumped model, no pulsatility/inertance/rheology. Analytic convergence tests define numerical evidence only. |
+| M2-002 | Count patient draw minus return, including circuit storage; freeze storage on protective isolation. | Stopping pumps does not prove the circuit is empty or depressurized. Recovery semantics follow in M5. |
+| M2-003 | Adopt project-authored mixed-cell transport and synthetic profiles, not a commercial countercurrent dialyzer specification. | M2 prescribes concentration boundaries; M3 must conserve compartment masses before dynamic physiology is claimed. |
 
 The WSL2 environment has an X11 socket (`/tmp/.X11-unix/X0`) but DISPLAY is
 unset; desktop availability remains to be tested in M6. SDL development headers

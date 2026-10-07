@@ -21,7 +21,19 @@ review identified three concrete P2 defects in the original M1 implementation.
 Evidence checkpoint `1999741`; native and sanitizer suites each 47/47; actual
 Compose and repeatability checks passed. Release gaps remain open.
 
-## M2–M9
+## M2 — candidate ready; one invocation reserved
+
+Base `1999741`; candidate is the commit containing this entry. Before invocation,
+`build/reviews/m2.json` records the full candidate SHA and exact argv. Planned
+command: `codex -c sandbox_mode='"read-only"' -c approval_policy='"never"'
+-c developer_instructions=<read-only defect review instructions> review --base 1999741`.
+The full output and return code will be retained and copied into committed evidence.
+No second review is authorized after fixes. Candidate checks: native 55/55,
+sanitizer 55/55, six M2 Compose runs, four M1 Compose runs and two isolation probes
+passed. Maximum measured M2 water residual was 3.644e-12 mL; repeated native and
+container trajectory hashes matched.
+
+## M3–M9
 
 Not yet invoked. Before each invocation, record the phase, base SHA, candidate
 SHA, exact command and report destination here. Retain output and exit status;

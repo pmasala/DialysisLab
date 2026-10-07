@@ -31,14 +31,17 @@ class Patient:
             self.initial = self.volume = Decimal(request[1])
             self.removed = Decimal(0)
             return 'DL1 OK'
-        if len(request) == 5 and request[0] == 'ADVANCE' and self.initial is not None:
+        if len(request) == 5 and request[0] in ('ADVANCE', 'FLUID2') and self.initial is not None:
             seq, start, dt = (integer(v) for v in request[1:4])
             if seq != self.next_sequence or start != self.time_ms or not 1 <= dt <= 1000:
                 raise ProtocolError('tick order')
-            real(request[4], 0, 20 * dt / 60000)
+            if request[0] == 'ADVANCE':
+                real(request[4], 0, 20 * dt / 60000)
+            else:
+                real(request[4], -100000, 100000)
             removed = Decimal(request[4])
-            if removed > self.volume:
-                raise ProtocolError('negative volume')
+            if not 0 <= self.volume - removed <= 100000:
+                raise ProtocolError('volume bounds')
             self.volume -= removed
             self.removed += removed
             self.last_sequence = seq

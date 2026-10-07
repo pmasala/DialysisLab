@@ -24,6 +24,9 @@ def digest(data):
 
 
 def validate(config):
+    if isinstance(config, dict) and config.get('schema_version') == 2:
+        from .circuit import validate as validate_circuit
+        return validate_circuit(config, validate)
     required = {'schema_version', 'model', 'seed', 'ticks', 'dt_ms', 'blood_mL_min', 'uf_mL_min',
                 'resistance_mmHg_min_mL', 'pressure_limit_mmHg', 'patient_volume_mL', 'faults'}
     if not isinstance(config, dict) or set(config) != required:
@@ -162,7 +165,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
     manifest = dict(schema_version=2, executed_at=datetime.now(timezone.utc).isoformat(),
                     configuration=config, configuration_sha256=digest(canonical(config).encode()),
                     build=build_identity(build_dir), python=platform.python_version(),
-                    platform=platform.platform(), interface='DL1', model='m1-hd-1',
+                    platform=platform.platform(), interface='DL1', model=config['model'],
                     simulation_only=True, outcome='running', errors=[],
                     trajectory_format=FORMAT, trajectory_file='trajectory.jsonl',
                     completed_ticks=0, trajectory_sha256=None)
@@ -175,8 +178,12 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
     sensor = dict(control_sensor='none', protection_sensor='none')
     pending_plant_state = None
     tick_context = None
+    extended = config['schema_version'] == 2
     try:
         wait_ready(runtime)
+        if extended:
+            from . import circuit
+            circuit.configure(admin, config)
         expect(rpc(patient, 'INIT', config['patient_volume_mL']), 'OK', 1)
         for n in range(config['ticks']):
             t = n * config['dt_ms']
@@ -185,7 +192,10 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
                 before_tick(n)
             for fault in config['faults']:
                 if fault['tick'] == n:
-                    if fault['target'] == 'resistance':
+                    if extended and fault['target'].startswith('edge:'):
+                        expect(rpc(admin, 'EDGE2', int(fault['target'][5:]), fault['value']['resistance'],
+                                   int(fault['value']['closed'])), 'OK', 1)
+                    elif fault['target'] == 'resistance':
                         resistance = fault['value']
                     else:
                         sensor[fault['target']] = fault['value']
@@ -213,12 +223,18 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
             pending_plant_state = physical
             if physical['sequence'] != n or physical['time_ms'] != t + config['dt_ms']:
                 raise ValueError('plant clock mismatch')
-            volume = expect(rpc(patient, 'ADVANCE', n, t, config['dt_ms'], physical['removed_tick_mL']),
+            water = physical['removed_tick_mL']
+            if extended:
+                physical['circuit'] = circuit.state(rpc(admin, 'CSTATE2'))
+                if physical['circuit']['sequence'] != n or physical['circuit']['time_ms'] != t + config['dt_ms']:
+                    raise ValueError('circuit clock mismatch')
+                water = physical['circuit']['draw_tick_mL'] - physical['circuit']['return_tick_mL']
+            volume = expect(rpc(patient, 'FLUID2' if extended else 'ADVANCE', n, t, config['dt_ms'], water),
                             'VOLUME', 5)
             if integer(volume[1]) != n or integer(volume[2]) != t + config['dt_ms']:
                 raise ValueError('patient clock mismatch')
             writer.append(dict(physical, patient_volume_mL=real(volume[3], 0, 100000),
-                                patient_removed_mL=real(volume[4], 0, 100000), observations=measurements,
+                                patient_removed_mL=real(volume[4], -100000, 100000), observations=measurements,
                                 protection_decision=decision))
             pending_plant_state = None
             if physical['reason'] in ('liveness', 'protocol', 'control_missing', 'protection_missing'):

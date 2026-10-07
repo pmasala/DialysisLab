@@ -6,6 +6,11 @@ headless HD slice described in [M1_PLAN.md](M1_PLAN.md), with versioned
 [risk boundaries](M1_RISKS.md). The broader architecture below remains the required
 roadmap; UI, HDF, fluid preparation and calibrated physiology are not implemented.
 
+M2 adds an opt-in synthetic compliant circuit and multiple dialyzer profiles in
+the same plant process. [M2_MODEL_INTERFACES.md](M2_MODEL_INTERFACES.md) defines
+the node/edge solver, water accounting and prescribed-boundary membrane transport.
+The M1 path remains compatible; neither decision service receives circuit truth.
+
 ## Deployment boundaries
 
 | Container/application | Language | Responsibility |
