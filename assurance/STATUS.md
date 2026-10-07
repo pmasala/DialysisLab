@@ -1,5 +1,17 @@
 # Current status
 
+## Integrated execution checkpoint — 2026-10-08
+
+Branch `feat/integrated-dialysis-roadmap`, starting commit `1999741`. M1 technical
+scope COMPLETE with its supplied review resolved; M2 IN PROGRESS (contracts and
+model design); M3–M9 PLANNED. Full project remains incomplete. The next executable
+step is to freeze M2 numerical/interface acceptance and implement the configurable
+network in the existing plant, preserving all M1 regressions. See
+[the persistent plan](../docs/MILESTONES.md), [decisions](../docs/DECISIONS.md) and
+[review register](REVIEWS.md). Baseline structural checks were repeated: zero
+errors; 66 trace release gaps, 184 open standards entries and 12 gaps remain.
+
+
 Review update, 8 October 2026: the three M1 review defects are corrected and have
 passed real process and Docker regression checks. The tested implementation is
 `da5ccc2`; [current evidence](evidence/m1-review/README.md) records exact commands,
