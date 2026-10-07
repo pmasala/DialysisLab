@@ -13,6 +13,8 @@
 !python/dialysislab/protocol.py
 !python/dialysislab/patient.py
 !python/dialysislab/runner.py
+!python/dialysislab/trajectory.py
 !scenarios/hd_nominal.json
 !scenarios/hd_occlusion.json
 !tools/build_identity.py
+!scenarios/hd_100000.json

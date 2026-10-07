@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "baseline": "dialysislab-m1-b598a5c-2026-10-07",
+  "baseline": "dialysislab-m1-review-2026-10-08",
   "description": "Six original, incomplete roadmap chains plus seven implemented M1 synthetic requirements. M1 evidence does not close broad roadmap requirements or standards obligations.",
   "needs": [
     {
@@ -143,6 +143,18 @@
       "description": "Per-role 2 s monotonic leases plus per-tick decisions; bounded transport; no command retry or automatic restart; explicit aborted records.",
       "status": "implemented",
       "scope": "Synthetic M1 only; substantive review pending."
+    },
+    {
+      "id": "M1-DES-008",
+      "description": "Versioned JSONL stream, per-write incremental hash, atomic run manifests and disk-backed readers.",
+      "status": "implemented",
+      "scope": "M1 review fixes only; independent review pending."
+    },
+    {
+      "id": "M1-DES-009",
+      "description": "Unconditional best-effort collection with stage-specific errors before conditional cleanup; stop-only on incomplete extraction.",
+      "status": "implemented",
+      "scope": "M1 review fixes only; independent review pending."
     }
   ],
   "requirements": [
@@ -348,11 +360,11 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "67399ec1eaae0a255c3482509355a38f81b0fffa45982ac14a7912c2f096ef25"
+          "sha256": "e84d21888a398ea02e81378bb7e9252ce9054ab757bd43ec0ae8f1815badb74f"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e"
+          "sha256": "0db42fd76f31ac004f4149fbb43001c2c7b8e5de7c3f233eac2b1573fff2d2b5"
         }
       ],
       "unresolved": [
@@ -385,7 +397,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e"
+          "sha256": "0db42fd76f31ac004f4149fbb43001c2c7b8e5de7c3f233eac2b1573fff2d2b5"
         },
         {
           "path": "python/dialysislab/patient.py",
@@ -422,7 +434,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e"
+          "sha256": "0db42fd76f31ac004f4149fbb43001c2c7b8e5de7c3f233eac2b1573fff2d2b5"
         }
       ],
       "unresolved": [
@@ -451,7 +463,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e"
+          "sha256": "0db42fd76f31ac004f4149fbb43001c2c7b8e5de7c3f233eac2b1573fff2d2b5"
         },
         {
           "path": "src/control.cpp",
@@ -496,7 +508,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e"
+          "sha256": "0db42fd76f31ac004f4149fbb43001c2c7b8e5de7c3f233eac2b1573fff2d2b5"
         }
       ],
       "unresolved": [
@@ -507,7 +519,7 @@
     {
       "id": "M1-REQ-007",
       "statement": "Handle missing processes and distinguish virtual pause from wall-clock liveness.",
-      "acceptance": "Missing control/protection prevents nonzero commit; plant/patient loss aborts; killed runner causes independent plant latch within 3 wall seconds without virtual advancement; a 2.3 s heartbeat pause preserves trajectory.",
+      "acceptance": "Failed STEP (including lost reply after plant acceptance) sends no COMMIT/ADVANCE; HALT cancels pending decisions and rejects later commits. Abort cause, stop acknowledgment and observed outputs are distinct; failed stop/observation never implies confirmed zero. Plant/patient loss aborts; runner loss trips the wall lease without virtual advancement.",
       "needs": [
         "M1-NEED-001"
       ],
@@ -526,7 +538,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e"
+          "sha256": "0db42fd76f31ac004f4149fbb43001c2c7b8e5de7c3f233eac2b1573fff2d2b5"
         },
         {
           "path": "src/wire.hpp",
@@ -534,13 +546,78 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "67399ec1eaae0a255c3482509355a38f81b0fffa45982ac14a7912c2f096ef25"
+          "sha256": "e84d21888a398ea02e81378bb7e9252ce9054ab757bd43ec0ae8f1815badb74f"
         }
       ],
       "unresolved": [
         "Independent requirements/design/evidence review and residual-risk acceptance remain open."
       ],
       "normative_mapping": "Project-derived M1 scope; standards mappings remain draft and do not establish conformity."
+    },
+    {
+      "id": "M1-REQ-008",
+      "statement": "Stream and recover all supported 100000-tick trajectory records with bounded memory.",
+      "acceptance": "Two actual 100000-tick Compose runs complete under 128 MiB with peak runner RSS <=64 MiB. Records are ordered/complete and repeated hashes agree with independently hashed written bytes. SIGKILL preserves a recoverable complete prefix.",
+      "needs": [
+        "M1-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-003",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M1-DES-008"
+      ],
+      "tests": [
+        "M1-TEST-008"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/trajectory.py",
+          "sha256": "3356980b564f04cdb375559f12bbfedb328d892925cdbd4cd1712ec56104edf8"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "e84d21888a398ea02e81378bb7e9252ce9054ab757bd43ec0ae8f1815badb74f"
+        },
+        {
+          "path": "tools/recover_trajectory.py",
+          "sha256": "11ac9e325e36e789fea0ba986aa135d88eece934a1db081f52fcbf77234fcff0"
+        }
+      ],
+      "unresolved": [
+        "Independent requirements/design/evidence review and residual-risk acceptance remain open."
+      ]
+    },
+    {
+      "id": "M1-REQ-009",
+      "statement": "Retain available Compose failure evidence and preserve original error identity.",
+      "acceptance": "Aborted runner, pre-start failure and failed extraction retain logs/reports; original exit code is preserved. Failed extraction retains volumes and stopped containers with usable recovery commands; verify actual artifact recovery before cleanup.",
+      "needs": [
+        "M1-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001"
+      ],
+      "designs": [
+        "M1-DES-009"
+      ],
+      "tests": [
+        "M1-TEST-009"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "tools/verify_compose.py",
+          "sha256": "e071552f49bc1c65a029f65549ee8b537498ae9922699acee5cf018af73a31a6"
+        }
+      ],
+      "unresolved": [
+        "Independent requirements/design/evidence review and residual-risk acceptance remain open."
+      ]
     }
   ],
   "tests": [
@@ -611,8 +688,9 @@
       ],
       "procedure": "Execute native build, Compose nominal/occlusion runs, publication and container boundary tests.",
       "expected": "CMake builds successfully; Compose runs five isolated services and records source, binary and configuration identities.",
-      "result": "passed",
-      "evidence": {
+      "result": "planned",
+      "evidence": null,
+      "historical_evidence": {
         "path": "assurance/evidence/m1/summary.json",
         "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
         "baseline": "dialysislab-m1-b598a5c-2026-10-07",
@@ -629,8 +707,9 @@
       ],
       "procedure": "Run same-seed replay, cross-build comparison and clean-build binary hash comparison.",
       "expected": "Identical configuration and seed yield byte-identical same-build trajectories; cross-build numerics agree within absolute/relative 1e-9; clean same-toolchain CMake builds produce identical executables.",
-      "result": "passed",
-      "evidence": {
+      "result": "planned",
+      "evidence": null,
+      "historical_evidence": {
         "path": "assurance/evidence/m1/summary.json",
         "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
         "baseline": "dialysislab-m1-b598a5c-2026-10-07",
@@ -647,8 +726,9 @@
       ],
       "procedure": "Calculate expected fluid loss from input rates, interval duration and independently specified active interval count; compare both service totals and patient volume.",
       "expected": "Nominal, zero-UF, stopped-flow and partial-flow runs match independent Decimal balances within 1e-8 mL; long patient ledger drift stays below 1e-8 mL.",
-      "result": "passed",
-      "evidence": {
+      "result": "planned",
+      "evidence": null,
+      "historical_evidence": {
         "path": "assurance/evidence/m1/summary.json",
         "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
         "baseline": "dialysislab-m1-b598a5c-2026-10-07",
@@ -665,8 +745,9 @@
       ],
       "procedure": "Run occlusion scenario and kill control at fault onset; inspect protection observation, decision and applied actuator state.",
       "expected": "Tick-5 resistance increase produces a measured pressure of 600 mmHg; the synthetic 250 mmHg trip stops blood/UF and closes clamp within one 100 ms virtual interval, including when control has died.",
-      "result": "passed",
-      "evidence": {
+      "result": "planned",
+      "evidence": null,
+      "historical_evidence": {
         "path": "assurance/evidence/m1/summary.json",
         "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
         "baseline": "dialysislab-m1-b598a5c-2026-10-07",
@@ -683,8 +764,9 @@
       ],
       "procedure": "Continue conflicting control demand after occlusion; issue role-forged and duplicate commands and inspect resulting state.",
       "expected": "Repeated 300 mL/min control demand and later PERMIT cannot release latched zero blood/UF and closed clamp; unauthorized role and duplicate tick messages fail closed.",
-      "result": "passed",
-      "evidence": {
+      "result": "planned",
+      "evidence": null,
+      "historical_evidence": {
         "path": "assurance/evidence/m1/summary.json",
         "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
         "baseline": "dialysislab-m1-b598a5c-2026-10-07",
@@ -701,8 +783,9 @@
       ],
       "procedure": "Inject every supported sensor fault at tick 5 and verify timing, channel separation, and conservation.",
       "expected": "Invalid, missing, stale, future and replayed protection samples trip within one 100 ms interval; a control-only fault does not corrupt the protection channel.",
-      "result": "passed",
-      "evidence": {
+      "result": "planned",
+      "evidence": null,
+      "historical_evidence": {
         "path": "assurance/evidence/m1/summary.json",
         "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
         "baseline": "dialysislab-m1-b598a5c-2026-10-07",
@@ -719,8 +802,9 @@
       ],
       "procedure": "Kill each service, kill an actual scheduler heartbeat subprocess, and compare paused versus uninterrupted runs; retain build/configuration identities.",
       "expected": "Missing control/protection prevents nonzero commit; plant/patient loss aborts; killed runner causes independent plant latch within 3 wall seconds without virtual advancement; a 2.3 s heartbeat pause preserves trajectory.",
-      "result": "passed",
-      "evidence": {
+      "result": "planned",
+      "evidence": null,
+      "historical_evidence": {
         "path": "assurance/evidence/m1/summary.json",
         "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
         "baseline": "dialysislab-m1-b598a5c-2026-10-07",
@@ -729,6 +813,26 @@
         "reviewer": "Codex automated execution and result inspection only; independent review and risk acceptance pending.",
         "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; container GCC 14.2.0/Python 3.12.14; Docker 29.3.1/Compose v5.1.1"
       }
+    },
+    {
+      "id": "M1-TEST-008",
+      "requirements": [
+        "M1-REQ-008"
+      ],
+      "procedure": "Run test_trajectory regressions (RSS, short writes, torn tail, killed real runner) and verify_m1_review long Docker scenarios.",
+      "expected": "Two actual 100000-tick Compose runs complete under 128 MiB with peak runner RSS <=64 MiB. Records are ordered/complete and repeated hashes agree with independently hashed written bytes. SIGKILL preserves a recoverable complete prefix.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M1-TEST-009",
+      "requirements": [
+        "M1-REQ-009"
+      ],
+      "procedure": "Run test_compose_collection command-order/error regressions and three real failure/recovery cases in verify_m1_review.",
+      "expected": "Aborted runner, pre-start failure and failed extraction retain logs/reports; original exit code is preserved. Failed extraction retains volumes and stopped containers with usable recovery commands; verify actual artifact recovery before cleanup.",
+      "result": "planned",
+      "evidence": null
     }
   ],
   "prerequisites": [

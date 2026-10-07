@@ -5,7 +5,7 @@ namespace {
 class Plant {
     long long next_n = 0, next_t = 0, n = 0, t = 0, dt = 0, end_t = 0;
     bool prepared = false, demand_seen = false, decision_seen = false;
-    bool armed = false, latched = false;
+    bool armed = false, latched = false, halted = false;
     std::string reason = "none";
     double resistance = 0.5, demand = 0, uf_demand = 0, total = 0, correction = 0, removed = 0;
     dl::Hydraulics output{0, 0, 0};
@@ -24,10 +24,16 @@ public:
         if (!latched) { reason = cause; latched = true; }
         output = {0, 0, 0};
     }
+    void halt(const std::string& cause) {
+        latch(cause);
+        halted = true;
+        prepared = demand_seen = decision_seen = false;
+        demand = uf_demand = 0;
+    }
     void watchdog() {
         if (!armed) return;
         for (auto last : heartbeat)
-            if (dl::Clock::now() - last > std::chrono::milliseconds(2000)) latch("liveness");
+            if (dl::Clock::now() - last > std::chrono::milliseconds(2000)) halt("liveness");
     }
     std::string state() const {
         return dl::msg("STATE", n, end_t, output.blood, output.pressure, output.uf,
@@ -37,16 +43,16 @@ public:
         auto op = r.take();
         if (op == "PING") { r.end(); heartbeat[role] = dl::Clock::now(); return "DL1 OK"; }
         if (role == 0 && op == "STATUS") { r.end(); return state(); }
-        if (role == 0 && op == "HALT") { r.end(); latch("shutdown"); return "DL1 OK"; }
+        if (role == 0 && op == "HALT") { r.end(); halt("shutdown"); return "DL1 OK"; }
         if (role == 0 && op == "STOP") {
-            r.end(); latch("shutdown"); dl::stopping = 1; return "DL1 OK";
+            r.end(); halt("shutdown"); dl::stopping = 1; return "DL1 OK";
         }
         if (role == 0 && op == "PREPARE") {
             auto seq = r.integer(99999), time = r.integer(), step = r.integer(1000);
             double new_resistance = r.real(0.01, 100);
             std::array<std::string, 2> faults{r.take(), r.take()};
             r.end();
-            dl::require(!prepared && seq == next_n && time == next_t && step > 0);
+            dl::require(!halted && !prepared && seq == next_n && time == next_t && step > 0);
             for (const auto& f : faults) dl::require(valid_fault(f));
             n = seq; t = time; dt = step; resistance = new_resistance;
             if (!armed) { heartbeat.fill(dl::Clock::now()); armed = true; }
@@ -81,6 +87,7 @@ public:
             if (!decision_seen) latch("protection_missing");
             if (!demand_seen) latch("control_missing");
             watchdog();
+            dl::require(!halted);
             output = dl::hydraulic_state(demand, uf_demand, resistance, latched);
             removed = output.uf * static_cast<double>(dt) / 60000.0;
             double increment = removed - correction;
@@ -104,7 +111,7 @@ int main(int argc, char** argv) {
         Plant plant;
         dl::serve({&admin, &control, &protection},
                   [&](std::size_t role, dl::Tokens& r) { return plant.handle(role, r); },
-                  [&] { plant.watchdog(); }, [&] { plant.latch("protocol"); });
-        plant.latch("shutdown");
+                  [&] { plant.watchdog(); }, [&] { plant.halt("protocol"); });
+        plant.halt("shutdown");
     } catch (const std::exception& e) { std::cerr << "plant: " << e.what() << '\n'; return 1; }
 }

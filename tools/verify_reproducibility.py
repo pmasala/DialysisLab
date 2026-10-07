@@ -4,12 +4,14 @@ import argparse
 from datetime import datetime, timezone
 import json
 import math
+import itertools
 from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'python'))
-from dialysislab.runner import LocalCluster, build_identity, canonical, simulate
+from dialysislab.runner import LocalCluster, build_identity, simulate
+from dialysislab.trajectory import read_records, scan
 
 
 def compare(a, b):
@@ -47,12 +49,16 @@ def main():
             records, manifest = simulate(config, cluster.runtime, args.first_build)
         if manifest['outcome'] != 'completed':
             raise ValueError('native replay aborted')
-        container_records = json.loads((args.compose_output / (name + '-1') / 'trajectory.json').read_text())
-        compare(records, container_records)
+        container_directory = args.compose_output / (name + '-1') / 'results/run'
+        container_path = container_directory / 'trajectory.jsonl'
+        for left, right in itertools.zip_longest(records, read_records(container_path)):
+            if left is None or right is None:
+                raise ValueError('record lengths differ')
+            compare(left, right)
         cases.append(dict(scenario=name, native_manifest=manifest,
-                          container_manifest=json.loads((args.compose_output / (name + '-1') / 'manifest.json').read_text()),
+                          container_manifest=json.loads((container_directory / 'manifest.json').read_text()),
                           absolute_tolerance=1e-9, relative_tolerance=1e-9,
-                          exact_match=canonical(records) == canonical(container_records)))
+                          exact_match=manifest['trajectory_sha256'] == scan(container_path)['sha256']))
     result = dict(schema_version=1, executed_at=datetime.now(timezone.utc).isoformat(),
                   command='python3 tools/verify_reproducibility.py --first-build ' + str(args.first_build)
                   + ' --second-build ' + str(args.second_build) + ' --compose-output ' + str(args.compose_output)

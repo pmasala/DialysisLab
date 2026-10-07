@@ -21,7 +21,7 @@ class PublicationChecks(unittest.TestCase):
         (self.root / 'assurance/standards/sources.json').write_text('{"standards": []}')
 
     def test_source_and_build_formats(self):
-        names = ['test.cpp', 'test.hpp', 'compose.yaml', 'CMakeLists.txt', 'Dockerfile', '.dockerignore']
+        names = ['test.cpp', 'test.hpp', 'trajectory.jsonl', 'compose.yaml', 'CMakeLists.txt', 'Dockerfile', '.dockerignore']
         for name in names:
             (self.root / name).write_text('synthetic project-owned text\n')
         self.assertEqual(len(collect(self.root, {'files': names})), len(names))

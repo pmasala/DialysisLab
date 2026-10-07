@@ -1,4 +1,4 @@
-# M1 interface contract, version 1
+# M1 interface contract, DL1 (abort-policy revision 2)
 
 Defined before implementation. Linux AF_UNIX streams, one request and one response
 per connection, ASCII space-separated tokens ending in LF, maximum 4096 bytes.
@@ -87,15 +87,52 @@ The poll loop checks at least every 20 ms when idle; bounded failed I/O can dela
 checking, with the tested acceptance bound 3 s. A deliberate virtual pause calls
 all three PING paths every <=250 ms. No wall duration enters model equations.
 
-At a control/protection RPC failure runner still attempts the other decision and
-COMMIT, records the zero-output tick, then aborts. Plant/patient failures abort
-without advancing another tick. Lost acknowledgments are never retried as tick
-commands; an ambiguous run is aborted. On runner loss the plant watchdog remains
+At a control/protection STEP RPC failure runner still attempts the other decision,
+but never sends COMMIT or patient ADVANCE for that tick. It requests HALT, then
+independently queries STATUS and aborts. This includes a STEP reply lost after the
+service's command was accepted. The manifest records the aborted tick, RPC cause,
+HALT acknowledgment, observed state and any separate request/observation error.
+An acknowledgment proves acceptance of HALT, not an observed actuator state.
+Missing STATUS leaves `outputs_zero_observed=null`; an observed running plant gives
+false. Unacknowledged HALT leaves pending-tick cancellation unconfirmed, even if a
+later observation shows zero outputs. No tick command is retried.
+Plant/patient failures abort without advancing another tick. On runner loss the plant watchdog remains
 independently active. STOP and SIGTERM latch zero outputs and exit; SIGKILL of the
 plant removes the simulated plant itself (no physical device is controlled).
-HALT latches zero outputs while leaving the process alive for observation and
-Compose orchestration. STOP additionally exits. Neither has clinical recovery meaning.
+HALT latches zero outputs, discards any prepared tick and pending decisions, and
+permanently rejects further PREPARE/COMMIT/DEMAND/PERMIT in that process. Liveness
+and protocol shutdowns do the same. It leaves the process alive for observation
+and Compose orchestration. If HALT cannot be delivered, the independent wall lease
+eventually cancels the pending tick; the runner does not claim this without an
+observation. STOP additionally exits. Neither has clinical recovery meaning.
 Fresh processes and sockets are required
 for a new run. Malformed commands on plant decision/admin listeners latch
 `protocol`; denied role operations also fail closed. Availability under hostile
 flooding and shared-host failures is outside M1's verified envelope.
+
+## Run artifacts: manifest schema 2 / trajectory JSONL v1
+
+New runs use `manifest.json` schema_version=2 with
+`trajectory_format="dialysislab.trajectory.jsonl.v1"` and
+`trajectory_file="trajectory.jsonl"`. DL1 sensor/command fields and model equations
+are unchanged. Historical schema-1 manifests and `trajectory.json` arrays remain
+unaltered historical evidence; they are not input to the new streaming reader.
+
+Each UTF-8 JSONL line is one complete record with the existing physical, patient
+and observation fields, sorted keys, compact separators and a terminating LF.
+`sequence` starts at zero and must be contiguous. A record is capped at 16384 bytes.
+The writer holds one record at a time, writes without Python output buffering, and
+incrementally hashes only bytes successfully written, including each LF. The final
+manifest records completed ticks, byte count, exact SHA-256 and peak process RSS.
+The returned Python result is a disk-backed iterable, not an in-memory list.
+
+An atomic initial manifest has `outcome=running`, no final hash, and the exact
+configuration/build. The final manifest replaces it atomically after the stream is
+closed. SIGTERM/INT requests abort and observed stop; SIGKILL may leave the initial
+manifest and a partial last line. Never interpret that manifest as success or its
+initial tick count as the persisted prefix. `tools/recover_trajectory.py` counts,
+validates and hashes complete lines; it discards only an unterminated final line
+and never rewrites evidence. A malformed complete line or sequence gap is an error.
+Complete writes survive process death through the OS cache; power-loss durability
+is not claimed (no per-tick fsync). Disk failures may prevent final metadata, but
+an already written prefix remains recoverable. STOP does not imply rollback.

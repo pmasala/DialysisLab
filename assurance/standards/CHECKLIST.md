@@ -2254,7 +2254,7 @@ Record seeds, parameters, software/model versions, solver settings and fault tim
 
 **Owner role:** Project maintainer. **Applicability:** proposed. **Completion:** open. **Reviewer/date:** unassigned.
 
-Starter trace links: M1-REQ-001, M1-REQ-002, M1-REQ-007, M1-TEST-001, M1-TEST-002, M1-TEST-007 (draft/planned; not complete coverage).
+Starter trace links: M1-REQ-001, M1-REQ-002, M1-REQ-007, M1-REQ-008, M1-TEST-001, M1-TEST-002, M1-TEST-007, M1-TEST-008 (draft/planned; not complete coverage).
 
 ### PRJ-008 — License and SOUP review
 
@@ -2279,6 +2279,8 @@ Keep licensed PDFs, extracted text, screenshots and copied tables outside GitHub
 **Scope:** reference. Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.
 
 **Owner role:** Project maintainer. **Applicability:** proposed. **Completion:** open. **Reviewer/date:** unassigned.
+
+Starter trace links: M1-REQ-009, M1-TEST-009 (draft/planned; not complete coverage).
 
 ### PRJ-010 — Claims bounded by evidence
 

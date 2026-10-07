@@ -1,7 +1,9 @@
 # Current status
 
-As of 7 October 2026, M1 is implemented and its declared synthetic acceptance
-checks have passed on the recorded WSL2 environment. This is a limited headless HD
+Review update, 8 October 2026: the review found three defects in STEP failure
+arbitration, trajectory memory and failed Compose evidence retention. Corrections
+and 47 native tests now pass; real Docker revalidation is pending. Do not treat M1
+as completed on the basis of the historical results below. This is a limited headless HD
 reference slice, not a complete dialysis system, calibrated physiology, clinically
 usable software, or a standards-conforming medical device.
 
@@ -20,7 +22,7 @@ usable software, or a standards-conforming medical device.
   sends direct plant constraints. Conflicting control commands and subsequent
   permits cannot clear a latch. Process failures follow documented abort policies.
 
-## Actual verification
+## Historical verification (before the review corrections)
 
 Tested implementation revision: `b598a5c` (full source and executable hashes in
 [evidence/m1/summary.json](evidence/m1/summary.json)). The subsequent evidence/status
@@ -41,8 +43,8 @@ commit does not change executable sources. Commands and raw records are indexed 
 | Assurance checks | Zero structural errors. All 184 standards entries and 12 edition/applicability gaps remain open. |
 | Release gates | Trace release gate remains blocked (60 gaps); standards release gate remains blocked. No check was weakened. |
 
-M1 requirements are **implemented**, with passing execution records and independent
-review still pending. Six broader starter requirements remain draft and their six
+M1 requirements are **implemented**; affected execution records are being revalidated
+and independent review remains pending. Six broader starter requirements remain draft and their six
 protocols remain planned. All nine release prerequisites remain open. Test passes
 are neither reviewer approval nor risk acceptance.
 

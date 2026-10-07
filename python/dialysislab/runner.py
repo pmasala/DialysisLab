@@ -7,17 +7,16 @@ import math
 import os
 from pathlib import Path
 import platform
+import resource
+import signal
 import subprocess
 import sys
 import tempfile
 from .protocol import expect, heartbeat, integer, observation, pause, real, rpc, state, wait_ready
+from .trajectory import FORMAT, TrajectoryWriter, canonical
 
 ROOT = Path(__file__).resolve().parents[2]
 FAULTS = {'none', 'invalid', 'missing', 'stale', 'future', 'replay'}
-
-
-def canonical(data):
-    return json.dumps(data, sort_keys=True, separators=(',', ':'), allow_nan=False) + '\n'
 
 
 def digest(data):
@@ -136,25 +135,52 @@ def build_identity(build_dir):
     return identity
 
 
+def stop_plant(admin):
+    """Keep HALT acknowledgment separate from an actual STATUS observation."""
+    result = dict(command='HALT', requested=True, acknowledged=False,
+                  request_error=None, observed_state=None, observation_error=None,
+                  outputs_zero_observed=None, pending_tick_cancelled=None)
+    try:
+        expect(rpc(admin, 'HALT'), 'OK', 1)
+        result['acknowledged'] = True
+        result['pending_tick_cancelled'] = True
+    except (OSError, ValueError) as exc:
+        result['request_error'] = type(exc).__name__ + ': ' + str(exc)
+    try:
+        observed = state(rpc(admin, 'STATUS'))
+        result['observed_state'] = observed
+        result['outputs_zero_observed'] = (observed['latched'] and observed['clamp_closed']
+                                          and observed['blood_mL_min'] == 0 and observed['uf_mL_min'] == 0)
+    except (OSError, ValueError) as exc:
+        result['observation_error'] = type(exc).__name__ + ': ' + str(exc)
+    return result
+
+
 def simulate(config, runtime, build_dir, output=None, before_tick=None):
     validate(config)
     runtime = Path(runtime)
-    manifest = dict(schema_version=1, executed_at=datetime.now(timezone.utc).isoformat(),
+    manifest = dict(schema_version=2, executed_at=datetime.now(timezone.utc).isoformat(),
                     configuration=config, configuration_sha256=digest(canonical(config).encode()),
                     build=build_identity(build_dir), python=platform.python_version(),
                     platform=platform.platform(), interface='DL1', model='m1-hd-1',
-                    simulation_only=True, outcome='running', errors=[])
-    records = []
+                    simulation_only=True, outcome='running', errors=[],
+                    trajectory_format=FORMAT, trajectory_file='trajectory.jsonl',
+                    completed_ticks=0, trajectory_sha256=None)
+    writer = TrajectoryWriter(output)
+    records = writer.trajectory
+    writer.write_manifest(manifest)
     admin = runtime / 'admin/plant.sock'
     patient = runtime / 'patient/service.sock'
     resistance = config['resistance_mmHg_min_mL']
     sensor = dict(control_sensor='none', protection_sensor='none')
     pending_plant_state = None
+    tick_context = None
     try:
         wait_ready(runtime)
         expect(rpc(patient, 'INIT', config['patient_volume_mL']), 'OK', 1)
         for n in range(config['ticks']):
             t = n * config['dt_ms']
+            tick_context = dict(sequence=n, time_ms=t)
             if before_tick:
                 before_tick(n)
             for fault in config['faults']:
@@ -179,6 +205,10 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
             except (OSError, ValueError) as exc:
                 decision = 'unavailable'
                 failures.append('protection:' + type(exc).__name__)
+            tick_context.update(protection_decision=decision, observations=measurements)
+            if failures:
+                manifest['rpc_failures'] = failures
+                raise RuntimeError(','.join(failures))
             physical = state(rpc(admin, 'COMMIT', n, t))
             pending_plant_state = physical
             if physical['sequence'] != n or physical['time_ms'] != t + config['dt_ms']:
@@ -187,12 +217,10 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
                             'VOLUME', 5)
             if integer(volume[1]) != n or integer(volume[2]) != t + config['dt_ms']:
                 raise ValueError('patient clock mismatch')
-            records.append(dict(physical, patient_volume_mL=real(volume[3], 0, 100000),
+            writer.append(dict(physical, patient_volume_mL=real(volume[3], 0, 100000),
                                 patient_removed_mL=real(volume[4], 0, 100000), observations=measurements,
                                 protection_decision=decision))
             pending_plant_state = None
-            if failures:
-                raise RuntimeError(','.join(failures))
             if physical['reason'] in ('liveness', 'protocol', 'control_missing', 'protection_missing'):
                 raise RuntimeError('unexpected plant failure: ' + physical['reason'])
         manifest['outcome'] = 'completed'
@@ -200,19 +228,24 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
         manifest['outcome'] = 'aborted'
         manifest['errors'].append(str(exc))
         manifest['uncommitted_plant_state'] = pending_plant_state
-        # Direct observer stop is best effort; plant's own watchdog covers runner loss.
+        manifest['aborted_tick'] = tick_context
+        manifest['stop'] = stop_plant(admin)
+    finally:
+        writer.close()
+    manifest['completed_ticks'] = len(records)
+    manifest['trajectory_sha256'] = writer.hasher.hexdigest()
+    manifest['trajectory_bytes'] = writer.bytes_written
+    manifest['memory'] = dict(peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024)
+    for name in ('memory.peak', 'memory.max'):
         try:
-            rpc(admin, 'HALT')
+            manifest['memory'][name] = int((Path('/sys/fs/cgroup') / name).read_text())
         except (OSError, ValueError):
             pass
-    manifest['completed_ticks'] = len(records)
-    trajectory = canonical(records)
-    manifest['trajectory_sha256'] = digest(trajectory.encode())
-    if output is not None:
-        output = Path(output)
-        output.mkdir(parents=True, exist_ok=False)
-        (output / 'trajectory.json').write_text(trajectory)
-        (output / 'manifest.json').write_text(json.dumps(manifest, indent=2, allow_nan=False) + '\n')
+    try:
+        writer.write_manifest(manifest)
+    except OSError:
+        stop_plant(admin)
+        raise
     return records, manifest
 
 
@@ -225,6 +258,10 @@ def shutdown(runtime):
 
 
 def main():
+    def interrupt(signum, _frame):
+        raise InterruptedError('runner received signal ' + str(signum))
+    signal.signal(signal.SIGTERM, interrupt)
+    signal.signal(signal.SIGINT, interrupt)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)

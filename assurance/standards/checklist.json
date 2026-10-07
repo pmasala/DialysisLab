@@ -4533,12 +4533,14 @@
       "requirement_ids": [
         "M1-REQ-001",
         "M1-REQ-002",
-        "M1-REQ-007"
+        "M1-REQ-007",
+        "M1-REQ-008"
       ],
       "test_ids": [
         "M1-TEST-001",
         "M1-TEST-002",
-        "M1-TEST-007"
+        "M1-TEST-007",
+        "M1-TEST-008"
       ],
       "evidence": []
     },
@@ -4589,8 +4591,12 @@
       "reviewer": null,
       "review_date": null,
       "applicability_rationale": "Proposed lifecycle or reference-design obligation. Evidence is limited to the stated simulation configuration; physical parts require separate downstream evidence.",
-      "requirement_ids": [],
-      "test_ids": [],
+      "requirement_ids": [
+        "M1-REQ-009"
+      ],
+      "test_ids": [
+        "M1-TEST-009"
+      ],
       "evidence": []
     },
     {

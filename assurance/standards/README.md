@@ -10,7 +10,7 @@ Start with [CHECKLIST.md](CHECKLIST.md), generated from [checklist.json](checkli
 
 1. A reviewer with authorized access confirms the exact edition, wording and applicability, including individual obligations within grouped references.
 2. Resolve each conditional feature and distinguish reference evidence from downstream equipment evidence. Record rationale even for exclusions.
-3. Derive complete, measurable requirements and link hazards, architecture, implementation, protocols and results. Existing links cover six starter roadmap requirements plus seven narrower synthetic M1 requirements; they are not full clause coverage. M1 evidence does not close any standards entry.
+3. Derive complete, measurable requirements and link hazards, architecture, implementation, protocols and results. Existing links cover six starter roadmap requirements plus nine narrower synthetic M1 requirements; they are not full clause coverage. M1 evidence does not close any standards entry.
 4. Record the tested build/configuration, evidence locations, reviewer, date and any residual limitations before proposing closure.
 5. Reassess affected entries after a standards, component, software, model or intended-use change. A future schema supporting closure must verify evidence, not just accept a changed status field.
 

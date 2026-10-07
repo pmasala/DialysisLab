@@ -61,7 +61,8 @@ record before reusing cached evidence after changes.
 
 ## Records and expected behavior
 
-Each run writes deterministic `trajectory.json` plus `manifest.json` containing
+Each new run streams deterministic `trajectory.jsonl` (JSON Lines v1) plus a
+schema-2 `manifest.json` containing
 UTC execution time, configuration/seed, model/interface versions, compiler/source
 identity, actual binary/Python hashes, platform, outcome and trajectory hash.
 Native and container builds may have different binary identities. Nominal HD has
@@ -103,3 +104,42 @@ cmake -S . -B build/repro -DCMAKE_BUILD_TYPE=Release
 cmake --build build/repro --parallel 3
 python3 tools/verify_reproducibility.py --first-build build --second-build build/repro --compose-output build/compose-verification --output build/reproducibility.json
 ```
+
+## Failed or interrupted runs
+
+A failed STEP aborts before COMMIT. The aborted manifest records HALT acknowledgment
+separately from the STATUS observation; null means unobserved, not zero. Pending
+commands are cancelled by accepted HALT, protocol shutdown or the wall watchdog.
+
+New trajectories use JSONL; historical `trajectory.json` arrays remain unchanged.
+Inspect an interrupted run without modifying it:
+
+```bash
+python3 tools/recover_trajectory.py build/interrupted/trajectory.jsonl
+```
+
+Only complete contiguous records count as recovered. The reported SHA-256 covers
+those exact bytes, not a possibly torn final line. An initial `outcome=running`
+manifest is an unfinished run, even if some records were saved.
+
+Compose verification saves `compose.log`, `services.log`, `collection.json` and
+all available `/results` files before cleanup, including on nonzero runner exit.
+The CLI propagates the original Compose exit code; extraction/inspection/log and
+cleanup errors are separate fields. Timeout without an exit code is reported as
+124. Failed extraction uses `stop`, never `down --volumes`; containers and volumes
+remain available. Follow the case's `RECOVERY.txt`: copy `/results` again, inspect
+logs and verify recovered files before issuing the scoped cleanup command. If the
+runner never existed, inspect the named results volume first. Successful normal
+copies are under `<case>/results/run/`.
+
+Real Docker review regressions, including two 100000-tick runs under the unchanged
+128 MiB runner limit (allow several minutes):
+
+```bash
+python3 tools/verify_m1_review.py --output build/review-docker
+```
+
+The RSS acceptance bound is 64 MiB, leaving at least 64 MiB RSS headroom. The report
+also captures cgroup peak/limit when available; file cache contributes to cgroup
+usage and can be reclaimed. These measurements apply to the recorded scenario,
+image and Linux environment, not arbitrary unbounded configuration payloads.

@@ -91,7 +91,7 @@ class M1Processes(unittest.TestCase):
     def test_same_seed_exact_replay(self):
         a, ma = self.run_scenario(OCCLUSION)
         b, mb = self.run_scenario(OCCLUSION)
-        self.assertEqual(canonical(a), canonical(b))
+        self.assertEqual(list(a), list(b))  # Small 20-tick fixtures only.
         self.assertEqual(ma['configuration_sha256'], mb['configuration_sha256'])
         self.assertEqual(ma['trajectory_sha256'], mb['trajectory_sha256'])
 
@@ -146,9 +146,9 @@ class M1Processes(unittest.TestCase):
     def test_protection_acts_when_control_is_killed(self):
         records, manifest = self.run_scenario(OCCLUSION, lambda c, n: c.kill('control') if n == 5 else None)
         self.assertEqual(manifest['outcome'], 'aborted')
-        self.assertEqual(records[-1]['reason'], 'pressure')
-        self.assertEqual(records[-1]['blood_mL_min'], 0)
-        self.assertEqual(records[-1]['protection_decision'], 'pressure')
+        self.assertEqual(manifest['stop']['observed_state']['reason'], 'pressure')
+        self.assertTrue(manifest['stop']['outputs_zero_observed'])
+        self.assertEqual(manifest['aborted_tick']['protection_decision'], 'pressure')
         self.assert_balance(records, OCCLUSION, 5)
 
     def test_missing_control_or_protection_blocks_commit(self):
@@ -156,9 +156,10 @@ class M1Processes(unittest.TestCase):
             with self.subTest(role=role):
                 records, manifest = self.run_scenario(CONFIG, lambda c, n: c.kill(role) if n == 5 else None)
                 self.assertEqual(manifest['outcome'], 'aborted')
-                self.assertEqual(len(records), 6)
-                self.assertEqual(records[-1]['reason'], role + '_missing')
-                self.assertEqual(records[-1]['removed_tick_mL'], 0)
+                self.assertEqual(len(records), 5)
+                self.assertIn(role + ':', manifest['rpc_failures'][0])
+                self.assertTrue(manifest['stop']['outputs_zero_observed'])
+                self.assertEqual(manifest['stop']['observed_state']['time_ms'], 500)
 
     def test_plant_or_patient_loss_aborts_uncommitted_record(self):
         for role in ('plant', 'patient'):
@@ -178,7 +179,7 @@ class M1Processes(unittest.TestCase):
         a, manifest = self.run_scenario(CONFIG, pause_at_five)
         b, _ = self.run_scenario(CONFIG)
         self.assertEqual(manifest['outcome'], 'completed')
-        self.assertEqual(canonical(a), canonical(b))
+        self.assertEqual(list(a), list(b))
 
     def test_runner_loss_wall_watchdog_does_not_advance_clock(self):
         with LocalCluster(BUILD) as cluster:
