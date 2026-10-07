@@ -24,6 +24,9 @@ def digest(data):
 
 
 def validate(config):
+    if isinstance(config, dict) and config.get('schema_version') == 3:
+        from .compartments import validate_scenario
+        return validate_scenario(config, validate)
     if isinstance(config, dict) and config.get('schema_version') == 2:
         from .circuit import validate as validate_circuit
         return validate_circuit(config, validate)
@@ -178,18 +181,26 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
     sensor = dict(control_sensor='none', protection_sensor='none')
     pending_plant_state = None
     tick_context = None
-    extended = config['schema_version'] == 2
+    extended = config['schema_version'] >= 2
+    coupled = config['schema_version'] == 3
+    patient_snapshot = None
     try:
         wait_ready(runtime)
         if extended:
             from . import circuit
             circuit.configure(admin, config)
-        expect(rpc(patient, 'INIT', config['patient_volume_mL']), 'OK', 1)
+        if coupled:
+            from .compartments import validate_snapshot
+            expect(rpc(patient, 'INIT3', canonical(config['patient'])), 'OK', 1)
+        else:
+            expect(rpc(patient, 'INIT', config['patient_volume_mL']), 'OK', 1)
         for n in range(config['ticks']):
             t = n * config['dt_ms']
             tick_context = dict(sequence=n, time_ms=t)
             if before_tick:
                 before_tick(n)
+            if coupled and patient_snapshot is not None:
+                circuit.transport(admin, config, patient_snapshot['concentration_mmol_L'][2])
             for fault in config['faults']:
                 if fault['tick'] == n:
                     if extended and fault['target'].startswith('edge:'):
@@ -219,7 +230,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
             if failures:
                 manifest['rpc_failures'] = failures
                 raise RuntimeError(','.join(failures))
-            physical = (circuit.committed(rpc(admin, 'COMMIT2', n, t)) if extended
+            physical = (circuit.committed(rpc(admin, 'COMMIT3' if coupled else 'COMMIT2', n, t), coupled) if extended
                         else state(rpc(admin, 'COMMIT', n, t)))
             pending_plant_state = physical
             if physical['sequence'] != n or physical['time_ms'] != t + config['dt_ms']:
@@ -229,11 +240,23 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
                 if physical['circuit']['sequence'] != n or physical['circuit']['time_ms'] != t + config['dt_ms']:
                     raise ValueError('circuit clock mismatch')
                 water = physical['circuit']['draw_tick_mL'] - physical['circuit']['return_tick_mL']
-            volume = expect(rpc(patient, 'FLUID2' if extended else 'ADVANCE', n, t, config['dt_ms'], water),
-                            'FLUID_VOLUME2' if extended else 'VOLUME', 6 if extended else 5)
+            if coupled:
+                c = physical['circuit']
+                transaction = dict(sequence=n, time_ms=t, dt_ms=config['dt_ms'], draw_mL=c['draw_tick_mL'],
+                                   return_mL=c['return_tick_mL'], uf_mL=c['uf_tick_mL'], stored_mL=c['stored_mL'],
+                                   clearance_mL_min=c['clearance_mL_min'], sieving=config['circuit']['profile']['sieving'],
+                                   dialysate_mmol_L=config['transport']['dialysate_mmol_L'])
+                reply = expect(rpc(patient, 'ADVANCE3', canonical(transaction)), 'PATIENT3', 2)
+                patient_snapshot = validate_snapshot(json.loads(reply[1]))
+                physical['patient'] = patient_snapshot
+                volume = ['VOLUME', str(patient_snapshot['sequence']), str(patient_snapshot['time_ms']),
+                          str(math.fsum(patient_snapshot['volume_mL'][:2])), str(patient_snapshot['net_patient_loss_mL'])]
+            else:
+                volume = expect(rpc(patient, 'FLUID2' if extended else 'ADVANCE', n, t, config['dt_ms'], water),
+                                'FLUID_VOLUME2' if extended else 'VOLUME', 6 if extended else 5)
             if integer(volume[1]) != n or integer(volume[2]) != t + config['dt_ms']:
                 raise ValueError('patient clock mismatch')
-            if extended:
+            if extended and not coupled:
                 physical['patient_numerical_correction_mL'] = real(volume[5], -1e-8, 1e-8)
             writer.append(dict(physical, patient_volume_mL=real(volume[3], 0, 100000),
                                 patient_removed_mL=real(volume[4], -100000, 100000), observations=measurements,

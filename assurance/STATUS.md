@@ -3,15 +3,17 @@
 ## Integrated execution checkpoint — 2026-10-08
 
 Branch `feat/integrated-dialysis-roadmap`, published to origin. M1 and M2 technical
-scope COMPLETE; M3 NEXT; M4–M9 PLANNED. Full project remains incomplete. M2
+scope COMPLETE; M3 IN PROGRESS; M4–M9 PLANNED. Full project remains incomplete. M2
 implementation `2108e55` passed 58 native and 58 sanitizer tests, six native/six
 Compose model runs, four M1 Compose regressions and two isolation probes. Its
 single review of `9aeee60` against `1999741` returned three P2 findings, all fixed
 and verified. No M1 or M2 review may be rerun. See [M2 evidence](evidence/m2/README.md).
 
-Next executable step: commit this M2 evidence checkpoint, fix that commit as the
-M3 base, define M3 conservative compartment/transport contracts and implement the
-Python patient coupling. Preserve atomic COMMIT2 snapshots, bounded/recorded
+M3 base is `40533e4`; contracts and numerical acceptance are fixed in
+`docs/M3_PATIENT.md`. The coupled implementation passed 67 native/67 sanitizer
+tests, eight native/eight Compose patient runs and six M2 Compose regressions.
+Next executable step: commit the candidate and run the single M3 review against
+`40533e4`; record/fix findings and repeat affected regressions. Preserve atomic COMMIT2 snapshots, bounded/recorded
 roundoff, exact configuration/build evidence binding and streaming outputs.
 
 Persistent checkpoints: [plan](../docs/MILESTONES.md),

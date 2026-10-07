@@ -11,6 +11,13 @@ the same plant process. [M2_MODEL_INTERFACES.md](M2_MODEL_INTERFACES.md) defines
 the node/edge solver, water accounting and prescribed-boundary membrane transport.
 The M1 path remains compatible; neither decision service receives circuit truth.
 
+M3 couples the Python patient to actual hydraulic transfers and membrane
+coefficients in atomic COMMIT3 replies. A three-compartment implicit mass solve
+includes the extracorporeal mixing volume, while plant/control/protection remain
+separate processes. Applied solute transfers and body truth stay on simulation
+administration channels. [M3_PATIENT.md](M3_PATIENT.md) defines the deliberately
+limited physiology, conservative ledgers and failure semantics.
+
 ## Deployment boundaries
 
 | Container/application | Language | Responsibility |

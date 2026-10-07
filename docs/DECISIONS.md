@@ -13,6 +13,9 @@
 | M2-003 | Adopt project-authored mixed-cell transport and synthetic profiles, not a commercial countercurrent dialyzer specification. | M2 prescribes concentration boundaries; M3 must conserve compartment masses before dynamic physiology is claimed. |
 | M2-004 | Review fixes require atomic committed snapshots, requested/executed evidence binding and explicit bounded drainage roundoff. | Three applicable P2 findings from the sole M2 review; regression evidence at `assurance/evidence/m2/`. |
 | INT-007 | M2 migrates optional `historical_evidence` from a single object to an ordered list, retaining the original object plus superseded evidence. Active schema-1 evidence still must match the current baseline. | No historical record is relabeled as a current execution; release requirements and checker behavior are unchanged. |
+| M3-001 | Solve body/circuit concentrations together with an implicit conservative transfer matrix; the C++ plant provides actual hydraulic transfers and membrane clearances. | Partition/refill coefficients are synthetic. No validated ATPase, oncotic, electrical or cardiovascular mechanism is claimed. |
+| M3-002 | Keep the circuit prime outside the initial body volume; separately account for compliant storage, gross UF, external input/output and net body loss. | Weight change assumes water density 1 kg/L and fixed nonwater mass; it is not a measured patient weight. |
+| M3-003 | Implement a clearly named fixed-pCO2 equilibrium indicator and conserve bicarbonate as a transported inventory. | Dynamic CO2, respiratory control and non-carbonic buffering remain model-validation/development gaps, not evidence inferred from pH curves. |
 
 The WSL2 environment has an X11 socket (`/tmp/.X11-unix/X0`) but DISPLAY is
 unset; desktop availability remains to be tested in M6. SDL development headers

@@ -42,6 +42,11 @@
       "id": "M2-NEED-001",
       "statement": "Explore configurable synthetic circuits and dialyzers with conserved water and declared transport.",
       "status": "implemented"
+    },
+    {
+      "id": "M3-NEED-001",
+      "statement": "Explore conservative synthetic patient fluid and electrolyte compartments coupled to the circuit.",
+      "status": "implemented"
     }
   ],
   "hazards": [
@@ -184,6 +189,30 @@
       "description": "Integrate extended circuit without losing independent protection or reproducibility; docs/M2_MODEL_INTERFACES.md.",
       "status": "implemented",
       "scope": "Synthetic numerical model; independent model validation pending."
+    },
+    {
+      "id": "M3-DES-001",
+      "description": "Conservative positive patient compartments and six solute inventories; docs/M3_PATIENT.md.",
+      "status": "implemented",
+      "scope": "Synthetic conservative model; independent physiological validation pending."
+    },
+    {
+      "id": "M3-DES-002",
+      "description": "Independent whole-system water and solute accounting; docs/M3_PATIENT.md.",
+      "status": "implemented",
+      "scope": "Synthetic conservative model; independent physiological validation pending."
+    },
+    {
+      "id": "M3-DES-003",
+      "description": "Distinct gross UF, external fluxes, circuit storage, patient loss and water-only weight; docs/M3_PATIENT.md.",
+      "status": "implemented",
+      "scope": "Synthetic conservative model; independent physiological validation pending."
+    },
+    {
+      "id": "M3-DES-004",
+      "description": "Couple real Python patient to atomic C++ circuit coefficients; docs/M3_PATIENT.md.",
+      "status": "implemented",
+      "scope": "Synthetic conservative model; independent physiological validation pending."
     }
   ],
   "requirements": [
@@ -389,11 +418,11 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "b9a9b841f259c8562bac7de911d49f307389bf0e799524a4623670c0bd76e613"
+          "sha256": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "6edfde71355b8cff41b080329e91fde63c8a05b6a5ec4cbc72e1fc3c2e821092"
+          "sha256": "c39d7b9c480ef2f98050d261c5b99eae78d38cf98ba0f2ce3e627a9fb702cf5b"
         }
       ],
       "unresolved": [
@@ -426,11 +455,11 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "6edfde71355b8cff41b080329e91fde63c8a05b6a5ec4cbc72e1fc3c2e821092"
+          "sha256": "c39d7b9c480ef2f98050d261c5b99eae78d38cf98ba0f2ce3e627a9fb702cf5b"
         },
         {
           "path": "python/dialysislab/patient.py",
-          "sha256": "91dbb2342f607118c8f782dfcc92c59be7d30fa8735689c61139e143d75e402c"
+          "sha256": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251"
         }
       ],
       "unresolved": [
@@ -463,7 +492,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "6edfde71355b8cff41b080329e91fde63c8a05b6a5ec4cbc72e1fc3c2e821092"
+          "sha256": "c39d7b9c480ef2f98050d261c5b99eae78d38cf98ba0f2ce3e627a9fb702cf5b"
         }
       ],
       "unresolved": [
@@ -492,7 +521,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "6edfde71355b8cff41b080329e91fde63c8a05b6a5ec4cbc72e1fc3c2e821092"
+          "sha256": "c39d7b9c480ef2f98050d261c5b99eae78d38cf98ba0f2ce3e627a9fb702cf5b"
         },
         {
           "path": "src/control.cpp",
@@ -537,7 +566,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "6edfde71355b8cff41b080329e91fde63c8a05b6a5ec4cbc72e1fc3c2e821092"
+          "sha256": "c39d7b9c480ef2f98050d261c5b99eae78d38cf98ba0f2ce3e627a9fb702cf5b"
         }
       ],
       "unresolved": [
@@ -567,7 +596,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "6edfde71355b8cff41b080329e91fde63c8a05b6a5ec4cbc72e1fc3c2e821092"
+          "sha256": "c39d7b9c480ef2f98050d261c5b99eae78d38cf98ba0f2ce3e627a9fb702cf5b"
         },
         {
           "path": "src/wire.hpp",
@@ -575,7 +604,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "b9a9b841f259c8562bac7de911d49f307389bf0e799524a4623670c0bd76e613"
+          "sha256": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32"
         }
       ],
       "unresolved": [
@@ -609,7 +638,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "b9a9b841f259c8562bac7de911d49f307389bf0e799524a4623670c0bd76e613"
+          "sha256": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32"
         },
         {
           "path": "tools/recover_trajectory.py",
@@ -670,7 +699,7 @@
       "implementation": [
         {
           "path": "src/circuit.hpp",
-          "sha256": "d4c8f198d78520dc4b93ed83400177e560c776c63f69bd92350f4526d497dd21"
+          "sha256": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b"
         }
       ],
       "unresolved": [
@@ -698,7 +727,7 @@
       "implementation": [
         {
           "path": "src/circuit.hpp",
-          "sha256": "d4c8f198d78520dc4b93ed83400177e560c776c63f69bd92350f4526d497dd21"
+          "sha256": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b"
         }
       ],
       "unresolved": [
@@ -726,7 +755,7 @@
       "implementation": [
         {
           "path": "src/circuit.hpp",
-          "sha256": "d4c8f198d78520dc4b93ed83400177e560c776c63f69bd92350f4526d497dd21"
+          "sha256": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b"
         }
       ],
       "unresolved": [
@@ -756,11 +785,126 @@
       "implementation": [
         {
           "path": "python/dialysislab/circuit.py",
-          "sha256": "6ee709aad17f3ee5455e92c0ff368052b2583f54846729782d4d1a853be03662"
+          "sha256": "6e533479e9ec7ad52c3bb251628812d9393f59434f83ef358263a026aa5d1f65"
         }
       ],
       "unresolved": [
         "Independent model/design/evidence review, calibration and residual-risk acceptance pending."
+      ]
+    },
+    {
+      "id": "M3-REQ-001",
+      "statement": "Conservative positive patient compartments and six solute inventories",
+      "acceptance": "Ordered bounded transactions preserve positive mass and concentration; rejected updates leave the prior state intact.",
+      "needs": [
+        "M3-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-003",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M3-DES-001"
+      ],
+      "tests": [
+        "M3-TEST-001"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "ba9da0e3d47e29341755aaa0ecdd29aa133030cf644384a0e8a32871edcff2fa"
+        }
+      ],
+      "unresolved": [
+        "Independent physiology/model review, calibration, validation and residual-risk acceptance pending."
+      ]
+    },
+    {
+      "id": "M3-REQ-002",
+      "statement": "Independent whole-system water and solute accounting",
+      "acceptance": "Independent balances <=1e-6 mL/mmol, analytic transient and step-halving tests, 100000-step process RSS below 64 MiB.",
+      "needs": [
+        "M3-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-003"
+      ],
+      "designs": [
+        "M3-DES-002"
+      ],
+      "tests": [
+        "M3-TEST-002"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "ba9da0e3d47e29341755aaa0ecdd29aa133030cf644384a0e8a32871edcff2fa"
+        }
+      ],
+      "unresolved": [
+        "Independent physiology/model review, calibration, validation and residual-risk acceptance pending."
+      ]
+    },
+    {
+      "id": "M3-REQ-003",
+      "statement": "Distinct gross UF, external fluxes, circuit storage, patient loss and water-only weight",
+      "acceptance": "Synthetic baseline/overload/imbalance scenarios and independently calculated infusion/generation/excretion cases.",
+      "needs": [
+        "M3-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-003"
+      ],
+      "designs": [
+        "M3-DES-003"
+      ],
+      "tests": [
+        "M3-TEST-003"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "ba9da0e3d47e29341755aaa0ecdd29aa133030cf644384a0e8a32871edcff2fa"
+        }
+      ],
+      "unresolved": [
+        "Independent physiology/model review, calibration, validation and residual-risk acceptance pending."
+      ]
+    },
+    {
+      "id": "M3-REQ-004",
+      "statement": "Couple real Python patient to atomic C++ circuit coefficients",
+      "acceptance": "Native and Compose runs repeat, identify exact build/config, enforce protective stops and retain partial transactions on patient failure.",
+      "needs": [
+        "M3-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-003",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M3-DES-004"
+      ],
+      "tests": [
+        "M3-TEST-004"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32"
+        }
+      ],
+      "unresolved": [
+        "Independent physiology/model review, calibration, validation and residual-risk acceptance pending."
       ]
     }
   ],
@@ -1220,6 +1364,46 @@
         "reviewer": "Codex execution and one M2 automatic defect review; independent assurance review and risk acceptance remain open.",
         "environment": "WSL2 Linux x86_64; GCC 13.3.0/Python 3.12.3 native, GCC 14.2.0/Python 3.12.14 in pinned Docker image."
       }
+    },
+    {
+      "id": "M3-TEST-001",
+      "requirements": [
+        "M3-REQ-001"
+      ],
+      "procedure": "Run tests/test_compartments.py and tools/verify_models.py with patient scenarios natively/in Compose.",
+      "expected": "Ordered bounded transactions preserve positive mass and concentration; rejected updates leave the prior state intact.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M3-TEST-002",
+      "requirements": [
+        "M3-REQ-002"
+      ],
+      "procedure": "Run tests/test_compartments.py and tools/verify_models.py with patient scenarios natively/in Compose.",
+      "expected": "Independent balances <=1e-6 mL/mmol, analytic transient and step-halving tests, 100000-step process RSS below 64 MiB.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M3-TEST-003",
+      "requirements": [
+        "M3-REQ-003"
+      ],
+      "procedure": "Run tests/test_compartments.py and tools/verify_models.py with patient scenarios natively/in Compose.",
+      "expected": "Synthetic baseline/overload/imbalance scenarios and independently calculated infusion/generation/excretion cases.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M3-TEST-004",
+      "requirements": [
+        "M3-REQ-004"
+      ],
+      "procedure": "Run tests/test_compartments.py and tools/verify_models.py with patient scenarios natively/in Compose.",
+      "expected": "Native and Compose runs repeat, identify exact build/config, enforce protective stops and retain partial transactions on patient failure.",
+      "result": "planned",
+      "evidence": null
     }
   ],
   "prerequisites": [

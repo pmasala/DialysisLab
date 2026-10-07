@@ -14,7 +14,7 @@ struct Circuit {
     std::vector<CircuitEdge> edges;
     int pump_node = 1, sensor_node = 1, sensor_edge = 0, dialyzer_edge = 0;
     double head = 600, kuf = 0, dialysate = 0;
-    std::array<double, solutes> koa{}, sieving{}, blood_c{}, dialysate_c{}, diffusion{}, convection{};
+    std::array<double, solutes> koa{}, sieving{}, blood_c{}, dialysate_c{}, diffusion{}, convection{}, clearances{};
     double pump = 0, returned = 0, uf = 0, stored = 0, delta = 0;
     double draw_tick = 0, return_tick = 0, uf_tick = 0;
 
@@ -67,7 +67,7 @@ struct Circuit {
     void isolate() {
         pump = returned = uf = delta = draw_tick = return_tick = uf_tick = 0;
         std::fill(flow.begin(), flow.end(), 0);
-        diffusion.fill(0); convection.fill(0);
+        diffusion.fill(0); convection.fill(0); clearances.fill(0);
     }
     void advance(double demand, double uf_demand, double minutes, bool blocked) {
         if (blocked) { isolate(); return; }
@@ -112,6 +112,7 @@ struct Circuit {
         for (std::size_t i = 0; i < solutes; ++i) {
             double clearance = koa[i] > 0 && qb > 0 && dialysate > 0
                 ? 1 / (1 / koa[i] + 1 / qb + 1 / dialysate) : 0;
+            clearances[i] = clearance;
             diffusion[i] = clearance * (blood_c[i] - dialysate_c[i]) / 1000;
             convection[i] = uf * sieving[i] * blood_c[i] / 1000;
         }

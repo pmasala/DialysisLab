@@ -43,6 +43,22 @@ Compose logs and results before cleanup, including failure artifacts. See the
 [complete milestone plan](docs/MILESTONES.md) and
 [current execution checkpoint](assurance/STATUS.md) for remaining phases.
 
+## Coupled synthetic patient (M3)
+
+The Python patient now solves water and six solute inventories in two body
+compartments and an extracorporeal mixing volume. It records gross UF, circuit
+storage, external flows, net body-volume loss and a water-only weight estimate.
+Baseline, overload and electrolyte-imbalance fixtures are synthetic; the model
+is uncalibrated. Its fixed-pCO2 pH indicator omits respiratory and buffer dynamics.
+Read the [M3 scope and equations](docs/M3_PATIENT.md) before interpreting results.
+
+```bash
+PYTHONPATH=python python3 -m dialysislab.runner --local --config scenarios/patient_imbalance.json --output build/patient-demo
+python3 tools/verify_models.py --scenarios patient_baseline patient_overload patient_imbalance patient_large --output build/patient-native
+SOURCE_REVISION=$(git rev-parse HEAD) docker compose build
+python3 tools/verify_models.py --compose --scenarios patient_baseline patient_overload patient_imbalance patient_large --output build/patient-compose
+```
+
 ## Agreed scope
 
 - Intermittent haemodialysis and both predilution and postdilution haemodiafiltration.

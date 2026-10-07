@@ -1,0 +1,153 @@
+{
+  "schema_version": 3,
+  "model": "m3-patient-1",
+  "seed": 42,
+  "ticks": 500,
+  "dt_ms": 100,
+  "blood_mL_min": 300,
+  "uf_mL_min": 5,
+  "resistance_mmHg_min_mL": 0.5,
+  "pressure_limit_mmHg": 250,
+  "patient_volume_mL": 40000,
+  "faults": [],
+  "circuit": {
+    "compliance_mL_mmHg": [
+      0.005,
+      0.005,
+      0.005
+    ],
+    "edges": [
+      [
+        1,
+        2,
+        0.1,
+        "tube",
+        false
+      ],
+      [
+        2,
+        3,
+        0.3,
+        "dialyzer",
+        false
+      ],
+      [
+        3,
+        0,
+        0.1,
+        "clamp",
+        false
+      ]
+    ],
+    "pump_node": 1,
+    "pump_head_mmHg": 600,
+    "sensor_node": 1,
+    "sensor_edge": 0,
+    "dialyzer_edge": 1,
+    "profile": {
+      "id": "synthetic-large",
+      "provenance": "synthetic",
+      "resistance_mmHg_min_mL": 0.2,
+      "kuf_mL_min_mmHg": 0.2,
+      "koa_mL_min": [
+        600,
+        400,
+        440,
+        400,
+        360,
+        200
+      ],
+      "sieving": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0.7
+      ]
+    }
+  },
+  "transport": {
+    "blood_mmol_L": [
+      20,
+      140,
+      5,
+      105,
+      22,
+      2.4
+    ],
+    "dialysate_mmol_L": [
+      0,
+      138,
+      2,
+      105,
+      30,
+      1.5
+    ],
+    "dialysate_mL_min": 500
+  },
+  "patient": {
+    "id": "synthetic-baseline",
+    "provenance": "synthetic",
+    "volume_mL": [
+      14000,
+      26000
+    ],
+    "concentration_mmol_L": [
+      [
+        20,
+        140,
+        5,
+        105,
+        22,
+        2.4
+      ],
+      [
+        20,
+        14,
+        100,
+        10.5,
+        22,
+        2.4
+      ]
+    ],
+    "exchange_mL_min": [
+      600,
+      80,
+      200,
+      80,
+      100,
+      50
+    ],
+    "partition": [
+      1,
+      0.1,
+      20,
+      0.1,
+      1,
+      1
+    ],
+    "refill_mL_min": 500,
+    "prime_mL": 200,
+    "initial_weight_kg": 70,
+    "pco2_mmHg": 40,
+    "external_in_mL_min": 0,
+    "external_out_mL_min": 0,
+    "external_mmol_L": [
+      0,
+      140,
+      4,
+      105,
+      24,
+      2.4
+    ],
+    "generation_mmol_min": [
+      0.05,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

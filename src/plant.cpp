@@ -11,7 +11,7 @@ class Plant {
     double resistance = 0.5, demand = 0, uf_demand = 0, total = 0, correction = 0, removed = 0;
     dl::Hydraulics output{0, 0, 0};
     dl::Circuit circuit;
-    bool configured = false, transport_set = false;
+    bool configured = false, transport_set = false, patient_coupled = false;
     std::array<dl::Observation, 2> samples{};
     std::array<dl::Clock::time_point, 3> heartbeat{};
     void tick(dl::Tokens& r) {
@@ -45,13 +45,14 @@ public:
     }
     std::string circuit_state() const {
         std::ostringstream out;
-        out << dl::msg("CIRCUIT2", n, end_t, circuit.compliance.size(), circuit.edges.size(),
+        out << dl::msg(patient_coupled ? "CIRCUIT3" : "CIRCUIT2", n, end_t, circuit.compliance.size(), circuit.edges.size(),
             circuit.pump, circuit.returned, circuit.uf, circuit.stored, circuit.delta,
             circuit.draw_tick, circuit.return_tick, circuit.uf_tick) << std::setprecision(17);
         for (std::size_t i = 1; i < circuit.pressure.size(); ++i) out << ' ' << circuit.pressure[i];
         for (double x : circuit.flow) out << ' ' << x;
         for (double x : circuit.diffusion) out << ' ' << x;
         for (double x : circuit.convection) out << ' ' << x;
+        if (patient_coupled) for (double x : circuit.clearances) out << ' ' << x;
         return out.str();
     }
     std::string handle(std::size_t role, dl::Tokens& r) {
@@ -84,15 +85,16 @@ public:
             c.initialize(); circuit = std::move(c); configured = true;
             return "DL1 OK";
         }
-        if (role == 0 && op == "TRANSPORT2") {
+        if (role == 0 && (op == "TRANSPORT2" || op == "TRANSPORT3")) {
             dl::require(configured && !prepared && !halted);
+            dl::require(!transport_set || patient_coupled == (op == "TRANSPORT3"));
             auto c = circuit;
             c.dialysate = r.real(0, 1000);
             for (auto& x : c.koa) x = r.real(0, 2000);
             for (auto& x : c.sieving) x = r.real(0, 1);
             for (auto& x : c.blood_c) x = r.real(0, 1000);
             for (auto& x : c.dialysate_c) x = r.real(0, 1000);
-            r.end(); circuit = std::move(c); transport_set = true;
+            r.end(); circuit = std::move(c); transport_set = true; patient_coupled = (op == "TRANSPORT3");
             return "DL1 OK";
         }
         if (role == 0 && op == "EDGE2") {
@@ -102,8 +104,9 @@ public:
             r.end(); circuit.edges[index].resistance = value; circuit.edges[index].closed = closed;
             return "DL1 OK";
         }
-        if (role == 0 && op == "CSTATE2") {
+        if (role == 0 && (op == "CSTATE2" || op == "CSTATE3")) {
             r.end(); dl::require(configured);
+            dl::require(patient_coupled == (op == "CSTATE3"));
             return circuit_state();
         }
         if (op == "PING") { r.end(); heartbeat[role] = dl::Clock::now(); return "DL1 OK"; }
@@ -151,9 +154,9 @@ public:
             dl::require(op != "TRIP" || cause != "none");
             decision_seen = true;
             if (op == "TRIP") latch(cause);
-        } else if (role == 0 && (op == "COMMIT" || op == "COMMIT2")) {
+        } else if (role == 0 && (op == "COMMIT" || op == "COMMIT2" || op == "COMMIT3")) {
             tick(r); r.end();
-            dl::require((op == "COMMIT2") == configured);
+            dl::require(op == (patient_coupled ? "COMMIT3" : configured ? "COMMIT2" : "COMMIT"));
             if (!decision_seen) latch("protection_missing");
             if (!demand_seen) latch("control_missing");
             watchdog();
@@ -172,7 +175,8 @@ public:
             heartbeat[role] = dl::Clock::now();
             // Seal the integrated state in a single reply before any asynchronous
             // watchdog/HALT can change live rates or per-step circuit diagnostics.
-            return configured ? "DL1 COMMITTED2 " + state().substr(4) + " " + circuit_state().substr(4) : state();
+            return configured ? std::string(patient_coupled ? "DL1 COMMITTED3 " : "DL1 COMMITTED2 ")
+                + state().substr(4) + " " + circuit_state().substr(4) : state();
         } else throw std::runtime_error("role or operation");
         heartbeat[role] = dl::Clock::now();
         return "DL1 OK";

@@ -116,15 +116,21 @@ def configure(admin, config):
     for a, b, r, kind, closed in c['edges']:
         fields.extend((a, b, r, KINDS.index(kind), int(closed)))
     expect(rpc(admin, *fields), 'OK', 1)
-    expect(rpc(admin, 'TRANSPORT2', tr['dialysate_mL_min'], *p['koa_mL_min'], *p['sieving'],
-               *tr['blood_mmol_L'], *tr['dialysate_mmol_L']), 'OK', 1)
+    transport(admin, config, tr['blood_mmol_L'])
+
+
+def transport(admin, config, blood):
+    p, tr = config['circuit']['profile'], config['transport']
+    expect(rpc(admin, 'TRANSPORT3' if config['schema_version'] == 3 else 'TRANSPORT2',
+               tr['dialysate_mL_min'], *p['koa_mL_min'], *p['sieving'], *blood, *tr['dialysate_mmol_L']), 'OK', 1)
 
 
 def state(response):
-    if len(response) < 13 or response[0] != 'CIRCUIT2':
+    if len(response) < 13 or response[0] not in ('CIRCUIT2', 'CIRCUIT3'):
         raise ProtocolError('circuit schema')
     n, t, nodes, edges = (integer(x) for x in response[1:5])
-    if not 1 <= nodes <= 16 or not 1 <= edges <= 32 or len(response) != 13 + nodes + edges + 12:
+    coupled = response[0] == 'CIRCUIT3'
+    if not 1 <= nodes <= 16 or not 1 <= edges <= 32 or len(response) != 13 + nodes + edges + (18 if coupled else 12):
         raise ProtocolError('circuit vector dimensions')
     scalar_names = ('pump_mL_min', 'return_mL_min', 'uf_mL_min', 'stored_mL', 'storage_change_mL',
                     'draw_tick_mL', 'return_tick_mL', 'uf_tick_mL')
@@ -135,12 +141,18 @@ def state(response):
                         ('diffusion_mmol_min', 6), ('convection_mmol_min', 6)):
         result[field] = [real(x, -1e9, 1e9) for x in response[offset:offset + size]]
         offset += size
+    if coupled:
+        result['clearance_mL_min'] = [real(x, 0, 2000) for x in response[offset:]]
+        for name in ('diffusion_mmol_min', 'convection_mmol_min'):
+            result['boundary_' + name] = result.pop(name)
     return result
 
 
-def committed(response):
-    if not response or response[0] != 'COMMITTED2':
+def committed(response, coupled=False):
+    if not response or response[0] != ('COMMITTED3' if coupled else 'COMMITTED2'):
         raise ProtocolError('atomic circuit commit schema')
+    if len(response) <= 12 or response[12] != ('CIRCUIT3' if coupled else 'CIRCUIT2'):
+        raise ProtocolError('commit payload version mismatch')
     result = plant_state(response[1:12])
     result['circuit'] = state(response[12:])
     return result

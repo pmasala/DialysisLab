@@ -43,7 +43,18 @@ passed. Native/container trajectories match. [Final evidence](evidence/m2/README
 identifies each build/configuration. Independent model calibration and risk
 acceptance remain open.
 
-## M3–M9
+## M3 — tested candidate; one review reserved
+
+Base `40533e4d09643d8913ecc4795757362e034cbb20`. Candidate is the commit containing
+this entry; its exact SHA will be captured before invocation in `build/reviews/m3.json`.
+Command: `codex -c sandbox_mode='"read-only"' -c approval_policy='"never"'
+-c developer_instructions=<read-only defect review instructions> review --base 40533e4`.
+Candidate results: native 67/67, sanitizer 67/67, eight native and eight Compose
+patient runs, six M2 Compose regressions. Patient 100000-step peak RSS 13025280
+bytes; mass residual 5.256e-9 mmol. No M3 review has yet run; reserve one invocation
+and retain its report without repeating it after fixes.
+
+## M4–M9
 
 Not yet invoked. Before each invocation, record the phase, base SHA, candidate
 SHA, exact command and report destination here. Retain output and exit status;

@@ -1,5 +1,6 @@
 """Single synthetic fluid compartment. Only explicit ADVANCE integrates volume."""
 import argparse
+import json
 from decimal import Decimal
 import signal
 import socket
@@ -16,6 +17,7 @@ class Patient:
         self.stopping = False
         self.numerical_correction = Decimal(0)
         self.numerical_correction_absolute = Decimal(0)
+        self.compartments = None
 
     def status(self):
         return message('VOLUME', self.last_sequence, self.time_ms, self.volume, self.removed)
@@ -27,7 +29,21 @@ class Patient:
             self.stopping = True
             return 'DL1 OK'
         if request == ['STATUS']:
+            if self.compartments is not None:
+                raise ProtocolError('coupled patient requires STATUS3')
             return self.status()
+        if len(request) == 2 and request[0] == 'INIT3' and self.initial is None and self.compartments is None:
+            from .compartments import Compartments
+            self.compartments = Compartments(json.loads(request[1]))
+            return 'DL1 OK'
+        if self.compartments is not None:
+            if request == ['STATUS3']:
+                result = self.compartments.snapshot()
+            elif len(request) == 2 and request[0] == 'ADVANCE3':
+                result = self.compartments.advance(json.loads(request[1]))
+            else:
+                raise ProtocolError('coupled patient operation')
+            return message('PATIENT3', json.dumps(result, sort_keys=True, separators=(',', ':'), allow_nan=False))
         if len(request) == 2 and request[0] == 'INIT' and self.initial is None:
             real(request[1], 1000, 100000)
             self.initial = self.volume = Decimal(request[1])

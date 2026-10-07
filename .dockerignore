@@ -23,3 +23,8 @@
 !scenarios/circuit_small.json
 !scenarios/circuit_large.json
 !scenarios/circuit_occlusion.json
+!python/dialysislab/compartments.py
+!scenarios/patient_baseline.json
+!scenarios/patient_overload.json
+!scenarios/patient_imbalance.json
+!scenarios/patient_large.json
