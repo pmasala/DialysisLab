@@ -194,6 +194,10 @@ whole-system water residual still checks UF/replacement/storage/flush ledgers
 within 1e-6 mL. Nothing is clipped and the accepted physical volume bound is
 unchanged. Evidence verification derives blood/fluid constraints from each M5
 alarm mask and checks actual outputs, clamp and redundant latch fields together.
+The prolonged real-process flush additionally exercises concentrations below the
+smallest normal double: decimal parsing accepts representable finite subnormals,
+but rejects overflow, unrepresentable underflow, NaN/infinity and hex spellings.
+The physical model and mass tolerances are unchanged.
 
 The shared device volume presently lets control/protection reach each other's
 device-facing annotation/request endpoints. Neither can reach the other's plant

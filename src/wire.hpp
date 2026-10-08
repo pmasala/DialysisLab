@@ -61,9 +61,13 @@ struct Tokens {
     }
     double real(double low, double high) {
         auto token = take();
-        std::size_t used = 0;
-        double value = std::stod(token, &used);
-        require(used == token.size() && std::isfinite(value) && value >= low && value <= high);
+        double value = 0;
+        // stod reports ERANGE for representable subnormals on this platform.
+        // from_chars accepts finite representable decimal values while rejecting
+        // overflow, unrepresentable underflow, hex spellings and trailing data.
+        auto result = std::from_chars(token.data(), token.data() + token.size(), value, std::chars_format::general);
+        require(result.ec == std::errc{} && result.ptr == token.data() + token.size()
+                && std::isfinite(value) && value >= low && value <= high);
         return value;
     }
 };

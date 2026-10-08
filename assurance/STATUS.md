@@ -18,8 +18,11 @@ Compose workflows with identical hashes, 12 M2–M4 Compose compatibility runs,
 four M1 runs and three isolation probes. Its single review completed (exit 0)
 with two applicable P2 findings: isolated flush/body roundoff and incomplete
 alarm-mask evidence checks. Both fixes are implemented; targeted regressions
-are running. Next executable step: commit the verified fixes, reconfigure a clean
-build, run final regressions and the 100000-tick priming case in native/Compose,
+passed (20/20), committed as `c54422c`. The first real long runs both exposed
+a finite-subnormal parser rejection at tick 4662; failed artifacts are retained.
+That integration defect is now fixed and its actual transport regression passes.
+Next executable step: commit this follow-up, reconfigure a clean build, repeat
+final regressions and the 100000-tick priming case in native/Compose,
 record evidence, then proceed to M6. M5 review is consumed; never rerun it.
 Exact review metadata/output: `build/reviews/m5.json`, `build/reviews/m5-output.txt`.
 GUI feasibility and design notes remain in `build/dependency-inspection/` and

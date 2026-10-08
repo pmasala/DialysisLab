@@ -63,6 +63,23 @@ class DeviceFixture:
 
 
 class MachineTests(unittest.TestCase):
+    def test_real_transport_accepts_representable_subnormal_concentrations(self):
+        c = json.loads((ROOT / 'scenarios/patient_baseline.json').read_text())
+        c['ticks'] = 10
+        c['transport']['blood_mmol_L'][0] = 2.110269719209234e-308
+        c['patient']['concentration_mmol_L'][0][0] = c['transport']['blood_mmol_L'][0]
+        c['patient']['concentration_mmol_L'][1][0] = c['transport']['blood_mmol_L'][0]
+        c['patient']['generation_mmol_min'][0] = 0
+        with LocalCluster(BUILD) as cluster:
+            records, manifest = simulate(c, cluster.runtime, BUILD)
+        self.assertEqual(manifest['outcome'], 'completed', manifest['errors'])
+        self.assertGreater(records[0]['circuit']['boundary_diffusion_mmol_min'][0], 0)
+        # Supported subnormals are distinct from unrepresentable numeric input.
+        for token in ('1e999', '1e-999', '0x1p-2', 'nan'):
+            with self.subTest(token=token), LocalCluster(BUILD) as cluster:
+                with self.assertRaises(ProtocolError):
+                    rpc(cluster.runtime / 'admin/plant.sock', 'PREPARE', 0, 0, 100, token, 'none', 'none')
+
     def test_isolated_100000_tick_flush_keeps_body_ceiling_and_conserves_mass(self):
         c = config()['patient']; c.update(volume_mL=[35000, 65000], initial_weight_kg=150)
         patient = Compartments(c, online=True, lifecycle=True)

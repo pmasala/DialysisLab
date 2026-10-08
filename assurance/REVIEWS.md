@@ -108,3 +108,15 @@ Not yet invoked. Freeze phase base/candidate and retain one command/output per p
 Both findings are applicable; correction commit/final evidence will be recorded
 after actual regression results. No second review is authorized or planned.
 The AI review is not human, clinical or regulatory approval.
+
+M5-R1/R2 corrections: `c54422c`, 20/20 targeted regressions passed. The first
+real 100000-tick native and Compose attempts then both aborted after 4662
+completed ticks: `std::stod` rejected representable subnormal concentration
+`2.110269719209234e-308` during TRANSPORT3. This is integration finding M5-V1
+(P2), not another review. Native/Compose failed manifests and partial trajectories
+remain in `build/m5-final-long-{native,compose}`; Compose retained artifacts before
+cleanup and propagated the failure. Fix: decimal `from_chars` parsing that accepts
+finite representable subnormals while rejecting overflow/unrepresentable underflow,
+hex and nonfinite values. The actual transport-boundary regression passes. Repeat
+all pertinent verification against the final clean correction build; preliminary
+runs concurrent with follow-up edits are diagnostic, not final evidence.
