@@ -13,16 +13,17 @@ Runner Docker RSS peaks at 22.31 MiB; cgroup file cache reaches the 128 MiB budg
 See [M4 evidence and measurement limits](evidence/m4/README.md). Its single review
 found one P1/five P2 defects, all fixed and verified. No M1–M4 review may be rerun.
 
-M5 base `e1c8ae2`; lifecycle, flush accounting, independent alarm masks,
-confirmation/recovery and isolated device contracts are implemented. Initial
-native suite: 105/105 passed; 22 repeated Compose workflows/fault runs passed.
-Candidate sanitizer: 105/105 passed; native/Compose hashes match exactly.
-Four M1 Compose regressions and three actual isolation probes pass; additional
-M2–M4 compatibility runs are in progress. These preliminary runs identify a dirty candidate, not a final clean
-build. Next step: finish candidate verification, commit and execute the single
-M5 review against its frozen base; then fix findings and record final evidence.
-No M5 review has run. M1–M4 reviews remain consumed. GUI feasibility remains in
-`build/dependency-inspection/`; no new third-party dependency is adopted by M5.
+M5 candidate `a490984` passed 105/105 native and sanitizer tests, 22 native/22
+Compose workflows with identical hashes, 12 M2–M4 Compose compatibility runs,
+four M1 runs and three isolation probes. Its single review completed (exit 0)
+with two applicable P2 findings: isolated flush/body roundoff and incomplete
+alarm-mask evidence checks. Both fixes are implemented; targeted regressions
+are running. Next executable step: commit the verified fixes, reconfigure a clean
+build, run final regressions and the 100000-tick priming case in native/Compose,
+record evidence, then proceed to M6. M5 review is consumed; never rerun it.
+Exact review metadata/output: `build/reviews/m5.json`, `build/reviews/m5-output.txt`.
+GUI feasibility and design notes remain in `build/dependency-inspection/` and
+`build/m6-design-notes.md`; no new third-party dependency is adopted by M5.
 
 Persistent checkpoints: [plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md). The synthetic hydraulic, patient and treatment models are numerically tested but

@@ -166,6 +166,7 @@
     "scenarios/machine_invalid.json",
     "scenarios/machine_leak.json",
     "scenarios/machine_pressure.json",
+    "scenarios/machine_priming_100000.json",
     "scenarios/machine_quality.json",
     "scenarios/machine_recovery.json",
     "scenarios/machine_stall.json",

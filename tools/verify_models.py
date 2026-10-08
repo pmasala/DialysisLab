@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / 'python'))
 from dialysislab.runner import LocalCluster, simulate, build_identity, canonical, digest, validate, stop_plant
 from dialysislab.trajectory import scan, read_records, strict_json
 from dialysislab.compartments import validate_snapshot
+from dialysislab.machine import ALARMS, STAGES
 from verify_compose import collect_case, ComposeRunFailure
 
 
@@ -77,6 +78,24 @@ def verify(directory, expected_config, expected_sources):
                     raise ValueError('active replacement output despite blood isolation')
             if lifecycle:
                 m = record['machine']
+                mask = m['alarm_mask']
+                if type(mask) is not int or not 0 <= mask <= 8191 or m['stage'] not in STAGES:
+                    raise ValueError('machine alarm/state schema')
+                blood_blocked = bool(mask & (1 | 2 | 4 | 8 | 16 | 4096)) or m['terminal']
+                fluid_blocked = mask != 0 or m['terminal'] or m['stage'] != 'TREATMENT'
+                if (record['latched'] != blood_blocked or online['quality_latched'] != bool(mask)
+                        or record['clamp_closed'] != (blood_blocked or m['stage'] != 'TREATMENT')
+                        or m['alarms'] != [name for i, name in enumerate(ALARMS) if mask & (1 << i)]
+                        or (m['terminal'] and (not mask & 4096 or m['stage'] != 'STOPPED'))):
+                    raise ValueError('machine mask/constraint fields disagree')
+                if fluid_blocked and (record['uf_mL_min'] or record['removed_tick_mL'] or volume or rate or c['uf_mL_min']
+                        or c['uf_tick_mL'] or any(c['clearance_mL_min'])
+                        or any(c['boundary_diffusion_mmol_min']) or any(c['boundary_convection_mmol_min'])):
+                    raise ValueError('active fluid output despite machine constraint')
+                pump_blocked = blood_blocked or (m['stage'] in ('PRIMING', 'CLEANING') and mask)
+                if pump_blocked and (record['blood_mL_min'] or c['pump_mL_min'] or c['return_mL_min']
+                        or c['draw_tick_mL'] or c['return_tick_mL'] or any(c['edge_mL_min'])):
+                    raise ValueError('active circulation despite machine constraint')
                 if m['sequence'] != record['sequence'] or m['time_ms'] != record['time_ms']:
                     raise ValueError('machine clock mismatch')
                 flushing = m['stage'] in ('PRIMING', 'CLEANING')

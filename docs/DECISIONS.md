@@ -31,3 +31,5 @@ The WSL2 environment has an X11 socket (`/tmp/.X11-unix/X0`) but DISPLAY is
 unset; desktop availability remains to be tested in M6. SDL development headers
 are currently absent. No global environment, credential, certificate or permission
 changes are authorized merely to bypass a block.
+
+| M5-005 | Reconstruct body volume from body-boundary transfers, independently checking whole-system source/waste/storage balance. Verify protection evidence from authoritative masks as well as redundant latch fields. | Two P2 findings in the sole M5 review; do not widen physical limits or accept contradictory rehashed evidence. |

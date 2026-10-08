@@ -136,6 +136,7 @@ class Compartments:
             self.solute.update({name: [Sum() for _ in range(6)] for name in ('flush_input', 'flush_output')})
         self.next_sequence = self.time_ms = self.sequence = 0
         self.mass_residual = [0.0] * 6
+        self.body_transfer = Sum()
 
     def snapshot(self):
         body = math.fsum(self.volume[:2])
@@ -196,9 +197,20 @@ class Compartments:
             water['flush_in'].add(flush_in); water['flush_out'].add(flush_out)
         # Reconstruct body total from absolute conserved ledgers, avoiding drainage
         # drift at the volume ceiling; compare independent hydraulic deltas above.
-        body = math.fsum([self.initial_body, water['in'].value, -water['out'].value,
-                          -water['uf'].value, water['sub'].value if self.online else 0, -request['stored_mL'],
-                          water['flush_in'].value - water['flush_out'].value if self.lifecycle else 0])
+        body_transfer = copy.deepcopy(self.body_transfer)
+        if self.lifecycle:
+            # Integrate only transfers crossing the body boundary. During an
+            # isolated flush this is exactly zero, independently of cancellation
+            # between large accumulated source/waste totals and circuit storage.
+            body_transfer.add(math.fsum([returned, post, -draw]))
+            body = math.fsum([self.initial_body, water['in'].value, -water['out'].value, body_transfer.value])
+            whole_water = math.fsum([self.initial_body, water['in'].value, -water['out'].value,
+                                    -water['uf'].value, water['sub'].value, -request['stored_mL'],
+                                    water['flush_in'].value, -water['flush_out'].value, -body])
+            if abs(whole_water) > 1e-6: raise ProtocolError('whole-system water conservation residual')
+        else:
+            body = math.fsum([self.initial_body, water['in'].value, -water['out'].value,
+                              -water['uf'].value, water['sub'].value if self.online else 0, -request['stored_mL']])
         ve, vi = body - self.volume[1], self.volume[1]
         te, ti = self.config['volume_mL']
         kd = self.config['refill_mL_min'] * dt
@@ -246,6 +258,7 @@ class Compartments:
         proposed = copy.copy(self)
         proposed.volume, proposed.concentration, proposed.mass = volumes, concentrations, masses
         proposed.water, proposed.solute, proposed.mass_residual = water, solute, residuals
+        proposed.body_transfer = body_transfer
         proposed.sequence = self.next_sequence
         proposed.next_sequence += 1
         proposed.time_ms += request['dt_ms']

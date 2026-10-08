@@ -56,3 +56,4 @@
 !scenarios/machine_quality.json
 !scenarios/machine_recovery.json
 !scenarios/machine_stall.json
+!scenarios/machine_priming_100000.json

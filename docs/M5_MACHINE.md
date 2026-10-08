@@ -186,6 +186,15 @@ ledgers. Confirmation delivery and the applied machine revision are both retaine
 in trajectory records; rejected scheduled actions abort with the normal confirmed/
 unconfirmed HALT evidence policy.
 
+Body volume in version 5 is reconstructed from compensated **body-boundary**
+draw/return/post-substitution plus generic external transfers. Isolated flush
+contributes exactly zero to this balance; subtracting accumulated source/waste
+counters must not perturb a patient at the 100000 mL ceiling. An additional
+whole-system water residual still checks UF/replacement/storage/flush ledgers
+within 1e-6 mL. Nothing is clipped and the accepted physical volume bound is
+unchanged. Evidence verification derives blood/fluid constraints from each M5
+alarm mask and checks actual outputs, clamp and redundant latch fields together.
+
 The shared device volume presently lets control/protection reach each other's
 device-facing annotation/request endpoints. Neither can reach the other's plant
 role, patient or admin volume; every reset still crosses protection's safe-state

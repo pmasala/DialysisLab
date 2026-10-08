@@ -87,3 +87,24 @@ confirmed native HALT, exact hashes and unchanged RSS limits. [Evidence](evidenc
 ## M5–M9
 
 Not yet invoked. Freeze phase base/candidate and retain one command/output per phase.
+
+## M5 — single review completed; corrections in verification
+
+- Base: `e1c8ae2c28cea14ac195e62cfb87ac9a8bb02e6e`.
+- Candidate: `a490984dbcf807cd08a0ce1a1a1702f95c6db613`.
+- Command: `codex -c sandbox_mode="read-only" -c approval_policy="never" -c developer_instructions=... review --base e1c8ae2c28cea14ac195e62cfb87ac9a8bb02e6e`.
+- Exact argv/timestamps/exit and full local transcript: `build/reviews/m5.json`,
+  `build/reviews/m5-output.txt`; invocation count **1**, exit 0 with two findings.
+- M5-R1 (P2): accumulated flush source/waste cancellation perturbs an isolated
+  100000 mL body at tick 12713. Fix: compensated body-boundary transfers, plus
+  unchanged independent 1e-6 mL whole-system check; no clipping or wider bounds.
+  Regression: `test_isolated_100000_tick_flush_keeps_body_ceiling_and_conserves_mass`
+  and real `machine_priming_100000` native/Compose runs.
+- M5-R2 (P2): a rehashed air-alarm record with active outputs passes the evidence
+  checker. Fix: derive hazard-specific actuator constraints from the M5 mask and
+  cross-check actual rates/volumes, clamp, quality/blood latches and alarm names.
+  Regression: `test_evidence_cross_checks_alarm_mask_latches_and_every_actuator_class`.
+
+Both findings are applicable; correction commit/final evidence will be recorded
+after actual regression results. No second review is authorized or planned.
+The AI review is not human, clinical or regulatory approval.

@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'python'))
 sys.path.insert(0, str(ROOT / 'tools'))
 from dialysislab import circuit, treatment, machine
+from dialysislab.compartments import Compartments
 from dialysislab.protocol import rpc, expect, pause, ProtocolError
 from dialysislab.runner import LocalCluster, simulate, validate
 import dialysislab.runner as runner
@@ -62,6 +63,46 @@ class DeviceFixture:
 
 
 class MachineTests(unittest.TestCase):
+    def test_isolated_100000_tick_flush_keeps_body_ceiling_and_conserves_mass(self):
+        c = config()['patient']; c.update(volume_mL=[35000, 65000], initial_weight_kg=150)
+        patient = Compartments(c, online=True, lifecycle=True)
+        pressure = 0.0; dt = 1 / 60
+        source = [0., 140., 4., 105., 24., 2.4]
+        for n in range(100000):
+            # Independent one-node implicit RC/pump equation, not the plant solver.
+            pressure = (.001 / dt * pressure + 300) / (.001 / dt + 1 + .5)
+            draw, returned = (300 - .5 * pressure) * dt, pressure * dt
+            result = patient.advance(dict(sequence=n, time_ms=n * 1000, dt_ms=1000, draw_mL=0,
+                return_mL=0, uf_mL=0, stored_mL=.001 * pressure, clearance_mL_min=[0.] * 6,
+                sieving=[1.] * 6, dialysate_mmol_L=source, pre_mL=0, post_mL=0,
+                substitution_mmol_L=source, flush_in_mL=draw, flush_out_mL=returned, flush_mmol_L=source))
+            self.assertEqual(sum(result['volume_mL'][:2]), 100000)
+        self.assertGreater(result['flush_in_mL'], 333000)
+        self.assertAlmostEqual(sum(result['volume_mL']), 100020 + result['flush_in_mL'] - result['flush_out_mL'], delta=1e-6)
+        self.assertLess(max(map(abs, result['mass_residual_mmol'])), 1e-6)
+
+    def test_evidence_cross_checks_alarm_mask_latches_and_every_actuator_class(self):
+        with tempfile.TemporaryDirectory() as tmp, LocalCluster(BUILD) as cluster:
+            directory = Path(tmp) / 'run'; c = config('hd'); records, manifest = simulate(c, cluster.runtime, BUILD, directory)
+            self.assertEqual(manifest['outcome'], 'completed', manifest['errors']); original = list(records)
+            # Rehash each forgery: evidence integrity alone is not semantic validity.
+            for kind in ('air', 'fluid', 'flush', 'mask_removed', 'latch', 'clamp', 'alarm_names'):
+                records = copy.deepcopy(original); r = records[110 if kind != 'flush' else 10]
+                if kind in ('air', 'fluid', 'flush'):
+                    r['machine']['alarm_mask'] = 4 if kind == 'air' else 256
+                    r['machine']['alarms'] = ['air' if kind == 'air' else 'integrity']
+                elif kind == 'mask_removed':
+                    r['online']['quality_latched'] = True
+                elif kind == 'latch': r['latched'] = True
+                elif kind == 'clamp': r['clamp_closed'] = True
+                else: r['machine']['alarms'] = ['air']
+                data = ''.join(json.dumps(r, sort_keys=True, separators=(',', ':')) + '\n' for r in records).encode()
+                (directory / 'trajectory.jsonl').write_bytes(data)
+                manifest['trajectory_sha256'] = hashlib.sha256(data).hexdigest()
+                (directory / 'manifest.json').write_text(json.dumps(manifest))
+                with self.subTest(kind=kind), self.assertRaises(ValueError):
+                    verify_models.verify(directory, c, manifest['build']['source_sha256'])
+
     def test_quality_detectors_trip_in_their_first_unsafe_observation_cycle(self):
         for name, value, hazard in [('temperature', 90, 'temperature'), ('ratio', .08, 'composition'),
                                     ('filter1', 100, 'filter_pressure'), ('route', 1, 'route'), ('supply', 0, 'supply')]:
