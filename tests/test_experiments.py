@@ -89,23 +89,25 @@ class ExperimentTests(unittest.TestCase):
                 self.assertNotIn('token',archive.namelist())
                 self.assertEqual(archive.read('data/trajectory.jsonl'),(f.root/'runs'/replay/'data/trajectory.jsonl').read_bytes())
 
-    def test_external_stop_is_immediate_and_aborts_scheduled_tick(self):
+    def test_external_stop_while_paused_aborts_without_resume_or_another_tick(self):
         with Fixture() as f:
             f.configure();identifier=f.start(10)
             wait_for(lambda:f.call('STATUS'),lambda s:s['sequence']>=4)
             f.call('PAUSE',dict(run_id=identifier));before=wait_for(lambda:f.call('STATUS'),lambda s:s['state']=='paused')
             runtime=f.broker.current_runtime
-            self.assertEqual(rpc(runtime/'device/control.sock','STOP5'),['OK'])
+            session=rpc(runtime/'device/control.sock','HELLO6')[1]
+            started=time.monotonic()
+            self.assertEqual(rpc(runtime/'device/control.sock','STOP6',session),['OK'])
             from dialysislab.treatment import live
             observed=live(rpc(runtime/'admin/plant.sock','STATUS4'))
             self.assertEqual(observed['blood_mL_min'],0)
-            self.assertEqual(rpc(runtime/'control/service.sock','CHECK7'),['REJECT','external_stop'])
-            f.call('RESUME',dict(run_id=identifier));after=f.finished()
+            after=wait_for(lambda:f.call('STATUS'),lambda s:s['state']=='aborted',timeout=2)
+            self.assertLess(time.monotonic()-started,2)
             self.assertEqual(after['state'],'aborted')
             self.assertEqual(after['sequence'],before['sequence'])
             self.assertTrue(after['experiment']['stop']['outputs_zero_observed'])
             manifest=bounded_json(f.root/'runs'/identifier/'data/manifest.json')
-            self.assertIn('control:ProtocolError',manifest['rpc_failures'])
+            self.assertTrue(any('device STOP during virtual pause' in error for error in manifest['errors']),manifest['errors'])
             self.assertTrue(manifest['stop']['pending_tick_cancelled'])
 
     def test_broker_stop_retains_partial_manifest_and_fresh_run_succeeds(self):

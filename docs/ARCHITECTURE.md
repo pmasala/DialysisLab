@@ -5,7 +5,7 @@ headless HD slice described in [M1_PLAN.md](M1_PLAN.md), with versioned
 [interfaces](M1_INTERFACES.md), [model equations](M1_MODEL.md) and
 [risk boundaries](M1_RISKS.md). The broader architecture below remains the required
 roadmap. M2–M7 implement the circuit, limited patient/treatment/lifecycle, actual device UI
-and separate experiment console. M8 hardening and M9 integration are in progress;
+and separate experiment console. M8 hardening is verified; M9 integrated acceptance is in progress;
 calibrated physiology is not supplied by this implementation.
 
 M2 adds an opt-in synthetic compliant circuit and multiple dialyzer profiles in
@@ -168,3 +168,15 @@ a Linux parent-death exec guard. JSON ingress is bounded and rejects duplicate k
 See [M8 contracts](M8_SECURITY_CI.md) and the versioned [threat register](../assurance/THREATS.json).
 Package inventories, application/container SBOMs and CI evidence remain distinct from
 clinical validation, human risk acceptance and release approval.
+
+## Integrated operation (M9)
+
+The experiment Compose deployment can run device-ui and sim-console simultaneously
+on separate device and administrative volumes. The two graphical clients observe
+the same actual roles; only the console owns experiment configuration/clock/truth.
+During virtual pause the broker also checks the existing CHECK7 cancellation
+contract: device STOP produces terminal run evidence without requiring RESUME or
+advancing the clock. Plant arbitration remains the actuator authority.
+
+`M9_INTEGRATION.md` fixes the mode/patient/dialyzer/fault/long-run/package acceptance;
+`QUICKSTART.md` documents actual native, headless, Compose and WSLg workflows.

@@ -26,3 +26,18 @@ verification commands are in the retained reports and `docs/M8_SECURITY_CI.md`.
 Release gates remain blocked: 184 checklist entries, 12 applicability/edition
 gaps and nine prerequisites. No clinical/model calibration, standards conformity
 or independent human approval is claimed. M9 integration remains outstanding.
+
+## Completed hosted and long-run closure
+
+Corrected hosted job **37730439086 passed**. All 41 artifacts recovered from
+its downloaded log match their original bytes; all 20 report and 20 command-log
+digests cross-check against the CI report. `hosted/` retains the actual files,
+command logs in reversible UTF-8 JSON, job metadata and recovery identities.
+Both release checkers explicitly report valid outstanding obligations: BLOCKED.
+No execution errors were ignored.
+
+Three additional real Docker failure/recovery regressions and two 100000-tick
+M1 runs pass on the corrected image. Maximum RSS 20418560 bytes (19.47 MiB),
+maximum cgroup memory peak 72306688 bytes (68.96 MiB), no OOM at 128 MiB.
+`m1-long-failures.json` retains configurations, exact hashes, original exit codes
+and extraction/recovery evidence. M8 technical phase is COMPLETE; M9 remains active.

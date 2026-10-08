@@ -3,3 +3,7 @@ services:
     environment: {DISPLAY: ":0", SDL_VIDEODRIVER: x11}
     command: [/opt/bin/sim-console, --api-dir, /experiment, --capture-dir, /captures]
     volumes: ["/tmp/.X11-unix/X0:/tmp/.X11-unix/X0:ro"]
+  device-ui:
+    environment: {DISPLAY: ":0", SDL_VIDEODRIVER: x11}
+    command: [/opt/bin/device-ui, --runtime-dir, /run/dialysis, --capture-dir, /captures]
+    volumes: ["/tmp/.X11-unix/X0:/tmp/.X11-unix/X0:ro"]

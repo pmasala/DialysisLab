@@ -155,5 +155,11 @@ does not prevent recovery of other runs. Preserve these directories for manual
 recovery rather than treating them as verified or deleting them. The output
 ownership lock prevents concurrent brokers. Old active
 runs become `interrupted`, with stop unconfirmed; no automatic treatment resume.
-Native hard-kill orphan cleanup and further shared-resource hardening remain M8
-work; independent plant watchdog behavior continues to apply.
+Native parent-death cleanup and separate writable device producer volumes are
+implemented in M8; trusted-host/common-cause limits still apply.
+
+M9 integration addition: the broker polls scheduled-control CHECK7 while virtual
+time is paused. An observed external device STOP aborts the run without RESUME or
+another PREPARE/COMMIT; communication failure uses the same terminal HALT policy.
+The paused last committed truth/sensor sample remains historical, never proof of
+current active outputs. Actual stop is separately queried from plant state.

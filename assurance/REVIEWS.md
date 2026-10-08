@@ -321,3 +321,36 @@ three isolation probe groups. Actual stale-image rejection, five official-schema
 SBOM validations and byte-exact recovery of 16 generated artifacts pass.
 Local evidence: `evidence/m8/`. Corrected hosted job 37730439086 remains pending
 at this checkpoint; do not infer its result from the earlier candidate job.
+
+M8 final closure: corrected hosted CI 37730439086 passed; original bytes of all
+41 artifacts recover and all recorded report/log digests match. Three real Docker
+failure/recovery cases and two 100000-tick runs pass, RSS max19.47MiB at128MiB.
+`evidence/m8/summary.json` and `hosted/` close the formerly pending evidence.
+M8 review count remains one, four findings fixed. No second review occurred.
+
+## M9 integration started — sole review not yet invoked
+
+Frozen base `eb290dee95ac078ca3485fe1088161558dccbe59`; acceptance in
+`docs/M9_INTEGRATION.md`. M9-V1: actual device STOP during virtual pause stopped
+the plant but left run state paused until RESUME. Reproduced with real processes;
+CHECK7 monitoring during pause now aborts without a new tick and confirms HALT.
+M9-V2: proposed synthetic KUF2 failed existing input bounds before execution.
+Keep the bound; use explicitly synthetic R0.5/KUF0.8 with doubled KoA. Original
+failed reports remain in `build/`; neither failure is counted as acceptance.
+
+M9-V3 (test timing): first actual WSLg integration reached TREATMENT while the
+frozen observation still contained pre-start zero flows. The harness incorrectly
+asserted active flow immediately. Wait for a LIVE active sensor sample within the
+existing timeout; preserve the distinction between machine state and observation.
+Second WSLg and first headless simultaneous deployments pass; original failure
+is retained in `build/m9-preliminary-simultaneous-wslg/`. No UI/sensor contract
+or protective limit changed. Matrix36 native/36 Compose and faults30 native/30
+Compose pass preliminarily; these working-tree runs identify exact source inputs.
+
+M9 candidate preparation:152 native regressions pass;18 configurations twice
+natively/twice Compose and15 faults twice per deployment pass. Actual simultaneous
+headless/WSLg UI+console tests pass. Two source archives reproduce exactly and the
+extracted source builds/passes152 tests; package widget closure and sustained
+100000-tick runs remain running and are not yet acceptance evidence.
+`codex review --help` checked. Commit candidate and invoke exactly one read-only
+review against frozen base `eb290dee95ac078ca3485fe1088161558dccbe59`.

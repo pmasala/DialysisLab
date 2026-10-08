@@ -1,8 +1,8 @@
 # Verification and validation strategy
 
-Status: broader strategy remains proposed. M1 executes synthetic service,
-conservation, fault and process-liveness tests; see STATUS.md for actual results
-and exact evidence. No calibrated physiology or clinical model validation is claimed.
+Status: M1–M8 execute actual software/numerical/process/container/widget/security
+verification; M9 integrated acceptance is active. See STATUS.md for exact results
+and builds. No calibrated physiology or clinical model validation is claimed.
 
 ## Evidence contract
 
@@ -99,3 +99,25 @@ bad credential/revision/run/path/size/deadline and failed service/restart polici
 Keep exact source/build/configuration/commands and every failed diagnostic attempt.
 Candidate tests are preliminary until review fixes and clean-build regression evidence
 are recorded; AI review remains defect finding, not human or clinical approval.
+
+## M8/M9 evidence protocols and tool confidence
+
+M8 verifies malformed/deep/duplicate/slow input, actual boundary impersonation
+denial, owner-death cleanup and protected output behavior. Actual-image SBOMs
+are checked against immutable images and official CycloneDX1.6; stale images fail.
+CI checker crashes/timeouts are regressions, not release-gap exemptions. Original
+report/log bytes survive hashed version2 envelopes with independent recovery and
+tamper/order/truncation tests. OSV results retain matching and blocked identities.
+
+M9 predeclares18 mode/patient/dialyzer configurations, fifteen fault scenarios,
+sustained100000-tick HDF, simultaneous real graphical clients and extracted-source
+package execution in `docs/M9_INTEGRATION.md`. The existing independent water and
+six-species checks stay at1e-6 mL/mmol. Detector budgets remain specified before
+execution. GUI tests distinguish state transitions from next modeled observations.
+Lossless archive regressions verify byte identity/order and preservation on failure;
+raw-data archival is not permission to discard uncollected failed-run volumes.
+
+Full device usability/audio/acoustic assessment, normative reviewer competence,
+independent model-validation datasets and qualified tool confidence remain open.
+The software-level detectors, parsers, oracles and evidence tools have targeted
+regressions; this does not qualify them under a standard or establish model truth.

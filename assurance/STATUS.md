@@ -44,27 +44,29 @@ and verified against the exact event SHA; hosted Actions is available, not yet r
 SBOMs validate against official CycloneDX 1.6 with installed jsonschema 4.10.3;
 final inventories must identify the corrected image/build.
 
-Next executable step: begin M9 integrated acceptance from the M8 implementation
-checkpoint while corrected hosted CI 37730439086 completes. M8 local verification
-is complete: 150/150 native and sanitizer tests, 10 device/5 console tests,
-10 native/10 Compose model runs, actual device/console deployments, four M1
-Compose cases and three boundary probe groups. All four findings from its sole
-review are fixed in `e8c497c`. Five actual SBOMs validate; 16 real retained
-artifacts recover byte for byte; an actual stale image is rejected.
+Next executable step: complete M9 integrated matrix, simultaneous actual LVGL
+and ImGui workflows, sustained-treatment long runs and reproducible package.
+M9 base is `eb290dee95ac078ca3485fe1088161558dccbe59`; acceptance is frozen in
+`docs/M9_INTEGRATION.md`. Its single review has NOT run. Preliminary verification passes152 native
+tests,36 native/36 Compose matrix runs,30 native/30 Compose fault runs and
+simultaneous headless/WSLg device+console flows. The extracted-source package
+build and152 tests pass; widget/package closure and two native/two Compose
+sustained100000-tick runs are still running. Preserve these pending outcomes.
+M9-V1 paused device
+STOP and M9-V2 rejected synthetic fixture are recorded in `REVIEWS.md`; fixes
+retain existing output/conservation/input bounds.
 
-M8 remains **PARTIAL solely pending corrected hosted evidence recovery**, not a
-blocked or failed software subsystem. Candidate CI 37728309834 passed with known
-historical retention limitations. Real M1 failed-run/recovery and two 100000-tick
-Compose regressions on the new image are additionally running. Current scan:
-70 queries, 19 matching / 73 open advisory IDs, zero blocked queries; findings
-are not accepted risk. See `evidence/m8/` and `DEPENDENCY_FINDINGS.json`.
+M8 is technically COMPLETE: 150/150 native/sanitizer tests, 10 device/5 console
+tests, ten native/ten Compose model runs, actual deployments and boundary probes.
+All four review findings are fixed in `e8c497c`. Corrected hosted CI37730439086
+passed; 41 artifacts recover byte for byte. Five actual SBOMs validate; stale
+images are rejected. Three real Docker failure cases and two100000-tick M1 runs
+pass, RSS max19.47MiB at128MiB. See `evidence/m8/`. The scan retains73 open
+advisory IDs; no risk acceptance or clean-image claim. M1–M8 reviews consumed.
 
-M1–M8 reviews are consumed; M9 review has not run. Continue the independently
-executable matrix, simultaneous device/console deployment, sustained-treatment
-long run and reproducible package. Close hosted evidence when its actual report
-arrives; do not present pending checks as PASS. No socket/Docker/display block.
-Only owned raw PPM captures were losslessly compressed after hash verification;
-recovery and original byte identities are in `evidence/m8/capture-storage.json`.
+No process, Docker or WSLg block. Owned raw PPM captures were compressed only
+after independent lossless hash verification; `evidence/m8/capture-storage.json`
+records originals/archives/recovery. Do not prune unknown user data or old history.
 
 Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md).
@@ -81,8 +83,10 @@ Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 | M6 | Actual LVGL/SDL device UI, session-bound requests, precision/confirmation, sensor age/trends, alarms and native/Compose graphical verification. | [M6](evidence/m6/README.md) |
 | M7 | Separate real ImGui console and authenticated broker, immutable configuration/fault schedules, virtual pause, fresh native/Compose replay, comparison and retained exports/failures. | [M7](evidence/m7/README.md) |
 
+| M8 | Process/input/device-boundary hardening, actual-image SBOMs, scans, exact hosted CI artifact recovery and retained open dependency findings. | [M8](evidence/m8/README.md) |
+
 Earlier evidence remains historical, with active regression links identifying the
-current implementation. Corrected hosted CI recovery and the final integrated package remain required. No roadmap feature
+current implementation. The final integrated package remains required. No roadmap feature
 has been removed to make a phase or release gate pass.
 
 ## Open gates and limits

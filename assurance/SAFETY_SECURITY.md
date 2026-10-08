@@ -78,8 +78,8 @@ detector is a declared latent fault, not covered by hidden truth access.
 
 HAZ-003/006 include priming/cleaning source/waste accounting. Flushed volume is a
 synthetic readiness criterion only. UI endpoints cannot issue admin/raw actuator
-commands. The shared device volume/UID and bounded synchronous handlers still have
-endpoint impersonation and availability common causes for M8 analysis; native
+commands. M8 separates writable device producers; bounded synchronous handlers retain
+availability/common-cause limits; native
 same-user mode is trusted development. No hardware independence, clinical limits,
 air removal, disinfection or residual-risk acceptance follows from these tests.
 
@@ -95,8 +95,8 @@ are verified against actual services/framebuffers. ACK/silence do not release
 constraints; STOP acknowledgment remains distinct from received measurements.
 The UI mounts device endpoints only and has no simulation truth/admin channel.
 UI/X11/host or shared code failures remain common causes, not hardware independence.
-Native same-UID trust, shared device producers and broader abuse/availability
-controls remain M8 work. No human residual-risk acceptance is inferred.
+M8 verifies separate producer volumes, bounded input and availability controls;
+native same-UID and privileged host trust remain. No human residual-risk acceptance is inferred.
 
 ## M7 experiment administration increment
 
@@ -111,9 +111,8 @@ scheduled experiments abort and retain actual stop observation rather than claim
 successful replay. See `docs/M7_EXPERIMENTS.md` and M7 trace requirements.
 
 The console/broker are trusted simulation administrators, not clinical operators.
-Native same-UID access, inherited OS/kernel/configuration, shared device producer
-ownership and abrupt native broker orphan cleanup remain explicit M8 hardening
-work. Token freshness does not establish hardware independence or eliminate
+M8 adds owned producer endpoints and native parent-death cleanup. Native same-UID
+access and inherited OS/kernel/configuration remain trusted/common-cause boundaries. Token freshness does not establish hardware independence or eliminate
 common-cause failure. No licensed standards or credentials belong in exports.
 
 ## M8 implemented threat controls
@@ -126,3 +125,10 @@ input and real fault tests assess availability effects; privileged administratio
 host/kernel and shared plant/configuration remain trusted/common causes.
 Dependency scans identify actual versions and findings, not absence of vulnerabilities.
 CI runs software checks while recording outstanding release gates separately.
+
+M9 integrates both real user applications. A device STOP during virtual pause
+must terminate scheduler state without waiting for console RESUME; CHECK7 detects
+the existing control cancellation and the runner confirms terminal plant output.
+The last committed truth and sensor sample are historical while paused, so UI/broker
+data cannot substitute for the separately observed HALT state. This addresses
+HAZ-002/004/005 without giving the console control over protective arbitration.

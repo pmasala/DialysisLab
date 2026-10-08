@@ -1,0 +1,333 @@
+{
+  "recovered": 41,
+  "artifacts": [
+    {
+      "kind": "begin",
+      "name": "ci-report.json",
+      "bytes": 12365,
+      "sha256": "04ba77e8bbe9cf33d4d329f51902dbe9204ef1d7450353cc91580f207322029e",
+      "chunks": 5,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/traceability.log",
+      "bytes": 7656,
+      "sha256": "023ce54ca0b3ddea9994de6b5be27fafcb0bf72d1a9601a0af7e62c1d5e272c3",
+      "chunks": 3,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/standards.log",
+      "bytes": 181,
+      "sha256": "c7204808d6f76bf4cb14de04c4e9462a311b65d65d870551f82c7001c725bec7",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/publication.log",
+      "bytes": 2701,
+      "sha256": "8522f6641d4fae4055b5bdc33c9b474cbbe9a8c3e18a2f66409ae0e82e4937dc",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/release-traceability.log",
+      "bytes": 7656,
+      "sha256": "023ce54ca0b3ddea9994de6b5be27fafcb0bf72d1a9601a0af7e62c1d5e272c3",
+      "chunks": 3,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/release-standards.log",
+      "bytes": 181,
+      "sha256": "c7204808d6f76bf4cb14de04c4e9462a311b65d65d870551f82c7001c725bec7",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/fetch-gui.log",
+      "bytes": 265,
+      "sha256": "a9e7ef731ed74090014b56be857886f1ef8aada6d3d9ea7b87c4dea7b5d51f9f",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/native-configure.log",
+      "bytes": 20647,
+      "sha256": "013c8943d127a46f94b93d97ee4148777870cfba752d46e4301c5137e0458a1c",
+      "chunks": 7,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/native-build.log",
+      "bytes": 63563,
+      "sha256": "e9b1667a1b8d4e718097c1e0b70864f41124006311701800d1e2d9a81db6e8b3",
+      "chunks": 21,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/native-tests.log",
+      "bytes": 22585,
+      "sha256": "a50ada10e53568943c918fd012a6819c374c2ae54ff1fe857f092792b653b2db",
+      "chunks": 8,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/device-widgets.log",
+      "bytes": 1754,
+      "sha256": "dce72ae420763a5b7be912db5b469d9473fe2b7d5d4c9314935d85a2801f1f05",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/console-widgets.log",
+      "bytes": 983,
+      "sha256": "24f9013f87071ea780003276c51d80d89e7d66ea8dc56597592972d4c20e03ed",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/sanitizer-configure.log",
+      "bytes": 20714,
+      "sha256": "37a8fe4e53390677f614699f65eeec48cafe97c77959a1e71351a0ae479e4c54",
+      "chunks": 7,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/sanitizer-build.log",
+      "bytes": 63564,
+      "sha256": "1fdb5a8f4164b311d94c397da1280876f99571bdb4955c681576a4b8334673a3",
+      "chunks": 21,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/sanitizer-tests.log",
+      "bytes": 22585,
+      "sha256": "0598b2ec83060e0075e411f9ce862351a9defa783066b60e92309da8529964d4",
+      "chunks": 8,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/docker-build.log",
+      "bytes": 156648,
+      "sha256": "fb170698772407a36f7a52a933326b31c65d9668161d584731c2416563b4050b",
+      "chunks": 51,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/compose.log",
+      "bytes": 76,
+      "sha256": "a22d1cba60d8a8a583090b29feb6dc57f7d43d0d22435faaf21fa3ed8ff783bb",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/experiments.log",
+      "bytes": 157,
+      "sha256": "09b9e33a76def198c300f5c7c5c363354d582b372524c486a3ad7e86e2ee9228",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/device-compose.log",
+      "bytes": 129,
+      "sha256": "5eab78f97f32bffc6bfb91c03a2264d6412ca0474f57b6e78371d70770843aaf",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/dependencies.log",
+      "bytes": 64,
+      "sha256": "eb650fb051b64a546b4cfead5e8948375c63599b3af74e5418f22c91ccd69e46",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/package.log",
+      "bytes": 104,
+      "sha256": "463ef24723ae5053839b24047b8c745e69f1b160714524e2d1fe47c55bd6aa2e",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "native-tests.json",
+      "bytes": 170388,
+      "sha256": "198901e9ee91e55b6addbfc21e08089e9c686282bb842da5c73a808a22bc4be2",
+      "chunks": 56,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "device/report.json",
+      "bytes": 29873,
+      "sha256": "8f95e5bbc18308a08de78837e77c1f2f3db4d51e9dac91a0579d9a08e95d0a3b",
+      "chunks": 10,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "console/report.json",
+      "bytes": 17539,
+      "sha256": "479d8faaf365be562fba6d8a472ae9feed81815be2fd03e0f301476eddbd8a31",
+      "chunks": 6,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "sanitizer-tests.json",
+      "bytes": 170392,
+      "sha256": "f39332173905a8feb934b6218421fb974df6fe4f4a86cf8e281912d2f9920252",
+      "chunks": 56,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "compose/compose-results.json",
+      "bytes": 60220,
+      "sha256": "ea7534e0dc1464c5c50fa7bd3c476ace791d17ae798a7593cc819e6eb2e5e9aa",
+      "chunks": 20,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "experiments/report.json",
+      "bytes": 93894,
+      "sha256": "ad701d6bed4632668c6fc1408558987cd761fc50b5e8b4b6bc34e9fbf5211a64",
+      "chunks": 31,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "device-compose/report.json",
+      "bytes": 41884,
+      "sha256": "a414ce9a49d54ffc23df53f26c228f3617a567f238ba7ec7a8bbfedab9af10d9",
+      "chunks": 14,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/report.json",
+      "bytes": 2130,
+      "sha256": "27334b6e1a4d900e2654eae39b704582f13459c2fc9e8f2c9af5e2f84ad887aa",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/application.cdx.json",
+      "bytes": 15589,
+      "sha256": "cfda7726f6f550e84e7e7f1694a092dcc8b48ba2661b40ec59d9721b814c3ce9",
+      "chunks": 6,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/build.json",
+      "bytes": 9088,
+      "sha256": "6d7c6a37056fb7defb09e4ee2cd54c69ff8c05c2772144a3fcf4cc866c133136",
+      "chunks": 3,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/adopted-dependencies.json",
+      "bytes": 4724,
+      "sha256": "d7da7768e9e00daca9338c922a8fcda332d70fb4c83ab63d0d51dd649e419c25",
+      "chunks": 2,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/native-platform.json",
+      "bytes": 581107,
+      "sha256": "8125427bc4835dc901ff57cd7cccf0af058320f0b2916eb15b9c8f605054de00",
+      "chunks": 190,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-0-platform.json",
+      "bytes": 46285,
+      "sha256": "15b4f7c552cc551a5ca63535efdc6a376d8ffd69ecad7a9d11e8e5a2a76d1fa3",
+      "chunks": 16,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-0-build.json",
+      "bytes": 13410,
+      "sha256": "d9ac33c2c1702fb999383f2d71cc5c86807a3a2133d679a86b4649f0e2992a7d",
+      "chunks": 5,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-0-application.cdx.json",
+      "bytes": 9130,
+      "sha256": "764a5d009fd3d27866c55813d5c4516d20ca8bd8ad6ca928a9c6e08f7cbc5648",
+      "chunks": 3,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-0.cdx.json",
+      "bytes": 53390,
+      "sha256": "668408a99e9d0e047004264185dac1e1d84736242c5a1ddff856aa9b6804a2f6",
+      "chunks": 18,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-1-platform.json",
+      "bytes": 48312,
+      "sha256": "9bf929381a6535c167248a51e10b1940997931a7e2149c1f0865cc68316214a9",
+      "chunks": 16,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-1-build.json",
+      "bytes": 13679,
+      "sha256": "131645dfaabce8302aceb9820dfa44faabd01853ba3baf3f02d80088543d29be",
+      "chunks": 5,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-1-application.cdx.json",
+      "bytes": 15826,
+      "sha256": "9c7e887af8a9f91ca3a7557f720d6551c5d217e3d8c4afcbba7fb72711a55063",
+      "chunks": 6,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-1.cdx.json",
+      "bytes": 62989,
+      "sha256": "06c642909e650e49cf0220f5694c1b51080e866ff8648419781f723955cffa5a",
+      "chunks": 21,
+      "encoding": "base64"
+    }
+  ]
+}

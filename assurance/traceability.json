@@ -72,6 +72,11 @@
       "id": "M8-NEED-001",
       "statement": "Constrain simulator trust boundaries and resources, inventory dependencies and execute reproducible security/CI checks.",
       "status": "implemented"
+    },
+    {
+      "id": "M9-NEED-001",
+      "statement": "Integrate the implemented simulator and lifecycle template with actual deployment and reproducible source-package evidence.",
+      "status": "implemented"
     }
   ],
   "hazards": [
@@ -110,32 +115,32 @@
     {
       "id": "DES-001",
       "description": "Separate application identities and enforced device/admin interface boundaries.",
-      "status": "proposed"
+      "status": "implemented"
     },
     {
       "id": "DES-002",
       "description": "Protection issues requests directly to plant actuator arbitration; latching/reset logic is separate from control.",
-      "status": "proposed"
+      "status": "implemented"
     },
     {
       "id": "DES-003",
       "description": "Conserved fluid/solute exchange between patient, circuit and dialyzer; independent balance observer.",
-      "status": "proposed"
+      "status": "implemented"
     },
     {
       "id": "DES-004",
       "description": "Separate sensor channels with timestamps/sequence/validity; explicit simulation-clock and liveness policies.",
-      "status": "proposed"
+      "status": "implemented"
     },
     {
       "id": "DES-005",
       "description": "LVGL renders authoritative alarm state; protection owns hazard/action state; UI submits validated operator requests.",
-      "status": "proposed"
+      "status": "implemented"
     },
     {
       "id": "DES-006",
       "description": "Mixing/heating/filtration/route models expose measurements and test outcomes; no direct protective access to hidden contamination truth.",
-      "status": "proposed"
+      "status": "implemented"
     },
     {
       "id": "M1-DES-001",
@@ -378,6 +383,31 @@
       "id": "M8-DES-006",
       "description": "Continuously verify builds integration and publication; docs/M8_SECURITY_CI.md.",
       "status": "implemented"
+    },
+    {
+      "id": "M9-DES-001",
+      "description": "Integrate all treatment/patient/dialyzer combinations; docs/M9_INTEGRATION.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M9-DES-002",
+      "description": "Verify sustained treatment and resource bounds; docs/M9_INTEGRATION.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M9-DES-003",
+      "description": "Integrate simultaneous real device and experiment applications; docs/M9_INTEGRATION.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M9-DES-004",
+      "description": "Verify the reproducible source package; docs/M9_INTEGRATION.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M9-DES-005",
+      "description": "Deliver complete supported technical evidence and operations; docs/M9_INTEGRATION.md.",
+      "status": "implemented"
     }
   ],
   "requirements": [
@@ -397,11 +427,24 @@
       "tests": [
         "TEST-001"
       ],
-      "status": "draft",
+      "status": "implemented",
       "reviewer": null,
-      "implementation": [],
+      "implementation": [
+        {
+          "path": "compose.experiments.yaml",
+          "sha256": "3ff60fad917a605793b9b461b557ef53277202a286a5f7d840ce2d27063836f3"
+        },
+        {
+          "path": "tools/verify_experiments_compose.py",
+          "sha256": "0a5745948b1e7f8383c1961a1a83c94ae49b00c7d7fac644e3b9d5b0ee5f3705"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "0d01e3ba75e0f852be661aec19177fecbd91a9e34d59f6a080dd625b1e7453a2"
+        }
+      ],
       "unresolved": [
-        "Select transport/identity mechanism and endpoint policy."
+        "Local simulated role boundaries are implemented/tested; independent applicability and endpoint-policy approval remain open."
       ],
       "normative_mapping": "Draft links in standards/checklist.json: SEC-013, PRJ-002. Applicability and adequacy remain unreviewed."
     },
@@ -421,11 +464,24 @@
       "tests": [
         "TEST-002"
       ],
-      "status": "draft",
+      "status": "implemented",
       "reviewer": null,
-      "implementation": [],
+      "implementation": [
+        {
+          "path": "src/plant.cpp",
+          "sha256": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0"
+        },
+        {
+          "path": "src/machine.hpp",
+          "sha256": "29bcc1c6d1e969c70719c702e41135d65ab765ae9b9dac5f8370a551654fa7db"
+        },
+        {
+          "path": "tests/test_machine.py",
+          "sha256": "3d40b6e0a4706ee9ee624bb4fe13e6c3be7ea1a83b28656be65133c24a944520"
+        }
+      ],
       "unresolved": [
-        "Complete hazard-specific outputs, recovery rules and response-time budgets."
+        "Synthetic hazard-specific outputs/reset/timing are implemented/tested; clinically justified essential performance and authorized risk acceptance remain open."
       ],
       "normative_mapping": "Draft links in standards/checklist.json: GEN-018, PRJ-003. Applicability and adequacy remain unreviewed."
     },
@@ -445,11 +501,24 @@
       "tests": [
         "TEST-003"
       ],
-      "status": "draft",
+      "status": "implemented",
       "reviewer": null,
-      "implementation": [],
+      "implementation": [
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "d18bb2176b1415b6fbf3dbf6d32accec214a1691d82e3ff2be05e470f443e9bd"
+        },
+        {
+          "path": "src/circuit.hpp",
+          "sha256": "9cf2434b8cee48e66720355f2d2dbbdb506aee44e9e74cb17e142c50fa86c89a"
+        },
+        {
+          "path": "tools/verify_models.py",
+          "sha256": "7a07a08083d460582a1abaee67f6aa088ce7e222e962f904da144d374aab971c"
+        }
+      ],
       "unresolved": [
-        "Define solver, uncertainty budget, tolerances and independent oracle."
+        "Independent synthetic water/species balances and numerical tolerances are implemented/tested; experimental uncertainty, calibration and independent model-domain validation remain open."
       ],
       "normative_mapping": "Draft links in standards/checklist.json: HD-021, PRJ-005. Applicability and adequacy remain unreviewed."
     },
@@ -469,11 +538,24 @@
       "tests": [
         "TEST-004"
       ],
-      "status": "draft",
+      "status": "implemented",
       "reviewer": null,
-      "implementation": [],
+      "implementation": [
+        {
+          "path": "src/protection.cpp",
+          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+        },
+        {
+          "path": "src/wire.hpp",
+          "sha256": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc"
+        },
+        {
+          "path": "tests/test_rpc_abort.py",
+          "sha256": "37e8e325a307bd8de9dbdffe4fad867684b2283092df40871c1898592df9c32b"
+        }
+      ],
       "unresolved": [
-        "Derive validity rules, clock policy and justified response bounds."
+        "Virtual validity and wall liveness responses are implemented/tested; product-specific validated response budgets and sensor calibration remain open."
       ],
       "normative_mapping": "Draft links in standards/checklist.json: HD-027, HD-033. Applicability and adequacy remain unreviewed."
     },
@@ -493,11 +575,24 @@
       "tests": [
         "TEST-005"
       ],
-      "status": "draft",
+      "status": "implemented",
       "reviewer": null,
-      "implementation": [],
+      "implementation": [
+        {
+          "path": "src/protection.cpp",
+          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
+        },
+        {
+          "path": "docs/M5_MACHINE.md",
+          "sha256": "02f80b9a90fade2c7f11b5d8596c04f42b47ddd5382be4769bc3fb980cffa7b2"
+        }
+      ],
       "unresolved": [
-        "Complete alarm catalog, timing, audio delivery and critical-task usability evaluation."
+        "Visual alarm state/ACK/silence/reset software is implemented/tested; representative-user evaluation, complete audible/acoustic delivery and normative alarm approval remain open."
       ],
       "normative_mapping": "Draft links in standards/checklist.json: HD-026, HD-038. Applicability and adequacy remain unreviewed."
     },
@@ -517,11 +612,24 @@
       "tests": [
         "TEST-006"
       ],
-      "status": "draft",
+      "status": "implemented",
       "reviewer": null,
-      "implementation": [],
+      "implementation": [
+        {
+          "path": "src/online.hpp",
+          "sha256": "0d05aa4d7454118685063aa7855b3ad19b0834a3e80c06254797902881682af6"
+        },
+        {
+          "path": "src/protection.cpp",
+          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+        },
+        {
+          "path": "docs/M4_TREATMENT.md",
+          "sha256": "4aa31886c448b9ce438e023cbad789232c92be9e3d84f62476dcf33c616f720f"
+        }
+      ],
       "unresolved": [
-        "Define chemistry/integrity models, sensors/tests, acceptance envelope and residual detection limitations."
+        "Observable synthetic preparation/integrity controls are implemented/tested; independent quality-barrier effectiveness, microbial/chemical validation and approved clinical acceptance remain open."
       ],
       "normative_mapping": "Draft links in standards/checklist.json: HD-030. Applicability and adequacy remain unreviewed."
     },
@@ -1677,7 +1785,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/experiments.py",
-          "sha256": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -1697,7 +1805,7 @@
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
-          "sha256": "860fd3c03aeacd6039e4d85425160dd5f918264cc25946cd6fe07827451fa1de"
+          "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
         }
       ],
       "unresolved": [
@@ -1727,7 +1835,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/experiments.py",
-          "sha256": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -1747,7 +1855,7 @@
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
-          "sha256": "860fd3c03aeacd6039e4d85425160dd5f918264cc25946cd6fe07827451fa1de"
+          "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
         }
       ],
       "unresolved": [
@@ -1777,7 +1885,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/experiments.py",
-          "sha256": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -1797,7 +1905,7 @@
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
-          "sha256": "860fd3c03aeacd6039e4d85425160dd5f918264cc25946cd6fe07827451fa1de"
+          "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
         }
       ],
       "unresolved": [
@@ -1827,7 +1935,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/experiments.py",
-          "sha256": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -1847,7 +1955,7 @@
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
-          "sha256": "860fd3c03aeacd6039e4d85425160dd5f918264cc25946cd6fe07827451fa1de"
+          "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
         }
       ],
       "unresolved": [
@@ -1877,7 +1985,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/experiments.py",
-          "sha256": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -1897,7 +2005,7 @@
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
-          "sha256": "860fd3c03aeacd6039e4d85425160dd5f918264cc25946cd6fe07827451fa1de"
+          "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
         }
       ],
       "unresolved": [
@@ -1927,7 +2035,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/experiments.py",
-          "sha256": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -1947,7 +2055,7 @@
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
-          "sha256": "860fd3c03aeacd6039e4d85425160dd5f918264cc25946cd6fe07827451fa1de"
+          "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
         }
       ],
       "unresolved": [
@@ -2005,7 +2113,7 @@
         }
       ],
       "unresolved": [
-        "Software controls and local regressions passed; corrected hosted artifact recovery pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+        "Technical software controls, actual hosted CI and exact artifact recovery verified; 73 platform advisory IDs, independent human risk acceptance and release obligations remain open."
       ]
     },
     {
@@ -2051,7 +2159,7 @@
         }
       ],
       "unresolved": [
-        "Software controls and local regressions passed; corrected hosted artifact recovery pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+        "Technical software controls, actual hosted CI and exact artifact recovery verified; 73 platform advisory IDs, independent human risk acceptance and release obligations remain open."
       ]
     },
     {
@@ -2104,7 +2212,7 @@
         }
       ],
       "unresolved": [
-        "Software controls and local regressions passed; corrected hosted artifact recovery pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+        "Technical software controls, actual hosted CI and exact artifact recovery verified; 73 platform advisory IDs, independent human risk acceptance and release obligations remain open."
       ]
     },
     {
@@ -2161,7 +2269,7 @@
         }
       ],
       "unresolved": [
-        "Software controls and local regressions passed; corrected hosted artifact recovery pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+        "Technical software controls, actual hosted CI and exact artifact recovery verified; 73 platform advisory IDs, independent human risk acceptance and release obligations remain open."
       ]
     },
     {
@@ -2210,7 +2318,7 @@
         }
       ],
       "unresolved": [
-        "Software controls and local regressions passed; corrected hosted artifact recovery pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+        "Technical software controls, actual hosted CI and exact artifact recovery verified; 73 platform advisory IDs, independent human risk acceptance and release obligations remain open."
       ]
     },
     {
@@ -2243,7 +2351,7 @@
         },
         {
           "path": "tools/ci_verify.py",
-          "sha256": "a0d1c9097891b6f585266cd80198abb186b2d9aa9f849af8cfbaf848abc115ac"
+          "sha256": "198034b149f4eaa93922dcf25e9a90c913cc58d4e722f539edd822e5e9aed09b"
         },
         {
           "path": "tools/check_publication.py",
@@ -2251,7 +2359,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "ac459a3fb99b00d9969622143a56df73d6c2a24161e1de657f19102581d07942"
+          "sha256": "65e0d358d41729dfb92caef919580e5a3d2874e224096f51c838c3f42df362e4"
         },
         {
           "path": "docs/dependencies/CI_NOTICES.md",
@@ -2267,11 +2375,208 @@
         },
         {
           "path": "tests/test_ci.py",
-          "sha256": "a9ab83bc32dea4fb8ea1b77c75b82480ac820a3073b2686ef115bf5cca748839"
+          "sha256": "4194de39580beb6446cd39e5c1dfffa93fc66369f0d218ad29c6f3e569158da7"
         }
       ],
       "unresolved": [
-        "Software controls and local regressions passed; corrected hosted artifact recovery pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+        "Technical software controls, actual hosted CI and exact artifact recovery verified; 73 platform advisory IDs, independent human risk acceptance and release obligations remain open."
+      ]
+    },
+    {
+      "id": "M9-REQ-001",
+      "statement": "Integrate all treatment/patient/dialyzer combinations",
+      "acceptance": "18 configurations twice natively/twice Compose; exact replay, complete lifecycle and independent water/species conservation <=1e-6",
+      "needs": [
+        "M9-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-003",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "M9-DES-001"
+      ],
+      "tests": [
+        "M9-TEST-001"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "tools/verify_integrated.py",
+          "sha256": "0370605be3ea71df84d59a586d9f46363504655ef2dac259bb5a911e97f8df2a"
+        },
+        {
+          "path": "tools/verify_models.py",
+          "sha256": "7a07a08083d460582a1abaee67f6aa088ce7e222e962f904da144d374aab971c"
+        },
+        {
+          "path": "docs/M9_INTEGRATION.md",
+          "sha256": "490b39ed605333b264adff970ce59a147dad38b60b912d3617b2c6101b96265a"
+        }
+      ],
+      "unresolved": [
+        "Preliminary matrix/fault/actual simultaneous widgets verified; full candidate/long/package acceptance and sole review pending. Model calibration, clinical/usability validation, platform advisory risk acceptance and standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M9-REQ-002",
+      "statement": "Verify sustained treatment and resource bounds",
+      "acceptance": "Two native/two Compose100000-tick HDF runs; >99000 treatment ticks, grossUF>100000mL, RSS<=64MiB/no OOM at128MiB",
+      "needs": [
+        "M9-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-003",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M9-DES-002"
+      ],
+      "tests": [
+        "M9-TEST-002"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "tools/verify_integrated.py",
+          "sha256": "0370605be3ea71df84d59a586d9f46363504655ef2dac259bb5a911e97f8df2a"
+        },
+        {
+          "path": "tests/test_integration.py",
+          "sha256": "b720588350d9d98a5c96e4ad8c8762bfba5684eda5ac8405655521b1f410671c"
+        }
+      ],
+      "unresolved": [
+        "Preliminary matrix/fault/actual simultaneous widgets verified; full candidate/long/package acceptance and sole review pending. Model calibration, clinical/usability validation, platform advisory risk acceptance and standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M9-REQ-003",
+      "statement": "Integrate simultaneous real device and experiment applications",
+      "acceptance": "Actual widget pause/replay/STOP/cancellation/state/epoch/isolation tests, headless and WSLg",
+      "needs": [
+        "M9-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "M9-DES-003"
+      ],
+      "tests": [
+        "M9-TEST-003"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
+        },
+        {
+          "path": "tests/test_experiments.py",
+          "sha256": "ca737e1f55d1d8528435f246d5652465f154f08f2b36a966bc1d1f094f66b0f0"
+        },
+        {
+          "path": "tools/verify_experiments_compose.py",
+          "sha256": "0a5745948b1e7f8383c1961a1a83c94ae49b00c7d7fac644e3b9d5b0ee5f3705"
+        },
+        {
+          "path": "compose.experiments-x11.yaml",
+          "sha256": "8c777fd61cc64d21a98d85df1a8b3e2f811705c617e77def3895a5043e73e7da"
+        }
+      ],
+      "unresolved": [
+        "Preliminary matrix/fault/actual simultaneous widgets verified; full candidate/long/package acceptance and sole review pending. Model calibration, clinical/usability validation, platform advisory risk acceptance and standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M9-REQ-004",
+      "statement": "Verify the reproducible source package",
+      "acceptance": "Identical allowlisted archives and real build/tests/widgets from extracted sources",
+      "needs": [
+        "M9-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M9-DES-004"
+      ],
+      "tests": [
+        "M9-TEST-004"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "tools/verify_package.py",
+          "sha256": "b0b0c0172b8e33bd3178d00ded2141c44ea28f4e300267207e0291b5c039c166"
+        },
+        {
+          "path": "tools/package_release.py",
+          "sha256": "92164773a613260ff92a7981d0e99cba543a6f62668ba01a0740a26867f7f700"
+        },
+        {
+          "path": "publication_manifest.json",
+          "sha256": "65e0d358d41729dfb92caef919580e5a3d2874e224096f51c838c3f42df362e4"
+        }
+      ],
+      "unresolved": [
+        "Preliminary matrix/fault/actual simultaneous widgets verified; full candidate/long/package acceptance and sole review pending. Model calibration, clinical/usability validation, platform advisory risk acceptance and standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M9-REQ-005",
+      "statement": "Deliver complete supported technical evidence and operations",
+      "acceptance": "Identified actual CI recovery, commands, model limits, trace links and unchanged open release obligations",
+      "needs": [
+        "M9-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-002",
+        "HAZ-003",
+        "HAZ-004",
+        "HAZ-005",
+        "HAZ-006"
+      ],
+      "designs": [
+        "M9-DES-005"
+      ],
+      "tests": [
+        "M9-TEST-005"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "tools/ci_verify.py",
+          "sha256": "198034b149f4eaa93922dcf25e9a90c913cc58d4e722f539edd822e5e9aed09b"
+        },
+        {
+          "path": "docs/QUICKSTART.md",
+          "sha256": "5b9750f16774ed6f09cad70d3394ee46d179982bbc8798442d2cea51ca613de2"
+        },
+        {
+          "path": "README.md",
+          "sha256": "c09bbb472fd0ca9bd1850cfb0edaee29ce09994cc4923f3fde5b7b1a0a1405a7"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "257faabbd3aa09360c7b79a4aea8a397df185c23d7ae25ff4f7b9a364be898e6"
+        }
+      ],
+      "unresolved": [
+        "Preliminary matrix/fault/actual simultaneous widgets verified; full candidate/long/package acceptance and sole review pending. Model calibration, clinical/usability validation, platform advisory risk acceptance and standards obligations remain open."
       ]
     }
   ],
@@ -2346,7 +2651,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -2438,7 +2743,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -2530,7 +2835,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -2622,7 +2927,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -2714,7 +3019,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -2806,7 +3111,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -2898,7 +3203,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -2990,7 +3295,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3073,7 +3378,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3156,7 +3461,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3230,7 +3535,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3304,7 +3609,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3378,7 +3683,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3452,7 +3757,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3517,7 +3822,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3582,7 +3887,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3647,7 +3952,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3712,7 +4017,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3768,7 +4073,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3824,7 +4129,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3880,7 +4185,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3936,7 +4241,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -3983,7 +4288,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4030,7 +4335,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4077,7 +4382,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4124,7 +4429,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4171,7 +4476,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4218,7 +4523,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4256,7 +4561,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4294,7 +4599,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4332,7 +4637,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4370,7 +4675,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4408,7 +4713,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4446,7 +4751,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4475,7 +4780,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4504,7 +4809,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4533,7 +4838,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4562,7 +4867,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4591,7 +4896,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4620,7 +4925,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4638,7 +4943,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4656,7 +4961,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4674,7 +4979,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4692,7 +4997,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m8/summary.json",
-        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m8-e8c497c-2026-10-08",
         "executed_at": "2026-10-08T05:10:04.044762+00:00",
@@ -4707,6 +5012,64 @@
       ],
       "procedure": "Execute M8 real process/container/analysis/CI tests and preserve exact source/configuration/command/results.",
       "expected": "Real builds/processes/widgets/Compose and assurance/publication CI with retained outcomes",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
+      }
+    },
+    {
+      "id": "M9-TEST-001",
+      "requirements": [
+        "M9-REQ-001"
+      ],
+      "procedure": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
+      "expected": "18 configurations twice natively/twice Compose; exact replay, complete lifecycle and independent water/species conservation <=1e-6",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M9-TEST-002",
+      "requirements": [
+        "M9-REQ-002"
+      ],
+      "procedure": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
+      "expected": "Two native/two Compose100000-tick HDF runs; >99000 treatment ticks, grossUF>100000mL, RSS<=64MiB/no OOM at128MiB",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M9-TEST-003",
+      "requirements": [
+        "M9-REQ-003"
+      ],
+      "procedure": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
+      "expected": "Actual widget pause/replay/STOP/cancellation/state/epoch/isolation tests, headless and WSLg",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M9-TEST-004",
+      "requirements": [
+        "M9-REQ-004"
+      ],
+      "procedure": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
+      "expected": "Identical allowlisted archives and real build/tests/widgets from extracted sources",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M9-TEST-005",
+      "requirements": [
+        "M9-REQ-005"
+      ],
+      "procedure": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
+      "expected": "Identified actual CI recovery, commands, model limits, trace links and unchanged open release obligations",
       "result": "planned",
       "evidence": null
     }

@@ -1,10 +1,12 @@
 # Assurance and completion plan
 
-Revision: 2026-10-07. Status: proposed detailed baseline; not a conformity assessment.
+Revision: 2026-10-08. Status: technical increments implemented with recorded evidence;
+reference-release and normative approval gates remain open.
 
-M1 development is authorized and scoped by `docs/M1_PLAN.md`. Its synthetic
-implementation/evidence is a first vertical slice of WP-07/08/09/13/14/15/17/19/20;
-it does not close those work packages, G0-G5 reviews or the full roadmap below.
+M1–M8 technical increments and active M9 integration are tracked in `STATUS.md`
+and `docs/MILESTONES.md`. Their actual software/numerical evidence supplies inputs
+to the work packages below; it does not close model validation, human G0–G5
+reviews, quality-system or physical-product obligations.
 
 ## Mission and evidence boundaries
 
@@ -54,7 +56,7 @@ Maintain separate assessments for reference device software, patient/plant model
 
 ## Required work packages and completion evidence
 
-All rows are required planning workstreams. Existing short baseline documents provide partial inputs only; no row is represented as complete.
+All rows are required planning workstreams. Implemented architecture, code, tests and evidence now supply substantial technical inputs; no work package is represented as fully approved, because its human/model/product obligations remain open.
 
 | ID | Work package | Completion evidence |
 | --- | --- | --- |
@@ -109,7 +111,7 @@ Every change records rationale, affected requirements/hazards/threats/interfaces
 - Complete the EU-first regulatory/GSPR and standards baseline; preserve a separate later US assessment.
 - Define treatment envelopes, quantified essential-performance limits, risk acceptability criteria, and review responsibilities.
 - Supply/identify validation data and its authorized uses.
-- Repository confirmed: `git@github.com:pmasala/DialysisLab.git`. The existing repository establishes MIT licensing; select toolchain/dependency pins and release governance.
+- Repository confirmed: `git@github.com:pmasala/DialysisLab.git`. The existing repository establishes MIT licensing; toolchain/dependency selections are recorded in `dependency_inventory.json`; release governance and authorized residual-risk decisions remain open.
 
 ## Primary-source scope references
 
@@ -124,3 +126,17 @@ Every change records rationale, affected requirements/hazards/threats/interfaces
 - ISO 13485: https://www.iso.org/standard/59752.html
 
 Public catalogs establish edition/scope only. The separately supplied licensed copies underpin the draft checklist; missing editions and collateral documents have not been inferred from catalog abstracts. See the source register for exact inputs.
+
+## Reusable execution and adaptation records
+
+Use `docs/templates/LIFECYCLE_INCREMENT.md` for change impact, responsibilities,
+requirements/risk/design/test linkage, problem resolution and release/maintenance
+disposition; use `MODEL_DATA_ASSESSMENT.md` for authorized data, separate calibration
+and validation. Actual milestone records remain in the existing plan/decision/review
+registers and trace graph, avoiding parallel sources of truth. Dependency exceptions
+retain their separate explicit approval template.
+
+Technical M1–M9 completion must be reported separately from completion level1
+above: validated model domains and substantive independent review have not been
+provided. Levels2/3 remain blocked by normative/organizational/product obligations.
+No placeholder owner, synthetic measurement or AI review closes those gaps.

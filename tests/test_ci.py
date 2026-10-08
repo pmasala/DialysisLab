@@ -36,7 +36,7 @@ class CITests(unittest.TestCase):
                         if destination.suffix=='.json':destination.parent.mkdir(parents=True,exist_ok=True);destination.write_text('{}')
                         elif destination.suffix!='.zip':
                             destination.mkdir(parents=True,exist_ok=True)
-                            names=[Path(name).name for name in dependency_reports(2)] if destination.name=='dependencies' else ['report.json','compose-results.json']
+                            names=[Path(name).name for name in dependency_reports(2)] if destination.name=='dependencies' else ['report.json','compose-results.json','integration.json']
                             for name in names:(destination/name).write_text('{}')
                     return subprocess.CompletedProcess(command,0)
                 with patch.object(sys,'argv',['ci_verify.py','--output',str(output)]),patch('ci_verify.subprocess.check_output',return_value='a'*40),patch('ci_verify.subprocess.run',side_effect=run),patch('sys.stdout',io.StringIO()):

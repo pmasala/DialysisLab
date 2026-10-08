@@ -27,7 +27,7 @@ authoritative [progress checkpoint](../assurance/STATUS.md).
 | M6 / `445c667` | C++ LVGL device UI connected to authoritative services, prescription/telemetry/trends/alarms. | Real workflow, input/confirmation/disconnection tests, graphical evidence where available, no simulation administration; HAZ-001,004,005. |
 | M7 / `26211813a79d5f05720071de0b51df8089997476` | Separate experiment console with configuration, scheduling, truth, replay/comparison/export and batch access. | Actual service runs, pause/resume, reproducibility, administration isolation; HAZ-001,003. Detailed preimplementation contract: `M7_EXPERIMENTS.md`. |
 | M8 / `4a1c366acd0050df4c744c2d1eb7d066890d5df4` | Threat mitigations, bounded inputs, resource/isolation controls, dependency inventory/SBOM and CI. | Abuse/failure tests, available scans, reviewed licenses/pins/notices, unchanged release obligations and deny-by-default publication; HAZ-001–006. |
-| M9 / after M8 | Integrated matrix, reproducible package, Linux/WSL2 quickstart and complete supported lifecycle evidence. | Modes/patients/dialyzers/faults/long runs/recovery/UI/console/headless/deployments; regressions and one review of new integration/package changes. |
+| M9 / `eb290dee95ac078ca3485fe1088161558dccbe59` | Integrated matrix, reproducible package, Linux/WSL2 quickstart and complete supported lifecycle evidence. | Modes/patients/dialyzers/faults/long runs/recovery/UI/console/headless/deployments; regressions and one review of new integration/package changes. |
 
 Each phase expands these targets in its model/interface document and traceability
 records **before** implementation. Tolerances and synthetic limits are declared
@@ -50,3 +50,6 @@ Environmental blocks do not prevent independent implementation/testing. Record
 the exact failing command and prerequisites, continue executable work, and never
 translate BLOCKED into PASS. Push this branch without rewriting origin history
 when access is available.
+
+M9 acceptance is frozen in `M9_INTEGRATION.md`; hosted M8 recovery is carried
+explicitly as a pending evidence item while verified local components integrate.

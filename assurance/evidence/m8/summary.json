@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "phase": "M8",
-  "technical_status": "LOCAL_VERIFICATION_COMPLETE_HOSTED_RETENTION_PENDING",
+  "technical_status": "COMPLETE",
   "executed_at": "2026-10-08T05:10:04.044762+00:00",
   "implementation_commit": "e8c497c995949562b1901d1346b841b955100a17",
   "build_worktree_clean": true,
@@ -30,7 +30,10 @@
   },
   "hosted_correction": {
     "run_id": 37730439086,
-    "status": "IN_PROGRESS"
+    "status": "success",
+    "recovered_original_artifacts": 41,
+    "registered_report_hashes_verified": 20,
+    "registered_command_hashes_verified": 20
   },
   "scope": "Actual synthetic software, process/container, input isolation, analysis and evidence-integrity verification; no clinical, regulatory, hardware-independence, complete image-license clearance or human risk acceptance.",
   "artifacts": [
@@ -123,6 +126,110 @@
       "sha256": "e811e1a66c0bb230f78bb5c1bce11e0d909e779fd3fb33e5883d3b061c776249"
     },
     {
+      "path": "assurance/evidence/m8/hosted/ci-report.json",
+      "sha256": "04ba77e8bbe9cf33d4d329f51902dbe9204ef1d7450353cc91580f207322029e"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/commands.json",
+      "sha256": "cac86de40b5288e0a5d987c806429af59a76d1a216801919f4279e9c8e206df7"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/compose/compose-results.json",
+      "sha256": "ea7534e0dc1464c5c50fa7bd3c476ace791d17ae798a7593cc819e6eb2e5e9aa"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/console/report.json",
+      "sha256": "479d8faaf365be562fba6d8a472ae9feed81815be2fd03e0f301476eddbd8a31"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/adopted-dependencies.json",
+      "sha256": "d7da7768e9e00daca9338c922a8fcda332d70fb4c83ab63d0d51dd649e419c25"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/application.cdx.json",
+      "sha256": "cfda7726f6f550e84e7e7f1694a092dcc8b48ba2661b40ec59d9721b814c3ce9"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/build.json",
+      "sha256": "6d7c6a37056fb7defb09e4ee2cd54c69ff8c05c2772144a3fcf4cc866c133136"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/image-0-application.cdx.json",
+      "sha256": "764a5d009fd3d27866c55813d5c4516d20ca8bd8ad6ca928a9c6e08f7cbc5648"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/image-0-build.json",
+      "sha256": "d9ac33c2c1702fb999383f2d71cc5c86807a3a2133d679a86b4649f0e2992a7d"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/image-0-platform.json",
+      "sha256": "15b4f7c552cc551a5ca63535efdc6a376d8ffd69ecad7a9d11e8e5a2a76d1fa3"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/image-0.cdx.json",
+      "sha256": "668408a99e9d0e047004264185dac1e1d84736242c5a1ddff856aa9b6804a2f6"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/image-1-application.cdx.json",
+      "sha256": "9c7e887af8a9f91ca3a7557f720d6551c5d217e3d8c4afcbba7fb72711a55063"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/image-1-build.json",
+      "sha256": "131645dfaabce8302aceb9820dfa44faabd01853ba3baf3f02d80088543d29be"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/image-1-platform.json",
+      "sha256": "9bf929381a6535c167248a51e10b1940997931a7e2149c1f0865cc68316214a9"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/image-1.cdx.json",
+      "sha256": "06c642909e650e49cf0220f5694c1b51080e866ff8648419781f723955cffa5a"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/native-platform.json",
+      "sha256": "8125427bc4835dc901ff57cd7cccf0af058320f0b2916eb15b9c8f605054de00"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/dependencies/report.json",
+      "sha256": "27334b6e1a4d900e2654eae39b704582f13459c2fc9e8f2c9af5e2f84ad887aa"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/device/report.json",
+      "sha256": "8f95e5bbc18308a08de78837e77c1f2f3db4d51e9dac91a0579d9a08e95d0a3b"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/device-compose/report.json",
+      "sha256": "a414ce9a49d54ffc23df53f26c228f3617a567f238ba7ec7a8bbfedab9af10d9"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/experiments/report.json",
+      "sha256": "ad701d6bed4632668c6fc1408558987cd761fc50b5e8b4b6bc34e9fbf5211a64"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/log-identity.json",
+      "sha256": "14a7a25ee4bde298a20a0f1149b9b9d7e1b3fcf99c278954a84af32779cfbe4c"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/native-tests.json",
+      "sha256": "198901e9ee91e55b6addbfc21e08089e9c686282bb842da5c73a808a22bc4be2"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/recovery.json",
+      "sha256": "344e11318db392eb19ccf2db90e13f4fcb8b7a22035f233d0f98a88177756e9d"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/run.json",
+      "sha256": "2c7b9f7c08791e53408825845dfcd93d4dcccc5ebfa9a18d2c46ceec528f64e3"
+    },
+    {
+      "path": "assurance/evidence/m8/hosted/sanitizer-tests.json",
+      "sha256": "f39332173905a8feb934b6218421fb974df6fe4f4a86cf8e281912d2f9920252"
+    },
+    {
+      "path": "assurance/evidence/m8/m1-long-failures.json",
+      "sha256": "b2b883e0d3cd1dab51d6994561a380b26f1a8f7e621e72c441b7e485779fef6f"
+    },
+    {
       "path": "assurance/evidence/m8/native-build.json",
       "sha256": "8455554b0091a1fe16e6de6c554b8bf9371d713b75106d1b0488deafd65a371f"
     },
@@ -140,7 +247,7 @@
     },
     {
       "path": "assurance/evidence/m8/review.json",
-      "sha256": "1488fc534b5dbe286490a24206c254c0b4d7edf3e72c5fb2e13d9544506e29b3"
+      "sha256": "7feeb8c4da3f92c758c5f45b8e7d1698b0f17c710e69284a04ef068f3338bca9"
     },
     {
       "path": "assurance/evidence/m8/rss-inheritance.json",
@@ -166,5 +273,9 @@
       "path": "assurance/evidence/m8/stale-image.json",
       "sha256": "4965b3c3aec11dc6d18918924d3bb7a5d9588ab23c0cb704185e94806f3500bf"
     }
-  ]
+  ],
+  "m1_real_failure_regressions": 3,
+  "m1_real_100000_tick_compose_runs": 2,
+  "m1_runner_rss_max_bytes": 20418560,
+  "m1_runner_cgroup_max_bytes": 72306688
 }

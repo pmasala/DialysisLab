@@ -1,7 +1,7 @@
 {
   "phase": "M8",
   "invocations": 1,
-  "status": "FINDINGS_FIXED_AND_LOCAL_REGRESSION_PASSED",
+  "status": "FINDINGS_FIXED_AND_REGRESSION_PASSED",
   "base": "4a1c366acd0050df4c744c2d1eb7d066890d5df4",
   "candidate": "ab433f5ceef8fbd1dfe7bf4c7fa60c0a138fba98",
   "command": [
@@ -60,5 +60,6 @@
       "correction_commit": "e8c497c995949562b1901d1346b841b955100a17",
       "evidence": "native-tests.json, sanitizer-tests.json, artifact-recovery.json, stale-image.json, dependencies/"
     }
-  ]
+  ],
+  "hosted_evidence": "hosted/ci-report.json, hosted/recovery.json"
 }

@@ -150,8 +150,9 @@ def main():
             for tool,label in [('verify_device_ui.py','device'),('verify_console.py','console')]:
                 step(label+'-widgets',['python3','tools/'+tool,'--build-dir',build,'--output',output/label],requires=built,json_report=label+'/report.json')
     images=step('docker-build',['docker','compose','--profile','device-ui','build'])
+    step('integrated-models',['python3','tools/verify_integrated.py','--build-dir',output/'native','--output',output/'integrated-models'],requires=native,json_report='integrated-models/integration.json')
     step('compose',['python3','tools/verify_compose.py','--output',output/'compose'],requires=images,json_report='compose/compose-results.json')
-    step('experiments',['python3','tools/verify_experiments_compose.py','--output',output/'experiments'],requires=images,json_report='experiments/report.json')
+    step('experiments',['python3','tools/verify_experiments_compose.py','--with-device','--output',output/'experiments'],requires=images,json_report='experiments/report.json')
     step('device-compose',['python3','tools/verify_ui_compose.py','--output',output/'device-compose'],requires=images,json_report='device-compose/report.json')
     step('dependencies',['python3','tools/dependency_report.py','--build-dir',output/'native','--output',output/'dependencies','--images','dialysislab-m1:local','dialysislab-ui:local'],requires=native and images,json_report='dependencies/report.json',extra_reports=dependency_reports(2))
     package=Path('/tmp')/('DialysisLab-ci-'+revision+'.zip')

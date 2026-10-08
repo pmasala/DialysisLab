@@ -1,198 +1,159 @@
 # DialysisLab
 
-Project baseline, 7 October 2026. Confirmed project name: DialysisLab.
+[DialysisLab](https://github.com/pmasala/DialysisLab) is an MIT-licensed dialysis
+simulator and development template for requirements, architecture, risks,
+cybersecurity, verification and traceability. **Only simulated patients and
+simulated equipment are supported.** Models and alarm thresholds are synthetic
+and uncalibrated; software tests do not establish clinical safety, sterile fluid,
+hardware independence or standards conformity.
 
-Repository: [pmasala/DialysisLab](https://github.com/pmasala/DialysisLab). SSH remote: `git@github.com:pmasala/DialysisLab.git`.
+The working implementation covers HD, pre/post HDF, online replacement preparation,
+configurable hydraulic components/dialyzers, Python patient water and six species,
+guarded machine workflows, independent protective decisions, an LVGL device UI
+and a separate ImGui experiment console. M1–M8 technical verification is recorded;
+M9 integrated acceptance and packaging are in progress. The authoritative
+[status](assurance/STATUS.md) identifies actual results and remaining work.
 
-An open-source dialysis software reference project, intended to democratize access to a working implementation together with its development and assurance evidence. Execution remains limited to simulated patients and equipment. M1 implements a deliberately limited, deterministic headless HD demonstration with separate control, protection, plant, patient and scenario-runner processes. It is uncalibrated and does not establish clinical safety or standards conformity.
+## Quick start: headless
 
-## Run M1
+Use Linux or WSL2 with CMake >=3.16, a C++17 compiler, make and Python >=3.9.
+The core uses the C++ and Python standard libraries. Run from the repository root;
+use a fresh output path for each command.
 
 ```bash
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build --parallel 3
-ctest --test-dir build --output-on-failure
-PYTHONPATH=python python3 -m dialysislab.runner --local --config scenarios/hd_occlusion.json --output build/occlusion
-SOURCE_REVISION=$(git rev-parse HEAD) docker compose build
-docker compose up --no-build --abort-on-container-exit --exit-code-from runner
+cmake -S . -B build/core -DCMAKE_BUILD_TYPE=Release
+cmake --build build/core --parallel 3
+PYTHONPATH=python python3 -m dialysislab.runner --local --build-dir build/core --config scenarios/machine_hdf_pre.json --output build/demo-hdf
+python3 tools/verify_m1.py --build-dir build/core --output build/core-tests.json
 ```
 
-See the [M1 runbook](docs/M1_RUNBOOK.md) for result extraction, Compose cleanup,
-repeatability/failure tests, exact dependencies and assurance commands. The
-[plan](docs/M1_PLAN.md), [interfaces](docs/M1_INTERFACES.md), [model](docs/M1_MODEL.md)
-and [risk analysis](docs/M1_RISKS.md) define the narrow scope. All features below
-remain required; M1 does not complete the roadmap.
+The runner starts separate plant/control/protection/patient processes. JSONL records
+and the manifest identify configuration, seed, virtual time, build, outcomes and
+actual-byte hashes. Protection constrains plant arbitration directly; a conflicting
+control command cannot release it. Failed RPCs use terminal HALT and distinguish
+requested, acknowledged and actually observed output state.
 
-## Guarded machine workflows (M5)
+## Docker Compose
 
-Schema 5 adds preparation, priming, configuration, treatment, pause, stop/recovery,
-finish and cleaning; external flush water/species are conserved separately from
-the patient. Independent protection aggregates synthetic pressure, flow, air/leak,
-fluid-quality, metering and validity alarms. ACK/silence do not reset constraints.
-The [device contract](docs/M5_MACHINE.md) specifies guarded confirmation, recovery,
-detector limits and the dedicated device socket boundary. A GUI follows in M6.
+Docker Engine with Compose is required; the application containers use no network,
+run as UID 10001 with read-only roots, dropped capabilities and 128 MiB limits.
+Initial image/dependency downloads require network access with TLS verification.
+The [dependency assessment](docs/dependencies/M8.md) records pins and open findings.
 
 ```bash
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build --parallel 3
-PYTHONPATH=python python3 -m dialysislab.runner --local --config scenarios/machine_recovery.json --output build/machine-demo
-python3 tools/verify_m1.py --build-dir build --output build/machine-tests.json
-SOURCE_REVISION=$(git rev-parse HEAD) docker compose build
-python3 tools/verify_models.py --compose --scenarios machine_hd machine_hdf_pre machine_hdf_post machine_recovery --output build/machine-compose
+SOURCE_REVISION=$(git rev-parse HEAD) docker compose --profile device-ui build
+SCENARIO=machine_hdf_post docker compose up --no-build --abort-on-container-exit --exit-code-from runner
+docker compose cp runner:/results/. /tmp/dialysislab-results
+# Only after successful extraction:
+docker compose down --volumes --remove-orphans
+python3 tools/verify_compose.py --output build/compose-verification
 ```
 
-Use fresh output paths. The [M5 evidence](assurance/evidence/m5/README.md) records the verified build,
-review corrections, full process/Compose runs and retained failures. The full
-required roadmap remains in `docs/MILESTONES.md`;
-software/numerical verification is separate from model calibration, clinical
-validation, actual fluid quality and standards conformity.
+If extraction fails, preserve the volume and recover it before cleanup. Automated
+verifiers retain logs and available artifacts even on failure, preserve the original
+exit code and write recovery instructions when resources must remain. See the
+[Linux/WSL2 operating guide](docs/QUICKSTART.md).
 
-## Configurable circuit increment (M2)
+## Device UI and experiment console
 
-The opt-in circuit model adds compliant nodes, tube/resistor/clamp/dialyzer edges,
-a finite-head pump, synthetic small/large dialyzers, membrane transfer rates and
-separate patient/circuit/effluent water ledgers. See its
-[equations, limits and contracts](docs/M2_MODEL_INTERFACES.md). M2 uses prescribed
-solute concentration boundaries; dynamic patient solute coupling follows in M3.
+The native GUI build additionally needs X11/Xext development headers and libraries.
+Dependencies are locked to reviewed archives; no system-wide installation is
+performed by the project fetcher.
 
 ```bash
-PYTHONPATH=python python3 -m dialysislab.runner --local --config scenarios/circuit_occlusion.json --output build/circuit-demo
-python3 tools/verify_models.py --output build/circuit-native
-SOURCE_REVISION=$(git rev-parse HEAD) docker compose build
-python3 tools/verify_models.py --compose --output build/circuit-compose
+python3 tools/fetch_gui.py --cache build/gui-deps
+cmake -S . -B build/gui -DCMAKE_BUILD_TYPE=Release -DDIALYSISLAB_GUI=ON
+cmake --build build/gui --parallel 3
+python3 tools/run_device_demo.py --build-dir build/gui --output build/device-demo
 ```
 
-Choose new output paths for each invocation. The verification command collects
-Compose logs and results before cleanup, including failure artifacts. See the
-[complete milestone plan](docs/MILESTONES.md) and
-[current execution checkpoint](assurance/STATUS.md) for remaining phases.
+Use an already authorized Linux X11/WSLg display; the selected backend is SDL2
+software rendering. `--headless --seconds 15` runs the same device client without
+a display. Device UI exposes machine requests and modeled sensor observations;
+it cannot configure the patient, inject faults, control time or access hidden truth.
 
-## Coupled synthetic patient (M3)
-
-The Python patient now solves water and six solute inventories in two body
-compartments and an extracorporeal mixing volume. It records gross UF, circuit
-storage, external flows, net body-volume loss and a water-only weight estimate.
-Baseline, overload and electrolyte-imbalance fixtures are synthetic; the model
-is uncalibrated. Its fixed-pCO2 pH indicator omits respiratory and buffer dynamics.
-Read the [M3 scope and equations](docs/M3_PATIENT.md) before interpreting results.
+To use both separate graphical applications with the experiment services:
 
 ```bash
-PYTHONPATH=python python3 -m dialysislab.runner --local --config scenarios/patient_imbalance.json --output build/patient-demo
-python3 tools/verify_models.py --scenarios patient_baseline patient_overload patient_imbalance patient_large --output build/patient-native
-SOURCE_REVISION=$(git rev-parse HEAD) docker compose build
-python3 tools/verify_models.py --compose --scenarios patient_baseline patient_overload patient_imbalance patient_large --output build/patient-compose
+docker compose -f compose.experiments.yaml -f compose.experiments-x11.yaml --profile console --profile device-ui up -d
+# Console: choose a preset, Load, then Start; Pause/Resume affect virtual time.
+# Headless administrative client uses the same broker:
+docker compose -f compose.experiments.yaml exec -T scenario-runner python3 tools/experiment.py --api-dir /experiment status
 ```
 
-## HD, HDF and online preparation
+This graphical override expects the existing `/tmp/.X11-unix/X0` socket. It does
+not change host display permissions. The console owns experiment administration;
+the device UI cannot alter scheduled prescriptions but retains immediate STOP,
+including during a virtual pause. Native broker/console commands, replay/export
+and recovery are documented in [M7_EXPERIMENTS.md](docs/M7_EXPERIMENTS.md).
 
-M4 adds conservative pre/post replacement, a mixed/heated preparation reservoir,
-two filter surrogates and observed quality-fault arbitration. Quality stops block
-replacement/UF/dialysate exchange while separate blood protection remains active.
-Read [equations, synthetic limits and quality caveats](docs/M4_TREATMENT.md).
-
-```bash
-PYTHONPATH=python python3 -m dialysislab.runner --local --config scenarios/treatment_hdf_pre.json --output build/hdf-demo
-python3 tools/verify_models.py --scenarios treatment_hd treatment_hdf_pre treatment_hdf_post --output build/treatment-native
-SOURCE_REVISION=$(git rev-parse HEAD) docker compose build
-python3 tools/verify_models.py --compose --scenarios treatment_hd treatment_hdf_pre treatment_hdf_post treatment_temperature treatment_ratio treatment_supply treatment_integrity treatment_route treatment_filter1 treatment_contaminant treatment_hdf_large treatment_hdf_imbalance --output build/treatment-compose
-```
-
-Hidden contamination is deliberately absent from protection observations. No
-sterility, clinical threshold or calibrated physiology claim follows from these runs.
-
-## Agreed scope
-
-- Intermittent haemodialysis and both predilution and postdilution haemodiafiltration.
-- Online substitution-fluid preparation, including modeled mixing, thermal behavior, filtration stages, hydraulics, and delivery.
-- A generic machine assembled from configurable components; multiple dialyzer profiles.
-- C/C++ machine control, protective system, physical plant, and medical-device-style user interface.
-- A configurable Python patient model for fluid volumes, electrolyte/solute dynamics, and patient scenarios.
-- Linux containers usable on WSL2 and native Linux, with headless experiments and automated verification.
-- LVGL for the device UI. Patient simulation and experiment tools are separate applications, not device-UI pages or modes.
-- Application libraries should preferably use MIT, BSD, Apache-2.0, or zlib licenses; exceptions require explicit review.
-
-## Documents
-
-- [Architecture decisions](docs/ARCHITECTURE.md)
-- [Dependency policy](DEPENDENCY_POLICY.md)
-- [Candidate dependencies](docs/DEPENDENCY_CANDIDATES.md)
-- [Dependency exception template](docs/templates/DEPENDENCY_EXCEPTION.md)
-- [Assurance and completion plan](assurance/ASSURANCE_PLAN.md)
-- [Safety and security design obligations](assurance/SAFETY_SECURITY.md)
-- [Verification and validation strategy](assurance/VERIFICATION_VALIDATION.md)
-- [Current evidence status](assurance/STATUS.md)
-- [Machine-readable starter trace graph](assurance/traceability.json)
-- [Explained standards checklist and coverage](assurance/standards/README.md)
-- [Edition and EU applicability gaps](assurance/standards/EDITION_GAPS.md)
-- [Licensed-source publication policy](assurance/standards/PUBLICATION_POLICY.md)
-
-## Run the assurance infrastructure
-
-From this directory, using Python 3.9 or newer:
+## Verification and evidence
 
 ```bash
+python3 tools/verify_device_ui.py --build-dir build/gui --output build/device-tests
+python3 tools/verify_console.py --build-dir build/gui --output build/console-tests
+python3 tools/verify_experiments_compose.py --with-device --output build/both-ui-tests
+python3 tools/verify_integrated.py --build-dir build/gui --output build/matrix-native
+python3 tools/verify_integrated.py --build-dir build/gui --compose --output build/matrix-compose
+python3 tools/verify_integrated.py --group faults --build-dir build/gui --compose --output build/faults-compose
+python3 tools/verify_integrated.py --group long --archive --build-dir build/gui --compose --output build/long-compose
 python3 tools/check_traceability.py assurance/traceability.json
 python3 tools/check_standards.py
-python3 -m unittest discover -s tests -v
-python3 tools/check_traceability.py assurance/traceability.json --release
-python3 tools/check_standards.py --release
+python3 tools/check_publication.py
 ```
 
-The normal commands check trace/register structure and report gaps. Build M1 before running the full test suite; it now exercises the synthetic services, publication boundaries and original trace checker. Both release commands deliberately fail while roadmap work and reviews remain incomplete. Passing these checks does not establish standards conformity.
+The matrix combines three modes, three synthetic patients and two dialyzers with
+exact repeats. Long-run acceptance covers 100000 ticks, independently checked
+water/species balances and actual process/container memory. `--archive` losslessly
+compresses verified owned trajectories and records original hashes/recovery commands.
+The [integration protocol](docs/M9_INTEGRATION.md) defines acceptance before execution.
 
-## Engineering intent
+[Evidence](assurance/STATUS.md), [review dispositions](assurance/REVIEWS.md) and
+[decision history](docs/DECISIONS.md) distinguish software/numerical verification
+from model calibration, clinical validation and human risk acceptance. Hosted CI
+executes real builds/processes/widgets/Compose and retains exact report bytes.
+[CI recovery and scans](docs/M8_SECURITY_CI.md) document commands and coverage.
+There are **73 open dependency advisory IDs** in the recorded M8 scan; this is not
+a clean-image or complete third-party license-clearance claim.
 
-Develop traceable requirements, risk analysis, design, configuration management, and verification evidence with reference to IEC 62304, IEC 60601-1, IEC 60601-2-16, and ISO 14971. No standards conformity or clinical validation is claimed by this starter package. Simulation cannot establish the conformity of a physical medical device.
+## Models and lifecycle template
 
-The target is a complete, executable reference implementation with reviewed lifecycle artifacts and evidence for an explicitly defined configuration and scope. The assurance plan now makes this a release objective, not optional supporting documentation. The project owner has confirmed ISO 14971 and EU-first, US-second adaptation. The supplied standards have been inspected and used to draft an original 184-entry explained checklist. All entries remain open; edition gaps and detailed hardware/annex coverage are explicit.
+| Topic | Specification |
+| --- | --- |
+| Components, authority and deployment | [Architecture](docs/ARCHITECTURE.md) |
+| Baseline clock, wire validity, abort and recording | [M1 contracts](docs/M1_INTERFACES.md) |
+| Hydraulic network, transients and synthetic dialyzers | [M2 equations](docs/M2_MODEL_INTERFACES.md) |
+| Body/circuit water, urea, Na, K, Cl, bicarbonate and Ca | [M3 patient](docs/M3_PATIENT.md) |
+| HD/HDF, gross/net transfer, online mixing/filter/temperature surrogates | [M4 treatment](docs/M4_TREATMENT.md) |
+| Lifecycle, hazard-specific outputs, latch/reset/ACK/silence | [M5 machine](docs/M5_MACHINE.md) |
+| Actual LVGL views, confirmations, stale data and reconnect | [M6 device UI](docs/M6_DEVICE_UI.md) |
+| Separate experiment administration, immutable runs and replay | [M7 console](docs/M7_EXPERIMENTS.md) |
+| Threat controls, inventory, SBOM, CI and open findings | [M8 security](docs/M8_SECURITY_CI.md) |
 
-Calibration may use public papers, manufacturer specifications, shareable bench measurements, and authorized de-identified datasets. Availability and redistribution rights must be checked per source. Public demonstrations should use synthetic scenarios unless a dataset is explicitly cleared for redistribution.
+The patient has two body compartments plus circuit mixing, not validated physiology.
+Its pH indication assumes fixed pCO2; no respiratory, full buffer, cardiac or red-cell
+model is supplied. Contamination and some stuck sensors may remain unobservable.
+Cleaning/priming states do not prove disinfection, air clearance or microbiological
+quality. Containers share kernel, plant, runner, configuration and protocol risks.
 
-## Open project decisions
+The EU-first, US-later template includes the [assurance plan](assurance/ASSURANCE_PLAN.md),
+[safety/security obligations](assurance/SAFETY_SECURITY.md), [V&V plan](assurance/VERIFICATION_VALIDATION.md),
+[trace graph](assurance/traceability.json), [184-entry standards checklist](assurance/standards/README.md)
+and [edition/applicability gaps](assurance/standards/EDITION_GAPS.md). Licensed standards
+and private extracts stay outside Git, Docker contexts, CI logs and public packages.
+Both `check_traceability.py --release` and `check_standards.py --release` remain
+blocked by explicit obligations; normal structural checks are not release approval.
 
-M1's exact build dependencies and synthetic tolerances are recorded in its runbook and model specification. Versions, numerical acceptance limits and validation sources for the broader roadmap remain open. The project uses the [MIT license](LICENSE); third-party standards and dependencies retain their own licensing terms.
-
-## Package the reviewed public files
+## Reproducible source package
 
 ```bash
-python3 tools/package_release.py --output ../DialysisLab-project-baseline.zip
+python3 tools/package_release.py --output /tmp/DialysisLab-source.zip
+python3 tools/verify_package.py --output /tmp/DialysisLab-package-verification
 ```
 
-The builder includes only paths in `publication_manifest.json`. Review new content before adding it; standards PDFs and private analysis are never publication inputs. Packaging success is not a software release approval.
-
-
-## Device UI (M6)
-
-The actual LVGL device client uses modeled sensor views and guarded operator
-requests. It has no patient configuration, fault injection or clock controls.
-Fetch the exact reviewed libraries with `python3 tools/fetch_gui.py`, then build
-with `cmake -S . -B build/gui -DCMAKE_BUILD_TYPE=Release -DDIALYSISLAB_GUI=ON`
-and `cmake --build build/gui --parallel 3`. X11/Xext development packages are native
-platform prerequisites; the pinned Docker GUI target provides them separately.
-
-`DISPLAY=:0 SDL_VIDEODRIVER=x11 python3 tools/run_device_demo.py --output build/device-demo`
-starts the interactive simulated device on an already authorized Linux/WSLg X11
-display. For a headless scripted demo use
-`python3 tools/run_device_demo.py --headless --seconds 15 --config scenarios/machine_air.json --output build/device-headless`.
-Each command requires a fresh output directory. Closing the UI records a runner
-abort and observed HALT; no clinical shutdown behavior is implied.
-
-Build containers with `SOURCE_REVISION=$(git rev-parse HEAD) docker compose --profile device-ui build`.
-`python3 tools/verify_ui_compose.py --output build/ui-compose` drives real widgets
-against separate containers and retains trajectory, manifest, logs and rendered
-captures. Add `--graphical` to exercise the selected X11 display mount. Details,
-prerequisites, safety semantics and native tests: [M6 UI contract](docs/M6_DEVICE_UI.md).
-Actual native, sanitizer, WSLg and Compose results are in [M6 evidence](assurance/evidence/m6/README.md).
-The later external experiment console, security/CI and integrated package phases
-remain required; this UI increment does not complete the project.
-
-## External experiment console (M7)
-
-The separate Dear ImGui/SDL2 console administers the actual Python broker: validated
-patient/circuit/dialyzer/mode/workflow/fault configuration, run/pause/stop, authorised
-internal truth, fresh-service replay, comparison and streamed ZIP export. A batch
-client uses the same bounded authenticated Unix interface. Device UI remains on its
-own observation/request channels; scheduled experiments retain emergency STOP.
-See [M7 contracts and commands](docs/M7_EXPERIMENTS.md) for native, headless and
-separate-container deployment, recovery, replay limits and result preservation.
-M8 cybersecurity/inventory/CI and M9 final integration remain required.
+Only explicitly reviewed paths in `publication_manifest.json` enter the archive.
+The package verifier compares two byte-identical archives, then builds and runs
+real tests/widgets from their extracted sources. It needs the same GUI prerequisites
+and a fresh external output directory. Packaging does not approve a medical product
+or redistribution of an unassessed complete container image. The project is
+[MIT licensed](LICENSE); third-party dependencies retain their own terms.

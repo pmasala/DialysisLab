@@ -141,3 +141,8 @@ and never rewrites evidence. A malformed complete line or sequence gap is an err
 Complete writes survive process death through the OS cache; power-loss durability
 is not claimed (no per-tick fsync). Disk failures may prevent final metadata, but
 an already written prefix remains recoverable. STOP does not imply rollback.
+
+M9 broker integration retains DL1 versions and virtual-time semantics. During a
+paused scheduled experiment, CHECK7 cancellation is monitored on the existing
+control service channel; external device STOP terminates the run without another
+tick or console RESUME. HALT requested/acknowledged/observed states remain distinct.

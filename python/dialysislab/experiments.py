@@ -21,7 +21,7 @@ import threading
 import time
 import zipfile
 from . import experiment_rpc as wire
-from .protocol import pause, wait_ready
+from .protocol import pause, wait_ready, rpc, expect
 from .runner import ROOT, LocalCluster, build_identity, simulate, stop_plant, validate
 from .trajectory import canonical, scan, strict_json
 
@@ -245,6 +245,11 @@ class Broker:
                                 self.state = 'running'
                         remaining = deadline - time.monotonic() if speed else 0
                         if not paused and remaining <= 0: break
+                        if paused:
+                            reply=rpc(runtime/'control/service.sock','CHECK7')
+                            if reply==['REJECT','external_stop']:
+                                raise InterruptedError('device STOP during virtual pause')
+                            expect(reply,'OK',1)
                         pause(runtime, .05 if paused else min(.05, remaining))
                     if speed: deadline = time.monotonic() + config['dt_ms'] / (1000 * speed)
                 def record(value):
