@@ -53,6 +53,8 @@ def main():
             device=ui_regressions.UserInterface('/unused','simultaneous',argv=argv)
         ui.set('preset','machine_hdf_pre');ui.click('LOAD')
         until(lambda:call('DRAFT'),lambda c:c['treatment']['mode']=='HDF_PRE')
+        loaded_revision=call('STATUS')['revision']
+        until(ui.snapshot,lambda s:s['last_action']=='LOAD' and s['revision']==loaded_revision)
         ui.set('speed',4);ui.click('START')
         running=until(ui.snapshot,lambda s:s['state']=='running' and s['sequence']>=5)
         original=running['run_id']

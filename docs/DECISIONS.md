@@ -51,3 +51,7 @@ changes are authorized merely to bypass a block.
 | M9-003 | Observe scheduled-control cancellation during virtual pause via CHECK7, preserving independent plant STOP and immutable virtual time. | Failed communication aborts with observed versus unconfirmed HALT distinguished. |
 | M9-004 | Correct infeasible synthetic prescriptions, keeping pressure250, balance5, KUF<=1 and all acceptance bounds unchanged. Long replacement70; large R0.9/KUF1. | Actual1500-tick hydraulic feasibility plus full100000-tick and matrix repeats; initial failures retained. |
 | M9-005 | Generated synthetic bind-mounted scenarios are0644; source-package verification records unavailable Git identity when metadata is absent. | Restrictive umask real Compose regression; no global permission changes or invented commit. |
+
+- M9-006: synchronize integrated START with the console's actual LOAD response
+  and editor revision, not a separate broker client's observation. Preserve
+  disabled-button semantics and reproduce delayed reply delivery with real widgets.

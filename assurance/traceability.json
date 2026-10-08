@@ -436,7 +436,7 @@
         },
         {
           "path": "tools/verify_experiments_compose.py",
-          "sha256": "0a5745948b1e7f8383c1961a1a83c94ae49b00c7d7fac644e3b9d5b0ee5f3705"
+          "sha256": "d7913d3f16fea907278b10d0ee88ab2e087fc5ffd36b5ee4f0ea9c4b48bc581b"
         },
         {
           "path": "src/ui/client.hpp",
@@ -2486,7 +2486,7 @@
         },
         {
           "path": "tools/verify_experiments_compose.py",
-          "sha256": "0a5745948b1e7f8383c1961a1a83c94ae49b00c7d7fac644e3b9d5b0ee5f3705"
+          "sha256": "d7913d3f16fea907278b10d0ee88ab2e087fc5ffd36b5ee4f0ea9c4b48bc581b"
         },
         {
           "path": "compose.experiments-x11.yaml",

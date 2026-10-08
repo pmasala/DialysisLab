@@ -386,3 +386,17 @@ M9-R1–R3 corrections pass six targeted integration tests, including two real
 restrictive umask and failed packaging without Git. M9-V5 passes the actual
 broker-kill test and precise process-absence/access-error regression. Full long,
 restrictive-umask Compose and successful extracted-package execution are pending.
+
+M9-V6 integration harness: the first corrected WSLg attempt observed the broker's
+saved draft before the console received LOAD. START was correctly disabled and
+the test timed out. Wait for the actual UI LOAD reply/revision before clicking;
+do not relax the application's start guard. A real delayed-reply regression
+proves the saved draft alone cannot start a run and the received reply enables
+it. Six console widget tests and the repeated simultaneous WSLg deployment pass
+(STOP0.316s, frozen tick preserved). The initial regression incorrectly delayed
+inside the broker lock; its failed diagnostic is retained and the final fixture
+delays reply encoding after lock release. No application behavior changed.
+
+At correction build935692a,157/157 native and157/157 sanitizer tests pass;
+36 native and36 restrictive-umask Compose matrix runs pass. Full long runs,
+extracted package and corrected hosted CI closure remain pending.

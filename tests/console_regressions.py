@@ -57,6 +57,36 @@ class Console:
 
 
 class ConsoleTests(unittest.TestCase):
+    def test_start_requires_the_actual_load_reply_not_only_a_saved_broker_draft(self):
+        from unittest.mock import patch
+        from dialysislab import experiment_rpc as wire
+        with Fixture() as f:
+            ui=Console(f.root/'api',EVIDENCE/'load-reply-barrier')
+            accepted=threading.Event();release=threading.Event();original=wire.payload
+            def delayed(value):
+                result=original(value)
+                # Delay the first LOAD reply after dispatch releases the broker
+                # lock; other real clients can observe the already saved draft.
+                if isinstance(value,dict) and value.get('treatment',{}).get('mode')=='HDF_PRE' and not accepted.is_set():
+                    accepted.set()
+                    if not release.wait(3):raise RuntimeError('test LOAD release timeout')
+                return result
+            try:
+                wait_for(ui.snapshot,lambda s:s['connected'])
+                with patch.object(wire,'payload',side_effect=delayed):
+                    ui.set('preset','machine_hdf_pre');ui.click('LOAD')
+                    self.assertTrue(accepted.wait(2))
+                    self.assertEqual(f.call('DRAFT')['treatment']['mode'],'HDF_PRE')
+                    revision=f.call('STATUS')['revision']
+                    self.assertNotEqual(ui.snapshot()['revision'],revision)
+                    ui.click('START');self.assertEqual(f.call('RUNS'),[])
+                    release.set()
+                    wait_for(ui.snapshot,lambda s:s['last_action']=='LOAD' and s['revision']==revision)
+                    ui.set('speed',0);ui.click('START')
+                    done=wait_for(ui.snapshot,lambda s:s['state']=='completed')
+                    self.assertEqual(done['sequence'],399)
+            finally:release.set();ui.close()
+
     def test_real_widgets_configure_pause_replay_compare_and_export(self):
         with Fixture() as f:
             ui=Console(f.root/'api',EVIDENCE/'workflow')
@@ -64,6 +94,8 @@ class ConsoleTests(unittest.TestCase):
                 wait_for(ui.snapshot,lambda s:s['connected'])
                 ui.set('preset','machine_hdf_post');ui.click('LOAD')
                 wait_for(lambda:f.call('DRAFT'),lambda c:c['treatment']['mode']=='HDF_POST')
+                revision=f.call('STATUS')['revision']
+                wait_for(ui.snapshot,lambda s:s['last_action']=='LOAD' and s['revision']==revision)
                 ui.set('speed',20);ui.click('START')
                 started=wait_for(ui.snapshot,lambda s:s['state']=='running' and s['sequence']>=5)
                 original=started['run_id'];ui.click('PAUSE')
