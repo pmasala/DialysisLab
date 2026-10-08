@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(DialysisLab VERSION 0.1.0 LANGUAGES CXX)
+project(DialysisLab VERSION 0.1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -14,8 +14,12 @@ foreach(service plant control protection)
     endif()
 endforeach()
 find_package(Python3 3.9 REQUIRED COMPONENTS Interpreter)
-file(GLOB identity_inputs CONFIGURE_DEPENDS src/*.cpp src/*.hpp python/dialysislab/*.py scenarios/*.json)
-set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${identity_inputs} tools/build_identity.py)
+file(GLOB_RECURSE identity_inputs CONFIGURE_DEPENDS src/*.cpp src/*.hpp src/*.c src/*.h cmake/*.cmake python/dialysislab/*.py scenarios/*.json)
+option(DIALYSISLAB_GUI "Build the actual LVGL device UI" OFF)
+if(DIALYSISLAB_GUI)
+    include(cmake/Gui.cmake)
+endif()
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${identity_inputs} tools/build_identity.py tools/fetch_gui.py gui_dependencies.json)
 execute_process(COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tools/build_identity.py
     --output ${CMAKE_BINARY_DIR}/build_identity.json --compiler-id ${CMAKE_CXX_COMPILER_ID}
     --compiler-version ${CMAKE_CXX_COMPILER_VERSION} --build-type "${CMAKE_BUILD_TYPE}"

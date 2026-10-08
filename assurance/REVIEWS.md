@@ -84,7 +84,7 @@ treatment runs, 14 M2/M3 plus four M1 Compose regressions and two isolation prob
 Two native/two Compose 100000-tick runs pass, including large cumulative UF,
 confirmed native HALT, exact hashes and unchanged RSS limits. [Evidence](evidence/m4/README.md).
 
-## M5–M9
+## M6–M9
 
 Not yet invoked. Freeze phase base/candidate and retain one command/output per phase.
 
@@ -127,3 +127,16 @@ three isolation probes and two native/two Compose 100000-tick priming runs. Both
 review findings and M5-V1 are fixed. See `evidence/m5/review.json`,
 `evidence/m5/summary.json` and `evidence/m5/README.md` for commits, commands, actual
 results, retained failures and limitations. No second review was performed.
+
+
+## M6 — candidate prepared; one review pending
+
+Base `445c667939d1fcdf37e46dea697f3c881dfbadca` was fixed before implementation.
+`codex review --help` was checked; the CLI supports `review --base` and read-only
+configuration overrides. Candidate verification: 114/114 native regressions,
+5/5 actual-widget headless/native WSLg/sanitizer tests, and successful headless
+and graphical separate-container widget workflows. These working-tree results
+are preliminary. Record the exact candidate/argv/time/output before invoking the
+single phase review; then dispositions, regression evidence and correction commits.
+No review of M6 has yet been invoked at this checkpoint. AI review is not clinical,
+regulatory, hardware-independence or human approval.

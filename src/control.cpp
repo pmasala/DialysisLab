@@ -1,5 +1,6 @@
 #include "wire.hpp"
 #include "machine.hpp"
+#include "device_session.hpp"
 int main(int argc, char** argv) {
     try {
         dl::setup(); auto root = dl::runtime_dir(argc, argv);
@@ -8,10 +9,14 @@ int main(int argc, char** argv) {
         const auto plant = root + "/control/plant.sock";
         long long next = 0, previous_time = -1;
         dl::Intent intent;
+        const auto session=dl::device_session();
         dl::serve({&listener, &device}, [&](std::size_t role, dl::Tokens& r) {
             auto op = r.take();
             if (role==1) {
-                if (op=="STATUS5") { r.end(); auto view=dl::rpc(plant,"DL1 VIEW5"); return view.rfind("DL1 VIEW5 ",0)==0 ? view + " " + intent.status().substr(4) : view; }
+                if (op=="HELLO6") { r.end(); return dl::msg("SESSION6",session); }
+                bool view6=op=="STATUS6";
+                if (!dl::session_operation(op,r,session)) return std::string("DL1 REJECT session");
+                if (op=="STATUS5") { r.end(); auto view=dl::rpc(plant,"DL1 VIEW5"); return view.rfind("DL1 VIEW5 ",0)==0 ? (view6 ? dl::msg("VIEW6",session)+view.substr(9) : view) + " " + intent.status().substr(4) : view; }
                 if (op=="STOP5") { r.end(); intent.command.clear(); intent.queued=false; intent.result="cancelled"; return dl::rpc(plant,"DL1 STOP5"); }
                 if (op=="CONFIRM5") { auto token=r.integer(); r.end(); return intent.confirm(token); }
                 if (op=="REQUEST5") {

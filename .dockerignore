@@ -57,3 +57,14 @@
 !scenarios/machine_recovery.json
 !scenarios/machine_stall.json
 !scenarios/machine_priming_100000.json
+!cmake/Gui.cmake
+!src/device_session.hpp
+!src/ui/client.hpp
+!src/ui/device_ui.cpp
+!src/ui/font.cpp
+!src/ui/lv_conf.h
+!gui_dependencies.json
+!tools/fetch_gui.py
+!docs/dependencies/GUI_NOTICES.md
+!scenarios/device_interactive.json
+!scenarios/device_ui_demo.json

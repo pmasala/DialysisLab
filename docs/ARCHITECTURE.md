@@ -126,3 +126,18 @@ priming/cleaning pass through the real circuit and conservative Python patient
 coupling as source/waste ledgers. Device clients use a dedicated volume and cannot
 reach simulation administration or raw plant command endpoints. Sensor age remains
 distinct from authoritative machine state; pending confirmation is not completion.
+
+
+## M6 device client increment
+
+The C++ LVGL device UI renders on its main thread and sends bounded RPCs from a
+worker to the control/protection **device** endpoints. It receives no patient or
+plant-administration channel. SDL software output supports a real X11 window or
+a headless framebuffer; the same widgets and service client run in both. An
+original project font avoids adopting separately licensed bundled font assets.
+A fresh process session binds version-6 requests/confirmations across reconnect;
+it supplies freshness, not authentication. M5 wire paths remain for the trusted
+scenario runner. The UI conservatively retains received constraints, separates
+intent from effective state and marks invalid/stale/disconnected measurements.
+Only the external runner can pace virtual execution. See `M6_DEVICE_UI.md` for
+timestamps, units, interaction guards, deployment and verification requirements.

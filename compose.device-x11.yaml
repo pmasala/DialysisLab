@@ -1,0 +1,9 @@
+# Explicit local display access for WSLg/Linux; no simulation/admin mounts.
+services:
+  device-ui:
+    command: [/opt/bin/device-ui, --runtime-dir, /run/dialysis, --capture-dir, /captures]
+    environment:
+      DISPLAY: ":0"
+      SDL_VIDEODRIVER: x11
+    volumes:
+      - /tmp/.X11-unix/X0:/tmp/.X11-unix/X0:ro

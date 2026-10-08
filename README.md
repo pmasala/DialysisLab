@@ -159,3 +159,28 @@ python3 tools/package_release.py --output ../DialysisLab-project-baseline.zip
 ```
 
 The builder includes only paths in `publication_manifest.json`. Review new content before adding it; standards PDFs and private analysis are never publication inputs. Packaging success is not a software release approval.
+
+
+## Device UI (M6 integration in progress)
+
+The actual LVGL device client uses modeled sensor views and guarded operator
+requests. It has no patient configuration, fault injection or clock controls.
+Fetch the exact reviewed libraries with `python3 tools/fetch_gui.py`, then build
+with `cmake -S . -B build/gui -DCMAKE_BUILD_TYPE=Release -DDIALYSISLAB_GUI=ON`
+and `cmake --build build/gui --parallel 3`. X11/Xext development packages are native
+platform prerequisites; the pinned Docker GUI target provides them separately.
+
+`DISPLAY=:0 SDL_VIDEODRIVER=x11 python3 tools/run_device_demo.py --output build/device-demo`
+starts the interactive simulated device on an already authorized Linux/WSLg X11
+display. For a headless scripted demo use
+`python3 tools/run_device_demo.py --headless --seconds 15 --config scenarios/machine_air.json --output build/device-headless`.
+Each command requires a fresh output directory. Closing the UI records a runner
+abort and observed HALT; no clinical shutdown behavior is implied.
+
+Build containers with `SOURCE_REVISION=$(git rev-parse HEAD) docker compose --profile device-ui build`.
+`python3 tools/verify_ui_compose.py --output build/ui-compose` drives real widgets
+against separate containers and retains trajectory, manifest, logs and rendered
+captures. Add `--graphical` to exercise the selected X11 display mount. Details,
+prerequisites, safety semantics and native tests: [M6 UI contract](docs/M6_DEVICE_UI.md).
+The later external experiment console, security/CI and integrated package phases
+remain required; this UI increment does not complete the project.

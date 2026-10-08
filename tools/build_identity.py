@@ -22,7 +22,9 @@ def main():
         revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip()
         dirty = bool(subprocess.check_output(['git', 'status', '--porcelain'], cwd=root, text=True).strip())
     paths = [root / 'CMakeLists.txt', root / 'tools/build_identity.py']
-    paths += sorted((root / 'src').glob('*'))
+    paths += sorted((root / 'src').rglob('*'))
+    paths += sorted((root / 'cmake').glob('*.cmake'))
+    paths += [root / 'gui_dependencies.json', root / 'tools/fetch_gui.py']
     paths += sorted((root / 'python/dialysislab').glob('*.py'))
     paths += sorted((root / 'scenarios').glob('*.json'))
     hashes = {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths if p.is_file()}

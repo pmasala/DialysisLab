@@ -17,6 +17,7 @@ services:
     <<: *common
     build:
       context: .
+      target: runtime
       args:
         SOURCE_REVISION: ${SOURCE_REVISION:-unavailable}
     command: [/opt/bin/plant, --runtime-dir, /run/dialysis]
@@ -39,7 +40,7 @@ services:
   runner:
     <<: *common
     depends_on: [plant, control, protection, patient]
-    command: [python3, -m, dialysislab.runner, --config, "/opt/dialysislab/scenarios/${SCENARIO:-hd_occlusion}.json", --output, "/results/${RUN_NAME:-run}", --build-dir, /opt/bin]
+    command: [python3, -m, dialysislab.runner, --config, "/opt/dialysislab/scenarios/${SCENARIO:-hd_occlusion}.json", --output, "/results/${RUN_NAME:-run}", --build-dir, /opt/bin, --wall-speed, "${WALL_SPEED:-0}"]
     volumes:
       - admin:/run/dialysis/admin
       - control:/run/dialysis/control
@@ -47,7 +48,19 @@ services:
       - patient:/run/dialysis/patient
       - device:/run/dialysis/device
       - results:/results
+  device-ui:
+    <<: *common
+    image: dialysislab-ui:local
+    profiles: [device-ui]
+    build:
+      context: .
+      target: gui-runtime
+      args:
+        SOURCE_REVISION: ${SOURCE_REVISION:-unavailable}
+    command: [/opt/bin/device-ui, --headless, --runtime-dir, /run/dialysis, --capture-dir, /captures]
+    volumes: ["device:/run/dialysis/device:ro", "captures:/captures"]
 volumes:
+  captures:
   admin:
   control:
   protection:

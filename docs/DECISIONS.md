@@ -33,3 +33,8 @@ are currently absent. No global environment, credential, certificate or permissi
 changes are authorized merely to bypass a block.
 
 | M5-005 | Reconstruct body volume from body-boundary transfers, independently checking whole-system source/waste/storage balance. Verify protection evidence from authoritative masks as well as redundant latch fields. | Two P2 findings in the sole M5 review; do not widen physical limits or accept contradictory rehashed evidence. |
+
+| M6-001 | Select pinned LVGL core/SDL2 software rendering with an original project font and disabled optional codecs/assets. | Exact versions/features/licenses/notices must be recorded before adoption; no implicit license exception. |
+| M6-002 | Keep LVGL on the UI thread and bounded RPC work on a separate worker; display authoritative state and intent separately. | Invalid/stale/disconnected measurements never become invented zero outputs; UI is not a protective authority. |
+| M6-003 | Add process-session-bound device requests to prevent old confirmation IDs from applying after restart. | Freshness token is not authentication; mount/role boundaries remain required. |
+| M6-004 | Add optional wall pacing to the external runner only. | Virtual time remains integer/barrier driven, heartbeats continue during waits, and device UI exposes no experiment-clock control. |

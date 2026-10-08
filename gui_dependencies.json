@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "profile": "linux-software-ui-1",
+  "components": [
+    {
+      "name": "lvgl",
+      "version": "9.6.0",
+      "commit": "80ca777e37a2b176770726a02e07a6fb79ef0b39",
+      "url": "https://codeload.github.com/lvgl/lvgl/tar.gz/refs/tags/v9.6.0",
+      "sha256": "b20ee3acc1bba13c62d854f9ebd62e4c51e0b443b1e0225892e86442defa84df",
+      "archive": "lvgl-9.6.0.tar.gz",
+      "directory": "lvgl-9.6.0",
+      "license": "MIT"
+    },
+    {
+      "name": "SDL2",
+      "version": "2.32.10",
+      "commit": "5d249570393f7a37e037abf22cd6012a4cc56a71",
+      "url": "https://www.libsdl.org/release/SDL2-2.32.10.tar.gz",
+      "sha256": "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165",
+      "archive": "SDL2-2.32.10.tar.gz",
+      "directory": "SDL2-2.32.10",
+      "license": "Zlib AND MIT AND BSD-3-Clause",
+      "excluded_archive_links": [
+        "SDL2-2.32.10/android-project-ant/src",
+        "SDL2-2.32.10/android-project-ant/AndroidManifest.xml"
+      ]
+    }
+  ],
+  "scope": "Selected application build profile only; platform packages and inactive upstream assets are documented separately."
+}

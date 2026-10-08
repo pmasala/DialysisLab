@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package reviewed public text files only. This is not release approval."""
+"""Package reviewed public source files and individually registered owned captures. This is not release approval."""
 import argparse
 import hashlib
 import json
@@ -23,10 +23,20 @@ def collect(root, manifest):
             raise ValueError('symlink publication input rejected')
         if root not in path.resolve().parents:
             raise ValueError('publication input outside project')
-        if path.suffix not in {'.md', '.json', '.jsonl', '.py', '.cpp', '.hpp', '.yaml'} and name not in {
+        if path.suffix not in {'.md', '.json', '.jsonl', '.py', '.cpp', '.hpp', '.c', '.h', '.cmake', '.yaml', '.png'} and name not in {
                 '.gitignore', '.dockerignore', 'LICENSE', 'Dockerfile', 'CMakeLists.txt'}:
             raise ValueError('unsupported publication format: ' + name)
         raw = path.read_bytes()
+        if path.suffix == '.png':
+            asset = manifest.get('owned_assets', {}).get(name)
+            if not isinstance(asset, dict) or asset.get('origin') != 'project-rendered-ui' or not asset.get('command'):
+                raise ValueError('unregistered owned image')
+            if asset.get('sha256') != hashlib.sha256(raw).hexdigest(): raise ValueError('owned image digest')
+            from capture_png import validate_owned_png
+            validate_owned_png(raw)
+            if hashlib.sha256(raw).hexdigest() in restricted_hashes: raise ValueError('restricted source detected')
+            result.append((name, raw))
+            continue
         raw.decode('utf-8')
         if raw.startswith((b'%PDF-', b'PK\x03\x04')) or b'\x00' in raw:
             raise ValueError('binary content in text publication input')
@@ -53,7 +63,7 @@ def main():
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
             out.writestr(info, raw)
-    print(f'Packaged {len(files)} reviewed text files. Licensed sources excluded; no release approval implied.')
+    print(f'Packaged {len(files)} reviewed source/owned-asset files. Licensed sources excluded; no release approval implied.')
 
 
 if __name__ == '__main__':

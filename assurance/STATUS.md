@@ -3,7 +3,7 @@
 ## Integrated execution checkpoint — 2026-10-08
 
 Branch `feat/integrated-dialysis-roadmap`. Technical phases M1–M5 COMPLETE;
-M6 NEXT; M7–M9 PLANNED. The full project remains incomplete.
+M6 IN PROGRESS; M7–M9 PLANNED. The full project remains incomplete.
 
 M5 implementation `443f73f` passes 108/108 native and 108/108 sanitizer tests,
 22 native/22 Compose workflows with exact replay, 12 M2–M4 Compose compatibility
@@ -18,14 +18,24 @@ integration exposed finite-subnormal parsing, fixed in `443f73f`. Both failed-ru
 artifacts and all final results are retained. M1–M5 reviews are consumed: never
 rerun them. M6 has not been reviewed.
 
-Next executable step: freeze the M6 base at this verified evidence checkpoint,
-record requirements/acceptance and implement the real LVGL device UI, including
-session-aware requests, stale data/reconnection, input/confirmation flows and
-actual native/Compose graphical/headless evidence. Continue automatically through
-M7–M9. Feasibility (not UI implementation) and dependency inspections are retained
-in `build/dependency-inspection/` and `build/m6-design-notes.md`. WSLg X11 software
-windows and LVGL with an original font have actually rendered; no third-party GUI
-dependency is adopted by M5.
+M6 base is frozen at `445c667`; requirements, risks and acceptance are in
+`docs/M6_DEVICE_UI.md`. The actual LVGL/SDL client, session-bound device API,
+bounded worker, validated/confirmed prescription, measured telemetry/time trends,
+alarm annotations, stale/disconnect handling and external pacing are implemented.
+Candidate verification passes 114/114 existing/new native regressions and 5/5
+actual-widget tests in headless, native WSLg and fully instrumented ASan/UBSan
+builds. Separate-container widget integration passes both headless and X11 WSLg,
+including actual denied administrative connections and retained artifacts. Native
+window closure records a runner abort, acknowledged HALT and observed zero outputs.
+
+These are preliminary working-tree results, retained under `build/m6-*`; final
+clean-build evidence must follow review/corrections. The single M6 review is the
+next step, against the fixed base; preserve its one-invocation sentinel/output in
+`build/reviews/`. Never re-review M1–M5. Next executable step: commit the M6 candidate,
+run its sole review, fix applicable findings and repeat affected verification;
+then commit final evidence and continue automatically through M7–M9. The source
+and UI graph contain no standards/private assets. Graphical checks are executable
+in this environment, not blocked. Full project completion is not claimed.
 
 Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md).

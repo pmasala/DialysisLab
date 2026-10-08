@@ -57,6 +57,11 @@
       "id": "M5-NEED-001",
       "statement": "Operate the simulated machine through guarded lifecycle states with independent hazard-specific protection and device-facing contracts.",
       "status": "implemented"
+    },
+    {
+      "id": "M6-NEED-001",
+      "statement": "Operate the simulated device through a real isolated LVGL interface with authoritative measurements, guarded requests and reliable connection state.",
+      "status": "draft"
     }
   ],
   "hazards": [
@@ -273,6 +278,36 @@
       "id": "M5-DES-006",
       "description": "Verify integrated lifecycle and failure evidence; docs/M5_MACHINE.md.",
       "status": "implemented"
+    },
+    {
+      "id": "M6-DES-001",
+      "description": "Build the real LVGL device application; docs/M6_DEVICE_UI.md.",
+      "status": "draft"
+    },
+    {
+      "id": "M6-DES-002",
+      "description": "Validate and confirm simulated prescriptions; docs/M6_DEVICE_UI.md.",
+      "status": "draft"
+    },
+    {
+      "id": "M6-DES-003",
+      "description": "Display measured authoritative telemetry and trends; docs/M6_DEVICE_UI.md.",
+      "status": "draft"
+    },
+    {
+      "id": "M6-DES-004",
+      "description": "Present alarms without bypassing protection; docs/M6_DEVICE_UI.md.",
+      "status": "draft"
+    },
+    {
+      "id": "M6-DES-005",
+      "description": "Make device reconnect and confirmation semantics explicit; docs/M6_DEVICE_UI.md.",
+      "status": "draft"
+    },
+    {
+      "id": "M6-DES-006",
+      "description": "Verify actual UI integration and capture evidence; docs/M6_DEVICE_UI.md.",
+      "status": "draft"
     }
   ],
   "requirements": [
@@ -445,11 +480,11 @@
         },
         {
           "path": "CMakeLists.txt",
-          "sha256": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10"
+          "sha256": "c535b5f1151aa11fdc9d7b477c0a6101c28c1266e78bf3e354faa899d8b6bf06"
         },
         {
           "path": "compose.yaml",
-          "sha256": "57c6a5da6f197500e256205da6d7e1f6231d4936568c70787b32b9fda136018b"
+          "sha256": "198a2de74fdffca552fbcd8624bb802dfc57fce74c9003d8b6e51415d4f5d8c0"
         }
       ],
       "unresolved": [
@@ -478,7 +513,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "6bb4c85c9ece571bbdf7f35256cd063e470396c01683bb7766cb17d360a87607"
+          "sha256": "c7560ff59a912d60c31edd3189a3723aa7a65637239e917a39547d45034ae4ee"
         },
         {
           "path": "src/plant.cpp",
@@ -548,7 +583,7 @@
       "implementation": [
         {
           "path": "src/protection.cpp",
-          "sha256": "078e4c3abcc057456cb80470ea8bb3d40085c17f72857853030487d39e38af7d"
+          "sha256": "d4ceed40653e71d3e28b495f5a0232a4316d5cc890b529aa381cb0fca78d94c2"
         },
         {
           "path": "src/plant.cpp",
@@ -585,7 +620,7 @@
         },
         {
           "path": "src/control.cpp",
-          "sha256": "932f42a7e93583c6676c2a218691158c6d823adbe2ee42a8f590a74de84487a2"
+          "sha256": "2f0b7c75bc823b92c63bfa68a3a7f2832da8983c7e607e7f8aad8e5a0f69f80f"
         }
       ],
       "unresolved": [
@@ -618,11 +653,11 @@
         },
         {
           "path": "src/control.cpp",
-          "sha256": "932f42a7e93583c6676c2a218691158c6d823adbe2ee42a8f590a74de84487a2"
+          "sha256": "2f0b7c75bc823b92c63bfa68a3a7f2832da8983c7e607e7f8aad8e5a0f69f80f"
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "078e4c3abcc057456cb80470ea8bb3d40085c17f72857853030487d39e38af7d"
+          "sha256": "d4ceed40653e71d3e28b495f5a0232a4316d5cc890b529aa381cb0fca78d94c2"
         },
         {
           "path": "src/plant.cpp",
@@ -664,7 +699,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "6bb4c85c9ece571bbdf7f35256cd063e470396c01683bb7766cb17d360a87607"
+          "sha256": "c7560ff59a912d60c31edd3189a3723aa7a65637239e917a39547d45034ae4ee"
         }
       ],
       "unresolved": [
@@ -698,7 +733,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "6bb4c85c9ece571bbdf7f35256cd063e470396c01683bb7766cb17d360a87607"
+          "sha256": "c7560ff59a912d60c31edd3189a3723aa7a65637239e917a39547d45034ae4ee"
         },
         {
           "path": "tools/recover_trajectory.py",
@@ -960,7 +995,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "6bb4c85c9ece571bbdf7f35256cd063e470396c01683bb7766cb17d360a87607"
+          "sha256": "c7560ff59a912d60c31edd3189a3723aa7a65637239e917a39547d45034ae4ee"
         }
       ],
       "unresolved": [
@@ -1078,7 +1113,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "6bb4c85c9ece571bbdf7f35256cd063e470396c01683bb7766cb17d360a87607"
+          "sha256": "c7560ff59a912d60c31edd3189a3723aa7a65637239e917a39547d45034ae4ee"
         }
       ],
       "unresolved": [
@@ -1176,7 +1211,7 @@
       "implementation": [
         {
           "path": "src/protection.cpp",
-          "sha256": "078e4c3abcc057456cb80470ea8bb3d40085c17f72857853030487d39e38af7d"
+          "sha256": "d4ceed40653e71d3e28b495f5a0232a4316d5cc890b529aa381cb0fca78d94c2"
         },
         {
           "path": "src/plant.cpp",
@@ -1214,7 +1249,7 @@
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "078e4c3abcc057456cb80470ea8bb3d40085c17f72857853030487d39e38af7d"
+          "sha256": "d4ceed40653e71d3e28b495f5a0232a4316d5cc890b529aa381cb0fca78d94c2"
         }
       ],
       "unresolved": [
@@ -1244,7 +1279,7 @@
       "implementation": [
         {
           "path": "src/control.cpp",
-          "sha256": "932f42a7e93583c6676c2a218691158c6d823adbe2ee42a8f590a74de84487a2"
+          "sha256": "2f0b7c75bc823b92c63bfa68a3a7f2832da8983c7e607e7f8aad8e5a0f69f80f"
         },
         {
           "path": "python/dialysislab/machine.py",
@@ -1252,7 +1287,7 @@
         },
         {
           "path": "compose.yaml",
-          "sha256": "57c6a5da6f197500e256205da6d7e1f6231d4936568c70787b32b9fda136018b"
+          "sha256": "198a2de74fdffca552fbcd8624bb802dfc57fce74c9003d8b6e51415d4f5d8c0"
         }
       ],
       "unresolved": [
@@ -1294,6 +1329,259 @@
       ],
       "unresolved": [
         "Synthetic detector/threshold validation, independent risk acceptance and physical/clinical obligations remain open."
+      ]
+    },
+    {
+      "id": "M6-REQ-001",
+      "statement": "Build the real LVGL device application",
+      "acceptance": "Native/Compose headless and available graphical rendering against actual services.",
+      "needs": [
+        "M6-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "M6-DES-001"
+      ],
+      "tests": [
+        "M6-TEST-001"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "e5d2905165e2c10fe99a3d83ba85e6de082c36987e85a812fbf499839db7b032"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "7e7d2a8902e2bb2ea8a4a02c7781dd923a2fdd5f57851d092274cdd7ec9eb515"
+        },
+        {
+          "path": "src/device_session.hpp",
+          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+        },
+        {
+          "path": "docs/M6_DEVICE_UI.md",
+          "sha256": "804745e16f726c5f0781cf0f8c7486d974e86e65f46068b563e90e48dffa3fa3"
+        }
+      ],
+      "unresolved": [
+        "Representative-user validation, clinical alarm limits, independent risk acceptance and physical/standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M6-REQ-002",
+      "statement": "Validate and confirm simulated prescriptions",
+      "acceptance": "HD/pre/post setup, visible units/bounds, actual server completion and rejection handling.",
+      "needs": [
+        "M6-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-003",
+        "HAZ-005"
+      ],
+      "designs": [
+        "M6-DES-002"
+      ],
+      "tests": [
+        "M6-TEST-002"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "e5d2905165e2c10fe99a3d83ba85e6de082c36987e85a812fbf499839db7b032"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "7e7d2a8902e2bb2ea8a4a02c7781dd923a2fdd5f57851d092274cdd7ec9eb515"
+        },
+        {
+          "path": "src/device_session.hpp",
+          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+        },
+        {
+          "path": "docs/M6_DEVICE_UI.md",
+          "sha256": "804745e16f726c5f0781cf0f8c7486d974e86e65f46068b563e90e48dffa3fa3"
+        }
+      ],
+      "unresolved": [
+        "Representative-user validation, clinical alarm limits, independent risk acceptance and physical/standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M6-REQ-003",
+      "statement": "Display measured authoritative telemetry and trends",
+      "acceptance": "Distinct intent/state, UF/sub/net counters, timestamps, invalid/stale/disconnected data; no invented zeros.",
+      "needs": [
+        "M6-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-003",
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "M6-DES-003"
+      ],
+      "tests": [
+        "M6-TEST-003"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "e5d2905165e2c10fe99a3d83ba85e6de082c36987e85a812fbf499839db7b032"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "7e7d2a8902e2bb2ea8a4a02c7781dd923a2fdd5f57851d092274cdd7ec9eb515"
+        },
+        {
+          "path": "src/device_session.hpp",
+          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+        },
+        {
+          "path": "docs/M6_DEVICE_UI.md",
+          "sha256": "804745e16f726c5f0781cf0f8c7486d974e86e65f46068b563e90e48dffa3fa3"
+        }
+      ],
+      "unresolved": [
+        "Representative-user validation, clinical alarm limits, independent risk acceptance and physical/standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M6-REQ-004",
+      "statement": "Present alarms without bypassing protection",
+      "acceptance": "Separate ACK/silence/reset, no overrides/admin endpoints, actual device-only mount denial tests.",
+      "needs": [
+        "M6-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-002",
+        "HAZ-005"
+      ],
+      "designs": [
+        "M6-DES-004"
+      ],
+      "tests": [
+        "M6-TEST-004"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "e5d2905165e2c10fe99a3d83ba85e6de082c36987e85a812fbf499839db7b032"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "7e7d2a8902e2bb2ea8a4a02c7781dd923a2fdd5f57851d092274cdd7ec9eb515"
+        },
+        {
+          "path": "src/device_session.hpp",
+          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+        },
+        {
+          "path": "docs/M6_DEVICE_UI.md",
+          "sha256": "804745e16f726c5f0781cf0f8c7486d974e86e65f46068b563e90e48dffa3fa3"
+        }
+      ],
+      "unresolved": [
+        "Representative-user validation, clinical alarm limits, independent risk acceptance and physical/standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M6-REQ-005",
+      "statement": "Make device reconnect and confirmation semantics explicit",
+      "acceptance": "New session clears pending/trends, rejects old confirmations, no automatic retry of ambiguous critical requests.",
+      "needs": [
+        "M6-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "M6-DES-005"
+      ],
+      "tests": [
+        "M6-TEST-005"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "e5d2905165e2c10fe99a3d83ba85e6de082c36987e85a812fbf499839db7b032"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "7e7d2a8902e2bb2ea8a4a02c7781dd923a2fdd5f57851d092274cdd7ec9eb515"
+        },
+        {
+          "path": "src/device_session.hpp",
+          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+        },
+        {
+          "path": "docs/M6_DEVICE_UI.md",
+          "sha256": "804745e16f726c5f0781cf0f8c7486d974e86e65f46068b563e90e48dffa3fa3"
+        }
+      ],
+      "unresolved": [
+        "Representative-user validation, clinical alarm limits, independent risk acceptance and physical/standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M6-REQ-006",
+      "statement": "Verify actual UI integration and capture evidence",
+      "acceptance": "Real widgets/RPCs/screenshots, exact build/dependencies/configuration and affected regressions; no mocked integration.",
+      "needs": [
+        "M6-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-002",
+        "HAZ-003",
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "M6-DES-006"
+      ],
+      "tests": [
+        "M6-TEST-006"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "e5d2905165e2c10fe99a3d83ba85e6de082c36987e85a812fbf499839db7b032"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "7e7d2a8902e2bb2ea8a4a02c7781dd923a2fdd5f57851d092274cdd7ec9eb515"
+        },
+        {
+          "path": "src/device_session.hpp",
+          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+        },
+        {
+          "path": "docs/M6_DEVICE_UI.md",
+          "sha256": "804745e16f726c5f0781cf0f8c7486d974e86e65f46068b563e90e48dffa3fa3"
+        }
+      ],
+      "unresolved": [
+        "Representative-user validation, clinical alarm limits, independent risk acceptance and physical/standards obligations remain open."
       ]
     }
   ],
@@ -2488,6 +2776,66 @@
         "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
         "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container."
       }
+    },
+    {
+      "id": "M6-TEST-001",
+      "requirements": [
+        "M6-REQ-001"
+      ],
+      "procedure": "Execute actual device widget/service tests, native/Compose headless and available graphical workflows, retained screenshots and existing regressions.",
+      "expected": "Native/Compose headless and available graphical rendering against actual services.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M6-TEST-002",
+      "requirements": [
+        "M6-REQ-002"
+      ],
+      "procedure": "Execute actual device widget/service tests, native/Compose headless and available graphical workflows, retained screenshots and existing regressions.",
+      "expected": "HD/pre/post setup, visible units/bounds, actual server completion and rejection handling.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M6-TEST-003",
+      "requirements": [
+        "M6-REQ-003"
+      ],
+      "procedure": "Execute actual device widget/service tests, native/Compose headless and available graphical workflows, retained screenshots and existing regressions.",
+      "expected": "Distinct intent/state, UF/sub/net counters, timestamps, invalid/stale/disconnected data; no invented zeros.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M6-TEST-004",
+      "requirements": [
+        "M6-REQ-004"
+      ],
+      "procedure": "Execute actual device widget/service tests, native/Compose headless and available graphical workflows, retained screenshots and existing regressions.",
+      "expected": "Separate ACK/silence/reset, no overrides/admin endpoints, actual device-only mount denial tests.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M6-TEST-005",
+      "requirements": [
+        "M6-REQ-005"
+      ],
+      "procedure": "Execute actual device widget/service tests, native/Compose headless and available graphical workflows, retained screenshots and existing regressions.",
+      "expected": "New session clears pending/trends, rejects old confirmations, no automatic retry of ambiguous critical requests.",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M6-TEST-006",
+      "requirements": [
+        "M6-REQ-006"
+      ],
+      "procedure": "Execute actual device widget/service tests, native/Compose headless and available graphical workflows, retained screenshots and existing regressions.",
+      "expected": "Real widgets/RPCs/screenshots, exact build/dependencies/configuration and affected regressions; no mocked integration.",
+      "result": "planned",
+      "evidence": null
     }
   ],
   "prerequisites": [

@@ -12,6 +12,7 @@ import signal
 import subprocess
 import sys
 import tempfile
+import time
 from .protocol import expect, heartbeat, integer, observation, pause, real, rpc, state, wait_ready
 from .trajectory import FORMAT, TrajectoryWriter, canonical
 
@@ -173,8 +174,10 @@ def stop_plant(admin, online=False):
     return result
 
 
-def simulate(config, runtime, build_dir, output=None, before_tick=None):
+def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_speed=0):
     validate(config)
+    if not isinstance(wall_speed, (int, float)) or not math.isfinite(wall_speed) or not 0 <= wall_speed <= 1000:
+        raise ValueError('wall speed must be finite in [0,1000]; zero means unpaced')
     runtime = Path(runtime)
     manifest = dict(schema_version=2, executed_at=datetime.now(timezone.utc).isoformat(),
                     configuration=config, configuration_sha256=digest(canonical(config).encode()),
@@ -182,7 +185,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
                     platform=platform.platform(), interface='DL1', model=config['model'],
                     simulation_only=True, outcome='running', errors=[],
                     trajectory_format=FORMAT, trajectory_file='trajectory.jsonl',
-                    completed_ticks=0, trajectory_sha256=None)
+                    completed_ticks=0, trajectory_sha256=None, wall_speed=wall_speed)
     writer = TrajectoryWriter(output)
     records = writer.trajectory
     writer.write_manifest(manifest)
@@ -213,7 +216,11 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
             expect(rpc(patient, 'INIT5' if lifecycle else 'INIT4' if online else 'INIT3', canonical(config['patient'])), 'OK', 1)
         else:
             expect(rpc(patient, 'INIT', config['patient_volume_mL']), 'OK', 1)
+        wall_start = time.monotonic()
         for n in range(config['ticks']):
+            if wall_speed:
+                delay = wall_start + n * config['dt_ms'] / (1000 * wall_speed) - time.monotonic()
+                if delay > 0: pause(runtime, delay)
             t = n * config['dt_ms']
             tick_context = dict(sequence=n, time_ms=t)
             if before_tick:
@@ -355,15 +362,16 @@ def main():
     parser.add_argument('--build-dir', default='build', type=Path)
     parser.add_argument('--runtime-dir', default='/run/dialysis', type=Path)
     parser.add_argument('--local', action='store_true', help='Launch four separate native service processes')
+    parser.add_argument('--wall-speed', type=float, default=0, help='Optional virtual/wall speed; 0 is unpaced batch')
     args = parser.parse_args()
     config = validate(json.loads(args.config.read_text()))
     if args.output.exists():
         parser.error('output already exists; choose a new directory')
     if args.local:
         with LocalCluster(args.build_dir) as cluster:
-            _, manifest = simulate(config, cluster.runtime, args.build_dir, args.output)
+            _, manifest = simulate(config, cluster.runtime, args.build_dir, args.output, wall_speed=args.wall_speed)
     else:
-        _, manifest = simulate(config, args.runtime_dir, args.build_dir, args.output)
+        _, manifest = simulate(config, args.runtime_dir, args.build_dir, args.output, wall_speed=args.wall_speed)
         # Compose stops remaining services when this process exits. Keep their
         # processes alive until then so --exit-code-from runner sees our result.
         try:

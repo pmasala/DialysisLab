@@ -21,7 +21,7 @@ class PublicationChecks(unittest.TestCase):
         (self.root / 'assurance/standards/sources.json').write_text('{"standards": []}')
 
     def test_source_and_build_formats(self):
-        names = ['test.cpp', 'test.hpp', 'trajectory.jsonl', 'compose.yaml', 'CMakeLists.txt', 'Dockerfile', '.dockerignore']
+        names = ['test.cpp', 'test.hpp', 'font.c', 'lv_conf.h', 'Gui.cmake', 'trajectory.jsonl', 'compose.yaml', 'CMakeLists.txt', 'Dockerfile', '.dockerignore']
         for name in names:
             (self.root / name).write_text('synthetic project-owned text\n')
         self.assertEqual(len(collect(self.root, {'files': names})), len(names))
@@ -52,3 +52,22 @@ class PublicationChecks(unittest.TestCase):
         (self.root / '.dockerignore').write_text('**\n!src/**\n')
         with self.assertRaises(ValueError):
             inspect_context(self.root, {'files': []})
+
+
+class OwnedCaptureChecks(unittest.TestCase):
+    def test_only_registered_encoder_profile_with_matching_digest_is_allowed(self):
+        from capture_png import encode
+        import hashlib
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'assurance/standards').mkdir(parents=True)
+            (root / 'assurance/standards/sources.json').write_text('{"standards": []}')
+            image = root / 'capture.png'
+            image.write_bytes(encode(2, 2, b'\0' * 12))
+            manifest = {'files': ['capture.png']}
+            with self.assertRaises(ValueError): collect(root, manifest)
+            manifest['owned_assets'] = {'capture.png': {'origin': 'project-rendered-ui', 'command': 'real framebuffer capture', 'sha256': hashlib.sha256(image.read_bytes()).hexdigest()}}
+            self.assertEqual(len(collect(root, manifest)), 1)
+            image.write_bytes(image.read_bytes() + b'%PDF-private')
+            manifest['owned_assets']['capture.png']['sha256'] = hashlib.sha256(image.read_bytes()).hexdigest()
+            with self.assertRaises(ValueError): collect(root, manifest)
