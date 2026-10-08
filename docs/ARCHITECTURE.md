@@ -4,7 +4,9 @@ Status: functional scope and UI separation agreed. M1 now implements the limited
 headless HD slice described in [M1_PLAN.md](M1_PLAN.md), with versioned
 [interfaces](M1_INTERFACES.md), [model equations](M1_MODEL.md) and
 [risk boundaries](M1_RISKS.md). The broader architecture below remains the required
-roadmap; UI/console and calibrated physiology are not implemented at this checkpoint.
+roadmap. M2–M6 below implement the circuit, limited patient/treatment/lifecycle
+and actual device UI increments. The external console and M8/M9 work remain
+required; calibrated physiology is not supplied by this implementation.
 
 M2 adds an opt-in synthetic compliant circuit and multiple dialyzer profiles in
 the same plant process. [M2_MODEL_INTERFACES.md](M2_MODEL_INTERFACES.md) defines

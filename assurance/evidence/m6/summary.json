@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "phase": "M6",
+  "technical_status": "COMPLETE",
+  "executed_at": "2026-10-08T02:30:10.670648+00:00",
+  "implementation_commit": "2ee31adc06f3a68ff5844a67a133632cae35d8e7",
+  "build_worktree_clean": true,
+  "native_tests": 114,
+  "sanitizer_tests": 114,
+  "ui_headless_tests": 10,
+  "ui_wslg_tests": 10,
+  "ui_sanitizer_tests": 10,
+  "widget_compose_deployments": [
+    "headless",
+    "X11/WSLg"
+  ],
+  "short_native_runs": 12,
+  "short_compose_runs": 12,
+  "m1_compose_runs": 4,
+  "isolation_probes": 3,
+  "cross_build_exact_replay": true,
+  "review_invocations": 1,
+  "review_findings_fixed": 6,
+  "additional_integration_findings_fixed": 1,
+  "compose_limit_bytes": 134217728,
+  "ui_headless_rss_peak_bytes": 9547776,
+  "ui_x11_rss_peak_bytes": 20500480,
+  "ui_headless_cgroup_peak_bytes": 12062720,
+  "ui_x11_cgroup_peak_bytes": 22028288,
+  "oom_kills": 0,
+  "dependencies": {
+    "schema_version": 1,
+    "profile": "linux-software-ui-1",
+    "components": [
+      {
+        "name": "lvgl",
+        "version": "9.6.0",
+        "commit": "80ca777e37a2b176770726a02e07a6fb79ef0b39",
+        "url": "https://codeload.github.com/lvgl/lvgl/tar.gz/refs/tags/v9.6.0",
+        "sha256": "b20ee3acc1bba13c62d854f9ebd62e4c51e0b443b1e0225892e86442defa84df",
+        "archive": "lvgl-9.6.0.tar.gz",
+        "directory": "lvgl-9.6.0",
+        "license": "MIT"
+      },
+      {
+        "name": "SDL2",
+        "version": "2.32.10",
+        "commit": "5d249570393f7a37e037abf22cd6012a4cc56a71",
+        "url": "https://www.libsdl.org/release/SDL2-2.32.10.tar.gz",
+        "sha256": "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165",
+        "archive": "SDL2-2.32.10.tar.gz",
+        "directory": "SDL2-2.32.10",
+        "license": "Zlib AND MIT AND BSD-3-Clause",
+        "excluded_archive_links": [
+          "SDL2-2.32.10/android-project-ant/src",
+          "SDL2-2.32.10/android-project-ant/AndroidManifest.xml"
+        ]
+      }
+    ],
+    "scope": "Selected application build profile only; platform packages and inactive upstream assets are documented separately."
+  },
+  "scope": "Actual synthetic device software/UI/process/container verification. No clinical usability/physiology validation, alarm audibility, hardware independence, human risk acceptance or standards conformity. Interactive runs include operator events; only batch replay without additional inputs has exact-hash acceptance.",
+  "maximum_water_residual_mL": 1.2826628648099359e-11,
+  "maximum_mass_residual_mmol": 1.5695639232760072e-11,
+  "tolerance_mL_mmol": 1e-06,
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m6/captures/alarm.png",
+      "sha256": "895692c6f2aa2cb817b35701ca0cb59b68fa827ba6cb993c76a79a1d8409dedb"
+    },
+    {
+      "path": "assurance/evidence/m6/captures/all-alarms-disconnected.png",
+      "sha256": "abf8affea314f1eb8702fb53517fc250678e18cf7f35d822672cf85c9ba5160e"
+    },
+    {
+      "path": "assurance/evidence/m6/captures/compose-x11.png",
+      "sha256": "c19de55797fb70be14602f6591ad18a27189c9763e66a5202bc3c70f44dc3da3"
+    },
+    {
+      "path": "assurance/evidence/m6/captures/exact-confirmation.png",
+      "sha256": "f168213e2098e362696b9e94951085822928900d1c1a3a1d4eaabb00b4056077"
+    },
+    {
+      "path": "assurance/evidence/m6/captures/hd.png",
+      "sha256": "7be46f187cc25662cd4d5d666b1d4d318d0d5ad61bb78c3dfb41d1be0529236e"
+    },
+    {
+      "path": "assurance/evidence/m6/captures/hdf-post.png",
+      "sha256": "34629e97586d9001d40b35b091987e7b17b5d568ce7937fc4d1b9489e56272bd"
+    },
+    {
+      "path": "assurance/evidence/m6/captures/hdf-pre.png",
+      "sha256": "e6374f29aed3444731baeda7bee8978dd87eb091611b19f4980d570913ba028f"
+    },
+    {
+      "path": "assurance/evidence/m6/captures/stale-reconnected.png",
+      "sha256": "7f9d121dc379a7e952b7eb7b6314c607308290e2fd18234af3726e1577e79888"
+    },
+    {
+      "path": "assurance/evidence/m6/compose-models.json",
+      "sha256": "89d6b1f0cec1f0ee2005487b20b2ef42c2cceaba83081315074c6c2d2df65f26"
+    },
+    {
+      "path": "assurance/evidence/m6/m1-compose.json",
+      "sha256": "2d11bda70039a857f3c89d3bd851f024a25d50d2d7aa54a9abe9adb113df1a6e"
+    },
+    {
+      "path": "assurance/evidence/m6/native-models.json",
+      "sha256": "b3e66e761ba9d3ed2e9af9c9b60509e236cc1a62f1a68dd410fa00766ac0832b"
+    },
+    {
+      "path": "assurance/evidence/m6/native-tests.json",
+      "sha256": "7ab397daad770f2778e7422e2cd55914e23ed03be98266466fa01a3008f8142c"
+    },
+    {
+      "path": "assurance/evidence/m6/review.json",
+      "sha256": "0455cab17899cd88efe68f5afc10ee4676d18deb2f2f3a343856d03466a53a56"
+    },
+    {
+      "path": "assurance/evidence/m6/sanitizer-tests.json",
+      "sha256": "fee9d2901111e0ef8fa52b8677688a849b1e413758ea4b0f321d5ebdad35340f"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-compose/events.jsonl",
+      "sha256": "f67d4bd98cc81859adb242c07acae4d5045bc50299b5cfff05eb413f7fce1067"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-compose/input.jsonl",
+      "sha256": "2b2ebcf1d2f2a3496f07aa2107135be9c8cc784adfa4ca3ca88a2be35763a784"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-compose/manifest.json",
+      "sha256": "c66b216297606c346e65cc2c67a2aa9f0b206db2b59c24f8ffc473f6b6cf819e"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-compose/trajectory.jsonl",
+      "sha256": "af810b2d0cf93c93e4a8265b45254a7e954883a920c0a8f282b9d9bb0ceb3307"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-compose-x11/events.jsonl",
+      "sha256": "e94dad3116454556520619f598a106efec5b4cdf8d20eca7cabfb70309da948c"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-compose-x11/input.jsonl",
+      "sha256": "965c10de1f134e18c314e7e2cd1e31147b2c5bf139b238ff80e23d3d488ef830"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-compose-x11/manifest.json",
+      "sha256": "617554bc38526d89ec186fe9791386c09e06ec3ccdccf7d3f1b5d34e37ebf7df"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-compose-x11/trajectory.jsonl",
+      "sha256": "00eb1d986fc2e24bc22e935eb6d13bb1f625e2706c6367f7cd70d0e7bb68d8dc"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-compose-x11.json",
+      "sha256": "cf93994988bb590a8256b29cd1001806f79b8c8923bdbad15623c3e2cac7e451"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-compose.json",
+      "sha256": "a645fc06789f7594495bdfa5716d87087779d0237fba9349bb287fd85520f292"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-headless.json",
+      "sha256": "5e0b431b9a5aadf002e08f831862aa9a7fb819152ff52aa0f25c0165239daabc"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-sanitizer.json",
+      "sha256": "86e7d445ad716f777f001ca411aa6870b3a1772973420f6959cd23c6e20a929e"
+    },
+    {
+      "path": "assurance/evidence/m6/ui-wslg.json",
+      "sha256": "2a74edef7317871e86a6b2d34bb2e2cb4e2366b95d0edfdaf1bd7b52667a7ef1"
+    },
+    {
+      "path": "assurance/evidence/m6/platform-packages.json",
+      "sha256": "d9ab7b6c99d3c4b066aa9ebfec09a95fa24c4d8f58baa55ed2d46f3492c0a120"
+    }
+  ]
+}

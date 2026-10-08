@@ -1,0 +1,42 @@
+{"wall_monotonic": 241683.003525833, "input": "SNAPSHOT request_1"}
+{"wall_monotonic": 241683.236479668, "input": "SNAPSHOT request_2"}
+{"wall_monotonic": 241683.301408974, "input": "SNAPSHOT request_3"}
+{"wall_monotonic": 241683.365900548, "input": "SNAPSHOT request_4"}
+{"wall_monotonic": 241683.430092901, "input": "SNAPSHOT request_5"}
+{"wall_monotonic": 241683.434284705, "input": "CLICK PRIME"}
+{"wall_monotonic": 241683.434315115, "input": "SNAPSHOT request_6"}
+{"wall_monotonic": 241683.447670337, "input": "CLICK CONFIRM"}
+{"wall_monotonic": 241683.447707953, "input": "SNAPSHOT request_7"}
+{"wall_monotonic": 241683.520802602, "input": "SNAPSHOT request_8"}
+{"wall_monotonic": 241683.585632385, "input": "SNAPSHOT request_9"}
+{"wall_monotonic": 241686.990081952, "input": "CLICK CONFIGURE"}
+{"wall_monotonic": 241686.990130852, "input": "SNAPSHOT request_10"}
+{"wall_monotonic": 241687.002325452, "input": "CLICK CONFIRM"}
+{"wall_monotonic": 241687.002357108, "input": "SNAPSHOT request_11"}
+{"wall_monotonic": 241687.075509316, "input": "SNAPSHOT request_12"}
+{"wall_monotonic": 241687.140211093, "input": "SNAPSHOT request_13"}
+{"wall_monotonic": 241687.144949754, "input": "CLICK MODE"}
+{"wall_monotonic": 241687.144979131, "input": "CLICK MODE"}
+{"wall_monotonic": 241687.144986045, "input": "SET blood 280"}
+{"wall_monotonic": 241687.144990045, "input": "SET uf 4"}
+{"wall_monotonic": 241687.144993393, "input": "SET sub 60"}
+{"wall_monotonic": 241687.144997314, "input": "CLICK PRESCRIBE"}
+{"wall_monotonic": 241687.145003193, "input": "SNAPSHOT request_14"}
+{"wall_monotonic": 241687.157934769, "input": "CLICK CONFIRM"}
+{"wall_monotonic": 241687.157971346, "input": "SNAPSHOT request_15"}
+{"wall_monotonic": 241687.231136984, "input": "SNAPSHOT request_16"}
+{"wall_monotonic": 241687.296091918, "input": "SNAPSHOT request_17"}
+{"wall_monotonic": 241687.30066896, "input": "CLICK START"}
+{"wall_monotonic": 241687.300702909, "input": "SNAPSHOT request_18"}
+{"wall_monotonic": 241687.314006273, "input": "CLICK CONFIRM"}
+{"wall_monotonic": 241687.314046099, "input": "SNAPSHOT request_19"}
+{"wall_monotonic": 241687.387178568, "input": "SNAPSHOT request_20"}
+{"wall_monotonic": 241687.451957043, "input": "SNAPSHOT request_21"}
+{"wall_monotonic": 241687.51688757, "input": "SNAPSHOT request_22"}
+{"wall_monotonic": 241687.521889049, "input": "CAPTURE compose_treatment"}
+{"wall_monotonic": 241687.820392134, "input": "CLICK STOP"}
+{"wall_monotonic": 241687.820430523, "input": "SNAPSHOT request_24"}
+{"wall_monotonic": 241687.891679816, "input": "SNAPSHOT request_25"}
+{"wall_monotonic": 241687.957006312, "input": "SNAPSHOT request_26"}
+{"wall_monotonic": 241687.962213554, "input": "CAPTURE compose_stopped"}
+{"wall_monotonic": 241703.158690351, "input": "QUIT now"}

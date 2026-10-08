@@ -135,6 +135,37 @@
     "assurance/evidence/m5/review.json",
     "assurance/evidence/m5/sanitizer-tests.json",
     "assurance/evidence/m5/summary.json",
+    "assurance/evidence/m6/README.md",
+    "assurance/evidence/m6/assurance-checks.json",
+    "assurance/evidence/m6/captures/alarm.png",
+    "assurance/evidence/m6/captures/all-alarms-disconnected.png",
+    "assurance/evidence/m6/captures/compose-x11.png",
+    "assurance/evidence/m6/captures/exact-confirmation.png",
+    "assurance/evidence/m6/captures/hd.png",
+    "assurance/evidence/m6/captures/hdf-post.png",
+    "assurance/evidence/m6/captures/hdf-pre.png",
+    "assurance/evidence/m6/captures/stale-reconnected.png",
+    "assurance/evidence/m6/compose-models.json",
+    "assurance/evidence/m6/m1-compose.json",
+    "assurance/evidence/m6/native-models.json",
+    "assurance/evidence/m6/native-tests.json",
+    "assurance/evidence/m6/platform-packages.json",
+    "assurance/evidence/m6/review.json",
+    "assurance/evidence/m6/sanitizer-tests.json",
+    "assurance/evidence/m6/summary.json",
+    "assurance/evidence/m6/ui-compose-x11.json",
+    "assurance/evidence/m6/ui-compose-x11/events.jsonl",
+    "assurance/evidence/m6/ui-compose-x11/input.jsonl",
+    "assurance/evidence/m6/ui-compose-x11/manifest.json",
+    "assurance/evidence/m6/ui-compose-x11/trajectory.jsonl",
+    "assurance/evidence/m6/ui-compose.json",
+    "assurance/evidence/m6/ui-compose/events.jsonl",
+    "assurance/evidence/m6/ui-compose/input.jsonl",
+    "assurance/evidence/m6/ui-compose/manifest.json",
+    "assurance/evidence/m6/ui-compose/trajectory.jsonl",
+    "assurance/evidence/m6/ui-headless.json",
+    "assurance/evidence/m6/ui-sanitizer.json",
+    "assurance/evidence/m6/ui-wslg.json",
     "assurance/standards/CHECKLIST.md",
     "assurance/standards/EDITION_GAPS.md",
     "assurance/standards/PUBLICATION_POLICY.md",
@@ -263,5 +294,63 @@
     "tools/verify_models.py",
     "tools/verify_reproducibility.py",
     "tools/verify_ui_compose.py"
-  ]
+  ],
+  "owned_assets": {
+    "assurance/evidence/m6/captures/hd.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "7be46f187cc25662cd4d5d666b1d4d318d0d5ad61bb78c3dfb41d1be0529236e",
+      "source_artifact": "build/m6-final-ui-wslg/mode_0/treatment.png",
+      "command": "DISPLAY=:0 SDL_VIDEODRIVER=x11 python3 tools/verify_device_ui.py --build-dir build/gui --graphical --output build/m6-final-ui-wslg",
+      "rights": "Original DialysisLab framebuffer and project-authored MIT font; no external/standards images."
+    },
+    "assurance/evidence/m6/captures/hdf-pre.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "e6374f29aed3444731baeda7bee8978dd87eb091611b19f4980d570913ba028f",
+      "source_artifact": "build/m6-final-ui-wslg/mode_1/treatment.png",
+      "command": "DISPLAY=:0 SDL_VIDEODRIVER=x11 python3 tools/verify_device_ui.py --build-dir build/gui --graphical --output build/m6-final-ui-wslg",
+      "rights": "Original DialysisLab framebuffer and project-authored MIT font; no external/standards images."
+    },
+    "assurance/evidence/m6/captures/hdf-post.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "34629e97586d9001d40b35b091987e7b17b5d568ce7937fc4d1b9489e56272bd",
+      "source_artifact": "build/m6-final-ui-wslg/mode_2/treatment.png",
+      "command": "DISPLAY=:0 SDL_VIDEODRIVER=x11 python3 tools/verify_device_ui.py --build-dir build/gui --graphical --output build/m6-final-ui-wslg",
+      "rights": "Original DialysisLab framebuffer and project-authored MIT font; no external/standards images."
+    },
+    "assurance/evidence/m6/captures/alarm.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "895692c6f2aa2cb817b35701ca0cb59b68fa827ba6cb993c76a79a1d8409dedb",
+      "source_artifact": "build/m6-final-ui-wslg/alarms/air_alarm.png",
+      "command": "DISPLAY=:0 SDL_VIDEODRIVER=x11 python3 tools/verify_device_ui.py --build-dir build/gui --graphical --output build/m6-final-ui-wslg",
+      "rights": "Original DialysisLab framebuffer and project-authored MIT font; no external/standards images."
+    },
+    "assurance/evidence/m6/captures/all-alarms-disconnected.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "abf8affea314f1eb8702fb53517fc250678e18cf7f35d822672cf85c9ba5160e",
+      "source_artifact": "build/m6-final-ui-wslg/alarm_layout/all_alarms_disconnected.png",
+      "command": "DISPLAY=:0 SDL_VIDEODRIVER=x11 python3 tools/verify_device_ui.py --build-dir build/gui --graphical --output build/m6-final-ui-wslg",
+      "rights": "Original DialysisLab framebuffer and project-authored MIT font; no external/standards images."
+    },
+    "assurance/evidence/m6/captures/exact-confirmation.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "f168213e2098e362696b9e94951085822928900d1c1a3a1d4eaabb00b4056077",
+      "source_artifact": "build/m6-final-ui-wslg/sdl_pointer/exact_confirmation.png",
+      "command": "DISPLAY=:0 SDL_VIDEODRIVER=x11 python3 tools/verify_device_ui.py --build-dir build/gui --graphical --output build/m6-final-ui-wslg",
+      "rights": "Original DialysisLab framebuffer and project-authored MIT font; no external/standards images."
+    },
+    "assurance/evidence/m6/captures/stale-reconnected.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "7f9d121dc379a7e952b7eb7b6314c607308290e2fd18234af3726e1577e79888",
+      "source_artifact": "build/m6-final-ui-wslg/same_session_age/same_session_still_stale.png",
+      "command": "DISPLAY=:0 SDL_VIDEODRIVER=x11 python3 tools/verify_device_ui.py --build-dir build/gui --graphical --output build/m6-final-ui-wslg",
+      "rights": "Original DialysisLab framebuffer and project-authored MIT font; no external/standards images."
+    },
+    "assurance/evidence/m6/captures/compose-x11.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "c19de55797fb70be14602f6591ad18a27189c9763e66a5202bc3c70f44dc3da3",
+      "source_artifact": "build/m6-final-ui-compose-x11/captures/compose_treatment.png",
+      "command": "python3 tools/verify_ui_compose.py --graphical --output build/m6-final-ui-compose-x11",
+      "rights": "Original DialysisLab framebuffer and project-authored MIT font; no external/standards images."
+    }
+  }
 }

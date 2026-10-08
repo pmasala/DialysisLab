@@ -72,3 +72,17 @@ must impose its constraint before that tick commits (<=dt); no wall-time hard-re
 time claim. A device-only container must reach device endpoints while actual
 admin/patient/control-plant/protection-plant connection attempts are denied.
 Keep review base/candidate/output and all applicable fixes; one review only.
+
+
+## M6 device UI evidence protocol
+
+Run `tools/verify_device_ui.py` against actual native and instrumented services,
+headless and available graphical SDL/WSLg output; its ten tests drive real LVGL
+and SDL events, exact prescription confirmation, alarms, retained sensor samples,
+same/new-session reconnects, lost replies and bounded demo shutdown. Inspect the
+actual framebuffer, not a mockup: detail contrast >=7:1 is a project software
+criterion, not usability or accessibility approval. `tools/verify_ui_compose.py`
+drives actual widgets in a separate 128 MiB container and retains both result and
+capture volumes before cleanup, preserving original errors and recovery commands.
+Earlier affected native/Compose regression and independent conservation/replay
+checks remain required. Results and the sole review are in `evidence/m6/`.

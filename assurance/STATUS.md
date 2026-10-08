@@ -2,52 +2,33 @@
 
 ## Integrated execution checkpoint — 2026-10-08
 
-Branch `feat/integrated-dialysis-roadmap`. Technical phases M1–M5 COMPLETE;
-M6 IN PROGRESS; M7–M9 PLANNED. The full project remains incomplete.
+Branch `feat/integrated-dialysis-roadmap`. Technical phases M1–M6 COMPLETE;
+M7 NEXT; M8–M9 PLANNED. The full project remains incomplete.
 
-M5 implementation `443f73f` passes 108/108 native and 108/108 sanitizer tests,
-22 native/22 Compose workflows with exact replay, 12 M2–M4 Compose compatibility
-runs, four M1 runs and three isolation probes. Two native/two Compose 100000-tick
-priming runs pass at the 100000 mL body-volume ceiling; no OOM, Docker runner RSS
-22.20 MiB within 128 MiB, with reclaimable file cache reaching the total limit.
-Independent water/species errors stay below 1e-6. Full results and commands:
-[M5 evidence](evidence/m5/README.md).
+M6 implementation `2ee31ad` passes 114/114 native and sanitizer regressions,
+10/10 actual UI/demo tests in headless, WSLg and instrumented builds, two real
+widget-driven Compose deployments, twelve native/twelve Compose exact-replay
+scenarios, four M1 runs and three isolation probes. The UI supports guarded
+HD/pre/post prescriptions, lifecycle requests, measured telemetry/trends,
+alarms and session/stale/disconnect handling. Actual 1100x890 captures and widget
+input/output logs are retained. UI peak RSS is 9.11 MiB headless and 19.55 MiB
+X11 within 128 MiB; no OOM. [M6 evidence](evidence/m6/README.md) records exact
+commands, identities, dependencies, results and limits.
 
-The single M5 review found two P2 defects, fixed in `c54422c`; subsequent real
-integration exposed finite-subnormal parsing, fixed in `443f73f`. Both failed-run
-artifacts and all final results are retained. M1–M5 reviews are consumed: never
-rerun them. M6 has not been reviewed.
+The sole M6 review (`00baa58` against `445c667`) found six P2 defects fixed in
+`5552622`; final visual inspection found dialog contrast M6-V1, fixed in
+`2ee31ad` with rendered-pixel verification. All applicable findings pass targeted
+regression. M1–M6 reviews are consumed: never rerun them. M7 has not been reviewed.
+Earlier long-run/failure evidence remains preserved; no new 100000-tick graphical
+endurance claim is made. Release and independent-assurance gates remain blocked.
 
-M6 base is frozen at `445c667`; requirements, risks and acceptance are in
-`docs/M6_DEVICE_UI.md`. The actual LVGL/SDL client, session-bound device API,
-bounded worker, validated/confirmed prescription, measured telemetry/time trends,
-alarm annotations, stale/disconnect handling and external pacing are implemented.
-Candidate verification passes 114/114 existing/new native regressions and 5/5
-actual-widget tests in headless, native WSLg and fully instrumented ASan/UBSan
-builds. Separate-container widget integration passes both headless and X11 WSLg,
-including actual denied administrative connections and retained artifacts. Native
-window closure records a runner abort, acknowledged HALT and observed zero outputs.
-
-The sole M6 review of candidate `00baa58` against `445c667` is FINISHED:
-2026-10-08T01:58:14Z–02:09:25Z, exit 0 with six applicable P2 findings. It is
-consumed and must never be invoked again. Exact command/output is retained in
-`build/reviews/m6.json` and `build/reviews/m6-output.txt`. Corrections
-preserve same-session sample age, queue real SDL pointer transitions, keep exact
-prescription precision, reserve alarm layout space, propagate unexpected demo
-failures and cancel slow paced waits on window closure. All ten targeted GUI/demo
-regressions pass in the initial correction run (`build/m6-fix-ui-first`).
-
-Correction commit `5552622` passes all final native/sanitizer/Compose tests, but
-visual inspection found M6-V1: dark confirmation text on a dark dialog. Correct
-contrast and verify actual rendered pixels before declaring M6 complete.
-Next executable step: commit this visual fix, verify the clean GUI build
-(native/sanitizer, actual headless/WSLg and Compose), publish final M6 evidence
-with trace links, then freeze M7 base and continue automatically through M7–M9.
-The preliminary and candidate results are retained under `build/m6-*`; only final
-clean correction results can support M6 completion. Ignored M7 feasibility/design
-notes are in `build/m7-preparation.md` and `build/imgui-feasibility/`; they are not
-a finished console or a replacement phase plan. Full project completion is not
-claimed. No environmental graphical block has been observed.
+Next executable step: commit/push the M6 evidence checkpoint, freeze that commit
+as M7 base, define M7 requirements/risks/contracts/acceptance before implementation,
+and build the separate real experiment console/broker. Then continue automatically
+through M8 and M9. Preparation notes and the successful framework-only ImGui/SDL
+WSLg probe are in `build/m7-preparation.md` and `build/imgui-feasibility/`; they
+are not a finished console or a substitute for the M7 phase plan. No graphical
+or Docker environmental block has been observed in this execution.
 
 Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md).
@@ -61,9 +42,10 @@ Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 | M3 | Conservative Python body/circuit water and six species, external transfers, water-only weight and limited fixed-pCO2 indicator. | [M3](evidence/m3/README.md) |
 | M4 | HD/pre/post HDF, mixed preparation/temperature/filter hydraulics, replacement accounting and directly enforced fluid-quality protection. | [M4](evidence/m4/README.md) |
 | M5 | Guarded machine lifecycle, external priming/cleaning ledgers, aggregate hazard-specific constraints, ACK/silence/reset/restart policies and device-only endpoints. | [M5](evidence/m5/README.md) |
+| M6 | Actual LVGL/SDL device UI, session-bound requests, precision/confirmation, sensor age/trends, alarms and native/Compose graphical verification. | [M6](evidence/m6/README.md) |
 
 Earlier evidence remains historical, with active regression links identifying the
-current implementation. The full LVGL device UI, external experiment console,
+current implementation. The external experiment console,
 security/SBOM/CI and final integrated package remain required. No roadmap feature
 has been removed to make a phase or release gate pass.
 

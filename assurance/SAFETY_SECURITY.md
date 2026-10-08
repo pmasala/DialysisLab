@@ -82,3 +82,18 @@ commands. The shared device volume/UID and bounded synchronous handlers still ha
 endpoint impersonation and availability common causes for M8 analysis; native
 same-user mode is trusted development. No hardware independence, clinical limits,
 air removal, disinfection or residual-risk acceptance follows from these tests.
+
+
+## M6 operator interface increment
+
+HAZ-001/004/005 include stale data presented as current, obsolete confirmations,
+lost pointer events, rounded intent, obscured alarms and ambiguous shutdown.
+Session-bound requests reject old epochs; same-session reconnect does not renew
+sample age. Bounded worker communication keeps rendering separate from RPCs.
+Exact decimal confirmation, queued SDL transitions and complete alarm regions
+are verified against actual services/framebuffers. ACK/silence do not release
+constraints; STOP acknowledgment remains distinct from received measurements.
+The UI mounts device endpoints only and has no simulation truth/admin channel.
+UI/X11/host or shared code failures remain common causes, not hardware independence.
+Native same-UID trust, shared device producers and broader abuse/availability
+controls remain M8 work. No human residual-risk acceptance is inferred.

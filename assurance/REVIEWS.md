@@ -174,3 +174,12 @@ software display criterion is not clinical usability or accessibility conformity
 The complete `5552622` results remain in `build/m6-verified-*`; the unpublished
 evidence draft is retained in `build/m6-5552622-evidence-draft`. Refresh GUI evidence
 after the contrast correction; core services/model code are unchanged.
+
+
+M6 final disposition: review fixes `5552622`, visual integration fix `2ee31ad`.
+The final clean build passes 114/114 native and sanitizer tests, 10/10 UI/demo
+checks in headless/WSLg/sanitizer modes, two actual widget-driven Compose
+deployments, twelve native/twelve Compose exact-replay scenarios and four M1 runs
+plus three isolation probes. `evidence/m6/review.json` and `summary.json` bind
+findings, commits, actual tests and rendered artifacts. M6 review count remains
+one. M7–M9 reviews have not run.

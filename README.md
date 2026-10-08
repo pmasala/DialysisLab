@@ -161,7 +161,7 @@ python3 tools/package_release.py --output ../DialysisLab-project-baseline.zip
 The builder includes only paths in `publication_manifest.json`. Review new content before adding it; standards PDFs and private analysis are never publication inputs. Packaging success is not a software release approval.
 
 
-## Device UI (M6 integration in progress)
+## Device UI (M6)
 
 The actual LVGL device client uses modeled sensor views and guarded operator
 requests. It has no patient configuration, fault injection or clock controls.
@@ -182,5 +182,6 @@ Build containers with `SOURCE_REVISION=$(git rev-parse HEAD) docker compose --pr
 against separate containers and retains trajectory, manifest, logs and rendered
 captures. Add `--graphical` to exercise the selected X11 display mount. Details,
 prerequisites, safety semantics and native tests: [M6 UI contract](docs/M6_DEVICE_UI.md).
+Actual native, sanitizer, WSLg and Compose results are in [M6 evidence](assurance/evidence/m6/README.md).
 The later external experiment console, security/CI and integrated package phases
 remain required; this UI increment does not complete the project.
