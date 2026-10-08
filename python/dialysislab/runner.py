@@ -174,7 +174,7 @@ def stop_plant(admin, online=False):
     return result
 
 
-def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_speed=0):
+def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_speed=0, wait_check=None):
     validate(config)
     if not isinstance(wall_speed, (int, float)) or not math.isfinite(wall_speed) or not 0 <= wall_speed <= 1000:
         raise ValueError('wall speed must be finite in [0,1000]; zero means unpaced')
@@ -218,11 +218,18 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
             expect(rpc(patient, 'INIT', config['patient_volume_mL']), 'OK', 1)
         wall_start = time.monotonic()
         for n in range(config['ticks']):
-            if wall_speed:
-                delay = wall_start + n * config['dt_ms'] / (1000 * wall_speed) - time.monotonic()
-                if delay > 0: pause(runtime, delay)
             t = n * config['dt_ms']
             tick_context = dict(sequence=n, time_ms=t)
+            if wall_speed:
+                delay = wall_start + n * config['dt_ms'] / (1000 * wall_speed) - time.monotonic()
+                # Cancellation checks do not run before_tick repeatedly: that
+                # hook may contain one-shot scenario actions. Virtual time stays
+                # frozen while bounded wall waits continue liveness heartbeats.
+                deadline = time.monotonic() + max(0, delay)
+                while time.monotonic() < deadline:
+                    if wait_check: wait_check()
+                    pause(runtime, min(.1, max(0, deadline - time.monotonic())))
+                if wait_check: wait_check()
             if before_tick:
                 before_tick(n)
             event = next((e for e in config['workflow'] if e['tick'] == n), None) if lifecycle else None

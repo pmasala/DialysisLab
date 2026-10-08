@@ -90,7 +90,7 @@ class Client {
             auto v=parse_view(rpc(path(role),msg("STATUS6",session)),session);
             auto now=Clock::now();
             generation=!previous.connected || previous.session!=session || (previous.have_view && (v.machine.time<previous.view.machine.time || v.machine.sequence<previous.view.machine.sequence));
-            if(generation || !previous.have_view || v.observation.q.blood.n!=previous.view.observation.q.blood.n || v.observation.q.blood.t!=previous.view.observation.q.blood.t) channel.last_sample=now;
+            if(previous.session!=session || !previous.have_view || v.observation.q.blood.n!=previous.view.observation.q.blood.n || v.observation.q.blood.t!=previous.view.observation.q.blood.t) channel.last_sample=now;
             channel.connected=channel.have_view=true; channel.session=session; channel.view=v; channel.last_reply=now;
         } catch(const std::exception&) { channel.connected=false; }
         std::lock_guard<std::mutex> guard(mutex);

@@ -159,3 +159,34 @@ it has no administrative protocol and does not replace real service responses.
 PNG evidence is encoded from the actual RGB framebuffer with no external image
 assets. Publication requires each owned capture's explicit path, provenance,
 command and matching digest; arbitrary images/metadata remain excluded.
+
+
+## Single-review corrections
+
+The sole M6 review (`00baa58` against `445c667`) identified six P2 defects.
+Same-session reconnection now invalidates confirmation/trends without refreshing
+an unchanged sensor sample's wall age. A new session or new sample starts a new
+age. SDL pointer transitions are queued (128 maximum) until LVGL consumes them;
+a down/up pair in one event batch still activates a widget. Queue overflow
+releases input with explicit feedback. The test harness covers the actual SDL
+path, including STOP, as well as direct LVGL events.
+
+Prescription confirmation and wire values share the same round-trip decimal
+representation; `0.04 mL/min` cannot be displayed as zero while being submitted.
+Effective prescriptions also preserve that precision. Negative text remains
+visible for range rejection. Alarm, delivery and feedback regions reserve room
+for every supported hazard plus disconnected-state annotations in an 1100x890
+framebuffer; a maximum-mask real-plant fixture checks non-overlap.
+
+The demo distinguishes normal window closure/duration expiry from an unexpected
+simulation abort. Unexpected workflow/communication failures return nonzero even
+if HALT succeeds. Pacing checks window closure at bounded 100 ms wait intervals,
+while keeping liveness heartbeats and virtual time separate. The recorded aborted
+tick identifies the unexecuted next tick. A real 1-second demo at wall speed .001
+must stop within 4 seconds, not wait for its 100-second tick interval.
+
+GUI-driven experiments include external operator input and are not claimed to
+replay from the initial scenario alone. Widget test input/output logs, actual
+trajectory and build/configuration identify these runs. M7 must add a reproducible
+operator-event schedule for experiment replay. Deterministic batch scenarios
+without external interaction retain the existing exact-hash acceptance.

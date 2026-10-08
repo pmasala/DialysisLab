@@ -230,6 +230,7 @@
     "src/ui/font.cpp",
     "src/ui/lv_conf.h",
     "src/wire.hpp",
+    "tests/demo_regressions.py",
     "tests/patient_memory_probe.py",
     "tests/test_circuit.py",
     "tests/test_compartments.py",

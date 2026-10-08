@@ -28,14 +28,23 @@ builds. Separate-container widget integration passes both headless and X11 WSLg,
 including actual denied administrative connections and retained artifacts. Native
 window closure records a runner abort, acknowledged HALT and observed zero outputs.
 
-These are preliminary working-tree results, retained under `build/m6-*`; final
-clean-build evidence must follow review/corrections. The single M6 review is the
-next step, against the fixed base; preserve its one-invocation sentinel/output in
-`build/reviews/`. Never re-review M1–M5. Next executable step: commit the M6 candidate,
-run its sole review, fix applicable findings and repeat affected verification;
-then commit final evidence and continue automatically through M7–M9. The source
-and UI graph contain no standards/private assets. Graphical checks are executable
-in this environment, not blocked. Full project completion is not claimed.
+The sole M6 review of candidate `00baa58` against `445c667` is FINISHED:
+2026-10-08T01:58:14Z–02:09:25Z, exit 0 with six applicable P2 findings. It is
+consumed and must never be invoked again. Exact command/output is retained in
+`build/reviews/m6.json` and `build/reviews/m6-output.txt`. Corrections
+preserve same-session sample age, queue real SDL pointer transitions, keep exact
+prescription precision, reserve alarm layout space, propagate unexpected demo
+failures and cancel slow paced waits on window closure. All ten targeted GUI/demo
+regressions pass in the initial correction run (`build/m6-fix-ui-first`).
+
+Next executable step: commit corrections, verify the clean correction build
+(native/sanitizer, actual headless/WSLg and Compose), publish final M6 evidence
+with trace links, then freeze M7 base and continue automatically through M7–M9.
+The preliminary and candidate results are retained under `build/m6-*`; only final
+clean correction results can support M6 completion. Ignored M7 feasibility/design
+notes are in `build/m7-preparation.md` and `build/imgui-feasibility/`; they are not
+a finished console or a replacement phase plan. Full project completion is not
+claimed. No environmental graphical block has been observed.
 
 Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md).

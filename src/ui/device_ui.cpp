@@ -9,7 +9,7 @@
 #include <memory>
 #include <deque>
 namespace {
-constexpr int width=1100,height=800;
+constexpr int width=1100,height=890;
 const char* stages[]={"PREPARATION","PRIMING","CONFIGURATION","TREATMENT","PAUSED","STOPPED","RECOVERY","FINISHED","CLEANING","CLEANED"};
 const char* modes[]={"HD","HDF pre","HDF post"};
 const char* alarms[]={"pressure","low flow","air","blood leak","measurement","temperature","composition","filter pressure","integrity","route","supply","fluid balance","communication"};
@@ -22,6 +22,11 @@ std::string json(const std::string& text) {
         else out+='?';
     }
     return out+'"';
+}
+std::string exact(double value) {
+    std::array<char,64> buffer{};
+    auto converted=std::to_chars(buffer.data(),buffer.data()+buffer.size(),value,std::chars_format::general);
+    dl::require(converted.ec==std::errc{});return std::string(buffer.data(),converted.ptr);
 }
 std::string number(double value,int precision=1) {
     std::ostringstream s; s<<std::fixed<<std::setprecision(precision)<<value; return s.str();
@@ -45,7 +50,10 @@ struct App {
     std::deque<std::pair<long long,double>> trend;
     int selected_mode=0,mask=0,pending_mask=0;
     bool running=true,initialized_fields=false;
+    struct Pointer {int x,y;bool pressed;};
+    std::deque<Pointer> pointer_events;
     int mouse_x=0,mouse_y=0; bool mouse_pressed=false;
+    bool physical_pressed=false;
     std::string capture_dir,local_feedback="Awaiting device services",display_status="DISCONNECTED";
     const dl::ui::Channel* selected=nullptr;
     App(std::string root,bool headless,std::string captures):client(std::move(root)),capture_dir(std::move(captures)) {
@@ -73,8 +81,13 @@ struct App {
         lv_indev_set_user_data(pointer,this);
         lv_indev_set_read_cb(pointer,[](lv_indev_t* d,lv_indev_data_t* out) {
             auto* a=static_cast<App*>(lv_indev_get_user_data(d));
+            if(!a->pointer_events.empty()) {
+                auto event=a->pointer_events.front();a->pointer_events.pop_front();
+                a->mouse_x=event.x;a->mouse_y=event.y;a->mouse_pressed=event.pressed;
+            }
             out->point.x=a->mouse_x;out->point.y=a->mouse_y;
             out->state=a->mouse_pressed?LV_INDEV_STATE_PRESSED:LV_INDEV_STATE_RELEASED;
+            out->continue_reading=!a->pointer_events.empty();
         });
         auto* screen=lv_screen_active();
         lv_obj_set_style_bg_color(screen,lv_color_hex(0x101b29),0);
@@ -83,7 +96,7 @@ struct App {
         lv_obj_set_scrollable(screen,false);
         heading=label(screen,20,15,1060,"DialysisLab   |   SIMULATION - synthetic equipment only");
         connection=label(screen,20,45,1060,"");
-        panel(15,78,665,400);panel(695,78,390,400);panel(15,485,1070,295);
+        panel(15,78,665,400);panel(695,78,390,400);panel(15,485,1070,390);
         label(screen,30,94,630,"OBSERVED MACHINE / SENSOR DATA");
         observed=label(screen,30,123,635,""); quality=label(screen,30,190,635,"");totals=label(screen,30,256,635,"");
         chart=lv_chart_create(screen); lv_obj_set_pos(chart,40,337);lv_obj_set_size(chart,620,100);
@@ -94,18 +107,18 @@ struct App {
         trend_text=label(screen,30,449,630,"Upstream pressure mmHg / sensor time ms");
         label(screen,710,94,350,"SIMULATED PRESCRIPTION");
         prescribed=label(screen,710,123,350,"");
-        button("MODE","Mode: HD",710,194,355);
-        field("blood","Blood mL/min [0..500]",710,242,"300");
-        field("uf","Net UF mL/min [0..20]",710,293,"5");
-        field("sub","Sub mL/min [0..120]",710,344,"0");
-        button("PRESCRIBE","Review prescription",710,408,355);
+        button("MODE","Mode: HD",710,216,355);
+        field("blood","Blood mL/min [0..500]",710,267,"300");
+        field("uf","Net UF mL/min [0..20]",710,318,"5");
+        field("sub","Sub mL/min [0..120]",710,369,"0");
+        button("PRESCRIBE","Review prescription",710,434,355);
         int x=30,y=504;
         for(const char* action:{"PRIME","CONFIGURE","START","PAUSE","FINISH","CLEAN","COMPLETE"}) {
             button(action,action,x,y,140);x+=148;
         }
         x=30;y=550;
         for(const char* action:{"STOP","RECOVER","RESET","ACK","SILENCE"}) {button(action,action,x,y,140);x+=148;}
-        alarm=label(screen,30,600,1035,"");intent=label(screen,30,664,1035,"");feedback=label(screen,30,718,1035,"");
+        alarm=label(screen,30,600,1035,"");intent=label(screen,30,742,1035,"");feedback=label(screen,30,807,1035,"");
         lv_obj_set_style_bg_color(widgets.at("STOP"),lv_color_hex(0xaf2035),0);
         lv_obj_set_style_text_color(heading,lv_color_hex(0x65c7ee),0);
         // Optional physical keyboard edits the focused numeric field. No experiment controls.
@@ -137,7 +150,7 @@ struct App {
     void field(const std::string& id,const std::string& title,int x,int y,const char* initial) {
         label(lv_screen_active(),x,y,260,title);
         auto* f=lv_textarea_create(lv_screen_active());lv_obj_set_pos(f,x+260,y-8);lv_obj_set_size(f,95,40);
-        lv_textarea_set_one_line(f,true);lv_textarea_set_max_length(f,12);lv_textarea_set_accepted_chars(f,"0123456789.");lv_textarea_set_text(f,initial);
+        lv_textarea_set_one_line(f,true);lv_textarea_set_max_length(f,12);lv_textarea_set_accepted_chars(f,"0123456789.-");lv_textarea_set_text(f,initial);
         widgets[id]=f;identifiers[f]=id;
         lv_obj_add_event_cb(f,[](lv_event_t* e){auto* a=static_cast<App*>(lv_event_get_user_data(e));a->focus=lv_event_get_target_obj(e);},LV_EVENT_FOCUSED,this);
         lv_obj_add_event_cb(f,[](lv_event_t* e){auto* a=static_cast<App*>(lv_event_get_user_data(e));a->focus=lv_event_get_target_obj(e);},LV_EVENT_CLICKED,this);
@@ -173,8 +186,9 @@ struct App {
                 auto value=[&](const char* name,double high){dl::Tokens r(std::string("DL1 ")+lv_textarea_get_text(widgets.at(name)));double n=r.real(0,high);r.end();return n;};
                 double blood=value("blood",500),uf=value("uf",20),sub=value("sub",120);
                 dl::require(blood+sub<=500 && (selected_mode?sub>=2:sub==0));
-                job.values=dl::msg(selected_mode,blood,uf,sub).substr(4);
-                detail=std::string(modes[selected_mode])+"\nBlood "+number(blood)+" mL/min; net UF "+number(uf)+" mL/min\nSubstitution "+number(sub)+" mL/min";
+                const auto blood_text=exact(blood),uf_text=exact(uf),sub_text=exact(sub);
+                job.values=std::to_string(selected_mode)+" "+blood_text+" "+uf_text+" "+sub_text;
+                detail=std::string(modes[selected_mode])+"\nBlood "+blood_text+" mL/min; net UF "+uf_text+" mL/min\nSubstitution "+sub_text+" mL/min";
             } catch(const std::exception&) {local_feedback="Invalid prescription: check ranges, mode and sum <=500";return;}
         }
         if(id=="STOP" || id=="ACK") {dismiss();local_feedback=client.submit(job)?"Request sent; verify observed state":"Request not sent: busy";return;}
@@ -202,7 +216,7 @@ struct App {
         if(selected) {
             const auto& v=selected->view; const auto& m=v.machine; const auto& o=v.observation; const auto& q=o.q;
             if(!initialized_fields) {
-                lv_textarea_set_text(widgets.at("blood"),number(m.blood).c_str());lv_textarea_set_text(widgets.at("uf"),number(m.net_uf).c_str());lv_textarea_set_text(widgets.at("sub"),number(m.replacement).c_str());
+                lv_textarea_set_text(widgets.at("blood"),exact(m.blood).c_str());lv_textarea_set_text(widgets.at("uf"),exact(m.net_uf).c_str());lv_textarea_set_text(widgets.at("sub"),exact(m.replacement).c_str());
                 selected_mode=m.mode;lv_label_set_text(lv_obj_get_child(widgets.at("MODE"),0),(std::string("Mode: ")+modes[selected_mode]).c_str());initialized_fields=true;
             }
             const std::string suffix=display_status=="LIVE"?"":" ["+display_status+"]";
@@ -213,7 +227,7 @@ struct App {
             } else {
                 lv_label_set_text(observed,"Measurement INVALID / unavailable\nDo not infer zero outputs from a request");lv_label_set_text(quality,"");lv_label_set_text(totals,"");
             }
-            lv_label_set_text(prescribed,(std::string("Effective: ")+modes[m.mode]+"\nBlood "+number(m.blood)+"; net UF "+number(m.net_uf)+"\nSub "+number(m.replacement)+" mL/min").c_str());
+            lv_label_set_text(prescribed,(std::string("Effective: ")+modes[m.mode]+"\nBlood "+exact(m.blood)+" mL/min\nNet UF "+exact(m.net_uf)+" mL/min\nSub "+exact(m.replacement)+" mL/min").c_str());
             if(display_status=="LIVE" && q.blood.n!=last_sequence) {
                 trend.emplace_back(q.blood.t,q.blood.pressure);if(trend.size()>120)trend.pop_front();
                 lv_chart_set_axis_range(chart,LV_CHART_AXIS_PRIMARY_X,static_cast<int32_t>(trend.front().first),static_cast<int32_t>(std::max(trend.front().first+1,trend.back().first)));
@@ -234,13 +248,22 @@ struct App {
         lv_label_set_text(intent,("Requested: "+snapshot.command+"; delivery: "+snapshot.result+"\n"+remote).c_str());
         lv_label_set_text(feedback,local_feedback.c_str());
     }
+    void pointer(int x,int y,bool pressed) {
+        if(pointer_events.size()>=128) {
+            pointer_events.clear();physical_pressed=false;
+            pointer_events.push_back({x,y,false});
+            local_feedback="Pointer queue overflow; input released";return;
+        }
+        pointer_events.push_back({x,y,pressed});
+    }
     void events() {
         SDL_Event e;
         while(window && SDL_PollEvent(&e)) {
             if(e.type==SDL_QUIT) running=false;
-            if(e.type==SDL_MOUSEMOTION) {mouse_x=e.motion.x;mouse_y=e.motion.y;}
-            if(e.type==SDL_MOUSEBUTTONDOWN && e.button.button==SDL_BUTTON_LEFT) {mouse_x=e.button.x;mouse_y=e.button.y;mouse_pressed=true;}
-            if(e.type==SDL_MOUSEBUTTONUP && e.button.button==SDL_BUTTON_LEFT) mouse_pressed=false;
+            if(e.type==SDL_MOUSEMOTION) pointer(e.motion.x,e.motion.y,physical_pressed);
+            if(e.type==SDL_MOUSEBUTTONDOWN && e.button.button==SDL_BUTTON_LEFT) {physical_pressed=true;pointer(e.button.x,e.button.y,true);}
+            if(e.type==SDL_MOUSEBUTTONUP && e.button.button==SDL_BUTTON_LEFT) {physical_pressed=false;pointer(e.button.x,e.button.y,false);}
+            if(e.type==SDL_WINDOWEVENT && e.window.event==SDL_WINDOWEVENT_FOCUS_LOST) {physical_pressed=false;pointer(mouse_x,mouse_y,false);}
             if(e.type==SDL_TEXTINPUT && focus && !dialog) lv_textarea_add_text(focus,e.text.text);
             if(e.type==SDL_KEYDOWN && focus && !dialog && e.key.keysym.sym==SDLK_BACKSPACE) lv_textarea_delete_char(focus);
             if(e.type==SDL_KEYDOWN && e.key.keysym.sym==SDLK_ESCAPE) dismiss();
@@ -270,12 +293,25 @@ struct App {
                 <<",\"sensor_time_ms\":"<<v.observation.q.blood.t<<",\"blood_mL_min\":"<<v.observation.q.blood.blood<<",\"uf_mL_min\":"<<v.observation.q.blood.uf
                 <<",\"prescribed_blood_mL_min\":"<<v.machine.blood<<",\"mode\":"<<v.machine.mode<<",\"acknowledged_mask\":"<<v.machine.acknowledged<<",\"silence_until_ms\":"<<v.machine.silence_until;
         }
+        lv_obj_update_layout(lv_screen_active());lv_area_t alarm_area{},intent_area{},feedback_area{};
+        lv_obj_get_coords(alarm,&alarm_area);lv_obj_get_coords(intent,&intent_area);lv_obj_get_coords(feedback,&feedback_area);
+        std::cout<<",\"selected_mode\":"<<selected_mode<<",\"layout\":{\"alarm_bottom\":"<<alarm_area.y2<<",\"intent_top\":"<<intent_area.y1
+            <<",\"intent_bottom\":"<<intent_area.y2<<",\"feedback_top\":"<<feedback_area.y1<<",\"feedback_bottom\":"<<feedback_area.y2<<",\"height\":"<<height<<"}";
+        if(pending && dialog) std::cout<<",\"confirmation\":"<<json(lv_label_get_text(lv_obj_get_child(dialog,1)))<<",\"confirmed_values\":"<<json(pending->values);
         std::cout<<",\"labels\":{\"observed\":"<<json(lv_label_get_text(observed))<<",\"alarm\":"<<json(lv_label_get_text(alarm))<<",\"intent\":"<<json(lv_label_get_text(intent))<<"}}"<<std::endl;
     }
     void automation(const std::string& line) {
         // Test-only stdin channel drives actual LVGL widgets, never plant truth.
         std::istringstream input(line);std::string op,name,value,extra;input>>op>>name;
-        if(op=="CLICK") {
+        if(op=="MOUSE") {
+            dl::require(window && widgets.count(name));lv_obj_update_layout(lv_screen_active());
+            lv_area_t bounds{};lv_obj_get_coords(widgets.at(name),&bounds);
+            for(auto type:{SDL_MOUSEBUTTONDOWN,SDL_MOUSEBUTTONUP}) {
+                SDL_Event event{};event.type=type;event.button.button=SDL_BUTTON_LEFT;
+                event.button.x=(bounds.x1+bounds.x2)/2;event.button.y=(bounds.y1+bounds.y2)/2;
+                dl::require(SDL_PushEvent(&event)==1);
+            }
+        } else if(op=="CLICK") {
             if(name=="CONFIRM" && !widgets.count(name)) {local_feedback="State/session changed; confirmation no longer available";return;}
             dl::require(widgets.count(name) && identifiers.count(widgets.at(name)) && name!="blood" && name!="uf" && name!="sub");
             if(dialog && name!="CONFIRM" && name!="CANCEL" && name!="STOP") throw std::runtime_error("modal dialog");

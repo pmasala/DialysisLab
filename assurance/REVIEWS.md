@@ -140,3 +140,25 @@ are preliminary. Record the exact candidate/argv/time/output before invoking the
 single phase review; then dispositions, regression evidence and correction commits.
 No review of M6 has yet been invoked at this checkpoint. AI review is not clinical,
 regulatory, hardware-independence or human approval.
+
+
+### M6 single review result and disposition
+
+Candidate `00baa5805f9f9408ef0648ec64e065d67a2cc9c8`; fixed base
+`445c667939d1fcdf37e46dea697f3c881dfbadca`. One invocation from
+2026-10-08T01:58:14Z to 02:09:25Z returned exit 0 **with six P2 findings**.
+Exact argv and raw output: `build/reviews/m6.json`, `build/reviews/m6-output.txt`.
+Review is consumed; no second invocation is authorized. All six are applicable.
+
+| ID / severity | Scenario and correction | Targeted regression |
+| --- | --- | --- |
+| M6-R1 P2 | Same-session reconnect falsely refreshes a frozen sample. Preserve sample age separately from confirmation/trend generation. | `test_same_session_reconnections_do_not_refresh_frozen_samples` |
+| M6-R2 P2 | Batched SDL down/up loses clicks including STOP. Queue bounded pointer transitions for LVGL consumption. | `test_coalesced_sdl_clicks_and_exact_prescription_confirmation` |
+| M6-R3 P2 | Fractional prescription is rounded in the confirmation. Share exact round-trip decimal text between confirmation and request. | Same real SDL prescription test; `0.04 mL/min` remains nonzero and exact. |
+| M6-R4 P2 | Maximum hazards plus disconnect overlap delivery/ACK text. Reserve adequate regions and check actual LVGL bounds. | `test_all_latched_alarms_and_disconnect_fit_without_overlapping_intent` |
+| M6-R5 P2 | Unexpected demo abort returns zero after HALT. Return failure unless completed or explicitly observed normal window closure. | `test_unexpected_workflow_abort_returns_failure_despite_confirmed_halt` |
+| M6-R6 P2 | Slow pacing delays window-close HALT by 100 seconds. Add bounded cancellation checks during paced waits without repeating tick actions. | `test_window_closure_interrupts_100_second_pacing_wait` |
+
+Corrections and final evidence are in progress; no final PASS is inferred from
+review exit zero. Preserve preliminary failures/results and record the correction
+commit plus clean-build regressions before advancing M7.

@@ -25,17 +25,18 @@ GRAPHICAL = os.environ.get('DIALYSISLAB_UI_GRAPHICAL') == '1'
 
 
 class UserInterface:
-    def __init__(self, runtime, name, argv=None):
+    def __init__(self, runtime, name, argv=None, env=None):
         self.directory = EVIDENCE / name
         self.directory.mkdir(parents=True, exist_ok=False)
         self.error = (self.directory / 'stderr.txt').open('w')
         self.transcript = (self.directory / 'events.jsonl').open('w')
+        self.input_log = (self.directory / 'input.jsonl').open('w')
         self.lines = queue.Queue()
         self.argv = [str(BUILD / 'device-ui'), '--runtime-dir', str(runtime), '--test-input',
                      '--capture-dir', str(self.directory)] + ([] if GRAPHICAL else ['--headless'])
         if argv is not None: self.argv = argv
         self.process = subprocess.Popen(self.argv, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                                        stderr=self.error, text=True, bufsize=1)
+                                        stderr=self.error, text=True, bufsize=1, env=env)
         def collect():
             for line in self.process.stdout:
                 self.transcript.write(line); self.transcript.flush(); self.lines.put(line)
@@ -43,6 +44,7 @@ class UserInterface:
         self.serial = 0
 
     def send(self, text):
+        self.input_log.write(json.dumps(dict(wall_monotonic=time.monotonic(), input=text)) + '\n'); self.input_log.flush()
         self.process.stdin.write(text + '\n'); self.process.stdin.flush()
 
     def snapshot(self, capture=None):
@@ -80,7 +82,7 @@ class UserInterface:
             try: self.process.wait(timeout=5)
             except subprocess.TimeoutExpired: self.process.kill(); self.process.wait(); raise
         self.thread.join(timeout=2)
-        self.process.stdin.close(); self.process.stdout.close(); self.error.close(); self.transcript.close()
+        self.process.stdin.close(); self.process.stdout.close(); self.error.close(); self.transcript.close(); self.input_log.close()
         if self.process.returncode != 0: raise AssertionError('UI exit ' + str(self.process.returncode))
 
 
@@ -90,7 +92,7 @@ class DroppedReplyProxy:
         self.source, self.target = source, target
         self.socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         self.socket.bind(str(source)); self.socket.listen(8); self.socket.settimeout(.05)
-        self.stop = False; self.drop = set(); self.calls = []; self.errors = []
+        self.stop = False; self.drop = set(); self.block = set(); self.calls = []; self.errors = []
         def serve():
             while not self.stop:
                 try: connection, _ = self.socket.accept()
@@ -107,6 +109,7 @@ class DroppedReplyProxy:
                             if len(frame) > 4096: raise ValueError('oversize')
                         tokens = frame.decode().split(); self.calls.append(tokens[1:])
                         response = rpc(target, *tokens[1:])
+                        if tokens[1] in self.block: continue
                         if tokens[1] in self.drop: self.drop.remove(tokens[1]); continue
                         connection.sendall(('DL1 ' + ' '.join(response) + '\n').encode())
                     except (OSError, ValueError) as exc: self.errors.append(str(exc))
@@ -269,3 +272,83 @@ class DeviceUiTests(unittest.TestCase):
             ui.snapshot('invalid_sensor')
             self.ready(ui, f)
             self.assertTrue(f.view()['machine']['alarm_mask'] & 16)  # valid sample does not reset latch
+
+
+    def test_same_session_reconnections_do_not_refresh_frozen_samples(self):
+        with LocalCluster(BUILD) as cluster, tempfile.TemporaryDirectory(prefix='dl-ui-age-') as temporary:
+            f = DeviceFixture(cluster); f.treat()
+            root = Path(temporary); (root / 'device').mkdir()
+            (root / 'device/protection.sock').symlink_to(f.root / 'device/protection.sock')
+            proxy = DroppedReplyProxy(root / 'device/control.sock', f.root / 'device/control.sock'); self.addCleanup(proxy.close)
+            ui = UserInterface(root, 'same_session_age'); self.addCleanup(ui.close)
+            self.ready(ui, f)
+            original = ui.until(lambda s: s['control'] == s['protection'] == 'STALE', f, stepping=False, timeout=2.2)
+            token = rpc(f.root / 'device/control.sock', 'HELLO6')[1]
+            for _ in range(3):
+                proxy.block.add('STATUS6')
+                ui.until(lambda s: s['control'] == 'DISCONNECTED', f, stepping=False)
+                proxy.block.clear()
+                reconnected = ui.until(lambda s: s['control'] != 'DISCONNECTED', f, stepping=False)
+                self.assertEqual(reconnected['control'], 'STALE')
+                self.assertEqual(reconnected['sensor_sequence'], original['sensor_sequence'])
+                self.assertEqual(token, rpc(f.root / 'device/control.sock', 'HELLO6')[1])
+            ui.snapshot('same_session_still_stale')
+            ui.close(); self._cleanups.pop(); proxy.close(); self._cleanups.pop()
+
+    def test_coalesced_sdl_clicks_and_exact_prescription_confirmation(self):
+        with LocalCluster(BUILD) as cluster:
+            f = DeviceFixture(cluster); f.treat(); f.step('PAUSE')
+            directory = EVIDENCE / 'sdl_pointer'
+            argv = [str(BUILD / 'device-ui'), '--runtime-dir', str(f.root), '--test-input', '--capture-dir', str(directory)]
+            # Exercise the same SDL event path in headless CI using its dummy
+            # driver; the graphical suite uses the actual existing X11 display.
+            env = dict(os.environ, SDL_VIDEODRIVER=os.environ.get('SDL_VIDEODRIVER', 'x11') if GRAPHICAL else 'dummy')
+            ui = UserInterface(f.root, 'sdl_pointer', argv, env); self.addCleanup(ui.close)
+            self.ready(ui, f)
+            ui.send('MOUSE MODE')
+            ui.until(lambda s: s['selected_mode'] == 0, f, stepping=False)
+            ui.send('SET blood 280.04'); ui.send('SET uf -0.04'); ui.send('SET sub 0')
+            ui.send('MOUSE PRESCRIBE')
+            invalid = ui.until(lambda s: s['feedback'].startswith('Invalid'), f, stepping=False)
+            self.assertFalse(invalid['pending'])
+            ui.send('SET uf 0.04'); ui.send('MOUSE PRESCRIBE')
+            confirmation = ui.until(lambda s: s['pending'], f, stepping=False)
+            self.assertEqual(confirmation['confirmed_values'], '0 280.04 0.04 0')
+            self.assertIn('Blood 280.04 mL/min; net UF 0.04 mL/min', confirmation['confirmation'])
+            self.assertEqual(f.view()['machine']['net_uf_prescribed_mL_min'], 5)
+            ui.snapshot('exact_confirmation')
+            ui.send('MOUSE CONFIRM')
+            ui.until(lambda s: s.get('mode') == 0 and s.get('prescribed_blood_mL_min') == 280.04, f)
+            self.assertEqual(f.view()['machine']['net_uf_prescribed_mL_min'], .04)
+            ui.send('MOUSE START'); ui.until(lambda s: s['pending'], f, stepping=False); ui.send('MOUSE CONFIRM')
+            ui.until(lambda s: s.get('stage') == 'TREATMENT' and s.get('blood_mL_min', 0) > 0, f)
+            ui.send('MOUSE STOP')
+            ui.until(lambda s: s.get('stage') == 'STOPPED', f, stepping=False)
+            self.assertEqual(treatment.live(rpc(f.admin, 'STATUS4'))['blood_mL_min'], 0)
+
+    def test_all_latched_alarms_and_disconnect_fit_without_overlapping_intent(self):
+        with LocalCluster(BUILD) as cluster:
+            f = DeviceFixture(cluster)
+            for _ in range(4): f.step()
+            f.prepare(); rpc(f.root / 'control/service.sock', 'STEP5', f.n, f.n * 100)
+            # Maximum supported combined mask through the real plant's protective
+            # channel; UI receives only its actual resulting device observations.
+            rpc(f.protection, 'PROTECT5', f.n, f.n * 100, 8191, 0)
+            rpc(f.admin, 'COMMIT5', f.n, f.n * 100); f.n += 1
+            ui = self.launch(cluster, 'alarm_layout')
+            ui.until(lambda s: s['mask'] == 8191, f, stepping=False)
+            cluster.processes['control'].terminate(); cluster.processes['control'].wait(timeout=3)
+            deadline = time.monotonic() + 2
+            while time.monotonic() < deadline:
+                rpc(f.admin, 'PING'); rpc(f.root / 'protection/service.sock', 'PING')
+                result = ui.snapshot()
+                if result['control'] == 'DISCONNECTED': break
+                time.sleep(.03)
+            self.assertEqual(result['control'], 'DISCONNECTED')
+            capture = ui.snapshot('all_alarms_disconnected')
+            self.assertEqual(capture['mask'], 8191)
+            self.assertIn('silence until', capture['labels']['alarm'])
+            layout = capture['layout']
+            self.assertLess(layout['alarm_bottom'], layout['intent_top'])
+            self.assertLess(layout['intent_bottom'], layout['feedback_top'])
+            self.assertLess(layout['feedback_bottom'], layout['height'])

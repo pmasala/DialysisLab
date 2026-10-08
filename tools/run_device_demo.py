@@ -34,21 +34,27 @@ def main():
                 '--capture-dir', str(args.output.resolve() / 'captures'), '--duration-ms', str(args.seconds * 1000)]
         if args.headless: argv.append('--headless')
         ui = subprocess.Popen(argv, stdout=log, stderr=subprocess.STDOUT)
-        def check_window(_tick):
-            if ui.poll() is not None: raise InterruptedError('device window closed, exit=' + str(ui.returncode))
+        window_closed = False
+        def check_window(_tick=None):
+            nonlocal window_closed
+            if ui.poll() is not None:
+                window_closed = True
+                raise InterruptedError('device window closed, exit=' + str(ui.returncode))
         try:
-            _, manifest = simulate(config, cluster.runtime, args.build_dir, args.output / 'run', check_window, args.wall_speed)
+            _, manifest = simulate(config, cluster.runtime, args.build_dir, args.output / 'run', check_window, args.wall_speed, wait_check=check_window)
             stopped = manifest.get('stop') or stop_plant(cluster.runtime / 'admin/plant.sock', True)
         finally:
             if ui.poll() is None: ui.terminate()
             try: ui.wait(timeout=5)
             except subprocess.TimeoutExpired: ui.kill(); ui.wait()
         result = dict(executed_at=datetime.now(timezone.utc).isoformat(), ui_command=argv, ui_exit=ui.returncode,
-                      run_outcome=manifest['outcome'], run_errors=manifest['errors'],
+                      run_outcome=manifest['outcome'], run_errors=manifest['errors'], expected_window_closure=window_closed and ui.returncode == 0,
                       stop=stopped, display=os.environ.get('DISPLAY'), command=sys.argv)
         (args.output / 'demo.json').write_text(json.dumps(result, indent=2) + '\n')
         print(json.dumps(result, indent=2))
-        return 0 if ui.returncode == 0 and stopped.get('outputs_zero_observed', False) else 1
+        expected = manifest['outcome'] == 'completed' or (window_closed and ui.returncode == 0
+                   and manifest['errors'] == ['device window closed, exit=0'])
+        return 0 if expected and ui.returncode == 0 and stopped.get('outputs_zero_observed', False) else 1
 
 
 if __name__ == '__main__': sys.exit(main())
