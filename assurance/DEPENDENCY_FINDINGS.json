@@ -1,0 +1,2629 @@
+{
+  "schema_version": 1,
+  "phase": "M8",
+  "scan_artifact": "build/m8-scan-selected/report.json",
+  "scan_sha256": "b712696ad2c081b3dcf97ced26f523f13b953d58104df55daa19430bf6347d8a",
+  "scope": "Pre-candidate actual snapshot analysis, not a clean scan or accepted residual risk. Final clean-build evidence will preserve and supersede this execution.",
+  "queries": 70,
+  "matching_queries": 19,
+  "unique_ids": 73,
+  "blocked_queries": 0,
+  "dispositions": [
+    {
+      "id": "DEBIAN-CVE-2011-3374",
+      "component": "apt",
+      "query": {
+        "package": {
+          "name": "apt",
+          "ecosystem": "Debian:13"
+        },
+        "version": "3.0.3"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2011-3374"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2022-0563",
+      "component": "util-linux",
+      "query": {
+        "package": {
+          "name": "util-linux",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41.5-0+deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2022-0563"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-3184",
+      "component": "util-linux",
+      "query": {
+        "package": {
+          "name": "util-linux",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41.5-0+deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-3184"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-76642",
+      "component": "util-linux",
+      "query": {
+        "package": {
+          "name": "util-linux",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41.5-0+deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-76642"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-78408",
+      "component": "util-linux",
+      "query": {
+        "package": {
+          "name": "util-linux",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41.5-0+deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-78408"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-78409",
+      "component": "util-linux",
+      "query": {
+        "package": {
+          "name": "util-linux",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41.5-0+deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-78409"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-78410",
+      "component": "util-linux",
+      "query": {
+        "package": {
+          "name": "util-linux",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41.5-0+deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-78410"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2017-18018",
+      "component": "coreutils",
+      "query": {
+        "package": {
+          "name": "coreutils",
+          "ecosystem": "Debian:13"
+        },
+        "version": "9.7-3"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2017-18018"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2025-5278",
+      "component": "coreutils",
+      "query": {
+        "package": {
+          "name": "coreutils",
+          "ecosystem": "Debian:13"
+        },
+        "version": "9.7-3"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2025-5278"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-56391",
+      "component": "coreutils",
+      "query": {
+        "package": {
+          "name": "coreutils",
+          "ecosystem": "Debian:13"
+        },
+        "version": "9.7-3"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-56391"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-56392",
+      "component": "coreutils",
+      "query": {
+        "package": {
+          "name": "coreutils",
+          "ecosystem": "Debian:13"
+        },
+        "version": "9.7-3"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-56392"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-102473",
+      "component": "dash",
+      "query": {
+        "package": {
+          "name": "dash",
+          "ecosystem": "Debian:13"
+        },
+        "version": "0.5.12-12"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-102473"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-102474",
+      "component": "dash",
+      "query": {
+        "package": {
+          "name": "dash",
+          "ecosystem": "Debian:13"
+        },
+        "version": "0.5.12-12"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-102474"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-53910",
+      "component": "diffutils",
+      "query": {
+        "package": {
+          "name": "diffutils",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1:3.10-4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-53910"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-102010",
+      "component": "gcc-14",
+      "query": {
+        "package": {
+          "name": "gcc-14",
+          "ecosystem": "Debian:13"
+        },
+        "version": "14.2.0-19"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-102010"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-95619",
+      "component": "gcc-14",
+      "query": {
+        "package": {
+          "name": "gcc-14",
+          "ecosystem": "Debian:13"
+        },
+        "version": "14.2.0-19"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-95619"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-54369",
+      "component": "acl",
+      "query": {
+        "package": {
+          "name": "acl",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.3.2-2"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-54369"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-54370",
+      "component": "acl",
+      "query": {
+        "package": {
+          "name": "acl",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.3.2-2"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-54370"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-54371",
+      "component": "attr",
+      "query": {
+        "package": {
+          "name": "attr",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1:2.5.2-3"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-54371"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-42250",
+      "component": "bzip2",
+      "query": {
+        "package": {
+          "name": "bzip2",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1.0.8-6"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-42250"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2010-4756",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2010-4756"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2018-20796",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2018-20796"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2019-1010022",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2019-1010022"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2019-1010023",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2019-1010023"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2019-1010024",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2019-1010024"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2019-1010025",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2019-1010025"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2019-9192",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2019-9192"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-18374",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-18374"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-19499",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-19499"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-19542",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-19542"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-5435",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-5435"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-6238",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-6238"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-6368",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-6368"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-6791",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-6791"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-77117",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-77117"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-80489",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-80489"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-8674",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-8674"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-86805",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-86805"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-89092",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-89092"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-95818",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-95818"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-97399",
+      "component": "glibc",
+      "query": {
+        "package": {
+          "name": "glibc",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2.41-12+deb13u4"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-97399"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2025-6141",
+      "component": "ncurses",
+      "query": {
+        "package": {
+          "name": "ncurses",
+          "ecosystem": "Debian:13"
+        },
+        "version": "6.5+20250216-2"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2025-6141"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2025-69720",
+      "component": "ncurses",
+      "query": {
+        "package": {
+          "name": "ncurses",
+          "ecosystem": "Debian:13"
+        },
+        "version": "6.5+20250216-2"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2025-69720"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2025-8941",
+      "component": "pam",
+      "query": {
+        "package": {
+          "name": "pam",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1.7.0-5"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2025-8941"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-54411",
+      "component": "pam",
+      "query": {
+        "package": {
+          "name": "pam",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1.7.0-5"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-54411"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2021-45346",
+      "component": "sqlite3",
+      "query": {
+        "package": {
+          "name": "sqlite3",
+          "ecosystem": "Debian:13"
+        },
+        "version": "3.46.1-7+deb13u2"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2021-45346"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2025-70873",
+      "component": "sqlite3",
+      "query": {
+        "package": {
+          "name": "sqlite3",
+          "ecosystem": "Debian:13"
+        },
+        "version": "3.46.1-7+deb13u2"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2025-70873"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-39113",
+      "component": "sqlite3",
+      "query": {
+        "package": {
+          "name": "sqlite3",
+          "ecosystem": "Debian:13"
+        },
+        "version": "3.46.1-7+deb13u2"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-39113"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-50812",
+      "component": "sqlite3",
+      "query": {
+        "package": {
+          "name": "sqlite3",
+          "ecosystem": "Debian:13"
+        },
+        "version": "3.46.1-7+deb13u2"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-50812"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-50813",
+      "component": "sqlite3",
+      "query": {
+        "package": {
+          "name": "sqlite3",
+          "ecosystem": "Debian:13"
+        },
+        "version": "3.46.1-7+deb13u2"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-50813"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2013-4392",
+      "component": "systemd",
+      "query": {
+        "package": {
+          "name": "systemd",
+          "ecosystem": "Debian:13"
+        },
+        "version": "257.13-1~deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2013-4392"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2023-31437",
+      "component": "systemd",
+      "query": {
+        "package": {
+          "name": "systemd",
+          "ecosystem": "Debian:13"
+        },
+        "version": "257.13-1~deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2023-31437"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2023-31438",
+      "component": "systemd",
+      "query": {
+        "package": {
+          "name": "systemd",
+          "ecosystem": "Debian:13"
+        },
+        "version": "257.13-1~deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2023-31438"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2023-31439",
+      "component": "systemd",
+      "query": {
+        "package": {
+          "name": "systemd",
+          "ecosystem": "Debian:13"
+        },
+        "version": "257.13-1~deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2023-31439"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-15059",
+      "component": "systemd",
+      "query": {
+        "package": {
+          "name": "systemd",
+          "ecosystem": "Debian:13"
+        },
+        "version": "257.13-1~deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-15059"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-16742",
+      "component": "systemd",
+      "query": {
+        "package": {
+          "name": "systemd",
+          "ecosystem": "Debian:13"
+        },
+        "version": "257.13-1~deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-16742"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-40228",
+      "component": "systemd",
+      "query": {
+        "package": {
+          "name": "systemd",
+          "ecosystem": "Debian:13"
+        },
+        "version": "257.13-1~deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-40228"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2007-5686",
+      "component": "shadow",
+      "query": {
+        "package": {
+          "name": "shadow",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1:4.17.4-2"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2007-5686"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2024-56433",
+      "component": "shadow",
+      "query": {
+        "package": {
+          "name": "shadow",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1:4.17.4-2"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-0-platform.json",
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2024-56433"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2011-4116",
+      "component": "perl",
+      "query": {
+        "package": {
+          "name": "perl",
+          "ecosystem": "Debian:13"
+        },
+        "version": "5.40.1-6+deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2011-4116"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-15534",
+      "component": "perl",
+      "query": {
+        "package": {
+          "name": "perl",
+          "ecosystem": "Debian:13"
+        },
+        "version": "5.40.1-6+deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-15534"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-82560",
+      "component": "perl",
+      "query": {
+        "package": {
+          "name": "perl",
+          "ecosystem": "Debian:13"
+        },
+        "version": "5.40.1-6+deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-82560"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-9538",
+      "component": "perl",
+      "query": {
+        "package": {
+          "name": "perl",
+          "ecosystem": "Debian:13"
+        },
+        "version": "5.40.1-6+deb13u1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-9538"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2005-2541",
+      "component": "tar",
+      "query": {
+        "package": {
+          "name": "tar",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1.35+dfsg-3.1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2005-2541"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-18477",
+      "component": "tar",
+      "query": {
+        "package": {
+          "name": "tar",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1.35+dfsg-3.1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-18477"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-18508",
+      "component": "tar",
+      "query": {
+        "package": {
+          "name": "tar",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1.35+dfsg-3.1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-18508"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-5704",
+      "component": "tar",
+      "query": {
+        "package": {
+          "name": "tar",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1.35+dfsg-3.1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Package/tool is present in the platform but not invoked by the fixed simulation service commands. Containers have no network, privileged capabilities or writable system files. Compromised process/host scenarios remain residual; this is not a proof of non-exploitability.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-5704"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-27171",
+      "component": "zlib",
+      "query": {
+        "package": {
+          "name": "zlib",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1:1.3.dfsg+really1.3.1-1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-27171"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-85091",
+      "component": "zlib",
+      "query": {
+        "package": {
+          "name": "zlib",
+          "ecosystem": "Debian:13"
+        },
+        "version": "1:1.3.dfsg+really1.3.1-1"
+      },
+      "scopes": [
+        "image-0-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Present in linked platform code or Python compression support. Bounded local messages/configuration, trusted inputs and no-network containers reduce exposure; complete function-level reachability has not been proven. Keep the match open, not falsely not-affected.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-85091"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-88806",
+      "component": "libx11",
+      "query": {
+        "package": {
+          "name": "libx11",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2:1.8.12-1"
+      },
+      "scopes": [
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Optional graphical clients connect only to the explicitly trusted local X server. Hostile X-server responses are outside this deployment trust model; the library remains affected and graphical residual risk is not accepted.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-88806"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-94283",
+      "component": "libx11",
+      "query": {
+        "package": {
+          "name": "libx11",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2:1.8.12-1"
+      },
+      "scopes": [
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Optional graphical clients connect only to the explicitly trusted local X server. Hostile X-server responses are outside this deployment trust model; the library remains affected and graphical residual risk is not accepted.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-94283"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-94284",
+      "component": "libx11",
+      "query": {
+        "package": {
+          "name": "libx11",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2:1.8.12-1"
+      },
+      "scopes": [
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Optional graphical clients connect only to the explicitly trusted local X server. Hostile X-server responses are outside this deployment trust model; the library remains affected and graphical residual risk is not accepted.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-94284"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    },
+    {
+      "id": "DEBIAN-CVE-2026-94285",
+      "component": "libx11",
+      "query": {
+        "package": {
+          "name": "libx11",
+          "ecosystem": "Debian:13"
+        },
+        "version": "2:1.8.12-1"
+      },
+      "scopes": [
+        "image-1-platform.json",
+        "image-1-platform.json"
+      ],
+      "status": "OPEN_CONSTRAINED_REFERENCE_USE",
+      "rationale": "Optional graphical clients connect only to the explicitly trusted local X server. Hostile X-server responses are outside this deployment trust model; the library remains affected and graphical residual risk is not accepted.",
+      "upstream_references": [
+        {
+          "type": "ADVISORY",
+          "url": "https://security-tracker.debian.org/tracker/CVE-2026-94285"
+        }
+      ],
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "verification": [
+        "M8-TEST-001",
+        "M8-TEST-003",
+        "M8-TEST-005"
+      ],
+      "risk_acceptance": null,
+      "next_action": "Track upstream/distro fixes and reassess exact versions/reachability before reuse or distribution; human residual-risk acceptance remains open."
+    }
+  ],
+  "changes": [
+    {
+      "component": "CPython",
+      "action": "Update official platform from 3.12.14 to 3.12.15; preserve historical matches and primary release notes.",
+      "status": "IMPLEMENTED_REGRESSIONS_IN_PROGRESS"
+    },
+    {
+      "component": "actions/checkout undici",
+      "action": "Do not adopt candidate action; public system Git fetch checked against event SHA instead.",
+      "status": "NOT_ADOPTED"
+    },
+    {
+      "component": "pip / ensurepip",
+      "action": "Remove unused installer/bootstrap from effective runtime; inherited layers still retain original bytes/obligations.",
+      "status": "REMOVED_FROM_ACTIVE_RUNTIME_NOT_PATCHED_UPSTREAM"
+    }
+  ]
+}

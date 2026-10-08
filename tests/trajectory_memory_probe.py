@@ -9,6 +9,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'python'))
 from dialysislab.trajectory import TrajectoryWriter, scan
 
 
+def rss_sample():
+    # Linux getrusage can retain the spawning parent's pre-exec high-water mark.
+    # VmHWM belongs to this executable's address space; retain both counters.
+    fields={line.split(':',1)[0]:line.split(':',1)[1].strip() for line in Path('/proc/self/status').read_text().splitlines() if ':' in line}
+    peak,unit=fields['VmHWM'].split()
+    assert unit=='kB'
+    return dict(peak_rss_bytes=int(peak)*1024,metric='Linux /proc/self/status VmHWM',
+                getrusage_high_water_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024)
+
+
 def main():
     directory = Path(sys.argv[1])
     reports = []
@@ -37,10 +47,10 @@ def main():
         reports.append(dict(records=checked['records'], bytes=checked['complete_bytes'],
                             sha256=checked['sha256'], first_sequence=checked['first']['sequence'],
                             last_sequence=checked['last']['sequence']))
-    rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024
-    assert rss <= 64 * 1024**2, rss
+    memory=rss_sample()
+    assert memory['peak_rss_bytes'] <= 64 * 1024**2, memory
     assert reports[0]['sha256'] == reports[1]['sha256']
-    print(json.dumps(dict(peak_rss_bytes=rss, rss_budget_bytes=64*1024**2,
+    print(json.dumps(dict(**memory, rss_budget_bytes=64*1024**2,
                           compose_limit_bytes=128*1024**2, runs=reports)))
 
 

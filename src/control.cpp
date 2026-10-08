@@ -5,7 +5,7 @@ int main(int argc, char** argv) {
     try {
         dl::setup(); auto root = dl::runtime_dir(argc, argv);
         dl::Listener listener(root + "/control/service.sock");
-        dl::Listener device(root + "/device/control.sock");
+        dl::Listener device(root + "/device/control/service.sock");
         const auto plant = root + "/control/plant.sock";
         long long next = 0, previous_time = -1;
         dl::Intent intent;

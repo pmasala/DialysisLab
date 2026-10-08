@@ -115,3 +115,14 @@ Native same-UID access, inherited OS/kernel/configuration, shared device produce
 ownership and abrupt native broker orphan cleanup remain explicit M8 hardening
 work. Token freshness does not establish hardware independence or eliminate
 common-cause failure. No licensed standards or credentials belong in exports.
+
+## M8 implemented threat controls
+
+`THREATS.json` records assets, abuse paths, requirements and residual shared causes.
+`docs/M8_SECURITY_CI.md` defines predeclared acceptance and migrations. Separate
+device producer volumes address earlier endpoint ownership gaps; native parent-death
+cleanup addresses orphan processes without inventing observed safe output. Bounded
+input and real fault tests assess availability effects; privileged administration,
+host/kernel and shared plant/configuration remain trusted/common causes.
+Dependency scans identify actual versions and findings, not absence of vulnerabilities.
+CI runs software checks while recording outstanding release gates separately.

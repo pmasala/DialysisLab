@@ -4,9 +4,9 @@ Status: functional scope and UI separation agreed. M1 now implements the limited
 headless HD slice described in [M1_PLAN.md](M1_PLAN.md), with versioned
 [interfaces](M1_INTERFACES.md), [model equations](M1_MODEL.md) and
 [risk boundaries](M1_RISKS.md). The broader architecture below remains the required
-roadmap. M2–M6 below implement the circuit, limited patient/treatment/lifecycle
-and actual device UI increments. The external console and M8/M9 work remain
-required; calibrated physiology is not supplied by this implementation.
+roadmap. M2–M7 implement the circuit, limited patient/treatment/lifecycle, actual device UI
+and separate experiment console. M8 hardening and M9 integration are in progress;
+calibrated physiology is not supplied by this implementation.
 
 M2 adds an opt-in synthetic compliant circuit and multiple dialyzer profiles in
 the same plant process. [M2_MODEL_INTERFACES.md](M2_MODEL_INTERFACES.md) defines
@@ -30,7 +30,7 @@ limited physiology, conservative ledgers and failure semantics.
 | plant | C++ | Circuit, dialysate/substitution preparation, dialyzer, actuators, sensor channels, and actuator arbitration. |
 | patient | Python | Patient compartments, fluid/solute dynamics, and configurable physiology. |
 | scenario-runner | Python | Simulation time, scenario execution, faults, recording, and evaluation. |
-| sim-console | C++ proposed | External experiment application, separate window/process/container from device-ui. Dear ImGui/ImPlot are candidates. |
+| sim-console | C++ / Dear ImGui | Implemented external experiment application, separate window/process/container from device-ui; ImPlot is not selected. |
 
 The earlier combined operator/experiment UI is superseded by two separate applications. The original requirement for separate control, protection, and UI containers is retained. Headless execution excludes both graphical applications.
 
@@ -159,3 +159,12 @@ with a read-only activation record containing only a generated run ID. No Docker
 socket is mounted. Scheduled role policy rejects external device changes except
 immediate STOP, which interrupts the experiment. Full contracts, bounds, recovery
 semantics and acceptance are in [M7_EXPERIMENTS.md](M7_EXPERIMENTS.md).
+
+## M8 local trust and lifecycle hardening
+
+Device endpoint producers now own distinct volumes; clients receive both read-only
+through stable aliases. Native role processes and container supervisor children use
+a Linux parent-death exec guard. JSON ingress is bounded and rejects duplicate keys.
+See [M8 contracts](M8_SECURITY_CI.md) and the versioned [threat register](../assurance/THREATS.json).
+Package inventories, application/container SBOMs and CI evidence remain distinct from
+clinical validation, human risk acceptance and release approval.

@@ -7,6 +7,7 @@ import socket
 import time
 from pathlib import Path
 from .protocol import ProtocolError, integer, message, read_line, real
+from .trajectory import strict_json
 
 
 class Patient:
@@ -34,14 +35,14 @@ class Patient:
             return self.status()
         if len(request) == 2 and request[0] in ('INIT3', 'INIT4', 'INIT5') and self.initial is None and self.compartments is None:
             from .compartments import Compartments
-            self.compartments = Compartments(json.loads(request[1]), online=request[0] != 'INIT3', lifecycle=request[0] == 'INIT5')
+            self.compartments = Compartments(strict_json(request[1]), online=request[0] != 'INIT3', lifecycle=request[0] == 'INIT5')
             return 'DL1 OK'
         if self.compartments is not None:
             version = '5' if self.compartments.lifecycle else '4' if self.compartments.online else '3'
             if request == ['STATUS' + version]:
                 result = self.compartments.snapshot()
             elif len(request) == 2 and request[0] == 'ADVANCE' + version:
-                result = self.compartments.advance(json.loads(request[1]))
+                result = self.compartments.advance(strict_json(request[1]))
             else:
                 raise ProtocolError('coupled patient operation')
             return message('PATIENT' + version, json.dumps(result, sort_keys=True, separators=(',', ':'), allow_nan=False))

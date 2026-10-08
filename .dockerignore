@@ -74,3 +74,4 @@
 !src/console/sim_console.cpp
 !src/console/client.hpp
 !tools/experiment.py
+!src/child_guard.cpp

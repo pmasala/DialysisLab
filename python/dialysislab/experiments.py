@@ -191,8 +191,12 @@ class Broker:
             # already authorised volumes into a short private runtime directory.
             runtime = self.runtime_root / 'sessions' / identifier
             runtime.mkdir(parents=True)
-            for role in ('admin', 'control', 'protection', 'patient', 'device'):
+            for role in ('admin', 'control', 'protection', 'patient'):
                 (runtime / role).symlink_to(self.runtime_root / role / identifier)
+            (runtime / 'device').mkdir()
+            for role in ('control', 'protection'):
+                (runtime / 'device' / (role + '.sock')).symlink_to(
+                    self.runtime_root / 'device' / role / identifier / 'service.sock')
             atomic(self.activation / 'active.json', {'schema_version': 1, 'run_id': identifier})
             try:
                 wait_ready(runtime)

@@ -360,7 +360,22 @@
     "tools/verify_m1_review.py",
     "tools/verify_models.py",
     "tools/verify_reproducibility.py",
-    "tools/verify_ui_compose.py"
+    "tools/verify_ui_compose.py",
+    "docs/M8_SECURITY_CI.md",
+    "src/child_guard.cpp",
+    "tests/test_security.py",
+    "dependency_inventory.json",
+    "docs/dependencies/CI_NOTICES.md",
+    "tools/platform_inventory.py",
+    "tools/dependency_report.py",
+    "tools/security_scan.py",
+    "tools/ci_verify.py",
+    ".github/workflows/verify.yaml",
+    "tests/test_dependencies.py",
+    "assurance/THREATS.json",
+    "SECURITY.md",
+    "docs/dependencies/M8.md",
+    "assurance/DEPENDENCY_FINDINGS.json"
   ],
   "owned_assets": {
     "assurance/evidence/m6/captures/hd.png": {

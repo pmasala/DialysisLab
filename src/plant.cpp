@@ -92,6 +92,7 @@ public:
         return out.str();
     }
     std::string handle(std::size_t role, dl::Tokens& r) {
+        if (role >= heartbeat.size()) throw std::runtime_error("invalid listener role");
         auto op = r.take();
         if (!machine_set && (op=="META5" || op=="VIEW5" || op=="STOP5" || op=="ACK5" || op=="SILENCE5")) return "DL1 REJECT uninitialized";
         if (role == 0 && op == "MACHINE5") {
@@ -248,7 +249,7 @@ public:
             dl::require(patient_coupled == (op == "CSTATE3"));
             return circuit_state();
         }
-        if (op == "PING") { r.end(); heartbeat[role] = dl::Clock::now(); return "DL1 OK"; }
+        if (op == "PING") { r.end(); heartbeat.at(role) = dl::Clock::now(); return "DL1 OK"; }
         if (role == 0 && op == "STATUS") { r.end(); return state(); }
         if (role == 0 && op == "HALT") { r.end(); halt("shutdown"); return "DL1 OK"; }
         if (role == 0 && op == "STOP") {
@@ -283,8 +284,8 @@ public:
             }
             if (machine_set) { machine.sequence=n; machine.time=t; }
             prepared = true; demand_seen = false; decision_seen = false;
-        } else if (role > 0 && (op == "SENSE" || op == "SENSE4" || op=="SENSE5")) {
-            tick(r); r.end(); heartbeat[role] = dl::Clock::now();
+        } else if ((role == 1 || role == 2) && (op == "SENSE" || op == "SENSE4" || op=="SENSE5")) {
+            tick(r); r.end(); heartbeat.at(role) = dl::Clock::now();
             if (machine_set) { dl::require(op=="SENSE5"); return device_samples[role-1].encode(); }
             dl::require(online_set == (op == "SENSE4"));
             return online_set ? quality_samples[role - 1].encode() : samples[role - 1].encode();
@@ -376,14 +377,14 @@ public:
             total = updated; end_t = t + dt;
             if (machine_set) { machine.sequence=n; machine.time=end_t; }
             next_n = n + 1; next_t = end_t; prepared = false;
-            heartbeat[role] = dl::Clock::now();
+            heartbeat.at(role) = dl::Clock::now();
             // Seal the integrated state in a single reply before any asynchronous
             // watchdog/HALT can change live rates or per-step circuit diagnostics.
             return configured ? std::string(machine_set ? "DL1 COMMITTED5 " : online_set ? "DL1 COMMITTED4 " : patient_coupled ? "DL1 COMMITTED3 " : "DL1 COMMITTED2 ")
                 + state().substr(4) + " " + circuit_state().substr(4) + (online_set ? " " + online_state().substr(4) : "")
                 + (machine_set ? " " + machine.encode().substr(4) : "") : state();
         } else throw std::runtime_error("role or operation");
-        heartbeat[role] = dl::Clock::now();
+        heartbeat.at(role) = dl::Clock::now();
         return "DL1 OK";
     }
 };

@@ -14,7 +14,7 @@ import sys
 import tempfile
 import time
 from .protocol import expect, heartbeat, integer, observation, pause, real, rpc, state, wait_ready
-from .trajectory import FORMAT, TrajectoryWriter, canonical
+from .trajectory import FORMAT, TrajectoryWriter, canonical, strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
 FAULTS = {'none', 'invalid', 'missing', 'stale', 'future', 'replay'}
@@ -90,6 +90,9 @@ class LocalCluster:
         self.runtime = Path(self.temporary.name)
         for role in ('admin', 'control', 'protection', 'patient', 'device'):
             (self.runtime / role).mkdir()
+        for role in ('control', 'protection'):
+            (self.runtime / 'device' / role).mkdir()
+            (self.runtime / 'device' / (role + '.sock')).symlink_to(Path(role) / 'service.sock')
         env = dict(os.environ, PYTHONPATH=str(ROOT / 'python'), PYTHONDONTWRITEBYTECODE='1')
         try:
             for role in ('plant', 'control', 'protection', 'patient'):
@@ -97,7 +100,8 @@ class LocalCluster:
                            else [str(self.build_dir / role)])
                 log = (self.runtime / (role + '.log')).open('w')
                 self.logs.append(log)
-                self.processes[role] = subprocess.Popen(command + ['--runtime-dir', str(self.runtime)],
+                guarded = [str(self.build_dir / 'child-guard'), str(os.getpid())] + command
+                self.processes[role] = subprocess.Popen(guarded + ['--runtime-dir', str(self.runtime)],
                                                        env=env, stdout=log, stderr=log)
             wait_ready(self.runtime)
             return self
@@ -142,6 +146,7 @@ def build_identity(build_dir):
     identity = json.loads(path.read_text())
     identity['binary_sha256'] = {role: digest((Path(build_dir) / role).read_bytes())
                                  for role in ('plant', 'control', 'protection')}
+    identity['child_guard_sha256'] = digest((Path(build_dir) / 'child-guard').read_bytes())
     # Identify the Python code actually executing, including native post-build edits.
     identity['python_sha256'] = {str(p.relative_to(ROOT)): digest(p.read_bytes())
                                  for p in sorted((ROOT / 'python/dialysislab').glob('*.py'))}
@@ -315,7 +320,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
                     if m['stage'] in ('PRIMING', 'CLEANING'): transaction.update(draw_mL=0, return_mL=0)
                     physical['workflow_request'] = workflow_request
                 reply = expect(rpc(patient, 'ADVANCE5' if lifecycle else 'ADVANCE4' if online else 'ADVANCE3', canonical(transaction)), 'PATIENT5' if lifecycle else 'PATIENT4' if online else 'PATIENT3', 2)
-                patient_snapshot = validate_snapshot(json.loads(reply[1]), online, lifecycle)
+                patient_snapshot = validate_snapshot(strict_json(reply[1]), online, lifecycle)
                 physical['patient'] = patient_snapshot
                 volume = ['VOLUME', str(patient_snapshot['sequence']), str(patient_snapshot['time_ms']),
                           str(math.fsum(patient_snapshot['volume_mL'][:2])), str(patient_snapshot['net_patient_loss_mL'])]
@@ -386,7 +391,8 @@ def main():
     parser.add_argument('--local', action='store_true', help='Launch four separate native service processes')
     parser.add_argument('--wall-speed', type=float, default=0, help='Optional virtual/wall speed; 0 is unpaced batch')
     args = parser.parse_args()
-    config = validate(json.loads(args.config.read_text()))
+    with args.config.open('rb') as stream:
+        config = validate(strict_json(stream.read(1024 * 1024 + 1)))
     if args.output.exists():
         parser.error('output already exists; choose a new directory')
     if args.local:

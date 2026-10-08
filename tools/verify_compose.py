@@ -136,7 +136,7 @@ def run_case(scenario, index, output):
         if service['network'] != 'none' or not service['read_only'] or service['user'] != '10001:10001':
             raise ValueError('container isolation configuration')
         if service['service'] in ('control', 'protection'):
-            if set(service['mounts']) != {'/run/dialysis/' + service['service'], '/run/dialysis/device'}:
+            if set(service['mounts']) != {'/run/dialysis/' + service['service'], '/run/dialysis/device/' + service['service']}:
                 raise ValueError('decision service has excessive mounts')
     active_ticks = 5 if scenario == 'hd_occlusion' else 20
     expected = Decimal(active_ticks) * Decimal(10) * Decimal(100) / Decimal(60000)
@@ -174,7 +174,20 @@ for path in ('/run/dialysis/admin/plant.sock', '/run/dialysis/patient/service.so
             raise SystemExit('Unexpected administration access')
 """
         for role in ('control', 'protection'):
-            probes.append(dict(role=role, output=command(prefix + ['exec', '-T', role, 'python3', '-c', code])))
+            other = 'protection' if role == 'control' else 'control'
+            producer = """
+from pathlib import Path
+for name in ('/run/dialysis/device/OTHER/service.sock', '/run/dialysis/device/OTHER.sock'):
+    path = Path(name)
+    try:
+        if path.is_symlink(): path.unlink()
+        else: path.write_text('impersonation attempt')
+    except OSError as exc:
+        assert exc.errno in (2, 13, 30), exc
+        print('DENIED_ENDPOINT_REPLACEMENT ' + name)
+    else: raise SystemExit('Unexpected device producer authority')
+""".replace('OTHER', other)
+            probes.append(dict(role=role, output=command(prefix + ['exec', '-T', role, 'python3', '-c', code + producer])))
         device_code = """from pathlib import Path
 import time
 from dialysislab.protocol import rpc
@@ -193,7 +206,8 @@ for role in ('control', 'protection'):
         probes.append(dict(role='device-only', output=command([
             'docker', 'run', '--rm', '--network', 'none', '--read-only', '--cap-drop', 'ALL',
             '--security-opt', 'no-new-privileges:true', '--user', '10001:10001', '--pids-limit', '32', '--memory', '128m',
-            '--mount', 'type=volume,src=' + project + '_device,dst=/run/dialysis/device',
+            '--mount', 'type=volume,src=' + project + '_device-control,dst=/run/dialysis/device/control,readonly',
+            '--mount', 'type=volume,src=' + project + '_device-protection,dst=/run/dialysis/device/protection,readonly',
             'dialysislab-m1:local', 'python3', '-c', device_code])))
         return probes
     finally:

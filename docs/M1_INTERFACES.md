@@ -8,6 +8,11 @@ Transport deadline is 500 ms per exchange; startup retries last at most 10 wall
 seconds. Integers are decimal nonnegative integers; floating values must be finite.
 No private source text or request payload is logged on error.
 
+M8 deployment hardening preserves this wire contract and virtual clock. Device
+client aliases now resolve into separately owned producer mounts; embedded JSON
+rejects duplicate keys, excessive depth and nonfinite values. Exact migration,
+wall-time/resource policies and native parent-death behavior: [M8](M8_SECURITY_CI.md).
+
 ## Endpoints and authority
 
 Paths are relative to `--runtime-dir` (default `/run/dialysis`).

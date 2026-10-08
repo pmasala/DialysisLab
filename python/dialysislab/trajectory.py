@@ -11,7 +11,32 @@ MAX_RECORD_BYTES = 16384
 
 
 def strict_json(raw):
-    """JSON evidence cannot contain NaN/Infinity or overflowing float literals."""
+    """Bounded JSON with unique keys, finite numbers and at most 32 nesting levels."""
+    if len(raw) > 1024 * 1024:
+        raise ValueError('JSON size limit')
+    if isinstance(raw, bytes):
+        raw = raw.decode('utf-8')
+    # Check depth before invoking the recursive decoder (including Python 3.9).
+    depth, quoted, escaped = 0, False, False
+    for char in raw:
+        if quoted:
+            if escaped: escaped = False
+            elif char == '\\': escaped = True
+            elif char == '"': quoted = False
+        elif char == '"': quoted = True
+        elif char in '[{':
+            depth += 1
+            if depth > 32: raise ValueError('JSON nesting limit')
+        elif char in ']}': depth -= 1
+    def unique(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result: raise ValueError('duplicate JSON key')
+            result[key] = value
+        return result
+    def bounded_integer(token):
+        if len(token) > 128: raise ValueError('JSON integer length limit')
+        return int(token)
     def nonfinite(token):
         raise ValueError('nonfinite JSON number: ' + token)
     def finite_float(token):
@@ -19,7 +44,8 @@ def strict_json(raw):
         if not math.isfinite(value):
             nonfinite(token)
         return value
-    return json.loads(raw, parse_constant=nonfinite, parse_float=finite_float)
+    return json.loads(raw, parse_constant=nonfinite, parse_float=finite_float,
+                      parse_int=bounded_integer, object_pairs_hook=unique)
 
 
 def canonical(data):

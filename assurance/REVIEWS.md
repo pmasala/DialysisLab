@@ -268,3 +268,24 @@ M7-V2 verified: normal traceability, standards and publication checks pass; both
 release checks retain exit 1 (184 entries, 12 gaps, nine prerequisites open).
 All four wrappers reproduce the original byte hashes. The source package contains
 359 allowlisted files; exact commands/results are in `evidence/m7/checks.json`.
+
+## M8 candidate preparation
+
+Frozen base `4a1c366acd0050df4c744c2d1eb7d066890d5df4`.
+Local verification: 144/144 native tests before the additional RSS inheritance
+regression, 145/145 sanitizer tests after it, nine targeted native RSS/dependency
+regressions, 10 device/5 console widget regressions, ten native/ten Compose model
+runs, four M1 Compose runs/three strengthened boundary probes, actual repeated
+console and device deployments on updated CPython 3.12.15. Preliminary commands,
+source identities and retained failures are in `build/m8-*`.
+
+Pre-review corrections: valid PID 1 supervisor handling; strict duplicate/depth
+JSON ingress; explicit role bounds after Cppcheck warning; platform update and
+non-adoption of vulnerable/ambiguous CI actions; actual per-exec RSS measurement
+with both kernel counters retained. No acceptance threshold was widened.
+Selected dependency analysis: 70 queries, zero blocked, 19 matching queries and
+73 distinct advisory IDs remain openly dispositioned, not a clean scan.
+
+M8 review has not run yet. Commit candidate, run hosted CI, invoke exactly one
+read-only review against the frozen base and retain its command/output/exit.
+A zero CLI exit is not an approval. M9 review has not run either.

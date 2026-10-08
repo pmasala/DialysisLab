@@ -67,6 +67,11 @@
       "id": "M7-NEED-001",
       "statement": "Administer reproducible synthetic experiments through a separate external console and bounded batch API.",
       "status": "implemented"
+    },
+    {
+      "id": "M8-NEED-001",
+      "statement": "Constrain simulator trust boundaries and resources, inventory dependencies and execute reproducible security/CI checks.",
+      "status": "implemented"
     }
   ],
   "hazards": [
@@ -343,6 +348,36 @@
       "id": "M7-DES-006",
       "description": "Preserve failure evidence and fresh lifecycle; docs/M7_EXPERIMENTS.md.",
       "status": "implemented"
+    },
+    {
+      "id": "M8-DES-001",
+      "description": "Isolate writable device producers; docs/M8_SECURITY_CI.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M8-DES-002",
+      "description": "Clean up native children after owner death; docs/M8_SECURITY_CI.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M8-DES-003",
+      "description": "Bound and validate untrusted inputs; docs/M8_SECURITY_CI.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M8-DES-004",
+      "description": "Inventory selected dependencies and artifacts; docs/M8_SECURITY_CI.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M8-DES-005",
+      "description": "Execute and disposition available analyses; docs/M8_SECURITY_CI.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M8-DES-006",
+      "description": "Continuously verify builds integration and publication; docs/M8_SECURITY_CI.md.",
+      "status": "implemented"
     }
   ],
   "requirements": [
@@ -515,11 +550,11 @@
         },
         {
           "path": "CMakeLists.txt",
-          "sha256": "c535b5f1151aa11fdc9d7b477c0a6101c28c1266e78bf3e354faa899d8b6bf06"
+          "sha256": "32600e8a079ba963e7983597061d9ffb4bdf5f755d9fa49ca77de0a2a7167c38"
         },
         {
           "path": "compose.yaml",
-          "sha256": "198a2de74fdffca552fbcd8624bb802dfc57fce74c9003d8b6e51415d4f5d8c0"
+          "sha256": "36a87c560f43167b5ee328b0036b002e14dbd8217fbb98223f76e178af6b7f01"
         }
       ],
       "unresolved": [
@@ -548,11 +583,11 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "78ed40c3edd2f1671205a8df2cf21a9f3bf14989d281effb173a5fd7f50897bd"
+          "sha256": "299456d7bf33b4c552ddfba2eedeff2950c62199014ad4d5e60545fb3b1fd94b"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "f8c83df5ad0b1d90608c30b9d7df5107100c91719c1a154509910491f6a03cb2"
+          "sha256": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0"
         }
       ],
       "unresolved": [
@@ -585,11 +620,11 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "f8c83df5ad0b1d90608c30b9d7df5107100c91719c1a154509910491f6a03cb2"
+          "sha256": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0"
         },
         {
           "path": "python/dialysislab/patient.py",
-          "sha256": "9e17589c01defae9078bcc62524ad20011ae507e8cdb37993fb4c59a4840af06"
+          "sha256": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a"
         }
       ],
       "unresolved": [
@@ -618,11 +653,11 @@
       "implementation": [
         {
           "path": "src/protection.cpp",
-          "sha256": "e532e67fa56f566191e8edff9d8be08b5e03f2f4f59c18b47abb43dfc465aaa8"
+          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "f8c83df5ad0b1d90608c30b9d7df5107100c91719c1a154509910491f6a03cb2"
+          "sha256": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0"
         }
       ],
       "unresolved": [
@@ -651,11 +686,11 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "f8c83df5ad0b1d90608c30b9d7df5107100c91719c1a154509910491f6a03cb2"
+          "sha256": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0"
         },
         {
           "path": "src/control.cpp",
-          "sha256": "e511fb546c76f813c9cbca7f298109c9d4264b2d1fd9a13b0b90ef15bd1f2c16"
+          "sha256": "a45e89c4ede496fc714806b4ba8b343c169c486280859cef330995dcb89371f4"
         }
       ],
       "unresolved": [
@@ -688,15 +723,15 @@
         },
         {
           "path": "src/control.cpp",
-          "sha256": "e511fb546c76f813c9cbca7f298109c9d4264b2d1fd9a13b0b90ef15bd1f2c16"
+          "sha256": "a45e89c4ede496fc714806b4ba8b343c169c486280859cef330995dcb89371f4"
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "e532e67fa56f566191e8edff9d8be08b5e03f2f4f59c18b47abb43dfc465aaa8"
+          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "f8c83df5ad0b1d90608c30b9d7df5107100c91719c1a154509910491f6a03cb2"
+          "sha256": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0"
         }
       ],
       "unresolved": [
@@ -726,7 +761,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "f8c83df5ad0b1d90608c30b9d7df5107100c91719c1a154509910491f6a03cb2"
+          "sha256": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0"
         },
         {
           "path": "src/wire.hpp",
@@ -734,7 +769,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "78ed40c3edd2f1671205a8df2cf21a9f3bf14989d281effb173a5fd7f50897bd"
+          "sha256": "299456d7bf33b4c552ddfba2eedeff2950c62199014ad4d5e60545fb3b1fd94b"
         }
       ],
       "unresolved": [
@@ -764,11 +799,11 @@
       "implementation": [
         {
           "path": "python/dialysislab/trajectory.py",
-          "sha256": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932"
+          "sha256": "0cd9026cc01878f359cc1edef63b6915a41266b5e9c2fa56478e7e07730a72a1"
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "78ed40c3edd2f1671205a8df2cf21a9f3bf14989d281effb173a5fd7f50897bd"
+          "sha256": "299456d7bf33b4c552ddfba2eedeff2950c62199014ad4d5e60545fb3b1fd94b"
         },
         {
           "path": "tools/recover_trajectory.py",
@@ -800,7 +835,7 @@
       "implementation": [
         {
           "path": "tools/verify_compose.py",
-          "sha256": "148c6b6b526ecbd05d34ce99c191655cedb93e1f6ee58b8813481e037a70d20c"
+          "sha256": "65924a3fadd86786f76a498202137b75880f23ac42bdc26f0a33cc311d7e0cce"
         }
       ],
       "unresolved": [
@@ -1030,7 +1065,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "78ed40c3edd2f1671205a8df2cf21a9f3bf14989d281effb173a5fd7f50897bd"
+          "sha256": "299456d7bf33b4c552ddfba2eedeff2950c62199014ad4d5e60545fb3b1fd94b"
         }
       ],
       "unresolved": [
@@ -1117,7 +1152,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "f8c83df5ad0b1d90608c30b9d7df5107100c91719c1a154509910491f6a03cb2"
+          "sha256": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0"
         }
       ],
       "unresolved": [
@@ -1148,7 +1183,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "78ed40c3edd2f1671205a8df2cf21a9f3bf14989d281effb173a5fd7f50897bd"
+          "sha256": "299456d7bf33b4c552ddfba2eedeff2950c62199014ad4d5e60545fb3b1fd94b"
         }
       ],
       "unresolved": [
@@ -1182,7 +1217,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "f8c83df5ad0b1d90608c30b9d7df5107100c91719c1a154509910491f6a03cb2"
+          "sha256": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0"
         }
       ],
       "unresolved": [
@@ -1215,7 +1250,7 @@
         },
         {
           "path": "python/dialysislab/patient.py",
-          "sha256": "9e17589c01defae9078bcc62524ad20011ae507e8cdb37993fb4c59a4840af06"
+          "sha256": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a"
         }
       ],
       "unresolved": [
@@ -1246,11 +1281,11 @@
       "implementation": [
         {
           "path": "src/protection.cpp",
-          "sha256": "e532e67fa56f566191e8edff9d8be08b5e03f2f4f59c18b47abb43dfc465aaa8"
+          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "f8c83df5ad0b1d90608c30b9d7df5107100c91719c1a154509910491f6a03cb2"
+          "sha256": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0"
         }
       ],
       "unresolved": [
@@ -1284,7 +1319,7 @@
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "e532e67fa56f566191e8edff9d8be08b5e03f2f4f59c18b47abb43dfc465aaa8"
+          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
         }
       ],
       "unresolved": [
@@ -1314,7 +1349,7 @@
       "implementation": [
         {
           "path": "src/control.cpp",
-          "sha256": "e511fb546c76f813c9cbca7f298109c9d4264b2d1fd9a13b0b90ef15bd1f2c16"
+          "sha256": "a45e89c4ede496fc714806b4ba8b343c169c486280859cef330995dcb89371f4"
         },
         {
           "path": "python/dialysislab/machine.py",
@@ -1322,7 +1357,7 @@
         },
         {
           "path": "compose.yaml",
-          "sha256": "198a2de74fdffca552fbcd8624bb802dfc57fce74c9003d8b6e51415d4f5d8c0"
+          "sha256": "36a87c560f43167b5ee328b0036b002e14dbd8217fbb98223f76e178af6b7f01"
         }
       ],
       "unresolved": [
@@ -1642,7 +1677,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/experiments.py",
-          "sha256": "83d932893a4f01f006afe891b9890812cc2df2b8e3270a4b7d081a483f458959"
+          "sha256": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -1650,7 +1685,7 @@
         },
         {
           "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4"
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
         },
         {
           "path": "src/console/sim_console.cpp",
@@ -1692,7 +1727,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/experiments.py",
-          "sha256": "83d932893a4f01f006afe891b9890812cc2df2b8e3270a4b7d081a483f458959"
+          "sha256": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -1700,7 +1735,7 @@
         },
         {
           "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4"
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
         },
         {
           "path": "src/console/sim_console.cpp",
@@ -1742,7 +1777,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/experiments.py",
-          "sha256": "83d932893a4f01f006afe891b9890812cc2df2b8e3270a4b7d081a483f458959"
+          "sha256": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -1750,7 +1785,7 @@
         },
         {
           "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4"
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
         },
         {
           "path": "src/console/sim_console.cpp",
@@ -1792,7 +1827,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/experiments.py",
-          "sha256": "83d932893a4f01f006afe891b9890812cc2df2b8e3270a4b7d081a483f458959"
+          "sha256": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -1800,7 +1835,7 @@
         },
         {
           "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4"
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
         },
         {
           "path": "src/console/sim_console.cpp",
@@ -1842,7 +1877,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/experiments.py",
-          "sha256": "83d932893a4f01f006afe891b9890812cc2df2b8e3270a4b7d081a483f458959"
+          "sha256": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -1850,7 +1885,7 @@
         },
         {
           "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4"
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
         },
         {
           "path": "src/console/sim_console.cpp",
@@ -1892,7 +1927,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/experiments.py",
-          "sha256": "83d932893a4f01f006afe891b9890812cc2df2b8e3270a4b7d081a483f458959"
+          "sha256": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -1900,7 +1935,7 @@
         },
         {
           "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4"
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
         },
         {
           "path": "src/console/sim_console.cpp",
@@ -1917,6 +1952,310 @@
       ],
       "unresolved": [
         "Independent risk acceptance, calibration/validation and physical/standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M8-REQ-001",
+      "statement": "Isolate writable device producers",
+      "acceptance": "Actual role spoofing denied; device clients retain authorized access",
+      "needs": [
+        "M8-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "M8-DES-001"
+      ],
+      "tests": [
+        "M8-TEST-001"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/control.cpp",
+          "sha256": "a45e89c4ede496fc714806b4ba8b343c169c486280859cef330995dcb89371f4"
+        },
+        {
+          "path": "src/protection.cpp",
+          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+        },
+        {
+          "path": "compose.yaml",
+          "sha256": "36a87c560f43167b5ee328b0036b002e14dbd8217fbb98223f76e178af6b7f01"
+        },
+        {
+          "path": "compose.experiments.yaml",
+          "sha256": "3ff60fad917a605793b9b461b557ef53277202a286a5f7d840ce2d27063836f3"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        },
+        {
+          "path": "tools/verify_compose.py",
+          "sha256": "65924a3fadd86786f76a498202137b75880f23ac42bdc26f0a33cc311d7e0cce"
+        },
+        {
+          "path": "docs/M8_SECURITY_CI.md",
+          "sha256": "28349595cfa3e2e8edadb42d3c4021357235a7ef9d6299cb7e37d31b51bf4463"
+        }
+      ],
+      "unresolved": [
+        "Candidate verification completed locally; single review, hosted CI and clean final evidence pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+      ]
+    },
+    {
+      "id": "M8-REQ-002",
+      "statement": "Clean up native children after owner death",
+      "acceptance": "Real owner SIGKILL ends children, preserves partial records and does not invent observed zero",
+      "needs": [
+        "M8-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-003",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M8-DES-002"
+      ],
+      "tests": [
+        "M8-TEST-002"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/child_guard.cpp",
+          "sha256": "34a3ea2d93648d7436acc773cb8f3a78e43fb38d01c33cd34e864789a2243c94"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "299456d7bf33b4c552ddfba2eedeff2950c62199014ad4d5e60545fb3b1fd94b"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        },
+        {
+          "path": "tests/test_security.py",
+          "sha256": "192f0cc864ab6b843119fda46de3a4e0db8e68ff03541f2b95f83cd98bf13444"
+        },
+        {
+          "path": "docs/M8_SECURITY_CI.md",
+          "sha256": "28349595cfa3e2e8edadb42d3c4021357235a7ef9d6299cb7e37d31b51bf4463"
+        }
+      ],
+      "unresolved": [
+        "Candidate verification completed locally; single review, hosted CI and clean final evidence pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+      ]
+    },
+    {
+      "id": "M8-REQ-003",
+      "statement": "Bound and validate untrusted inputs",
+      "acceptance": "Duplicate/deep/oversized/trickle inputs rejected; watchdog/protection remain effective",
+      "needs": [
+        "M8-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-002",
+        "HAZ-003",
+        "HAZ-004",
+        "HAZ-005",
+        "HAZ-006"
+      ],
+      "designs": [
+        "M8-DES-003"
+      ],
+      "tests": [
+        "M8-TEST-003"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/trajectory.py",
+          "sha256": "0cd9026cc01878f359cc1edef63b6915a41266b5e9c2fa56478e7e07730a72a1"
+        },
+        {
+          "path": "python/dialysislab/patient.py",
+          "sha256": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0"
+        },
+        {
+          "path": "tests/test_security.py",
+          "sha256": "192f0cc864ab6b843119fda46de3a4e0db8e68ff03541f2b95f83cd98bf13444"
+        },
+        {
+          "path": "docs/M8_SECURITY_CI.md",
+          "sha256": "28349595cfa3e2e8edadb42d3c4021357235a7ef9d6299cb7e37d31b51bf4463"
+        }
+      ],
+      "unresolved": [
+        "Candidate verification completed locally; single review, hosted CI and clean final evidence pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+      ]
+    },
+    {
+      "id": "M8-REQ-004",
+      "statement": "Inventory selected dependencies and artifacts",
+      "acceptance": "Reproducible versioned SBOM, license/pin/notice checks and identified platform packages",
+      "needs": [
+        "M8-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M8-DES-004"
+      ],
+      "tests": [
+        "M8-TEST-004"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "dependency_inventory.json",
+          "sha256": "df0f3819ff4e6862abb13aba3872c74c7e6c96c83a02b08177c59c39ea7f8c2d"
+        },
+        {
+          "path": "tools/dependency_report.py",
+          "sha256": "44bdd2c21393106b8217cad2ae8c9acc9a80189a8dbbefdfce4728c0f6b22041"
+        },
+        {
+          "path": "tools/platform_inventory.py",
+          "sha256": "aa4728ee4f87798b89b84bf4241131756e1e2efef9d31c51406216b23967a999"
+        },
+        {
+          "path": "tests/test_dependencies.py",
+          "sha256": "648397b2fb7722ad2038c877886e0f9bec9eee71327ebe9e8275c3176c2d75b7"
+        },
+        {
+          "path": "docs/dependencies/M8.md",
+          "sha256": "fee3906207a830c64455d4382d25ed93137bc70ed86e780723261a6490e8c1fc"
+        },
+        {
+          "path": "docs/M8_SECURITY_CI.md",
+          "sha256": "28349595cfa3e2e8edadb42d3c4021357235a7ef9d6299cb7e37d31b51bf4463"
+        }
+      ],
+      "unresolved": [
+        "Candidate verification completed locally; single review, hosted CI and clean final evidence pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+      ]
+    },
+    {
+      "id": "M8-REQ-005",
+      "statement": "Execute and disposition available analyses",
+      "acceptance": "Actual static/advisory reports identify commands, findings, coverage and blocks",
+      "needs": [
+        "M8-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-002",
+        "HAZ-003",
+        "HAZ-004",
+        "HAZ-005",
+        "HAZ-006"
+      ],
+      "designs": [
+        "M8-DES-005"
+      ],
+      "tests": [
+        "M8-TEST-005"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "tools/security_scan.py",
+          "sha256": "a68e449a5bd7b044f56b7e1ac6379cf9956acfb9378a794d2c354ba9eee9c569"
+        },
+        {
+          "path": "assurance/DEPENDENCY_FINDINGS.json",
+          "sha256": "0b2bdff3616d86ea1841126c77c61c2b3ef36ca874d81a65510cbeecb3d2c33b"
+        },
+        {
+          "path": "tests/test_dependencies.py",
+          "sha256": "648397b2fb7722ad2038c877886e0f9bec9eee71327ebe9e8275c3176c2d75b7"
+        },
+        {
+          "path": "assurance/THREATS.json",
+          "sha256": "f3c75151c4b17e391fbbbef1944278ce5b67f87d1412377c561410fc7974b07f"
+        },
+        {
+          "path": "docs/M8_SECURITY_CI.md",
+          "sha256": "28349595cfa3e2e8edadb42d3c4021357235a7ef9d6299cb7e37d31b51bf4463"
+        }
+      ],
+      "unresolved": [
+        "Candidate verification completed locally; single review, hosted CI and clean final evidence pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+      ]
+    },
+    {
+      "id": "M8-REQ-006",
+      "statement": "Continuously verify builds integration and publication",
+      "acceptance": "Real builds/processes/widgets/Compose and assurance/publication CI with retained outcomes",
+      "needs": [
+        "M8-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-002",
+        "HAZ-003",
+        "HAZ-004",
+        "HAZ-005",
+        "HAZ-006"
+      ],
+      "designs": [
+        "M8-DES-006"
+      ],
+      "tests": [
+        "M8-TEST-006"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": ".github/workflows/verify.yaml",
+          "sha256": "9c1727c1435f9a83cbb842adbc4ed4f1ef5652a24c915ef1ad772848f882611c"
+        },
+        {
+          "path": "tools/ci_verify.py",
+          "sha256": "ea03c823a88b83e3b43b79cbaa377a8791c62f5de265667c592f3031a8084b80"
+        },
+        {
+          "path": "tools/check_publication.py",
+          "sha256": "f5c3fb6b86b6de57dc72a36802efdf4f6f11f6632982c9e2e870c7efab67a4e4"
+        },
+        {
+          "path": "publication_manifest.json",
+          "sha256": "34025e32ad4de64fef19f116a24482ad6209490bb6e7e35b30c6f543f63d9044"
+        },
+        {
+          "path": "docs/dependencies/CI_NOTICES.md",
+          "sha256": "330aed1464064b51c4589a2bd3333db09a8765371247bd0535e23b56d23b01d6"
+        },
+        {
+          "path": "docs/M8_SECURITY_CI.md",
+          "sha256": "28349595cfa3e2e8edadb42d3c4021357235a7ef9d6299cb7e37d31b51bf4463"
+        }
+      ],
+      "unresolved": [
+        "Candidate verification completed locally; single review, hosted CI and clean final evidence pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
       ]
     }
   ],
@@ -3891,6 +4230,66 @@
         "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
         "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
       }
+    },
+    {
+      "id": "M8-TEST-001",
+      "requirements": [
+        "M8-REQ-001"
+      ],
+      "procedure": "Execute M8 real process/container/analysis/CI tests and preserve exact source/configuration/command/results.",
+      "expected": "Actual role spoofing denied; device clients retain authorized access",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M8-TEST-002",
+      "requirements": [
+        "M8-REQ-002"
+      ],
+      "procedure": "Execute M8 real process/container/analysis/CI tests and preserve exact source/configuration/command/results.",
+      "expected": "Real owner SIGKILL ends children, preserves partial records and does not invent observed zero",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M8-TEST-003",
+      "requirements": [
+        "M8-REQ-003"
+      ],
+      "procedure": "Execute M8 real process/container/analysis/CI tests and preserve exact source/configuration/command/results.",
+      "expected": "Duplicate/deep/oversized/trickle inputs rejected; watchdog/protection remain effective",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M8-TEST-004",
+      "requirements": [
+        "M8-REQ-004"
+      ],
+      "procedure": "Execute M8 real process/container/analysis/CI tests and preserve exact source/configuration/command/results.",
+      "expected": "Reproducible versioned SBOM, license/pin/notice checks and identified platform packages",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M8-TEST-005",
+      "requirements": [
+        "M8-REQ-005"
+      ],
+      "procedure": "Execute M8 real process/container/analysis/CI tests and preserve exact source/configuration/command/results.",
+      "expected": "Actual static/advisory reports identify commands, findings, coverage and blocks",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M8-TEST-006",
+      "requirements": [
+        "M8-REQ-006"
+      ],
+      "procedure": "Execute M8 real process/container/analysis/CI tests and preserve exact source/configuration/command/results.",
+      "expected": "Real builds/processes/widgets/Compose and assurance/publication CI with retained outcomes",
+      "result": "planned",
+      "evidence": null
     }
   ],
   "prerequisites": [

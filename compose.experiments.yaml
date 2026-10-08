@@ -22,11 +22,11 @@ services:
   control:
     <<: *common
     command: [python3, -m, dialysislab.role_supervisor, --role, control]
-    volumes: ["control:/run/dialysis/control", "device:/run/dialysis/device", "activation:/activation:ro"]
+    volumes: ["control:/run/dialysis/control", "device-control:/run/dialysis/device/control", "activation:/activation:ro"]
   protection:
     <<: *common
     command: [python3, -m, dialysislab.role_supervisor, --role, protection]
-    volumes: ["protection:/run/dialysis/protection", "device:/run/dialysis/device", "activation:/activation:ro"]
+    volumes: ["protection:/run/dialysis/protection", "device-protection:/run/dialysis/device/protection", "activation:/activation:ro"]
   patient:
     <<: *common
     command: [python3, -m, dialysislab.role_supervisor, --role, patient]
@@ -35,7 +35,7 @@ services:
     <<: *common
     depends_on: [plant, control, protection, patient]
     command: [python3, -m, dialysislab.experiments, --build-dir, /opt/bin, --output, /results, --api-dir, /experiment, --activation-dir, /activation, --runtime-dir, /run/dialysis]
-    volumes: ["admin:/run/dialysis/admin", "control:/run/dialysis/control", "protection:/run/dialysis/protection", "patient:/run/dialysis/patient", "device:/run/dialysis/device", "results:/results", "experiment:/experiment", "activation:/activation", "sessions:/run/dialysis/sessions"]
+    volumes: ["admin:/run/dialysis/admin", "control:/run/dialysis/control", "protection:/run/dialysis/protection", "patient:/run/dialysis/patient", "device-control:/run/dialysis/device/control:ro", "device-protection:/run/dialysis/device/protection:ro", "results:/results", "experiment:/experiment", "activation:/activation", "sessions:/run/dialysis/sessions"]
   sim-console:
     <<: *common
     image: dialysislab-ui:local
@@ -47,13 +47,14 @@ services:
     image: dialysislab-ui:local
     profiles: [device-ui]
     command: [/opt/bin/device-ui, --headless, --runtime-dir, /run/dialysis, --capture-dir, /captures]
-    volumes: ["device:/run/dialysis/device:ro", "device-captures:/captures"]
+    volumes: ["device-control:/run/dialysis/device/control:ro", "device-protection:/run/dialysis/device/protection:ro", "device-captures:/captures"]
 volumes:
   admin:
   control:
   protection:
   patient:
-  device:
+  device-control:
+  device-protection:
   activation:
   sessions:
   experiment:

@@ -127,7 +127,7 @@ for role in ('control','protection'):
         states = [r['machine']['stage'] for r in read_records(run / 'trajectory.jsonl')]
         if 'TREATMENT' not in states or states[-1] != 'STOPPED': raise ValueError('actual trajectory did not apply widget actions')
         service = next(s for s in report['services'] if s['service'] == 'device-ui')
-        expected_mounts = {'/run/dialysis/device', '/captures'} | ({'/tmp/.X11-unix/X0'} if args.graphical else set())
+        expected_mounts = {'/run/dialysis/device/control', '/run/dialysis/device/protection', '/captures'} | ({'/tmp/.X11-unix/X0'} if args.graphical else set())
         if set(service['mounts']) != expected_mounts or service['network'] != 'none' or not service['read_only'] or service['oom_killed'] or service['memory_limit_bytes'] != 128 * 1024 ** 2:
             raise ValueError('UI isolation/memory configuration')
         report.update(manifest=manifest, trajectory=trajectory)

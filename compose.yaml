@@ -28,11 +28,11 @@ services:
   control:
     <<: *common
     command: [/opt/bin/control, --runtime-dir, /run/dialysis]
-    volumes: [control:/run/dialysis/control, device:/run/dialysis/device]
+    volumes: [control:/run/dialysis/control, device-control:/run/dialysis/device/control]
   protection:
     <<: *common
     command: [/opt/bin/protection, --runtime-dir, /run/dialysis]
-    volumes: [protection:/run/dialysis/protection, device:/run/dialysis/device]
+    volumes: [protection:/run/dialysis/protection, device-protection:/run/dialysis/device/protection]
   patient:
     <<: *common
     command: [python3, -m, dialysislab.patient, --runtime-dir, /run/dialysis]
@@ -46,7 +46,8 @@ services:
       - control:/run/dialysis/control
       - protection:/run/dialysis/protection
       - patient:/run/dialysis/patient
-      - device:/run/dialysis/device
+      - device-control:/run/dialysis/device/control:ro
+      - device-protection:/run/dialysis/device/protection:ro
       - results:/results
   device-ui:
     <<: *common
@@ -58,7 +59,7 @@ services:
       args:
         SOURCE_REVISION: ${SOURCE_REVISION:-unavailable}
     command: [/opt/bin/device-ui, --headless, --runtime-dir, /run/dialysis, --capture-dir, /captures]
-    volumes: ["device:/run/dialysis/device:ro", "captures:/captures"]
+    volumes: ["device-control:/run/dialysis/device/control:ro", "device-protection:/run/dialysis/device/protection:ro", "captures:/captures"]
 volumes:
   captures:
   admin:
@@ -66,4 +67,5 @@ volumes:
   protection:
   patient:
   results:
-  device:
+  device-control:
+  device-protection:

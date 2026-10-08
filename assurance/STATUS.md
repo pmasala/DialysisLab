@@ -3,7 +3,7 @@
 ## Integrated execution checkpoint — 2026-10-08
 
 Branch `feat/integrated-dialysis-roadmap`. Technical phases M1–M7 COMPLETE;
-M8 NEXT; M9 PLANNED. The full project remains incomplete.
+M8 IN PROGRESS; M9 PLANNED. The full project remains incomplete.
 
 M7 implementation `bbecf59` passes 134/134 native and sanitizer tests each,
 20 broker/service regressions, 5/5 actual ImGui console tests in headless/WSLg/
@@ -25,14 +25,34 @@ Earlier M1–M6 evidence and failed diagnostic attempts remain preserved.
 M7-V2 publication correction passes all normal checks and preserves blocked release
 gates; exact log bytes are retained in hashed JSON wrappers.
 
-Next executable step: freeze this corrected checkpoint as M8 base,
-then define and implement cybersecurity/dependency/SBOM/CI requirements and tests.
-Separate device producer volumes, clean up native children after abrupt broker
-death, exercise bounded-input/availability threats, run available analyses and
-configure actual CI without weakening release gates. Continue M9 automatically.
-Preparation (not an adopted phase plan) is in `build/m8-preparation.md` and
-`build/m8-dependency-preparation/`. No graphical or Docker environmental block
-has been observed. Disk headroom is about 4.8 GiB; preserve prior work/evidence.
+M8 implementation is in progress at frozen base
+`4a1c366acd0050df4c744c2d1eb7d066890d5df4`. Device producers have distinct volumes;
+parent-death cleanup and bounded strict JSON are implemented. Six new security
+regressions plus four dependency/scanner tests pass; 38 affected process tests pass.
+Actual M1 Compose passes four runs/three strengthened isolation probes. The first
+supervised experiment aborted because the guard rejected valid container parent
+PID 1; the correction passes the second actual experiment deployment. Failures
+and artifacts remain in `build/m8-*-first*`. Cppcheck's conservative role warning
+is addressed by explicit bounds/roles; the third standalone scan has zero findings.
+
+Initial OSV analysis queried 96 identities with 25 matching queries, never a clean
+scan. Updated runtime selection is official pinned CPython 3.12.15/trixie-slim,
+signed snapshot 20261007; build and fresh scan/triage remain in progress. CI avoids
+both inspected actions: checkout retains vulnerable undici, uploader has an
+unresolved transitive license. The public repository is fetched with system Git
+and verified against the exact event SHA; hosted Actions is available, not yet run.
+SBOMs validate against official CycloneDX 1.6 with installed jsonschema 4.10.3;
+final inventories must identify the corrected image/build.
+
+Next executable step: commit/push the M8 candidate and run hosted CI plus its
+sole automatic review against the frozen base. Local preliminary verification
+passes 144 native tests, 145 sanitizer tests including the RSS correction, nine
+native RSS/dependency regressions, ten device/five console tests and ten native/ten
+Compose model runs. Current scan: 70 queries, 19 matching queries / 73 open IDs,
+zero blocked queries; see `DEPENDENCY_FINDINGS.json`. Review M8/M9 NOT yet run.
+Correct applicable findings and run clean final regressions, then continue M9.
+Detailed commands/diagnostics: `build/m8-progress.md`. Disk headroom about 2.9 GiB;
+no process, Docker or graphical permission block. Preserve prior work/evidence.
 
 Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md).

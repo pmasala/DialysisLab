@@ -1,0 +1,33 @@
+name: Simulator software verification
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: verification-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Fetch the exact public event revision with system Git
+        env:
+          GIT_TERMINAL_PROMPT: "0"
+          GIT_LFS_SKIP_SMUDGE: "1"
+        run: |
+          set -eu
+          test -n "$GITHUB_REPOSITORY"
+          git init .
+          git remote add origin "https://github.com/$GITHUB_REPOSITORY.git"
+          git -c protocol.file.allow=never fetch --no-tags --depth=1 origin "$GITHUB_SHA"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA"
+          git -c filter.lfs.smudge= -c filter.lfs.required=false checkout --detach "$GITHUB_SHA"
+          git --version
+      - name: Build and exercise actual software
+        run: python3 tools/ci_verify.py --output build/ci
+      - name: Preserve identified reports in job logs and summary
+        if: always()
+        run: python3 tools/ci_verify.py --output build/ci --report-only

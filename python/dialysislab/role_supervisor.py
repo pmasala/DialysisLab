@@ -48,8 +48,8 @@ def main():
                 finish()
                 current = active
                 if active:
-                    roles = {'plant': ('admin', 'control', 'protection'), 'control': ('control', 'device'),
-                             'protection': ('protection', 'device'), 'patient': ('patient',)}[args.role]
+                    roles = {'plant': ('admin', 'control', 'protection'), 'control': ('control',),
+                             'protection': ('protection',), 'patient': ('patient',)}[args.role]
                     temporary = tempfile.TemporaryDirectory(prefix='dl-role-')
                     runtime = Path(temporary.name)
                     for role in roles:
@@ -57,15 +57,21 @@ def main():
                         path.mkdir(parents=True, exist_ok=True)
                         if path.is_symlink(): raise ValueError('unsafe role path')
                         (runtime / role).symlink_to(path)
+                    if args.role in ('control', 'protection'):
+                        device = args.runtime_dir / 'device' / args.role
+                        endpoint = device / active
+                        endpoint.mkdir()
+                        (runtime / 'device').mkdir()
+                        (runtime / 'device' / args.role).symlink_to(endpoint)
                     owner_dir = args.runtime_dir / ('admin' if args.role == 'plant' else args.role) / active
                     log = (owner_dir / (args.role + '.log')).open('x')
                     command = [sys.executable, '-m', 'dialysislab.patient'] if args.role == 'patient' else [str(args.build_dir / args.role)]
-                    process = subprocess.Popen(command + ['--runtime-dir', str(runtime)], stdout=log, stderr=log)
+                    guarded = [str(args.build_dir / 'child-guard'), str(os.getpid())] + command
+                    process = subprocess.Popen(guarded + ['--runtime-dir', str(runtime)], stdout=log, stderr=log)
                     if args.role in ('control', 'protection'):
-                        device = args.runtime_dir / 'device'
-                        link = device / (args.role + '.sock.tmp')
-                        link.symlink_to(Path(active) / (args.role + '.sock'))
-                        os.replace(link, device / (args.role + '.sock'))
+                        link = device / 'service.sock.tmp'
+                        link.symlink_to(Path(active) / 'service.sock')
+                        os.replace(link, device / 'service.sock')
             # Never restart a crashed child in the same session. The runner sees
             # the process loss; only a new activation ID can launch fresh state.
             time.sleep(.02)

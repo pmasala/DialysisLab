@@ -17,11 +17,21 @@ BUILD = Path(os.environ.get('DIALYSISLAB_BUILD_DIR', ROOT / 'build'))
 
 
 class TrajectoryTests(unittest.TestCase):
+    def test_rss_measurement_does_not_inherit_parent_address_space(self):
+        child='import json; from trajectory_memory_probe import rss_sample; print(json.dumps(rss_sample()))'
+        parent='import subprocess,sys; allocation=bytearray(96*1024*1024); subprocess.run([sys.executable,"-c",sys.argv[1]],check=True)'
+        result=subprocess.run([sys.executable,'-c',parent,child],capture_output=True,text=True,timeout=10,
+            env=dict(os.environ,PYTHONPATH=str(ROOT/'tests')),check=True)
+        measured=json.loads(result.stdout)
+        self.assertLess(measured['peak_rss_bytes'],64*1024**2)
+        self.assertEqual(measured['metric'],'Linux /proc/self/status VmHWM')
+
     def test_100000_records_rss_order_repeatability_and_hash(self):
         validate(json.loads((ROOT / 'scenarios/hd_100000.json').read_text()))
         with tempfile.TemporaryDirectory() as directory:
             result = subprocess.run([sys.executable, str(ROOT / 'tests/trajectory_memory_probe.py'), directory],
-                                    text=True, capture_output=True, timeout=60, check=True)
+                                    text=True, capture_output=True, timeout=60)
+            self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
             report = json.loads(result.stdout)
             self.assertLessEqual(report['peak_rss_bytes'], 64*1024**2)
             self.assertEqual(report['runs'][0]['sha256'], report['runs'][1]['sha256'])

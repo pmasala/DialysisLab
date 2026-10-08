@@ -41,3 +41,6 @@ changes are authorized merely to bypass a block.
 | M7-001 | Freeze base `26211813a79d5f05720071de0b51df8089997476`; immutable scheduled configurations and fresh role processes make replay meaningful. | External emergency STOP stays effective and makes the run interrupted, never falsely replayable. |
 | M7-002 | Use a bounded authenticated Unix broker and Dear ImGui/selected SDL2 console; native same-UID is trusted, Compose mounts separate administration. | No Docker socket, arbitrary execution/path export or hidden truth in control/protection; remaining shared resources stay in the threat model. |
 | M7-003 | Per-role fixed-command supervisors allow repeated Compose runs without resetting a terminal plant in place. | Activation carries only generated run ID; new runs start isolated state and preserve old evidence. |
+
+| M8-001 | Freeze base `4a1c366acd0050df4c744c2d1eb7d066890d5df4`; strengthen owned device endpoints and Linux parent-death cleanup before integrated deployment. | Compatibility aliases preserve DL1 device APIs; no process exit is treated as observed zero output. |
+| M8-002 | Keep security/SBOM/static/advisory/CI results distinct from standards and human release decisions. | Exact selected dependencies, actual execution coverage and unresolved findings must remain visible; no implicit license exception. |
