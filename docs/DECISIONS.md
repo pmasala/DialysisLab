@@ -22,6 +22,11 @@
 | M4-001 | Use a mixed preparation reservoir, two hydraulic/contaminant-surrogate barriers and explicit pre-circuit versus post-body delivery. Preserve separate actual gross/net ledgers. | No sterility, axial dialyzer, thermal blood model or exact net-prescription claim. |
 | M4-002 | Quality protection blocks replacement, UF and dialysate exchange while blood circulation remains subject to independent pressure/validity protection. | Synthetic observed thresholds only; hidden contamination is deliberately not observable. |
 
+| M5-001 | Keep effective lifecycle/constraints in plant arbitration; device clients see queued intent separately. Use a dedicated device volume rather than exposing control/plant.sock. | No UI fault/clock/patient/truth administration; native same-UID remains trusted. |
+| M5-002 | Prime/clean through external source-to-waste circuit flows with explicit patient-side ledgers and isolation. | Flushed volume is a synthetic readiness criterion, not air removal or disinfection validation. |
+| M5-004 | Low-flow/filter latches require a fresh run because the current circuit has no isolated functional recovery test; retained pressure is never erased. | Zero stopped-flow observations cannot prove a fault cleared; other resettable hazards require three safe recovery cycles. |
+| M5-003 | Aggregate hazard masks, immediate differentiated actions, annotation-only ACK/silence, no protective overrides; reset requires safe measured recovery. | No silent pressure reset or automatic resumption after process restart. |
+
 The WSL2 environment has an X11 socket (`/tmp/.X11-unix/X0`) but DISPLAY is
 unset; desktop availability remains to be tested in M6. SDL development headers
 are currently absent. No global environment, credential, certificate or permission

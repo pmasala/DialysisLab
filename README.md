@@ -23,6 +23,28 @@ repeatability/failure tests, exact dependencies and assurance commands. The
 and [risk analysis](docs/M1_RISKS.md) define the narrow scope. All features below
 remain required; M1 does not complete the roadmap.
 
+## Guarded machine workflows (M5)
+
+Schema 5 adds preparation, priming, configuration, treatment, pause, stop/recovery,
+finish and cleaning; external flush water/species are conserved separately from
+the patient. Independent protection aggregates synthetic pressure, flow, air/leak,
+fluid-quality, metering and validity alarms. ACK/silence do not reset constraints.
+The [device contract](docs/M5_MACHINE.md) specifies guarded confirmation, recovery,
+detector limits and the dedicated device socket boundary. A GUI follows in M6.
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --parallel 3
+PYTHONPATH=python python3 -m dialysislab.runner --local --config scenarios/machine_recovery.json --output build/machine-demo
+python3 tools/verify_m1.py --build-dir build --output build/machine-tests.json
+SOURCE_REVISION=$(git rev-parse HEAD) docker compose build
+python3 tools/verify_models.py --compose --scenarios machine_hd machine_hdf_pre machine_hdf_post machine_recovery --output build/machine-compose
+```
+
+Use fresh output paths. The full required roadmap remains in `docs/MILESTONES.md`;
+software/numerical verification is separate from model calibration, clinical
+validation, actual fluid quality and standards conformity.
+
 ## Configurable circuit increment (M2)
 
 The opt-in circuit model adds compliant nodes, tube/resistor/clamp/dialyzer edges,

@@ -59,3 +59,16 @@ continued blood circulation under quality-only faults, conflicting DEMAND4, and
 lost STEP4 replies before commit. Retain exact build/config/hash and partial-failure
 artifacts. Hidden contamination must not acquire an invented protective sensor.
 Numerical/software verification remains separate from quality-barrier validation.
+
+## M5 evidence protocol
+
+Execute all earlier tests and `tests/test_machine.py`: real transition rejection
+matrix, HD/pre/post lifecycle, conservative flush ledgers, each detector, aggregate
+constraints before commit, hostile commands, ACK/silence/reset/confirmation expiry,
+stuck detector gaps, lost STEP5 replies, killed/restarted decision services and
+wall watchdog. Native and actual Compose workflows must reproduce hashes and
+independent water/species residuals <=1e-6 mL/mmol. Every first unsafe frozen sample
+must impose its constraint before that tick commits (<=dt); no wall-time hard-real-
+time claim. A device-only container must reach device endpoints while actual
+admin/patient/control-plant/protection-plant connection attempts are denied.
+Keep review base/candidate/output and all applicable fixes; one review only.

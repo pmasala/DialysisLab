@@ -4,7 +4,7 @@ Status: functional scope and UI separation agreed. M1 now implements the limited
 headless HD slice described in [M1_PLAN.md](M1_PLAN.md), with versioned
 [interfaces](M1_INTERFACES.md), [model equations](M1_MODEL.md) and
 [risk boundaries](M1_RISKS.md). The broader architecture below remains the required
-roadmap; UI, HDF, fluid preparation and calibrated physiology are not implemented.
+roadmap; UI/console and calibrated physiology are not implemented at this checkpoint.
 
 M2 adds an opt-in synthetic compliant circuit and multiple dialyzer profiles in
 the same plant process. [M2_MODEL_INTERFACES.md](M2_MODEL_INTERFACES.md) defines
@@ -115,3 +115,14 @@ replacement and dialysate exchange at plant arbitration; hard blood TRIP/HALT
 still dominates. Atomic COMMIT4 binds actual water/transport/preparation snapshots.
 Hidden contaminant/breach truth remains admin-only. See `M4_TREATMENT.md` for
 units, timing, numerical acceptance, supported ranges and quality-barrier limits.
+
+## M5 lifecycle and device services
+
+`M5_MACHINE.md` defines schema-5 machine states, protective masks, bounded device
+requests and recovery. State/actuator authority lives in plant; control requests
+transitions and regulates gross UF from measured replacement. Protection acts on
+modeled OBS5 independently, with differentiated blood/fluid isolation. External
+priming/cleaning pass through the real circuit and conservative Python patient
+coupling as source/waste ledgers. Device clients use a dedicated volume and cannot
+reach simulation administration or raw plant command endpoints. Sensor age remains
+distinct from authoritative machine state; pending confirmation is not completion.

@@ -27,11 +27,11 @@ services:
   control:
     <<: *common
     command: [/opt/bin/control, --runtime-dir, /run/dialysis]
-    volumes: [control:/run/dialysis/control]
+    volumes: [control:/run/dialysis/control, device:/run/dialysis/device]
   protection:
     <<: *common
     command: [/opt/bin/protection, --runtime-dir, /run/dialysis]
-    volumes: [protection:/run/dialysis/protection]
+    volumes: [protection:/run/dialysis/protection, device:/run/dialysis/device]
   patient:
     <<: *common
     command: [python3, -m, dialysislab.patient, --runtime-dir, /run/dialysis]
@@ -45,6 +45,7 @@ services:
       - control:/run/dialysis/control
       - protection:/run/dialysis/protection
       - patient:/run/dialysis/patient
+      - device:/run/dialysis/device
       - results:/results
 volumes:
   admin:
@@ -52,3 +53,4 @@ volumes:
   protection:
   patient:
   results:
+  device:

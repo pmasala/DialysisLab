@@ -24,6 +24,9 @@ def digest(data):
 
 
 def validate(config):
+    if isinstance(config, dict) and config.get('schema_version') == 5:
+        from .machine import validate as validate_machine
+        return validate_machine(config, validate)
     if isinstance(config, dict) and config.get('schema_version') == 4:
         from .treatment import validate as validate_treatment
         return validate_treatment(config, validate)
@@ -84,7 +87,7 @@ class LocalCluster:
     def __enter__(self):
         self.temporary = tempfile.TemporaryDirectory(prefix='dl-m1-')
         self.runtime = Path(self.temporary.name)
-        for role in ('admin', 'control', 'protection', 'patient'):
+        for role in ('admin', 'control', 'protection', 'patient', 'device'):
             (self.runtime / role).mkdir()
         env = dict(os.environ, PYTHONPATH=str(ROOT / 'python'), PYTHONDONTWRITEBYTECODE='1')
         try:
@@ -191,7 +194,8 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
     tick_context = None
     extended = config['schema_version'] >= 2
     coupled = config['schema_version'] >= 3
-    online = config['schema_version'] == 4
+    online = config['schema_version'] >= 4
+    lifecycle = config['schema_version'] >= 5
     patient_snapshot = None
     try:
         wait_ready(runtime)
@@ -201,9 +205,12 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
         if online:
             from . import treatment
             treatment.configure(admin, config)
+        if lifecycle:
+            from . import machine
+            machine.configure(admin, config)
         if coupled:
             from .compartments import validate_snapshot
-            expect(rpc(patient, 'INIT4' if online else 'INIT3', canonical(config['patient'])), 'OK', 1)
+            expect(rpc(patient, 'INIT5' if lifecycle else 'INIT4' if online else 'INIT3', canonical(config['patient'])), 'OK', 1)
         else:
             expect(rpc(patient, 'INIT', config['patient_volume_mL']), 'OK', 1)
         for n in range(config['ticks']):
@@ -211,11 +218,15 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
             tick_context = dict(sequence=n, time_ms=t)
             if before_tick:
                 before_tick(n)
+            event = next((e for e in config['workflow'] if e['tick'] == n), None) if lifecycle else None
+            workflow_request = machine.request(runtime, event) if event else None
             if coupled and patient_snapshot is not None:
                 circuit.transport(admin, config, patient_snapshot['concentration_mmol_L'][2])
             for fault in config['faults']:
                 if fault['tick'] == n:
-                    if online and fault['target'].startswith('online:'):
+                    if lifecycle and fault['target'].startswith('device:'):
+                        expect(rpc(admin, 'FAULT5', fault['target'][7:], fault['value']), 'OK', 1)
+                    elif online and fault['target'].startswith('online:'):
                         expect(rpc(admin, 'FAULT4', fault['target'][7:], fault['value']), 'OK', 1)
                     elif extended and fault['target'].startswith('edge:'):
                         expect(rpc(admin, 'EDGE2', int(fault['target'][5:]), fault['value']['resistance'],
@@ -226,19 +237,17 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
                         sensor[fault['target']] = fault['value']
             expect(rpc(admin, 'PREPARE', n, t, config['dt_ms'], resistance,
                        sensor['control_sensor'], sensor['protection_sensor']), 'OK', 1)
-            measurements = {role: (treatment.observation if online else observation)(rpc(runtime / role / 'plant.sock', 'SENSE4' if online else 'SENSE', n, t))
+            measurements = {role: (machine.observation if lifecycle else treatment.observation if online else observation)(rpc(runtime / role / 'plant.sock', 'SENSE5' if lifecycle else 'SENSE4' if online else 'SENSE', n, t))
                             for role in ('control', 'protection')}
             failures = []
             try:
-                extra = [config['treatment']['replacement_mL_min'], treatment.MODES.index(config['treatment']['mode'])] if online else []
-                expect(rpc(runtime / 'control/service.sock', 'STEP4' if online else 'STEP', n, t,
-                           config['blood_mL_min'], config['uf_mL_min'], *extra), 'OK', 1)
+                extra = [] if lifecycle else [config['blood_mL_min'], config['uf_mL_min']] + ([config['treatment']['replacement_mL_min'], treatment.MODES.index(config['treatment']['mode'])] if online else [])
+                expect(rpc(runtime / 'control/service.sock', 'STEP5' if lifecycle else 'STEP4' if online else 'STEP', n, t, *extra), 'OK', 1)
             except (OSError, ValueError) as exc:
                 failures.append('control:' + type(exc).__name__)
             try:
-                extra = [treatment.MODES.index(config['treatment']['mode'])] if online else []
-                decision = expect(rpc(runtime / 'protection/service.sock', 'STEP4' if online else 'STEP', n, t,
-                                      config['pressure_limit_mmHg'], *extra), 'DECISION', 2)[1]
+                extra = [] if lifecycle else [config['pressure_limit_mmHg']] + ([treatment.MODES.index(config['treatment']['mode'])] if online else [])
+                decision = expect(rpc(runtime / 'protection/service.sock', 'STEP5' if lifecycle else 'STEP4' if online else 'STEP', n, t, *extra), 'DECISION', 2)[1]
             except (OSError, ValueError) as exc:
                 decision = 'unavailable'
                 failures.append('protection:' + type(exc).__name__)
@@ -246,7 +255,12 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
             if failures:
                 manifest['rpc_failures'] = failures
                 raise RuntimeError(','.join(failures))
-            physical = treatment.committed(rpc(admin, 'COMMIT4', n, t)) if online else (circuit.committed(rpc(admin, 'COMMIT3' if coupled else 'COMMIT2', n, t), coupled) if extended
+            if workflow_request and workflow_request['delivery'] == 'queued':
+                role = 'protection' if event['action'] == 'RESET' else 'control'
+                intent = machine.view(rpc(runtime / 'device' / (role + '.sock'), 'STATUS5'))['intent']
+                workflow_request['result'] = intent['result']
+                if intent['result'] != 'applied': raise RuntimeError('workflow rejected: ' + intent['result'])
+            physical = machine.committed(rpc(admin, 'COMMIT5', n, t)) if lifecycle else treatment.committed(rpc(admin, 'COMMIT4', n, t)) if online else (circuit.committed(rpc(admin, 'COMMIT3' if coupled else 'COMMIT2', n, t), coupled) if extended
                         else state(rpc(admin, 'COMMIT', n, t)))
             pending_plant_state = physical
             if physical['sequence'] != n or physical['time_ms'] != t + config['dt_ms']:
@@ -268,8 +282,14 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None):
                         raise ValueError('online clock mismatch')
                     transaction.update(pre_mL=o['pre_tick_mL'], post_mL=o['post_tick_mL'],
                                        substitution_mmol_L=o['concentration_mmol_L'], dialysate_mmol_L=o['concentration_mmol_L'])
-                reply = expect(rpc(patient, 'ADVANCE4' if online else 'ADVANCE3', canonical(transaction)), 'PATIENT4' if online else 'PATIENT3', 2)
-                patient_snapshot = validate_snapshot(json.loads(reply[1]), online)
+                if lifecycle:
+                    m = physical['machine']
+                    transaction.update(flush_in_mL=m['flush_in_tick_mL'], flush_out_mL=m['flush_out_tick_mL'],
+                                       flush_mmol_L=o['concentration_mmol_L'])
+                    if m['stage'] in ('PRIMING', 'CLEANING'): transaction.update(draw_mL=0, return_mL=0)
+                    physical['workflow_request'] = workflow_request
+                reply = expect(rpc(patient, 'ADVANCE5' if lifecycle else 'ADVANCE4' if online else 'ADVANCE3', canonical(transaction)), 'PATIENT5' if lifecycle else 'PATIENT4' if online else 'PATIENT3', 2)
+                patient_snapshot = validate_snapshot(json.loads(reply[1]), online, lifecycle)
                 physical['patient'] = patient_snapshot
                 volume = ['VOLUME', str(patient_snapshot['sequence']), str(patient_snapshot['time_ms']),
                           str(math.fsum(patient_snapshot['volume_mL'][:2])), str(patient_snapshot['net_patient_loss_mL'])]

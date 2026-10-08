@@ -32,12 +32,12 @@ class Patient:
             if self.compartments is not None:
                 raise ProtocolError('coupled patient requires STATUS3')
             return self.status()
-        if len(request) == 2 and request[0] in ('INIT3', 'INIT4') and self.initial is None and self.compartments is None:
+        if len(request) == 2 and request[0] in ('INIT3', 'INIT4', 'INIT5') and self.initial is None and self.compartments is None:
             from .compartments import Compartments
-            self.compartments = Compartments(json.loads(request[1]), online=request[0] == 'INIT4')
+            self.compartments = Compartments(json.loads(request[1]), online=request[0] != 'INIT3', lifecycle=request[0] == 'INIT5')
             return 'DL1 OK'
         if self.compartments is not None:
-            version = '4' if self.compartments.online else '3'
+            version = '5' if self.compartments.lifecycle else '4' if self.compartments.online else '3'
             if request == ['STATUS' + version]:
                 result = self.compartments.snapshot()
             elif len(request) == 2 and request[0] == 'ADVANCE' + version:

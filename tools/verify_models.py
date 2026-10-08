@@ -34,6 +34,8 @@ def verify(directory, expected_config, expected_sources):
     integrated_diffusion, integrated_convection = [0.0] * 6, [0.0] * 6
     replacement = 0.0
     replacement_mass = [0.0] * 6
+    flush_in = flush_out = 0.0
+    flush_input_mass, flush_output_mass = [0.0] * 6, [0.0] * 6
     first_quality_ms = None
     patient_config = config.get('patient')
     initial_mass = None
@@ -46,7 +48,8 @@ def verify(directory, expected_config, expected_sources):
         storage = record.get('circuit', {}).get('stored_mL', 0)
         error = abs(config['patient_volume_mL'] - record['patient_volume_mL'] - storage - record['removed_total_mL'])
         if patient_config:
-            p, c = validate_snapshot(record['patient'], config['schema_version'] >= 4), record['circuit']
+            lifecycle = config['schema_version'] >= 5
+            p, c = validate_snapshot(record['patient'], config['schema_version'] >= 4, lifecycle), record['circuit']
             online = record.get('online')
             dialysate = config['transport']['dialysate_mmol_L']
             if config['schema_version'] >= 4 and not isinstance(online, dict):
@@ -72,6 +75,27 @@ def verify(directory, expected_config, expected_sources):
                         raise ValueError('active fluid output despite quality latch')
                 if record['latched'] and rate != 0:
                     raise ValueError('active replacement output despite blood isolation')
+            if lifecycle:
+                m = record['machine']
+                if m['sequence'] != record['sequence'] or m['time_ms'] != record['time_ms']:
+                    raise ValueError('machine clock mismatch')
+                flushing = m['stage'] in ('PRIMING', 'CLEANING')
+                fin, fout = (c['draw_tick_mL'], c['return_tick_mL']) if flushing else (0, 0)
+                if abs(fin - m['flush_in_tick_mL']) > 1e-8 or abs(fout - m['flush_out_tick_mL']) > 1e-8:
+                    raise ValueError('flush path mismatch')
+                flush_in += fin; flush_out += fout
+                for name, value in [('flush_in_mL', flush_in), ('flush_out_mL', flush_out)]:
+                    if abs(value - p[name]) > 1e-6 or abs(value - m[name]) > 1e-6:
+                        raise ValueError('flush water ledger mismatch')
+                for i in range(6):
+                    flush_input_mass[i] += fin * dialysate[i] / 1000
+                    flush_output_mass[i] += fout * p['concentration_mmol_L'][2][i] / 1000
+                    if abs(flush_input_mass[i] - p['flush_input_mmol'][i]) > 1e-6 or abs(flush_output_mass[i] - p['flush_output_mmol'][i]) > 1e-6:
+                        raise ValueError('flush solute ledger mismatch')
+                if m['stage'] != 'TREATMENT' and (volume or record['uf_mL_min'] or any(c['clearance_mL_min'])):
+                    raise ValueError('patient fluid output outside treatment')
+                if m['stage'] not in ('TREATMENT', 'PRIMING', 'CLEANING') and record['blood_mL_min']:
+                    raise ValueError('circulation outside active lifecycle state')
             if p['sequence'] != record['sequence'] or p['time_ms'] != record['time_ms']:
                 raise ValueError('patient/plant clock mismatch in evidence')
             body = math.fsum(p['volume_mL'][:2])
@@ -81,7 +105,7 @@ def verify(directory, expected_config, expected_sources):
             elapsed = record['time_ms'] / 60000
             incoming = elapsed * patient_config['external_in_mL_min']
             outgoing = elapsed * patient_config['external_out_mL_min']
-            error = abs(config['patient_volume_mL'] + patient_config['prime_mL'] + incoming - outgoing + replacement
+            error = abs(config['patient_volume_mL'] + patient_config['prime_mL'] + incoming - outgoing + replacement + flush_in - flush_out
                         - math.fsum(p['volume_mL']) - record['removed_total_mL'])
             for i in range(6):
                 concentration = p['concentration_mmol_L'][2][i]
@@ -89,7 +113,7 @@ def verify(directory, expected_config, expected_sources):
                 integrated_convection[i] += c['uf_tick_mL'] * config['circuit']['profile']['sieving'][i] * concentration / 1000
                 inputs = incoming * patient_config['external_mmol_L'][i] / 1000 + elapsed * patient_config['generation_mmol_min'][i]
                 residual = abs(math.fsum(row[i] for row in p['mass_mmol']) + integrated_diffusion[i] + integrated_convection[i]
-                               + p['output_mmol'][i] - inputs - replacement_mass[i] - initial_mass[i])
+                               + p['output_mmol'][i] - inputs - replacement_mass[i] - initial_mass[i] + flush_output_mass[i] - flush_input_mass[i])
                 if not math.isfinite(residual) or residual > 1e-6:
                     raise ValueError('independent solute conservation: ' + str(residual))
                 maximum_mass_error = max(maximum_mass_error, residual)

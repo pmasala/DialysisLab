@@ -24,7 +24,7 @@ COPY --from=build /opt/build/plant /opt/build/control /opt/build/protection /opt
 COPY python/ python/
 COPY scenarios/ scenarios/
 COPY LICENSE ./LICENSE
-RUN mkdir -p /run/dialysis/admin /run/dialysis/control /run/dialysis/protection /run/dialysis/patient /results \
+RUN mkdir -p /run/dialysis/admin /run/dialysis/control /run/dialysis/protection /run/dialysis/patient /run/dialysis/device /results \
     && chown -R 10001:10001 /run/dialysis /results \
     && dpkg-query -W > /opt/bin/runtime-packages.txt
 USER 10001:10001

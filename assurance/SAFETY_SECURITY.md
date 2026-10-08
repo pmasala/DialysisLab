@@ -63,3 +63,22 @@ latency; it is not a clinical acceptance of delivered exposure. Conductivity can
 identify individual species; hidden contamination/breaches without a failed modeled
 integrity test remain latent. Shared sensors/plant/runner/host remain common causes.
 No sterility, hardware independence or residual-risk acceptance is claimed.
+
+## M5 lifecycle increment
+
+HAZ-002/004/005 address unguarded startup/recovery, ambiguous confirmations,
+communication loss and alarm annotation mistaken for release. M5 retains latches
+at plant arbitration, rejects automatic restart/override, and requires measured
+safe recovery plus completed priming before treatment. Air/leak and positive
+pressure/low-flow hazards isolate blood and fluids; quality/balance hazards retain
+blood circulation during treatment but stop external flush pumps. Simultaneous
+hazards combine. Low-flow/filter latches lack a functional reset test and require
+a fresh run; retained high pressure is not silently erased. A stuck optical/supply
+detector is a declared latent fault, not covered by hidden truth access.
+
+HAZ-003/006 include priming/cleaning source/waste accounting. Flushed volume is a
+synthetic readiness criterion only. UI endpoints cannot issue admin/raw actuator
+commands. The shared device volume/UID and bounded synchronous handlers still have
+endpoint impersonation and availability common causes for M8 analysis; native
+same-user mode is trusted development. No hardware independence, clinical limits,
+air removal, disinfection or residual-risk acceptance follows from these tests.

@@ -2,9 +2,8 @@
 
 ## Integrated execution checkpoint — 2026-10-08
 
-Branch `feat/integrated-dialysis-roadmap`, published through M4 candidate; final
-M4 corrections/evidence are local pending push. M1–M4 technical scope COMPLETE;
-M5 next; M6–M9 PLANNED. The full project remains incomplete.
+Branch `feat/integrated-dialysis-roadmap`, published through verified M4 checkpoint. M1–M4 technical scope COMPLETE;
+M5 IN PROGRESS; M6–M9 PLANNED. The full project remains incomplete.
 
 M4 implementation `cca9ce6` passes 87/87 native and 87/87 sanitizer tests, 24 native/
 24 Compose treatment scenarios, 14 M2/M3 and four M1 Compose regressions plus two
@@ -14,12 +13,16 @@ Runner Docker RSS peaks at 22.31 MiB; cgroup file cache reaches the 128 MiB budg
 See [M4 evidence and measurement limits](evidence/m4/README.md). Its single review
 found one P1/five P2 defects, all fixed and verified. No M1–M4 review may be rerun.
 
-Next executable step: commit this evidence checkpoint and freeze its SHA as M5
-base. Define lifecycle/state/alarms/device-facing contracts before implementation,
-then implement and verify hazard-specific actions, priming/cleaning accounting,
-acknowledgment/silence/reset/restart and actual headless workflows. Draft design
-notes and GUI dependency feasibility are in `build/m5-design-notes.md` and
-`build/dependency-inspection/`; they are not completed M5/M6/M7 implementations.
+M5 base `e1c8ae2`; lifecycle, flush accounting, independent alarm masks,
+confirmation/recovery and isolated device contracts are implemented. Initial
+native suite: 105/105 passed; 22 repeated Compose workflows/fault runs passed.
+Candidate sanitizer: 105/105 passed; native/Compose hashes match exactly.
+Four M1 Compose regressions and three actual isolation probes pass; additional
+M2–M4 compatibility runs are in progress. These preliminary runs identify a dirty candidate, not a final clean
+build. Next step: finish candidate verification, commit and execute the single
+M5 review against its frozen base; then fix findings and record final evidence.
+No M5 review has run. M1–M4 reviews remain consumed. GUI feasibility remains in
+`build/dependency-inspection/`; no new third-party dependency is adopted by M5.
 
 Persistent checkpoints: [plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md). The synthetic hydraulic, patient and treatment models are numerically tested but

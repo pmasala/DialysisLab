@@ -2,6 +2,7 @@
 #include "model.hpp"
 #include "circuit.hpp"
 #include "online.hpp"
+#include "machine.hpp"
 
 namespace {
 class Plant {
@@ -14,6 +15,11 @@ class Plant {
     dl::Circuit circuit;
     dl::Online online;
     bool online_set = false;
+    dl::Machine machine;
+    bool machine_set = false;
+    std::array<dl::MachineObservation, 2> device_samples{};
+    double air_source = 0, leak_source = 0, meter_bias = 0;
+    bool air_stuck = false, leak_stuck = false, supply_stuck = false, pump_stalled = false;
     std::array<dl::QualityObservation, 2> quality_samples{};
     bool configured = false, transport_set = false, patient_coupled = false;
     std::array<dl::Observation, 2> samples{};
@@ -27,6 +33,18 @@ class Plant {
                name == "stale" || name == "future" || name == "replay";
     }
 public:
+    void enforce_machine() {
+        if (!machine_set) return;
+        latched = machine.blood_blocked(); reason = machine.terminal ? reason : latched ? "machine_blood" : "none";
+        if (!machine.pumping()) { output.blood = 0; circuit.isolate(); }
+        if (machine.fluid_blocked()) {
+            output.uf = circuit.uf = circuit.sub_command = circuit.sub_flow = 0;
+            circuit.diffusion.fill(0); circuit.convection.fill(0); circuit.clearances.fill(0);
+            online.stop_delivery();
+        }
+        online.quality_latched = machine.mask != 0;
+        online.reason = machine.mask ? "machine" : "none";
+    }
     void latch(const std::string& cause) {
         if (!latched) { reason = cause; latched = true; }
         output = {0, 0, 0};
@@ -38,6 +56,10 @@ public:
         halted = true;
         prepared = demand_seen = decision_seen = false;
         demand = uf_demand = 0;
+        if (machine_set) {
+            machine.terminal = true; machine.stage = dl::stopped;
+            machine.protect(dl::communication_alarm, false); enforce_machine();
+        }
     }
     void watchdog() {
         if (!armed) return;
@@ -46,7 +68,7 @@ public:
     }
     std::string state() const {
         return dl::msg(online_set ? "STATE4" : "STATE", n, end_t, output.blood, output.pressure, output.uf,
-                       total, removed, latched ? 1 : 0, (latched || !armed) ? 1 : 0, reason);
+                       total, removed, latched ? 1 : 0, (latched || !armed || (machine_set && machine.stage != dl::treatment)) ? 1 : 0, reason);
     }
     std::string circuit_state() const {
         std::ostringstream out;
@@ -71,6 +93,66 @@ public:
     }
     std::string handle(std::size_t role, dl::Tokens& r) {
         auto op = r.take();
+        if (!machine_set && (op=="META5" || op=="VIEW5" || op=="STOP5" || op=="ACK5" || op=="SILENCE5")) return "DL1 REJECT uninitialized";
+        if (role == 0 && op == "MACHINE5") {
+            dl::require(online_set && !armed && !halted && !machine_set);
+            machine.blood=r.real(0,500); machine.net_uf=r.real(0,20); machine.replacement=r.real(0,120);
+            machine.pressure_limit=r.real(1,1000); machine.prime=r.real(10,1000); r.end();
+            machine.mode=online.mode;
+            dl::require(machine.blood+machine.replacement<=500 && (machine.mode || machine.replacement==0));
+            machine_set=true; enforce_machine(); return "DL1 OK";
+        }
+        if (role == 0 && op == "FAULT5") {
+            dl::require(machine_set && !prepared && !halted);
+            auto name=r.take(); double value=r.real(0,1000); r.end();
+            if (name=="air" || name=="leak") { dl::require(value<=1); (name=="air"?air_source:leak_source)=value; }
+            else if (name=="meter_bias") meter_bias=value;
+            else {
+                dl::require(value==0 || value==1);
+                if (name=="air_stuck") air_stuck=value!=0;
+                else if (name=="leak_stuck") leak_stuck=value!=0;
+                else if (name=="supply_stuck") supply_stuck=value!=0;
+                else if (name=="pump_stalled") pump_stalled=value!=0;
+                else throw std::runtime_error("machine fault name");
+            }
+            return "DL1 OK";
+        }
+        if (machine_set && (op=="META5" || op=="VIEW5")) {
+            r.end(); machine.sequence=n; machine.time=end_t;
+            if (op=="META5") return machine.encode();
+            dl::require(role>0);
+            return "DL1 VIEW5 " + machine.encode().substr(4) + " " + device_samples[role-1].encode().substr(4);
+        }
+        if (machine_set && role==1 && op=="STOP5") {
+            r.end(); auto reject=machine.transition("STOP"); enforce_machine();
+            return reject=="none"?"DL1 OK":dl::msg("REJECT",reject);
+        }
+        if (machine_set && role==1 && (op=="CHANGE5" || op=="RX5")) {
+            tick(r); dl::require(!demand_seen && !decision_seen);
+            std::string reject;
+            if (op=="CHANGE5") { auto action=r.take(); r.end(); reject=machine.transition(action); }
+            else {
+                int mode=static_cast<int>(r.integer(2)); double blood=r.real(0,500), uf=r.real(0,20), sub=r.real(0,120); r.end();
+                if (machine.terminal || (machine.stage!=dl::configuration && machine.stage!=dl::paused)) reject="prescription_state";
+                else if (blood+sub>500 || (mode==0 && sub!=0) || (mode!=0 && sub<2)) reject="prescription_range";
+                else {
+                    machine.mode=online.mode=online.route=mode; machine.blood=blood; machine.net_uf=uf; machine.replacement=sub;
+                    machine.action="PRESCRIBE"; ++machine.revision; reject="none";
+                }
+            }
+            enforce_machine(); return reject=="none"?"DL1 OK":dl::msg("REJECT",reject);
+        }
+        if (machine_set && role==2 && (op=="ACK5" || op=="SILENCE5")) {
+            long long duration=op=="SILENCE5"?r.integer(120000):0; r.end();
+            if (op=="ACK5") machine.acknowledged=machine.mask;
+            else machine.silence_until=end_t+duration;
+            return "DL1 OK";
+        }
+        if (machine_set && role==2 && op=="RESET5") {
+            tick(r); r.end(); dl::require(decision_seen);
+            auto reject=machine.reset(); enforce_machine();
+            return reject=="none"?"DL1 OK":dl::msg("REJECT",reject);
+        }
         if (role == 0 && op == "ONLINE4") {
             dl::require(configured && patient_coupled && !armed && !halted && !online_set);
             dl::Online o;
@@ -183,7 +265,7 @@ public:
             n = seq; t = time; dt = step; resistance = new_resistance;
             if (!armed) { heartbeat.fill(dl::Clock::now()); armed = true; }
             auto sensed = dl::hydraulic_state(demand, uf_demand, resistance, latched);
-            if (configured) sensed = {std::abs(circuit.flow[circuit.sensor_edge]),
+            if (configured) sensed = {machine_set ? circuit.pump : std::abs(circuit.flow[circuit.sensor_edge]),
                                       circuit.pressure[circuit.sensor_node], circuit.uf};
             for (std::size_t i = 0; i < samples.size(); ++i) {
                 if (faults[i] == "stale") continue;
@@ -195,22 +277,33 @@ public:
                 if (faults[i] == "replay") samples[i].n = n > 0 ? n - 1 : 1;
                 if (online_set) quality_samples[i] = {samples[i], online.temperature, online.conductivity(),
                     online.flow, online.filter1_pressure + online.filter2_pressure, online.integrity ? 1 : 0, online.route};
+                if (machine_set) device_samples[i] = {quality_samples[i], circuit.pressure[circuit.edges[circuit.dialyzer_edge].b],
+                    air_stuck ? 0 : air_source, leak_stuck ? 0 : leak_source, total + meter_bias, online.total,
+                    supply_stuck ? 1 : online.supply ? 1 : 0};
             }
+            if (machine_set) { machine.sequence=n; machine.time=t; }
             prepared = true; demand_seen = false; decision_seen = false;
-        } else if (role > 0 && (op == "SENSE" || op == "SENSE4")) {
+        } else if (role > 0 && (op == "SENSE" || op == "SENSE4" || op=="SENSE5")) {
             tick(r); r.end(); heartbeat[role] = dl::Clock::now();
+            if (machine_set) { dl::require(op=="SENSE5"); return device_samples[role-1].encode(); }
             dl::require(online_set == (op == "SENSE4"));
             return online_set ? quality_samples[role - 1].encode() : samples[role - 1].encode();
-        } else if (role == 1 && (op == "DEMAND" || op == "DEMAND4")) {
+        } else if (role == 1 && (op == "DEMAND" || op == "DEMAND4" || op=="DEMAND5")) {
             tick(r);
-            double blood = r.real(0, 500), uf = r.real(0, 20);
-            dl::require(online_set == (op == "DEMAND4"));
+            double blood = r.real(0, 500), uf = r.real(0, machine_set ? 140 : 20);
+            dl::require(op==(machine_set?"DEMAND5":online_set?"DEMAND4":"DEMAND"));
             double replacement = online_set ? r.real(0, 120) : 0;
             r.end(); dl::require(!demand_seen);
             if (online_set) { dl::require(online.mode != 0 || replacement == 0); online.demand = replacement; }
             demand = blood; uf_demand = uf; demand_seen = true;
+        } else if (role==2 && op=="PROTECT5") {
+            dl::require(machine_set); tick(r); int mask=static_cast<int>(r.integer(dl::all_hazards));
+            bool valid=r.integer(1)!=0; r.end(); dl::require(!decision_seen);
+            decision_seen=true; machine.protect(mask,valid);
+            const auto& sample=device_samples[1]; machine.measured_net=sample.uf_total-sample.sub_total;
+            enforce_machine();
         } else if (role == 2 && op == "QUALITY4") {
-            dl::require(online_set); tick(r); auto cause = r.take(); r.end();
+            dl::require(online_set && !machine_set); tick(r); auto cause = r.take(); r.end();
             dl::require(!decision_seen);
             dl::require(cause == "temperature" || cause == "composition" || cause == "filter_pressure"
                      || cause == "integrity" || cause == "route" || cause == "supply");
@@ -220,6 +313,7 @@ public:
             output.uf = circuit.uf = circuit.sub_command = circuit.sub_flow = 0;
             circuit.diffusion.fill(0); circuit.convection.fill(0); circuit.clearances.fill(0);
         } else if (role == 2 && (op == "PERMIT" || op == "TRIP")) {
+            dl::require(!machine_set);
             tick(r);
             std::string cause = op == "TRIP" ? r.take() : "none";
             r.end(); dl::require(!decision_seen);
@@ -227,11 +321,11 @@ public:
             dl::require(op != "TRIP" || cause != "none");
             decision_seen = true;
             if (op == "TRIP") latch(cause);
-        } else if (role == 0 && (op == "COMMIT" || op == "COMMIT2" || op == "COMMIT3" || op == "COMMIT4")) {
+        } else if (role == 0 && (op == "COMMIT" || op == "COMMIT2" || op == "COMMIT3" || op == "COMMIT4" || op=="COMMIT5")) {
             tick(r); r.end();
-            dl::require(op == (online_set ? "COMMIT4" : patient_coupled ? "COMMIT3" : configured ? "COMMIT2" : "COMMIT"));
-            if (!decision_seen) latch("protection_missing");
-            if (!demand_seen) latch("control_missing");
+            dl::require(op == (machine_set ? "COMMIT5" : online_set ? "COMMIT4" : patient_coupled ? "COMMIT3" : configured ? "COMMIT2" : "COMMIT"));
+            if (!decision_seen) { if (machine_set) halt("protection_missing"); else latch("protection_missing"); }
+            if (!demand_seen) { if (machine_set) halt("control_missing"); else latch("control_missing"); }
             watchdog();
             dl::require(!halted);
             output = dl::hydraulic_state(demand, uf_demand, resistance, latched);
@@ -239,35 +333,55 @@ public:
                 double minutes = static_cast<double>(dt) / 60000;
                 double requested_uf = uf_demand;
                 double dialysate_flow = circuit.dialysate;
+                bool isolate = latched;
+                double pump_demand = demand;
+                if (machine_set) {
+                    enforce_machine(); isolate=!machine.pumping();
+                    if (pump_stalled) pump_demand=0;
+                    if (machine.fluid_blocked()) online.demand=0;
+                }
                 if (online_set) {
                     online.advance_tank(circuit.dialysate, minutes);
                     circuit.sub_node = online.route == 1 ? circuit.edges[circuit.dialyzer_edge].a : 0;
                     circuit.sub_head = online.head;
-                    circuit.sub_command = online.hydraulic_command(latched);
+                    circuit.sub_command = online.hydraulic_command(isolate || (machine_set && machine.fluid_blocked()));
                     circuit.dialysate_c = online.concentration;
                     if (online.quality_latched) circuit.dialysate = 0;
                     requested_uf = online.quality_latched ? 0 : uf_demand + online.demand;
+                    if (machine_set) {
+                        requested_uf=machine.fluid_blocked()?0:uf_demand;
+                        if (machine.fluid_blocked()) circuit.dialysate=0;
+                    }
                 }
-                circuit.advance(demand, requested_uf, minutes, latched);
+                circuit.advance(pump_demand, requested_uf, minutes, isolate);
                 if (online_set) {
                     double delivered = online.route == 1 ? circuit.sub_flow :
-                        online.route == 2 ? online.hydraulic_command(latched) : 0;
+                        online.route == 2 ? online.hydraulic_command(isolate || (machine_set && machine.fluid_blocked())) : 0;
                     online.delivery(delivered, minutes);
                     circuit.dialysate = dialysate_flow;
                 }
                 output = {circuit.pump, circuit.pressure[circuit.sensor_node], circuit.uf};
+                if (machine_set) {
+                    machine.flush_in_tick=machine.flushing()?circuit.draw_tick:0;
+                    machine.flush_out_tick=machine.flushing()?circuit.return_tick:0;
+                    machine.flush_in+=machine.flush_in_tick; machine.flush_out+=machine.flush_out_tick;
+                    machine.phase_flush+=machine.flush_out_tick;
+                    if (machine.stage==dl::treatment) { ++machine.cycles; if (!machine.fluid_blocked()) machine.expected_net+=machine.net_uf*minutes; }
+                }
             }
             removed = output.uf * static_cast<double>(dt) / 60000.0;
             double increment = removed - correction;
             double updated = total + increment;
             correction = (updated - total) - increment;
             total = updated; end_t = t + dt;
+            if (machine_set) { machine.sequence=n; machine.time=end_t; }
             next_n = n + 1; next_t = end_t; prepared = false;
             heartbeat[role] = dl::Clock::now();
             // Seal the integrated state in a single reply before any asynchronous
             // watchdog/HALT can change live rates or per-step circuit diagnostics.
-            return configured ? std::string(online_set ? "DL1 COMMITTED4 " : patient_coupled ? "DL1 COMMITTED3 " : "DL1 COMMITTED2 ")
-                + state().substr(4) + " " + circuit_state().substr(4) + (online_set ? " " + online_state().substr(4) : "") : state();
+            return configured ? std::string(machine_set ? "DL1 COMMITTED5 " : online_set ? "DL1 COMMITTED4 " : patient_coupled ? "DL1 COMMITTED3 " : "DL1 COMMITTED2 ")
+                + state().substr(4) + " " + circuit_state().substr(4) + (online_set ? " " + online_state().substr(4) : "")
+                + (machine_set ? " " + machine.encode().substr(4) : "") : state();
         } else throw std::runtime_error("role or operation");
         heartbeat[role] = dl::Clock::now();
         return "DL1 OK";

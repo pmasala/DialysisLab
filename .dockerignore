@@ -43,3 +43,16 @@
 !scenarios/treatment_hdf_large.json
 !scenarios/treatment_hdf_imbalance.json
 !scenarios/treatment_100000.json
+!src/machine.hpp
+!python/dialysislab/machine.py
+!scenarios/machine_air.json
+!scenarios/machine_balance.json
+!scenarios/machine_hd.json
+!scenarios/machine_hdf_post.json
+!scenarios/machine_hdf_pre.json
+!scenarios/machine_invalid.json
+!scenarios/machine_leak.json
+!scenarios/machine_pressure.json
+!scenarios/machine_quality.json
+!scenarios/machine_recovery.json
+!scenarios/machine_stall.json

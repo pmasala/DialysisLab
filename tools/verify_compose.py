@@ -136,7 +136,7 @@ def run_case(scenario, index, output):
         if service['network'] != 'none' or not service['read_only'] or service['user'] != '10001:10001':
             raise ValueError('container isolation configuration')
         if service['service'] in ('control', 'protection'):
-            if service['mounts'] != ['/run/dialysis/' + service['service']]:
+            if set(service['mounts']) != {'/run/dialysis/' + service['service'], '/run/dialysis/device'}:
                 raise ValueError('decision service has excessive mounts')
     active_ticks = 5 if scenario == 'hd_occlusion' else 20
     expected = Decimal(active_ticks) * Decimal(10) * Decimal(100) / Decimal(60000)
@@ -175,6 +175,26 @@ for path in ('/run/dialysis/admin/plant.sock', '/run/dialysis/patient/service.so
 """
         for role in ('control', 'protection'):
             probes.append(dict(role=role, output=command(prefix + ['exec', '-T', role, 'python3', '-c', code])))
+        device_code = """from pathlib import Path
+import time
+from dialysislab.protocol import rpc
+for role in ('control', 'protection'):
+    deadline=time.monotonic()+10
+    while True:
+        try:
+            reply=rpc(Path('/run/dialysis/device')/(role+'.sock'),'HALT')
+            assert reply==['REJECT','device_operation'],reply
+            print('DEVICE_ENDPOINT_REJECTS_ADMIN '+role)
+            break
+        except (OSError,ValueError):
+            if time.monotonic()>deadline: raise
+            time.sleep(.05)
+""" + code.replace("'/run/dialysis/patient/service.sock'", "'/run/dialysis/patient/service.sock', '/run/dialysis/control/plant.sock', '/run/dialysis/protection/plant.sock'")
+        probes.append(dict(role='device-only', output=command([
+            'docker', 'run', '--rm', '--network', 'none', '--read-only', '--cap-drop', 'ALL',
+            '--security-opt', 'no-new-privileges:true', '--user', '10001:10001', '--pids-limit', '32', '--memory', '128m',
+            '--mount', 'type=volume,src=' + project + '_device,dst=/run/dialysis/device',
+            'dialysislab-m1:local', 'python3', '-c', device_code])))
         return probes
     finally:
         command(prefix + ['down', '--volumes', '--remove-orphans'])
