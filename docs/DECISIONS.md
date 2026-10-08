@@ -44,3 +44,5 @@ changes are authorized merely to bypass a block.
 
 | M8-001 | Freeze base `4a1c366acd0050df4c744c2d1eb7d066890d5df4`; strengthen owned device endpoints and Linux parent-death cleanup before integrated deployment. | Compatibility aliases preserve DL1 device APIs; no process exit is treated as observed zero output. |
 | M8-002 | Keep security/SBOM/static/advisory/CI results distinct from standards and human release decisions. | Exact selected dependencies, actual execution coverage and unresolved findings must remain visible; no implicit license exception. |
+| M8-003 | CI artifact contract v2 preserves exact original bytes in bounded hashed envelopes; only validated outstanding release obligations are exempt from software failure. | Failed/malformed checkers and retention failures remain failures; schema-1 historical logs are not relabeled byte-exact. |
+| M8-004 | Inspect application identities in each immutable container image and reject stale source/runtime inputs before generating its merged SBOM. | Build metadata is trusted but unsigned; platform advisory findings and layer/license gaps remain open. |

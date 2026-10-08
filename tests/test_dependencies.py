@@ -13,13 +13,38 @@ from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'));sys.path.insert(0,str(ROOT/'python'))
-from dependency_report import check,application_bom
+from dependency_report import check,application_bom,validate_image_application,BINARY_NAMES
 from security_scan import query_osv
 from dialysislab.runner import build_identity
 BUILD=Path(os.environ.get('DIALYSISLAB_BUILD_DIR',ROOT/'build/gui'))
 
 
 class DependencyTests(unittest.TestCase):
+    def test_container_sbom_uses_actual_image_binary_and_runtime_identities(self):
+        inventory=check(ROOT);identity=build_identity(BUILD);expected=identity['source_sha256']
+        actual=dict(schema_version=1,build=identity,binary_sha256={name:hashlib.sha256(name.encode()).hexdigest() for name in BINARY_NAMES},
+                    runtime_source_sha256={k:v for k,v in expected.items() if k.startswith(('python/dialysislab/','scenarios/')) or k=='gui_dependencies.json'})
+        self.assertEqual(validate_image_application(actual,expected),identity)
+        bom=application_bom(inventory,identity,binary_hashes=actual['binary_sha256'],runtime_hashes=actual['runtime_source_sha256'])
+        indexed={c['bom-ref']:c for c in bom['components']}
+        for name,sha in actual['binary_sha256'].items():self.assertEqual(indexed['binary:'+name]['hashes'][0]['content'],sha)
+        for name,sha in actual['runtime_source_sha256'].items():
+            if name.startswith('python/dialysislab/'):self.assertEqual(indexed['module:'+name]['hashes'][0]['content'],sha)
+        for kind in ('stale-build','changed-runtime','changed-lock','missing-role','partial-gui'):
+            modified=copy.deepcopy(actual)
+            if kind=='stale-build':modified['build']['source_sha256']['src/plant.cpp']='0'*64
+            elif kind=='changed-runtime':modified['runtime_source_sha256']['python/dialysislab/runner.py']='0'*64
+            elif kind=='changed-lock':modified['runtime_source_sha256']['gui_dependencies.json']='0'*64
+            elif kind=='missing-role':del modified['binary_sha256']['protection']
+            else:del modified['binary_sha256']['sim-console']
+            with self.subTest(kind=kind),self.assertRaises(ValueError):validate_image_application(modified,expected)
+        core=copy.deepcopy(actual)
+        for name in ('device-ui','sim-console'):del core['binary_sha256'][name]
+        del core['runtime_source_sha256']['gui_dependencies.json']
+        validate_image_application(core,expected)
+        core_bom=application_bom(inventory,identity,binary_hashes=core['binary_sha256'],runtime_hashes=core['runtime_source_sha256'])
+        self.assertFalse({x['name'] for x in inventory['application']}&{x['name'] for x in core_bom['components']})
+
     def test_inventory_rejects_changed_pins_notices_and_ci_actions(self):
         original=json.loads((ROOT/'dependency_inventory.json').read_text())
         with tempfile.TemporaryDirectory() as temporary:

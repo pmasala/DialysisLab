@@ -2001,7 +2001,7 @@
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
-          "sha256": "28349595cfa3e2e8edadb42d3c4021357235a7ef9d6299cb7e37d31b51bf4463"
+          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
         }
       ],
       "unresolved": [
@@ -2047,7 +2047,7 @@
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
-          "sha256": "28349595cfa3e2e8edadb42d3c4021357235a7ef9d6299cb7e37d31b51bf4463"
+          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
         }
       ],
       "unresolved": [
@@ -2100,7 +2100,7 @@
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
-          "sha256": "28349595cfa3e2e8edadb42d3c4021357235a7ef9d6299cb7e37d31b51bf4463"
+          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
         }
       ],
       "unresolved": [
@@ -2110,7 +2110,7 @@
     {
       "id": "M8-REQ-004",
       "statement": "Inventory selected dependencies and artifacts",
-      "acceptance": "Reproducible versioned SBOM, license/pin/notice checks and identified platform packages",
+      "acceptance": "Reproducible versioned SBOM, license/pin/notice checks and identified platform packages; actual image application hashes and stale-image rejection",
       "needs": [
         "M8-NEED-001"
       ],
@@ -2133,7 +2133,7 @@
         },
         {
           "path": "tools/dependency_report.py",
-          "sha256": "44bdd2c21393106b8217cad2ae8c9acc9a80189a8dbbefdfce4728c0f6b22041"
+          "sha256": "aa2625302572be89991a1b20dea1c89c677c133899f0eb0c813ff829261d9b58"
         },
         {
           "path": "tools/platform_inventory.py",
@@ -2141,7 +2141,7 @@
         },
         {
           "path": "tests/test_dependencies.py",
-          "sha256": "648397b2fb7722ad2038c877886e0f9bec9eee71327ebe9e8275c3176c2d75b7"
+          "sha256": "9e388f5e3fa6e1f2f865a1bbb35122e3f5e3e295b2290cf83cf7c1a9a640acae"
         },
         {
           "path": "docs/dependencies/M8.md",
@@ -2149,7 +2149,15 @@
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
-          "sha256": "28349595cfa3e2e8edadb42d3c4021357235a7ef9d6299cb7e37d31b51bf4463"
+          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
+        },
+        {
+          "path": "tools/image_application.py",
+          "sha256": "f291b03e4060c1f43f9897dff60d28cdefcd286c069dc669649e03b78d0a9cbe"
+        },
+        {
+          "path": "tools/build_identity.py",
+          "sha256": "dee260875614d97f7fd7ff6a9b30845079fd311e45b0570c713e46c5f199528b"
         }
       ],
       "unresolved": [
@@ -2190,7 +2198,7 @@
         },
         {
           "path": "tests/test_dependencies.py",
-          "sha256": "648397b2fb7722ad2038c877886e0f9bec9eee71327ebe9e8275c3176c2d75b7"
+          "sha256": "9e388f5e3fa6e1f2f865a1bbb35122e3f5e3e295b2290cf83cf7c1a9a640acae"
         },
         {
           "path": "assurance/THREATS.json",
@@ -2198,7 +2206,7 @@
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
-          "sha256": "28349595cfa3e2e8edadb42d3c4021357235a7ef9d6299cb7e37d31b51bf4463"
+          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
         }
       ],
       "unresolved": [
@@ -2208,7 +2216,7 @@
     {
       "id": "M8-REQ-006",
       "statement": "Continuously verify builds integration and publication",
-      "acceptance": "Real builds/processes/widgets/Compose and assurance/publication CI with retained outcomes",
+      "acceptance": "Real builds/processes/widgets/Compose and assurance/publication CI with retained outcomes; exact recoverable bytes and checker execution failures propagated",
       "needs": [
         "M8-NEED-001"
       ],
@@ -2235,7 +2243,7 @@
         },
         {
           "path": "tools/ci_verify.py",
-          "sha256": "ea03c823a88b83e3b43b79cbaa377a8791c62f5de265667c592f3031a8084b80"
+          "sha256": "a0d1c9097891b6f585266cd80198abb186b2d9aa9f849af8cfbaf848abc115ac"
         },
         {
           "path": "tools/check_publication.py",
@@ -2243,7 +2251,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "34025e32ad4de64fef19f116a24482ad6209490bb6e7e35b30c6f543f63d9044"
+          "sha256": "a660635cfa393c3ebe4e0dc6802ce181c907b86c99473bd7c44a109e04af5d92"
         },
         {
           "path": "docs/dependencies/CI_NOTICES.md",
@@ -2251,7 +2259,15 @@
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
-          "sha256": "28349595cfa3e2e8edadb42d3c4021357235a7ef9d6299cb7e37d31b51bf4463"
+          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
+        },
+        {
+          "path": "tools/ci_artifacts.py",
+          "sha256": "d8a0baa30573be9de9f94ce89317db13c89ade3011cb86ea50a9ac7e160a9f8f"
+        },
+        {
+          "path": "tests/test_ci.py",
+          "sha256": "a9ab83bc32dea4fb8ea1b77c75b82480ac820a3073b2686ef115bf5cca748839"
         }
       ],
       "unresolved": [

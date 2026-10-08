@@ -8,6 +8,16 @@ from pathlib import Path
 import subprocess
 
 
+def source_hashes(root):
+    paths = [root / 'CMakeLists.txt', root / 'tools/build_identity.py']
+    paths += sorted((root / 'src').rglob('*'))
+    paths += sorted((root / 'cmake').glob('*.cmake'))
+    paths += [root / 'gui_dependencies.json', root / 'tools/fetch_gui.py']
+    paths += sorted((root / 'python/dialysislab').glob('*.py'))
+    paths += sorted((root / 'scenarios').glob('*.json'))
+    return {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths if p.is_file()}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
@@ -21,13 +31,7 @@ def main():
     if (root / '.git').exists():
         revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip()
         dirty = bool(subprocess.check_output(['git', 'status', '--porcelain'], cwd=root, text=True).strip())
-    paths = [root / 'CMakeLists.txt', root / 'tools/build_identity.py']
-    paths += sorted((root / 'src').rglob('*'))
-    paths += sorted((root / 'cmake').glob('*.cmake'))
-    paths += [root / 'gui_dependencies.json', root / 'tools/fetch_gui.py']
-    paths += sorted((root / 'python/dialysislab').glob('*.py'))
-    paths += sorted((root / 'scenarios').glob('*.json'))
-    hashes = {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths if p.is_file()}
+    hashes = source_hashes(root)
     identity = dict(source_revision=revision, worktree_dirty_at_configure=dirty,
                     compiler_id=args.compiler_id, compiler_version=args.compiler_version,
                     build_type=args.build_type, source_sha256=hashes)

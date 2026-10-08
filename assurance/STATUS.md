@@ -44,12 +44,13 @@ and verified against the exact event SHA; hosted Actions is available, not yet r
 SBOMs validate against official CycloneDX 1.6 with installed jsonschema 4.10.3;
 final inventories must identify the corrected image/build.
 
-Next executable step: commit/push the M8 candidate and run hosted CI plus its
-sole automatic review against the frozen base. Local preliminary verification
+Next executable step: correct M8-R1–R4 from the sole completed review of candidate
+`ab433f5` against the frozen base. All four P2 findings concern release-check error
+propagation and artifact-specific CI/SBOM evidence; see `REVIEWS.md`. Local preliminary verification
 passes 144 native tests, 145 sanitizer tests including the RSS correction, nine
 native RSS/dependency regressions, ten device/five console tests and ten native/ten
 Compose model runs. Current scan: 70 queries, 19 matching queries / 73 open IDs,
-zero blocked queries; see `DEPENDENCY_FINDINGS.json`. Review M8/M9 NOT yet run.
+zero blocked queries; see `DEPENDENCY_FINDINGS.json`. M8 review consumed (exit 0 with four findings); M9 review NOT yet run.
 Correct applicable findings and run clean final regressions, then continue M9.
 Detailed commands/diagnostics: `build/m8-progress.md`. Disk headroom about 2.9 GiB;
 no process, Docker or graphical permission block. Preserve prior work/evidence.

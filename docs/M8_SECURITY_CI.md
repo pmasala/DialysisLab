@@ -1,7 +1,7 @@
 # M8 security, dependencies and continuous verification
 
 Phase base: `4a1c366acd0050df4c744c2d1eb7d066890d5df4` (M7 corrected publication).
-Status: implementation in progress. The one M8 automatic review has not run.
+Status: the single M8 review is consumed; its four P2 corrections are under final verification.
 Simulation-only technical controls; no clinical, regulatory or hardware-independence
 claim. Existing release prerequisites remain open.
 
@@ -98,3 +98,32 @@ The probe now uses per-executable `/proc/self/status` VmHWM, retains getrusage a
 a separate diagnostic and keeps the unchanged 64 MiB test/128 MiB Compose budgets.
 The 96 MiB-parent regression and original failing probe are retained; this does
 not substitute Python allocator estimates or relax memory acceptance.
+
+## Review corrections: evidence contract version 2
+
+CI report schema 2 retains original bytes using `DIALYSISLAB_ARTIFACT_V2`
+base64 envelopes: name, byte count, SHA-256, ordered 3072-byte chunks and end marker.
+Every artifact is limited to 16 MiB; oversize/missing/changed output fails retention,
+never silently truncates. Registered dependency output explicitly includes native
+and per-image SBOMs, platform inventories, build records and adopted dependencies.
+No recursive workspace upload is permitted. Recover downloaded job logs with:
+
+```bash
+gh run view RUN_ID --log > build/hosted-ci.log
+python3 tools/ci_artifacts.py --log build/hosted-ci.log --output build/recovered-ci
+```
+
+The reader rejects traversal, duplicates, bad chunk order, length/hash mismatch
+and incomplete envelopes. It preserves an unfinished `.partial` file without
+presenting it as verified. Schema-1 logs cannot recover original JSON formatting.
+Release checker exit 1 is exempt from software failure only with structurally
+valid explicit outstanding obligations; crashes, timeouts and malformed or
+contradictory results fail CI. Release approval remains separate.
+
+Each immutable image is inspected for actual executable/module hashes, its build
+record and selected dependency lock. Declared source inputs must match the checkout;
+runtime Python/scenario/GUI-lock bytes must match those inputs. Stale images fail.
+The image SBOM includes its own application components and links its retained build
+and application SBOM; native hashes are never substituted for container binaries.
+Build metadata is trusted provenance, not a signed attestation or reproducible-build
+proof. Effective filesystem inventories do not clear inherited layers or licenses.

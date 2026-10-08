@@ -289,3 +289,28 @@ Selected dependency analysis: 70 queries, zero blocked, 19 matching queries and
 M8 review has not run yet. Commit candidate, run hosted CI, invoke exactly one
 read-only review against the frozen base and retain its command/output/exit.
 A zero CLI exit is not an approval. M9 review has not run either.
+
+### M8 single review — four applicable P2 findings
+
+One invocation, candidate `ab433f5ceef8fbd1dfe7bf4c7fa60c0a138fba98` against
+`4a1c366acd0050df4c744c2d1eb7d066890d5df4`, 2026-10-08T04:37:27Z–04:46:28Z,
+exit 0 with four findings. Exact command/output: `build/reviews/m8.json` and
+`build/reviews/m8-output.txt`. Review consumed; no second M8 invocation.
+
+| ID | Severity | Problem and required regression |
+| --- | --- | --- |
+| M8-R1 | P2 | CI excludes release-check execution failures from overall status. Exempt only validated outstanding-obligation results; crash/timeout/unexpected output/exit must fail. |
+| M8-R2 | P2 | CI retains dependency report hashes but loses SBOM/platform contents when workspace expires. Explicitly retain every generated inventory/SBOM/build artifact. |
+| M8-R3 | P2 | Retention reserializes JSON, breaking recorded byte hashes. Preserve original bytes in a reversible envelope and verify recovery hashes. |
+| M8-R4 | P2 | Container inventory is not bound to its actual application binaries/build/dependencies. Inspect each immutable image, verify source/dependency identity and generate/link its application SBOM; reject stale images. |
+
+All four are applicable; corrections and regression evidence are in progress.
+The candidate hosted CI is running as job `37728309834`; its eventual green result
+cannot close these newly identified defects. M9 review remains unused.
+
+M8-R1–R4 implemented after the sole review. Targeted regressions currently pass
+4/4 CI tests and 5/5 dependency tests: actual CI orchestration handles checker
+crash/timeout/malformed output, all explicitly registered artifacts recover byte
+for byte, corruption/path/order/truncation fail, and stale image build/runtime/lock
+identities are rejected. Final real image/hosted verification is next. Candidate
+hosted job 37728309834 succeeded; this does not retroactively fix its retention.
