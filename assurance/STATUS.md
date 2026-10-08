@@ -2,26 +2,29 @@
 
 ## Integrated execution checkpoint — 2026-10-08
 
-Branch `feat/integrated-dialysis-roadmap`, published through M3 candidate; local
-M3 corrections/evidence follow. M1–M3 technical scope COMPLETE; M4 IN PROGRESS; M5–M9
-PLANNED. Full project remains incomplete. M3 implementation `64645fd` passed
-72/72 native and 72/72 sanitizer tests, eight native/eight Compose patient runs,
-six M2 and four M1 Compose regressions plus two isolation probes. Native/container
-trajectories match exactly. Five findings from the sole M3 review are corrected.
-See [M3 evidence](evidence/m3/README.md). No M1/M2/M3 review may be rerun.
+Branch `feat/integrated-dialysis-roadmap`, published through M4 candidate; final
+M4 corrections/evidence are local pending push. M1–M4 technical scope COMPLETE;
+M5 next; M6–M9 PLANNED. The full project remains incomplete.
 
-M4 base `47ffc5e`; candidate `9a2d2df` passed 81 native/sanitizer tests and
-24 native/24 Compose runs. Its single review returned one P1 and five P2 findings.
-Corrections pass 15 targeted treatment regressions, including immediate live
-quality isolation without COMMIT. No M4 review may be rerun.
-Next executable step: commit corrections; run complete regressions and repeated
-100000-tick native/Compose treatment with large gross UF and confirmed native stop;
-retain evidence and freeze the final M4 commit as M5 base.
+M4 implementation `cca9ce6` passes 87/87 native and 87/87 sanitizer tests, 24 native/
+24 Compose treatment scenarios, 14 M2/M3 and four M1 Compose regressions plus two
+isolation probes. Two native/two Compose 100000-tick runs pass with identical
+hashes, gross UF 166665 mL, positive body water, confirmed native HALT and no OOM.
+Runner Docker RSS peaks at 22.31 MiB; cgroup file cache reaches the 128 MiB budget.
+See [M4 evidence and measurement limits](evidence/m4/README.md). Its single review
+found one P1/five P2 defects, all fixed and verified. No M1–M4 review may be rerun.
+
+Next executable step: commit this evidence checkpoint and freeze its SHA as M5
+base. Define lifecycle/state/alarms/device-facing contracts before implementation,
+then implement and verify hazard-specific actions, priming/cleaning accounting,
+acknowledgment/silence/reset/restart and actual headless workflows. Draft design
+notes and GUI dependency feasibility are in `build/m5-design-notes.md` and
+`build/dependency-inspection/`; they are not completed M5/M6/M7 implementations.
 
 Persistent checkpoints: [plan](../docs/MILESTONES.md),
-[decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md). The synthetic M2 model is
-numerically tested but uncalibrated; physiology, treatment modes/state machines,
-UI/console, hardening/CI and final integration remain to be implemented. All
+[decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md). The synthetic hydraulic, patient and treatment models are numerically tested but
+uncalibrated. Lifecycle/alarm workflows, UI/console, hardening/CI and final
+integration remain to be implemented. All
 independent assurance and regulatory release obligations remain open.
 
 Review update, 8 October 2026: the three M1 review defects are corrected and have

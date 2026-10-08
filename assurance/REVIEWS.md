@@ -63,7 +63,7 @@ Compose M3 runs, six M2/four M1 Compose runs and two isolation probes passed.
 [Evidence](evidence/m3/README.md) records exact identities and limits.
 Automatic review is not independent physiological or regulatory approval.
 
-## M4 — single review completed; corrections under regression
+## M4 — single review completed; corrections verified
 
 Base `47ffc5efa5ca1cd2878a2924b182d1bb72a7a8e3`; candidate
 `9a2d2df97eeb8cfa1784d6300a3d516f39d8ad51`. One read-only invocation returned
@@ -79,7 +79,10 @@ No second review will run. All 15 targeted treatment regressions pass after fixe
 | M4-R5 P2 | Forged replacement rate passes evidence safety checks; require zero under both latches and consistency with tick volumes. | Rehashed hard/quality latch and nominal rate corruption rejected. |
 | M4-R6 P2 | Forged substitution-solute totals pass; compare every species with independent integration. | Rehashed ledger corruption rejected for both latch types. |
 
-Correction commit and full regression/long-run evidence remain to be recorded.
+Corrections `cca9ce6`: 87/87 native/sanitizer tests each, 24 native/24 Compose
+treatment runs, 14 M2/M3 plus four M1 Compose regressions and two isolation probes.
+Two native/two Compose 100000-tick runs pass, including large cumulative UF,
+confirmed native HALT, exact hashes and unchanged RSS limits. [Evidence](evidence/m4/README.md).
 
 ## M5–M9
 

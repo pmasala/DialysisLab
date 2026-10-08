@@ -15,7 +15,7 @@
     "47ffc5efa5ca1cd2878a2924b182d1bb72a7a8e3"
   ],
   "started_at": "2026-10-07T23:45:45.601683+00:00",
-  "status": "FINDINGS_FIXED_TARGETED_TESTS_PASSED",
+  "status": "FINDINGS_FIXED_AND_REGRESSION_PASSED",
   "invocations": 1,
   "exit_code": 0,
   "finished_at": "2026-10-07T23:53:40.480395+00:00",
@@ -28,42 +28,49 @@
       "severity": "P1",
       "disposition": "fixed",
       "test": "test_quality_command_isolates_live_fluids_before_any_commit",
-      "correction_commit": "pending checkpoint"
+      "correction_commit": "cca9ce696fc40e931edbb6662a8f75146fce55f7",
+      "evidence": "assurance/evidence/m4/native-tests.json"
     },
     {
       "id": "M4-R2",
       "severity": "P2",
       "disposition": "fixed",
       "test": "test_computed_mixture_ceiling_passes_patient_boundary",
-      "correction_commit": "pending checkpoint"
+      "correction_commit": "cca9ce696fc40e931edbb6662a8f75146fce55f7",
+      "evidence": "assurance/evidence/m4/native-tests.json"
     },
     {
       "id": "M4-R3",
       "severity": "P2",
       "disposition": "fixed",
       "test": "test_replacement_head_can_exceed_blood_pump_head",
-      "correction_commit": "pending checkpoint"
+      "correction_commit": "cca9ce696fc40e931edbb6662a8f75146fce55f7",
+      "evidence": "assurance/evidence/m4/native-tests.json"
     },
     {
       "id": "M4-R4",
       "severity": "P2",
       "disposition": "fixed",
       "test": "test_state4_versions_cumulative_gross_uf_and_stop_decoding; treatment_100000 integration",
-      "correction_commit": "pending checkpoint"
+      "correction_commit": "cca9ce696fc40e931edbb6662a8f75146fce55f7",
+      "evidence": "assurance/evidence/m4/long-native.json and long-compose.json"
     },
     {
       "id": "M4-R5",
       "severity": "P2",
       "disposition": "fixed",
       "test": "test_evidence_rejects_forged_replacement_rates_and_solute_ledger",
-      "correction_commit": "pending checkpoint"
+      "correction_commit": "cca9ce696fc40e931edbb6662a8f75146fce55f7",
+      "evidence": "assurance/evidence/m4/native-tests.json"
     },
     {
       "id": "M4-R6",
       "severity": "P2",
       "disposition": "fixed",
       "test": "test_evidence_rejects_forged_replacement_rates_and_solute_ledger",
-      "correction_commit": "pending checkpoint"
+      "correction_commit": "cca9ce696fc40e931edbb6662a8f75146fce55f7",
+      "evidence": "assurance/evidence/m4/native-tests.json"
     }
-  ]
+  ],
+  "correction_commit": "cca9ce696fc40e931edbb6662a8f75146fce55f7"
 }
