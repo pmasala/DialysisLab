@@ -61,9 +61,9 @@ model validation, sterile-fluid claims and standards conformity remain excluded.
 
 Preliminary fixture finding M9-V2: the first proposed large KUF=2 was rejected
 by the existing supported maximum 1 before simulation. Keep that input bound.
-Use the existing large KUF=0.8 and explicit synthetic R=0.5 instead, producing
-sufficient UF head while retaining lower resistance/doubled KoA versus small.
-The first failed matrix report remains retained; no failed acceptance is counted.
+An intermediate R=0.5/KUF=0.8 fixture passed the short calendar only; subsequent
+sustained testing exposed inadequate UF capacity, as recorded below. The failed
+attempts remain retained; no failed acceptance is counted.
 
 ## Reviewed fixture correction and unchanged bounds
 
@@ -87,3 +87,16 @@ an unavailable revision, while preserving actual command failures. Generated
 synthetic Compose configurations are explicitly0644 so UID10001 can read them
 under a host umask077; only that owned fixture file receives this permission.
 Verify actual container execution with that umask, preserving all mount restrictions.
+
+M9-V6: the integrated widget harness also waits for the console's actual LOAD
+reply and editor revision before START. A saved broker draft can precede that
+reply; START correctly remains disabled in the interim. Delayed-reply regression
+uses real widgets and preserves the application's guard and existing timeouts.
+
+M9-V7: the first corrected native100000-tick case passed, then simultaneous long
+runs exhausted shared host storage. Both interrupted attempts remain failed;
+partial original bytes and volume recovery hashes are retained. Aggregate report
+replacement is now atomic, with a partial-ENOSPC regression. Run long verification
+sequentially with at least2048MiB free; no free-space check reserves host capacity.
+Fresh complete repeats are required for acceptance. Output state remains unknown
+when an interrupted run cannot persist its final stop evidence.

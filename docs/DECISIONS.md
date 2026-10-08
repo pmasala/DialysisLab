@@ -55,3 +55,8 @@ changes are authorized merely to bypass a block.
 - M9-006: synchronize integrated START with the console's actual LOAD response
   and editor revision, not a separate broker client's observation. Preserve
   disabled-button semantics and reproduce delayed reply delivery with real widgets.
+
+- M9-007: persist aggregate results using atomic replacement; retain the previous
+  checkpoint if later output fails. Require2048MiB free and sequential long runs.
+  Free-space checks cannot reserve a shared host filesystem. ENOSPC partial
+  trajectories are recoverable evidence, never a completed/confirmed-stop run.

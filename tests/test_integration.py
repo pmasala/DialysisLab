@@ -1,5 +1,6 @@
 """Lossless evidence storage preserves bytes and never drops a failed source."""
 import gzip
+import errno
 import hashlib
 import json
 import os
@@ -11,12 +12,25 @@ from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
-from verify_integrated import archive_trajectory,configurations,write_configuration,acceptance
+from verify_integrated import archive_trajectory,configurations,write_configuration,write_report,acceptance
 import verify_package
 from dialysislab.trajectory import scan,read_records
 
 
 class IntegrationTests(unittest.TestCase):
+    def test_partial_enospc_report_write_preserves_previous_completed_case(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'integration.json'
+            prior={'successful':False,'cases':[{'repeat':1,'verified':True}]}
+            write_report(path,prior);original=path.read_bytes();writer=Path.write_text
+            def partial(destination,content,*args,**kwargs):
+                writer(destination,content[:7],*args,**kwargs)
+                raise OSError(errno.ENOSPC,'injected full filesystem')
+            with patch.object(Path,'write_text',partial):
+                with self.assertRaises(OSError):write_report(path,{'successful':False,'error':'run failed','cases':prior['cases']})
+            self.assertEqual(path.read_bytes(),original)
+            self.assertEqual(path.with_suffix('.json.tmp').read_text(),'{\n  "su')
+
     def test_sustained_fixture_reaches_deliverable_gross_uf_without_alarm(self):
         from dialysislab.runner import LocalCluster,simulate,stop_plant,build_identity
         from verify_models import verify

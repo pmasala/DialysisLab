@@ -12,11 +12,16 @@ The actual Linux process-death regression and ESRCH/ENOENT/access-error tests pa
 this addresses the failed candidate hosted CI37733002033 without suppressing
 permission failures or extending its timeout. Review count remains one per phase.
 
-Corrected fixtures use replacement70mL/min for sustained HDF and R0.9/KUF1 for
-the large integrated dialyzer. Actual1500-tick runs deliver net5mL/min without
-alarms. Thresholds and acceptance bounds are unchanged. Full100000-tick repeats,
-corrected deployment matrix and final source-package verification remain pending;
-the initial failed long runs and their original manifests are retained.
+Corrected fixtures pass36 native/36 restrictive-umask Compose matrix runs and
+30 fault runs per deployment;157 native/sanitizer tests and actual no-Git package
+verification pass. Six console widgets pass natively/with sanitizers. Both actual
+simultaneous headless/WSLg deployments pass after waiting for the UI LOAD reply.
+
+The first corrected native100000-tick case passed; concurrent later runs hit
+ENOSPC. Partial bytes and Docker volume hashes were recovered without declaring
+an observed stop. Atomic report replacement,2048MiB preflight and sequential
+execution are now required; seven targeted integration regressions pass. Fresh
+complete long repeats and final CI/package/evidence closure remain pending.
 
 M8 corrected hosted CI37730439086 passed; all41 artifacts recover byte for byte.
 150 native/sanitizer tests, actual UI/console deployments, three Docker failure

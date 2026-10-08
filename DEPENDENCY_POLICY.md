@@ -37,7 +37,7 @@ Approval is limited to the reviewed version, features, and use. Review it again 
 - Maintain a dependency inventory and a Software Bill of Materials for released application/container artifacts.
 - Ship required notices and license texts; do not describe a source-only inventory as a complete shipped-image inventory.
 - Link risk-relevant third-party components to requirements, known anomalies, and verification evidence. Where IEC 62304 terminology applies, record the rationale for software of unknown provenance classification and handling.
-- Plan automated checks for unpinned dependencies, unrecorded licenses, missing notices, and unreviewed exceptions. These checks are requirements for future implementation; this documentation package does not implement them.
+- Run the implemented inventory, integrity/license/notice and publication checks described in `docs/M8_SECURITY_CI.md`. Their recorded scope and findings do not substitute for explicit exception review or complete shipped-image redistribution assessment.
 
 ## Initial decisions
 

@@ -20,6 +20,10 @@ ctest --test-dir build/gui --output-on-failure
 SOURCE_REVISION=$(git rev-parse HEAD) docker compose --profile device-ui build
 ```
 
+For an extracted source archive without Git metadata, use
+`SOURCE_REVISION=unavailable docker compose --profile device-ui build` instead.
+Source and binary digests still identify that build; do not invent a commit ID.
+
 When development headers are deliberately installed in a user-owned prefix, pass
 `-DDIALYSISLAB_XEXT_PREFIX=/absolute/prefix` and
 `-DXEXT_LIB=/absolute/path/libXext.so.6`; do not bypass TLS or library checks.
@@ -119,8 +123,11 @@ fresh services/API sessions. No automatic treatment resume is supported.
 `verify_integrated.py --group matrix` runs 18 synthetic configurations twice;
 `--group faults` checks the declared detector/response fixtures. Add `--compose`
 for isolated services. `--group long --archive` runs sustained HDF for100000ticks,
-requires at least1400MiB free for raw/extraction storage and verifies gzip round trips
+requires at least2048MiB free for raw/extraction storage and verifies gzip round trips
 before replacing owned raw duplicates. Recover with the recorded gzip command.
+Run long verifications sequentially; free-space checks do not reserve storage
+against concurrent writers. Aggregate reports replace their prior checkpoint
+atomically, preserving earlier completed cases if a later write runs out of space.
 The 27.8-hour virtual run is numerical stress, not a validated prescription.
 
 `verify_package.py --output /tmp/fresh-package-check` builds two identical source

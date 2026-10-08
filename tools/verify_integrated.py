@@ -57,6 +57,12 @@ def write_configuration(path,config,container_readable=False):
     if container_readable:path.chmod(0o644)
 
 
+def write_report(path,report):
+    temporary=path.with_suffix(path.suffix+'.tmp')
+    temporary.write_text(json.dumps(report,indent=2)+'\n')
+    temporary.replace(path)
+
+
 def archive_trajectory(path,expected_sha256):
     """Lossless storage only after verification; raw data survive any failure."""
     path=Path(path);target=path.with_suffix(path.suffix+'.gz');temporary=target.with_suffix(target.suffix+'.partial')
@@ -130,8 +136,8 @@ def main():
             validate(config);configuration=args.output/(name+'.json');write_configuration(configuration,config,args.compose)
             hashes=[]
             for repeat in (1,2):
-                if args.group=='long' and shutil.disk_usage(args.output).free<1400*1024**2:
-                    raise OSError('less than 1400MiB free for long trajectory and extraction; preserve prior artifacts')
+                if args.group=='long' and shutil.disk_usage(args.output).free<2048*1024**2:
+                    raise OSError('less than 2048MiB free for long trajectory and extraction; preserve prior artifacts')
                 observed=None;collection=None
                 if args.compose:
                     override=args.output/(name+'-compose.json')
@@ -158,14 +164,14 @@ def main():
                 case.update(name=name,repeat=repeat,directory=str(directory),acceptance=criteria,observed_stop=observed,collection=collection)
                 hashes.append(case['scan']['sha256']);report['cases'].append(case)
                 if args.archive:case['archive']=archive_trajectory(directory/'trajectory.jsonl',case['scan']['sha256'])
-                (args.output/'integration.json').write_text(json.dumps(report,indent=2)+'\n')
+                write_report(args.output/'integration.json',report)
                 print(name+' '+str(repeat)+': verified',flush=True)
             if hashes[0]!=hashes[1]:raise ValueError('same-build exact replay failed: '+name)
         report['successful']=True
     except Exception as exc:
         report['error']=type(exc).__name__+': '+str(exc)
         raise
-    finally:(args.output/'integration.json').write_text(json.dumps(report,indent=2)+'\n')
+    finally:write_report(args.output/'integration.json',report)
     print(json.dumps(dict(successful=True,runs=len(report['cases']))))
 
 

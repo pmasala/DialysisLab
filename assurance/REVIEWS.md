@@ -400,3 +400,23 @@ delays reply encoding after lock release. No application behavior changed.
 At correction build935692a,157/157 native and157/157 sanitizer tests pass;
 36 native and36 restrictive-umask Compose matrix runs pass. Full long runs,
 extracted package and corrected hosted CI closure remain pending.
+
+M9-V7 evidence/storage: concurrent long verifications exhausted the shared host
+filesystem after the first native100000-tick case passed. The second native and
+first Compose attempt failed ENOSPC; final manifests could not persist and no
+confirmed stop is inferred. Docker resources were retained, then original volume
+file hashes were compared with recovered files before scoped cleanup. Original
+partial JSONL bytes remain in independently round-trip-verified gzip archives.
+The aggregate integration report now replaces checkpoints atomically, tested with
+an injected partial ENOSPC write. Long preflight requires2048MiB and operating
+instructions require sequential execution; this does not reserve host storage.
+Seven targeted integration regressions pass. Fresh sequential long acceptance
+is still required. Prior completed first-case data do not make its failed overall
+verification pass. Recovery metadata: `build/m9-enospc-compose-recovery/`,
+`build/m9-enospc-native-storage.json`; only byte-verified redundant owned copies
+were archived. No unknown user data, global permissions or security controls changed.
+
+A proposed closure script was rejected by automatic approval review because it
+would rewrite all M1–M9 test states in bulk. It was never applied. Historical
+trace records will remain unchanged; each new M9 acceptance will link only its
+specific checked real results. This rejection did not invoke another code review.
