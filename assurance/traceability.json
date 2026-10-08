@@ -1353,7 +1353,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "146d6db901c7a6745f25cb826741e913ce3d646bcb902586b8c2fb62dcaf6645"
+          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1365,7 +1365,7 @@
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "63df0c030cb9852e1bbc98ecbe778a10250ba492ac53c5076fb38afaf9ba5714"
+          "sha256": "16f57d813171b14276bf5978278f910a7495299a3c5a8314f6765b64fb838aab"
         }
       ],
       "unresolved": [
@@ -1395,7 +1395,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "146d6db901c7a6745f25cb826741e913ce3d646bcb902586b8c2fb62dcaf6645"
+          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1407,7 +1407,7 @@
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "63df0c030cb9852e1bbc98ecbe778a10250ba492ac53c5076fb38afaf9ba5714"
+          "sha256": "16f57d813171b14276bf5978278f910a7495299a3c5a8314f6765b64fb838aab"
         }
       ],
       "unresolved": [
@@ -1437,7 +1437,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "146d6db901c7a6745f25cb826741e913ce3d646bcb902586b8c2fb62dcaf6645"
+          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1449,7 +1449,7 @@
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "63df0c030cb9852e1bbc98ecbe778a10250ba492ac53c5076fb38afaf9ba5714"
+          "sha256": "16f57d813171b14276bf5978278f910a7495299a3c5a8314f6765b64fb838aab"
         }
       ],
       "unresolved": [
@@ -1479,7 +1479,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "146d6db901c7a6745f25cb826741e913ce3d646bcb902586b8c2fb62dcaf6645"
+          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1491,7 +1491,7 @@
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "63df0c030cb9852e1bbc98ecbe778a10250ba492ac53c5076fb38afaf9ba5714"
+          "sha256": "16f57d813171b14276bf5978278f910a7495299a3c5a8314f6765b64fb838aab"
         }
       ],
       "unresolved": [
@@ -1521,7 +1521,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "146d6db901c7a6745f25cb826741e913ce3d646bcb902586b8c2fb62dcaf6645"
+          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1533,7 +1533,7 @@
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "63df0c030cb9852e1bbc98ecbe778a10250ba492ac53c5076fb38afaf9ba5714"
+          "sha256": "16f57d813171b14276bf5978278f910a7495299a3c5a8314f6765b64fb838aab"
         }
       ],
       "unresolved": [
@@ -1565,7 +1565,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "146d6db901c7a6745f25cb826741e913ce3d646bcb902586b8c2fb62dcaf6645"
+          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1577,7 +1577,7 @@
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "63df0c030cb9852e1bbc98ecbe778a10250ba492ac53c5076fb38afaf9ba5714"
+          "sha256": "16f57d813171b14276bf5978278f910a7495299a3c5a8314f6765b64fb838aab"
         }
       ],
       "unresolved": [

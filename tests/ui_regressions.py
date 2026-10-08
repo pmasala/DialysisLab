@@ -316,7 +316,24 @@ class DeviceUiTests(unittest.TestCase):
             self.assertEqual(confirmation['confirmed_values'], '0 280.04 0.04 0')
             self.assertIn('Blood 280.04 mL/min; net UF 0.04 mL/min', confirmation['confirmation'])
             self.assertEqual(f.view()['machine']['net_uf_prescribed_mL_min'], 5)
-            ui.snapshot('exact_confirmation')
+            captured = ui.snapshot('exact_confirmation')
+            # Inspect the actual rendered detail region, excluding dialog border
+            # and buttons. Contrast here is a software display criterion only.
+            with (directory / 'exact_confirmation.ppm').open('rb') as image:
+                self.assertEqual(image.readline(), b'P6\n')
+                width, height = map(int, image.readline().split()); self.assertEqual(image.readline(), b'255\n')
+                pixels = image.read()
+            x1, y1, x2, y2 = captured['confirmation_bounds']
+            self.assertTrue(0 <= x1 <= x2 < width and 0 <= y1 <= y2 < height)
+            colors = set(tuple(pixels[(y * width + x) * 3:(y * width + x) * 3 + 3])
+                         for y in range(y1, y2 + 1) for x in range(x1, x2 + 1))
+            def luminance(color):
+                channels = [v / 255 for v in color]
+                linear = [v / 12.92 if v <= .04045 else ((v + .055) / 1.055) ** 2.4 for v in channels]
+                return sum(v * weight for v, weight in zip(linear, (.2126, .7152, .0722)))
+            levels = [luminance(c) for c in colors]
+            self.assertGreaterEqual((max(levels) + .05) / (min(levels) + .05), 7,
+                                    'actual confirmation glyphs must contrast with their background')
             ui.send('MOUSE CONFIRM')
             ui.until(lambda s: s.get('mode') == 0 and s.get('prescribed_blood_mL_min') == 280.04, f)
             self.assertEqual(f.view()['machine']['net_uf_prescribed_mL_min'], .04)

@@ -190,3 +190,10 @@ replay from the initial scenario alone. Widget test input/output logs, actual
 trajectory and build/configuration identify these runs. M7 must add a reproducible
 operator-event schedule for experiment replay. Deterministic batch scenarios
 without external interaction retain the existing exact-hash acceptance.
+
+
+Visual integration finding M6-V1 adds an explicit light dialog foreground; the
+confirmation-detail framebuffer must provide at least 7:1 luminance contrast
+between its rendered glyphs and background. This is a project software display
+criterion, not a claim of clinical usability or accessibility conformity. The
+actual frame is checked after rendering, alongside exact-value and SDL input tests.

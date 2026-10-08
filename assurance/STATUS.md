@@ -37,7 +37,10 @@ prescription precision, reserve alarm layout space, propagate unexpected demo
 failures and cancel slow paced waits on window closure. All ten targeted GUI/demo
 regressions pass in the initial correction run (`build/m6-fix-ui-first`).
 
-Next executable step: commit corrections, verify the clean correction build
+Correction commit `5552622` passes all final native/sanitizer/Compose tests, but
+visual inspection found M6-V1: dark confirmation text on a dark dialog. Correct
+contrast and verify actual rendered pixels before declaring M6 complete.
+Next executable step: commit this visual fix, verify the clean GUI build
 (native/sanitizer, actual headless/WSLg and Compose), publish final M6 evidence
 with trace links, then freeze M7 base and continue automatically through M7–M9.
 The preliminary and candidate results are retained under `build/m6-*`; only final

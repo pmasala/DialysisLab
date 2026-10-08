@@ -162,3 +162,15 @@ Review is consumed; no second invocation is authorized. All six are applicable.
 Corrections and final evidence are in progress; no final PASS is inferred from
 review exit zero. Preserve preliminary failures/results and record the correction
 commit plus clean-build regressions before advancing M7.
+
+
+M6 review corrections are committed as `5552622`; all ten targeted tests pass in
+headless, actual WSLg and instrumented builds, and native/Compose regressions pass.
+Final visual inspection then found **M6-V1 (P2)**: theme-default dark dialog text
+has insufficient contrast on its dark background. This is an integration finding,
+not a second review. Explicitly set a light dialog foreground and check at least
+7:1 luminance contrast in the actual rendered confirmation-detail pixels. This
+software display criterion is not clinical usability or accessibility conformity.
+The complete `5552622` results remain in `build/m6-verified-*`; the unpublished
+evidence draft is retained in `build/m6-5552622-evidence-draft`. Refresh GUI evidence
+after the contrast correction; core services/model code are unchanged.

@@ -192,9 +192,9 @@ struct App {
             } catch(const std::exception&) {local_feedback="Invalid prescription: check ranges, mode and sum <=500";return;}
         }
         if(id=="STOP" || id=="ACK") {dismiss();local_feedback=client.submit(job)?"Request sent; verify observed state":"Request not sent: busy";return;}
-        dismiss();pending=job;pending_generation=snapshot.generation;pending_revision=selected?selected->view.machine.revision:-1;pending_mask=mask;
+        dismiss();local_feedback="Review the exact request before confirming";pending=job;pending_generation=snapshot.generation;pending_revision=selected?selected->view.machine.revision:-1;pending_mask=mask;
         dialog=lv_obj_create(lv_screen_active());lv_obj_set_pos(dialog,160,260);lv_obj_set_size(dialog,780,245);
-        lv_obj_set_style_bg_color(dialog,lv_color_hex(0x263e54),0);lv_obj_set_scrollable(dialog,false);
+        lv_obj_set_style_bg_color(dialog,lv_color_hex(0x263e54),0);lv_obj_set_style_text_color(dialog,lv_color_hex(0xeaf1f8),0);lv_obj_set_scrollable(dialog,false);
         label(dialog,12,8,720,"CONFIRM SIMULATED DEVICE REQUEST");label(dialog,12,46,720,detail);
         label(dialog,12,113,720,"The services validate and apply this request.\nConfirmation does not release protection.");
         button("CONFIRM","Confirm",12,172,220,dialog);button("CANCEL","Cancel",250,172,220,dialog);
@@ -297,7 +297,11 @@ struct App {
         lv_obj_get_coords(alarm,&alarm_area);lv_obj_get_coords(intent,&intent_area);lv_obj_get_coords(feedback,&feedback_area);
         std::cout<<",\"selected_mode\":"<<selected_mode<<",\"layout\":{\"alarm_bottom\":"<<alarm_area.y2<<",\"intent_top\":"<<intent_area.y1
             <<",\"intent_bottom\":"<<intent_area.y2<<",\"feedback_top\":"<<feedback_area.y1<<",\"feedback_bottom\":"<<feedback_area.y2<<",\"height\":"<<height<<"}";
-        if(pending && dialog) std::cout<<",\"confirmation\":"<<json(lv_label_get_text(lv_obj_get_child(dialog,1)))<<",\"confirmed_values\":"<<json(pending->values);
+        if(pending && dialog) {
+            lv_area_t detail{};lv_obj_get_coords(lv_obj_get_child(dialog,1),&detail);
+            std::cout<<",\"confirmation\":"<<json(lv_label_get_text(lv_obj_get_child(dialog,1)))<<",\"confirmed_values\":"<<json(pending->values)
+                <<",\"confirmation_bounds\":["<<detail.x1<<','<<detail.y1<<','<<detail.x2<<','<<detail.y2<<']';
+        }
         std::cout<<",\"labels\":{\"observed\":"<<json(lv_label_get_text(observed))<<",\"alarm\":"<<json(lv_label_get_text(alarm))<<",\"intent\":"<<json(lv_label_get_text(intent))<<"}}"<<std::endl;
     }
     void automation(const std::string& line) {
