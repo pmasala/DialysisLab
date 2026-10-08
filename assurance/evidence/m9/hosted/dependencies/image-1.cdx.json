@@ -1,0 +1,2586 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "bom-ref": "deb:adduser",
+      "name": "deb:adduser",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "adduser"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.152"
+        }
+      ],
+      "type": "library",
+      "version": "3.152"
+    },
+    {
+      "bom-ref": "deb:apt",
+      "name": "deb:apt",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "apt"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.0.3"
+        }
+      ],
+      "type": "library",
+      "version": "3.0.3"
+    },
+    {
+      "bom-ref": "deb:base-files",
+      "name": "deb:base-files",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "base-files"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "13.8+deb13u7"
+        }
+      ],
+      "type": "library",
+      "version": "13.8+deb13u7"
+    },
+    {
+      "bom-ref": "deb:base-passwd",
+      "name": "deb:base-passwd",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "base-passwd"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.6.7"
+        }
+      ],
+      "type": "library",
+      "version": "3.6.7"
+    },
+    {
+      "bom-ref": "deb:bash",
+      "name": "deb:bash",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "bash"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "5.2.37-2"
+        }
+      ],
+      "type": "library",
+      "version": "5.2.37-2+b10"
+    },
+    {
+      "bom-ref": "deb:bsdutils",
+      "name": "deb:bsdutils",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "util-linux"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.41.5-0+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "1:2.41.5-0+deb13u1"
+    },
+    {
+      "bom-ref": "deb:ca-certificates",
+      "name": "deb:ca-certificates",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "ca-certificates"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "20250419"
+        }
+      ],
+      "type": "library",
+      "version": "20250419"
+    },
+    {
+      "bom-ref": "deb:coreutils",
+      "name": "deb:coreutils",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "coreutils"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "9.7-3"
+        }
+      ],
+      "type": "library",
+      "version": "9.7-3"
+    },
+    {
+      "bom-ref": "deb:dash",
+      "name": "deb:dash",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "dash"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "0.5.12-12"
+        }
+      ],
+      "type": "library",
+      "version": "0.5.12-12"
+    },
+    {
+      "bom-ref": "deb:debconf",
+      "name": "deb:debconf",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "debconf"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.5.91"
+        }
+      ],
+      "type": "library",
+      "version": "1.5.91"
+    },
+    {
+      "bom-ref": "deb:debian-archive-keyring",
+      "name": "deb:debian-archive-keyring",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "debian-archive-keyring"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2025.1"
+        }
+      ],
+      "type": "library",
+      "version": "2025.1"
+    },
+    {
+      "bom-ref": "deb:debianutils",
+      "name": "deb:debianutils",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "debianutils"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "5.23.2"
+        }
+      ],
+      "type": "library",
+      "version": "5.23.2"
+    },
+    {
+      "bom-ref": "deb:diffutils",
+      "name": "deb:diffutils",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "diffutils"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1:3.10-4"
+        }
+      ],
+      "type": "library",
+      "version": "1:3.10-4"
+    },
+    {
+      "bom-ref": "deb:dpkg",
+      "name": "deb:dpkg",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "dpkg"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.22.22"
+        }
+      ],
+      "type": "library",
+      "version": "1.22.22"
+    },
+    {
+      "bom-ref": "deb:findutils",
+      "name": "deb:findutils",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "findutils"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "4.10.0-3"
+        }
+      ],
+      "type": "library",
+      "version": "4.10.0-3"
+    },
+    {
+      "bom-ref": "deb:gcc-14-base:amd64",
+      "name": "deb:gcc-14-base:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "gcc-14"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "14.2.0-19"
+        }
+      ],
+      "type": "library",
+      "version": "14.2.0-19"
+    },
+    {
+      "bom-ref": "deb:grep",
+      "name": "deb:grep",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "grep"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.11-4"
+        }
+      ],
+      "type": "library",
+      "version": "3.11-4"
+    },
+    {
+      "bom-ref": "deb:gzip",
+      "name": "deb:gzip",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "gzip"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.13-1+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "1.13-1+deb13u1"
+    },
+    {
+      "bom-ref": "deb:hostname",
+      "name": "deb:hostname",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "hostname"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.25"
+        }
+      ],
+      "type": "library",
+      "version": "3.25"
+    },
+    {
+      "bom-ref": "deb:init-system-helpers",
+      "name": "deb:init-system-helpers",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "init-system-helpers"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.69~deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "1.69~deb13u1"
+    },
+    {
+      "bom-ref": "deb:libacl1:amd64",
+      "name": "deb:libacl1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "acl"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.3.2-2"
+        }
+      ],
+      "type": "library",
+      "version": "2.3.2-2+b1"
+    },
+    {
+      "bom-ref": "deb:libapt-pkg7.0:amd64",
+      "name": "deb:libapt-pkg7.0:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "apt"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.0.3"
+        }
+      ],
+      "type": "library",
+      "version": "3.0.3"
+    },
+    {
+      "bom-ref": "deb:libattr1:amd64",
+      "name": "deb:libattr1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "attr"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1:2.5.2-3"
+        }
+      ],
+      "type": "library",
+      "version": "1:2.5.2-3"
+    },
+    {
+      "bom-ref": "deb:libaudit-common",
+      "name": "deb:libaudit-common",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "audit"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1:4.0.2-2+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "1:4.0.2-2+deb13u1"
+    },
+    {
+      "bom-ref": "deb:libaudit1:amd64",
+      "name": "deb:libaudit1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "audit"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1:4.0.2-2+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "1:4.0.2-2+deb13u1"
+    },
+    {
+      "bom-ref": "deb:libblkid1:amd64",
+      "name": "deb:libblkid1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "util-linux"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.41.5-0+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "bom-ref": "deb:libbsd0:amd64",
+      "name": "deb:libbsd0:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libbsd"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "0.12.2-2"
+        }
+      ],
+      "type": "library",
+      "version": "0.12.2-2"
+    },
+    {
+      "bom-ref": "deb:libbz2-1.0:amd64",
+      "name": "deb:libbz2-1.0:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "bzip2"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.0.8-6"
+        }
+      ],
+      "type": "library",
+      "version": "1.0.8-6"
+    },
+    {
+      "bom-ref": "deb:libc-bin",
+      "name": "deb:libc-bin",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "glibc"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.41-12+deb13u4"
+        }
+      ],
+      "type": "library",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "bom-ref": "deb:libc6:amd64",
+      "name": "deb:libc6:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "glibc"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.41-12+deb13u4"
+        }
+      ],
+      "type": "library",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "bom-ref": "deb:libcap-ng0:amd64",
+      "name": "deb:libcap-ng0:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libcap-ng"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "0.8.5-4"
+        }
+      ],
+      "type": "library",
+      "version": "0.8.5-4+b1"
+    },
+    {
+      "bom-ref": "deb:libcap2:amd64",
+      "name": "deb:libcap2:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libcap2"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1:2.75-10+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "1:2.75-10+deb13u1+b3"
+    },
+    {
+      "bom-ref": "deb:libcrypt1:amd64",
+      "name": "deb:libcrypt1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libxcrypt"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1:4.4.38-1"
+        }
+      ],
+      "type": "library",
+      "version": "1:4.4.38-1"
+    },
+    {
+      "bom-ref": "deb:libdb5.3t64:amd64",
+      "name": "deb:libdb5.3t64:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "db5.3"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "5.3.28+dfsg2-9"
+        }
+      ],
+      "type": "library",
+      "version": "5.3.28+dfsg2-9"
+    },
+    {
+      "bom-ref": "deb:libdebconfclient0:amd64",
+      "name": "deb:libdebconfclient0:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "cdebconf"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "0.280"
+        }
+      ],
+      "type": "library",
+      "version": "0.280"
+    },
+    {
+      "bom-ref": "deb:libffi8:amd64",
+      "name": "deb:libffi8:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libffi"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.4.8-2"
+        }
+      ],
+      "type": "library",
+      "version": "3.4.8-2"
+    },
+    {
+      "bom-ref": "deb:libgcc-s1:amd64",
+      "name": "deb:libgcc-s1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "gcc-14"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "14.2.0-19"
+        }
+      ],
+      "type": "library",
+      "version": "14.2.0-19"
+    },
+    {
+      "bom-ref": "deb:libgdbm6t64:amd64",
+      "name": "deb:libgdbm6t64:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "gdbm"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.24-2"
+        }
+      ],
+      "type": "library",
+      "version": "1.24-2"
+    },
+    {
+      "bom-ref": "deb:libgmp10:amd64",
+      "name": "deb:libgmp10:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "gmp"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2:6.3.0+dfsg-3"
+        }
+      ],
+      "type": "library",
+      "version": "2:6.3.0+dfsg-3"
+    },
+    {
+      "bom-ref": "deb:libhogweed6t64:amd64",
+      "name": "deb:libhogweed6t64:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "nettle"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.10.1-1"
+        }
+      ],
+      "type": "library",
+      "version": "3.10.1-1"
+    },
+    {
+      "bom-ref": "deb:liblastlog2-2:amd64",
+      "name": "deb:liblastlog2-2:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "util-linux"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.41.5-0+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "bom-ref": "deb:liblz4-1:amd64",
+      "name": "deb:liblz4-1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "lz4"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.10.0-4"
+        }
+      ],
+      "type": "library",
+      "version": "1.10.0-4"
+    },
+    {
+      "bom-ref": "deb:liblzma5:amd64",
+      "name": "deb:liblzma5:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "xz-utils"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "5.8.1-1+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "5.8.1-1+deb13u1"
+    },
+    {
+      "bom-ref": "deb:libmd0:amd64",
+      "name": "deb:libmd0:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libmd"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.1.0-2"
+        }
+      ],
+      "type": "library",
+      "version": "1.1.0-2+b1"
+    },
+    {
+      "bom-ref": "deb:libmount1:amd64",
+      "name": "deb:libmount1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "util-linux"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.41.5-0+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "bom-ref": "deb:libncursesw6:amd64",
+      "name": "deb:libncursesw6:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "ncurses"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "6.5+20250216-2"
+        }
+      ],
+      "type": "library",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "bom-ref": "deb:libnettle8t64:amd64",
+      "name": "deb:libnettle8t64:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "nettle"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.10.1-1"
+        }
+      ],
+      "type": "library",
+      "version": "3.10.1-1"
+    },
+    {
+      "bom-ref": "deb:libpam-modules:amd64",
+      "name": "deb:libpam-modules:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "pam"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.7.0-5"
+        }
+      ],
+      "type": "library",
+      "version": "1.7.0-5"
+    },
+    {
+      "bom-ref": "deb:libpam-modules-bin",
+      "name": "deb:libpam-modules-bin",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "pam"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.7.0-5"
+        }
+      ],
+      "type": "library",
+      "version": "1.7.0-5"
+    },
+    {
+      "bom-ref": "deb:libpam-runtime",
+      "name": "deb:libpam-runtime",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "pam"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.7.0-5"
+        }
+      ],
+      "type": "library",
+      "version": "1.7.0-5"
+    },
+    {
+      "bom-ref": "deb:libpam0g:amd64",
+      "name": "deb:libpam0g:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "pam"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.7.0-5"
+        }
+      ],
+      "type": "library",
+      "version": "1.7.0-5"
+    },
+    {
+      "bom-ref": "deb:libpcre2-8-0:amd64",
+      "name": "deb:libpcre2-8-0:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "pcre2"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "10.46-1~deb13u3"
+        }
+      ],
+      "type": "library",
+      "version": "10.46-1~deb13u3"
+    },
+    {
+      "bom-ref": "deb:libreadline8t64:amd64",
+      "name": "deb:libreadline8t64:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "readline"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "8.2-6"
+        }
+      ],
+      "type": "library",
+      "version": "8.2-6"
+    },
+    {
+      "bom-ref": "deb:libseccomp2:amd64",
+      "name": "deb:libseccomp2:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libseccomp"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.6.0-2"
+        }
+      ],
+      "type": "library",
+      "version": "2.6.0-2"
+    },
+    {
+      "bom-ref": "deb:libselinux1:amd64",
+      "name": "deb:libselinux1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libselinux"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.8.1-1"
+        }
+      ],
+      "type": "library",
+      "version": "3.8.1-1"
+    },
+    {
+      "bom-ref": "deb:libsemanage-common",
+      "name": "deb:libsemanage-common",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libsemanage"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.8.1-1"
+        }
+      ],
+      "type": "library",
+      "version": "3.8.1-1"
+    },
+    {
+      "bom-ref": "deb:libsemanage2:amd64",
+      "name": "deb:libsemanage2:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libsemanage"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.8.1-1"
+        }
+      ],
+      "type": "library",
+      "version": "3.8.1-1"
+    },
+    {
+      "bom-ref": "deb:libsepol2:amd64",
+      "name": "deb:libsepol2:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libsepol"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.8.1-1"
+        }
+      ],
+      "type": "library",
+      "version": "3.8.1-1"
+    },
+    {
+      "bom-ref": "deb:libsmartcols1:amd64",
+      "name": "deb:libsmartcols1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "util-linux"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.41.5-0+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "bom-ref": "deb:libsqlite3-0:amd64",
+      "name": "deb:libsqlite3-0:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "sqlite3"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.46.1-7+deb13u2"
+        }
+      ],
+      "type": "library",
+      "version": "3.46.1-7+deb13u2"
+    },
+    {
+      "bom-ref": "deb:libssl3t64:amd64",
+      "name": "deb:libssl3t64:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "openssl"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.5.7-1~deb13u3"
+        }
+      ],
+      "type": "library",
+      "version": "3.5.7-1~deb13u3"
+    },
+    {
+      "bom-ref": "deb:libstdc++6:amd64",
+      "name": "deb:libstdc++6:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "gcc-14"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "14.2.0-19"
+        }
+      ],
+      "type": "library",
+      "version": "14.2.0-19"
+    },
+    {
+      "bom-ref": "deb:libsystemd0:amd64",
+      "name": "deb:libsystemd0:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "systemd"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "257.13-1~deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "bom-ref": "deb:libtinfo6:amd64",
+      "name": "deb:libtinfo6:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "ncurses"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "6.5+20250216-2"
+        }
+      ],
+      "type": "library",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "bom-ref": "deb:libudev1:amd64",
+      "name": "deb:libudev1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "systemd"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "257.13-1~deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "bom-ref": "deb:libuuid1:amd64",
+      "name": "deb:libuuid1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "util-linux"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.41.5-0+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "bom-ref": "deb:libx11-6:amd64",
+      "name": "deb:libx11-6:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libx11"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2:1.8.12-1"
+        }
+      ],
+      "type": "library",
+      "version": "2:1.8.12-1"
+    },
+    {
+      "bom-ref": "deb:libx11-data",
+      "name": "deb:libx11-data",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libx11"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2:1.8.12-1"
+        }
+      ],
+      "type": "library",
+      "version": "2:1.8.12-1"
+    },
+    {
+      "bom-ref": "deb:libxau6:amd64",
+      "name": "deb:libxau6:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libxau"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1:1.0.11-1"
+        }
+      ],
+      "type": "library",
+      "version": "1:1.0.11-1"
+    },
+    {
+      "bom-ref": "deb:libxcb1:amd64",
+      "name": "deb:libxcb1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libxcb"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.17.0-2"
+        }
+      ],
+      "type": "library",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "bom-ref": "deb:libxdmcp6:amd64",
+      "name": "deb:libxdmcp6:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libxdmcp"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1:1.1.5-1"
+        }
+      ],
+      "type": "library",
+      "version": "1:1.1.5-1"
+    },
+    {
+      "bom-ref": "deb:libxext6:amd64",
+      "name": "deb:libxext6:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libxext"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2:1.3.4-1"
+        }
+      ],
+      "type": "library",
+      "version": "2:1.3.4-1+b3"
+    },
+    {
+      "bom-ref": "deb:libxxhash0:amd64",
+      "name": "deb:libxxhash0:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "xxhash"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "0.8.3-2"
+        }
+      ],
+      "type": "library",
+      "version": "0.8.3-2"
+    },
+    {
+      "bom-ref": "deb:libzstd1:amd64",
+      "name": "deb:libzstd1:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "libzstd"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.5.7+dfsg-1"
+        }
+      ],
+      "type": "library",
+      "version": "1.5.7+dfsg-1"
+    },
+    {
+      "bom-ref": "deb:login",
+      "name": "deb:login",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "util-linux"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.41.5-0+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "1:4.16.0-2+really2.41.5-0+deb13u1"
+    },
+    {
+      "bom-ref": "deb:login.defs",
+      "name": "deb:login.defs",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "shadow"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1:4.17.4-2"
+        }
+      ],
+      "type": "library",
+      "version": "1:4.17.4-2"
+    },
+    {
+      "bom-ref": "deb:mawk",
+      "name": "deb:mawk",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "mawk"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.3.4.20250131-1"
+        }
+      ],
+      "type": "library",
+      "version": "1.3.4.20250131-1"
+    },
+    {
+      "bom-ref": "deb:mount",
+      "name": "deb:mount",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "util-linux"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.41.5-0+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "bom-ref": "deb:ncurses-base",
+      "name": "deb:ncurses-base",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "ncurses"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "6.5+20250216-2"
+        }
+      ],
+      "type": "library",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "bom-ref": "deb:ncurses-bin",
+      "name": "deb:ncurses-bin",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "ncurses"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "6.5+20250216-2"
+        }
+      ],
+      "type": "library",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "bom-ref": "deb:netbase",
+      "name": "deb:netbase",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "netbase"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "6.5"
+        }
+      ],
+      "type": "library",
+      "version": "6.5"
+    },
+    {
+      "bom-ref": "deb:openssl",
+      "name": "deb:openssl",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "openssl"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.5.7-1~deb13u3"
+        }
+      ],
+      "type": "library",
+      "version": "3.5.7-1~deb13u3"
+    },
+    {
+      "bom-ref": "deb:openssl-provider-legacy",
+      "name": "deb:openssl-provider-legacy",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "openssl"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.5.7-1~deb13u3"
+        }
+      ],
+      "type": "library",
+      "version": "3.5.7-1~deb13u3"
+    },
+    {
+      "bom-ref": "deb:passwd",
+      "name": "deb:passwd",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "shadow"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1:4.17.4-2"
+        }
+      ],
+      "type": "library",
+      "version": "1:4.17.4-2"
+    },
+    {
+      "bom-ref": "deb:perl-base",
+      "name": "deb:perl-base",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "perl"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "5.40.1-6+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "5.40.1-6+deb13u1"
+    },
+    {
+      "bom-ref": "deb:readline-common",
+      "name": "deb:readline-common",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "readline"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "8.2-6"
+        }
+      ],
+      "type": "library",
+      "version": "8.2-6"
+    },
+    {
+      "bom-ref": "deb:sed",
+      "name": "deb:sed",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "sed"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "4.9-2+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "4.9-2+deb13u1"
+    },
+    {
+      "bom-ref": "deb:sqv",
+      "name": "deb:sqv",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "rust-sequoia-sqv"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.3.0-3"
+        }
+      ],
+      "type": "library",
+      "version": "1.3.0-3+b2"
+    },
+    {
+      "bom-ref": "deb:sysvinit-utils",
+      "name": "deb:sysvinit-utils",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "sysvinit"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "3.14-4"
+        }
+      ],
+      "type": "library",
+      "version": "3.14-4"
+    },
+    {
+      "bom-ref": "deb:tar",
+      "name": "deb:tar",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "tar"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1.35+dfsg-3.1"
+        }
+      ],
+      "type": "library",
+      "version": "1.35+dfsg-3.1"
+    },
+    {
+      "bom-ref": "deb:tzdata",
+      "name": "deb:tzdata",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "tzdata"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2026c-0+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "2026c-0+deb13u1"
+    },
+    {
+      "bom-ref": "deb:util-linux",
+      "name": "deb:util-linux",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "util-linux"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "2.41.5-0+deb13u1"
+        }
+      ],
+      "type": "library",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "bom-ref": "deb:zlib1g:amd64",
+      "name": "deb:zlib1g:amd64",
+      "properties": [
+        {
+          "name": "dialysislab:copyright-record",
+          "value": "image-1-platform.json"
+        },
+        {
+          "name": "dialysislab:source-package",
+          "value": "zlib"
+        },
+        {
+          "name": "dialysislab:source-version",
+          "value": "1:1.3.dfsg+really1.3.1-1"
+        }
+      ],
+      "type": "library",
+      "version": "1:1.3.dfsg+really1.3.1-1+b1"
+    },
+    {
+      "bom-ref": "CPython",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0e6475dfda68a9b2d93501449fc47593ca169010e8f4881577b97463fd0c1263"
+        }
+      ],
+      "name": "CPython",
+      "properties": [
+        {
+          "name": "dialysislab:license-assessment",
+          "value": "Python-2.0; bundled/platform terms require separate assessment"
+        }
+      ],
+      "type": "library",
+      "version": "3.12.15"
+    },
+    {
+      "bom-ref": "DialysisLab",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "DialysisLab",
+      "type": "application",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "lvgl",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b20ee3acc1bba13c62d854f9ebd62e4c51e0b443b1e0225892e86442defa84df"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "lvgl",
+      "properties": [
+        {
+          "name": "dialysislab:archive",
+          "value": "https://codeload.github.com/lvgl/lvgl/tar.gz/refs/tags/v9.6.0"
+        },
+        {
+          "name": "dialysislab:commit",
+          "value": "80ca777e37a2b176770726a02e07a6fb79ef0b39"
+        },
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        }
+      ],
+      "type": "library",
+      "version": "9.6.0"
+    },
+    {
+      "bom-ref": "SDL2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Zlib AND MIT AND BSD-3-Clause"
+        }
+      ],
+      "name": "SDL2",
+      "properties": [
+        {
+          "name": "dialysislab:archive",
+          "value": "https://www.libsdl.org/release/SDL2-2.32.10.tar.gz"
+        },
+        {
+          "name": "dialysislab:commit",
+          "value": "5d249570393f7a37e037abf22cd6012a4cc56a71"
+        },
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        }
+      ],
+      "type": "library",
+      "version": "2.32.10"
+    },
+    {
+      "bom-ref": "Dear ImGui",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "21d8a0a565e85dce943e375db00812c2f3f0ab21f3f0f7964e364a63422d7f99"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "Dear ImGui",
+      "properties": [
+        {
+          "name": "dialysislab:archive",
+          "value": "https://codeload.github.com/ocornut/imgui/tar.gz/refs/tags/v1.92.9b"
+        },
+        {
+          "name": "dialysislab:commit",
+          "value": "f1cc2ae15e53a861a874c3034aae6798fde194ab"
+        },
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        }
+      ],
+      "type": "library",
+      "version": "1.92.9b"
+    },
+    {
+      "bom-ref": "SDL key symbols and EDID",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "SDL key symbols and EDID",
+      "properties": [
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        },
+        {
+          "name": "dialysislab:parent",
+          "value": "SDL2"
+        }
+      ],
+      "type": "library",
+      "version": "bundled with pinned parent"
+    },
+    {
+      "bom-ref": "SDL yuv2rgb",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "SDL yuv2rgb",
+      "properties": [
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        },
+        {
+          "name": "dialysislab:parent",
+          "value": "SDL2"
+        }
+      ],
+      "type": "library",
+      "version": "bundled with pinned parent"
+    },
+    {
+      "bom-ref": "imstb rectpack textedit truetype",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "imstb rectpack textedit truetype",
+      "properties": [
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        },
+        {
+          "name": "dialysislab:parent",
+          "value": "Dear ImGui"
+        }
+      ],
+      "type": "library",
+      "version": "bundled with pinned parent"
+    },
+    {
+      "bom-ref": "ProggyClean",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "ProggyClean",
+      "properties": [
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        },
+        {
+          "name": "dialysislab:parent",
+          "value": "Dear ImGui"
+        }
+      ],
+      "type": "library",
+      "version": "bundled with pinned parent"
+    },
+    {
+      "bom-ref": "ProggyForever",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "ProggyForever",
+      "properties": [
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        },
+        {
+          "name": "dialysislab:parent",
+          "value": "Dear ImGui"
+        }
+      ],
+      "type": "library",
+      "version": "bundled with pinned parent"
+    },
+    {
+      "bom-ref": "DialysisLab original bitmap font",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e238e501499703cee48551e02651f79fba619d270820b84c6eceb038a174b996"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "DialysisLab original bitmap font",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "binary:plant",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "627f01318eb1b553242c4360917eff2582c290063748ee513112df688d46c832"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "binary:plant",
+      "type": "application",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "binary:control",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7e8f8f384ff7fefd3e64b8abd2d30efcccdf13cbad06c54d9da2698da6dda0b0"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "binary:control",
+      "type": "application",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "binary:protection",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ed5c3964d5eccdfaf50b8cd94652acc301c6d3485daf399d2279681afe8c1010"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "binary:protection",
+      "type": "application",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "binary:child-guard",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "66f965b8ac34c9b192c954a5a77c6046cba3835f6cff37866dcf9c62e4c27af6"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "binary:child-guard",
+      "type": "application",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "binary:device-ui",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a0f7ee7ff79c8dbef63dc32572c393654c17e3e1c6d1b95430554ad2f20a7883"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause AND MIT AND Zlib"
+        }
+      ],
+      "name": "binary:device-ui",
+      "type": "application",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "binary:sim-console",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "68b56f4b18f8b81755006e0295fdab29416f58aa804391b365dbb0d58e3b5ebf"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause AND MIT AND Zlib"
+        }
+      ],
+      "name": "binary:sim-console",
+      "type": "application",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/__init__.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/__init__.py",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/circuit.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f88fcefafe538d09996ed6bea896d0018596635c931a3a4314f5f04b7c2d4928"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/circuit.py",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/compartments.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d18bb2176b1415b6fbf3dbf6d32accec214a1691d82e3ff2be05e470f443e9bd"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/compartments.py",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/experiment_rpc.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/experiment_rpc.py",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/experiments.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/experiments.py",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/machine.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dd03e344e6e141d3bd01dcfb744288a2a89ad50f0652e992c129eb5f80a510f3"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/machine.py",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/patient.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/patient.py",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/protocol.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/protocol.py",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/role_supervisor.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/role_supervisor.py",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/runner.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "299456d7bf33b4c552ddfba2eedeff2950c62199014ad4d5e60545fb3b1fd94b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/runner.py",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/trajectory.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0cd9026cc01878f359cc1edef63b6915a41266b5e9c2fa56478e7e07730a72a1"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/trajectory.py",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/treatment.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4d6712cd02ac9004c4fc74885f26f15fd88e8df24d2fb7a18d85051e2612d79d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/treatment.py",
+      "type": "file",
+      "version": "4e505648211694f456fbab0646f2c51fdcf54373"
+    }
+  ],
+  "dependencies": [
+    {
+      "dependsOn": [],
+      "ref": "lvgl"
+    },
+    {
+      "dependsOn": [
+        "SDL key symbols and EDID",
+        "SDL yuv2rgb"
+      ],
+      "ref": "SDL2"
+    },
+    {
+      "dependsOn": [
+        "imstb rectpack textedit truetype",
+        "ProggyClean",
+        "ProggyForever"
+      ],
+      "ref": "Dear ImGui"
+    },
+    {
+      "dependsOn": [],
+      "ref": "binary:plant"
+    },
+    {
+      "dependsOn": [],
+      "ref": "binary:control"
+    },
+    {
+      "dependsOn": [],
+      "ref": "binary:protection"
+    },
+    {
+      "dependsOn": [],
+      "ref": "binary:child-guard"
+    },
+    {
+      "dependsOn": [
+        "lvgl",
+        "SDL2",
+        "DialysisLab original bitmap font"
+      ],
+      "ref": "binary:device-ui"
+    },
+    {
+      "dependsOn": [
+        "SDL2",
+        "Dear ImGui"
+      ],
+      "ref": "binary:sim-console"
+    },
+    {
+      "dependsOn": [
+        "binary:plant",
+        "binary:control",
+        "binary:protection",
+        "binary:child-guard",
+        "binary:device-ui",
+        "binary:sim-console",
+        "module:python/dialysislab/__init__.py",
+        "module:python/dialysislab/circuit.py",
+        "module:python/dialysislab/compartments.py",
+        "module:python/dialysislab/experiment_rpc.py",
+        "module:python/dialysislab/experiments.py",
+        "module:python/dialysislab/machine.py",
+        "module:python/dialysislab/patient.py",
+        "module:python/dialysislab/protocol.py",
+        "module:python/dialysislab/role_supervisor.py",
+        "module:python/dialysislab/runner.py",
+        "module:python/dialysislab/trajectory.py",
+        "module:python/dialysislab/treatment.py"
+      ],
+      "ref": "DialysisLab"
+    },
+    {
+      "dependsOn": [
+        "CPython"
+      ],
+      "ref": "module:python/dialysislab/__init__.py"
+    },
+    {
+      "dependsOn": [
+        "CPython"
+      ],
+      "ref": "module:python/dialysislab/circuit.py"
+    },
+    {
+      "dependsOn": [
+        "CPython"
+      ],
+      "ref": "module:python/dialysislab/compartments.py"
+    },
+    {
+      "dependsOn": [
+        "CPython"
+      ],
+      "ref": "module:python/dialysislab/experiment_rpc.py"
+    },
+    {
+      "dependsOn": [
+        "CPython"
+      ],
+      "ref": "module:python/dialysislab/experiments.py"
+    },
+    {
+      "dependsOn": [
+        "CPython"
+      ],
+      "ref": "module:python/dialysislab/machine.py"
+    },
+    {
+      "dependsOn": [
+        "CPython"
+      ],
+      "ref": "module:python/dialysislab/patient.py"
+    },
+    {
+      "dependsOn": [
+        "CPython"
+      ],
+      "ref": "module:python/dialysislab/protocol.py"
+    },
+    {
+      "dependsOn": [
+        "CPython"
+      ],
+      "ref": "module:python/dialysislab/role_supervisor.py"
+    },
+    {
+      "dependsOn": [
+        "CPython"
+      ],
+      "ref": "module:python/dialysislab/runner.py"
+    },
+    {
+      "dependsOn": [
+        "CPython"
+      ],
+      "ref": "module:python/dialysislab/trajectory.py"
+    },
+    {
+      "dependsOn": [
+        "CPython"
+      ],
+      "ref": "module:python/dialysislab/treatment.py"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "bom-ref": "dialysislab-ui:local",
+      "name": "dialysislab-ui:local",
+      "type": "container",
+      "version": "sha256:a4db04ad2ece4b193a22a97c179cd3658859a11d46132993d062cdd68e57ea05"
+    }
+  },
+  "properties": [
+    {
+      "name": "dialysislab:scope",
+      "value": "Actual immutable-image application binary/module hashes, declared build inputs and installed OS/interpreter. Build metadata is not a signed attestation; copyright labels do not establish complete image redistribution clearance."
+    },
+    {
+      "name": "dialysislab:application-sbom",
+      "value": "image-1-application.cdx.json"
+    },
+    {
+      "name": "dialysislab:application-sbom-sha256",
+      "value": "4e745633cf33b9cdb302ff85e117d50480a99f4a5c9dc53be8d12d2bdfe1da9b"
+    }
+  ],
+  "specVersion": "1.6",
+  "version": 1
+}

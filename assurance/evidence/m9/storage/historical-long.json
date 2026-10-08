@@ -1,0 +1,125 @@
+{
+  "scope": "Lossless verified archival of long-run evidence generated during this goal. Public records and Git history unchanged; original bytes recoverable using recorded commands.",
+  "artifacts": [
+    {
+      "path": "build/m4-final-long-native/treatment_100000-1/trajectory.jsonl.gz",
+      "sha256": "1f2291eb7e6925a604e87e5f3293bbf0ac34e29ce19dee8845d4840212a2c866",
+      "bytes": 70809065,
+      "original_path": "build/m4-final-long-native/treatment_100000-1/trajectory.jsonl",
+      "original_sha256": "53263cf9909693eaf4427dd857f1c44ba51a503210b3af569c1f9a5d0efaffc6",
+      "original_bytes": 378428182,
+      "recovery_argv": [
+        "gzip",
+        "-dc",
+        "build/m4-final-long-native/treatment_100000-1/trajectory.jsonl.gz"
+      ],
+      "recovery_output": "build/m4-final-long-native/treatment_100000-1/trajectory.jsonl",
+      "round_trip_verified": true
+    },
+    {
+      "path": "build/m4-final-long-native/treatment_100000-2/trajectory.jsonl.gz",
+      "sha256": "1f2291eb7e6925a604e87e5f3293bbf0ac34e29ce19dee8845d4840212a2c866",
+      "bytes": 70809065,
+      "original_path": "build/m4-final-long-native/treatment_100000-2/trajectory.jsonl",
+      "original_sha256": "53263cf9909693eaf4427dd857f1c44ba51a503210b3af569c1f9a5d0efaffc6",
+      "original_bytes": 378428182,
+      "recovery_argv": [
+        "gzip",
+        "-dc",
+        "build/m4-final-long-native/treatment_100000-2/trajectory.jsonl.gz"
+      ],
+      "recovery_output": "build/m4-final-long-native/treatment_100000-2/trajectory.jsonl",
+      "round_trip_verified": true
+    },
+    {
+      "path": "build/m4-final-long-compose/treatment_100000-1/results/run/trajectory.jsonl.gz",
+      "sha256": "1f2291eb7e6925a604e87e5f3293bbf0ac34e29ce19dee8845d4840212a2c866",
+      "bytes": 70809065,
+      "original_path": "build/m4-final-long-compose/treatment_100000-1/results/run/trajectory.jsonl",
+      "original_sha256": "53263cf9909693eaf4427dd857f1c44ba51a503210b3af569c1f9a5d0efaffc6",
+      "original_bytes": 378428182,
+      "recovery_argv": [
+        "gzip",
+        "-dc",
+        "build/m4-final-long-compose/treatment_100000-1/results/run/trajectory.jsonl.gz"
+      ],
+      "recovery_output": "build/m4-final-long-compose/treatment_100000-1/results/run/trajectory.jsonl",
+      "round_trip_verified": true
+    },
+    {
+      "path": "build/m4-final-long-compose/treatment_100000-2/results/run/trajectory.jsonl.gz",
+      "sha256": "1f2291eb7e6925a604e87e5f3293bbf0ac34e29ce19dee8845d4840212a2c866",
+      "bytes": 70809065,
+      "original_path": "build/m4-final-long-compose/treatment_100000-2/results/run/trajectory.jsonl",
+      "original_sha256": "53263cf9909693eaf4427dd857f1c44ba51a503210b3af569c1f9a5d0efaffc6",
+      "original_bytes": 378428182,
+      "recovery_argv": [
+        "gzip",
+        "-dc",
+        "build/m4-final-long-compose/treatment_100000-2/results/run/trajectory.jsonl.gz"
+      ],
+      "recovery_output": "build/m4-final-long-compose/treatment_100000-2/results/run/trajectory.jsonl",
+      "round_trip_verified": true
+    },
+    {
+      "path": "build/m5-verified-long-native/machine_priming_100000-1/trajectory.jsonl.gz",
+      "sha256": "61610cf6c09e05c6950a5f166f4a3b83d01f78078f192550af2b488a4ab03d24",
+      "bytes": 17122391,
+      "original_path": "build/m5-verified-long-native/machine_priming_100000-1/trajectory.jsonl",
+      "original_sha256": "57fefc9faa80ce87965c1b023e4d483bc8084e0c3b3808be10e7b8c791554030",
+      "original_bytes": 402493483,
+      "recovery_argv": [
+        "gzip",
+        "-dc",
+        "build/m5-verified-long-native/machine_priming_100000-1/trajectory.jsonl.gz"
+      ],
+      "recovery_output": "build/m5-verified-long-native/machine_priming_100000-1/trajectory.jsonl",
+      "round_trip_verified": true
+    },
+    {
+      "path": "build/m5-verified-long-native/machine_priming_100000-2/trajectory.jsonl.gz",
+      "sha256": "61610cf6c09e05c6950a5f166f4a3b83d01f78078f192550af2b488a4ab03d24",
+      "bytes": 17122391,
+      "original_path": "build/m5-verified-long-native/machine_priming_100000-2/trajectory.jsonl",
+      "original_sha256": "57fefc9faa80ce87965c1b023e4d483bc8084e0c3b3808be10e7b8c791554030",
+      "original_bytes": 402493483,
+      "recovery_argv": [
+        "gzip",
+        "-dc",
+        "build/m5-verified-long-native/machine_priming_100000-2/trajectory.jsonl.gz"
+      ],
+      "recovery_output": "build/m5-verified-long-native/machine_priming_100000-2/trajectory.jsonl",
+      "round_trip_verified": true
+    },
+    {
+      "path": "build/m5-verified-long-compose/machine_priming_100000-1/results/run/trajectory.jsonl.gz",
+      "sha256": "61610cf6c09e05c6950a5f166f4a3b83d01f78078f192550af2b488a4ab03d24",
+      "bytes": 17122391,
+      "original_path": "build/m5-verified-long-compose/machine_priming_100000-1/results/run/trajectory.jsonl",
+      "original_sha256": "57fefc9faa80ce87965c1b023e4d483bc8084e0c3b3808be10e7b8c791554030",
+      "original_bytes": 402493483,
+      "recovery_argv": [
+        "gzip",
+        "-dc",
+        "build/m5-verified-long-compose/machine_priming_100000-1/results/run/trajectory.jsonl.gz"
+      ],
+      "recovery_output": "build/m5-verified-long-compose/machine_priming_100000-1/results/run/trajectory.jsonl",
+      "round_trip_verified": true
+    },
+    {
+      "path": "build/m5-verified-long-compose/machine_priming_100000-2/results/run/trajectory.jsonl.gz",
+      "sha256": "61610cf6c09e05c6950a5f166f4a3b83d01f78078f192550af2b488a4ab03d24",
+      "bytes": 17122391,
+      "original_path": "build/m5-verified-long-compose/machine_priming_100000-2/results/run/trajectory.jsonl",
+      "original_sha256": "57fefc9faa80ce87965c1b023e4d483bc8084e0c3b3808be10e7b8c791554030",
+      "original_bytes": 402493483,
+      "recovery_argv": [
+        "gzip",
+        "-dc",
+        "build/m5-verified-long-compose/machine_priming_100000-2/results/run/trajectory.jsonl.gz"
+      ],
+      "recovery_output": "build/m5-verified-long-compose/machine_priming_100000-2/results/run/trajectory.jsonl",
+      "round_trip_verified": true
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "test_id": "M9-TEST-002",
+  "requirements": [
+    "M9-REQ-002"
+  ],
+  "protocol": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
+  "expected": "Two native/two Compose100000-tick HDF runs; >99000 treatment ticks, grossUF>100000mL, RSS<=64MiB/no OOM at128MiB",
+  "successful": true,
+  "executed_at": "2026-10-08T09:05:17.133682+00:00",
+  "observed": [
+    {
+      "deployment": "native",
+      "repeat": 1,
+      "rss_bytes": 20303872,
+      "treatment_ticks": 99896,
+      "gross_uf_mL": 118445.13910761154,
+      "sha256": "59e342fe0a5fe174630dcd3a2206169c5019268d197f7f0d44c65d75a8a82269"
+    },
+    {
+      "deployment": "native",
+      "repeat": 2,
+      "rss_bytes": 20762624,
+      "treatment_ticks": 99896,
+      "gross_uf_mL": 118445.13910761154,
+      "sha256": "59e342fe0a5fe174630dcd3a2206169c5019268d197f7f0d44c65d75a8a82269"
+    },
+    {
+      "deployment": "compose",
+      "repeat": 1,
+      "rss_bytes": 21700608,
+      "treatment_ticks": 99896,
+      "gross_uf_mL": 118445.13910761154,
+      "sha256": "59e342fe0a5fe174630dcd3a2206169c5019268d197f7f0d44c65d75a8a82269"
+    },
+    {
+      "deployment": "compose",
+      "repeat": 2,
+      "rss_bytes": 21770240,
+      "treatment_ticks": 99896,
+      "gross_uf_mL": 118445.13910761154,
+      "sha256": "59e342fe0a5fe174630dcd3a2206169c5019268d197f7f0d44c65d75a8a82269"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m9/long-native.json",
+      "sha256": "801038d0c4e72e395cc79ccb823d1e510b7c723ec6add8d8855199aa129a9018"
+    },
+    {
+      "path": "assurance/evidence/m9/long-compose.json",
+      "sha256": "ba23f0379501175e11c1c17e5b0adf876905a14f0411b74f54f33c801172606b"
+    }
+  ],
+  "scope": "Actual synthetic software/numerical acceptance only; no calibration, human risk acceptance or conformity."
+}

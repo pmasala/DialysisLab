@@ -1,0 +1,33 @@
+{
+  "test_id": "M9-TEST-005",
+  "requirements": [
+    "M9-REQ-005"
+  ],
+  "protocol": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
+  "expected": "Identified actual CI recovery, commands, model limits, trace links and unchanged open release obligations",
+  "successful": true,
+  "executed_at": "2026-10-08T09:05:17.158520+00:00",
+  "observed": {
+    "reports_verified": 21,
+    "command_logs_verified": 21,
+    "release_gate": "BLOCKED",
+    "open_standards": 184,
+    "open_edition_applicability_gaps": 12,
+    "prerequisites": 9
+  },
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m9/hosted/ci-report.json",
+      "sha256": "ecc727ada1fe3544c05897cd246c25d791794ec10c2adcc587a9611950a721b6"
+    },
+    {
+      "path": "assurance/evidence/m9/hosted/commands.json",
+      "sha256": "60769063001cef893b6ed9d7b4c13efa100802b0f8579b930dc334db6e16546f"
+    },
+    {
+      "path": "assurance/evidence/m9/hosted/recovery.json",
+      "sha256": "866434518ff74ab9bc1f35ed7fb195c9af7e4d01f4039d4fe7290df26eae0a4a"
+    }
+  ],
+  "scope": "Actual synthetic software/numerical acceptance only; no calibration, human risk acceptance or conformity."
+}

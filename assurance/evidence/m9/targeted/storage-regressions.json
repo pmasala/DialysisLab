@@ -1,0 +1,7 @@
+{
+  "original_path": "build/m9-storage-regressions.log",
+  "sha256": "a3e120ce600c69d9d0a0a26e9dddab868ebd109b74729f30135a2bdb6a2abde2",
+  "bytes": 1338,
+  "encoding": "UTF-8",
+  "content": "test_archived_trajectory_restores_original_order_hash_and_existing_readers (test_integration.IntegrationTests.test_archived_trajectory_restores_original_order_hash_and_existing_readers) ... ok\ntest_generated_compose_fixture_is_readable_under_restrictive_umask (test_integration.IntegrationTests.test_generated_compose_fixture_is_readable_under_restrictive_umask) ... ok\ntest_integrated_evidence_rejects_consistent_but_wrong_virtual_time (test_integration.IntegrationTests.test_integrated_evidence_rejects_consistent_but_wrong_virtual_time) ... ok\ntest_package_without_git_retains_actual_failed_packaging_evidence (test_integration.IntegrationTests.test_package_without_git_retains_actual_failed_packaging_evidence) ... ok\ntest_partial_enospc_report_write_preserves_previous_completed_case (test_integration.IntegrationTests.test_partial_enospc_report_write_preserves_previous_completed_case) ... ok\ntest_sustained_fixture_reaches_deliverable_gross_uf_without_alarm (test_integration.IntegrationTests.test_sustained_fixture_reaches_deliverable_gross_uf_without_alarm) ... ok\ntest_wrong_hash_or_existing_archive_preserves_raw_trajectory (test_integration.IntegrationTests.test_wrong_hash_or_existing_archive_preserves_raw_trajectory) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 18.448s\n\nOK\n"
+}

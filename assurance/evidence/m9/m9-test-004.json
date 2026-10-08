@@ -1,0 +1,38 @@
+{
+  "test_id": "M9-TEST-004",
+  "requirements": [
+    "M9-REQ-004"
+  ],
+  "protocol": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
+  "expected": "Identical allowlisted archives and real build/tests/widgets from extracted sources",
+  "successful": true,
+  "executed_at": "2026-10-08T09:05:17.153703+00:00",
+  "observed": {
+    "package_sha256": "52f39e80da4c2e96273eddca0ae4562facec75cd6aa65abba15ce0af2b0c43e4",
+    "files": 445,
+    "no_git_execution_verified": true
+  },
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m9/package-code.json",
+      "sha256": "8a33454a7686864ea05f2e70cd3ef39039442ec8db6eb0cbb25da78166bde426"
+    },
+    {
+      "path": "assurance/evidence/m9/package-nogit.json",
+      "sha256": "97644058bd69aa5961cd86fb473364e2bc8e0cb7c87e73501221d35a75d39064"
+    },
+    {
+      "path": "assurance/evidence/m9/package-code/tests.json",
+      "sha256": "82b33ad9b1f3b32a03f465534e4a939a5cda355cd582742a37858249c30eb549"
+    },
+    {
+      "path": "assurance/evidence/m9/package-code/device/report.json",
+      "sha256": "1b1f30343cf53120864a20cebfa5d73df0a007c0dcc893c602cf35c5af9c64f2"
+    },
+    {
+      "path": "assurance/evidence/m9/package-code/console/report.json",
+      "sha256": "325e0e06273683eb13f00b9457f45bed0fcc12a8fca5cedd226d4bfce23c45ab"
+    }
+  ],
+  "scope": "Actual synthetic software/numerical acceptance only; no calibration, human risk acceptance or conformity."
+}

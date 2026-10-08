@@ -100,3 +100,17 @@ replacement is now atomic, with a partial-ENOSPC regression. Run long verificati
 sequentially with at least2048MiB free; no free-space check reserves host capacity.
 Fresh complete repeats are required for acceptance. Output state remains unknown
 when an interrupted run cannot persist its final stop evidence.
+
+## Completed technical acceptance
+
+Four fresh complete100000-tick runs pass (two native/two Compose), with99896
+actual treatment ticks and118445.139108mL gross UF each. All72 nominal matrix
+runs and60 fault runs pass.158 native/sanitizer regressions, real simultaneous
+headless/WSLg clients,158-test extracted code package and hosted CI37747683346
+pass. Five individually checked acceptance files are in `assurance/evidence/m9/`.
+
+RSS peaks20.76MiB, below64MiB; total cgroup peak reaches128MiB with no OOM and
+zero measured cgroup headroom at that peak. Do not call RSS allowance reserved
+container capacity. Maximum water/species residuals1.94879e-7mL/1.29414e-8mmol
+remain below1e-6. Same-build and observed native/Compose hashes match exactly.
+These results do not close calibration, clinical, human-review or release gates.

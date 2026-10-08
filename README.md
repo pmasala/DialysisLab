@@ -10,8 +10,8 @@ hardware independence or standards conformity.
 The working implementation covers HD, pre/post HDF, online replacement preparation,
 configurable hydraulic components/dialyzers, Python patient water and six species,
 guarded machine workflows, independent protective decisions, an LVGL device UI
-and a separate ImGui experiment console. M1–M8 technical verification is recorded;
-M9 integrated acceptance and packaging are in progress. The authoritative
+and a separate ImGui experiment console. M1–M9 technical verification and integrated source packaging are recorded;
+model/clinical validation and normative release obligations remain open. The authoritative
 [status](assurance/STATUS.md) identifies actual results and remaining work.
 
 ## Quick start: headless

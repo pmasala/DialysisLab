@@ -51,5 +51,7 @@ the exact failing command and prerequisites, continue executable work, and never
 translate BLOCKED into PASS. Push this branch without rewriting origin history
 when access is available.
 
-M9 acceptance is frozen in `M9_INTEGRATION.md`; hosted M8 recovery is carried
-explicitly as a pending evidence item while verified local components integrate.
+Technical M1–M9 execution is complete with one review per phase and resolved
+applicable findings. M9 acceptance is in `M9_INTEGRATION.md`; actual results and
+individual acceptance proofs are in `assurance/evidence/m9/`. STATUS separates
+software/numerical completion from blocked validation, human and normative gates.

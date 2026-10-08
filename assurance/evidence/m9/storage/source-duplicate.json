@@ -1,0 +1,2232 @@
+{
+  "archive": "/tmp/DialysisLab-m9-corrections-check.zip",
+  "archive_sha256": "63e43e164aaf0d2d7d18e90d14ba7c91e0d26b9c6cbc51087f395f41bd4651ce",
+  "files": [
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/.dockerignore",
+      "sha256": "627a4952aa3253cf6bd9b2afe4e1b3c98dbdb38280de4e122ca9923b18a8ce92",
+      "bytes": 2203
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/.github/workflows/verify.yaml",
+      "sha256": "9c1727c1435f9a83cbb842adbc4ed4f1ef5652a24c915ef1ad772848f882611c",
+      "bytes": 1156
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/.gitignore",
+      "sha256": "3c085aa2172ef9dd4adea0f6d25f4a3833a967936667115051070c3f0a3ca2df",
+      "bytes": 268
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/AGENTS.md",
+      "sha256": "9f0c9244fb6907d8ce95db3e7f4b8b5226fde9f8de6161420699cc49688c60b4",
+      "bytes": 3179
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/CMakeLists.txt",
+      "sha256": "32600e8a079ba963e7983597061d9ffb4bdf5f755d9fa49ca77de0a2a7167c38",
+      "bytes": 2110
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/DEPENDENCY_POLICY.md",
+      "sha256": "65a33e15ef48851656b69e592e9f75783fad1dcfdef067aa752dffac0172804c",
+      "bytes": 4508
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/Dockerfile",
+      "sha256": "e088b75ffa189be0f861a7ab0ffd27f3800136e161fe523cb2baa3e674e7224a",
+      "bytes": 3883
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/LICENSE",
+      "sha256": "4d1c9354d0f1a111fb83b35f800edb1fcfe25c3baf45301bf74e700749f787c2",
+      "bytes": 1064
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/README.md",
+      "sha256": "c09bbb472fd0ca9bd1850cfb0edaee29ce09994cc4923f3fde5b7b1a0a1405a7",
+      "bytes": 9142
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/SECURITY.md",
+      "sha256": "bcaee16b6f5748a4afa8a2eab8f083046658bbe5d2e23add46b2f9c45911431f",
+      "bytes": 2564
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/ASSURANCE_PLAN.md",
+      "sha256": "b5ffb001d2fa6dd45beae7c89a36acf2b94abd0e972c7a4f0ed4536430d4cef0",
+      "bytes": 14682
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/DEPENDENCY_FINDINGS.json",
+      "sha256": "5cb228cb5593eb2044b5c53971182278ce7f58b0545b26fbcb9c6cfd98175819",
+      "bytes": 93980
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/REVIEWS.md",
+      "sha256": "cbea867a9425fcfeeba32d677bcbf0277260fe988f36214da16e14f8545f5ede",
+      "bytes": 28818
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/SAFETY_SECURITY.md",
+      "sha256": "3117aac5fcdd4f2ea13c35b90cc47ef7670d2a54904b43f70ac6cb6b9f37d93c",
+      "bytes": 11168
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/STATUS.md",
+      "sha256": "a9fa9281bea3273a2fe33daaae81a5c4be71f884c876f389a40867cf110d8dd4",
+      "bytes": 5619
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/THREATS.json",
+      "sha256": "7e0973058c96c7e34d72117fd38683320c53768ec1991c2286a96c05b1a8fd63",
+      "bytes": 5468
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/VERIFICATION_VALIDATION.md",
+      "sha256": "5b317e510154d75255daf7c8d67875461cb05903422106624abdacf395412436",
+      "bytes": 9802
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/README.md",
+      "sha256": "d19591b227b6ff51fcd56e17535f41ad72c755ec9c096eec4759c2ca282a4585",
+      "bytes": 4913
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/assurance-checks.json",
+      "sha256": "2b71167a3500ecb8b26ff7cf0775749a36ced74f9666dfb1381b4fbfe45485fd",
+      "bytes": 1964
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/compose-results.json",
+      "sha256": "0b83e73a3ac5dfd8944f5196fe27be3ff00d6655b82d0398bd72dc9c662daf61",
+      "bytes": 30150
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-1/results/run/manifest.json",
+      "sha256": "388842e8f7f6a0b3e5d4eb07df62cc0fb7d013c1483c7effbddbd25b3019b396",
+      "bytes": 3594
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-1/results/run/trajectory.jsonl",
+      "sha256": "0fd2f18189870775e68b31cc9ce1c67584745271005479da56311c51b031ab41",
+      "bytes": 11176
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-2/results/run/manifest.json",
+      "sha256": "8a309ce7750519562c33457e13122005a6bb8f997e98dfa370706772b995eb02",
+      "bytes": 3594
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-2/results/run/trajectory.jsonl",
+      "sha256": "0fd2f18189870775e68b31cc9ce1c67584745271005479da56311c51b031ab41",
+      "bytes": 11176
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-before_runner_start/collection.json",
+      "sha256": "9e8827612b856507ff71c726b243fb6c5eacb1125a17fdfa355b9f2cf30ec46c",
+      "bytes": 4109
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-before_runner_start/logs.json",
+      "sha256": "319445f0532e2fb585cb36ecba638c071ae48f502d2679c2c79c21a6b14cba94",
+      "bytes": 1345
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-extraction_failure/collection.json",
+      "sha256": "8c597273402645c95cd4c603a2260fab07ba87d146c029ba20f2f47bfc909ef7",
+      "bytes": 4677
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-extraction_failure/logs.json",
+      "sha256": "fbac05b2f615da9dbdd94ca7d5272285881268fa102e5f5a6811c680b100dbef",
+      "bytes": 3736
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-extraction_failure/manifest.json",
+      "sha256": "8fdea544f95f47d330fb281fd4a4c2a670172e9e05729fceb0315c4da3e014a7",
+      "bytes": 4746
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-extraction_failure/trajectory.jsonl",
+      "sha256": "d560c460beddf3ccb6f60b2d805977f81d65d616b7721d39b3189dae8226ca03",
+      "bytes": 2797
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-runner_aborted/collection.json",
+      "sha256": "4bacf64e9934c9b8e6bb4a937fa3954d62042582831800c63acdec00f1774a62",
+      "bytes": 3444
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-runner_aborted/logs.json",
+      "sha256": "9ba9f0e45010940f087d0a3852ed5c5eb628ff0cb0231d107605a97ef0d445e6",
+      "bytes": 3736
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-runner_aborted/manifest.json",
+      "sha256": "db9fac6c25f5a46a1eb4aad345f6834e5a4ef4c5efd47d9d21b0c1caed8f55e8",
+      "bytes": 4746
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_nominal-runner_aborted/trajectory.jsonl",
+      "sha256": "d560c460beddf3ccb6f60b2d805977f81d65d616b7721d39b3189dae8226ca03",
+      "bytes": 2797
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_occlusion-1/results/run/manifest.json",
+      "sha256": "c771b851eca631668b58f7399f6cd0fbe696781d9f5499fcb40b9b0526b26b0b",
+      "bytes": 3687
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_occlusion-1/results/run/trajectory.jsonl",
+      "sha256": "819729e3d8941b059d151c10b959bfcd61e96254819a672c5c526bcd79d11756",
+      "bytes": 10927
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_occlusion-2/results/run/manifest.json",
+      "sha256": "a5ff92bab78e3dab19b94e34ebbdb99d721482a6b7c8c656d0e10a2203ad94d7",
+      "bytes": 3687
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/hd_occlusion-2/results/run/trajectory.jsonl",
+      "sha256": "819729e3d8941b059d151c10b959bfcd61e96254819a672c5c526bcd79d11756",
+      "bytes": 10927
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/native-tests.json",
+      "sha256": "9bafba13d7161ef867ffff0f8855672759d805fd03ac03c13f068ff2cbe68b6f",
+      "bytes": 16671
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/reproducibility.json",
+      "sha256": "2c9e341bdfcb6d8deb3f700bfe2aa561489184b0b6e8eaf9afab692860fc0210",
+      "bytes": 22392
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/review-docker.json",
+      "sha256": "4f208a69945388605b5e341d481c41b2386e6036e780e4f15f56ade327c79dac",
+      "bytes": 45023
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/sanitizer-tests.json",
+      "sha256": "909b5c513ca4180ad7e287ccea641f5ed39b24b511dbee99f2a9a9a4153bbded",
+      "bytes": 16681
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1-review/summary.json",
+      "sha256": "2b725ef0cea3eccb47611d57d195ebacb6d8e86a1696fd93a3f5aed079ba04d5",
+      "bytes": 6438
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/README.md",
+      "sha256": "a591841c32a4698c0741f9bac225f0cf49e7549ca1e55395301cd10d2008b2b9",
+      "bytes": 5004
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/assurance-checks.json",
+      "sha256": "664b1ae45d20f8e18eda4f60550741f8bf705dc1dc8d1a6377d1c840c5b41812",
+      "bytes": 2100
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/compose-results.json",
+      "sha256": "7ded625efd12f7d4652139f8c4da737a93728303978cb1d84e8c79d50ac562a3",
+      "bytes": 26128
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/container-packages.json",
+      "sha256": "47573958ab5d4350ac2ad864efc11039102a5378d1b13c4fa94767f3434126a8",
+      "bytes": 8972
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/hd_nominal-1/manifest.json",
+      "sha256": "7c4d93563052315f4d2a06553f276f3ee71c5e9066e4f9e62f6132e4c684c941",
+      "bytes": 3036
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/hd_nominal-1/trajectory.json",
+      "sha256": "76fc0170bbe978e6bae34394e85b318f3aef39be60b2bd26f029cbf4a2dc44c2",
+      "bytes": 11178
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/hd_nominal-2/manifest.json",
+      "sha256": "66aef5e4e6f3c0295fd03ee8556d508789a68c415d6f293375ecb0e64744afd9",
+      "bytes": 3036
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/hd_nominal-2/trajectory.json",
+      "sha256": "76fc0170bbe978e6bae34394e85b318f3aef39be60b2bd26f029cbf4a2dc44c2",
+      "bytes": 11178
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/hd_occlusion-1/manifest.json",
+      "sha256": "1d774dc0c4023328eff6ba2c662d6dfaee28edb5311af02e5c7e5c9702b9526f",
+      "bytes": 3129
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/hd_occlusion-1/trajectory.json",
+      "sha256": "b3e3c8bdaea011e44320bafc612029a2809425048e336c78ddf164d15b8f1be0",
+      "bytes": 10929
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/hd_occlusion-2/manifest.json",
+      "sha256": "6b4df6f952109022254b076289c39c1c640584235a1cf0a83993b3ee394da8b6",
+      "bytes": 3129
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/hd_occlusion-2/trajectory.json",
+      "sha256": "b3e3c8bdaea011e44320bafc612029a2809425048e336c78ddf164d15b8f1be0",
+      "bytes": 10929
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/native-tests.json",
+      "sha256": "12ca06c2dadfacac1786bb518cd213e358b949fb71e2fd8c62e0b75a2406427c",
+      "bytes": 11137
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/reproducibility.json",
+      "sha256": "75c17b082983e94948b8073ad73a6f2f1e996aa05986fe3cc6ed88dc951953ff",
+      "bytes": 19301
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/sanitizer-tests.json",
+      "sha256": "9806db30000332b4cc1ee7c411976fddf3f06a476c82aa97e2dddc379b26234f",
+      "bytes": 11147
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m1/summary.json",
+      "sha256": "53ce4aeb4e1ec09bb70bd4ad574c377e90c54923ecc7afa3390dd1c7c335fa62",
+      "bytes": 3305
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/README.md",
+      "sha256": "8bb3f2e60ba322b1c2eb7a3f0a8b3c9c13fcec589e830bf2ffa1bbd2e83c3318",
+      "bytes": 2379
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/assurance-checks.json",
+      "sha256": "7dfa78e9fb41126ce67063730eb0879de296c49d136016b2e758bb9bcf74e8e2",
+      "bytes": 8609
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/circuit_large/manifest.json",
+      "sha256": "1f9797f565b3e8d32029aab83dc23592e43c10faed178b384d05c89bdfd93feb",
+      "bytes": 5829
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/circuit_large/trajectory.jsonl",
+      "sha256": "19bfef7b9fce804b45a4a7a9643fd0d1696efe66e946c1357b4c2e81ab751db4",
+      "bytes": 262575
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/circuit_occlusion/manifest.json",
+      "sha256": "f8236afe3f2701be19ce301f0e1a711383912d439379cfff45d3c78ee6f42396",
+      "bytes": 5952
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/circuit_occlusion/trajectory.jsonl",
+      "sha256": "cdc6d90f5cd6d110626733b429df8e864c47b16f3356a98e0da6b2fb50019693",
+      "bytes": 214384
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/circuit_small/manifest.json",
+      "sha256": "014f0d594f22c27421cac8c7fe7075e7177206a88ce1d8a3340ddf039dc0a2e9",
+      "bytes": 5817
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/circuit_small/trajectory.jsonl",
+      "sha256": "df0f2ae40c474d97d317610232ff4ab080c95702a18000f18d63884d985afd13",
+      "bytes": 261661
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/compose-models.json",
+      "sha256": "3e9ce9bdaed39f35421f4ae34e7c8bef2b5008c7b076ef7d83d6edd662e0114e",
+      "bytes": 97772
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/m1-compose.json",
+      "sha256": "0a5ac2b2f6423b2a1bcb70756b4453cf10d2926d9b0ab9e9485638f52c3e47c8",
+      "bytes": 32947
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/native-models.json",
+      "sha256": "94854d6a358bc7772d3055c13f4d22bc3b38440c0c4b97ead74cc7d8e61a1349",
+      "bytes": 73632
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/native-tests.json",
+      "sha256": "9433f0b56ef8173a6b1ebcd3e8298baa357b6e4c6e63149900de3b572ad3173f",
+      "bytes": 25669
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/review.json",
+      "sha256": "71b975b68bd00d1f43c6b601c97674fc3af5e96f986eded4d54ef3289274537e",
+      "bytes": 7380
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/sanitizer-tests.json",
+      "sha256": "f078aa63e919c01d6ac81c02f7bc3060b16202dc549f014f1704c54974fdd94b",
+      "bytes": 25679
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m2/summary.json",
+      "sha256": "397a5803cd5b13e8f2f08e5a0192bc69d0c3d6523fb57f2fd1618e5d46b9ed02",
+      "bytes": 2844
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/README.md",
+      "sha256": "ab943667a50f999311f76438e498b3fa0d9b8f8647f1cb64b1f8273442fea5c1",
+      "bytes": 2311
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/assurance-checks.json",
+      "sha256": "90b82d1fe73d3f1034311ed6929cad88c154aa630dfa7b976273155f71f03bec",
+      "bytes": 28952
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/compose-models.json",
+      "sha256": "ec4cec0ea0872a4589e8145beef2c818d73820269ff38be987ddb9911ea4a0ad",
+      "bytes": 201779
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/m1-compose.json",
+      "sha256": "4ecea2beec5e00a33ff597e98bce7b5ddd6495b213056b51031eeeb3515b7ee3",
+      "bytes": 35723
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/m2-compose.json",
+      "sha256": "89a572d2db8de1cc25153d3e8400274eb580375ff7d91474d2d7c30eee9c004f",
+      "bytes": 102745
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/memory.json",
+      "sha256": "03e5b56ddab085ce5795f039e0dc8ada4f8f965cb7695fe873cd7ddbead5aa64",
+      "bytes": 1573
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/native-models.json",
+      "sha256": "cdae8eeb194631426fe912d4e2d3761d9b4c115a26a53a6959a52f2c410b20ff",
+      "bytes": 169589
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/native-tests.json",
+      "sha256": "cf6a7d37e30fc894716a47a39f9ca23aa92da062bd45336aa9465cb504d54805",
+      "bytes": 42047
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/patient_baseline/manifest.json",
+      "sha256": "3f1edac880093a7fb179aca1ddd301402b6d40f27fc3eabe1ae7874f2774bf18",
+      "bytes": 7472
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/patient_baseline/trajectory.jsonl",
+      "sha256": "464ff0743c1e0e2d4fdc875d4ea6e70c70efeb5d30f6e2658f1f0c71bc0b2a38",
+      "bytes": 1520838
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/patient_imbalance/manifest.json",
+      "sha256": "cfe2cac7b813f4e9104c8bf04c35fb988399850ba713a37315e9db4bf82f82d0",
+      "bytes": 7475
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/patient_imbalance/trajectory.jsonl",
+      "sha256": "f93d2d9d0b125ee55ab95970f23c533cadf2330cfb0dd98c0fad7babf46020f0",
+      "bytes": 1520240
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/patient_large/manifest.json",
+      "sha256": "384d4f78467f916e1a771ed574741c78cdc39739a355de265fd470d1bc7977da",
+      "bytes": 7484
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/patient_large/trajectory.jsonl",
+      "sha256": "3f08245d262bc97733be2a498ade7c257af2f26502f095569628248ff811449d",
+      "bytes": 1531860
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/patient_overload/manifest.json",
+      "sha256": "fcbc567ff9f62721b8d610d6a4d9e20b82709168e92bd434ca4f6f438be163f6",
+      "bytes": 7472
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/patient_overload/trajectory.jsonl",
+      "sha256": "c2706624c71db68f1600a1ce8cea475c091ffa0353a43d97e206c607a7b4a334",
+      "bytes": 1521451
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/review.json",
+      "sha256": "5702154314875de538661d1da1a935b12678a85030daaa90a2f1047eeedb9fb3",
+      "bytes": 9271
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/sanitizer-tests.json",
+      "sha256": "d8da2b4144e7dde5a6a6e0ad99feb4f261ea11302bfd251b8a50febd3476c984",
+      "bytes": 42057
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m3/summary.json",
+      "sha256": "b839151c43f5b2991cb5d13c9b71f654f033c4b3095cc8f9de843792ea49b535",
+      "bytes": 3421
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/README.md",
+      "sha256": "633d62bd4caf22dd9f19889ee23bd6652d07ed9aaafbc003fbce986cac610e60",
+      "bytes": 4420
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/assurance-checks.json",
+      "sha256": "74f253eb7c5ea7ab91fc00803f93d1a03772c9f5dbeac2ab2ec6339542831547",
+      "bytes": 12813
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/compat-compose.json",
+      "sha256": "cccbeda3a92edea29c5e731a3970c17026cbc125695c6548b4f2abc9fe8e6b1e",
+      "bytes": 330248
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/compose-models.json",
+      "sha256": "55f1e0b6a2556cf179f544a122e3d799f39ff29be6605ed4c9464e1328fb041b",
+      "bytes": 763243
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/long-compose.json",
+      "sha256": "a91d08148cf4377b26e9c5196143105425519254cae42483d1757a4cf74563a4",
+      "bytes": 66139
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/long-native.json",
+      "sha256": "7a479606812a043de74eaa58c91b1f179edb3426d24c2600350933022272cbe1",
+      "bytes": 60935
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/m1-compose.json",
+      "sha256": "a5e9874363ebe6aa1503c55f8a7890c83e1ebaf1a7beb242ee216fdab7032079",
+      "bytes": 43099
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/memory-launch-diagnostic.json",
+      "sha256": "61964093269259d20f93c8b6ee4442a3b3a2c8e924ef01500ab932407c9e15b0",
+      "bytes": 191
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/native-memory-samples.jsonl",
+      "sha256": "30b6441b8f12befb08e15be87f35e1563c40f6da3678c566d6e06c97b85bef0b",
+      "bytes": 364
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/native-models.json",
+      "sha256": "c5fd914a6b264217d46820a26c934ffee9301a5d3a51dcb0e60290d07b61c4d4",
+      "bytes": 701821
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/native-tests.json",
+      "sha256": "e3c990e91cdd4033d237ce35d4e1b87d3d25f67d8ae826017228530bd236a637",
+      "bytes": 93600
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/review.json",
+      "sha256": "661c19f473540ce3053a189f15869de9354b5aebfae5a82613df4bc5b02dd649",
+      "bytes": 7654
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/sanitizer-tests.json",
+      "sha256": "21501bd67493947f3bf31c4687500a06e2a37bc0d16b8b5fafc2ec9f8b985fed",
+      "bytes": 93610
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/summary.json",
+      "sha256": "4146c53ce2cecb3d2e06ecdee4d833b3122b333a0f0cb3e727c46838e7aa77bc",
+      "bytes": 4412
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/treatment_hd/manifest.json",
+      "sha256": "0b34a45faae045d328a41aff95bcacb08d830e3147287b32453bb2f3cc918711",
+      "bytes": 10412
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/treatment_hd/trajectory.jsonl",
+      "sha256": "3049c41cbeb2e8af67688d0a7c2577cea473a768d46f6606b160ac3660eae382",
+      "bytes": 1137488
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/treatment_hdf_post/manifest.json",
+      "sha256": "1e4ccd5501ae9fa0038a783e5e9bdd7dd3e45f31983f1c1ad57725033cf36e88",
+      "bytes": 10561
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/treatment_hdf_post/trajectory.jsonl",
+      "sha256": "a2bf7cdd3a3b2f0da99e8dccdf91dc1cb179cc719b026d9ddf04ff3e121a67c7",
+      "bytes": 1243152
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/treatment_hdf_pre/manifest.json",
+      "sha256": "702abed0bc5f499a02e0ab82049bccfb710f5a8b57d2ed17b7887071f805975f",
+      "bytes": 10479
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/treatment_hdf_pre/trajectory.jsonl",
+      "sha256": "cb10b60b5e10d80a8be7a255e489fe0cd6fc26c2466964da8386d1233b561d37",
+      "bytes": 1163114
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/treatment_integrity/manifest.json",
+      "sha256": "a180c62ab914f9f3c83984ade5631ad071ac55700fe6a31adaaa03c9ffcdefa9",
+      "bytes": 10578
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m4/treatment_integrity/trajectory.jsonl",
+      "sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+      "bytes": 1119390
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/README.md",
+      "sha256": "496700b7b95decd68b6907c8c661e24be0aa25926848c3d291514f65466c3b8b",
+      "bytes": 5432
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/assurance-checks.json",
+      "sha256": "1fb9fceddb253da150ec5693a43241a19473e4d670eb45ce0a746edf46df4927",
+      "bytes": 15132
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/compat-compose.json",
+      "sha256": "a5fff7aabe2678e01b15e94cd0f240532301158decf24b0a97a30e43d72c6506",
+      "bytes": 370064
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/compose-models.json",
+      "sha256": "632e7b091a3c43d492600625f8695745b47aad6396593a58e4583fd20a138e86",
+      "bytes": 803681
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/failed-attempts.json",
+      "sha256": "70396a31e691be84152925ba6ba43408dd55acec78579e395fda54f797687991",
+      "bytes": 61764
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/long-compose.json",
+      "sha256": "30f450c44917d2f247a19a7fdc8a7c9070b4355f194b20a015165faaf8dbf4bf",
+      "bytes": 75368
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/long-native.json",
+      "sha256": "a94ee34b87852840175dcc05a18d72fad83967f68902ba8e1380d64aabebfa6f",
+      "bytes": 69850
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/m1-compose.json",
+      "sha256": "52ade2bc404b5b49e2eef098c832649773d6a9842fe7a13f7db4f58f30467ac9",
+      "bytes": 50599
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/machine_hd/manifest.json",
+      "sha256": "eb5f2d1c8f52e7fccf195b3242ff8efaa9c63d1e28e652868dbb3bd26831201d",
+      "bytes": 12778
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/machine_hd/trajectory.jsonl",
+      "sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+      "bytes": 1844871
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/machine_hdf_post/manifest.json",
+      "sha256": "56f7cfa76c88c3f5b1b81fbaf83cc001b40ff973320226d54ccadb6da59d3a92",
+      "bytes": 12846
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/machine_hdf_post/trajectory.jsonl",
+      "sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+      "bytes": 1930451
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/machine_hdf_pre/manifest.json",
+      "sha256": "18643fd498d0e8bf450b0b8137ccf69ca9cd1835f85761f21b4b7cddc7dd7cc7",
+      "bytes": 12842
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/machine_hdf_pre/trajectory.jsonl",
+      "sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+      "bytes": 1933384
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/machine_recovery/manifest.json",
+      "sha256": "4dd5896ead365641c820d275a4a1435cbe3b00be128ebd01090b8330e5932809",
+      "bytes": 13052
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/machine_recovery/trajectory.jsonl",
+      "sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+      "bytes": 1920329
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/native-memory.jsonl",
+      "sha256": "e8d2e250f816afa7d4682fc59c1048c48261be7a9da4e981f4a485f74688a055",
+      "bytes": 86726
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/native-models.json",
+      "sha256": "7b1b3a1b911149fa01eb966bc0bb208437606359aec3fb4787acaaa348195027",
+      "bytes": 744685
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/native-tests.json",
+      "sha256": "82a71c48bbd941d33af51bf12b39eece6faa2f9f455d8fbcc27525f43c4b7bd6",
+      "bytes": 147841
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/review.json",
+      "sha256": "7961ce5ae479fa49bef0e00557bec198fbd97bd82754029be89e782923d28a43",
+      "bytes": 3957
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/sanitizer-tests.json",
+      "sha256": "6ccd77d11d836811cd86bb244c15931cf94e3061ee1300d4f9986212f19ec550",
+      "bytes": 147851
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m5/summary.json",
+      "sha256": "0913e5292926e77cfb2f8bbb27591a691c7e0531da944d5c2ef14b66a2ab6918",
+      "bytes": 4624
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/README.md",
+      "sha256": "0033a91a3b398977911b64c916ad99b6e928642303f8b9b056d3b8d167ae4625",
+      "bytes": 6464
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/assurance-checks.json",
+      "sha256": "f0c8ddce52117c1ffededb5db1541fccac2cd38c8912b06d8af24d2918ee2ecd",
+      "bytes": 17005
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/captures/alarm.png",
+      "sha256": "895692c6f2aa2cb817b35701ca0cb59b68fa827ba6cb993c76a79a1d8409dedb",
+      "bytes": 17656
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/captures/all-alarms-disconnected.png",
+      "sha256": "abf8affea314f1eb8702fb53517fc250678e18cf7f35d822672cf85c9ba5160e",
+      "bytes": 18977
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/captures/compose-x11.png",
+      "sha256": "c19de55797fb70be14602f6591ad18a27189c9763e66a5202bc3c70f44dc3da3",
+      "bytes": 17593
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/captures/exact-confirmation.png",
+      "sha256": "f168213e2098e362696b9e94951085822928900d1c1a3a1d4eaabb00b4056077",
+      "bytes": 17590
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/captures/hd.png",
+      "sha256": "7be46f187cc25662cd4d5d666b1d4d318d0d5ad61bb78c3dfb41d1be0529236e",
+      "bytes": 18050
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/captures/hdf-post.png",
+      "sha256": "34629e97586d9001d40b35b091987e7b17b5d568ce7937fc4d1b9489e56272bd",
+      "bytes": 18317
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/captures/hdf-pre.png",
+      "sha256": "e6374f29aed3444731baeda7bee8978dd87eb091611b19f4980d570913ba028f",
+      "bytes": 18223
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/captures/stale-reconnected.png",
+      "sha256": "7f9d121dc379a7e952b7eb7b6314c607308290e2fd18234af3726e1577e79888",
+      "bytes": 17046
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/compose-models.json",
+      "sha256": "89d6b1f0cec1f0ee2005487b20b2ef42c2cceaba83081315074c6c2d2df65f26",
+      "bytes": 457710
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/m1-compose.json",
+      "sha256": "2d11bda70039a857f3c89d3bd851f024a25d50d2d7aa54a9abe9adb113df1a6e",
+      "bytes": 54888
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/native-models.json",
+      "sha256": "b3e66e761ba9d3ed2e9af9c9b60509e236cc1a62f1a68dd410fa00766ac0832b",
+      "bytes": 425390
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/native-tests.json",
+      "sha256": "7ab397daad770f2778e7422e2cd55914e23ed03be98266466fa01a3008f8142c",
+      "bytes": 157389
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/platform-packages.json",
+      "sha256": "d9ab7b6c99d3c4b066aa9ebfec09a95fa24c4d8f58baa55ed2d46f3492c0a120",
+      "bytes": 9582
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/review.json",
+      "sha256": "0455cab17899cd88efe68f5afc10ee4676d18deb2f2f3a343856d03466a53a56",
+      "bytes": 7297
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/sanitizer-tests.json",
+      "sha256": "fee9d2901111e0ef8fa52b8677688a849b1e413758ea4b0f321d5ebdad35340f",
+      "bytes": 157399
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/summary.json",
+      "sha256": "da28daf4f80ed1db81aa9c0f6d0f81e0dd45d9f97c83745c8d3d317c3690cdd4",
+      "bytes": 7013
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-compose-x11.json",
+      "sha256": "cf93994988bb590a8256b29cd1001806f79b8c8923bdbad15623c3e2cac7e451",
+      "bytes": 40102
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-compose-x11/events.jsonl",
+      "sha256": "e94dad3116454556520619f598a106efec5b4cdf8d20eca7cabfb70309da948c",
+      "bytes": 22002
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-compose-x11/input.jsonl",
+      "sha256": "965c10de1f134e18c314e7e2cd1e31147b2c5bf139b238ff80e23d3d488ef830",
+      "bytes": 2644
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-compose-x11/manifest.json",
+      "sha256": "617554bc38526d89ec186fe9791386c09e06ec3ccdccf7d3f1b5d34e37ebf7df",
+      "bytes": 12843
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-compose-x11/trajectory.jsonl",
+      "sha256": "00eb1d986fc2e24bc22e935eb6d13bb1f625e2706c6367f7cd70d0e7bb68d8dc",
+      "bytes": 1863993
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-compose.json",
+      "sha256": "a645fc06789f7594495bdfa5716d87087779d0237fba9349bb287fd85520f292",
+      "bytes": 40049
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-compose/events.jsonl",
+      "sha256": "f67d4bd98cc81859adb242c07acae4d5045bc50299b5cfff05eb413f7fce1067",
+      "bytes": 23683
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-compose/input.jsonl",
+      "sha256": "2b2ebcf1d2f2a3496f07aa2107135be9c8cc784adfa4ca3ca88a2be35763a784",
+      "bytes": 2785
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-compose/manifest.json",
+      "sha256": "c66b216297606c346e65cc2c67a2aa9f0b206db2b59c24f8ffc473f6b6cf819e",
+      "bytes": 12843
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-compose/trajectory.jsonl",
+      "sha256": "af810b2d0cf93c93e4a8265b45254a7e954883a920c0a8f282b9d9bb0ceb3307",
+      "bytes": 1864078
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-headless.json",
+      "sha256": "5e0b431b9a5aadf002e08f831862aa9a7fb819152ff52aa0f25c0165239daabc",
+      "bytes": 28301
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-sanitizer.json",
+      "sha256": "86e7d445ad716f777f001ca411aa6870b3a1772973420f6959cd23c6e20a929e",
+      "bytes": 28309
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m6/ui-wslg.json",
+      "sha256": "2a74edef7317871e86a6b2d34bb2e2cb4e2366b95d0edfdaf1bd7b52667a7ef1",
+      "bytes": 28316
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/README.md",
+      "sha256": "74a07a59aa118df653366b7b0a8363086bdd43511e67e60033904064e5c33627",
+      "bytes": 6179
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/captures/comparison-export.png",
+      "sha256": "b223e173b5bcae44e112fb84ec98219b5f17ef2d3020e920d83e56ccecae31b1",
+      "bytes": 144001
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/captures/compose-x11.png",
+      "sha256": "4a5cd8d2b83f224097ed74d4634cfab97e6a617ec0bfdafe4ae4bcafee24cbc7",
+      "bytes": 147606
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/captures/paused-truth.png",
+      "sha256": "c0f1e8fe4b8d0c888658c0bfcd757c092e46e9f4ce7433e1b1a82e4ca77d3f17",
+      "bytes": 138510
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/captures/retained-reply.png",
+      "sha256": "e11dafff7c47f0eda258b286e2086e8be187c07ed1523e435f8b5bb8a6e10aa9",
+      "bytes": 136526
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/checks.json",
+      "sha256": "8fa63dcaa554f542c051c04f43c747f1e97d60ee3846394cd54e086b840499ad",
+      "bytes": 19278
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/compose-models.json",
+      "sha256": "ebc7e64b4022005d1ef8f14a8b7a31ef57751de584ce549863fd49fcb472969e",
+      "bytes": 393950
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11.json",
+      "sha256": "970691412de27cd474e8f7cbd2954eb8b1f02fcbf24d23dd57f46eb1cac7e238",
+      "bytes": 92654
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/input.json",
+      "sha256": "70f9e3d899a3d5e40242ddc7bc1b8c27cfbf0b58ce5bb14e355eb665444ede51",
+      "bytes": 1746
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/output.json",
+      "sha256": "130f85fabce44952a02958dc9971ee5fb0b44e3c0e0b61f106d881e5308bea4b",
+      "bytes": 107894
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/r115ba3e70da36211/configuration.json",
+      "sha256": "2d0fd3a279888ec0429ba1397233fdd6c7b436c00625282beab1cc5fcf4c9261",
+      "bytes": 3425
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/r115ba3e70da36211/data/manifest.json",
+      "sha256": "b29f638c0102677cfb847b020ea12b955f424886afa735aad8d811ffaca3604c",
+      "bytes": 15157
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/r115ba3e70da36211/data/trajectory.jsonl",
+      "sha256": "651c7a0e4aed99bc63ac6dd80645f8a74a75ab58ed4b7f20a111006b7c81d28b",
+      "bytes": 22667
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/r115ba3e70da36211/events.jsonl",
+      "sha256": "e3384e0e17e63c891b16fc657a502e2b78080951c220dd92c0724d4039794afb",
+      "bytes": 472
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/r115ba3e70da36211/experiment.json",
+      "sha256": "0d27e564b0eca58f2488e5adea1389f96a5a91ec0b6a4c9b2560dd76da911033",
+      "bytes": 11003
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/r7a1fa5d088b866ae/configuration.json",
+      "sha256": "2d0fd3a279888ec0429ba1397233fdd6c7b436c00625282beab1cc5fcf4c9261",
+      "bytes": 3425
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/r7a1fa5d088b866ae/data/manifest.json",
+      "sha256": "17a05365e214d825ea00f06e6de40634e8e2e5546d9bf0090d2aeb342e56586c",
+      "bytes": 16104
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/r7a1fa5d088b866ae/data/trajectory.jsonl",
+      "sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+      "bytes": 1933384
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/r7a1fa5d088b866ae/events.jsonl",
+      "sha256": "2286aab7ea5d128046ab8ded96a96ca8afb6ee13aa0396570ff0ec7fc8285097",
+      "bytes": 190
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/r7a1fa5d088b866ae/experiment.json",
+      "sha256": "70997b3dbca9977e0ff9bff5974200a980b43b9852b287c90dd791946dc2c380",
+      "bytes": 11065
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/rcad3534c4b49fc26/configuration.json",
+      "sha256": "2d0fd3a279888ec0429ba1397233fdd6c7b436c00625282beab1cc5fcf4c9261",
+      "bytes": 3425
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/rcad3534c4b49fc26/data/manifest.json",
+      "sha256": "28b432c30e79d8b21018617ceae0e855deb42dcaa5352e161b910dfc5cceb7a8",
+      "bytes": 16104
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/rcad3534c4b49fc26/data/trajectory.jsonl",
+      "sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+      "bytes": 1933384
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/rcad3534c4b49fc26/events.jsonl",
+      "sha256": "de314e77b991e0a4e04de6c16cda237f1174ef5d58dd5039b56c5ac09f0f5155",
+      "bytes": 471
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose-x11/rcad3534c4b49fc26/experiment.json",
+      "sha256": "03e8f505adc31810c868220e5fdd8f49651d30896e37c12763ef1bc3f5176a6b",
+      "bytes": 11050
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose.json",
+      "sha256": "c2ee059bebe4746a68f758fbfcbecbe89afecf9a3e0d1f835a3de4f4488a333f",
+      "bytes": 92602
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/input.json",
+      "sha256": "f4a18f6e28f5277f2e6b4b902b1afd8d15b017de8654087d61036c18c7d73514",
+      "bytes": 1712
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/output.json",
+      "sha256": "695e6cec10d5c7fd410037ed14162a06dff15a495341102232d8f4da6d8bfe57",
+      "bytes": 105414
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/r972e5d9c97397a11/configuration.json",
+      "sha256": "2d0fd3a279888ec0429ba1397233fdd6c7b436c00625282beab1cc5fcf4c9261",
+      "bytes": 3425
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/r972e5d9c97397a11/data/manifest.json",
+      "sha256": "a564355d873e0d1ae3f1c66d479e32d8422c64e3dfb37a485aae33214c1f9e9b",
+      "bytes": 16104
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/r972e5d9c97397a11/data/trajectory.jsonl",
+      "sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+      "bytes": 1933384
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/r972e5d9c97397a11/events.jsonl",
+      "sha256": "e4bb35a8aa7e61678348d163657060971b051e4df26a18b4f7b1e48e8671f0b1",
+      "bytes": 471
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/r972e5d9c97397a11/experiment.json",
+      "sha256": "9f995f6b3cdea679d7b00be69ca3b5176fb35336557f3059255bc121e932e7c6",
+      "bytes": 11050
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/reb03e7cd20e24cd6/configuration.json",
+      "sha256": "2d0fd3a279888ec0429ba1397233fdd6c7b436c00625282beab1cc5fcf4c9261",
+      "bytes": 3425
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/reb03e7cd20e24cd6/data/manifest.json",
+      "sha256": "1a7593b65bb1336eadd1dd2c4aabcce3f48a1a22887d90729a09e35aa35cf493",
+      "bytes": 15157
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/reb03e7cd20e24cd6/data/trajectory.jsonl",
+      "sha256": "651c7a0e4aed99bc63ac6dd80645f8a74a75ab58ed4b7f20a111006b7c81d28b",
+      "bytes": 22667
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/reb03e7cd20e24cd6/events.jsonl",
+      "sha256": "1a7473978bfa2b3a9e6cf3f16e6a2baef9791a5ef10d53a2c8a4d8997a731744",
+      "bytes": 472
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/reb03e7cd20e24cd6/experiment.json",
+      "sha256": "eb4844c0ac869951f230415a5dee3cf241a145b01cc7872e24b4f405667271c9",
+      "bytes": 11003
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/rf932bb95946f35f9/configuration.json",
+      "sha256": "2d0fd3a279888ec0429ba1397233fdd6c7b436c00625282beab1cc5fcf4c9261",
+      "bytes": 3425
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/rf932bb95946f35f9/data/manifest.json",
+      "sha256": "f52cf56ef37da3f46d1f8ec1e6d037c24f71f46d857942529692fe87337f31c1",
+      "bytes": 16104
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/rf932bb95946f35f9/data/trajectory.jsonl",
+      "sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+      "bytes": 1933384
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/rf932bb95946f35f9/events.jsonl",
+      "sha256": "fc9d227fdf8bc412f73b1b974ca9972fbe8d93d13f5d7a225be4eb86c1b58d70",
+      "bytes": 190
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-compose/rf932bb95946f35f9/experiment.json",
+      "sha256": "250350035511845e0540cac117db0a8a7aebcee415e160fd175a40dc20898ddf",
+      "bytes": 11065
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-headless.json",
+      "sha256": "c7ef312c3e84f4577d688b22a2f30d054d9c7afbb0fcfa952e0d45897d5aa3c1",
+      "bytes": 17273
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-sanitizer.json",
+      "sha256": "451f46c6e2e92b7d54a12a191dad2c57fa79daa8de3d1bbc8fe63b3188623dce",
+      "bytes": 17281
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/console-wslg.json",
+      "sha256": "12d0e1ec90d4c010e3708bde45d52b04606c1b65d5df11bb5784a11a3194d19b",
+      "bytes": 17287
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/device-ui.json",
+      "sha256": "5e5f82334078f09f6d16f31940cfc65c9efe2a904f31fb71fcfddc3a3b1ee0c6",
+      "bytes": 29601
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/m1-compose.json",
+      "sha256": "b4fb742ad6d27374731526fe653bf7ef16a1d5f698a609e64baef1229e4abefb",
+      "bytes": 58868
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/native-models.json",
+      "sha256": "3eb4665189ee5691ba561e3678510d202340b1acdbb5f15edf005baef51ae4e5",
+      "bytes": 366988
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/native-tests.json",
+      "sha256": "f735f75b8adbc9090ae660b2034e9c7113f58f95ef15270971f0e70802582ea6",
+      "bytes": 165081
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/review.json",
+      "sha256": "7d9a1c4ae3710df8c8817ff5534b98dc8fbf63f6a72c01dda6d422a927c6d0c6",
+      "bytes": 12733
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/sanitizer-tests.json",
+      "sha256": "3626f1bb660805ba5834050760eeb3357429115ca46547f645a1334bc5b3d680",
+      "bytes": 165091
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m7/summary.json",
+      "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+      "bytes": 12129
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/README.md",
+      "sha256": "e031425cf44fbcfaad6027c21d3f4b9bf70c31a96eab9277e6cfdca53fa94592",
+      "bytes": 2675
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/artifact-recovery.json",
+      "sha256": "17cb22a8e9de671c09ff661bb59b7af48033bb78127e28b533215ebee9d5fd80",
+      "bytes": 3937
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/capture-storage.json",
+      "sha256": "7347e67b1c763161cc70eb6aec57e6decfa713f47d25d98e4965b8f68789f1ad",
+      "bytes": 229584
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/compose-models.json",
+      "sha256": "5a28ca33902ef33236d25b0f8dfa29d5ca595589a1e3de5287afaa8a3bff02db",
+      "bytes": 396835
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/compose.json",
+      "sha256": "5b79d3f301e1b24962bf59448cc30e8ee4361b2f40d373db42e14d9bc7719d25",
+      "bytes": 60247
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/console-compose.json",
+      "sha256": "485a8fed22fe418c757ca548a7b4b2f82047b29e110c9d7395cf848a77d9839b",
+      "bytes": 93790
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/console-widgets.json",
+      "sha256": "98d7e08678a476e88cd088e72346c3b0ff17bc14389e8a71fcd14c93b031c7b0",
+      "bytes": 17455
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/adopted-dependencies.json",
+      "sha256": "d7da7768e9e00daca9338c922a8fcda332d70fb4c83ab63d0d51dd649e419c25",
+      "bytes": 4724
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/application.cdx.json",
+      "sha256": "4880842ceca7eb1f2527b33a8f8dac2ca7794e0754a6fdf4545ce7ed04cb36a3",
+      "bytes": 15589
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/build.json",
+      "sha256": "6d7c6a37056fb7defb09e4ee2cd54c69ff8c05c2772144a3fcf4cc866c133136",
+      "bytes": 9088
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/image-0-application.cdx.json",
+      "sha256": "2f3dad0fa9ef2f7c5e26eaaa852c59c142ebf5779bd4d8fe2cbac71141a1571d",
+      "bytes": 9130
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/image-0-build.json",
+      "sha256": "d9ac33c2c1702fb999383f2d71cc5c86807a3a2133d679a86b4649f0e2992a7d",
+      "bytes": 13410
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/image-0-platform.json",
+      "sha256": "15b4f7c552cc551a5ca63535efdc6a376d8ffd69ecad7a9d11e8e5a2a76d1fa3",
+      "bytes": 46285
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/image-0.cdx.json",
+      "sha256": "e5016a27e3c6c2c9e1090f0c50315e0ea659546cd262e856414bee89f79619dd",
+      "bytes": 53390
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/image-1-application.cdx.json",
+      "sha256": "06fa4025352688f37bc66becdf4851e605add5034de0dc0a6b2a793db5150f72",
+      "bytes": 15826
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/image-1-build.json",
+      "sha256": "131645dfaabce8302aceb9820dfa44faabd01853ba3baf3f02d80088543d29be",
+      "bytes": 13679
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/image-1-platform.json",
+      "sha256": "9bf929381a6535c167248a51e10b1940997931a7e2149c1f0865cc68316214a9",
+      "bytes": 48312
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/image-1.cdx.json",
+      "sha256": "e42988decf8b514c56de60c045c5098a088844249c960fc105ce84cfde419c50",
+      "bytes": 62989
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/native-platform.json",
+      "sha256": "85cfa36455d1cff60fec1bdb3f2f8215c04d7170d5582e74e6f858c0524e1858",
+      "bytes": 712740
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/dependencies/report.json",
+      "sha256": "551e3478a199a48e6d868cbb101d32a66641f23639a775b63e70ee56672546c0",
+      "bytes": 2043
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/device-compose.json",
+      "sha256": "749fbed3f64e1ee77e1c603854fda5b64780e43fd3fe811ea2de03ddcd656115",
+      "bytes": 41870
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/device-widgets.json",
+      "sha256": "0b4fdcec2f7782daacd9632a9f1ad37157028c86a46e0039db2e6d651f1726f2",
+      "bytes": 29789
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/docker-build.json",
+      "sha256": "e811e1a66c0bb230f78bb5c1bce11e0d909e779fd3fb33e5883d3b061c776249",
+      "bytes": 122393
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/ci-report.json",
+      "sha256": "04ba77e8bbe9cf33d4d329f51902dbe9204ef1d7450353cc91580f207322029e",
+      "bytes": 12365
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/commands.json",
+      "sha256": "cac86de40b5288e0a5d987c806429af59a76d1a216801919f4279e9c8e206df7",
+      "bytes": 402992
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/compose/compose-results.json",
+      "sha256": "ea7534e0dc1464c5c50fa7bd3c476ace791d17ae798a7593cc819e6eb2e5e9aa",
+      "bytes": 60220
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/console/report.json",
+      "sha256": "479d8faaf365be562fba6d8a472ae9feed81815be2fd03e0f301476eddbd8a31",
+      "bytes": 17539
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/adopted-dependencies.json",
+      "sha256": "d7da7768e9e00daca9338c922a8fcda332d70fb4c83ab63d0d51dd649e419c25",
+      "bytes": 4724
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/application.cdx.json",
+      "sha256": "cfda7726f6f550e84e7e7f1694a092dcc8b48ba2661b40ec59d9721b814c3ce9",
+      "bytes": 15589
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/build.json",
+      "sha256": "6d7c6a37056fb7defb09e4ee2cd54c69ff8c05c2772144a3fcf4cc866c133136",
+      "bytes": 9088
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/image-0-application.cdx.json",
+      "sha256": "764a5d009fd3d27866c55813d5c4516d20ca8bd8ad6ca928a9c6e08f7cbc5648",
+      "bytes": 9130
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/image-0-build.json",
+      "sha256": "d9ac33c2c1702fb999383f2d71cc5c86807a3a2133d679a86b4649f0e2992a7d",
+      "bytes": 13410
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/image-0-platform.json",
+      "sha256": "15b4f7c552cc551a5ca63535efdc6a376d8ffd69ecad7a9d11e8e5a2a76d1fa3",
+      "bytes": 46285
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/image-0.cdx.json",
+      "sha256": "668408a99e9d0e047004264185dac1e1d84736242c5a1ddff856aa9b6804a2f6",
+      "bytes": 53390
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/image-1-application.cdx.json",
+      "sha256": "9c7e887af8a9f91ca3a7557f720d6551c5d217e3d8c4afcbba7fb72711a55063",
+      "bytes": 15826
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/image-1-build.json",
+      "sha256": "131645dfaabce8302aceb9820dfa44faabd01853ba3baf3f02d80088543d29be",
+      "bytes": 13679
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/image-1-platform.json",
+      "sha256": "9bf929381a6535c167248a51e10b1940997931a7e2149c1f0865cc68316214a9",
+      "bytes": 48312
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/image-1.cdx.json",
+      "sha256": "06c642909e650e49cf0220f5694c1b51080e866ff8648419781f723955cffa5a",
+      "bytes": 62989
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/native-platform.json",
+      "sha256": "8125427bc4835dc901ff57cd7cccf0af058320f0b2916eb15b9c8f605054de00",
+      "bytes": 581107
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/dependencies/report.json",
+      "sha256": "27334b6e1a4d900e2654eae39b704582f13459c2fc9e8f2c9af5e2f84ad887aa",
+      "bytes": 2130
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/device-compose/report.json",
+      "sha256": "a414ce9a49d54ffc23df53f26c228f3617a567f238ba7ec7a8bbfedab9af10d9",
+      "bytes": 41884
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/device/report.json",
+      "sha256": "8f95e5bbc18308a08de78837e77c1f2f3db4d51e9dac91a0579d9a08e95d0a3b",
+      "bytes": 29873
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/experiments/report.json",
+      "sha256": "ad701d6bed4632668c6fc1408558987cd761fc50b5e8b4b6bc34e9fbf5211a64",
+      "bytes": 93894
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/log-identity.json",
+      "sha256": "14a7a25ee4bde298a20a0f1149b9b9d7e1b3fcf99c278954a84af32779cfbe4c",
+      "bytes": 405
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/native-tests.json",
+      "sha256": "198901e9ee91e55b6addbfc21e08089e9c686282bb842da5c73a808a22bc4be2",
+      "bytes": 170388
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/recovery.json",
+      "sha256": "344e11318db392eb19ccf2db90e13f4fcb8b7a22035f233d0f98a88177756e9d",
+      "bytes": 9585
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/run.json",
+      "sha256": "2c7b9f7c08791e53408825845dfcd93d4dcccc5ebfa9a18d2c46ceec528f64e3",
+      "bytes": 1294
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/hosted/sanitizer-tests.json",
+      "sha256": "f39332173905a8feb934b6218421fb974df6fe4f4a86cf8e281912d2f9920252",
+      "bytes": 170392
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/m1-long-failures.json",
+      "sha256": "b2b883e0d3cd1dab51d6994561a380b26f1a8f7e621e72c441b7e485779fef6f",
+      "bytes": 74806
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/native-build.json",
+      "sha256": "8455554b0091a1fe16e6de6c554b8bf9371d713b75106d1b0488deafd65a371f",
+      "bytes": 7476
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/native-models.json",
+      "sha256": "91a778234b89f09d40990b5d876cc950fcae94efa00bee203f309228d37fc470",
+      "bytes": 369103
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/native-tests.json",
+      "sha256": "e54b65348744880425e9926ac99af3183bee1b2d7548fbb68729e539554e2e6c",
+      "bytes": 170298
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/original-memory-failure.json",
+      "sha256": "139b740f40a0291b30ca689d1b75d3336af0f45189d3752ed27d582cfe8a31bb",
+      "bytes": 472
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/review.json",
+      "sha256": "7feeb8c4da3f92c758c5f45b8e7d1698b0f17c710e69284a04ef068f3338bca9",
+      "bytes": 6107
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/rss-inheritance.json",
+      "sha256": "c8a3bfd610d4562eb84b47e61e90e511daa8f23f4966f9fae9ceed027ffbc0fc",
+      "bytes": 165
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/sanitizer-build.json",
+      "sha256": "ae0dbc7223743e6d87364d37df384099fe4229e65e47e73ac6490fd88a9eba38",
+      "bytes": 7555
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/sanitizer-tests.json",
+      "sha256": "817267dc60d5a946b0ae4788531e70411a773ca9a48bb10d4b018dbf2469f0a6",
+      "bytes": 170308
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/sbom-schema.json",
+      "sha256": "6c0c99dc836ff0e539c4eb6ae61dd534b0ae87a9522a35159d148126acf1a838",
+      "bytes": 1306
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/security-scan.json",
+      "sha256": "7a09b553662b343a5dc0ab90b0e75c633fa58330d48297ab18875b967b9357e3",
+      "bytes": 567149
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/stale-image.json",
+      "sha256": "4965b3c3aec11dc6d18918924d3bb7a5d9588ab23c0cb704185e94806f3500bf",
+      "bytes": 14246
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/evidence/m8/summary.json",
+      "sha256": "21ae36aaee71d15b09cda42c77bbf98ea14c6273e62ad14dd7d54246027a6e94",
+      "bytes": 11218
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/standards/CHECKLIST.md",
+      "sha256": "f591e161d6d820e479cbbf707a542cad87d53a465e5dfe575de2ad52909c9210",
+      "bytes": 118875
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/standards/EDITION_GAPS.md",
+      "sha256": "024053c8c81fff1ebaa239cb455f312d9d4641fcf68b7dad63426aae77c3a47c",
+      "bytes": 5662
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/standards/PUBLICATION_POLICY.md",
+      "sha256": "81ba2cce5aeb1e00fd2d65456728463e10e96977d305e12d3dd129dbe6136a7b",
+      "bytes": 2155
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/standards/README.md",
+      "sha256": "d8739a7a8cbd91d6e96fcec43d61a1d9c4804d6371f65043f21b3e6ea6632162",
+      "bytes": 5336
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/standards/checklist.json",
+      "sha256": "24ae5799342673c05e7515307c8d33d6603b5e1bbd9881b7ef7145d3fd16742d",
+      "bytes": 177485
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/standards/gaps.json",
+      "sha256": "b482aeeb122ae6382c16aadc47d1d5da4066c6be3b3ce66ec45aeaf7d4f5602d",
+      "bytes": 2299
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/standards/sources.json",
+      "sha256": "a7e35066f08c363bec70f966b96e050e93314d8e5e766e38c0342706ef5fef20",
+      "bytes": 7419
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/assurance/traceability.json",
+      "sha256": "af3dd5e414fd3d6880f27dbfb1dac6dc6758075bbe93e0bfda31bf2f7969c923",
+      "bytes": 246203
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/cmake/Gui.cmake",
+      "sha256": "1ccc4955b1ad60d935e0c346194cc7ab4c1ca154250cf96dd8589832d605613b",
+      "bytes": 4070
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/compose.device-x11.yaml",
+      "sha256": "8ce5315382aa371d717aef59d992c7e1607c0494dbde88ab736621aff1539dfb",
+      "bytes": 313
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/compose.experiments-x11.yaml",
+      "sha256": "8c777fd61cc64d21a98d85df1a8b3e2f811705c617e77def3895a5043e73e7da",
+      "bytes": 436
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/compose.experiments.yaml",
+      "sha256": "3ff60fad917a605793b9b461b557ef53277202a286a5f7d840ce2d27063836f3",
+      "bytes": 2745
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/compose.yaml",
+      "sha256": "36a87c560f43167b5ee328b0036b002e14dbd8217fbb98223f76e178af6b7f01",
+      "bytes": 2339
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/dependency_inventory.json",
+      "sha256": "df0f3819ff4e6862abb13aba3872c74c7e6c96c83a02b08177c59c39ea7f8c2d",
+      "bytes": 4724
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/ARCHITECTURE.md",
+      "sha256": "257faabbd3aa09360c7b79a4aea8a397df185c23d7ae25ff4f7b9a364be898e6",
+      "bytes": 13719
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/DECISIONS.md",
+      "sha256": "6422d28f1884c04cad32154fa2a5c06bdf56c41a58895f0cb64ab7770145a8c6",
+      "bytes": 10247
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/DEPENDENCY_CANDIDATES.md",
+      "sha256": "c4e51bca1c5558f0cff9127908cb3a241f66616d3c0df77b1f9a94849eb9e5fc",
+      "bytes": 1301
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M1_INTERFACES.md",
+      "sha256": "0b549f2bd58a91a2ade60fbec4e6183904ac1c77bc0d2522d5b904a5b5a4d4ec",
+      "bytes": 9677
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M1_MODEL.md",
+      "sha256": "8efa4e3146cd0ea87f4f6ce7f1a402af81e1c2775961b63910feabc5c2da916b",
+      "bytes": 3595
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M1_PLAN.md",
+      "sha256": "957ecb273b0e626ac9541994f7296156248198bab9a52e4457f5d67fdd00cebb",
+      "bytes": 4765
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M1_REVIEW_FIXES.md",
+      "sha256": "0750960310580c1b22a5e330e7f807bd8e7375efd36684bc10a54a26eb338429",
+      "bytes": 2339
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M1_RISKS.md",
+      "sha256": "ebd644dbbed925fa9cf12329620a0135cb90283ca73530707edca46910d463ef",
+      "bytes": 4830
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M1_RUNBOOK.md",
+      "sha256": "2056639e6656a538cc7f2854fa702dcdf4e3a75b3bdf379fcd9bbf04ca56040b",
+      "bytes": 6967
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M2_MODEL_INTERFACES.md",
+      "sha256": "300156bcecf1fe4ad2c9a910d8a802d28318ddb99e25b25e294517f91568a456",
+      "bytes": 9095
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M3_PATIENT.md",
+      "sha256": "4f1505a81e9437f7aaecd3026e6541061523cb4832946e00e0ee5860046d042a",
+      "bytes": 9378
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M4_TREATMENT.md",
+      "sha256": "4aa31886c448b9ce438e023cbad789232c92be9e3d84f62476dcf33c616f720f",
+      "bytes": 9048
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M5_MACHINE.md",
+      "sha256": "02f80b9a90fade2c7f11b5d8596c04f42b47ddd5382be4769bc3fb980cffa7b2",
+      "bytes": 16956
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M6_DEVICE_UI.md",
+      "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171",
+      "bytes": 13828
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M7_EXPERIMENTS.md",
+      "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc",
+      "bytes": 11629
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M8_SECURITY_CI.md",
+      "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709",
+      "bytes": 9280
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/M9_INTEGRATION.md",
+      "sha256": "16522f526a88a34ea79b457b6221c49514995a10e8539ecff2ce6d6c45a35890",
+      "bytes": 6794
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/MILESTONES.md",
+      "sha256": "da9862c2408ef082a5d4e3e2f2b0dec5e0f052e965e8aba6887bee710785222e",
+      "bytes": 5033
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/QUICKSTART.md",
+      "sha256": "5b9750f16774ed6f09cad70d3394ee46d179982bbc8798442d2cea51ca613de2",
+      "bytes": 7025
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/dependencies/CI_NOTICES.md",
+      "sha256": "330aed1464064b51c4589a2bd3333db09a8765371247bd0535e23b56d23b01d6",
+      "bytes": 2072
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/dependencies/GUI_NOTICES.md",
+      "sha256": "59fe4615ec111813ba2ef5469c4313543ae79193feb51a673c7d56537df52c96",
+      "bytes": 7734
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/dependencies/M1.md",
+      "sha256": "3154d6052b9bf467cd21cfb22239ee81bf610e796c3fb688fdc83de910cc471b",
+      "bytes": 3076
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/dependencies/M2.md",
+      "sha256": "2c1c65e95f7cde45cc52a545bc6bac1538b98b83419ae99fc0f61fd5a85300bd",
+      "bytes": 1210
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/dependencies/M3.md",
+      "sha256": "8af0ee3266531e025fd631c02cd2a7f7806ffea4734f721a7ac827cd99838f09",
+      "bytes": 1374
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/dependencies/M4.md",
+      "sha256": "540bf6a2a445488b20dabd7621342fb1afae39bf81242e093a5f5be43549a9a2",
+      "bytes": 949
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/dependencies/M5.md",
+      "sha256": "5ade600ec9c160683a8c02cd30e3bfbbd4799a7d83ab17678b89e977e8477e47",
+      "bytes": 1048
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/dependencies/M6.md",
+      "sha256": "5a16efd2322dd72d3151a546cffd7792cc6d7b705b8ca99c77a488be21091aea",
+      "bytes": 5482
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/dependencies/M7.md",
+      "sha256": "4d35afe0c26919e2c8f277f58af273d761488d021dec1bcbd38cf07d56cee7b2",
+      "bytes": 1480
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/dependencies/M8.md",
+      "sha256": "fee3906207a830c64455d4382d25ed93137bc70ed86e780723261a6490e8c1fc",
+      "bytes": 5383
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/templates/DEPENDENCY_EXCEPTION.md",
+      "sha256": "6adbbf865a7e8887d04034ab93eec446f874b8a00fcb6ced351484eccefd8168",
+      "bytes": 767
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/templates/LIFECYCLE_INCREMENT.md",
+      "sha256": "f4a288987f1ffeca79664b630ed3cc7d5cbb18a87cb4edf5b5942ed96fd690b2",
+      "bytes": 4140
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/docs/templates/MODEL_DATA_ASSESSMENT.md",
+      "sha256": "c3dcf5f385cf6a3c39f69ffa3406fcec975154b028a918284c9522d343cfb7bd",
+      "bytes": 2433
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/gui_dependencies.json",
+      "sha256": "886a77186e6f77bacf9cb68d00e2c85aa78eddff313bdc4f3afef9e507f72595",
+      "bytes": 1539
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/publication_manifest.json",
+      "sha256": "65e0d358d41729dfb92caef919580e5a3d2874e224096f51c838c3f42df362e4",
+      "bytes": 28077
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/python/dialysislab/__init__.py",
+      "sha256": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+      "bytes": 66
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/python/dialysislab/circuit.py",
+      "sha256": "f88fcefafe538d09996ed6bea896d0018596635c931a3a4314f5f04b7c2d4928",
+      "bytes": 7654
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/python/dialysislab/compartments.py",
+      "sha256": "d18bb2176b1415b6fbf3dbf6d32accec214a1691d82e3ff2be05e470f443e9bd",
+      "bytes": 16453
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/python/dialysislab/experiment_rpc.py",
+      "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f",
+      "bytes": 2323
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/python/dialysislab/experiments.py",
+      "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8",
+      "bytes": 31434
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/python/dialysislab/machine.py",
+      "sha256": "dd03e344e6e141d3bd01dcfb744288a2a89ad50f0652e992c129eb5f80a510f3",
+      "bytes": 7003
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/python/dialysislab/patient.py",
+      "sha256": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a",
+      "bytes": 5461
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/python/dialysislab/protocol.py",
+      "sha256": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+      "bytes": 4084
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/python/dialysislab/role_supervisor.py",
+      "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8",
+      "bytes": 4197
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/python/dialysislab/runner.py",
+      "sha256": "299456d7bf33b4c552ddfba2eedeff2950c62199014ad4d5e60545fb3b1fd94b",
+      "bytes": 23252
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/python/dialysislab/trajectory.py",
+      "sha256": "0cd9026cc01878f359cc1edef63b6915a41266b5e9c2fa56478e7e07730a72a1",
+      "bytes": 6508
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/python/dialysislab/treatment.py",
+      "sha256": "4d6712cd02ac9004c4fc74885f26f15fd88e8df24d2fb7a18d85051e2612d79d",
+      "bytes": 6457
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/circuit_large.json",
+      "sha256": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+      "bytes": 1318
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/circuit_occlusion.json",
+      "sha256": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+      "bytes": 1452
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/circuit_small.json",
+      "sha256": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+      "bytes": 1318
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/device_interactive.json",
+      "sha256": "322006eec8e59ae48874d56a4c8aeefcb89ac5cff5fc5fd6e2f50e3f7008dd3a",
+      "bytes": 2503
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/device_ui_demo.json",
+      "sha256": "a26bb993fcc555887bbe7e97b81f7c815398047d506dd56675d107e343570d4f",
+      "bytes": 2500
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/hd_100000.json",
+      "sha256": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+      "bytes": 248
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/hd_nominal.json",
+      "sha256": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+      "bytes": 244
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/hd_occlusion.json",
+      "sha256": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+      "bytes": 325
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/machine_air.json",
+      "sha256": "4e547339d08ad45882a2b209bdb19b0961d9496ffd788be22cf951a902080392",
+      "bytes": 2818
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/machine_balance.json",
+      "sha256": "472147f0e2deed445580ca4aeb3be5a38bbb33b5f716da486913fc54ee429aa1",
+      "bytes": 2826
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/machine_hd.json",
+      "sha256": "0c3cbab928c7a1e264a219d822b53990ae6c3523fd297b01806be7d5dae5f0fc",
+      "bytes": 3419
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/machine_hdf_post.json",
+      "sha256": "58ef53c5367f82bc2c8ccbe5a28b3b870b480c055606649e0b048019b669d310",
+      "bytes": 3426
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/machine_hdf_pre.json",
+      "sha256": "747cd760f83dbab7c3fcf120720280db1052f14dbda1ad517a8a09c35b3c67e4",
+      "bytes": 3425
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/machine_invalid.json",
+      "sha256": "907def5891bcacfc056dfcdaba3fc713e2034fed4eed02de976c5c7915ff1fa7",
+      "bytes": 2831
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/machine_leak.json",
+      "sha256": "fa26d8b1dc2cb75deefb695db55d6a6a543db889f3abb2a4d4aa720dbf8afa53",
+      "bytes": 2819
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/machine_pressure.json",
+      "sha256": "465a827d8f16bc179170ed04b2b718f866de2b7fccdc71b59c6d050c456aa15d",
+      "bytes": 2873
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/machine_priming_100000.json",
+      "sha256": "3a1b839fdbd9d526b1d5652c6b710ccbd7f71634236ae6348e4a54978d298dce",
+      "bytes": 2589
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/machine_quality.json",
+      "sha256": "2c7e865e8c80bf768c5d201c47dfed94b67c141374ab8ac5c6088baf05ed76b0",
+      "bytes": 2824
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/machine_recovery.json",
+      "sha256": "8c9edb716157987a3a0b99d18ee2a6580e843d18dd312baf5b2eae33dde11082",
+      "bytes": 3606
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/machine_stall.json",
+      "sha256": "70613f454c188b1835e46a7cf71a6110ccc0f522a8ae196112fa70465f2648e0",
+      "bytes": 2827
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/patient_baseline.json",
+      "sha256": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+      "bytes": 2187
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/patient_imbalance.json",
+      "sha256": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+      "bytes": 2190
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/patient_large.json",
+      "sha256": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+      "bytes": 2187
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/patient_overload.json",
+      "sha256": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4",
+      "bytes": 2187
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_100000.json",
+      "sha256": "5c4a733bf900997a46cf437927d8c22b60745038a23c4d19e8e423ec57e90ce3",
+      "bytes": 2497
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_contaminant.json",
+      "sha256": "5df88290a30624889230420874b24dd6a29171f6c1359ce723a27b48ae1e2a4e",
+      "bytes": 2945
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_filter1.json",
+      "sha256": "2a0430914ded7f7bc3df0d4688ab4040a1bbce0fea8d63c0173219882182fb23",
+      "bytes": 2775
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_hd.json",
+      "sha256": "3d6a8c4c868ef27bd1f475b6d9586160a649d22b6f35ca7af580d89fd14f01e3",
+      "bytes": 2683
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_hdf_imbalance.json",
+      "sha256": "2499519b4ea84d917f0ba21686936c13249eae5328987aa76bd9d20d5df83b01",
+      "bytes": 2693
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_hdf_large.json",
+      "sha256": "387fe02337fb1e67c29666b05105946498139c6d59891b878486867ad6591698",
+      "bytes": 2690
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_hdf_post.json",
+      "sha256": "de2895789acf5b57141dec31c0c5929a30a97f6fff48cfe508549ea295858c4c",
+      "bytes": 2690
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_hdf_pre.json",
+      "sha256": "74291126931eb0c1be5493a4284d59a2026b67e0f5b7c2aa0aa49868d34d9369",
+      "bytes": 2689
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_integrity.json",
+      "sha256": "6bd693997a440835bb2ea4eea98310aa5f913efbe889a7f2735be3a04777f941",
+      "bytes": 2776
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_ratio.json",
+      "sha256": "8da7a12361406b15d42adf79d8a12bdeba97074b3480d66b12e467a9c1691f3d",
+      "bytes": 2775
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_route.json",
+      "sha256": "143a57a204d5ef22865c28b3512ceafa12811c22327d2818017ff12032b213ae",
+      "bytes": 2772
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_supply.json",
+      "sha256": "9e64ded46a423bc9ba2b7d446ddf5a02ddca77aec91b1b0916426c32838508ac",
+      "bytes": 2773
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/scenarios/treatment_temperature.json",
+      "sha256": "18a78efb9628b91498dbbcbe7dbd6280f25819302a8032ecc8f08ebe0cd52cd9",
+      "bytes": 2779
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/child_guard.cpp",
+      "sha256": "34a3ea2d93648d7436acc773cb8f3a78e43fb38d01c33cd34e864789a2243c94",
+      "bytes": 735
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/circuit.hpp",
+      "sha256": "9cf2434b8cee48e66720355f2d2dbbdb506aee44e9e74cb17e142c50fa86c89a",
+      "bytes": 6242
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/console/client.hpp",
+      "sha256": "f74043b8ed3b387893a7f976e23df36fb85cccbbbfb2359163123bb612434b68",
+      "bytes": 7298
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/console/sim_console.cpp",
+      "sha256": "27d5cc89a8a28ff17b6490ab49b3e4ed53e42bae40022e616ad4d68087ad2a57",
+      "bytes": 14052
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/control.cpp",
+      "sha256": "a45e89c4ede496fc714806b4ba8b343c169c486280859cef330995dcb89371f4",
+      "bytes": 5857
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/device_session.hpp",
+      "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd",
+      "bytes": 1085
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/machine.hpp",
+      "sha256": "29bcc1c6d1e969c70719c702e41135d65ab765ae9b9dac5f8370a551654fa7db",
+      "bytes": 7933
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/model.hpp",
+      "sha256": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+      "bytes": 367
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/online.hpp",
+      "sha256": "0d05aa4d7454118685063aa7855b3ad19b0834a3e80c06254797902881682af6",
+      "bytes": 4237
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/plant.cpp",
+      "sha256": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0",
+      "bytes": 24030
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/protection.cpp",
+      "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3",
+      "bytes": 4939
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/ui/client.hpp",
+      "sha256": "0d01e3ba75e0f852be661aec19177fecbd91a9e34d59f6a080dd625b1e7453a2",
+      "bytes": 6766
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/ui/device_ui.cpp",
+      "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1",
+      "bytes": 26820
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/ui/font.cpp",
+      "sha256": "e238e501499703cee48551e02651f79fba619d270820b84c6eceb038a174b996",
+      "bytes": 3710
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/ui/lv_conf.h",
+      "sha256": "1620e7f40eb9cd5dbb33decae117b9a41a6e78349fe23a3c807731cb65215305",
+      "bytes": 1037
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/src/wire.hpp",
+      "sha256": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc",
+      "bytes": 7987
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/console_regressions.py",
+      "sha256": "8ca546aee3497eb9eecc3f50e3dd4db17dbd774eb9d625af16f7549178528255",
+      "bytes": 9403
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/demo_regressions.py",
+      "sha256": "16bf3fab0759b2ddcf24f1d8c7b6ea25f700520ffd5994d2865b42723911c694",
+      "bytes": 2685
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/patient_memory_probe.py",
+      "sha256": "cc07e30725f40d6bb78fa9a2d0c8cb938c43e735f67fc65a71ea40be9dc6072e",
+      "bytes": 1085
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_ci.py",
+      "sha256": "4194de39580beb6446cd39e5c1dfffa93fc66369f0d218ad29c6f3e569158da7",
+      "bytes": 7410
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_circuit.py",
+      "sha256": "71180ab1c91e8b29da1e8792c84051ac51ad08a38a8c558d36ec4ca6e81d719b",
+      "bytes": 14274
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_compartments.py",
+      "sha256": "82fca1aa17a28e1e5c7b9af87173c9bede83d832e21c734a327e9bf4af282069",
+      "bytes": 15603
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_compose_collection.py",
+      "sha256": "29e4b034810a4a9f5c1c67fe83d47884a257d39d5a89c659c4401875d67ffd41",
+      "bytes": 3752
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_dependencies.py",
+      "sha256": "9e388f5e3fa6e1f2f865a1bbb35122e3f5e3e295b2290cf83cf7c1a9a640acae",
+      "bytes": 6620
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_device_sessions.py",
+      "sha256": "267273ec019c959bc57810ee4654775c7b1afd7e450078da489031371d6b23e2",
+      "bytes": 4254
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_experiments.py",
+      "sha256": "ca737e1f55d1d8528435f246d5652465f154f08f2b36a966bc1d1f094f66b0f0",
+      "bytes": 26493
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_gui_dependencies.py",
+      "sha256": "888df89af0fef72c6d1538b79ddf9ed2312e623e5869ebac5820d826be971f56",
+      "bytes": 2450
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_integration.py",
+      "sha256": "daf26811951724fd25936a955874219cbe8523c7af4b0762366389685aa10123",
+      "bytes": 5689
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_m1.py",
+      "sha256": "5ba9db3624aabb029675648e028d1de1f43a3123074765791df9f42035ddbe35",
+      "bytes": 13043
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_machine.py",
+      "sha256": "3d40b6e0a4706ee9ee624bb4fe13e6c3be7ea1a83b28656be65133c24a944520",
+      "bytes": 27051
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_publication.py",
+      "sha256": "7268b88f7b81571a3be1cf5b9d7c80579c90bbcd5f704f003d16617887f4956f",
+      "bytes": 3714
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_rpc_abort.py",
+      "sha256": "37e8e325a307bd8de9dbdffe4fad867684b2283092df40871c1898592df9c32b",
+      "bytes": 6321
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_security.py",
+      "sha256": "d8b836758522b6f04f46e1184f86ab617d5408d64d9bfe435c5b03731bca03cf",
+      "bytes": 8799
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_traceability.py",
+      "sha256": "b51e3ab211592525bb035c52e7642120b9ad054739b9cbc6f881fa85b620019f",
+      "bytes": 3854
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_trajectory.py",
+      "sha256": "6edecdc8651abcbfe98e482428e433b934c7adab908a3fc05312f798e52e7da6",
+      "bytes": 5639
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/test_treatment.py",
+      "sha256": "7a7400fc17ffe3d306a2ef62b92eec617e13bc43d352784c63a1ed5b0028e32f",
+      "bytes": 18699
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/trajectory_memory_probe.py",
+      "sha256": "a62932896b4ed0e7f8d99dc6b0264ee17fa87e83f3951bbc3a311881804dd5a8",
+      "bytes": 2794
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tests/ui_regressions.py",
+      "sha256": "0f3a222a8a0391d0e91e6ff1bab25eb7cec3cf0f4d30c077463ff794d9883d6a",
+      "bytes": 21673
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/build_identity.py",
+      "sha256": "dee260875614d97f7fd7ff6a9b30845079fd311e45b0570c713e46c5f199528b",
+      "bytes": 1800
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/capture_png.py",
+      "sha256": "007cb9e2ea3a7afd542c3c5244f203a8aa3187d7946c01ca3a4a32dd3193f97b",
+      "bytes": 3110
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/check_publication.py",
+      "sha256": "f5c3fb6b86b6de57dc72a36802efdf4f6f11f6632982c9e2e870c7efab67a4e4",
+      "bytes": 1463
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/check_standards.py",
+      "sha256": "073bfa3722b403382bf0fae54d5ebf875bf7789fa76b2b47d279c4d295e5869c",
+      "bytes": 3930
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/check_traceability.py",
+      "sha256": "817f3b4c8bfb35e432e7648b0a2f25e11e2fb7892c561d023878d27b0cf35506",
+      "bytes": 7479
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/ci_artifacts.py",
+      "sha256": "d8a0baa30573be9de9f94ce89317db13c89ade3011cb86ea50a9ac7e160a9f8f",
+      "bytes": 4708
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/ci_verify.py",
+      "sha256": "198034b149f4eaa93922dcf25e9a90c913cc58d4e722f539edd822e5e9aed09b",
+      "bytes": 10711
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/dependency_report.py",
+      "sha256": "aa2625302572be89991a1b20dea1c89c677c133899f0eb0c813ff829261d9b58",
+      "bytes": 12369
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/experiment.py",
+      "sha256": "ffefccc93be7fec76de6843e9514ba76ed479678ed96377ebce370a3966b312f",
+      "bytes": 2874
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/fetch_gui.py",
+      "sha256": "c25e65a04b0e7dcd2934c0b6b38fed5f515b076a0ef62791fd28c2cdfd78939f",
+      "bytes": 3875
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/image_application.py",
+      "sha256": "f291b03e4060c1f43f9897dff60d28cdefcd286c069dc669649e03b78d0a9cbe",
+      "bytes": 1341
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/package_release.py",
+      "sha256": "92164773a613260ff92a7981d0e99cba543a6f62668ba01a0740a26867f7f700",
+      "bytes": 3539
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/platform_inventory.py",
+      "sha256": "aa4728ee4f87798b89b84bf4241131756e1e2efef9d31c51406216b23967a999",
+      "bytes": 2515
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/recover_trajectory.py",
+      "sha256": "11ac9e325e36e789fea0ba986aa135d88eece934a1db081f52fcbf77234fcff0",
+      "bytes": 545
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/render_checklist.py",
+      "sha256": "fd1c11283abd0260d2d856807aaa65376c8a34173260d110800fca85de9f3b95",
+      "bytes": 2502
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/run_device_demo.py",
+      "sha256": "ef66dd9f404854446366ae33bd16398681c6d52a316f492221f52949658c15ce",
+      "bytes": 3448
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/security_scan.py",
+      "sha256": "a68e449a5bd7b044f56b7e1ac6379cf9956acfb9378a794d2c354ba9eee9c569",
+      "bytes": 8547
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/verify_compose.py",
+      "sha256": "65924a3fadd86786f76a498202137b75880f23ac42bdc26f0a33cc311d7e0cce",
+      "bytes": 12698
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/verify_console.py",
+      "sha256": "01dcf9fecd86bc9207a74134f50dfdcd99de724f4c9e8d120856ecada43b07cf",
+      "bytes": 2269
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/verify_device_ui.py",
+      "sha256": "0530053d50303f3104ac35eb5a2b166c42e199787ee00f920354d99d17e317ac",
+      "bytes": 3310
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/verify_experiments_compose.py",
+      "sha256": "0a5745948b1e7f8383c1961a1a83c94ae49b00c7d7fac644e3b9d5b0ee5f3705",
+      "bytes": 12639
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/verify_integrated.py",
+      "sha256": "16dfdbf82517ab490aaf4f27585cc22424837b07b1cb1b9c6aefb82dfe569842",
+      "bytes": 11482
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/verify_m1.py",
+      "sha256": "d40bda7805ab89b86c9c2f32e7212dafdc1621e164e10a0e222f194b08ca6f8f",
+      "bytes": 3014
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/verify_m1_review.py",
+      "sha256": "43ebd07bfd80e757cb49f5a517803bb0c235cf36f11cdb540e991ccd92df6205",
+      "bytes": 7988
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/verify_models.py",
+      "sha256": "7a07a08083d460582a1abaee67f6aa088ce7e222e962f904da144d374aab971c",
+      "bytes": 13956
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/verify_package.py",
+      "sha256": "3c96485b12eea48aa9819e41681178c0f9a45d451ca2cfd441a0d254a2591c8c",
+      "bytes": 4649
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/verify_reproducibility.py",
+      "sha256": "1bf04b845d1c975f597b60ff8217d44e2f5594ed07dfa4c22bad6b45880f1f17",
+      "bytes": 3572
+    },
+    {
+      "path": "/tmp/DialysisLab-m9-nogit-source/DialysisLab/tools/verify_ui_compose.py",
+      "sha256": "cc23141fd1dce4a49cf8baf24d04d43732a359afc0ec30e2a656c2e28de0dd78",
+      "bytes": 9544
+    }
+  ],
+  "recovery": "Extract the retained zip into /tmp/DialysisLab-m9-nogit-source; all removed files matched its original bytes."
+}

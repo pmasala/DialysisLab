@@ -1,0 +1,39 @@
+{
+  "test_id": "M9-TEST-001",
+  "requirements": [
+    "M9-REQ-001"
+  ],
+  "protocol": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
+  "expected": "18 configurations twice natively/twice Compose; exact replay, complete lifecycle and independent water/species conservation <=1e-6",
+  "successful": true,
+  "executed_at": "2026-10-08T09:05:16.830503+00:00",
+  "observed": {
+    "runs": {
+      "matrix-native": 36,
+      "faults-native": 30,
+      "matrix-compose": 36,
+      "faults-compose": 30
+    },
+    "maximum_water_residual_mL": 1.2826628648099359e-11,
+    "maximum_species_residual_mmol": 8.605205437106633e-11
+  },
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m9/matrix-native.json",
+      "sha256": "c8c1d9bdd39c647b6d3c69737aee3a7836df90afa48c0dda2d55200c0c0619b7"
+    },
+    {
+      "path": "assurance/evidence/m9/faults-native.json",
+      "sha256": "475e81586cf81074937c10510c605bb48079a6d390f9f6e77fc7c7f609dcaf44"
+    },
+    {
+      "path": "assurance/evidence/m9/matrix-compose.json",
+      "sha256": "e439db2f18778c485b34715ac419dde705826d96719649385e3c11670f855879"
+    },
+    {
+      "path": "assurance/evidence/m9/faults-compose.json",
+      "sha256": "c6307c103d46423568f5f259b3db1ca0535762869e03419c625c398eb91c9813"
+    }
+  ],
+  "scope": "Actual synthetic software/numerical acceptance only; no calibration, human risk acceptance or conformity."
+}

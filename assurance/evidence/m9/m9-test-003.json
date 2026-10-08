@@ -1,0 +1,51 @@
+{
+  "test_id": "M9-TEST-003",
+  "requirements": [
+    "M9-REQ-003"
+  ],
+  "protocol": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
+  "expected": "Actual widget pause/replay/STOP/cancellation/state/epoch/isolation tests, headless and WSLg",
+  "successful": true,
+  "executed_at": "2026-10-08T09:05:17.136217+00:00",
+  "observed": {
+    "headless": {
+      "stop_wall_seconds": 0.11258395700133406,
+      "runs": [
+        "rad1d477b8cbfd899",
+        "r66417377d272c896",
+        "rc25a1c11c3dfff2d"
+      ]
+    },
+    "wslg": {
+      "stop_wall_seconds": 0.3163474939938169,
+      "runs": [
+        "r5a921eb250340d3f",
+        "rc8541a9ed8c73ef3",
+        "rd51b854bb330eeb0"
+      ]
+    }
+  },
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m9/simultaneous-headless.json",
+      "sha256": "eecd66ddc6294edfce166d97d84c8463ccb46b1e5aa83fe1d3bca6ad155dab56"
+    },
+    {
+      "path": "assurance/evidence/m9/simultaneous-wslg.json",
+      "sha256": "a23b1ce9fee05b540895c464a54339434768d08141081500c347930431fd466c"
+    },
+    {
+      "path": "assurance/evidence/m9/device-widgets.json",
+      "sha256": "7b3deb37915ead2b41ea89955b548a14a3aa3fe37d00243f71b68d0ce89a9a96"
+    },
+    {
+      "path": "assurance/evidence/m9/console-widgets.json",
+      "sha256": "0732d778f339a455ed2ef65475f39dde53f65cf74498bacc6798220e47414eed"
+    },
+    {
+      "path": "assurance/evidence/m9/console-sanitizer.json",
+      "sha256": "7339a7e8ab830f614c7a22cd2ec0e5c4af6341265043772d703204f574b898e6"
+    }
+  ],
+  "scope": "Actual synthetic software/numerical acceptance only; no calibration, human risk acceptance or conformity."
+}

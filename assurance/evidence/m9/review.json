@@ -1,0 +1,97 @@
+{
+  "phase": "M9",
+  "invocations": 1,
+  "status": "FINDINGS_FIXED_AND_REGRESSION_PASSED",
+  "base": "eb290dee95ac078ca3485fe1088161558dccbe59",
+  "candidate": "4719ebce7a95f14f4ed4295c8b1bfcdd08f8e4c8",
+  "command": [
+    "codex",
+    "-c",
+    "sandbox_mode=\"read-only\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "-c",
+    "developer_instructions=\"Read-only automatic M9 phase review of the entire diff against the frozen base. Do not modify files, do not launch recursive reviewers or another review, and do not access private standards, datasets or credentials. Seek concrete behavior, safety, concurrency, resource, numerical, interface and evidence defects in new integration, paused-device STOP, actual simultaneous client workflows, matrix/long-run verification, archive handling, extracted-source packaging and CI changes. Earlier phase reviews are consumed: this is new integration/package review, not a second M1-M8 campaign. Running long tests remain pending evidence, never infer PASS from a plan. Analyze actual code and identify actionable severity, scenario, file and line. AI review is not human, clinical or regulatory approval.\"",
+    "review",
+    "--base",
+    "eb290dee95ac078ca3485fe1088161558dccbe59"
+  ],
+  "started_at": "2026-10-08T05:34:13.741998+00:00",
+  "output": "build/reviews/m9-output.txt",
+  "exit_code": 0,
+  "finished_at": "2026-10-08T07:24:55.676012+00:00",
+  "full_output_sha256": "5357be09c7dc5c452d30dfeca697240c716b4959680cbe91d174f39dcace7542",
+  "final_output": "The sustained-HDF fixture cannot meet its declared acceptance criteria. Package verification also fails without Git metadata, and Compose verification fails under restrictive host file permissions.\n\nFull review comments:\n\n- [P1] Choose a hydraulically feasible sustained-HDF fixture \u2014 /home/pietro/DialysisLab/tools/verify_integrated.py:40-41\n  With `--group long`, this replacement demand exceeds the inherited circuit's UF capacity. The current-source native run already latches balance alarm 2048 at sequence 106: UF is approximately 75 mL/min versus 92.31 mL/min replacement. Fluid outputs then stop after only 14.12 mL gross UF, making the no-alarm and >100000 mL acceptance criteria unreachable. Select a sustainable demand/profile and rerun without relaxing protective limits.\n\n- [P2] Allow package verification without Git metadata \u2014 /home/pietro/DialysisLab/tools/verify_package.py:32-34\n  When running the documented package-verification command from the distributed source archive, `ROOT` has no `.git`. These unconditional Git calls raise `CalledProcessError` before the reporting `try/finally`, so verification cannot run and no failure report is retained. Detect checkout metadata and otherwise record an unavailable revision, as `build_identity.py` already does.\n\n- [P2] Make generated Compose scenarios readable by the runner \u2014 /home/pietro/DialysisLab/tools/verify_integrated.py:121-121\n  With host umask `077`, `write_text()` creates this configuration with mode `0600`, owned by the invoking user. The subsequent bind mount preserves those permissions, but `compose.yaml` runs the reader as `10001:10001`; for a different host UID, every `--compose` group therefore fails opening `/scenario.json`. Explicitly grant the container read access to the generated synthetic configuration before launching it.",
+  "correction_commit": "935692a5342eb53207406839672a9511c070ed37",
+  "findings": [
+    {
+      "id": "M9-R1",
+      "severity": "P1",
+      "problem": "Sustained replacement exceeds modeled UF capacity",
+      "disposition": "fixed",
+      "regression": "test_sustained_fixture_reaches_deliverable_gross_uf_without_alarm; matrix and four100000-tick actual runs",
+      "commit": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "id": "M9-R2",
+      "severity": "P2",
+      "problem": "Package verifier requires Git metadata and loses early failures",
+      "disposition": "fixed",
+      "regression": "test_package_without_git_retains_actual_failed_packaging_evidence; package-nogit.json actual extracted-source invocation",
+      "commit": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "id": "M9-R3",
+      "severity": "P2",
+      "problem": "Generated Compose configuration unreadable under umask077",
+      "disposition": "fixed",
+      "regression": "test_generated_compose_fixture_is_readable_under_restrictive_umask; matrix-compose.json36 actual runs under077",
+      "commit": "935692a5342eb53207406839672a9511c070ed37"
+    }
+  ],
+  "storage_correction_commit": "4e505648211694f456fbab0646f2c51fdcf54373",
+  "integration_findings": [
+    {
+      "id": "M9-V1",
+      "problem": "Paused device STOP did not terminate the experiment without resume",
+      "commit": "4719ebce7a95f14f4ed4295c8b1bfcdd08f8e4c8",
+      "regression": "test_external_stop_while_paused_aborts_without_resume_or_another_tick; simultaneous real widgets"
+    },
+    {
+      "id": "M9-V2",
+      "problem": "Initial KUF2 fixture rejected by existing supported bound",
+      "commit": "935692a5342eb53207406839672a9511c070ed37",
+      "regression": "Corrected matrix, unchanged maximumKUF1"
+    },
+    {
+      "id": "M9-V3",
+      "problem": "Harness mistook treatment transition for a fresh active-flow observation",
+      "commit": "4719ebce7a95f14f4ed4295c8b1bfcdd08f8e4c8",
+      "regression": "Actual simultaneous LIVE-flow then STALE-pause assertions"
+    },
+    {
+      "id": "M9-V4",
+      "problem": "Initial sustained fixture triggered balance alarm",
+      "commit": "935692a5342eb53207406839672a9511c070ed37",
+      "regression": "Same disposition as M9-R1; failed artifacts preserved"
+    },
+    {
+      "id": "M9-V5",
+      "problem": "CI process-death test failed on ESRCH while reading vanished proc entry",
+      "commit": "935692a5342eb53207406839672a9511c070ed37",
+      "regression": "Precise ENOENT/ESRCH regression, permission failures still propagate; real broker-kill test"
+    },
+    {
+      "id": "M9-V6",
+      "problem": "Harness pressed START before receiving actual LOAD response",
+      "commit": "0051ca1b7428a514c40ca0277c27fa2c15554397",
+      "regression": "test_start_requires_the_actual_load_reply_not_only_a_saved_broker_draft; six native/sanitizer widgets and both simultaneous deployments"
+    },
+    {
+      "id": "M9-V7",
+      "problem": "Shared host ENOSPC interrupted concurrent long runs and truncated aggregate checkpoint",
+      "commit": "4e505648211694f456fbab0646f2c51fdcf54373",
+      "regression": "test_partial_enospc_report_write_preserves_previous_completed_case; recovered original volume hashes; fresh complete sequential long repeats"
+    }
+  ]
+}

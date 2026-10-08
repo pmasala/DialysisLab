@@ -1,0 +1,2012 @@
+[
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_pre_baseline_large-1/trajectory.jsonl.gz",
+    "sha256": "b0ef7990f41f9b7d8338d935a478dc0fc1fecae758834621faaccd673ce31c81",
+    "bytes": 228209,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_pre_baseline_large-1/trajectory.jsonl",
+    "original_sha256": "52ba7d3bc0fcce58a0cad98d6dfa3a468a08d56fb50f814e56413faeb19369b1",
+    "original_bytes": 1906180,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_pre_baseline_large-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_pre_baseline_large-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_post_baseline_small-1/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_post_baseline_small-1/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_post_baseline_small-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_post_baseline_small-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_post_imbalance_large-2/trajectory.jsonl.gz",
+    "sha256": "6e49214b8ae274cd43cc9cb1c43316aac19f33cb7bc48e7467e6ecd9b3f4dffe",
+    "bytes": 232359,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_post_imbalance_large-2/trajectory.jsonl",
+    "original_sha256": "d2c553fbbad93a0986cc6af7751caeaabb708f097ba4c889adb08a0b4be7d821",
+    "original_bytes": 1899701,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_post_imbalance_large-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_post_imbalance_large-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_pre_overload_large-1/trajectory.jsonl.gz",
+    "sha256": "d623bea1b2980b179463790c93322aa012166006d0b85c1e07fc75d0726a84e6",
+    "bytes": 228792,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_pre_overload_large-1/trajectory.jsonl",
+    "original_sha256": "6414cfea893022f3b7903659f5cc94c1ef8759126dd6fcdf208a0edb586efe8c",
+    "original_bytes": 1903391,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_pre_overload_large-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_pre_overload_large-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_post_overload_small-2/trajectory.jsonl.gz",
+    "sha256": "9e9b2b010aef2b8addc989567773830760c937db24a7c76ecd88a60387af4e41",
+    "bytes": 229405,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_post_overload_small-2/trajectory.jsonl",
+    "original_sha256": "34fdf520571917d448896bb118fe78e0a322174e701d71514a41b127080a777b",
+    "original_bytes": 1928756,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_post_overload_small-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_post_overload_small-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_post_imbalance_small-2/trajectory.jsonl.gz",
+    "sha256": "dc6545f7639d8051c948f92f133edb1245e8016e19cb9c58288581a323401945",
+    "bytes": 235817,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_post_imbalance_small-2/trajectory.jsonl",
+    "original_sha256": "78649aa5a113b3a11c3d7edbde4bbe55d98fef674912e36997b6a0d5d5c7c988",
+    "original_bytes": 1927451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_post_imbalance_small-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_post_imbalance_small-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_large-1/trajectory.jsonl.gz",
+    "sha256": "6225cacd23a407618c6e25c28745f850e6d9eca86209854fcf11606da321a681",
+    "bytes": 235322,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_large-1/trajectory.jsonl",
+    "original_sha256": "f46482ebb12bd741e47d796e7366273100899aa12e4ceafa02ad72e5b57bf24f",
+    "original_bytes": 1901630,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_large-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_large-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_pre_baseline_small-1/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_pre_baseline_small-1/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_pre_baseline_small-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_pre_baseline_small-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_pre_overload_small-2/trajectory.jsonl.gz",
+    "sha256": "011cd3dce7c3e5231cb72f8b77cd83a1cc5f4ec56eafe8f4bcf5fe197697c573",
+    "bytes": 239056,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_pre_overload_small-2/trajectory.jsonl",
+    "original_sha256": "5b7da5c575499786f2fab8dc4b1869234e97ee1286c0eb10f73c4013cd996f5e",
+    "original_bytes": 1931527,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_pre_overload_small-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_pre_overload_small-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hd_baseline_large-1/trajectory.jsonl.gz",
+    "sha256": "863bcf93577aecca72507a2412fa280eb8750766e101f1b29e81fdcef1da4f14",
+    "bytes": 211361,
+    "original_path": "build/m9-second-matrix-native/integrated_hd_baseline_large-1/trajectory.jsonl",
+    "original_sha256": "e41a0aa88f0b6e0178c3006c16070d4f2f8190130309dcae83df2dbaa2a40e49",
+    "original_bytes": 1793913,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hd_baseline_large-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hd_baseline_large-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hd_baseline_small-2/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m9-second-matrix-native/integrated_hd_baseline_small-2/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hd_baseline_small-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hd_baseline_small-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_post_overload_large-1/trajectory.jsonl.gz",
+    "sha256": "bc7e72dcffb0221cd121f7242d0fad13965ceca29edce852913a1c9244a3e0ba",
+    "bytes": 226258,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_post_overload_large-1/trajectory.jsonl",
+    "original_sha256": "5c90e26fae5533036104e7647095a7a038757b19222584e6032a0bf77dbbb22d",
+    "original_bytes": 1900707,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_post_overload_large-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_post_overload_large-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_post_overload_large-2/trajectory.jsonl.gz",
+    "sha256": "bc7e72dcffb0221cd121f7242d0fad13965ceca29edce852913a1c9244a3e0ba",
+    "bytes": 226258,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_post_overload_large-2/trajectory.jsonl",
+    "original_sha256": "5c90e26fae5533036104e7647095a7a038757b19222584e6032a0bf77dbbb22d",
+    "original_bytes": 1900707,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_post_overload_large-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_post_overload_large-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hd_baseline_small-1/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m9-second-matrix-native/integrated_hd_baseline_small-1/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hd_baseline_small-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hd_baseline_small-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_small-2/trajectory.jsonl.gz",
+    "sha256": "a05de367c9001a71486a855e155443178121b6b10c5351401dc4df8d3b1a598e",
+    "bytes": 245021,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_small-2/trajectory.jsonl",
+    "original_sha256": "12fd1842e6bf1027f5f64ae1decbf153ca62b6849499b77b80aacfdb559212f3",
+    "original_bytes": 1931020,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_small-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_small-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_post_overload_small-1/trajectory.jsonl.gz",
+    "sha256": "9e9b2b010aef2b8addc989567773830760c937db24a7c76ecd88a60387af4e41",
+    "bytes": 229405,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_post_overload_small-1/trajectory.jsonl",
+    "original_sha256": "34fdf520571917d448896bb118fe78e0a322174e701d71514a41b127080a777b",
+    "original_bytes": 1928756,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_post_overload_small-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_post_overload_small-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_post_baseline_large-2/trajectory.jsonl.gz",
+    "sha256": "893ceb753fbb81cbdcc226e8f59fa88dd80f4e6b230520fb70c626e0b591f7da",
+    "bytes": 225786,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_post_baseline_large-2/trajectory.jsonl",
+    "original_sha256": "6c2b9439abd25a62e9a96635eaf59429dc7ca2ab4c123e931249822cbf8f219f",
+    "original_bytes": 1903382,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_post_baseline_large-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_post_baseline_large-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_small-1/trajectory.jsonl.gz",
+    "sha256": "a05de367c9001a71486a855e155443178121b6b10c5351401dc4df8d3b1a598e",
+    "bytes": 245021,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_small-1/trajectory.jsonl",
+    "original_sha256": "12fd1842e6bf1027f5f64ae1decbf153ca62b6849499b77b80aacfdb559212f3",
+    "original_bytes": 1931020,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_small-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_small-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hd_imbalance_large-1/trajectory.jsonl.gz",
+    "sha256": "d8769a535fd616ccba9978fe5a13825d59613748d9f3c57dc448517e25c7f3ed",
+    "bytes": 217873,
+    "original_path": "build/m9-second-matrix-native/integrated_hd_imbalance_large-1/trajectory.jsonl",
+    "original_sha256": "213cf8606562e15a11a41d8fdd3e0a074ec634395b752fba72e3c4ab406f6971",
+    "original_bytes": 1789252,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hd_imbalance_large-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hd_imbalance_large-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hd_overload_large-2/trajectory.jsonl.gz",
+    "sha256": "5e5249b08c159d32fa620995be3d0b2cc008bda84506c4762824c248073874aa",
+    "bytes": 211778,
+    "original_path": "build/m9-second-matrix-native/integrated_hd_overload_large-2/trajectory.jsonl",
+    "original_sha256": "50508eaa9d8a1b2947adf8c25aefe808934463ec8967b5b4fb3e55986914b2d9",
+    "original_bytes": 1790812,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hd_overload_large-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hd_overload_large-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hd_overload_large-1/trajectory.jsonl.gz",
+    "sha256": "5e5249b08c159d32fa620995be3d0b2cc008bda84506c4762824c248073874aa",
+    "bytes": 211778,
+    "original_path": "build/m9-second-matrix-native/integrated_hd_overload_large-1/trajectory.jsonl",
+    "original_sha256": "50508eaa9d8a1b2947adf8c25aefe808934463ec8967b5b4fb3e55986914b2d9",
+    "original_bytes": 1790812,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hd_overload_large-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hd_overload_large-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_pre_overload_large-2/trajectory.jsonl.gz",
+    "sha256": "d623bea1b2980b179463790c93322aa012166006d0b85c1e07fc75d0726a84e6",
+    "bytes": 228792,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_pre_overload_large-2/trajectory.jsonl",
+    "original_sha256": "6414cfea893022f3b7903659f5cc94c1ef8759126dd6fcdf208a0edb586efe8c",
+    "original_bytes": 1903391,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_pre_overload_large-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_pre_overload_large-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_pre_baseline_large-2/trajectory.jsonl.gz",
+    "sha256": "b0ef7990f41f9b7d8338d935a478dc0fc1fecae758834621faaccd673ce31c81",
+    "bytes": 228209,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_pre_baseline_large-2/trajectory.jsonl",
+    "original_sha256": "52ba7d3bc0fcce58a0cad98d6dfa3a468a08d56fb50f814e56413faeb19369b1",
+    "original_bytes": 1906180,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_pre_baseline_large-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_pre_baseline_large-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hd_imbalance_small-2/trajectory.jsonl.gz",
+    "sha256": "8ae4b1fd75f84ac8c230128ed3959b3c4c2579566b88d4f7bac6b0def6d62b64",
+    "bytes": 220994,
+    "original_path": "build/m9-second-matrix-native/integrated_hd_imbalance_small-2/trajectory.jsonl",
+    "original_sha256": "559cfb9d48e470ab6b216455331ccde6b852e06c843928806a288172b63330a2",
+    "original_bytes": 1842272,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hd_imbalance_small-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hd_imbalance_small-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_pre_baseline_small-2/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_pre_baseline_small-2/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_pre_baseline_small-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_pre_baseline_small-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hd_overload_small-2/trajectory.jsonl.gz",
+    "sha256": "e662621c0e012b27b3ce4ba319c766663717dc3ce7cfc24d26c8b1fafc757f6e",
+    "bytes": 214253,
+    "original_path": "build/m9-second-matrix-native/integrated_hd_overload_small-2/trajectory.jsonl",
+    "original_sha256": "328d8d339c0be371c6b37e47fd572e489a396928d343b0e933ef6a963ad0f19e",
+    "original_bytes": 1842457,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hd_overload_small-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hd_overload_small-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_post_imbalance_small-1/trajectory.jsonl.gz",
+    "sha256": "dc6545f7639d8051c948f92f133edb1245e8016e19cb9c58288581a323401945",
+    "bytes": 235817,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_post_imbalance_small-1/trajectory.jsonl",
+    "original_sha256": "78649aa5a113b3a11c3d7edbde4bbe55d98fef674912e36997b6a0d5d5c7c988",
+    "original_bytes": 1927451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_post_imbalance_small-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_post_imbalance_small-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hd_overload_small-1/trajectory.jsonl.gz",
+    "sha256": "e662621c0e012b27b3ce4ba319c766663717dc3ce7cfc24d26c8b1fafc757f6e",
+    "bytes": 214253,
+    "original_path": "build/m9-second-matrix-native/integrated_hd_overload_small-1/trajectory.jsonl",
+    "original_sha256": "328d8d339c0be371c6b37e47fd572e489a396928d343b0e933ef6a963ad0f19e",
+    "original_bytes": 1842457,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hd_overload_small-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hd_overload_small-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_post_baseline_large-1/trajectory.jsonl.gz",
+    "sha256": "893ceb753fbb81cbdcc226e8f59fa88dd80f4e6b230520fb70c626e0b591f7da",
+    "bytes": 225786,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_post_baseline_large-1/trajectory.jsonl",
+    "original_sha256": "6c2b9439abd25a62e9a96635eaf59429dc7ca2ab4c123e931249822cbf8f219f",
+    "original_bytes": 1903382,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_post_baseline_large-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_post_baseline_large-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_post_imbalance_large-1/trajectory.jsonl.gz",
+    "sha256": "6e49214b8ae274cd43cc9cb1c43316aac19f33cb7bc48e7467e6ecd9b3f4dffe",
+    "bytes": 232359,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_post_imbalance_large-1/trajectory.jsonl",
+    "original_sha256": "d2c553fbbad93a0986cc6af7751caeaabb708f097ba4c889adb08a0b4be7d821",
+    "original_bytes": 1899701,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_post_imbalance_large-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_post_imbalance_large-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hd_imbalance_small-1/trajectory.jsonl.gz",
+    "sha256": "8ae4b1fd75f84ac8c230128ed3959b3c4c2579566b88d4f7bac6b0def6d62b64",
+    "bytes": 220994,
+    "original_path": "build/m9-second-matrix-native/integrated_hd_imbalance_small-1/trajectory.jsonl",
+    "original_sha256": "559cfb9d48e470ab6b216455331ccde6b852e06c843928806a288172b63330a2",
+    "original_bytes": 1842272,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hd_imbalance_small-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hd_imbalance_small-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_large-2/trajectory.jsonl.gz",
+    "sha256": "6225cacd23a407618c6e25c28745f850e6d9eca86209854fcf11606da321a681",
+    "bytes": 235322,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_large-2/trajectory.jsonl",
+    "original_sha256": "f46482ebb12bd741e47d796e7366273100899aa12e4ceafa02ad72e5b57bf24f",
+    "original_bytes": 1901630,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_large-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_pre_imbalance_large-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hd_baseline_large-2/trajectory.jsonl.gz",
+    "sha256": "863bcf93577aecca72507a2412fa280eb8750766e101f1b29e81fdcef1da4f14",
+    "bytes": 211361,
+    "original_path": "build/m9-second-matrix-native/integrated_hd_baseline_large-2/trajectory.jsonl",
+    "original_sha256": "e41a0aa88f0b6e0178c3006c16070d4f2f8190130309dcae83df2dbaa2a40e49",
+    "original_bytes": 1793913,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hd_baseline_large-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hd_baseline_large-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_pre_overload_small-1/trajectory.jsonl.gz",
+    "sha256": "011cd3dce7c3e5231cb72f8b77cd83a1cc5f4ec56eafe8f4bcf5fe197697c573",
+    "bytes": 239056,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_pre_overload_small-1/trajectory.jsonl",
+    "original_sha256": "5b7da5c575499786f2fab8dc4b1869234e97ee1286c0eb10f73c4013cd996f5e",
+    "original_bytes": 1931527,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_pre_overload_small-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_pre_overload_small-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hdf_post_baseline_small-2/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m9-second-matrix-native/integrated_hdf_post_baseline_small-2/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hdf_post_baseline_small-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hdf_post_baseline_small-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-second-matrix-native/integrated_hd_imbalance_large-2/trajectory.jsonl.gz",
+    "sha256": "d8769a535fd616ccba9978fe5a13825d59613748d9f3c57dc448517e25c7f3ed",
+    "bytes": 217873,
+    "original_path": "build/m9-second-matrix-native/integrated_hd_imbalance_large-2/trajectory.jsonl",
+    "original_sha256": "213cf8606562e15a11a41d8fdd3e0a074ec634395b752fba72e3c4ab406f6971",
+    "original_bytes": 1789252,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-second-matrix-native/integrated_hd_imbalance_large-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-second-matrix-native/integrated_hd_imbalance_large-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_large-1/results/run/trajectory.jsonl.gz",
+    "sha256": "b0ef7990f41f9b7d8338d935a478dc0fc1fecae758834621faaccd673ce31c81",
+    "bytes": 228209,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_large-1/results/run/trajectory.jsonl",
+    "original_sha256": "52ba7d3bc0fcce58a0cad98d6dfa3a468a08d56fb50f814e56413faeb19369b1",
+    "original_bytes": 1906180,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_large-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_large-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_small-1/results/run/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_small-1/results/run/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_small-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_small-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_large-2/results/run/trajectory.jsonl.gz",
+    "sha256": "6e49214b8ae274cd43cc9cb1c43316aac19f33cb7bc48e7467e6ecd9b3f4dffe",
+    "bytes": 232359,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_large-2/results/run/trajectory.jsonl",
+    "original_sha256": "d2c553fbbad93a0986cc6af7751caeaabb708f097ba4c889adb08a0b4be7d821",
+    "original_bytes": 1899701,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_large-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_large-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_large-1/results/run/trajectory.jsonl.gz",
+    "sha256": "d623bea1b2980b179463790c93322aa012166006d0b85c1e07fc75d0726a84e6",
+    "bytes": 228792,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_large-1/results/run/trajectory.jsonl",
+    "original_sha256": "6414cfea893022f3b7903659f5cc94c1ef8759126dd6fcdf208a0edb586efe8c",
+    "original_bytes": 1903391,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_large-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_large-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_small-2/results/run/trajectory.jsonl.gz",
+    "sha256": "9e9b2b010aef2b8addc989567773830760c937db24a7c76ecd88a60387af4e41",
+    "bytes": 229405,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_small-2/results/run/trajectory.jsonl",
+    "original_sha256": "34fdf520571917d448896bb118fe78e0a322174e701d71514a41b127080a777b",
+    "original_bytes": 1928756,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_small-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_small-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_small-2/results/run/trajectory.jsonl.gz",
+    "sha256": "dc6545f7639d8051c948f92f133edb1245e8016e19cb9c58288581a323401945",
+    "bytes": 235817,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_small-2/results/run/trajectory.jsonl",
+    "original_sha256": "78649aa5a113b3a11c3d7edbde4bbe55d98fef674912e36997b6a0d5d5c7c988",
+    "original_bytes": 1927451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_small-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_small-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_large-1/results/run/trajectory.jsonl.gz",
+    "sha256": "6225cacd23a407618c6e25c28745f850e6d9eca86209854fcf11606da321a681",
+    "bytes": 235322,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_large-1/results/run/trajectory.jsonl",
+    "original_sha256": "f46482ebb12bd741e47d796e7366273100899aa12e4ceafa02ad72e5b57bf24f",
+    "original_bytes": 1901630,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_large-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_large-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_small-1/results/run/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_small-1/results/run/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_small-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_small-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_small-2/results/run/trajectory.jsonl.gz",
+    "sha256": "011cd3dce7c3e5231cb72f8b77cd83a1cc5f4ec56eafe8f4bcf5fe197697c573",
+    "bytes": 239056,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_small-2/results/run/trajectory.jsonl",
+    "original_sha256": "5b7da5c575499786f2fab8dc4b1869234e97ee1286c0eb10f73c4013cd996f5e",
+    "original_bytes": 1931527,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_small-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_small-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hd_baseline_large-1/results/run/trajectory.jsonl.gz",
+    "sha256": "863bcf93577aecca72507a2412fa280eb8750766e101f1b29e81fdcef1da4f14",
+    "bytes": 211361,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hd_baseline_large-1/results/run/trajectory.jsonl",
+    "original_sha256": "e41a0aa88f0b6e0178c3006c16070d4f2f8190130309dcae83df2dbaa2a40e49",
+    "original_bytes": 1793913,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hd_baseline_large-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hd_baseline_large-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hd_baseline_small-2/results/run/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hd_baseline_small-2/results/run/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hd_baseline_small-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hd_baseline_small-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_large-1/results/run/trajectory.jsonl.gz",
+    "sha256": "bc7e72dcffb0221cd121f7242d0fad13965ceca29edce852913a1c9244a3e0ba",
+    "bytes": 226258,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_large-1/results/run/trajectory.jsonl",
+    "original_sha256": "5c90e26fae5533036104e7647095a7a038757b19222584e6032a0bf77dbbb22d",
+    "original_bytes": 1900707,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_large-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_large-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_large-2/results/run/trajectory.jsonl.gz",
+    "sha256": "bc7e72dcffb0221cd121f7242d0fad13965ceca29edce852913a1c9244a3e0ba",
+    "bytes": 226258,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_large-2/results/run/trajectory.jsonl",
+    "original_sha256": "5c90e26fae5533036104e7647095a7a038757b19222584e6032a0bf77dbbb22d",
+    "original_bytes": 1900707,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_large-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_large-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hd_baseline_small-1/results/run/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hd_baseline_small-1/results/run/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hd_baseline_small-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hd_baseline_small-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_small-2/results/run/trajectory.jsonl.gz",
+    "sha256": "a05de367c9001a71486a855e155443178121b6b10c5351401dc4df8d3b1a598e",
+    "bytes": 245021,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_small-2/results/run/trajectory.jsonl",
+    "original_sha256": "12fd1842e6bf1027f5f64ae1decbf153ca62b6849499b77b80aacfdb559212f3",
+    "original_bytes": 1931020,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_small-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_small-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_small-1/results/run/trajectory.jsonl.gz",
+    "sha256": "9e9b2b010aef2b8addc989567773830760c937db24a7c76ecd88a60387af4e41",
+    "bytes": 229405,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_small-1/results/run/trajectory.jsonl",
+    "original_sha256": "34fdf520571917d448896bb118fe78e0a322174e701d71514a41b127080a777b",
+    "original_bytes": 1928756,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_small-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_post_overload_small-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_large-2/results/run/trajectory.jsonl.gz",
+    "sha256": "893ceb753fbb81cbdcc226e8f59fa88dd80f4e6b230520fb70c626e0b591f7da",
+    "bytes": 225786,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_large-2/results/run/trajectory.jsonl",
+    "original_sha256": "6c2b9439abd25a62e9a96635eaf59429dc7ca2ab4c123e931249822cbf8f219f",
+    "original_bytes": 1903382,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_large-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_large-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_small-1/results/run/trajectory.jsonl.gz",
+    "sha256": "a05de367c9001a71486a855e155443178121b6b10c5351401dc4df8d3b1a598e",
+    "bytes": 245021,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_small-1/results/run/trajectory.jsonl",
+    "original_sha256": "12fd1842e6bf1027f5f64ae1decbf153ca62b6849499b77b80aacfdb559212f3",
+    "original_bytes": 1931020,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_small-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_small-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_large-1/results/run/trajectory.jsonl.gz",
+    "sha256": "d8769a535fd616ccba9978fe5a13825d59613748d9f3c57dc448517e25c7f3ed",
+    "bytes": 217873,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_large-1/results/run/trajectory.jsonl",
+    "original_sha256": "213cf8606562e15a11a41d8fdd3e0a074ec634395b752fba72e3c4ab406f6971",
+    "original_bytes": 1789252,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_large-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_large-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hd_overload_large-2/results/run/trajectory.jsonl.gz",
+    "sha256": "5e5249b08c159d32fa620995be3d0b2cc008bda84506c4762824c248073874aa",
+    "bytes": 211778,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hd_overload_large-2/results/run/trajectory.jsonl",
+    "original_sha256": "50508eaa9d8a1b2947adf8c25aefe808934463ec8967b5b4fb3e55986914b2d9",
+    "original_bytes": 1790812,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hd_overload_large-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hd_overload_large-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hd_overload_large-1/results/run/trajectory.jsonl.gz",
+    "sha256": "5e5249b08c159d32fa620995be3d0b2cc008bda84506c4762824c248073874aa",
+    "bytes": 211778,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hd_overload_large-1/results/run/trajectory.jsonl",
+    "original_sha256": "50508eaa9d8a1b2947adf8c25aefe808934463ec8967b5b4fb3e55986914b2d9",
+    "original_bytes": 1790812,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hd_overload_large-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hd_overload_large-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_large-2/results/run/trajectory.jsonl.gz",
+    "sha256": "d623bea1b2980b179463790c93322aa012166006d0b85c1e07fc75d0726a84e6",
+    "bytes": 228792,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_large-2/results/run/trajectory.jsonl",
+    "original_sha256": "6414cfea893022f3b7903659f5cc94c1ef8759126dd6fcdf208a0edb586efe8c",
+    "original_bytes": 1903391,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_large-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_large-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_large-2/results/run/trajectory.jsonl.gz",
+    "sha256": "b0ef7990f41f9b7d8338d935a478dc0fc1fecae758834621faaccd673ce31c81",
+    "bytes": 228209,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_large-2/results/run/trajectory.jsonl",
+    "original_sha256": "52ba7d3bc0fcce58a0cad98d6dfa3a468a08d56fb50f814e56413faeb19369b1",
+    "original_bytes": 1906180,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_large-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_large-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_small-2/results/run/trajectory.jsonl.gz",
+    "sha256": "8ae4b1fd75f84ac8c230128ed3959b3c4c2579566b88d4f7bac6b0def6d62b64",
+    "bytes": 220994,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_small-2/results/run/trajectory.jsonl",
+    "original_sha256": "559cfb9d48e470ab6b216455331ccde6b852e06c843928806a288172b63330a2",
+    "original_bytes": 1842272,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_small-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_small-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_small-2/results/run/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_small-2/results/run/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_small-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_baseline_small-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hd_overload_small-2/results/run/trajectory.jsonl.gz",
+    "sha256": "e662621c0e012b27b3ce4ba319c766663717dc3ce7cfc24d26c8b1fafc757f6e",
+    "bytes": 214253,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hd_overload_small-2/results/run/trajectory.jsonl",
+    "original_sha256": "328d8d339c0be371c6b37e47fd572e489a396928d343b0e933ef6a963ad0f19e",
+    "original_bytes": 1842457,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hd_overload_small-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hd_overload_small-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_small-1/results/run/trajectory.jsonl.gz",
+    "sha256": "dc6545f7639d8051c948f92f133edb1245e8016e19cb9c58288581a323401945",
+    "bytes": 235817,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_small-1/results/run/trajectory.jsonl",
+    "original_sha256": "78649aa5a113b3a11c3d7edbde4bbe55d98fef674912e36997b6a0d5d5c7c988",
+    "original_bytes": 1927451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_small-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_small-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hd_overload_small-1/results/run/trajectory.jsonl.gz",
+    "sha256": "e662621c0e012b27b3ce4ba319c766663717dc3ce7cfc24d26c8b1fafc757f6e",
+    "bytes": 214253,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hd_overload_small-1/results/run/trajectory.jsonl",
+    "original_sha256": "328d8d339c0be371c6b37e47fd572e489a396928d343b0e933ef6a963ad0f19e",
+    "original_bytes": 1842457,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hd_overload_small-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hd_overload_small-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_large-1/results/run/trajectory.jsonl.gz",
+    "sha256": "893ceb753fbb81cbdcc226e8f59fa88dd80f4e6b230520fb70c626e0b591f7da",
+    "bytes": 225786,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_large-1/results/run/trajectory.jsonl",
+    "original_sha256": "6c2b9439abd25a62e9a96635eaf59429dc7ca2ab4c123e931249822cbf8f219f",
+    "original_bytes": 1903382,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_large-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_large-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_large-1/results/run/trajectory.jsonl.gz",
+    "sha256": "6e49214b8ae274cd43cc9cb1c43316aac19f33cb7bc48e7467e6ecd9b3f4dffe",
+    "bytes": 232359,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_large-1/results/run/trajectory.jsonl",
+    "original_sha256": "d2c553fbbad93a0986cc6af7751caeaabb708f097ba4c889adb08a0b4be7d821",
+    "original_bytes": 1899701,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_large-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_post_imbalance_large-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_small-1/results/run/trajectory.jsonl.gz",
+    "sha256": "8ae4b1fd75f84ac8c230128ed3959b3c4c2579566b88d4f7bac6b0def6d62b64",
+    "bytes": 220994,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_small-1/results/run/trajectory.jsonl",
+    "original_sha256": "559cfb9d48e470ab6b216455331ccde6b852e06c843928806a288172b63330a2",
+    "original_bytes": 1842272,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_small-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_small-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_large-2/results/run/trajectory.jsonl.gz",
+    "sha256": "6225cacd23a407618c6e25c28745f850e6d9eca86209854fcf11606da321a681",
+    "bytes": 235322,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_large-2/results/run/trajectory.jsonl",
+    "original_sha256": "f46482ebb12bd741e47d796e7366273100899aa12e4ceafa02ad72e5b57bf24f",
+    "original_bytes": 1901630,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_large-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_imbalance_large-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hd_baseline_large-2/results/run/trajectory.jsonl.gz",
+    "sha256": "863bcf93577aecca72507a2412fa280eb8750766e101f1b29e81fdcef1da4f14",
+    "bytes": 211361,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hd_baseline_large-2/results/run/trajectory.jsonl",
+    "original_sha256": "e41a0aa88f0b6e0178c3006c16070d4f2f8190130309dcae83df2dbaa2a40e49",
+    "original_bytes": 1793913,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hd_baseline_large-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hd_baseline_large-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_small-1/results/run/trajectory.jsonl.gz",
+    "sha256": "011cd3dce7c3e5231cb72f8b77cd83a1cc5f4ec56eafe8f4bcf5fe197697c573",
+    "bytes": 239056,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_small-1/results/run/trajectory.jsonl",
+    "original_sha256": "5b7da5c575499786f2fab8dc4b1869234e97ee1286c0eb10f73c4013cd996f5e",
+    "original_bytes": 1931527,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_small-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_pre_overload_small-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_small-2/results/run/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_small-2/results/run/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_small-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hdf_post_baseline_small-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_large-2/results/run/trajectory.jsonl.gz",
+    "sha256": "d8769a535fd616ccba9978fe5a13825d59613748d9f3c57dc448517e25c7f3ed",
+    "bytes": 217873,
+    "original_path": "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_large-2/results/run/trajectory.jsonl",
+    "original_sha256": "213cf8606562e15a11a41d8fdd3e0a074ec634395b752fba72e3c4ab406f6971",
+    "original_bytes": 1789252,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_large-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-matrix-compose/integrated_hd_imbalance_large-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_pressure-1/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m9-preliminary-faults-native/machine_pressure-1/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_pressure-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_pressure-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_air-1/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m9-preliminary-faults-native/machine_air-1/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_air-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_air-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_contaminant-1/trajectory.jsonl.gz",
+    "sha256": "61618aee010be5346e6a31682b9b2ea75b1fc8f637601e3eacbb86be0a4df860",
+    "bytes": 247087,
+    "original_path": "build/m9-preliminary-faults-native/treatment_contaminant-1/trajectory.jsonl",
+    "original_sha256": "c843d45fd36c440b212c7ed6f820a2ba5bb56c2b02696026b5ae75402838c7ad",
+    "original_bytes": 1250130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_contaminant-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_contaminant-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_balance-2/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m9-preliminary-faults-native/machine_balance-2/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_balance-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_balance-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_pressure-2/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m9-preliminary-faults-native/machine_pressure-2/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_pressure-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_pressure-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_supply-2/trajectory.jsonl.gz",
+    "sha256": "f9abba2b77e96009d97aed4d2a914c58fb5d77d5425ff1707ba6e4d9662f9e6a",
+    "bytes": 153781,
+    "original_path": "build/m9-preliminary-faults-native/treatment_supply-2/trajectory.jsonl",
+    "original_sha256": "a6ae6da362689d65de228f7007d5f3025833d7eb94b1d73e3c2394f0e36f84e8",
+    "original_bytes": 1117688,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_supply-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_supply-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_ratio-2/trajectory.jsonl.gz",
+    "sha256": "b87f935fdd0e23e559810217289ea99c4502159f9b3bf098bef63640e08d4ba5",
+    "bytes": 178406,
+    "original_path": "build/m9-preliminary-faults-native/treatment_ratio-2/trajectory.jsonl",
+    "original_sha256": "778973d9d1ceaea45b5ef1a4cf3911fe81d83c147d0d5dbb5cdbeac55ecf8394",
+    "original_bytes": 1140094,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_ratio-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_ratio-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_filter1-1/trajectory.jsonl.gz",
+    "sha256": "8504855f4dd69c4d4d98c54f693ffb463dcb34028232c7219c6f01285bf394cc",
+    "bytes": 153841,
+    "original_path": "build/m9-preliminary-faults-native/treatment_filter1-1/trajectory.jsonl",
+    "original_sha256": "0999cd34d1ac6fb869cec9438d8a9ee0c2bf833bc092726be97ca1c1a3ba7018",
+    "original_bytes": 1123714,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_filter1-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_filter1-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_balance-1/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m9-preliminary-faults-native/machine_balance-1/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_balance-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_balance-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_integrity-2/trajectory.jsonl.gz",
+    "sha256": "a9c5ea6726d19c9f6465509e47edd9159679863a6d70920bc688c3a81ecf6512",
+    "bytes": 153115,
+    "original_path": "build/m9-preliminary-faults-native/treatment_integrity-2/trajectory.jsonl",
+    "original_sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+    "original_bytes": 1119390,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_integrity-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_integrity-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_route-1/trajectory.jsonl.gz",
+    "sha256": "20643a2bdb7610bc1f6d5a751faed89a07ba96535997345582dd983fbc48cc13",
+    "bytes": 153019,
+    "original_path": "build/m9-preliminary-faults-native/treatment_route-1/trajectory.jsonl",
+    "original_sha256": "b8fa5229d6bf1f6c7fc78612cf5b20d50c50c7467a71f38b1ecab504e22ce7e7",
+    "original_bytes": 1117230,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_route-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_route-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_invalid-1/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m9-preliminary-faults-native/machine_invalid-1/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_invalid-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_invalid-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_stall-1/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m9-preliminary-faults-native/machine_stall-1/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_stall-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_stall-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_temperature-2/trajectory.jsonl.gz",
+    "sha256": "1750c520be2bc3af6479a649f5640ed7e902ade8ec05332c5a3c70b99490a5e6",
+    "bytes": 155849,
+    "original_path": "build/m9-preliminary-faults-native/treatment_temperature-2/trajectory.jsonl",
+    "original_sha256": "93e37012d105447f9c0789a8a8467426e96b835308914700c4770329adf7a361",
+    "original_bytes": 1131474,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_temperature-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_temperature-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_ratio-1/trajectory.jsonl.gz",
+    "sha256": "b87f935fdd0e23e559810217289ea99c4502159f9b3bf098bef63640e08d4ba5",
+    "bytes": 178406,
+    "original_path": "build/m9-preliminary-faults-native/treatment_ratio-1/trajectory.jsonl",
+    "original_sha256": "778973d9d1ceaea45b5ef1a4cf3911fe81d83c147d0d5dbb5cdbeac55ecf8394",
+    "original_bytes": 1140094,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_ratio-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_ratio-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_quality-2/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m9-preliminary-faults-native/machine_quality-2/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_quality-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_quality-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_leak-1/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m9-preliminary-faults-native/machine_leak-1/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_leak-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_leak-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_recovery-1/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m9-preliminary-faults-native/machine_recovery-1/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_recovery-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_recovery-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_recovery-2/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m9-preliminary-faults-native/machine_recovery-2/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_recovery-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_recovery-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_air-2/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m9-preliminary-faults-native/machine_air-2/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_air-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_air-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_filter1-2/trajectory.jsonl.gz",
+    "sha256": "8504855f4dd69c4d4d98c54f693ffb463dcb34028232c7219c6f01285bf394cc",
+    "bytes": 153841,
+    "original_path": "build/m9-preliminary-faults-native/treatment_filter1-2/trajectory.jsonl",
+    "original_sha256": "0999cd34d1ac6fb869cec9438d8a9ee0c2bf833bc092726be97ca1c1a3ba7018",
+    "original_bytes": 1123714,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_filter1-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_filter1-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_supply-1/trajectory.jsonl.gz",
+    "sha256": "f9abba2b77e96009d97aed4d2a914c58fb5d77d5425ff1707ba6e4d9662f9e6a",
+    "bytes": 153781,
+    "original_path": "build/m9-preliminary-faults-native/treatment_supply-1/trajectory.jsonl",
+    "original_sha256": "a6ae6da362689d65de228f7007d5f3025833d7eb94b1d73e3c2394f0e36f84e8",
+    "original_bytes": 1117688,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_supply-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_supply-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_quality-1/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m9-preliminary-faults-native/machine_quality-1/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_quality-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_quality-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_route-2/trajectory.jsonl.gz",
+    "sha256": "20643a2bdb7610bc1f6d5a751faed89a07ba96535997345582dd983fbc48cc13",
+    "bytes": 153019,
+    "original_path": "build/m9-preliminary-faults-native/treatment_route-2/trajectory.jsonl",
+    "original_sha256": "b8fa5229d6bf1f6c7fc78612cf5b20d50c50c7467a71f38b1ecab504e22ce7e7",
+    "original_bytes": 1117230,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_route-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_route-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_stall-2/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m9-preliminary-faults-native/machine_stall-2/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_stall-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_stall-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_temperature-1/trajectory.jsonl.gz",
+    "sha256": "1750c520be2bc3af6479a649f5640ed7e902ade8ec05332c5a3c70b99490a5e6",
+    "bytes": 155849,
+    "original_path": "build/m9-preliminary-faults-native/treatment_temperature-1/trajectory.jsonl",
+    "original_sha256": "93e37012d105447f9c0789a8a8467426e96b835308914700c4770329adf7a361",
+    "original_bytes": 1131474,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_temperature-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_temperature-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_contaminant-2/trajectory.jsonl.gz",
+    "sha256": "61618aee010be5346e6a31682b9b2ea75b1fc8f637601e3eacbb86be0a4df860",
+    "bytes": 247087,
+    "original_path": "build/m9-preliminary-faults-native/treatment_contaminant-2/trajectory.jsonl",
+    "original_sha256": "c843d45fd36c440b212c7ed6f820a2ba5bb56c2b02696026b5ae75402838c7ad",
+    "original_bytes": 1250130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_contaminant-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_contaminant-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_invalid-2/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m9-preliminary-faults-native/machine_invalid-2/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_invalid-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_invalid-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/treatment_integrity-1/trajectory.jsonl.gz",
+    "sha256": "a9c5ea6726d19c9f6465509e47edd9159679863a6d70920bc688c3a81ecf6512",
+    "bytes": 153115,
+    "original_path": "build/m9-preliminary-faults-native/treatment_integrity-1/trajectory.jsonl",
+    "original_sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+    "original_bytes": 1119390,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/treatment_integrity-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/treatment_integrity-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-native/machine_leak-2/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m9-preliminary-faults-native/machine_leak-2/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-native/machine_leak-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-native/machine_leak-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_pressure-1/results/run/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m9-preliminary-faults-compose/machine_pressure-1/results/run/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_pressure-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_pressure-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_air-1/results/run/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m9-preliminary-faults-compose/machine_air-1/results/run/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_air-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_air-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_contaminant-1/results/run/trajectory.jsonl.gz",
+    "sha256": "61618aee010be5346e6a31682b9b2ea75b1fc8f637601e3eacbb86be0a4df860",
+    "bytes": 247087,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_contaminant-1/results/run/trajectory.jsonl",
+    "original_sha256": "c843d45fd36c440b212c7ed6f820a2ba5bb56c2b02696026b5ae75402838c7ad",
+    "original_bytes": 1250130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_contaminant-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_contaminant-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_balance-2/results/run/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m9-preliminary-faults-compose/machine_balance-2/results/run/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_balance-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_balance-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_pressure-2/results/run/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m9-preliminary-faults-compose/machine_pressure-2/results/run/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_pressure-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_pressure-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_supply-2/results/run/trajectory.jsonl.gz",
+    "sha256": "f9abba2b77e96009d97aed4d2a914c58fb5d77d5425ff1707ba6e4d9662f9e6a",
+    "bytes": 153781,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_supply-2/results/run/trajectory.jsonl",
+    "original_sha256": "a6ae6da362689d65de228f7007d5f3025833d7eb94b1d73e3c2394f0e36f84e8",
+    "original_bytes": 1117688,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_supply-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_supply-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_ratio-2/results/run/trajectory.jsonl.gz",
+    "sha256": "b87f935fdd0e23e559810217289ea99c4502159f9b3bf098bef63640e08d4ba5",
+    "bytes": 178406,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_ratio-2/results/run/trajectory.jsonl",
+    "original_sha256": "778973d9d1ceaea45b5ef1a4cf3911fe81d83c147d0d5dbb5cdbeac55ecf8394",
+    "original_bytes": 1140094,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_ratio-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_ratio-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_filter1-1/results/run/trajectory.jsonl.gz",
+    "sha256": "8504855f4dd69c4d4d98c54f693ffb463dcb34028232c7219c6f01285bf394cc",
+    "bytes": 153841,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_filter1-1/results/run/trajectory.jsonl",
+    "original_sha256": "0999cd34d1ac6fb869cec9438d8a9ee0c2bf833bc092726be97ca1c1a3ba7018",
+    "original_bytes": 1123714,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_filter1-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_filter1-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_balance-1/results/run/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m9-preliminary-faults-compose/machine_balance-1/results/run/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_balance-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_balance-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_integrity-2/results/run/trajectory.jsonl.gz",
+    "sha256": "a9c5ea6726d19c9f6465509e47edd9159679863a6d70920bc688c3a81ecf6512",
+    "bytes": 153115,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_integrity-2/results/run/trajectory.jsonl",
+    "original_sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+    "original_bytes": 1119390,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_integrity-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_integrity-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_route-1/results/run/trajectory.jsonl.gz",
+    "sha256": "20643a2bdb7610bc1f6d5a751faed89a07ba96535997345582dd983fbc48cc13",
+    "bytes": 153019,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_route-1/results/run/trajectory.jsonl",
+    "original_sha256": "b8fa5229d6bf1f6c7fc78612cf5b20d50c50c7467a71f38b1ecab504e22ce7e7",
+    "original_bytes": 1117230,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_route-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_route-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_invalid-1/results/run/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m9-preliminary-faults-compose/machine_invalid-1/results/run/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_invalid-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_invalid-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_stall-1/results/run/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m9-preliminary-faults-compose/machine_stall-1/results/run/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_stall-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_stall-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_temperature-2/results/run/trajectory.jsonl.gz",
+    "sha256": "1750c520be2bc3af6479a649f5640ed7e902ade8ec05332c5a3c70b99490a5e6",
+    "bytes": 155849,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_temperature-2/results/run/trajectory.jsonl",
+    "original_sha256": "93e37012d105447f9c0789a8a8467426e96b835308914700c4770329adf7a361",
+    "original_bytes": 1131474,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_temperature-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_temperature-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_ratio-1/results/run/trajectory.jsonl.gz",
+    "sha256": "b87f935fdd0e23e559810217289ea99c4502159f9b3bf098bef63640e08d4ba5",
+    "bytes": 178406,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_ratio-1/results/run/trajectory.jsonl",
+    "original_sha256": "778973d9d1ceaea45b5ef1a4cf3911fe81d83c147d0d5dbb5cdbeac55ecf8394",
+    "original_bytes": 1140094,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_ratio-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_ratio-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_quality-2/results/run/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m9-preliminary-faults-compose/machine_quality-2/results/run/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_quality-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_quality-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_leak-1/results/run/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m9-preliminary-faults-compose/machine_leak-1/results/run/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_leak-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_leak-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_recovery-1/results/run/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m9-preliminary-faults-compose/machine_recovery-1/results/run/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_recovery-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_recovery-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_recovery-2/results/run/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m9-preliminary-faults-compose/machine_recovery-2/results/run/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_recovery-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_recovery-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_air-2/results/run/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m9-preliminary-faults-compose/machine_air-2/results/run/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_air-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_air-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_filter1-2/results/run/trajectory.jsonl.gz",
+    "sha256": "8504855f4dd69c4d4d98c54f693ffb463dcb34028232c7219c6f01285bf394cc",
+    "bytes": 153841,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_filter1-2/results/run/trajectory.jsonl",
+    "original_sha256": "0999cd34d1ac6fb869cec9438d8a9ee0c2bf833bc092726be97ca1c1a3ba7018",
+    "original_bytes": 1123714,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_filter1-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_filter1-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_supply-1/results/run/trajectory.jsonl.gz",
+    "sha256": "f9abba2b77e96009d97aed4d2a914c58fb5d77d5425ff1707ba6e4d9662f9e6a",
+    "bytes": 153781,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_supply-1/results/run/trajectory.jsonl",
+    "original_sha256": "a6ae6da362689d65de228f7007d5f3025833d7eb94b1d73e3c2394f0e36f84e8",
+    "original_bytes": 1117688,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_supply-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_supply-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_quality-1/results/run/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m9-preliminary-faults-compose/machine_quality-1/results/run/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_quality-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_quality-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_route-2/results/run/trajectory.jsonl.gz",
+    "sha256": "20643a2bdb7610bc1f6d5a751faed89a07ba96535997345582dd983fbc48cc13",
+    "bytes": 153019,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_route-2/results/run/trajectory.jsonl",
+    "original_sha256": "b8fa5229d6bf1f6c7fc78612cf5b20d50c50c7467a71f38b1ecab504e22ce7e7",
+    "original_bytes": 1117230,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_route-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_route-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_stall-2/results/run/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m9-preliminary-faults-compose/machine_stall-2/results/run/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_stall-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_stall-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_temperature-1/results/run/trajectory.jsonl.gz",
+    "sha256": "1750c520be2bc3af6479a649f5640ed7e902ade8ec05332c5a3c70b99490a5e6",
+    "bytes": 155849,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_temperature-1/results/run/trajectory.jsonl",
+    "original_sha256": "93e37012d105447f9c0789a8a8467426e96b835308914700c4770329adf7a361",
+    "original_bytes": 1131474,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_temperature-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_temperature-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_contaminant-2/results/run/trajectory.jsonl.gz",
+    "sha256": "61618aee010be5346e6a31682b9b2ea75b1fc8f637601e3eacbb86be0a4df860",
+    "bytes": 247087,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_contaminant-2/results/run/trajectory.jsonl",
+    "original_sha256": "c843d45fd36c440b212c7ed6f820a2ba5bb56c2b02696026b5ae75402838c7ad",
+    "original_bytes": 1250130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_contaminant-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_contaminant-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_invalid-2/results/run/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m9-preliminary-faults-compose/machine_invalid-2/results/run/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_invalid-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_invalid-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/treatment_integrity-1/results/run/trajectory.jsonl.gz",
+    "sha256": "a9c5ea6726d19c9f6465509e47edd9159679863a6d70920bc688c3a81ecf6512",
+    "bytes": 153115,
+    "original_path": "build/m9-preliminary-faults-compose/treatment_integrity-1/results/run/trajectory.jsonl",
+    "original_sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+    "original_bytes": 1119390,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/treatment_integrity-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/treatment_integrity-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-faults-compose/machine_leak-2/results/run/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m9-preliminary-faults-compose/machine_leak-2/results/run/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-faults-compose/machine_leak-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-faults-compose/machine_leak-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-feasible-fixture-probes/long70/trajectory.jsonl.gz",
+    "sha256": "01b1c6d5db0a5225172a7dcc9eca5c711e8ad6f416856c06f0238ef1f156e829",
+    "bytes": 1184235,
+    "original_path": "build/m9-feasible-fixture-probes/long70/trajectory.jsonl",
+    "original_sha256": "712bd72e69a22a9f4956ecc4786a6c20aced72e43153deb5a521dc6ae9ef900f",
+    "original_bytes": 7834848,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-feasible-fixture-probes/long70/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-feasible-fixture-probes/long70/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-feasible-fixture-probes/large_capacity/trajectory.jsonl.gz",
+    "sha256": "3362696e3220ff5b3c2b3230420358a92db5a975cf760b89f81d0a8c9a94b8e8",
+    "bytes": 1183986,
+    "original_path": "build/m9-feasible-fixture-probes/large_capacity/trajectory.jsonl",
+    "original_sha256": "5675166804d5b05ec5351d2ee5b0d86b0fca9ec99bffc07c80b737b74ac197e7",
+    "original_bytes": 7883498,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-feasible-fixture-probes/large_capacity/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-feasible-fixture-probes/large_capacity/trajectory.jsonl",
+    "round_trip_verified": true
+  }
+]

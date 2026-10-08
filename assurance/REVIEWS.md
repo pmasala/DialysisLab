@@ -420,3 +420,16 @@ A proposed closure script was rejected by automatic approval review because it
 would rewrite all M1–M9 test states in bulk. It was never applied. Historical
 trace records will remain unchanged; each new M9 acceptance will link only its
 specific checked real results. This rejection did not invoke another code review.
+
+## Final M9 technical closure
+
+The sole review's three findings are fixed in935692a; V6 is fixed in0051ca1 and
+V7 in4e50564.158/158 native/sanitizer tests,72 nominal runs,60 fault runs, four
+fresh100000-tick runs, actual simultaneous UI/console and extracted-source package
+verification pass. Hosted CI37747683346 passes;43 original artifacts recover with
+all21 report/21 command-log hashes checked. `evidence/m9/review.json` links each
+finding to its commit/regression, including preserved failures and ENOSPC recovery.
+Five M9 acceptance proofs are checked individually; historical test records are
+not rewritten. All nine phase review opportunities remain single-use, including
+M1's supplied review. No independent human, clinical or regulatory approval is
+claimed; release obligations remain blocked.

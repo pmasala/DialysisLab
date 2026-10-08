@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "executed_at": "2026-10-08T07:44:09.610743+00:00",
+  "command": [
+    "tools/security_scan.py",
+    "--inventory-dir",
+    "build/m9-corrected-inventory",
+    "--output",
+    "build/m9-corrected-static-scan"
+  ],
+  "source_revision": "935692a5342eb53207406839672a9511c070ed37",
+  "source_sha256": {
+    "src/child_guard.cpp": "34a3ea2d93648d7436acc773cb8f3a78e43fb38d01c33cd34e864789a2243c94",
+    "src/circuit.hpp": "9cf2434b8cee48e66720355f2d2dbbdb506aee44e9e74cb17e142c50fa86c89a",
+    "src/console/client.hpp": "f74043b8ed3b387893a7f976e23df36fb85cccbbbfb2359163123bb612434b68",
+    "src/console/sim_console.cpp": "27d5cc89a8a28ff17b6490ab49b3e4ed53e42bae40022e616ad4d68087ad2a57",
+    "src/control.cpp": "a45e89c4ede496fc714806b4ba8b343c169c486280859cef330995dcb89371f4",
+    "src/device_session.hpp": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd",
+    "src/machine.hpp": "29bcc1c6d1e969c70719c702e41135d65ab765ae9b9dac5f8370a551654fa7db",
+    "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+    "src/online.hpp": "0d05aa4d7454118685063aa7855b3ad19b0834a3e80c06254797902881682af6",
+    "src/plant.cpp": "38f1217cfe79252add8e33bac5a943de20ba4bae9eef2149a76ad4f369f876e0",
+    "src/protection.cpp": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3",
+    "src/ui/client.hpp": "0d01e3ba75e0f852be661aec19177fecbd91a9e34d59f6a080dd625b1e7453a2",
+    "src/ui/device_ui.cpp": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1",
+    "src/ui/font.cpp": "e238e501499703cee48551e02651f79fba619d270820b84c6eceb038a174b996",
+    "src/ui/lv_conf.h": "1620e7f40eb9cd5dbb33decae117b9a41a6e78349fe23a3c807731cb65215305",
+    "src/wire.hpp": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc"
+  },
+  "scope": "Project C/C++ source warnings/performance/portability; missing external-header semantic coverage is explicit. OSV database matches are not exploitability analysis, and absence of matches does not prove package coverage or safety.",
+  "static": {
+    "status": "NO_REPORTED_FINDINGS",
+    "command": [
+      "/usr/bin/cppcheck",
+      "--enable=warning,performance,portability",
+      "--std=c++17",
+      "--xml",
+      "--xml-version=2",
+      "--error-exitcode=1",
+      "-Isrc",
+      "-Isrc/ui",
+      "-Isrc/console",
+      "--suppress=missingIncludeSystem",
+      "src"
+    ],
+    "version": "Cppcheck 2.13.0",
+    "exit_code": 0,
+    "findings": [],
+    "stdout": "Checking src/child_guard.cpp ...\n1/7 files checked 0% done\nChecking src/console/sim_console.cpp ...\n2/7 files checked 18% done\nChecking src/control.cpp ...\n3/7 files checked 25% done\nChecking src/plant.cpp ...\n4/7 files checked 55% done\nChecking src/protection.cpp ...\n5/7 files checked 61% done\nChecking src/ui/device_ui.cpp ...\n6/7 files checked 95% done\nChecking src/ui/font.cpp ...\n7/7 files checked 100% done\n",
+    "stderr_xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<results version=\"2\">\n    <cppcheck version=\"2.13.0\"/>\n    <errors>\n    </errors>\n</results>\n"
+  },
+  "advisories": null
+}

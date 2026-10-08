@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
-  "description": "Six incomplete broad roadmap chains and implemented M1-M7 requirements. Active software regression evidence identifies M7 clean correction build; earlier executions remain historical. Independent assurance and standards obligations unchanged.",
+  "description": "Implemented bounded M1-M9 simulator and individually linked software evidence. Historical M1-M8 test records are preserved unchanged. M9 proofs identify actual builds/configurations separately; clinical/model validation, substantive independent review and normative release obligations remain open.",
   "needs": [
     {
       "id": "NEED-001",
@@ -2359,7 +2359,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "65e0d358d41729dfb92caef919580e5a3d2874e224096f51c838c3f42df362e4"
+          "sha256": "33f4994d182f852a6a140da6797f7df6fcb1712da1b9a45cf660b22a123536fa"
         },
         {
           "path": "docs/dependencies/CI_NOTICES.md",
@@ -2414,11 +2414,11 @@
         },
         {
           "path": "docs/M9_INTEGRATION.md",
-          "sha256": "d98a239566a622a3258f44db23548a04827ae9eb9309b7aa117a8f2e90454368"
+          "sha256": "c2912a6edb78e712aad38c40dc34ce6d852435a05aa331b67d3431089a484adf"
         }
       ],
       "unresolved": [
-        "Sole review consumed; corrections pass targeted regressions. Final corrected matrix/long/package/hosted evidence pending. Model calibration, clinical/usability validation, advisory risk acceptance and standards obligations remain open."
+        "The specified technical acceptance has actual linked evidence. Model/clinical/usability validation, independent human review, open dependency advisory findings and recorded normative release obligations remain open."
       ]
     },
     {
@@ -2451,7 +2451,7 @@
         }
       ],
       "unresolved": [
-        "Sole review consumed; corrections pass targeted regressions. Final corrected matrix/long/package/hosted evidence pending. Model calibration, clinical/usability validation, advisory risk acceptance and standards obligations remain open."
+        "The specified technical acceptance has actual linked evidence. Model/clinical/usability validation, independent human review, open dependency advisory findings and recorded normative release obligations remain open."
       ]
     },
     {
@@ -2494,7 +2494,7 @@
         }
       ],
       "unresolved": [
-        "Sole review consumed; corrections pass targeted regressions. Final corrected matrix/long/package/hosted evidence pending. Model calibration, clinical/usability validation, advisory risk acceptance and standards obligations remain open."
+        "The specified technical acceptance has actual linked evidence. Model/clinical/usability validation, independent human review, open dependency advisory findings and recorded normative release obligations remain open."
       ]
     },
     {
@@ -2527,11 +2527,11 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "65e0d358d41729dfb92caef919580e5a3d2874e224096f51c838c3f42df362e4"
+          "sha256": "33f4994d182f852a6a140da6797f7df6fcb1712da1b9a45cf660b22a123536fa"
         }
       ],
       "unresolved": [
-        "Sole review consumed; corrections pass targeted regressions. Final corrected matrix/long/package/hosted evidence pending. Model calibration, clinical/usability validation, advisory risk acceptance and standards obligations remain open."
+        "The specified technical acceptance has actual linked evidence. Model/clinical/usability validation, independent human review, open dependency advisory findings and recorded normative release obligations remain open."
       ]
     },
     {
@@ -2568,7 +2568,7 @@
         },
         {
           "path": "README.md",
-          "sha256": "c09bbb472fd0ca9bd1850cfb0edaee29ce09994cc4923f3fde5b7b1a0a1405a7"
+          "sha256": "5cabce9c5978bd7ae934728df6a9e518187bbe121cfa3b999d299f4d858b460f"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -2576,7 +2576,7 @@
         }
       ],
       "unresolved": [
-        "Sole review consumed; corrections pass targeted regressions. Final corrected matrix/long/package/hosted evidence pending. Model calibration, clinical/usability validation, advisory risk acceptance and standards obligations remain open."
+        "The specified technical acceptance has actual linked evidence. Model/clinical/usability validation, independent human review, open dependency advisory findings and recorded normative release obligations remain open."
       ]
     }
   ],
@@ -5030,8 +5030,16 @@
       ],
       "procedure": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
       "expected": "18 configurations twice natively/twice Compose; exact replay, complete lifecycle and independent water/species conservation <=1e-6",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m9/m9-test-001.json",
+        "sha256": "febed1671f6e5bfbec3e22b9631203f297d29b0ace66f4c0b6fd72417aefa2e5",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m9-m9-test-001-935692a-4e50564",
+        "executed_at": "2026-10-08T09:05:16.830503+00:00",
+        "reviewer": "Automated execution and one defect review; independent human assurance approval remains open.",
+        "environment": "Actual WSL2/Linux processes, pinned Docker128MiB services, real LVGL/ImGui headless/WSLg clients and hosted Ubuntu CI; exact per-result builds/configurations are in the linked artifacts."
+      }
     },
     {
       "id": "M9-TEST-002",
@@ -5040,8 +5048,16 @@
       ],
       "procedure": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
       "expected": "Two native/two Compose100000-tick HDF runs; >99000 treatment ticks, grossUF>100000mL, RSS<=64MiB/no OOM at128MiB",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m9/m9-test-002.json",
+        "sha256": "11dc21c48852497ba8520f4088e46bf292061ae859363a9689f1e2401e3f9ef2",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m9-m9-test-002-935692a-4e50564",
+        "executed_at": "2026-10-08T09:05:17.133682+00:00",
+        "reviewer": "Automated execution and one defect review; independent human assurance approval remains open.",
+        "environment": "Actual WSL2/Linux processes, pinned Docker128MiB services, real LVGL/ImGui headless/WSLg clients and hosted Ubuntu CI; exact per-result builds/configurations are in the linked artifacts."
+      }
     },
     {
       "id": "M9-TEST-003",
@@ -5050,8 +5066,16 @@
       ],
       "procedure": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
       "expected": "Actual widget pause/replay/STOP/cancellation/state/epoch/isolation tests, headless and WSLg",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m9/m9-test-003.json",
+        "sha256": "2a688d782ff5ca82ed8a6b17000d950de8d4c68274bdff548b33a5bd07bb98b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m9-m9-test-003-935692a-4e50564",
+        "executed_at": "2026-10-08T09:05:17.136217+00:00",
+        "reviewer": "Automated execution and one defect review; independent human assurance approval remains open.",
+        "environment": "Actual WSL2/Linux processes, pinned Docker128MiB services, real LVGL/ImGui headless/WSLg clients and hosted Ubuntu CI; exact per-result builds/configurations are in the linked artifacts."
+      }
     },
     {
       "id": "M9-TEST-004",
@@ -5060,8 +5084,16 @@
       ],
       "procedure": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
       "expected": "Identical allowlisted archives and real build/tests/widgets from extracted sources",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m9/m9-test-004.json",
+        "sha256": "1d384dd5a55ee5cd8348afff79d3b36a34e0413bf142bf60d36656be1800c0a7",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m9-m9-test-004-935692a-4e50564",
+        "executed_at": "2026-10-08T09:05:17.153703+00:00",
+        "reviewer": "Automated execution and one defect review; independent human assurance approval remains open.",
+        "environment": "Actual WSL2/Linux processes, pinned Docker128MiB services, real LVGL/ImGui headless/WSLg clients and hosted Ubuntu CI; exact per-result builds/configurations are in the linked artifacts."
+      }
     },
     {
       "id": "M9-TEST-005",
@@ -5070,8 +5102,16 @@
       ],
       "procedure": "Execute the predeclared M9 integration/package matrix and retain actual identified artifacts.",
       "expected": "Identified actual CI recovery, commands, model limits, trace links and unchanged open release obligations",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m9/m9-test-005.json",
+        "sha256": "8322a5bb1afd0c7bbd06c848b1b5fb6b9ed2c2dcb38904511e1e83598f71f459",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m9-m9-test-005-935692a-4e50564",
+        "executed_at": "2026-10-08T09:05:17.158520+00:00",
+        "reviewer": "Automated execution and one defect review; independent human assurance approval remains open.",
+        "environment": "Actual WSL2/Linux processes, pinned Docker128MiB services, real LVGL/ImGui headless/WSLg clients and hosted Ubuntu CI; exact per-result builds/configurations are in the linked artifacts."
+      }
     }
   ],
   "prerequisites": [
@@ -5138,5 +5178,6 @@
       "reviewer": null,
       "evidence": null
     }
-  ]
+  ],
+  "baseline_note": "The existing M8 assurance anchor is retained to preserve historical evidence identity under schema1. It is not the current software revision: each new M9 proof identifies its actual935692a runtime and4e50564 verification/package/CI inputs. No historical test has been relabeled as executed on newer source."
 }

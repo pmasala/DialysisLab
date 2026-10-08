@@ -1,0 +1,626 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "bom-ref": "lvgl",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b20ee3acc1bba13c62d854f9ebd62e4c51e0b443b1e0225892e86442defa84df"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "lvgl",
+      "properties": [
+        {
+          "name": "dialysislab:archive",
+          "value": "https://codeload.github.com/lvgl/lvgl/tar.gz/refs/tags/v9.6.0"
+        },
+        {
+          "name": "dialysislab:commit",
+          "value": "80ca777e37a2b176770726a02e07a6fb79ef0b39"
+        },
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        }
+      ],
+      "type": "library",
+      "version": "9.6.0"
+    },
+    {
+      "bom-ref": "SDL2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Zlib AND MIT AND BSD-3-Clause"
+        }
+      ],
+      "name": "SDL2",
+      "properties": [
+        {
+          "name": "dialysislab:archive",
+          "value": "https://www.libsdl.org/release/SDL2-2.32.10.tar.gz"
+        },
+        {
+          "name": "dialysislab:commit",
+          "value": "5d249570393f7a37e037abf22cd6012a4cc56a71"
+        },
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        }
+      ],
+      "type": "library",
+      "version": "2.32.10"
+    },
+    {
+      "bom-ref": "Dear ImGui",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "21d8a0a565e85dce943e375db00812c2f3f0ab21f3f0f7964e364a63422d7f99"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "Dear ImGui",
+      "properties": [
+        {
+          "name": "dialysislab:archive",
+          "value": "https://codeload.github.com/ocornut/imgui/tar.gz/refs/tags/v1.92.9b"
+        },
+        {
+          "name": "dialysislab:commit",
+          "value": "f1cc2ae15e53a861a874c3034aae6798fde194ab"
+        },
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        }
+      ],
+      "type": "library",
+      "version": "1.92.9b"
+    },
+    {
+      "bom-ref": "SDL key symbols and EDID",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "SDL key symbols and EDID",
+      "properties": [
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        },
+        {
+          "name": "dialysislab:parent",
+          "value": "SDL2"
+        }
+      ],
+      "type": "library",
+      "version": "bundled with pinned parent"
+    },
+    {
+      "bom-ref": "SDL yuv2rgb",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "SDL yuv2rgb",
+      "properties": [
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        },
+        {
+          "name": "dialysislab:parent",
+          "value": "SDL2"
+        }
+      ],
+      "type": "library",
+      "version": "bundled with pinned parent"
+    },
+    {
+      "bom-ref": "imstb rectpack textedit truetype",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "imstb rectpack textedit truetype",
+      "properties": [
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        },
+        {
+          "name": "dialysislab:parent",
+          "value": "Dear ImGui"
+        }
+      ],
+      "type": "library",
+      "version": "bundled with pinned parent"
+    },
+    {
+      "bom-ref": "ProggyClean",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "ProggyClean",
+      "properties": [
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        },
+        {
+          "name": "dialysislab:parent",
+          "value": "Dear ImGui"
+        }
+      ],
+      "type": "library",
+      "version": "bundled with pinned parent"
+    },
+    {
+      "bom-ref": "ProggyForever",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "ProggyForever",
+      "properties": [
+        {
+          "name": "dialysislab:notice",
+          "value": "docs/dependencies/GUI_NOTICES.md"
+        },
+        {
+          "name": "dialysislab:parent",
+          "value": "Dear ImGui"
+        }
+      ],
+      "type": "library",
+      "version": "bundled with pinned parent"
+    },
+    {
+      "bom-ref": "DialysisLab original bitmap font",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e238e501499703cee48551e02651f79fba619d270820b84c6eceb038a174b996"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "DialysisLab original bitmap font",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "binary:plant",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "554f7659237fe19c4c8b8f494e73705cdae4e1403c0ac6d67515ca3be9e1d379"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "binary:plant",
+      "type": "application",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "binary:control",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "184ff5dcaa5940efab5f076e39b300b74cc8b5bef51d348bf4cc39ce5fc7afdc"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "binary:control",
+      "type": "application",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "binary:protection",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "10e02d04638b0820e3ae94bdaee2b4b0e7b98b40ffbb22f186c112eb31e27252"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "binary:protection",
+      "type": "application",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "binary:child-guard",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "41225b4de807a52c4e6e37cdbee189aa654622ebe270901c026666217472f67a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "binary:child-guard",
+      "type": "application",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "binary:device-ui",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "64245e2d9d6da19e34f63f0e834997ec4ace404e59f94b5c0a8004d17e1d7f53"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause AND MIT AND Zlib"
+        }
+      ],
+      "name": "binary:device-ui",
+      "type": "application",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "binary:sim-console",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "66ad6cd3f99eb0a91b746e1c1c85458bde6564b63f4b862ff9eaf34255128e9c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause AND MIT AND Zlib"
+        }
+      ],
+      "name": "binary:sim-console",
+      "type": "application",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/__init__.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/__init__.py",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/circuit.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f88fcefafe538d09996ed6bea896d0018596635c931a3a4314f5f04b7c2d4928"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/circuit.py",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/compartments.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d18bb2176b1415b6fbf3dbf6d32accec214a1691d82e3ff2be05e470f443e9bd"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/compartments.py",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/experiment_rpc.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/experiment_rpc.py",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/experiments.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/experiments.py",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/machine.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dd03e344e6e141d3bd01dcfb744288a2a89ad50f0652e992c129eb5f80a510f3"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/machine.py",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/patient.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/patient.py",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/protocol.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/protocol.py",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/role_supervisor.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/role_supervisor.py",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/runner.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "299456d7bf33b4c552ddfba2eedeff2950c62199014ad4d5e60545fb3b1fd94b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/runner.py",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/trajectory.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0cd9026cc01878f359cc1edef63b6915a41266b5e9c2fa56478e7e07730a72a1"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/trajectory.py",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/treatment.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4d6712cd02ac9004c4fc74885f26f15fd88e8df24d2fb7a18d85051e2612d79d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/treatment.py",
+      "type": "file",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    }
+  ],
+  "dependencies": [
+    {
+      "dependsOn": [],
+      "ref": "lvgl"
+    },
+    {
+      "dependsOn": [
+        "SDL key symbols and EDID",
+        "SDL yuv2rgb"
+      ],
+      "ref": "SDL2"
+    },
+    {
+      "dependsOn": [
+        "imstb rectpack textedit truetype",
+        "ProggyClean",
+        "ProggyForever"
+      ],
+      "ref": "Dear ImGui"
+    },
+    {
+      "dependsOn": [],
+      "ref": "binary:plant"
+    },
+    {
+      "dependsOn": [],
+      "ref": "binary:control"
+    },
+    {
+      "dependsOn": [],
+      "ref": "binary:protection"
+    },
+    {
+      "dependsOn": [],
+      "ref": "binary:child-guard"
+    },
+    {
+      "dependsOn": [
+        "lvgl",
+        "SDL2",
+        "DialysisLab original bitmap font"
+      ],
+      "ref": "binary:device-ui"
+    },
+    {
+      "dependsOn": [
+        "SDL2",
+        "Dear ImGui"
+      ],
+      "ref": "binary:sim-console"
+    },
+    {
+      "dependsOn": [
+        "binary:plant",
+        "binary:control",
+        "binary:protection",
+        "binary:child-guard",
+        "binary:device-ui",
+        "binary:sim-console",
+        "module:python/dialysislab/__init__.py",
+        "module:python/dialysislab/circuit.py",
+        "module:python/dialysislab/compartments.py",
+        "module:python/dialysislab/experiment_rpc.py",
+        "module:python/dialysislab/experiments.py",
+        "module:python/dialysislab/machine.py",
+        "module:python/dialysislab/patient.py",
+        "module:python/dialysislab/protocol.py",
+        "module:python/dialysislab/role_supervisor.py",
+        "module:python/dialysislab/runner.py",
+        "module:python/dialysislab/trajectory.py",
+        "module:python/dialysislab/treatment.py"
+      ],
+      "ref": "DialysisLab"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "bom-ref": "DialysisLab",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "DialysisLab",
+      "type": "application",
+      "version": "935692a5342eb53207406839672a9511c070ed37"
+    }
+  },
+  "properties": [
+    {
+      "name": "dialysislab:scope",
+      "value": "Selected application and built executable identities; platform/CI tools separately inventoried, not complete image license clearance."
+    },
+    {
+      "name": "dialysislab:build-sha256",
+      "value": "8bd135821a3dfa7eb69994a89438dc4d264d3e7168682d667478753ea98204eb"
+    }
+  ],
+  "specVersion": "1.6",
+  "version": 1
+}

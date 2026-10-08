@@ -1,0 +1,6 @@
+{
+  "path": "build/m9-storage-hosted-ci.log",
+  "sha256": "e011f9edef937ca5a85cc268b8c4d91a37bfb93029b06347c6519d4332d890b9",
+  "recovery_command": "python3 tools/ci_artifacts.py --log build/m9-storage-hosted-ci.log --output build/m9-storage-hosted-recovered",
+  "verified_original_artifacts": 43
+}
