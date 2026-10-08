@@ -41,7 +41,9 @@ SOURCE_REVISION=$(git rev-parse HEAD) docker compose build
 python3 tools/verify_models.py --compose --scenarios machine_hd machine_hdf_pre machine_hdf_post machine_recovery --output build/machine-compose
 ```
 
-Use fresh output paths. The full required roadmap remains in `docs/MILESTONES.md`;
+Use fresh output paths. The [M5 evidence](assurance/evidence/m5/README.md) records the verified build,
+review corrections, full process/Compose runs and retained failures. The full
+required roadmap remains in `docs/MILESTONES.md`;
 software/numerical verification is separate from model calibration, clinical
 validation, actual fluid quality and standards conformity.
 

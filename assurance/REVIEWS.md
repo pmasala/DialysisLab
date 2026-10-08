@@ -88,7 +88,7 @@ confirmed native HALT, exact hashes and unchanged RSS limits. [Evidence](evidenc
 
 Not yet invoked. Freeze phase base/candidate and retain one command/output per phase.
 
-## M5 — single review completed; corrections in verification
+## M5 — single review completed; findings fixed and verified
 
 - Base: `e1c8ae2c28cea14ac195e62cfb87ac9a8bb02e6e`.
 - Candidate: `a490984dbcf807cd08a0ce1a1a1702f95c6db613`.
@@ -105,8 +105,8 @@ Not yet invoked. Freeze phase base/candidate and retain one command/output per p
   cross-check actual rates/volumes, clamp, quality/blood latches and alarm names.
   Regression: `test_evidence_cross_checks_alarm_mask_latches_and_every_actuator_class`.
 
-Both findings are applicable; correction commit/final evidence will be recorded
-after actual regression results. No second review is authorized or planned.
+Both findings are applicable; correction commits and actual final evidence are
+recorded below. No second review is authorized or planned.
 The AI review is not human, clinical or regulatory approval.
 
 M5-R1/R2 corrections: `c54422c`, 20/20 targeted regressions passed. The first
@@ -120,3 +120,10 @@ finite representable subnormals while rejecting overflow/unrepresentable underfl
 hex and nonfinite values. The actual transport-boundary regression passes. Repeat
 all pertinent verification against the final clean correction build; preliminary
 runs concurrent with follow-up edits are diagnostic, not final evidence.
+
+M5 final disposition: implementation `443f73f` passes 108/108 native and sanitizer
+tests, 22 native/22 Compose short runs, 12 compatibility plus four M1 Compose runs,
+three isolation probes and two native/two Compose 100000-tick priming runs. Both
+review findings and M5-V1 are fixed. See `evidence/m5/review.json`,
+`evidence/m5/summary.json` and `evidence/m5/README.md` for commits, commands, actual
+results, retained failures and limitations. No second review was performed.

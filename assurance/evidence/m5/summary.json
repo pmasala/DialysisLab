@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "phase": "M5",
+  "technical_status": "COMPLETE",
+  "executed_at": "2026-10-08T01:20:14.705727+00:00",
+  "implementation_commit": "443f73f4aef36a4f293520f33c889e2c2d8c651b",
+  "build_worktree_clean": true,
+  "native_tests": 108,
+  "sanitizer_tests": 108,
+  "short_native_runs": 22,
+  "short_compose_runs": 22,
+  "compatibility_m2_m4_compose_runs": 12,
+  "m1_compose_runs": 4,
+  "isolation_probes": 3,
+  "long_native_runs": 2,
+  "long_compose_runs": 2,
+  "ticks_per_long_run": 100000,
+  "long_trajectory_sha256": "57fefc9faa80ce87965c1b023e4d483bc8084e0c3b3808be10e7b8c791554030",
+  "cross_build_exact_replay": true,
+  "maximum_water_residual_mL": 4.3655745685100555e-11,
+  "maximum_mass_residual_mmol": 9.96487337090457e-10,
+  "tolerance_mL_mmol": 1e-06,
+  "long_final_body_mL": 100000,
+  "long_flush_input_mL": 333320.0666666667,
+  "runner_compose_peak_rss_bytes": 23277568,
+  "runner_rss_acceptance_bytes": 67108864,
+  "compose_limit_bytes": 134217728,
+  "cgroup_peak_including_cache_bytes": 134217728,
+  "native_sampled_peak_rss_bytes": 20758528,
+  "native_memory_method": "Separate child process, /proc/PID/status VmRSS/VmHWM sampled every second; process-lifetime ru_maxrss retained separately in manifests.",
+  "oom_kills": 0,
+  "review_invocations": 1,
+  "review_findings_fixed": 2,
+  "additional_integration_findings_fixed": 1,
+  "scope": "Synthetic software/numerical verification only; no clinical calibration, validated detector physics, disinfection, quality-barrier validation, hardware independence, human risk acceptance or standards conformity.",
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m5/compat-compose.json",
+      "sha256": "a5fff7aabe2678e01b15e94cd0f240532301158decf24b0a97a30e43d72c6506"
+    },
+    {
+      "path": "assurance/evidence/m5/compose-models.json",
+      "sha256": "632e7b091a3c43d492600625f8695745b47aad6396593a58e4583fd20a138e86"
+    },
+    {
+      "path": "assurance/evidence/m5/failed-attempts.json",
+      "sha256": "70396a31e691be84152925ba6ba43408dd55acec78579e395fda54f797687991"
+    },
+    {
+      "path": "assurance/evidence/m5/long-compose.json",
+      "sha256": "30f450c44917d2f247a19a7fdc8a7c9070b4355f194b20a015165faaf8dbf4bf"
+    },
+    {
+      "path": "assurance/evidence/m5/long-native.json",
+      "sha256": "a94ee34b87852840175dcc05a18d72fad83967f68902ba8e1380d64aabebfa6f"
+    },
+    {
+      "path": "assurance/evidence/m5/m1-compose.json",
+      "sha256": "52ade2bc404b5b49e2eef098c832649773d6a9842fe7a13f7db4f58f30467ac9"
+    },
+    {
+      "path": "assurance/evidence/m5/machine_hd/manifest.json",
+      "sha256": "eb5f2d1c8f52e7fccf195b3242ff8efaa9c63d1e28e652868dbb3bd26831201d"
+    },
+    {
+      "path": "assurance/evidence/m5/machine_hd/trajectory.jsonl",
+      "sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725"
+    },
+    {
+      "path": "assurance/evidence/m5/machine_hdf_post/manifest.json",
+      "sha256": "56f7cfa76c88c3f5b1b81fbaf83cc001b40ff973320226d54ccadb6da59d3a92"
+    },
+    {
+      "path": "assurance/evidence/m5/machine_hdf_post/trajectory.jsonl",
+      "sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d"
+    },
+    {
+      "path": "assurance/evidence/m5/machine_hdf_pre/manifest.json",
+      "sha256": "18643fd498d0e8bf450b0b8137ccf69ca9cd1835f85761f21b4b7cddc7dd7cc7"
+    },
+    {
+      "path": "assurance/evidence/m5/machine_hdf_pre/trajectory.jsonl",
+      "sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903"
+    },
+    {
+      "path": "assurance/evidence/m5/machine_recovery/manifest.json",
+      "sha256": "4dd5896ead365641c820d275a4a1435cbe3b00be128ebd01090b8330e5932809"
+    },
+    {
+      "path": "assurance/evidence/m5/machine_recovery/trajectory.jsonl",
+      "sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175"
+    },
+    {
+      "path": "assurance/evidence/m5/native-memory.jsonl",
+      "sha256": "e8d2e250f816afa7d4682fc59c1048c48261be7a9da4e981f4a485f74688a055"
+    },
+    {
+      "path": "assurance/evidence/m5/native-models.json",
+      "sha256": "7b1b3a1b911149fa01eb966bc0bb208437606359aec3fb4787acaaa348195027"
+    },
+    {
+      "path": "assurance/evidence/m5/native-tests.json",
+      "sha256": "82a71c48bbd941d33af51bf12b39eece6faa2f9f455d8fbcc27525f43c4b7bd6"
+    },
+    {
+      "path": "assurance/evidence/m5/review.json",
+      "sha256": "7961ce5ae479fa49bef0e00557bec198fbd97bd82754029be89e782923d28a43"
+    },
+    {
+      "path": "assurance/evidence/m5/sanitizer-tests.json",
+      "sha256": "6ccd77d11d836811cd86bb244c15931cf94e3061ee1300d4f9986212f19ec550"
+    }
+  ]
+}

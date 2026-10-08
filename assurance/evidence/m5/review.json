@@ -1,0 +1,55 @@
+{
+  "phase": "M5",
+  "base": "e1c8ae2c28cea14ac195e62cfb87ac9a8bb02e6e",
+  "candidate": "a490984dbcf807cd08a0ce1a1a1702f95c6db613",
+  "invocations": 1,
+  "command": [
+    "codex",
+    "-c",
+    "sandbox_mode=\"read-only\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "-c",
+    "developer_instructions=\"Read-only automatic M5 phase review. Analyze the complete diff against the fixed base for concrete behavioral, safety, concurrency, resource, numerical, interface and evidence defects. Never edit project files, do not start recursive reviewers, and do not access private licensed standards or extracts. Existing M1-M4 reviews are consumed; focus on new M5 changes and regressions. Simulation only; do not claim clinical or regulatory approval. Report actionable findings with severity, scenario, file and line.\"",
+    "review",
+    "--base",
+    "e1c8ae2c28cea14ac195e62cfb87ac9a8bb02e6e"
+  ],
+  "status": "FINDINGS_FIXED_AND_REGRESSION_PASSED",
+  "started_at": "2026-10-08T00:42:37.357320+00:00",
+  "exit_code": 0,
+  "finished_at": "2026-10-08T00:49:58.262104+00:00",
+  "full_output_path": "build/reviews/m5-output.txt",
+  "full_output_sha256": "6de947d99ac0302f30c4fcfe0ce8f2c153da608066487406809ea2e366985b07",
+  "final_output": "Flush-accounting roundoff can abort a valid isolated run, and the M5 evidence verifier accepts contradictory alarm/output records. Both issues were reproduced with read-only, in-memory checks.\n\nFull review comments:\n\n- [P2] Keep flush-counter cancellation out of isolated body volume \u2014 /home/pietro/DialysisLab/python/dialysislab/compartments.py:199-201\n  For a valid 100000 mL patient, prolonged isolated priming can abort solely from roundoff. Using the standard one-node circuit with 1000 ms ticks, tick 12713 reconstructs the unchanged body volume as 100000.00000000001 mL and triggers `compartment volume outside model bounds`. Independently compensated source/waste totals still lose precision when subtracted. Preserve the isolated patient balance without allowing cancellation between accumulated flush counters and circuit storage to perturb it.\n\n- [P2] Verify actuator constraints against the M5 alarm mask \u2014 /home/pietro/DialysisLab/tools/verify_models.py:95-98\n  The new evidence checks gate outputs by lifecycle stage but never check the authoritative alarm mask. Changing treatment record 110 in the HD fixture to `alarm_mask=4` with an air alarm, retaining blood flow around 201.67 mL/min and UF at 5 mL/min, and recomputing the trajectory hash still passes `verify()`. Consequently, contradictory M5 protection evidence can be accepted. Derive the required blood/fluid isolation from the machine mask and cross-check actual outputs and the redundant latch fields.",
+  "correction_commit": "c54422c65ef3c11fc2268d3e3ce70fcb64c76d36",
+  "findings": [
+    {
+      "id": "M5-R1",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_isolated_100000_tick_flush_keeps_body_ceiling_and_conserves_mass; machine_priming_100000 native/Compose",
+      "correction_commit": "c54422c65ef3c11fc2268d3e3ce70fcb64c76d36",
+      "evidence": "assurance/evidence/m5/native-tests.json"
+    },
+    {
+      "id": "M5-R2",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_evidence_cross_checks_alarm_mask_latches_and_every_actuator_class",
+      "correction_commit": "c54422c65ef3c11fc2268d3e3ce70fcb64c76d36",
+      "evidence": "assurance/evidence/m5/native-tests.json"
+    }
+  ],
+  "integration_findings": [
+    {
+      "id": "M5-V1",
+      "severity": "P2",
+      "problem": "Finite subnormal transport concentration rejected at real priming tick 4662",
+      "disposition": "fixed",
+      "test": "test_real_transport_accepts_representable_subnormal_concentrations; machine_priming_100000",
+      "correction_commit": "443f73f4aef36a4f293520f33c889e2c2d8c651b",
+      "evidence": "assurance/evidence/m5/long-native.json and long-compose.json"
+    }
+  ]
+}

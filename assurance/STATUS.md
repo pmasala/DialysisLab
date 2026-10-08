@@ -2,94 +2,72 @@
 
 ## Integrated execution checkpoint — 2026-10-08
 
-Branch `feat/integrated-dialysis-roadmap`, published through verified M4 checkpoint. M1–M4 technical scope COMPLETE;
-M5 IN PROGRESS; M6–M9 PLANNED. The full project remains incomplete.
+Branch `feat/integrated-dialysis-roadmap`. Technical phases M1–M5 COMPLETE;
+M6 NEXT; M7–M9 PLANNED. The full project remains incomplete.
 
-M4 implementation `cca9ce6` passes 87/87 native and 87/87 sanitizer tests, 24 native/
-24 Compose treatment scenarios, 14 M2/M3 and four M1 Compose regressions plus two
-isolation probes. Two native/two Compose 100000-tick runs pass with identical
-hashes, gross UF 166665 mL, positive body water, confirmed native HALT and no OOM.
-Runner Docker RSS peaks at 22.31 MiB; cgroup file cache reaches the 128 MiB budget.
-See [M4 evidence and measurement limits](evidence/m4/README.md). Its single review
-found one P1/five P2 defects, all fixed and verified. No M1–M4 review may be rerun.
+M5 implementation `443f73f` passes 108/108 native and 108/108 sanitizer tests,
+22 native/22 Compose workflows with exact replay, 12 M2–M4 Compose compatibility
+runs, four M1 runs and three isolation probes. Two native/two Compose 100000-tick
+priming runs pass at the 100000 mL body-volume ceiling; no OOM, Docker runner RSS
+22.20 MiB within 128 MiB, with reclaimable file cache reaching the total limit.
+Independent water/species errors stay below 1e-6. Full results and commands:
+[M5 evidence](evidence/m5/README.md).
 
-M5 candidate `a490984` passed 105/105 native and sanitizer tests, 22 native/22
-Compose workflows with identical hashes, 12 M2–M4 Compose compatibility runs,
-four M1 runs and three isolation probes. Its single review completed (exit 0)
-with two applicable P2 findings: isolated flush/body roundoff and incomplete
-alarm-mask evidence checks. Both fixes are implemented; targeted regressions
-passed (20/20), committed as `c54422c`. The first real long runs both exposed
-a finite-subnormal parser rejection at tick 4662; failed artifacts are retained.
-That integration defect is now fixed and its actual transport regression passes.
-Next executable step: commit this follow-up, reconfigure a clean build, repeat
-final regressions and the 100000-tick priming case in native/Compose,
-record evidence, then proceed to M6. M5 review is consumed; never rerun it.
-Exact review metadata/output: `build/reviews/m5.json`, `build/reviews/m5-output.txt`.
-GUI feasibility and design notes remain in `build/dependency-inspection/` and
-`build/m6-design-notes.md`; no new third-party dependency is adopted by M5.
+The single M5 review found two P2 defects, fixed in `c54422c`; subsequent real
+integration exposed finite-subnormal parsing, fixed in `443f73f`. Both failed-run
+artifacts and all final results are retained. M1–M5 reviews are consumed: never
+rerun them. M6 has not been reviewed.
 
-Persistent checkpoints: [plan](../docs/MILESTONES.md),
-[decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md). The synthetic hydraulic, patient and treatment models are numerically tested but
-uncalibrated. Lifecycle/alarm workflows, UI/console, hardening/CI and final
-integration remain to be implemented. All
-independent assurance and regulatory release obligations remain open.
+Next executable step: freeze the M6 base at this verified evidence checkpoint,
+record requirements/acceptance and implement the real LVGL device UI, including
+session-aware requests, stale data/reconnection, input/confirmation flows and
+actual native/Compose graphical/headless evidence. Continue automatically through
+M7–M9. Feasibility (not UI implementation) and dependency inspections are retained
+in `build/dependency-inspection/` and `build/m6-design-notes.md`. WSLg X11 software
+windows and LVGL with an original font have actually rendered; no third-party GUI
+dependency is adopted by M5.
 
-Review update, 8 October 2026: the three M1 review defects are corrected and have
-passed real process and Docker regression checks. The tested implementation is
-`da5ccc2`; [current evidence](evidence/m1-review/README.md) records exact commands,
-source/configuration/binary hashes and results. The original `b598a5c` evidence is
-retained in `evidence/m1/` as historical evidence, not verification of these fixes.
+Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
+[decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md).
 
-## Review corrections and actual verification
+## Implemented increments and evidence
 
-| Area | Implemented behavior and observed result |
-| --- | --- |
-| Failed STEP RPC | Control and protection replies were separately discarded over real sockets after plant acceptance. The runner attempts both decisions, sends no COMMIT/ADVANCE for the aborted tick, requests HALT and records the cause and stop state. |
-| Pending decisions | HALT, protocol shutdown and the independent wall watchdog discard prepared ticks and permanently prevent further commits. Tests challenge late COMMIT, PREPARE, DEMAND and PERMIT against the real plant. |
-| Stop uncertainty | HALT acknowledgment is separate from observed STATUS. Failed delivery can report still-running outputs; failed observation remains null. Tests verify the later watchdog without retroactively claiming an earlier confirmed stop. |
-| Streaming trajectory | Manifest schema 2 and JSONL v1 replace new-run JSON arrays. One record is written at a time; SHA-256 tracks exactly written bytes. Readers validate sequence and recover complete records after actual runner SIGKILL. |
-| 100000-tick memory | Two full Compose runs completed under 128 MiB. Peak RSS 22.50 MiB (acceptance <=64 MiB), RSS headroom 105.50 MiB; cgroup peak including cache 71.14 MiB. No OOM kill. Both 100000-record hashes matched independent scans and each other. |
-| Failed Compose evidence | Aborted runner exit 7, pre-start exit 1, and extraction failure with original exit 7 were preserved. All available logs/artifacts were collected before cleanup. Failed extraction retained the volume; real recovery verified files before test-owned removal. |
-| Native and sanitizer regression | 47/47 tests passed natively and 47/47 with AddressSanitizer/UBSan, including all 12 original traceability tests. |
-| Existing deployment/reproduction | Four original Compose runs and two isolation probes passed. Native/container JSONL bytes and separate native executable hashes match. |
-| Assurance | Structural checks pass. Trace release gate remains blocked with 66 gaps; all 184 standards entries, 12 edition/applicability gaps and nine release prerequisites remain open. No check was weakened. |
+| Phase | Implemented and verified scope | Evidence |
+| --- | --- | --- |
+| M1 | Deterministic separate processes, direct protection, aborted STEP handling, streaming JSONL, retained failed Compose results, actual 100000-tick memory tests. | [Review corrections](evidence/m1-review/README.md) |
+| M2 | Configurable compliant hydraulic graph, synthetic dialyzers, diffusion/convection/UF and independent numerical balances. | [M2](evidence/m2/README.md) |
+| M3 | Conservative Python body/circuit water and six species, external transfers, water-only weight and limited fixed-pCO2 indicator. | [M3](evidence/m3/README.md) |
+| M4 | HD/pre/post HDF, mixed preparation/temperature/filter hydraulics, replacement accounting and directly enforced fluid-quality protection. | [M4](evidence/m4/README.md) |
+| M5 | Guarded machine lifecycle, external priming/cleaning ledgers, aggregate hazard-specific constraints, ACK/silence/reset/restart policies and device-only endpoints. | [M5](evidence/m5/README.md) |
 
-Nine M1 requirements are implemented with passing execution evidence, while
-independent design/evidence review and residual-risk acceptance remain pending.
-Six broad roadmap requirements remain draft and their six protocols remain planned.
-Passing these regressions does not complete the full reference project or establish
-standards conformity. See [the interface contract](../docs/M1_INTERFACES.md),
-[review acceptance plan](../docs/M1_REVIEW_FIXES.md) and [runbook](../docs/M1_RUNBOOK.md).
+Earlier evidence remains historical, with active regression links identifying the
+current implementation. The full LVGL device UI, external experiment console,
+security/SBOM/CI and final integrated package remain required. No roadmap feature
+has been removed to make a phase or release gate pass.
 
-## Preserved scope and remaining limitations
+## Open gates and limits
 
-M1 remains a deliberately limited deterministic HD demonstration: separate C++
-control/protection/plant, separate Python patient/runner, synthetic resistance,
-measured pressure, fluid-volume accounting and direct protective arbitration.
-The model and demonstration thresholds have not been expanded or recalibrated.
+All 184 standards checklist entries, 12 edition/applicability gaps and nine release
+prerequisites remain open. Independent design/evidence review, clinical/physical
+performance, calibration/validation, human risk acceptance and standards conformity
+are not supplied by these software tests or AI reviews. Normal structural/publication
+checks must pass; release gates remain blocked.
 
-Full HD treatment workflows, pre/post HDF, online substitution preparation
-(mixing, thermal behavior, filtration, hydraulics and delivery), configurable
-circuits and multiple dialyzers, electrolyte/solute and acid-base models, LVGL
-device UI and the separate experiment console remain required.
+Models and thresholds are synthetic and uncalibrated. Conductivity does not identify
+individual species; contamination/breaches and stuck detectors can remain latent.
+No microbial quality, sterility, validated cleaning/air clearance, respiratory
+regulation or hardware independence is claimed. No pump/filter functional reset is
+implemented; those latches require a fresh run. Common plant/runner/transport/
+configuration/kernel resources remain causes shared by control and protection.
 
-Remaining decisions include independent calibration/validation and authorized data,
-clinical/essential-performance limits, hazard-specific recovery and residual-risk
-acceptance, security/SBOM/vulnerability review, EU-first standards applicability,
-usability and downstream physical-device evidence. Native Linux outside this WSL2
-host is not newly validated. Shared kernel/runner/transport/plant remain common
-causes; native same-user mode does not provide container mount isolation.
+HALT request/acknowledgment is distinct from observed outputs; lost delivery can
+remain unconfirmed. Patient failure after plant commit aborts without distributed
+rollback. JSONL recovery covers process interruption, not power-loss durability.
+Memory measurements apply to the recorded configurations; RSS headroom is not
+reserved cgroup headroom. Native same-UID mode is trusted development, and native
+Linux outside the WSL2 host is not newly validated. Device-volume producer ownership
+and additional availability/security controls are tracked for M8.
 
-A lost stop request leaves actual state unconfirmed until observed; watchdog timing
-is a tested development policy, not hard real-time assurance. Patient failure after
-plant commit still produces an aborted, incomplete tick without distributed rollback.
-JSONL recovery covers process interruption, not storage-device or power-loss
-survival; full long-run streams are retained in ignored `build/`, with hashes and
-measurements committed as evidence. Measured memory margins apply to the recorded
-configuration/image. Clinical safety and calibrated physiology are not claimed.
-
-Pinned dependencies and source-only publication rules remain unchanged apart from
-explicitly admitting project-owned JSONL evidence and named build inputs. Licensed
-standards and private extracts/images remain outside Git, Docker contexts and
-public artifacts. Image redistribution and a complete reference release are not
-approved by these checks.
+Publication and Docker inputs remain explicit allowlists. Licensed standards,
+extracts/images and private material remain excluded. Source-package checks are
+not approval to redistribute an unassessed complete image or medical product.
