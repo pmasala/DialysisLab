@@ -256,3 +256,15 @@ Compose runs and three isolation probes. All eleven review findings and M7-V1 ar
 fixed. `evidence/m7/review.json`, `summary.json` and `README.md` bind the single
 review, exact correction/build/configuration identities, tests and artifacts.
 M8–M9 reviews have not run; M1–M7 reviews are consumed.
+
+M7 publication integration finding M7-V2: final assembly initially used unsupported
+`.log` files and the evidence checkpoint `49b8471` was committed/pushed before that
+check completed successfully. Preserve that history; encode the exact reviewed log
+bytes in JSON wrappers with original hashes, update artifact links and re-run all
+publication/structural checks before the correction commit. Existing format rules
+remain unchanged. This is packaging correction, not a second review invocation.
+
+M7-V2 verified: normal traceability, standards and publication checks pass; both
+release checks retain exit 1 (184 entries, 12 gaps, nine prerequisites open).
+All four wrappers reproduce the original byte hashes. The source package contains
+359 allowlisted files; exact commands/results are in `evidence/m7/checks.json`.

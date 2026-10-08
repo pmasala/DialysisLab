@@ -22,7 +22,10 @@ within the 128 MiB Compose limit with no OOM. Full commands, source identities,
 configurations, actual results and rendered artifacts: [M7 evidence](evidence/m7/README.md).
 Earlier M1–M6 evidence and failed diagnostic attempts remain preserved.
 
-Next executable step: commit/push this evidence checkpoint, freeze it as M8 base,
+M7-V2 publication correction passes all normal checks and preserves blocked release
+gates; exact log bytes are retained in hashed JSON wrappers.
+
+Next executable step: freeze this corrected checkpoint as M8 base,
 then define and implement cybersecurity/dependency/SBOM/CI requirements and tests.
 Separate device producer volumes, clean up native children after abrupt broker
 death, exercise bounded-input/availability threats, run available analyses and

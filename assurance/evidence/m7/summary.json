@@ -101,12 +101,12 @@
       "sha256": "ebc7e64b4022005d1ef8f14a8b7a31ef57751de584ce549863fd49fcb472969e"
     },
     {
-      "path": "assurance/evidence/m7/console-compose/input.log",
-      "sha256": "b0a608c0aaf20f036082d063ccbc926407f20ad4a25020aabdb2a68619587643"
+      "path": "assurance/evidence/m7/console-compose/input.json",
+      "sha256": "f4a18f6e28f5277f2e6b4b902b1afd8d15b017de8654087d61036c18c7d73514"
     },
     {
-      "path": "assurance/evidence/m7/console-compose/output.log",
-      "sha256": "4af9ad2543250b9fd399af7762457c18d8ca2b2252f28577ca7c4d4d2ebc2d33"
+      "path": "assurance/evidence/m7/console-compose/output.json",
+      "sha256": "695e6cec10d5c7fd410037ed14162a06dff15a495341102232d8f4da6d8bfe57"
     },
     {
       "path": "assurance/evidence/m7/console-compose/r972e5d9c97397a11/configuration.json",
@@ -169,12 +169,12 @@
       "sha256": "250350035511845e0540cac117db0a8a7aebcee415e160fd175a40dc20898ddf"
     },
     {
-      "path": "assurance/evidence/m7/console-compose-x11/input.log",
-      "sha256": "ddaf015bbfd9deda77f803c3c59ce2fae1c28fd089d8747ad09ec7eee9a74d40"
+      "path": "assurance/evidence/m7/console-compose-x11/input.json",
+      "sha256": "70f9e3d899a3d5e40242ddc7bc1b8c27cfbf0b58ce5bb14e355eb665444ede51"
     },
     {
-      "path": "assurance/evidence/m7/console-compose-x11/output.log",
-      "sha256": "ebd0b9f5ef0332def69456e9c0551d82c922eb54bf0d60d82b72dba94b12d471"
+      "path": "assurance/evidence/m7/console-compose-x11/output.json",
+      "sha256": "130f85fabce44952a02958dc9971ee5fb0b44e3c0e0b61f106d881e5308bea4b"
     },
     {
       "path": "assurance/evidence/m7/console-compose-x11/r115ba3e70da36211/configuration.json",

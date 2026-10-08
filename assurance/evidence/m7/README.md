@@ -77,3 +77,10 @@ metadata quarantine and recovered torn prefixes remain explicit; they do not bec
 successful complete-run evidence. Same-UID native execution is trusted. Native
 hard-kill orphan cleanup and shared device-producer ownership are M8 hardening tasks.
 All 184 standards entries, 12 edition gaps and nine release prerequisites stay open.
+
+Publication correction after evidence checkpoint `49b8471`: the existing format
+allowlist rejected four `.log` files. Their exact UTF-8 contents are now JSON
+wrappers with original-byte SHA256s; extraction of `text` reproduces those bytes.
+The raw originals remain in local execution artifacts and Git history. No format
+rule was relaxed. `checks.json` retains the initial failure and subsequent actual
+structural/publication/package results; the follow-up commit preserves history.
