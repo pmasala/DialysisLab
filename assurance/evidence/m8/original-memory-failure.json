@@ -1,0 +1,6 @@
+{
+  "command": "Original M1 RSS probe launched from a parent with 96 MiB live allocation",
+  "exit_code": 1,
+  "stdout": "\nTraceback (most recent call last):\n  File \"/home/pietro/DialysisLab/build/m8-original-memory-probe.py\", line 48, in <module>\n    main()\n  File \"/home/pietro/DialysisLab/build/m8-original-memory-probe.py\", line 41, in main\n    assert rss <= 64 * 1024**2, rss\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError: 112439296\n\n",
+  "stderr": ""
+}

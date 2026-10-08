@@ -314,3 +314,10 @@ crash/timeout/malformed output, all explicitly registered artifacts recover byte
 for byte, corruption/path/order/truncation fail, and stale image build/runtime/lock
 identities are rejected. Final real image/hosted verification is next. Candidate
 hosted job 37728309834 succeeded; this does not retroactively fix its retention.
+
+M8 correction commit `e8c497c` passes 150/150 native and sanitizer regressions,
+10 device/5 console widgets, ten native/ten Compose models, four M1 cases and
+three isolation probe groups. Actual stale-image rejection, five official-schema
+SBOM validations and byte-exact recovery of 16 generated artifacts pass.
+Local evidence: `evidence/m8/`. Corrected hosted job 37730439086 remains pending
+at this checkpoint; do not infer its result from the earlier candidate job.

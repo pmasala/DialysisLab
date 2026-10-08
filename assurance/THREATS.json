@@ -18,8 +18,10 @@
       ],
       "controls": "Distinct writable producer volumes, immutable aliases, read-only clients; no admin mounts",
       "residual": "Native same-UID and trusted host can bypass mount boundaries; a compromised producer can lie about its own telemetry.",
-      "status": "implemented_verification_pending",
-      "evidence": []
+      "status": "software_controls_verified_residual_risk_open",
+      "evidence": [
+        "assurance/evidence/m8/summary.json"
+      ]
     },
     {
       "id": "T8-002",
@@ -35,8 +37,10 @@
       ],
       "controls": "Linux parent-death signal with PID recheck; plant watchdog; incomplete-run recovery",
       "residual": "Cleanup is not observed actuator state; kernel/host loss and forced death can prevent final manifest/log completion.",
-      "status": "implemented_verification_pending",
-      "evidence": []
+      "status": "software_controls_verified_residual_risk_open",
+      "evidence": [
+        "assurance/evidence/m8/summary.json"
+      ]
     },
     {
       "id": "T8-003",
@@ -52,8 +56,10 @@
       ],
       "controls": "Fixed frame/depth/number/worker limits and deadlines; terminal plant arbitration",
       "residual": "Authorized or local hostile traffic can deny service or force a protective stop. These local endpoints do not promise uninterrupted availability.",
-      "status": "implemented_verification_pending",
-      "evidence": []
+      "status": "software_controls_verified_residual_risk_open",
+      "evidence": [
+        "assurance/evidence/m8/summary.json"
+      ]
     },
     {
       "id": "T8-004",
@@ -69,8 +75,10 @@
       ],
       "controls": "Per-incarnation random filesystem credential, epoch-bound revision, immutable run config, hashes and explicit exports",
       "residual": "Hashes detect accidental/tampered inconsistencies, not a malicious trusted administrator recomputing all metadata; no remote authentication service.",
-      "status": "implemented_verification_pending",
-      "evidence": []
+      "status": "software_controls_verified_residual_risk_open",
+      "evidence": [
+        "assurance/evidence/m8/summary.json"
+      ]
     },
     {
       "id": "T8-005",
@@ -86,8 +94,10 @@
       ],
       "controls": "Pinned TLS/SHA sources, reviewed selected profile/notices, actual inventories and SBOM",
       "residual": "Root/image/system packages have separate obligations; database non-matches are not assurance of coverage or absence of vulnerabilities.",
-      "status": "implemented_verification_pending",
-      "evidence": []
+      "status": "software_controls_verified_residual_risk_open",
+      "evidence": [
+        "assurance/evidence/m8/summary.json"
+      ]
     },
     {
       "id": "T8-006",
@@ -103,8 +113,10 @@
       ],
       "controls": "Explicit context/publication allowlists, no recursive upload, read-only contents and no stored checkout token",
       "residual": "Trusted maintainer/workflow compromise and hosted runner infrastructure remain outside container isolation; logs expire under repository retention.",
-      "status": "implemented_verification_pending",
-      "evidence": []
+      "status": "software_controls_verified_residual_risk_open",
+      "evidence": [
+        "assurance/evidence/m8/summary.json"
+      ]
     },
     {
       "id": "T8-007",
@@ -120,8 +132,10 @@
       ],
       "controls": "Separate processes/role observations/direct arbitration; bounded errors/watchdog and sanitizer/fault tests",
       "residual": "Simulation/container separation does not establish independent hardware; shared plant, broker/admin, clock, physical sensors and host remain common causes.",
-      "status": "implemented_verification_pending",
-      "evidence": []
+      "status": "software_controls_verified_residual_risk_open",
+      "evidence": [
+        "assurance/evidence/m8/summary.json"
+      ]
     }
   ]
 }

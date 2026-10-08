@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "phase": "M8",
-  "scan_artifact": "build/m8-scan-selected/report.json",
-  "scan_sha256": "b712696ad2c081b3dcf97ced26f523f13b953d58104df55daa19430bf6347d8a",
+  "scan_artifact": "assurance/evidence/m8/security-scan.json",
+  "scan_sha256": "7a09b553662b343a5dc0ab90b0e75c633fa58330d48297ab18875b967b9357e3",
   "scope": "Pre-candidate actual snapshot analysis, not a clean scan or accepted residual risk. Final clean-build evidence will preserve and supersede this execution.",
   "queries": 70,
   "matching_queries": 19,

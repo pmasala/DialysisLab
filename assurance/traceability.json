@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+  "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
   "description": "Six incomplete broad roadmap chains and implemented M1-M7 requirements. Active software regression evidence identifies M7 clean correction build; earlier executions remain historical. Independent assurance and standards obligations unchanged.",
   "needs": [
     {
@@ -2005,7 +2005,7 @@
         }
       ],
       "unresolved": [
-        "Candidate verification completed locally; single review, hosted CI and clean final evidence pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+        "Software controls and local regressions passed; corrected hosted artifact recovery pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
       ]
     },
     {
@@ -2051,7 +2051,7 @@
         }
       ],
       "unresolved": [
-        "Candidate verification completed locally; single review, hosted CI and clean final evidence pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+        "Software controls and local regressions passed; corrected hosted artifact recovery pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
       ]
     },
     {
@@ -2104,7 +2104,7 @@
         }
       ],
       "unresolved": [
-        "Candidate verification completed locally; single review, hosted CI and clean final evidence pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+        "Software controls and local regressions passed; corrected hosted artifact recovery pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
       ]
     },
     {
@@ -2161,7 +2161,7 @@
         }
       ],
       "unresolved": [
-        "Candidate verification completed locally; single review, hosted CI and clean final evidence pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+        "Software controls and local regressions passed; corrected hosted artifact recovery pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
       ]
     },
     {
@@ -2194,7 +2194,7 @@
         },
         {
           "path": "assurance/DEPENDENCY_FINDINGS.json",
-          "sha256": "0b2bdff3616d86ea1841126c77c61c2b3ef36ca874d81a65510cbeecb3d2c33b"
+          "sha256": "5cb228cb5593eb2044b5c53971182278ce7f58b0545b26fbcb9c6cfd98175819"
         },
         {
           "path": "tests/test_dependencies.py",
@@ -2202,7 +2202,7 @@
         },
         {
           "path": "assurance/THREATS.json",
-          "sha256": "f3c75151c4b17e391fbbbef1944278ce5b67f87d1412377c561410fc7974b07f"
+          "sha256": "7e0973058c96c7e34d72117fd38683320c53768ec1991c2286a96c05b1a8fd63"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -2210,7 +2210,7 @@
         }
       ],
       "unresolved": [
-        "Candidate verification completed locally; single review, hosted CI and clean final evidence pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+        "Software controls and local regressions passed; corrected hosted artifact recovery pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
       ]
     },
     {
@@ -2251,7 +2251,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "a660635cfa393c3ebe4e0dc6802ce181c907b86c99473bd7c44a109e04af5d92"
+          "sha256": "ac459a3fb99b00d9969622143a56df73d6c2a24161e1de657f19102581d07942"
         },
         {
           "path": "docs/dependencies/CI_NOTICES.md",
@@ -2271,7 +2271,7 @@
         }
       ],
       "unresolved": [
-        "Candidate verification completed locally; single review, hosted CI and clean final evidence pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
+        "Software controls and local regressions passed; corrected hosted artifact recovery pending. Platform advisory matches, independent risk acceptance and release obligations remain open."
       ]
     }
   ],
@@ -2345,13 +2345,13 @@
       "expected": "CMake builds successfully; Compose runs five isolated services and records source, binary and configuration identities.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -2416,6 +2416,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -2428,13 +2437,13 @@
       "expected": "Identical configuration and seed yield byte-identical same-build trajectories; cross-build numerics agree within absolute/relative 1e-9; clean same-toolchain CMake builds produce identical executables.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -2499,6 +2508,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -2511,13 +2529,13 @@
       "expected": "Nominal, zero-UF, stopped-flow and partial-flow runs match independent Decimal balances within 1e-8 mL; long patient ledger drift stays below 1e-8 mL.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -2582,6 +2600,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -2594,13 +2621,13 @@
       "expected": "Tick-5 resistance increase produces a measured pressure of 600 mmHg; the synthetic 250 mmHg trip stops blood/UF and closes clamp within one 100 ms virtual interval, including when control has died.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -2665,6 +2692,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -2677,13 +2713,13 @@
       "expected": "Repeated 300 mL/min control demand and later PERMIT cannot release latched zero blood/UF and closed clamp; unauthorized role and duplicate tick messages fail closed.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -2748,6 +2784,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -2760,13 +2805,13 @@
       "expected": "Invalid, missing, stale, future and replayed protection samples trip within one 100 ms interval; a control-only fault does not corrupt the protection channel.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -2831,6 +2876,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -2843,13 +2897,13 @@
       "expected": "Failed STEP (including lost reply after plant acceptance) sends no COMMIT/ADVANCE; HALT cancels pending decisions and rejects later commits. Abort cause, stop acknowledgment and observed outputs are distinct; failed stop/observation never implies confirmed zero. Plant/patient loss aborts; runner loss trips the wall lease without virtual advancement.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -2914,6 +2968,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -2926,13 +2989,13 @@
       "expected": "Two actual 100000-tick Compose runs complete under 128 MiB with peak runner RSS <=64 MiB. Records are ordered/complete and repeated hashes agree with independently hashed written bytes. SIGKILL preserves a recoverable complete prefix.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -2988,6 +3051,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3000,13 +3072,13 @@
       "expected": "Aborted runner, pre-start failure and failed extraction retain logs/reports; original exit code is preserved. Failed extraction retains volumes and stopped containers with usable recovery commands; verify actual artifact recovery before cleanup.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3062,6 +3134,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3074,13 +3155,13 @@
       "expected": "Analytic RC and resistor solutions, decreasing step-halving errors, clamps and component changes.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3127,6 +3208,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3139,13 +3229,13 @@
       "expected": "Per-tick residual <=1e-8 mL and cumulative <=1e-6 mL with independent node-volume accounting.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3192,6 +3282,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3204,13 +3303,13 @@
       "expected": "Two profiles, independent clearance formula, equilibrium and zero-flow/zero-membrane cases.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3257,6 +3356,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3269,13 +3377,13 @@
       "expected": "Actual process/Compose runs; repeated hashes; occlusion latch by 1000 ms and lost STEP cancels commit.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3322,6 +3430,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3334,13 +3451,13 @@
       "expected": "Ordered bounded transactions preserve positive mass and concentration; rejected updates leave the prior state intact.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3378,6 +3495,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3390,13 +3516,13 @@
       "expected": "Independent balances <=1e-6 mL/mmol, analytic transient and step-halving tests, 100000-step process RSS below 64 MiB.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3434,6 +3560,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3446,13 +3581,13 @@
       "expected": "Synthetic baseline/overload/imbalance scenarios and independently calculated infusion/generation/excretion cases.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3490,6 +3625,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3502,13 +3646,13 @@
       "expected": "Native and Compose runs repeat, identify exact build/config, enforce protective stops and retain partial transactions on patient failure.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3546,6 +3690,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3558,13 +3711,13 @@
       "expected": "Independent whole-system balances <=1e-6 mL/mmol; distinct gross UF/substitution/storage/net loss.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3593,6 +3746,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3605,13 +3767,13 @@
       "expected": "Analytic equilibrium/transient, convergence and filter pressure-loss checks.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3640,6 +3802,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3652,13 +3823,13 @@
       "expected": "Quality latch within one dt after observable threshold; no delivery/UF/dialysate despite conflicting control.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3687,6 +3858,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3699,13 +3879,13 @@
       "expected": "Repeat native/Compose modes/faults; exact build/config identity and compatibility regressions.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3734,6 +3914,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3746,13 +3935,13 @@
       "expected": "All required normal and forbidden transitions tested; safe startup/end and requested versus effective state.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3772,6 +3961,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3784,13 +3982,13 @@
       "expected": "Independent water/six-species source/waste balances <=1e-6 mL/mmol; patient isolated during flush.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3810,6 +4008,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3822,13 +4029,13 @@
       "expected": "Pressure/flow/air/leak/quality/balance/validity/comms actions immediate before commit within declared virtual/wall budgets.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3848,6 +4055,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3860,13 +4076,13 @@
       "expected": "No override; three safe observations in recovery for reset; failures/restarts cannot auto-resume.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3886,6 +4102,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3898,13 +4123,13 @@
       "expected": "Validated requests/confirmations and modeled observations; no UI mount/access to administration or patient truth.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3924,6 +4149,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3936,13 +4170,13 @@
       "expected": "Real native/Compose workflows/faults/restarts/replay, numerical balances and all affected regressions.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3962,6 +4196,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -3974,13 +4217,13 @@
       "expected": "Native/Compose headless and available graphical rendering against actual services.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -3991,6 +4234,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -4003,13 +4255,13 @@
       "expected": "HD/pre/post setup, visible units/bounds, actual server completion and rejection handling.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -4020,6 +4272,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -4032,13 +4293,13 @@
       "expected": "Distinct intent/state, UF/sub/net counters, timestamps, invalid/stale/disconnected data; no invented zeros.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -4049,6 +4310,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -4061,13 +4331,13 @@
       "expected": "Separate ACK/silence/reset, no overrides/admin endpoints, actual device-only mount denial tests.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -4078,6 +4348,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -4090,13 +4369,13 @@
       "expected": "New session clears pending/trends, rejects old confirmations, no automatic retry of ambiguous critical requests.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -4107,6 +4386,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -4119,13 +4407,13 @@
       "expected": "Real widgets/RPCs/screenshots, exact build/dependencies/configuration and affected regressions; no mocked integration.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
       },
       "historical_evidence": [
         {
@@ -4136,6 +4424,15 @@
           "executed_at": "2026-10-08T02:30:10.670648+00:00",
           "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
           "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
+        },
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
         }
       ]
     },
@@ -4148,14 +4445,25 @@
       "expected": "Actual native/headless/X11/Compose services and widgets",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
-      }
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
+      },
+      "historical_evidence": [
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        }
+      ]
     },
     {
       "id": "M7-TEST-002",
@@ -4166,14 +4474,25 @@
       "expected": "Patient/circuit/dialyzer/mode/workflow/fault edits validated; live configuration unchanged",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
-      }
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
+      },
+      "historical_evidence": [
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        }
+      ]
     },
     {
       "id": "M7-TEST-003",
@@ -4184,14 +4503,25 @@
       "expected": "Pause >2 wall seconds preserves sequence/liveness; stop records actual HALT observation",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
-      }
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
+      },
+      "historical_evidence": [
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        }
+      ]
     },
     {
       "id": "M7-TEST-004",
@@ -4202,14 +4532,25 @@
       "expected": "Fresh services reproduce exact bytes; streaming comparison/export rejects corrupt evidence",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
-      }
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
+      },
+      "historical_evidence": [
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        }
+      ]
     },
     {
       "id": "M7-TEST-005",
@@ -4220,14 +4561,25 @@
       "expected": "Bad token/revision/run/path/size rejected; device has no truth administration",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
-      }
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
+      },
+      "historical_evidence": [
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        }
+      ]
     },
     {
       "id": "M7-TEST-006",
@@ -4238,14 +4590,25 @@
       "expected": "Multiple Compose/native runs without Docker socket; interrupted artifacts retained, no implicit resume",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/m7/summary.json",
-        "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
-        "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
-        "run_id": "m7-bbecf59-2026-10-08",
-        "executed_at": "2026-10-08T03:46:44.819821+00:00",
-        "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
-        "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
-      }
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
+      },
+      "historical_evidence": [
+        {
+          "path": "assurance/evidence/m7/summary.json",
+          "sha256": "7727736925e42217fb9f7c788b494395584c1f0683ced94a441e1c25f193041d",
+          "baseline": "dialysislab-integrated-m7-bbecf59-2026-10-08",
+          "run_id": "m7-bbecf59-2026-10-08",
+          "executed_at": "2026-10-08T03:46:44.819821+00:00",
+          "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
+          "environment": "WSL2 Linux x86_64 GCC13.3/Python3.12.3 native; pinned Docker GCC14.2/Python3.12.14; actual headless/WSLg SDL2 software widgets, separate containers limited to128MiB."
+        }
+      ]
     },
     {
       "id": "M8-TEST-001",
@@ -4254,8 +4617,16 @@
       ],
       "procedure": "Execute M8 real process/container/analysis/CI tests and preserve exact source/configuration/command/results.",
       "expected": "Actual role spoofing denied; device clients retain authorized access",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
+      }
     },
     {
       "id": "M8-TEST-002",
@@ -4264,8 +4635,16 @@
       ],
       "procedure": "Execute M8 real process/container/analysis/CI tests and preserve exact source/configuration/command/results.",
       "expected": "Real owner SIGKILL ends children, preserves partial records and does not invent observed zero",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
+      }
     },
     {
       "id": "M8-TEST-003",
@@ -4274,8 +4653,16 @@
       ],
       "procedure": "Execute M8 real process/container/analysis/CI tests and preserve exact source/configuration/command/results.",
       "expected": "Duplicate/deep/oversized/trickle inputs rejected; watchdog/protection remain effective",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
+      }
     },
     {
       "id": "M8-TEST-004",
@@ -4284,8 +4671,16 @@
       ],
       "procedure": "Execute M8 real process/container/analysis/CI tests and preserve exact source/configuration/command/results.",
       "expected": "Reproducible versioned SBOM, license/pin/notice checks and identified platform packages",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
+      }
     },
     {
       "id": "M8-TEST-005",
@@ -4294,8 +4689,16 @@
       ],
       "procedure": "Execute M8 real process/container/analysis/CI tests and preserve exact source/configuration/command/results.",
       "expected": "Actual static/advisory reports identify commands, findings, coverage and blocks",
-      "result": "planned",
-      "evidence": null
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/m8/summary.json",
+        "sha256": "a0efc0ccd8f441346a5c7e4a60bd67faba8383988a406bcbbf087346058f67b3",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "m8-e8c497c-2026-10-08",
+        "executed_at": "2026-10-08T05:10:04.044762+00:00",
+        "reviewer": "Codex execution and one automatic defect review; independent human assurance and risk acceptance remain open.",
+        "environment": "WSL2 x86_64 GCC13.3/Python3.12.3; pinned Docker GCC14.2/Python3.12.15, separate128MiB containers; actual headless widgets and process tests."
+      }
     },
     {
       "id": "M8-TEST-006",

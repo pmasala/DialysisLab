@@ -44,16 +44,27 @@ and verified against the exact event SHA; hosted Actions is available, not yet r
 SBOMs validate against official CycloneDX 1.6 with installed jsonschema 4.10.3;
 final inventories must identify the corrected image/build.
 
-Next executable step: correct M8-R1–R4 from the sole completed review of candidate
-`ab433f5` against the frozen base. All four P2 findings concern release-check error
-propagation and artifact-specific CI/SBOM evidence; see `REVIEWS.md`. Local preliminary verification
-passes 144 native tests, 145 sanitizer tests including the RSS correction, nine
-native RSS/dependency regressions, ten device/five console tests and ten native/ten
-Compose model runs. Current scan: 70 queries, 19 matching queries / 73 open IDs,
-zero blocked queries; see `DEPENDENCY_FINDINGS.json`. M8 review consumed (exit 0 with four findings); M9 review NOT yet run.
-Correct applicable findings and run clean final regressions, then continue M9.
-Detailed commands/diagnostics: `build/m8-progress.md`. Disk headroom about 2.9 GiB;
-no process, Docker or graphical permission block. Preserve prior work/evidence.
+Next executable step: begin M9 integrated acceptance from the M8 implementation
+checkpoint while corrected hosted CI 37730439086 completes. M8 local verification
+is complete: 150/150 native and sanitizer tests, 10 device/5 console tests,
+10 native/10 Compose model runs, actual device/console deployments, four M1
+Compose cases and three boundary probe groups. All four findings from its sole
+review are fixed in `e8c497c`. Five actual SBOMs validate; 16 real retained
+artifacts recover byte for byte; an actual stale image is rejected.
+
+M8 remains **PARTIAL solely pending corrected hosted evidence recovery**, not a
+blocked or failed software subsystem. Candidate CI 37728309834 passed with known
+historical retention limitations. Real M1 failed-run/recovery and two 100000-tick
+Compose regressions on the new image are additionally running. Current scan:
+70 queries, 19 matching / 73 open advisory IDs, zero blocked queries; findings
+are not accepted risk. See `evidence/m8/` and `DEPENDENCY_FINDINGS.json`.
+
+M1–M8 reviews are consumed; M9 review has not run. Continue the independently
+executable matrix, simultaneous device/console deployment, sustained-treatment
+long run and reproducible package. Close hosted evidence when its actual report
+arrives; do not present pending checks as PASS. No socket/Docker/display block.
+Only owned raw PPM captures were losslessly compressed after hash verification;
+recovery and original byte identities are in `evidence/m8/capture-storage.json`.
 
 Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md).
@@ -71,7 +82,7 @@ Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 | M7 | Separate real ImGui console and authenticated broker, immutable configuration/fault schedules, virtual pause, fresh native/Compose replay, comparison and retained exports/failures. | [M7](evidence/m7/README.md) |
 
 Earlier evidence remains historical, with active regression links identifying the
-current implementation. Security/SBOM/CI and the final integrated package remain required. No roadmap feature
+current implementation. Corrected hosted CI recovery and the final integrated package remain required. No roadmap feature
 has been removed to make a phase or release gate pass.
 
 ## Open gates and limits
@@ -95,7 +106,7 @@ rollback. JSONL recovery covers process interruption, not power-loss durability.
 Memory measurements apply to the recorded configurations; RSS headroom is not
 reserved cgroup headroom. Native same-UID mode is trusted development, and native
 Linux outside the WSL2 host is not newly validated. Device-volume producer ownership
-and additional availability/security controls are tracked for M8.
+and availability/security controls are implemented and verified in M8; residual trusted-host/common-cause risks remain.
 
 Publication and Docker inputs remain explicit allowlists. Licensed standards,
 extracts/images and private material remain excluded. Source-package checks are

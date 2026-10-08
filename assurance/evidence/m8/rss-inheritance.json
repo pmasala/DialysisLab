@@ -1,0 +1,10 @@
+{
+  "parent_peak_rss_bytes": 112693248,
+  "child": {
+    "rusage": 112693248,
+    "proc": [
+      "VmHWM:\t   11028 kB\n",
+      "VmRSS:\t   11028 kB\n"
+    ]
+  }
+}

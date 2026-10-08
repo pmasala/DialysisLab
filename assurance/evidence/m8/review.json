@@ -1,0 +1,64 @@
+{
+  "phase": "M8",
+  "invocations": 1,
+  "status": "FINDINGS_FIXED_AND_LOCAL_REGRESSION_PASSED",
+  "base": "4a1c366acd0050df4c744c2d1eb7d066890d5df4",
+  "candidate": "ab433f5ceef8fbd1dfe7bf4c7fa60c0a138fba98",
+  "command": [
+    "codex",
+    "-c",
+    "sandbox_mode=\"read-only\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "-c",
+    "developer_instructions=\"Review the entire M8 phase diff against its fixed base. Read-only analysis: do not modify repository files, do not spawn recursive reviewers or run another review. Seek concrete behavioral, security, concurrency, resource, numeric, interface and evidence reliability defects. Assess actual code and CI/SBOM/scan semantics, not only documentation or exit codes. Do not access or reproduce restricted standards, private data or credentials. Earlier phases are not a new review campaign; analyze interactions only where this phase changes them. An AI review is not human, clinical or regulatory approval.\"",
+    "review",
+    "--base",
+    "4a1c366acd0050df4c744c2d1eb7d066890d5df4"
+  ],
+  "started_at": "2026-10-08T04:37:27.001770+00:00",
+  "output": "build/reviews/m8-output.txt",
+  "exit_code": 0,
+  "finished_at": "2026-10-08T04:46:28.668475+00:00",
+  "full_output_sha256": "00116ab71d13e1d70524dd5e0c7216ee34f9b6ddc69c2afcca698a77df06adec",
+  "final_output": "The new CI can report success despite release-checker execution failures. Its evidence-retention and container-SBOM paths also leave gaps in artifact integrity and dependency identification.\n\nFull review comments:\n\n- [P2] Fail CI when a release checker encounters an execution error \u2014 /home/pietro/DialysisLab/tools/ci_verify.py:109-109\n  If a release checker crashes, times out, or returns an unexpected error, `step()` marks it `FAIL`, but this aggregation excludes it anyway. An in-memory reproduction with both release checkers returning exit 2 still produced `successful: true`. Exempt only validated outstanding-obligation results, not execution failures; the intentional baseline exemption in [AGENTS.md:26](AGENTS.md#L26) does not justify ignoring broken checks.\n\n- [P2] Retain the generated SBOMs and platform inventories \u2014 /home/pietro/DialysisLab/tools/ci_verify.py:104-104\n  The dependency step registers only `dependencies/report.json` for retention. That file contains artifact filenames and hashes, not their contents, while the command log contains only component/image counts. Consequently, the application/container SBOMs and actual platform versions disappear when the hosted workspace expires. Add these explicitly named artifacts to the retained reports rather than retaining only their hashes, consistent with [DEPENDENCY_POLICY.md:37](DEPENDENCY_POLICY.md#L37).\n\n- [P2] Preserve report bytes covered by the recorded hashes \u2014 /home/pietro/DialysisLab/tools/ci_verify.py:38-39\n  `step()` records SHA-256 hashes of the original report files, but this retention path parses and reserializes them with sorted keys. The downloaded log therefore contains different bytes from those identified by `report_sha256`; this is reproducible with the existing native test report. Because the original workspace expires, consumers cannot verify the retained reports against those hashes. Emit the original bytes through a reversible envelope, or consistently hash and retain the same canonical representation.\n\n- [P2] Bind application SBOMs to each inspected container image \u2014 /home/pietro/DialysisLab/tools/dependency_report.py:125-128\n  With the normal CI invocation, the separate application SBOM describes the native build, while these container SBOMs inventory only OS packages and Python. No application binaries or build metadata are inspected inside either image; the native executable hashes already differ from the container hashes in retained evidence. A stale image can therefore receive an inventory without detecting that its bundled application dependencies differ from the checkout. Generate or verify application identities per immutable image and link them to its SBOM, as required for artifact-specific inventories by [DEPENDENCY_POLICY.md:37\u201338](DEPENDENCY_POLICY.md#L37-L38).",
+  "correction_commit": "e8c497c995949562b1901d1346b841b955100a17",
+  "findings": [
+    {
+      "id": "M8-R1",
+      "severity": "P2",
+      "problem": "Checker execution failures ignored",
+      "disposition": "fixed",
+      "test": "test_release_checker_crash_and_timeout_fail_actual_orchestration",
+      "correction_commit": "e8c497c995949562b1901d1346b841b955100a17",
+      "evidence": "native-tests.json, sanitizer-tests.json, artifact-recovery.json, stale-image.json, dependencies/"
+    },
+    {
+      "id": "M8-R2",
+      "severity": "P2",
+      "problem": "Missing SBOM/platform contents",
+      "disposition": "fixed",
+      "test": "test_exact_byte_retention_includes_every_sbom_and_platform_file",
+      "correction_commit": "e8c497c995949562b1901d1346b841b955100a17",
+      "evidence": "native-tests.json, sanitizer-tests.json, artifact-recovery.json, stale-image.json, dependencies/"
+    },
+    {
+      "id": "M8-R3",
+      "severity": "P2",
+      "problem": "Retained bytes differ from recorded hashes",
+      "disposition": "fixed",
+      "test": "test_exact_byte_retention_includes_every_sbom_and_platform_file; test_corruption_order_truncation_and_path_escape_are_rejected",
+      "correction_commit": "e8c497c995949562b1901d1346b841b955100a17",
+      "evidence": "native-tests.json, sanitizer-tests.json, artifact-recovery.json, stale-image.json, dependencies/"
+    },
+    {
+      "id": "M8-R4",
+      "severity": "P2",
+      "problem": "Container application identity absent",
+      "disposition": "fixed",
+      "test": "test_container_sbom_uses_actual_image_binary_and_runtime_identities; actual stale-image.json and dependencies/image-*-build.json",
+      "correction_commit": "e8c497c995949562b1901d1346b841b955100a17",
+      "evidence": "native-tests.json, sanitizer-tests.json, artifact-recovery.json, stale-image.json, dependencies/"
+    }
+  ]
+}

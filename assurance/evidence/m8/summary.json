@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "phase": "M8",
+  "technical_status": "LOCAL_VERIFICATION_COMPLETE_HOSTED_RETENTION_PENDING",
+  "executed_at": "2026-10-08T05:10:04.044762+00:00",
+  "implementation_commit": "e8c497c995949562b1901d1346b841b955100a17",
+  "build_worktree_clean": true,
+  "native_tests": 150,
+  "sanitizer_tests": 150,
+  "device_widget_tests": 10,
+  "console_widget_tests": 5,
+  "short_native_runs": 10,
+  "short_compose_runs": 10,
+  "m1_compose_runs": 4,
+  "isolation_probe_groups": 3,
+  "actual_container_application_inventories": 2,
+  "official_cyclonedx_schema_validations": 5,
+  "exact_local_recovered_artifacts": 16,
+  "review_invocations": 1,
+  "review_findings_fixed": 4,
+  "static_findings": 0,
+  "advisory_queries": 70,
+  "advisory_matching_queries": 19,
+  "advisory_open_ids": 73,
+  "advisory_blocked_queries": 0,
+  "hosted_candidate": {
+    "run_id": 37728309834,
+    "result": "success",
+    "retention": "Historical schema 1 known limitations; not corrected evidence"
+  },
+  "hosted_correction": {
+    "run_id": 37730439086,
+    "status": "IN_PROGRESS"
+  },
+  "scope": "Actual synthetic software, process/container, input isolation, analysis and evidence-integrity verification; no clinical, regulatory, hardware-independence, complete image-license clearance or human risk acceptance.",
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m8/artifact-recovery.json",
+      "sha256": "17cb22a8e9de671c09ff661bb59b7af48033bb78127e28b533215ebee9d5fd80"
+    },
+    {
+      "path": "assurance/evidence/m8/capture-storage.json",
+      "sha256": "7347e67b1c763161cc70eb6aec57e6decfa713f47d25d98e4965b8f68789f1ad"
+    },
+    {
+      "path": "assurance/evidence/m8/compose-models.json",
+      "sha256": "5a28ca33902ef33236d25b0f8dfa29d5ca595589a1e3de5287afaa8a3bff02db"
+    },
+    {
+      "path": "assurance/evidence/m8/compose.json",
+      "sha256": "5b79d3f301e1b24962bf59448cc30e8ee4361b2f40d373db42e14d9bc7719d25"
+    },
+    {
+      "path": "assurance/evidence/m8/console-compose.json",
+      "sha256": "485a8fed22fe418c757ca548a7b4b2f82047b29e110c9d7395cf848a77d9839b"
+    },
+    {
+      "path": "assurance/evidence/m8/console-widgets.json",
+      "sha256": "98d7e08678a476e88cd088e72346c3b0ff17bc14389e8a71fcd14c93b031c7b0"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/adopted-dependencies.json",
+      "sha256": "d7da7768e9e00daca9338c922a8fcda332d70fb4c83ab63d0d51dd649e419c25"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/application.cdx.json",
+      "sha256": "4880842ceca7eb1f2527b33a8f8dac2ca7794e0754a6fdf4545ce7ed04cb36a3"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/build.json",
+      "sha256": "6d7c6a37056fb7defb09e4ee2cd54c69ff8c05c2772144a3fcf4cc866c133136"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/image-0-application.cdx.json",
+      "sha256": "2f3dad0fa9ef2f7c5e26eaaa852c59c142ebf5779bd4d8fe2cbac71141a1571d"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/image-0-build.json",
+      "sha256": "d9ac33c2c1702fb999383f2d71cc5c86807a3a2133d679a86b4649f0e2992a7d"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/image-0-platform.json",
+      "sha256": "15b4f7c552cc551a5ca63535efdc6a376d8ffd69ecad7a9d11e8e5a2a76d1fa3"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/image-0.cdx.json",
+      "sha256": "e5016a27e3c6c2c9e1090f0c50315e0ea659546cd262e856414bee89f79619dd"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/image-1-application.cdx.json",
+      "sha256": "06fa4025352688f37bc66becdf4851e605add5034de0dc0a6b2a793db5150f72"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/image-1-build.json",
+      "sha256": "131645dfaabce8302aceb9820dfa44faabd01853ba3baf3f02d80088543d29be"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/image-1-platform.json",
+      "sha256": "9bf929381a6535c167248a51e10b1940997931a7e2149c1f0865cc68316214a9"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/image-1.cdx.json",
+      "sha256": "e42988decf8b514c56de60c045c5098a088844249c960fc105ce84cfde419c50"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/native-platform.json",
+      "sha256": "85cfa36455d1cff60fec1bdb3f2f8215c04d7170d5582e74e6f858c0524e1858"
+    },
+    {
+      "path": "assurance/evidence/m8/dependencies/report.json",
+      "sha256": "551e3478a199a48e6d868cbb101d32a66641f23639a775b63e70ee56672546c0"
+    },
+    {
+      "path": "assurance/evidence/m8/device-compose.json",
+      "sha256": "749fbed3f64e1ee77e1c603854fda5b64780e43fd3fe811ea2de03ddcd656115"
+    },
+    {
+      "path": "assurance/evidence/m8/device-widgets.json",
+      "sha256": "0b4fdcec2f7782daacd9632a9f1ad37157028c86a46e0039db2e6d651f1726f2"
+    },
+    {
+      "path": "assurance/evidence/m8/docker-build.json",
+      "sha256": "e811e1a66c0bb230f78bb5c1bce11e0d909e779fd3fb33e5883d3b061c776249"
+    },
+    {
+      "path": "assurance/evidence/m8/native-build.json",
+      "sha256": "8455554b0091a1fe16e6de6c554b8bf9371d713b75106d1b0488deafd65a371f"
+    },
+    {
+      "path": "assurance/evidence/m8/native-models.json",
+      "sha256": "91a778234b89f09d40990b5d876cc950fcae94efa00bee203f309228d37fc470"
+    },
+    {
+      "path": "assurance/evidence/m8/native-tests.json",
+      "sha256": "e54b65348744880425e9926ac99af3183bee1b2d7548fbb68729e539554e2e6c"
+    },
+    {
+      "path": "assurance/evidence/m8/original-memory-failure.json",
+      "sha256": "139b740f40a0291b30ca689d1b75d3336af0f45189d3752ed27d582cfe8a31bb"
+    },
+    {
+      "path": "assurance/evidence/m8/review.json",
+      "sha256": "1488fc534b5dbe286490a24206c254c0b4d7edf3e72c5fb2e13d9544506e29b3"
+    },
+    {
+      "path": "assurance/evidence/m8/rss-inheritance.json",
+      "sha256": "c8a3bfd610d4562eb84b47e61e90e511daa8f23f4966f9fae9ceed027ffbc0fc"
+    },
+    {
+      "path": "assurance/evidence/m8/sanitizer-build.json",
+      "sha256": "ae0dbc7223743e6d87364d37df384099fe4229e65e47e73ac6490fd88a9eba38"
+    },
+    {
+      "path": "assurance/evidence/m8/sanitizer-tests.json",
+      "sha256": "817267dc60d5a946b0ae4788531e70411a773ca9a48bb10d4b018dbf2469f0a6"
+    },
+    {
+      "path": "assurance/evidence/m8/sbom-schema.json",
+      "sha256": "6c0c99dc836ff0e539c4eb6ae61dd534b0ae87a9522a35159d148126acf1a838"
+    },
+    {
+      "path": "assurance/evidence/m8/security-scan.json",
+      "sha256": "7a09b553662b343a5dc0ab90b0e75c633fa58330d48297ab18875b967b9357e3"
+    },
+    {
+      "path": "assurance/evidence/m8/stale-image.json",
+      "sha256": "4965b3c3aec11dc6d18918924d3bb7a5d9588ab23c0cb704185e94806f3500bf"
+    }
+  ]
+}
