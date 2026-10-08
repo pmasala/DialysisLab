@@ -312,7 +312,7 @@
     },
     {
       "path": "assurance/evidence/m9/m9-test-005.json",
-      "sha256": "8322a5bb1afd0c7bbd06c848b1b5fb6b9ed2c2dcb38904511e1e83598f71f459"
+      "sha256": "aea0119e40b63fa9726ca3d8b412161aea9edd99538ce00f5381854ae73b1876"
     },
     {
       "path": "assurance/evidence/m9/matrix-compose.json",
@@ -363,8 +363,12 @@
       "sha256": "97644058bd69aa5961cd86fb473364e2bc8e0cb7c87e73501221d35a75d39064"
     },
     {
+      "path": "assurance/evidence/m9/publication-git-audit.json",
+      "sha256": "a0def5e84ef6f7f551295120a794017036ea275946f366073f9e2bcf9991f63d"
+    },
+    {
       "path": "assurance/evidence/m9/review.json",
-      "sha256": "53739d5235e3b394219342584f090adb6452792bf790065371f1106e77d9db52"
+      "sha256": "83e68a0ae5c68d1c19b80170eef1d6f4272452f4890226b3a7585e118cdfb7ee"
     },
     {
       "path": "assurance/evidence/m9/sanitizer-build.json",
@@ -455,5 +459,6 @@
     "path": "assurance/evidence/m8/m1-long-failures.json",
     "sha256": "b2b883e0d3cd1dab51d6994561a380b26f1a8f7e621e72c441b7e485779fef6f"
   },
-  "memory_interpretation": "RSS max20.7617MiB,43.2383MiB below the64MiB acceptance bound. Total cgroup peak reached128MiB: zero observed peak headroom, no OOM. RSS allowance is not reserved cgroup capacity."
+  "memory_interpretation": "RSS max20.7617MiB,43.2383MiB below the64MiB acceptance bound. Total cgroup peak reached128MiB: zero observed peak headroom, no OOM. RSS allowance is not reserved cgroup capacity.",
+  "publication_correction_commit": "3caf9081095dbb7036ab817c58d6c5f4350c2094"
 }

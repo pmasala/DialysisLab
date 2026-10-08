@@ -365,6 +365,7 @@
     "assurance/evidence/m9/package-nogit/console/report.json",
     "assurance/evidence/m9/package-nogit/device/report.json",
     "assurance/evidence/m9/package-nogit/tests.json",
+    "assurance/evidence/m9/publication-git-audit.json",
     "assurance/evidence/m9/review.json",
     "assurance/evidence/m9/sanitizer-build.json",
     "assurance/evidence/m9/sanitizer-tests.json",

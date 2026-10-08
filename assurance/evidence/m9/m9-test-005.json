@@ -13,7 +13,9 @@
     "release_gate": "BLOCKED",
     "open_standards": 184,
     "open_edition_applicability_gaps": 12,
-    "prerequisites": 9
+    "prerequisites": 9,
+    "publication_git_files_checked": 547,
+    "publication_correction_commit": "3caf9081095dbb7036ab817c58d6c5f4350c2094"
   },
   "artifacts": [
     {
@@ -27,6 +29,10 @@
     {
       "path": "assurance/evidence/m9/hosted/recovery.json",
       "sha256": "866434518ff74ab9bc1f35ed7fb195c9af7e4d01f4039d4fe7290df26eae0a4a"
+    },
+    {
+      "path": "assurance/evidence/m9/publication-git-audit.json",
+      "sha256": "a0def5e84ef6f7f551295120a794017036ea275946f366073f9e2bcf9991f63d"
     }
   ],
   "scope": "Actual synthetic software/numerical acceptance only; no calibration, human risk acceptance or conformity."

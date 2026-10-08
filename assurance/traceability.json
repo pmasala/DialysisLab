@@ -2359,7 +2359,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "33f4994d182f852a6a140da6797f7df6fcb1712da1b9a45cf660b22a123536fa"
+          "sha256": "479a1ba2d05ad9a01095d0bd8bc8bd53615a8ef2c16283c503cd45f4d11c5611"
         },
         {
           "path": "docs/dependencies/CI_NOTICES.md",
@@ -2527,7 +2527,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "33f4994d182f852a6a140da6797f7df6fcb1712da1b9a45cf660b22a123536fa"
+          "sha256": "479a1ba2d05ad9a01095d0bd8bc8bd53615a8ef2c16283c503cd45f4d11c5611"
         }
       ],
       "unresolved": [
@@ -5105,7 +5105,7 @@
       "result": "passed",
       "evidence": {
         "path": "assurance/evidence/m9/m9-test-005.json",
-        "sha256": "8322a5bb1afd0c7bbd06c848b1b5fb6b9ed2c2dcb38904511e1e83598f71f459",
+        "sha256": "aea0119e40b63fa9726ca3d8b412161aea9edd99538ce00f5381854ae73b1876",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
         "run_id": "m9-m9-test-005-935692a-4e50564",
         "executed_at": "2026-10-08T09:05:17.158520+00:00",

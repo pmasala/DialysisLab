@@ -92,6 +92,12 @@
       "problem": "Shared host ENOSPC interrupted concurrent long runs and truncated aggregate checkpoint",
       "commit": "4e505648211694f456fbab0646f2c51fdcf54373",
       "regression": "test_partial_enospc_report_write_preserves_previous_completed_case; recovered original volume hashes; fresh complete sequential long repeats"
+    },
+    {
+      "id": "M9-V8",
+      "problem": "Registered new rendered PNGs were ignored by the general image rule and absent from evidence commit93c42e8",
+      "commit": "3caf9081095dbb7036ab817c58d6c5f4350c2094",
+      "regression": "All547 then-allowlisted files match the corrected Git tree byte for byte; publication-git-audit.json. Only the two registered owned images were explicitly added; no blanket unignore."
     }
   ]
 }

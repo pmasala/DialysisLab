@@ -1,0 +1,6 @@
+{
+  "successful": true,
+  "commit": "3caf9081095dbb7036ab817c58d6c5f4350c2094",
+  "files": 547,
+  "check": "Every explicit public-package file tracked and byte-identical to HEAD; no blanket image unignore."
+}

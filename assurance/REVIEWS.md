@@ -433,3 +433,11 @@ Five M9 acceptance proofs are checked individually; historical test records are
 not rewritten. All nine phase review opportunities remain single-use, including
 M1's supplied review. No independent human, clinical or regulatory approval is
 claimed; release obligations remain blocked.
+
+M9-V8 publication: evidence commit93c42e8 omitted two registered rendered PNGs
+because the general `*.png` exclusion applied. Correction `3caf9081095dbb7036ab817c58d6c5f4350c2094` explicitly adds
+only those two owned, inspected, hash-registered images. The global exclusion
+remains. An audit verifies all547 then-allowlisted paths and bytes against Git
+HEAD; `evidence/m9/publication-git-audit.json` retains the result. No application
+code changes or additional review were introduced. The superseded commit must
+not be used as the delivery archive; final package/CI use the corrected tree.
