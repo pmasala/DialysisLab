@@ -1,0 +1,433 @@
+{
+  "schema_version": 2,
+  "executed_at": "2026-10-08T03:44:03.015633+00:00",
+  "configuration": {
+    "blood_mL_min": 300,
+    "circuit": {
+      "compliance_mL_mmHg": [
+        0.001
+      ],
+      "dialyzer_edge": 0,
+      "edges": [
+        [
+          1,
+          0,
+          1,
+          "dialyzer",
+          false
+        ]
+      ],
+      "profile": {
+        "id": "synthetic-small",
+        "koa_mL_min": [
+          300,
+          200,
+          220,
+          200,
+          180,
+          100
+        ],
+        "kuf_mL_min_mmHg": 1,
+        "provenance": "synthetic",
+        "resistance_mmHg_min_mL": 1,
+        "sieving": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          0.7
+        ]
+      },
+      "pump_head_mmHg": 600,
+      "pump_node": 1,
+      "sensor_edge": 0,
+      "sensor_node": 1
+    },
+    "dt_ms": 100,
+    "faults": [],
+    "model": "m5-device-1",
+    "patient": {
+      "concentration_mmol_L": [
+        [
+          20,
+          140,
+          5,
+          105,
+          22,
+          2.4
+        ],
+        [
+          20,
+          14,
+          100,
+          10.5,
+          22,
+          2.4
+        ]
+      ],
+      "exchange_mL_min": [
+        600,
+        80,
+        200,
+        80,
+        100,
+        50
+      ],
+      "external_in_mL_min": 0,
+      "external_mmol_L": [
+        0,
+        140,
+        4,
+        105,
+        24,
+        2.4
+      ],
+      "external_out_mL_min": 0,
+      "generation_mmol_min": [
+        0.05,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "id": "synthetic-baseline",
+      "initial_weight_kg": 70,
+      "partition": [
+        1,
+        0.1,
+        20,
+        0.1,
+        1,
+        1
+      ],
+      "pco2_mmHg": 40,
+      "prime_mL": 20,
+      "provenance": "synthetic",
+      "refill_mL_min": 500,
+      "volume_mL": [
+        14000,
+        26000
+      ]
+    },
+    "patient_volume_mL": 40000,
+    "pressure_limit_mmHg": 250,
+    "resistance_mmHg_min_mL": 0.5,
+    "schema_version": 5,
+    "seed": 42,
+    "ticks": 400,
+    "transport": {
+      "blood_mmol_L": [
+        20,
+        140,
+        5,
+        105,
+        22,
+        2.4
+      ],
+      "dialysate_mL_min": 500,
+      "dialysate_mmol_L": [
+        0,
+        138,
+        2,
+        105,
+        30,
+        1.5
+      ]
+    },
+    "treatment": {
+      "concentrate_mmol_L": [
+        0,
+        3500,
+        100,
+        2625,
+        600,
+        60
+      ],
+      "filter1_R": 0.2,
+      "filter2_R": 0.2,
+      "head_mmHg": 600,
+      "heater_min_inverse": 30,
+      "initial_temperature_C": 37,
+      "inlet_temperature_C": 37,
+      "line_R": 0.1,
+      "mode": "HDF_PRE",
+      "penetration1": 0.001,
+      "penetration2": 0.001,
+      "ratio": 0.04,
+      "replacement_mL_min": 60,
+      "reservoir_mL": 50,
+      "setpoint_C": 37,
+      "source_contaminant": 1
+    },
+    "uf_mL_min": 5,
+    "workflow": [
+      {
+        "action": "PRIME",
+        "tick": 4,
+        "values": []
+      },
+      {
+        "action": "CONFIGURE",
+        "tick": 90,
+        "values": []
+      },
+      {
+        "action": "START",
+        "tick": 94,
+        "values": []
+      },
+      {
+        "action": "PAUSE",
+        "tick": 150,
+        "values": []
+      },
+      {
+        "action": "START",
+        "tick": 155,
+        "values": []
+      },
+      {
+        "action": "STOP",
+        "tick": 190,
+        "values": []
+      },
+      {
+        "action": "RECOVER",
+        "tick": 191,
+        "values": []
+      },
+      {
+        "action": "RESET",
+        "tick": 195,
+        "values": []
+      },
+      {
+        "action": "START",
+        "tick": 197,
+        "values": []
+      },
+      {
+        "action": "FINISH",
+        "tick": 240,
+        "values": []
+      },
+      {
+        "action": "CLEAN",
+        "tick": 244,
+        "values": []
+      },
+      {
+        "action": "COMPLETE",
+        "tick": 330,
+        "values": []
+      }
+    ]
+  },
+  "configuration_sha256": "f63cc1eb2d94003548be8c5195398e5cd081dd0c8f27c984050bd2590342e3ae",
+  "build": {
+    "source_revision": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+    "worktree_dirty_at_configure": null,
+    "compiler_id": "GNU",
+    "compiler_version": "14.2.0",
+    "build_type": "Release",
+    "source_sha256": {
+      "CMakeLists.txt": "c535b5f1151aa11fdc9d7b477c0a6101c28c1266e78bf3e354faa899d8b6bf06",
+      "tools/build_identity.py": "cd17e94697f41c24667cb9058b1273f0a4f555fb678fc45e81754dd6454fd99d",
+      "src/circuit.hpp": "9cf2434b8cee48e66720355f2d2dbbdb506aee44e9e74cb17e142c50fa86c89a",
+      "src/console/client.hpp": "f74043b8ed3b387893a7f976e23df36fb85cccbbbfb2359163123bb612434b68",
+      "src/console/sim_console.cpp": "27d5cc89a8a28ff17b6490ab49b3e4ed53e42bae40022e616ad4d68087ad2a57",
+      "src/control.cpp": "e511fb546c76f813c9cbca7f298109c9d4264b2d1fd9a13b0b90ef15bd1f2c16",
+      "src/device_session.hpp": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd",
+      "src/machine.hpp": "29bcc1c6d1e969c70719c702e41135d65ab765ae9b9dac5f8370a551654fa7db",
+      "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+      "src/online.hpp": "0d05aa4d7454118685063aa7855b3ad19b0834a3e80c06254797902881682af6",
+      "src/plant.cpp": "f8c83df5ad0b1d90608c30b9d7df5107100c91719c1a154509910491f6a03cb2",
+      "src/protection.cpp": "e532e67fa56f566191e8edff9d8be08b5e03f2f4f59c18b47abb43dfc465aaa8",
+      "src/ui/client.hpp": "0d01e3ba75e0f852be661aec19177fecbd91a9e34d59f6a080dd625b1e7453a2",
+      "src/ui/device_ui.cpp": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1",
+      "src/ui/font.cpp": "e238e501499703cee48551e02651f79fba619d270820b84c6eceb038a174b996",
+      "src/ui/lv_conf.h": "1620e7f40eb9cd5dbb33decae117b9a41a6e78349fe23a3c807731cb65215305",
+      "src/wire.hpp": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc",
+      "cmake/Gui.cmake": "1ccc4955b1ad60d935e0c346194cc7ab4c1ca154250cf96dd8589832d605613b",
+      "gui_dependencies.json": "886a77186e6f77bacf9cb68d00e2c85aa78eddff313bdc4f3afef9e507f72595",
+      "tools/fetch_gui.py": "c25e65a04b0e7dcd2934c0b6b38fed5f515b076a0ef62791fd28c2cdfd78939f",
+      "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+      "python/dialysislab/circuit.py": "f88fcefafe538d09996ed6bea896d0018596635c931a3a4314f5f04b7c2d4928",
+      "python/dialysislab/compartments.py": "d18bb2176b1415b6fbf3dbf6d32accec214a1691d82e3ff2be05e470f443e9bd",
+      "python/dialysislab/experiment_rpc.py": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f",
+      "python/dialysislab/experiments.py": "83d932893a4f01f006afe891b9890812cc2df2b8e3270a4b7d081a483f458959",
+      "python/dialysislab/machine.py": "dd03e344e6e141d3bd01dcfb744288a2a89ad50f0652e992c129eb5f80a510f3",
+      "python/dialysislab/patient.py": "9e17589c01defae9078bcc62524ad20011ae507e8cdb37993fb4c59a4840af06",
+      "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+      "python/dialysislab/role_supervisor.py": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4",
+      "python/dialysislab/runner.py": "78ed40c3edd2f1671205a8df2cf21a9f3bf14989d281effb173a5fd7f50897bd",
+      "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932",
+      "python/dialysislab/treatment.py": "4d6712cd02ac9004c4fc74885f26f15fd88e8df24d2fb7a18d85051e2612d79d",
+      "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+      "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+      "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+      "scenarios/device_interactive.json": "322006eec8e59ae48874d56a4c8aeefcb89ac5cff5fc5fd6e2f50e3f7008dd3a",
+      "scenarios/device_ui_demo.json": "a26bb993fcc555887bbe7e97b81f7c815398047d506dd56675d107e343570d4f",
+      "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+      "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+      "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+      "scenarios/machine_air.json": "4e547339d08ad45882a2b209bdb19b0961d9496ffd788be22cf951a902080392",
+      "scenarios/machine_balance.json": "472147f0e2deed445580ca4aeb3be5a38bbb33b5f716da486913fc54ee429aa1",
+      "scenarios/machine_hd.json": "0c3cbab928c7a1e264a219d822b53990ae6c3523fd297b01806be7d5dae5f0fc",
+      "scenarios/machine_hdf_post.json": "58ef53c5367f82bc2c8ccbe5a28b3b870b480c055606649e0b048019b669d310",
+      "scenarios/machine_hdf_pre.json": "747cd760f83dbab7c3fcf120720280db1052f14dbda1ad517a8a09c35b3c67e4",
+      "scenarios/machine_invalid.json": "907def5891bcacfc056dfcdaba3fc713e2034fed4eed02de976c5c7915ff1fa7",
+      "scenarios/machine_leak.json": "fa26d8b1dc2cb75deefb695db55d6a6a543db889f3abb2a4d4aa720dbf8afa53",
+      "scenarios/machine_pressure.json": "465a827d8f16bc179170ed04b2b718f866de2b7fccdc71b59c6d050c456aa15d",
+      "scenarios/machine_priming_100000.json": "3a1b839fdbd9d526b1d5652c6b710ccbd7f71634236ae6348e4a54978d298dce",
+      "scenarios/machine_quality.json": "2c7e865e8c80bf768c5d201c47dfed94b67c141374ab8ac5c6088baf05ed76b0",
+      "scenarios/machine_recovery.json": "8c9edb716157987a3a0b99d18ee2a6580e843d18dd312baf5b2eae33dde11082",
+      "scenarios/machine_stall.json": "70613f454c188b1835e46a7cf71a6110ccc0f522a8ae196112fa70465f2648e0",
+      "scenarios/patient_baseline.json": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+      "scenarios/patient_imbalance.json": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+      "scenarios/patient_large.json": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+      "scenarios/patient_overload.json": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4",
+      "scenarios/treatment_100000.json": "5c4a733bf900997a46cf437927d8c22b60745038a23c4d19e8e423ec57e90ce3",
+      "scenarios/treatment_contaminant.json": "5df88290a30624889230420874b24dd6a29171f6c1359ce723a27b48ae1e2a4e",
+      "scenarios/treatment_filter1.json": "2a0430914ded7f7bc3df0d4688ab4040a1bbce0fea8d63c0173219882182fb23",
+      "scenarios/treatment_hd.json": "3d6a8c4c868ef27bd1f475b6d9586160a649d22b6f35ca7af580d89fd14f01e3",
+      "scenarios/treatment_hdf_imbalance.json": "2499519b4ea84d917f0ba21686936c13249eae5328987aa76bd9d20d5df83b01",
+      "scenarios/treatment_hdf_large.json": "387fe02337fb1e67c29666b05105946498139c6d59891b878486867ad6591698",
+      "scenarios/treatment_hdf_post.json": "de2895789acf5b57141dec31c0c5929a30a97f6fff48cfe508549ea295858c4c",
+      "scenarios/treatment_hdf_pre.json": "74291126931eb0c1be5493a4284d59a2026b67e0f5b7c2aa0aa49868d34d9369",
+      "scenarios/treatment_integrity.json": "6bd693997a440835bb2ea4eea98310aa5f913efbe889a7f2735be3a04777f941",
+      "scenarios/treatment_ratio.json": "8da7a12361406b15d42adf79d8a12bdeba97074b3480d66b12e467a9c1691f3d",
+      "scenarios/treatment_route.json": "143a57a204d5ef22865c28b3512ceafa12811c22327d2818017ff12032b213ae",
+      "scenarios/treatment_supply.json": "9e64ded46a423bc9ba2b7d446ddf5a02ddca77aec91b1b0916426c32838508ac",
+      "scenarios/treatment_temperature.json": "18a78efb9628b91498dbbcbe7dbd6280f25819302a8032ecc8f08ebe0cd52cd9"
+    },
+    "binary_sha256": {
+      "plant": "897fd88cba8d6fadc8a59bb91a201804f05111c6bc6f485704aae43903dde39f",
+      "control": "232532bc69bd2ac002b54d684e5ba5ad20713ab32cb46f784062c6f9c0303660",
+      "protection": "66b439a4189801f9bda926d6c778236842573f7906492ac0457496904fcc1dcc"
+    },
+    "python_sha256": {
+      "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+      "python/dialysislab/circuit.py": "f88fcefafe538d09996ed6bea896d0018596635c931a3a4314f5f04b7c2d4928",
+      "python/dialysislab/compartments.py": "d18bb2176b1415b6fbf3dbf6d32accec214a1691d82e3ff2be05e470f443e9bd",
+      "python/dialysislab/experiment_rpc.py": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f",
+      "python/dialysislab/experiments.py": "83d932893a4f01f006afe891b9890812cc2df2b8e3270a4b7d081a483f458959",
+      "python/dialysislab/machine.py": "dd03e344e6e141d3bd01dcfb744288a2a89ad50f0652e992c129eb5f80a510f3",
+      "python/dialysislab/patient.py": "9e17589c01defae9078bcc62524ad20011ae507e8cdb37993fb4c59a4840af06",
+      "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+      "python/dialysislab/role_supervisor.py": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4",
+      "python/dialysislab/runner.py": "78ed40c3edd2f1671205a8df2cf21a9f3bf14989d281effb173a5fd7f50897bd",
+      "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932",
+      "python/dialysislab/treatment.py": "4d6712cd02ac9004c4fc74885f26f15fd88e8df24d2fb7a18d85051e2612d79d"
+    }
+  },
+  "python": "3.12.14",
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+  "interface": "DL1",
+  "model": "m5-device-1",
+  "simulation_only": true,
+  "outcome": "completed",
+  "errors": [],
+  "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+  "trajectory_file": "trajectory.jsonl",
+  "completed_ticks": 400,
+  "trajectory_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+  "wall_speed": 0.0,
+  "pacing_owner": "experiment_broker",
+  "scheduled": true,
+  "final_plant_observation": {
+    "sequence": 399,
+    "time_ms": 40000,
+    "blood_mL_min": 0.0,
+    "pressure_mmHg": 200.0,
+    "uf_mL_min": 0.0,
+    "removed_total_mL": 9.491033005794911,
+    "removed_tick_mL": 0.0,
+    "latched": false,
+    "clamp_closed": true,
+    "reason": "none",
+    "online": {
+      "sequence": 399,
+      "time_ms": 40000,
+      "mode": "HDF_PRE",
+      "route": 1,
+      "temperature_C": 37.0,
+      "conductivity_mS_cm": 13.770000000000003,
+      "replacement_mL_min": 0.0,
+      "pre_tick_mL": 0.0,
+      "post_tick_mL": 0.0,
+      "substitution_total_mL": 8.566429831191737,
+      "quality_latched": false,
+      "reason": "none",
+      "filter1_pressure_mmHg": 0.0,
+      "filter2_pressure_mmHg": 0.0,
+      "tank_contaminant": 1.0,
+      "delivered_contaminant": 1e-06,
+      "mixing_mL_min": 500.0,
+      "concentration_mmol_L": [
+        0.0,
+        140.00000000000006,
+        4.0,
+        105.0,
+        24.000000000000007,
+        2.4
+      ]
+    }
+  },
+  "trajectory_bytes": 1933384,
+  "memory": {
+    "peak_rss_bytes": 25669632,
+    "memory.peak": 32256000,
+    "memory.max": 134217728
+  },
+  "stop": {
+    "command": "HALT",
+    "requested": true,
+    "acknowledged": true,
+    "request_error": null,
+    "observed_state": {
+      "sequence": 399,
+      "time_ms": 40000,
+      "blood_mL_min": 0.0,
+      "pressure_mmHg": 0.0,
+      "uf_mL_min": 0.0,
+      "removed_total_mL": 9.491033005794911,
+      "removed_tick_mL": 0.0,
+      "latched": true,
+      "clamp_closed": true,
+      "reason": "shutdown",
+      "online": {
+        "sequence": 399,
+        "time_ms": 40000,
+        "mode": "HDF_PRE",
+        "route": 1,
+        "temperature_C": 37.0,
+        "conductivity_mS_cm": 13.770000000000003,
+        "replacement_mL_min": 0.0,
+        "pre_tick_mL": 0.0,
+        "post_tick_mL": 0.0,
+        "substitution_total_mL": 8.566429831191737,
+        "quality_latched": true,
+        "reason": "machine",
+        "filter1_pressure_mmHg": 0.0,
+        "filter2_pressure_mmHg": 0.0,
+        "tank_contaminant": 1.0,
+        "delivered_contaminant": 1e-06,
+        "mixing_mL_min": 500.0,
+        "concentration_mmol_L": [
+          0.0,
+          140.00000000000006,
+          4.0,
+          105.0,
+          24.000000000000007,
+          2.4
+        ]
+      }
+    },
+    "observation_error": null,
+    "outputs_zero_observed": true,
+    "pending_tick_cancelled": true
+  }
+}

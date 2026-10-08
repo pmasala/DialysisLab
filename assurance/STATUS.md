@@ -2,39 +2,34 @@
 
 ## Integrated execution checkpoint — 2026-10-08
 
-Branch `feat/integrated-dialysis-roadmap`. Technical phases M1–M6 COMPLETE;
-M7 IN PROGRESS; M8–M9 PLANNED. The full project remains incomplete.
+Branch `feat/integrated-dialysis-roadmap`. Technical phases M1–M7 COMPLETE;
+M8 NEXT; M9 PLANNED. The full project remains incomplete.
 
-M6 implementation `2ee31ad` passes 114/114 native and sanitizer regressions,
-10/10 actual UI/demo tests in headless, WSLg and instrumented builds, two real
-widget-driven Compose deployments, twelve native/twelve Compose exact-replay
-scenarios, four M1 runs and three isolation probes. The UI supports guarded
-HD/pre/post prescriptions, lifecycle requests, measured telemetry/trends,
-alarms and session/stale/disconnect handling. Actual 1100x890 captures and widget
-input/output logs are retained. UI peak RSS is 9.11 MiB headless and 19.55 MiB
-X11 within 128 MiB; no OOM. [M6 evidence](evidence/m6/README.md) records exact
-commands, identities, dependencies, results and limits.
+M7 implementation `bbecf59` passes 134/134 native and sanitizer tests each,
+20 broker/service regressions, 5/5 actual ImGui console tests in headless/WSLg/
+instrumented modes, ten device-UI regressions, ten native/ten Compose model runs,
+two actual console deployments (each original/replay/aborted run), and four M1
+runs plus three isolation probes. Scheduled replay hashes match exactly within
+and across the identified native/container builds. The console uses a separate
+authenticated administrative channel; patient/circuit/dialyzer/fault calendars
+are immutable per run. Pause retains liveness, external STOP aborts, and export
+streams verified or explicitly recovered partial artifacts.
 
-The sole M6 review (`00baa58` against `445c667`) found six P2 defects fixed in
-`5552622`; final visual inspection found dialog contrast M6-V1, fixed in
-`2ee31ad` with rendered-pixel verification. All applicable findings pass targeted
-regression. M1–M6 reviews are consumed: never rerun them. M7 has not been reviewed.
-Earlier long-run/failure evidence remains preserved; no new 100000-tick graphical
-endurance claim is made. Release and independent-assurance gates remain blocked.
+The sole M7 review examined `1cf008c` against `2621181`; one P1 and ten P2 findings
+are fixed in `bbecf59`, as is unauthenticated-header integration finding M7-V1.
+No second review ran. Console peak RSS is 16.55 MiB headless and 18.97 MiB X11,
+within the 128 MiB Compose limit with no OOM. Full commands, source identities,
+configurations, actual results and rendered artifacts: [M7 evidence](evidence/m7/README.md).
+Earlier M1–M6 evidence and failed diagnostic attempts remain preserved.
 
-Next executable step: finish M7 review corrections and targeted regressions, commit
-the corrections and run clean-build native/sanitizer/GUI/Compose integration evidence.
-The sole M7 review examined candidate `1cf008c` against `2621181` and returned one
-P1 plus ten P2 findings; it is consumed and must not run again. The journal/STOP,
-shutdown ownership, restart/revision, storage-bound, evidence identity, GUI reply,
-pacing and inventory fixes are implemented and under regression. Also fix M7-V1,
-the unauthenticated metadata header. Review commands, output and disposition are in
-`assurance/REVIEWS.md` and `build/reviews/m7*`. Continue M8/M9 after final M7 evidence.
-
-M7 constraints: immutable scheduled configuration, separate authenticated admin
-channel, fixed-role Compose supervisors, actual STOP evidence and streaming exports.
-Native hard-kill orphan cleanup and shared device-producer ownership are explicit
-M8 hardening work, not hidden assumptions of physical isolation.
+Next executable step: commit/push this evidence checkpoint, freeze it as M8 base,
+then define and implement cybersecurity/dependency/SBOM/CI requirements and tests.
+Separate device producer volumes, clean up native children after abrupt broker
+death, exercise bounded-input/availability threats, run available analyses and
+configure actual CI without weakening release gates. Continue M9 automatically.
+Preparation (not an adopted phase plan) is in `build/m8-preparation.md` and
+`build/m8-dependency-preparation/`. No graphical or Docker environmental block
+has been observed. Disk headroom is about 4.8 GiB; preserve prior work/evidence.
 
 Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md).
@@ -49,10 +44,10 @@ Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 | M4 | HD/pre/post HDF, mixed preparation/temperature/filter hydraulics, replacement accounting and directly enforced fluid-quality protection. | [M4](evidence/m4/README.md) |
 | M5 | Guarded machine lifecycle, external priming/cleaning ledgers, aggregate hazard-specific constraints, ACK/silence/reset/restart policies and device-only endpoints. | [M5](evidence/m5/README.md) |
 | M6 | Actual LVGL/SDL device UI, session-bound requests, precision/confirmation, sensor age/trends, alarms and native/Compose graphical verification. | [M6](evidence/m6/README.md) |
+| M7 | Separate real ImGui console and authenticated broker, immutable configuration/fault schedules, virtual pause, fresh native/Compose replay, comparison and retained exports/failures. | [M7](evidence/m7/README.md) |
 
 Earlier evidence remains historical, with active regression links identifying the
-current implementation. The external experiment console,
-security/SBOM/CI and final integrated package remain required. No roadmap feature
+current implementation. Security/SBOM/CI and the final integrated package remain required. No roadmap feature
 has been removed to make a phase or release gate pass.
 
 ## Open gates and limits

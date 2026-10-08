@@ -1,0 +1,5 @@
+{"action":"start","event":1,"next_sequence":0,"wall_at":"2026-10-08T03:43:50.210412+00:00"}
+{"action":"pause","event":2,"next_sequence":14,"wall_at":"2026-10-08T03:43:50.706892+00:00"}
+{"action":"paused","event":3,"next_sequence":14,"wall_at":"2026-10-08T03:43:50.720468+00:00"}
+{"action":"resume","event":4,"next_sequence":14,"wall_at":"2026-10-08T03:43:53.474292+00:00"}
+{"action":"completed","event":5,"next_sequence":400,"wall_at":"2026-10-08T03:44:02.577439+00:00"}

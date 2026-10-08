@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "phase": "M7",
+  "technical_status": "COMPLETE",
+  "executed_at": "2026-10-08T03:46:44.819821+00:00",
+  "implementation_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+  "build_worktree_clean": true,
+  "native_tests": 134,
+  "sanitizer_tests": 134,
+  "broker_tests": 20,
+  "console_headless_tests": 5,
+  "console_wslg_tests": 5,
+  "console_sanitizer_tests": 5,
+  "device_ui_regressions": 10,
+  "short_native_runs": 10,
+  "short_compose_runs": 10,
+  "console_compose_deployments": [
+    "headless",
+    "X11/WSLg"
+  ],
+  "console_runs_per_deployment": 3,
+  "completed_runs_per_deployment": 2,
+  "replay_runs_per_deployment": 1,
+  "aborted_runs_per_deployment": 1,
+  "m1_compose_runs": 4,
+  "isolation_probes": 3,
+  "cross_build_exact_replay": true,
+  "review_invocations": 1,
+  "review_findings_fixed": 11,
+  "additional_integration_findings_fixed": 1,
+  "compose_limit_bytes": 134217728,
+  "console_headless_rss_peak_bytes": 17354752,
+  "console_x11_rss_peak_bytes": 19890176,
+  "console_headless_cgroup_peak_bytes": 23085056,
+  "console_x11_cgroup_peak_bytes": 24682496,
+  "oom_kills": 0,
+  "dependencies": {
+    "schema_version": 1,
+    "profile": "linux-software-ui-1",
+    "components": [
+      {
+        "name": "lvgl",
+        "version": "9.6.0",
+        "commit": "80ca777e37a2b176770726a02e07a6fb79ef0b39",
+        "url": "https://codeload.github.com/lvgl/lvgl/tar.gz/refs/tags/v9.6.0",
+        "sha256": "b20ee3acc1bba13c62d854f9ebd62e4c51e0b443b1e0225892e86442defa84df",
+        "archive": "lvgl-9.6.0.tar.gz",
+        "directory": "lvgl-9.6.0",
+        "license": "MIT"
+      },
+      {
+        "name": "SDL2",
+        "version": "2.32.10",
+        "commit": "5d249570393f7a37e037abf22cd6012a4cc56a71",
+        "url": "https://www.libsdl.org/release/SDL2-2.32.10.tar.gz",
+        "sha256": "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165",
+        "archive": "SDL2-2.32.10.tar.gz",
+        "directory": "SDL2-2.32.10",
+        "license": "Zlib AND MIT AND BSD-3-Clause",
+        "excluded_archive_links": [
+          "SDL2-2.32.10/android-project-ant/src",
+          "SDL2-2.32.10/android-project-ant/AndroidManifest.xml"
+        ]
+      },
+      {
+        "name": "Dear ImGui",
+        "version": "1.92.9b",
+        "commit": "f1cc2ae15e53a861a874c3034aae6798fde194ab",
+        "url": "https://codeload.github.com/ocornut/imgui/tar.gz/refs/tags/v1.92.9b",
+        "sha256": "21d8a0a565e85dce943e375db00812c2f3f0ab21f3f0f7964e364a63422d7f99",
+        "archive": "imgui-1.92.9b.tar.gz",
+        "directory": "imgui-1.92.9b",
+        "license": "MIT"
+      }
+    ],
+    "scope": "Selected application build profile only; platform packages and inactive upstream assets are documented separately."
+  },
+  "maximum_water_residual_mL": 1.2826628648099359e-11,
+  "maximum_mass_residual_mmol": 1.5695639232760072e-11,
+  "tolerance_mL_mmol": 1e-06,
+  "scope": "Actual synthetic experiment software/process/container/widget verification. No calibration, clinical validation, physical isolation, independent risk acceptance or standards conformity. Exact replay is scoped to immutable scheduled experiments on identified builds. Hard-kill native orphan cleanup and shared device producer ownership remain explicit M8 hardening work.",
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m7/captures/comparison-export.png",
+      "sha256": "b223e173b5bcae44e112fb84ec98219b5f17ef2d3020e920d83e56ccecae31b1"
+    },
+    {
+      "path": "assurance/evidence/m7/captures/compose-x11.png",
+      "sha256": "4a5cd8d2b83f224097ed74d4634cfab97e6a617ec0bfdafe4ae4bcafee24cbc7"
+    },
+    {
+      "path": "assurance/evidence/m7/captures/paused-truth.png",
+      "sha256": "c0f1e8fe4b8d0c888658c0bfcd757c092e46e9f4ce7433e1b1a82e4ca77d3f17"
+    },
+    {
+      "path": "assurance/evidence/m7/captures/retained-reply.png",
+      "sha256": "e11dafff7c47f0eda258b286e2086e8be187c07ed1523e435f8b5bb8a6e10aa9"
+    },
+    {
+      "path": "assurance/evidence/m7/compose-models.json",
+      "sha256": "ebc7e64b4022005d1ef8f14a8b7a31ef57751de584ce549863fd49fcb472969e"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/input.log",
+      "sha256": "b0a608c0aaf20f036082d063ccbc926407f20ad4a25020aabdb2a68619587643"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/output.log",
+      "sha256": "4af9ad2543250b9fd399af7762457c18d8ca2b2252f28577ca7c4d4d2ebc2d33"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/r972e5d9c97397a11/configuration.json",
+      "sha256": "2d0fd3a279888ec0429ba1397233fdd6c7b436c00625282beab1cc5fcf4c9261"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/r972e5d9c97397a11/data/manifest.json",
+      "sha256": "a564355d873e0d1ae3f1c66d479e32d8422c64e3dfb37a485aae33214c1f9e9b"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/r972e5d9c97397a11/data/trajectory.jsonl",
+      "sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/r972e5d9c97397a11/events.jsonl",
+      "sha256": "e4bb35a8aa7e61678348d163657060971b051e4df26a18b4f7b1e48e8671f0b1"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/r972e5d9c97397a11/experiment.json",
+      "sha256": "9f995f6b3cdea679d7b00be69ca3b5176fb35336557f3059255bc121e932e7c6"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/reb03e7cd20e24cd6/configuration.json",
+      "sha256": "2d0fd3a279888ec0429ba1397233fdd6c7b436c00625282beab1cc5fcf4c9261"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/reb03e7cd20e24cd6/data/manifest.json",
+      "sha256": "1a7593b65bb1336eadd1dd2c4aabcce3f48a1a22887d90729a09e35aa35cf493"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/reb03e7cd20e24cd6/data/trajectory.jsonl",
+      "sha256": "651c7a0e4aed99bc63ac6dd80645f8a74a75ab58ed4b7f20a111006b7c81d28b"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/reb03e7cd20e24cd6/events.jsonl",
+      "sha256": "1a7473978bfa2b3a9e6cf3f16e6a2baef9791a5ef10d53a2c8a4d8997a731744"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/reb03e7cd20e24cd6/experiment.json",
+      "sha256": "eb4844c0ac869951f230415a5dee3cf241a145b01cc7872e24b4f405667271c9"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/rf932bb95946f35f9/configuration.json",
+      "sha256": "2d0fd3a279888ec0429ba1397233fdd6c7b436c00625282beab1cc5fcf4c9261"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/rf932bb95946f35f9/data/manifest.json",
+      "sha256": "f52cf56ef37da3f46d1f8ec1e6d037c24f71f46d857942529692fe87337f31c1"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/rf932bb95946f35f9/data/trajectory.jsonl",
+      "sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/rf932bb95946f35f9/events.jsonl",
+      "sha256": "fc9d227fdf8bc412f73b1b974ca9972fbe8d93d13f5d7a225be4eb86c1b58d70"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose/rf932bb95946f35f9/experiment.json",
+      "sha256": "250350035511845e0540cac117db0a8a7aebcee415e160fd175a40dc20898ddf"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/input.log",
+      "sha256": "ddaf015bbfd9deda77f803c3c59ce2fae1c28fd089d8747ad09ec7eee9a74d40"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/output.log",
+      "sha256": "ebd0b9f5ef0332def69456e9c0551d82c922eb54bf0d60d82b72dba94b12d471"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/r115ba3e70da36211/configuration.json",
+      "sha256": "2d0fd3a279888ec0429ba1397233fdd6c7b436c00625282beab1cc5fcf4c9261"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/r115ba3e70da36211/data/manifest.json",
+      "sha256": "b29f638c0102677cfb847b020ea12b955f424886afa735aad8d811ffaca3604c"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/r115ba3e70da36211/data/trajectory.jsonl",
+      "sha256": "651c7a0e4aed99bc63ac6dd80645f8a74a75ab58ed4b7f20a111006b7c81d28b"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/r115ba3e70da36211/events.jsonl",
+      "sha256": "e3384e0e17e63c891b16fc657a502e2b78080951c220dd92c0724d4039794afb"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/r115ba3e70da36211/experiment.json",
+      "sha256": "0d27e564b0eca58f2488e5adea1389f96a5a91ec0b6a4c9b2560dd76da911033"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/r7a1fa5d088b866ae/configuration.json",
+      "sha256": "2d0fd3a279888ec0429ba1397233fdd6c7b436c00625282beab1cc5fcf4c9261"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/r7a1fa5d088b866ae/data/manifest.json",
+      "sha256": "17a05365e214d825ea00f06e6de40634e8e2e5546d9bf0090d2aeb342e56586c"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/r7a1fa5d088b866ae/data/trajectory.jsonl",
+      "sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/r7a1fa5d088b866ae/events.jsonl",
+      "sha256": "2286aab7ea5d128046ab8ded96a96ca8afb6ee13aa0396570ff0ec7fc8285097"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/r7a1fa5d088b866ae/experiment.json",
+      "sha256": "70997b3dbca9977e0ff9bff5974200a980b43b9852b287c90dd791946dc2c380"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/rcad3534c4b49fc26/configuration.json",
+      "sha256": "2d0fd3a279888ec0429ba1397233fdd6c7b436c00625282beab1cc5fcf4c9261"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/rcad3534c4b49fc26/data/manifest.json",
+      "sha256": "28b432c30e79d8b21018617ceae0e855deb42dcaa5352e161b910dfc5cceb7a8"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/rcad3534c4b49fc26/data/trajectory.jsonl",
+      "sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/rcad3534c4b49fc26/events.jsonl",
+      "sha256": "de314e77b991e0a4e04de6c16cda237f1174ef5d58dd5039b56c5ac09f0f5155"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11/rcad3534c4b49fc26/experiment.json",
+      "sha256": "03e8f505adc31810c868220e5fdd8f49651d30896e37c12763ef1bc3f5176a6b"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose-x11.json",
+      "sha256": "970691412de27cd474e8f7cbd2954eb8b1f02fcbf24d23dd57f46eb1cac7e238"
+    },
+    {
+      "path": "assurance/evidence/m7/console-compose.json",
+      "sha256": "c2ee059bebe4746a68f758fbfcbecbe89afecf9a3e0d1f835a3de4f4488a333f"
+    },
+    {
+      "path": "assurance/evidence/m7/console-headless.json",
+      "sha256": "c7ef312c3e84f4577d688b22a2f30d054d9c7afbb0fcfa952e0d45897d5aa3c1"
+    },
+    {
+      "path": "assurance/evidence/m7/console-sanitizer.json",
+      "sha256": "451f46c6e2e92b7d54a12a191dad2c57fa79daa8de3d1bbc8fe63b3188623dce"
+    },
+    {
+      "path": "assurance/evidence/m7/console-wslg.json",
+      "sha256": "12d0e1ec90d4c010e3708bde45d52b04606c1b65d5df11bb5784a11a3194d19b"
+    },
+    {
+      "path": "assurance/evidence/m7/device-ui.json",
+      "sha256": "5e5f82334078f09f6d16f31940cfc65c9efe2a904f31fb71fcfddc3a3b1ee0c6"
+    },
+    {
+      "path": "assurance/evidence/m7/m1-compose.json",
+      "sha256": "b4fb742ad6d27374731526fe653bf7ef16a1d5f698a609e64baef1229e4abefb"
+    },
+    {
+      "path": "assurance/evidence/m7/native-models.json",
+      "sha256": "3eb4665189ee5691ba561e3678510d202340b1acdbb5f15edf005baef51ae4e5"
+    },
+    {
+      "path": "assurance/evidence/m7/native-tests.json",
+      "sha256": "f735f75b8adbc9090ae660b2034e9c7113f58f95ef15270971f0e70802582ea6"
+    },
+    {
+      "path": "assurance/evidence/m7/review.json",
+      "sha256": "7d9a1c4ae3710df8c8817ff5534b98dc8fbf63f6a72c01dda6d422a927c6d0c6"
+    },
+    {
+      "path": "assurance/evidence/m7/sanitizer-tests.json",
+      "sha256": "3626f1bb660805ba5834050760eeb3357429115ca46547f645a1334bc5b3d680"
+    }
+  ]
+}

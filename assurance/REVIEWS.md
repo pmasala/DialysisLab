@@ -247,3 +247,12 @@ M7-V1 verifies a neutral unauthenticated header during an actual running experim
 The maximum-calendar fixture uses SILENCE annotations valid in PREPARATION rather
 than unauthorized prescription transitions; machine guards remain unchanged.
 Record correction commit and clean final integration evidence next. No second review.
+
+M7 final disposition: correction commit `bbecf598154f0dc00b787ed839141d96a704ce0d`
+passes 134/134 native/sanitizer tests each, five actual console flows in each of
+headless/WSLg/instrumented modes, ten device-UI regressions, ten native/ten Compose
+model runs, two complete console deployments with retained aborted runs, four M1
+Compose runs and three isolation probes. All eleven review findings and M7-V1 are
+fixed. `evidence/m7/review.json`, `summary.json` and `README.md` bind the single
+review, exact correction/build/configuration identities, tests and artifacts.
+M8–M9 reviews have not run; M1–M7 reviews are consumed.
