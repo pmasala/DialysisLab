@@ -354,3 +354,35 @@ extracted source builds/passes152 tests; package widget closure and sustained
 100000-tick runs remain running and are not yet acceptance evidence.
 `codex review --help` checked. Commit candidate and invoke exactly one read-only
 review against frozen base `eb290dee95ac078ca3485fe1088161558dccbe59`.
+
+### M9 single review completed — one P1 and two P2 findings
+
+Exactly one read-only invocation against frozen base `eb290de`, candidate
+`4719ebce7a95f14f4ed4295c8b1bfcdd08f8e4c8`, exited0 with three applicable findings.
+Exact command/timestamps/output: `build/reviews/m9.json`, `m9-output.txt`. Wall
+clock advanced during execution; do not infer monotonic duration from timestamps.
+The review is consumed; no second review will be invoked.
+
+| Finding | Scenario | Required correction / regression |
+| --- | --- | --- |
+| M9-R1 P1 | Long100mL/min replacement exceeds mean-pressure UF capacity; balance2048 latches at106, grossUF14.12mL and FINISH aborts. | Feasible demand/profile, unchanged protective limits; short capacity regression and full100000-tick repeats. Also addresses independently observed M9-V4. |
+| M9-R2 P2 | Running package verification from an extracted source tree calls Git before reporting and fails without `.git`. | Explicit unavailable revision plus failure evidence; real extracted-source invocation/regression. |
+| M9-R3 P2 | Host umask077 leaves generated scenario0600 unreadable by container UID10001. | Explicit permissions for owned synthetic fixture only; actual Compose run with restrictive umask. |
+
+All findings are applicable. Native1500-tick feasibility diagnostics already show
+long replacement70 with R1/KUF1 delivers UF71.141732283/sub66.141732283 mL/min
+without alarms; revised large R0.9/KUF1 delivers UF62.142857143/sub57.142857143.
+These diagnostics do not substitute for full long acceptance. Candidate hosted
+CI37733002033 failed; logs/reports are being recovered and its cause must be fixed.
+
+Candidate CI failure M9-V5: the real broker-death test observed Linux ESRCH while
+reading `/proc/PID/stat` as a child disappeared. It handled ENOENT but not ESRCH.
+Treat both precise process-absence errors as terminated, retain the same3s bound
+and verify that PermissionError still propagates. Original hosted job/recovered
+reports remain in `build/m9-candidate-hosted-*`; no CI failure is relabeled PASS.
+
+M9-R1–R3 corrections pass six targeted integration tests, including two real
+1500-tick capacity runs, exact archival restoration, timestamp rejection,
+restrictive umask and failed packaging without Git. M9-V5 passes the actual
+broker-kill test and precise process-absence/access-error regression. Full long,
+restrictive-umask Compose and successful extracted-package execution are pending.

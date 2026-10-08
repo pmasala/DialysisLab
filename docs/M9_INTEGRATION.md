@@ -27,14 +27,14 @@ composition. All full configurations and seed 42 are persisted, never inferred
 from a profile name.
 
 Small profile uses M5's R=1 mmHg min/mL, KUF=1 mL/min/mmHg. Large uses the existing
-doubled KoA values, R=0.5 and KUF=0.8, named `synthetic-integration-large`. The latter
+doubled KoA values, R=0.9 and KUF=1, named `synthetic-integration-large`. The latter
 resistance gives this fixture enough transmembrane pressure/UF capacity for replacement
 plus net removal. These are demonstration parameters, not commercial specifications,
 clinical prescriptions or calibrated validity ranges. The hydraulic solver and
 transport equations remain unchanged; their documented limits still apply.
 
 Long HDF_POST uses 100000 ticks of 1000 ms, blood demand 300 mL/min, net UF 5,
-replacement demand 100, R=1/KUF=1 and baseline body water 40000 mL. PRIME at 4,
+replacement demand 70, R=1/KUF=1 and baseline body water 40000 mL. PRIME at 4,
 CONFIGURE at 90, START at 94, FINISH at 99990, CLEAN at 99994. It tests roughly
 27.8 virtual hours as a numerical stress case, not validated treatment duration.
 Expected net removal is approximately 8325 mL, separately measured from gross UF,
@@ -64,3 +64,26 @@ by the existing supported maximum 1 before simulation. Keep that input bound.
 Use the existing large KUF=0.8 and explicit synthetic R=0.5 instead, producing
 sufficient UF head while retaining lower resistance/doubled KoA versus small.
 The first failed matrix report remains retained; no failed acceptance is counted.
+
+## Reviewed fixture correction and unchanged bounds
+
+M9-R1/V4: the initial100mL/min replacement demand exceeded UF capacity because
+KUF multiplies mean dialyzer pressure. Balance alarm2048 latched at106 and both
+long runs later aborted on the guarded FINISH request. Their complete failed
+artifacts are retained. Use replacement70 with unchanged R1/KUF1/pressure250:
+steady substitution66.141732283 and UF71.141732283mL/min retain net5 and exceed
+100000mL gross UF over the predeclared duration. No protective limit or acceptance
+criterion changes. Short1500-tick real feasibility checks precede full repeats.
+
+The nominal large integration profile is R0.9/KUF1 with doubled KoA, sufficient
+for gross62.142857143mL/min. The earlier R0.5/KUF0.8 short fixture could finish
+without an alarm because its calendar reset the accumulated deficit; that is
+not evidence of sustained prescribed delivery. A new real1500-tick regression
+requires alarm-free gross flow>60 and actual netUF5 within1e-6 after settling.
+Complete matrix evidence must be regenerated for the corrected full parameters.
+
+M9-R2/R3: source-package verification accepts absence of Git metadata and records
+an unavailable revision, while preserving actual command failures. Generated
+synthetic Compose configurations are explicitly0644 so UID10001 can read them
+under a host umask077; only that owned fixture file receives this permission.
+Verify actual container execution with that umask, preserving all mount restrictions.

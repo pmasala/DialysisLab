@@ -2151,7 +2151,7 @@
         },
         {
           "path": "tests/test_security.py",
-          "sha256": "192f0cc864ab6b843119fda46de3a4e0db8e68ff03541f2b95f83cd98bf13444"
+          "sha256": "d8b836758522b6f04f46e1184f86ab617d5408d64d9bfe435c5b03731bca03cf"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -2204,7 +2204,7 @@
         },
         {
           "path": "tests/test_security.py",
-          "sha256": "192f0cc864ab6b843119fda46de3a4e0db8e68ff03541f2b95f83cd98bf13444"
+          "sha256": "d8b836758522b6f04f46e1184f86ab617d5408d64d9bfe435c5b03731bca03cf"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -2406,7 +2406,7 @@
       "implementation": [
         {
           "path": "tools/verify_integrated.py",
-          "sha256": "0370605be3ea71df84d59a586d9f46363504655ef2dac259bb5a911e97f8df2a"
+          "sha256": "16dfdbf82517ab490aaf4f27585cc22424837b07b1cb1b9c6aefb82dfe569842"
         },
         {
           "path": "tools/verify_models.py",
@@ -2414,11 +2414,11 @@
         },
         {
           "path": "docs/M9_INTEGRATION.md",
-          "sha256": "490b39ed605333b264adff970ce59a147dad38b60b912d3617b2c6101b96265a"
+          "sha256": "16522f526a88a34ea79b457b6221c49514995a10e8539ecff2ce6d6c45a35890"
         }
       ],
       "unresolved": [
-        "Preliminary matrix/fault/actual simultaneous widgets verified; full candidate/long/package acceptance and sole review pending. Model calibration, clinical/usability validation, platform advisory risk acceptance and standards obligations remain open."
+        "Sole review consumed; corrections pass targeted regressions. Final corrected matrix/long/package/hosted evidence pending. Model calibration, clinical/usability validation, advisory risk acceptance and standards obligations remain open."
       ]
     },
     {
@@ -2443,15 +2443,15 @@
       "implementation": [
         {
           "path": "tools/verify_integrated.py",
-          "sha256": "0370605be3ea71df84d59a586d9f46363504655ef2dac259bb5a911e97f8df2a"
+          "sha256": "16dfdbf82517ab490aaf4f27585cc22424837b07b1cb1b9c6aefb82dfe569842"
         },
         {
           "path": "tests/test_integration.py",
-          "sha256": "b720588350d9d98a5c96e4ad8c8762bfba5684eda5ac8405655521b1f410671c"
+          "sha256": "daf26811951724fd25936a955874219cbe8523c7af4b0762366389685aa10123"
         }
       ],
       "unresolved": [
-        "Preliminary matrix/fault/actual simultaneous widgets verified; full candidate/long/package acceptance and sole review pending. Model calibration, clinical/usability validation, platform advisory risk acceptance and standards obligations remain open."
+        "Sole review consumed; corrections pass targeted regressions. Final corrected matrix/long/package/hosted evidence pending. Model calibration, clinical/usability validation, advisory risk acceptance and standards obligations remain open."
       ]
     },
     {
@@ -2494,7 +2494,7 @@
         }
       ],
       "unresolved": [
-        "Preliminary matrix/fault/actual simultaneous widgets verified; full candidate/long/package acceptance and sole review pending. Model calibration, clinical/usability validation, platform advisory risk acceptance and standards obligations remain open."
+        "Sole review consumed; corrections pass targeted regressions. Final corrected matrix/long/package/hosted evidence pending. Model calibration, clinical/usability validation, advisory risk acceptance and standards obligations remain open."
       ]
     },
     {
@@ -2519,7 +2519,7 @@
       "implementation": [
         {
           "path": "tools/verify_package.py",
-          "sha256": "b0b0c0172b8e33bd3178d00ded2141c44ea28f4e300267207e0291b5c039c166"
+          "sha256": "3c96485b12eea48aa9819e41681178c0f9a45d451ca2cfd441a0d254a2591c8c"
         },
         {
           "path": "tools/package_release.py",
@@ -2531,7 +2531,7 @@
         }
       ],
       "unresolved": [
-        "Preliminary matrix/fault/actual simultaneous widgets verified; full candidate/long/package acceptance and sole review pending. Model calibration, clinical/usability validation, platform advisory risk acceptance and standards obligations remain open."
+        "Sole review consumed; corrections pass targeted regressions. Final corrected matrix/long/package/hosted evidence pending. Model calibration, clinical/usability validation, advisory risk acceptance and standards obligations remain open."
       ]
     },
     {
@@ -2576,7 +2576,7 @@
         }
       ],
       "unresolved": [
-        "Preliminary matrix/fault/actual simultaneous widgets verified; full candidate/long/package acceptance and sole review pending. Model calibration, clinical/usability validation, platform advisory risk acceptance and standards obligations remain open."
+        "Sole review consumed; corrections pass targeted regressions. Final corrected matrix/long/package/hosted evidence pending. Model calibration, clinical/usability validation, advisory risk acceptance and standards obligations remain open."
       ]
     }
   ],

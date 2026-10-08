@@ -11,6 +11,7 @@ import tempfile
 import time
 import unittest
 import uuid
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'python'))
@@ -22,7 +23,18 @@ from test_experiments import Fixture, wait_for
 BUILD = Path(os.environ.get('DIALYSISLAB_BUILD_DIR', ROOT / 'build/gui')).resolve()
 
 
+def process_alive(pid):
+    try:return Path('/proc',str(pid),'stat').read_text().split(') ',1)[1][0]!='Z'
+    except (FileNotFoundError,ProcessLookupError):return False
+
+
 class SecurityTests(unittest.TestCase):
+    def test_disappearing_proc_stat_is_terminated_but_access_errors_are_not_hidden(self):
+        for error in (FileNotFoundError(),ProcessLookupError()):
+            with patch.object(Path,'read_text',side_effect=error):self.assertFalse(process_alive(123))
+        with patch.object(Path,'read_text',side_effect=PermissionError('denied')):
+            with self.assertRaises(PermissionError):process_alive(123)
+
     def test_strict_json_rejects_ambiguous_and_unbounded_inputs(self):
         invalid = ['{"seed":1,"seed":2}', '{"x":{"a":1,"a":2}}',
                    '['*33+'0'+']'*33, '1e999', 'NaN', 'Infinity', '1'*129, ' '*1048577]
@@ -122,10 +134,7 @@ class SecurityTests(unittest.TestCase):
                     command=Path('/proc',str(pids[0]),'cmdline').read_bytes().split(b'\0')
                     runtime=Path(os.fsdecode(command[command.index(b'--runtime-dir')+1]))
                     process.kill();process.wait(timeout=3)
-                    def alive(pid):
-                        try:return Path('/proc',str(pid),'stat').read_text().split(') ',1)[1][0]!='Z'
-                        except FileNotFoundError:return False
-                    wait_for(lambda:[pid for pid in pids if alive(pid)],lambda remaining:not remaining,timeout=3)
+                    wait_for(lambda:[pid for pid in pids if process_alive(pid)],lambda remaining:not remaining,timeout=3)
                     data=root/'runs'/run/'data';prefix=scan(data/'trajectory.jsonl',recover=True)
                     self.assertGreaterEqual(prefix['records'],4)
                     self.assertEqual(json.loads((data/'manifest.json').read_text())['outcome'],'running')

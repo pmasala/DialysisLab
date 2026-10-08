@@ -2,71 +2,33 @@
 
 ## Integrated execution checkpoint — 2026-10-08
 
-Branch `feat/integrated-dialysis-roadmap`. Technical phases M1–M7 COMPLETE;
-M8 IN PROGRESS; M9 PLANNED. The full project remains incomplete.
+Branch `feat/integrated-dialysis-roadmap`. Technical phases M1–M8 COMPLETE;
+M9 corrections and final verification IN PROGRESS. Formal release remains blocked.
 
-M7 implementation `bbecf59` passes 134/134 native and sanitizer tests each,
-20 broker/service regressions, 5/5 actual ImGui console tests in headless/WSLg/
-instrumented modes, ten device-UI regressions, ten native/ten Compose model runs,
-two actual console deployments (each original/replay/aborted run), and four M1
-runs plus three isolation probes. Scheduled replay hashes match exactly within
-and across the identified native/container builds. The console uses a separate
-authenticated administrative channel; patient/circuit/dialyzer/fault calendars
-are immutable per run. Pause retains liveness, external STOP aborts, and export
-streams verified or explicitly recovered partial artifacts.
+M9 candidate `4719ebc` received its sole review: P1 long-run fixture capacity,
+P2 extracted-source Git assumption, P2 generated Compose fixture permissions.
+All three are implemented with six targeted integration regressions passing.
+The actual Linux process-death regression and ESRCH/ENOENT/access-error tests pass;
+this addresses the failed candidate hosted CI37733002033 without suppressing
+permission failures or extending its timeout. Review count remains one per phase.
 
-The sole M7 review examined `1cf008c` against `2621181`; one P1 and ten P2 findings
-are fixed in `bbecf59`, as is unauthenticated-header integration finding M7-V1.
-No second review ran. Console peak RSS is 16.55 MiB headless and 18.97 MiB X11,
-within the 128 MiB Compose limit with no OOM. Full commands, source identities,
-configurations, actual results and rendered artifacts: [M7 evidence](evidence/m7/README.md).
-Earlier M1–M6 evidence and failed diagnostic attempts remain preserved.
+Corrected fixtures use replacement70mL/min for sustained HDF and R0.9/KUF1 for
+the large integrated dialyzer. Actual1500-tick runs deliver net5mL/min without
+alarms. Thresholds and acceptance bounds are unchanged. Full100000-tick repeats,
+corrected deployment matrix and final source-package verification remain pending;
+the initial failed long runs and their original manifests are retained.
 
-M7-V2 publication correction passes all normal checks and preserves blocked release
-gates; exact log bytes are retained in hashed JSON wrappers.
+M8 corrected hosted CI37730439086 passed; all41 artifacts recover byte for byte.
+150 native/sanitizer tests, actual UI/console deployments, three Docker failure
+cases and two100000-tick M1 runs passed (RSS max19.47MiB at128MiB). Five actual
+SBOMs validate; stale images are rejected. The scan retains73 open advisory IDs,
+without risk acceptance or a clean-image claim. See `evidence/m8/`.
 
-M8 implementation is in progress at frozen base
-`4a1c366acd0050df4c744c2d1eb7d066890d5df4`. Device producers have distinct volumes;
-parent-death cleanup and bounded strict JSON are implemented. Six new security
-regressions plus four dependency/scanner tests pass; 38 affected process tests pass.
-Actual M1 Compose passes four runs/three strengthened isolation probes. The first
-supervised experiment aborted because the guard rejected valid container parent
-PID 1; the correction passes the second actual experiment deployment. Failures
-and artifacts remain in `build/m8-*-first*`. Cppcheck's conservative role warning
-is addressed by explicit bounds/roles; the third standalone scan has zero findings.
-
-Initial OSV analysis queried 96 identities with 25 matching queries, never a clean
-scan. Updated runtime selection is official pinned CPython 3.12.15/trixie-slim,
-signed snapshot 20261007; build and fresh scan/triage remain in progress. CI avoids
-both inspected actions: checkout retains vulnerable undici, uploader has an
-unresolved transitive license. The public repository is fetched with system Git
-and verified against the exact event SHA; hosted Actions is available, not yet run.
-SBOMs validate against official CycloneDX 1.6 with installed jsonschema 4.10.3;
-final inventories must identify the corrected image/build.
-
-Next executable step: complete M9 integrated matrix, simultaneous actual LVGL
-and ImGui workflows, sustained-treatment long runs and reproducible package.
-M9 base is `eb290dee95ac078ca3485fe1088161558dccbe59`; acceptance is frozen in
-`docs/M9_INTEGRATION.md`. Its single review has NOT run. Preliminary verification passes152 native
-tests,36 native/36 Compose matrix runs,30 native/30 Compose fault runs and
-simultaneous headless/WSLg device+console flows. The extracted-source package
-build and152 tests pass; widget/package closure and two native/two Compose
-sustained100000-tick runs are still running. Preserve these pending outcomes.
-M9-V1 paused device
-STOP and M9-V2 rejected synthetic fixture are recorded in `REVIEWS.md`; fixes
-retain existing output/conservation/input bounds.
-
-M8 is technically COMPLETE: 150/150 native/sanitizer tests, 10 device/5 console
-tests, ten native/ten Compose model runs, actual deployments and boundary probes.
-All four review findings are fixed in `e8c497c`. Corrected hosted CI37730439086
-passed; 41 artifacts recover byte for byte. Five actual SBOMs validate; stale
-images are rejected. Three real Docker failure cases and two100000-tick M1 runs
-pass, RSS max19.47MiB at128MiB. See `evidence/m8/`. The scan retains73 open
-advisory IDs; no risk acceptance or clean-image claim. M1–M8 reviews consumed.
-
-No process, Docker or WSLg block. Owned raw PPM captures were compressed only
-after independent lossless hash verification; `evidence/m8/capture-storage.json`
-records originals/archives/recovery. Do not prune unknown user data or old history.
+There is no process, Docker or WSLg access block. Owned large trajectories and
+raw captures may be archived only after byte-exact independent round-trip checks;
+original failures remain failures, with recovery metadata. Preserve unknown user
+data. Next: commit review corrections, rebuild, run final native/Compose/long/
+package verification, recover corrected hosted CI and publish supported evidence.
 
 Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md).

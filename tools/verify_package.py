@@ -30,8 +30,7 @@ def main():
     if args.output==ROOT or ROOT in args.output.parents:parser.error('package verification output must be outside repository')
     args.output.mkdir(parents=True,exist_ok=False)
     report=dict(schema_version=1,executed_at=datetime.now(timezone.utc).isoformat(),command=sys.argv,
-                source_revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-                source_worktree_dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()),successful=False,steps=[])
+                source_revision='unavailable',source_worktree_dirty=None,successful=False,steps=[])
     def run(name,command,cwd):
         log=args.output/(name+'.log');entry=dict(name=name,command=[str(x) for x in command],cwd=str(cwd));report['steps'].append(entry)
         with log.open('w') as stream:
@@ -39,6 +38,10 @@ def main():
         entry.update(exit_code=result.returncode,log=str(log),log_sha256=sha(log))
         if result.returncode:raise RuntimeError(name+' failed: '+str(log))
     try:
+        if (ROOT/'.git').exists():
+            report['source_revision']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+            report['source_worktree_dirty']=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip())
+        report['publication_manifest_sha256']=sha(ROOT/'publication_manifest.json')
         for index in (1,2):run('package-'+str(index),[sys.executable,ROOT/'tools/package_release.py','--output',args.output/('DialysisLab-'+str(index)+'.zip')],ROOT)
         one,two=[args.output/('DialysisLab-'+str(i)+'.zip') for i in (1,2)]
         if sha(one)!=sha(two):raise ValueError('source archive is not byte-reproducible')

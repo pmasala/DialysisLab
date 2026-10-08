@@ -33,12 +33,12 @@ def configurations(group):
                     config['transport']['blood_mmol_L']=config['patient']['concentration_mmol_L'][0].copy()
                     if dialyzer=='large':
                         profile=copy.deepcopy(load('treatment_hdf_large')['circuit']['profile'])
-                        profile.update(id='synthetic-integration-large',resistance_mmHg_min_mL=0.5)
+                        profile.update(id='synthetic-integration-large',resistance_mmHg_min_mL=0.9,kuf_mL_min_mmHg=1)
                         config['circuit']['profile']=profile
                     yield 'integrated_'+mode+'_'+patient+'_'+dialyzer,config
     elif group=='long':
         config=load('machine_hdf_post');config.update(ticks=100000,dt_ms=1000)
-        config['treatment']['replacement_mL_min']=100
+        config['treatment']['replacement_mL_min']=70
         config['workflow']=[dict(tick=tick,action=action,values=[]) for tick,action in
             ((4,'PRIME'),(90,'CONFIGURE'),(94,'START'),(99990,'FINISH'),(99994,'CLEAN'))]
         yield 'integrated_hdf_100000',config
@@ -48,6 +48,13 @@ def configurations(group):
                      'treatment_integrity','treatment_ratio','treatment_route','treatment_supply','treatment_temperature'):
             yield name,load(name)
     else:raise ValueError('unknown integration group')
+
+
+def write_configuration(path,config,container_readable=False):
+    with path.open('x') as stream:stream.write(json.dumps(config,indent=2)+'\n')
+    # These are generated, public synthetic fixtures. The container's UID10001
+    # must read this one bind-mounted file even when its host owner uses umask077.
+    if container_readable:path.chmod(0o644)
 
 
 def archive_trajectory(path,expected_sha256):
@@ -81,6 +88,8 @@ def acceptance(directory,config,group,name):
     expected_mask={'machine_air':4,'machine_balance':2048,'machine_invalid':16,'machine_leak':8,
                    'machine_pressure':1,'machine_quality':256,'machine_recovery':4,'machine_stall':2}.get(name)
     for record in read_records(directory/'trajectory.jsonl'):
+        if type(record.get('time_ms')) is not int or record['time_ms']!=(record['sequence']+1)*config['dt_ms']:
+            raise ValueError('trajectory virtual timestamp differs from declared tick')
         if record.get('online',{}).get('quality_latched') and first_quality is None:first_quality=record['time_ms']
         machine=record.get('machine')
         if machine:
@@ -118,7 +127,7 @@ def main():
     expected=report['build']['source_sha256']
     try:
         for name,config in configurations(args.group):
-            validate(config);configuration=args.output/(name+'.json');configuration.write_text(json.dumps(config,indent=2)+'\n')
+            validate(config);configuration=args.output/(name+'.json');write_configuration(configuration,config,args.compose)
             hashes=[]
             for repeat in (1,2):
                 if args.group=='long' and shutil.disk_usage(args.output).free<1400*1024**2:
