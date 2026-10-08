@@ -60,17 +60,20 @@ def configure(admin, config):
                config['patient']['prime_mL']), 'OK', 1)
 
 
-def request(runtime, event):
+def request(runtime, event, scheduled=False):
     """Use the same confirmation contracts as a device; return intent, not completion."""
     action, values = event['action'], event['values']
     role = 'protection' if action in ('ACK', 'SILENCE', 'RESET') else 'control'
     path = runtime / 'device' / (role + '.sock')
+    if scheduled: path = runtime / role / 'service.sock'
+    def call(*args):
+        return rpc(path, *(['OPERATOR7'] if scheduled else []), *args)
     if action in ('STOP', 'ACK', 'SILENCE'):
-        expect(rpc(path, action + '5', *values), 'OK', 1)
+        expect(call(action + '5', *values), 'OK', 1)
         return dict(action=action, delivery='acknowledged')
-    response = rpc(path, 'PRESCRIBE5', *values) if action == 'PRESCRIBE' else rpc(path, 'REQUEST5', action)
+    response = call('PRESCRIBE5', *values) if action == 'PRESCRIBE' else call('REQUEST5', action)
     token = integer(expect(response, 'CONFIRM5', 2)[1])
-    expect(rpc(path, 'CONFIRM5', token), 'QUEUED5', 2)
+    expect(call('CONFIRM5', token), 'QUEUED5', 2)
     return dict(action=action, values=values, delivery='queued')
 
 

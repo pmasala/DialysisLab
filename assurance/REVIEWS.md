@@ -183,3 +183,29 @@ deployments, twelve native/twelve Compose exact-replay scenarios and four M1 run
 plus three isolation probes. `evidence/m6/review.json` and `summary.json` bind
 findings, commits, actual tests and rendered artifacts. M6 review count remains
 one. M7–M9 reviews have not run.
+
+## M7 — implementation candidate verification; review not yet invoked
+
+Fixed base `26211813a79d5f05720071de0b51df8089997476`. `codex review --help`
+was checked before this phase. Real broker/role regressions cover pause/liveness,
+immutable configuration, direct device STOP, replay/export, malformed administration,
+failed services and recoverable interrupted evidence. Three actual ImGui tests run
+headless, WSLg and with sanitizers; repeated headless/graphical Compose runs use
+fresh processes in separate role containers. Retain the candidate SHA and single
+review command/output before invocation. No M7 review has run at this checkpoint.
+
+Pre-candidate diagnostics retained in `build/m7-*`: first Compose startup failed
+because an unquoted flow-list tmpfs string split its mount options. Corrected YAML;
+available volumes were extracted and confirmed empty before cleanup (`m7-compose-first/recovery.json`).
+The new altered-patient fixture initially violated the existing initial concentration
+consistency check, then attempted configuration before 200 mL priming completed.
+The fixture now matches concentrations and waits sufficient declared virtual ticks;
+no model limit or assurance check was relaxed. A stale-editor integration check also
+requires the GUI to retain its loaded draft revision rather than adopt newer polling
+revisions, preventing another client's configuration from being silently overwritten.
+
+M7 candidate validation: 123/123 native and sanitizer tests each, 3/3 real console
+tests in headless/WSLg/sanitizer modes, 10/10 device-UI regressions, ten native/ten
+Compose model runs and two repeated-experiment console deployments pass. Exact
+preliminary reports are in `build/m7-*-candidate*`; final clean evidence follows
+the one review and any applicable corrections.

@@ -1,0 +1,128 @@
+#!/usr/bin/env python3
+"""Actual repeated experiments and ImGui inputs across isolated role containers."""
+import argparse
+from datetime import datetime,timezone
+import hashlib
+import json
+from pathlib import Path
+import sys
+import time
+import uuid
+ROOT=Path(__file__).resolve().parents[1]
+sys.path[:0]=[str(ROOT/'python'),str(ROOT/'tools'),str(ROOT/'tests')]
+from verify_compose import command,inspect_services
+from capture_png import convert
+from console_regressions import Console
+from dialysislab.trajectory import scan
+
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,required=True);p.add_argument('--graphical',action='store_true');args=p.parse_args();args.output.mkdir(parents=True,exist_ok=False)
+    project='dl-m7-'+uuid.uuid4().hex[:10]
+    prefix=['docker','compose','-p',project,'-f',str(ROOT/'compose.experiments.yaml')]
+    if args.graphical:prefix+=['-f',str(ROOT/'compose.experiments-x11.yaml')]
+    prefix+=['--profile','console']
+    report=dict(schema_version=1,executed_at=datetime.now(timezone.utc).isoformat(),command=sys.argv,project=project,graphical=args.graphical,successful=False,primary_exit=0,primary_error=None,collection_errors=[],cleanup_errors=[],resources_retained=True)
+    ui=None;broker_id=None;ui_name=project+'-console';extracted=set()
+    def call(op,params=None):
+        code="import json;from dialysislab.experiment_rpc import request;print(json.dumps(request('/experiment',"+repr(op)+","+repr(params or {})+")))"
+        return json.loads(command(['docker','exec',broker_id,'python3','-c',code]))
+    def until(fn,test,timeout=30):
+        deadline=time.monotonic()+timeout
+        while time.monotonic()<deadline:
+            value=fn()
+            if test(value):return value
+            time.sleep(.1)
+        raise RuntimeError('condition timeout: '+str(value)[:2000])
+    try:
+        report['startup']=command(prefix+['up','-d','--no-build','plant','control','protection','patient','scenario-runner'])
+        broker_id=command(prefix+['ps','-q','scenario-runner']).strip()
+        until(lambda:call('STATUS'),lambda s:s['state']=='idle')
+        argv=prefix+['run','-T','--no-deps','--name',ui_name,'sim-console','/opt/bin/sim-console','--api-dir','/experiment','--capture-dir','/captures','--test-input']
+        if not args.graphical:argv+=['--headless']
+        ui=Console('/unused',args.output/'widget-events',argv)
+        until(ui.snapshot,lambda s:s['connected'])
+        ui.set('preset','machine_hdf_pre');ui.click('LOAD')
+        until(lambda:call('DRAFT'),lambda c:c['treatment']['mode']=='HDF_PRE')
+        ui.set('speed',4);ui.click('START')
+        running=until(ui.snapshot,lambda s:s['state']=='running' and s['sequence']>=5)
+        original=running['run_id'];ui.click('PAUSE');paused=until(ui.snapshot,lambda s:s['state']=='paused')
+        time.sleep(2.2);assert ui.snapshot()['sequence']==paused['sequence']
+        ui.send('CAPTURE compose-paused');time.sleep(.2)
+        ui.click('RESUME');complete=until(ui.snapshot,lambda s:s['state']=='completed')
+        assert complete['sequence']==399
+        report['first']=call('STATUS')['experiment']
+        ui.set('speed',0);ui.click('REPLAY');second=until(ui.snapshot,lambda s:s['state']=='completed' and s['run_id']!=original)
+        ui.click('COMPARE');compared=until(lambda:call('STATUS')['job'],lambda j:j['state']=='completed')
+        assert compared['result']['exact_replay'],compared
+        report['comparison']=compared
+        ui.click('EXPORT');exported=until(lambda:call('STATUS')['job'],lambda j:j.get('operation')=='EXPORT' and j['state']=='completed');report['export']=exported
+        ui.send('CAPTURE compose-export');time.sleep(.2)
+        report['console_memory']=command(['docker','exec',ui_name,'cat','/proc/1/status'])
+        report['console_cgroup_peak']=command(['docker','exec',ui_name,'cat','/sys/fs/cgroup/memory.peak'])
+        probe="""from pathlib import Path
+import socket
+from dialysislab.experiment_rpc import request
+for path in ('/activation','/results','/run/dialysis/admin','/run/dialysis/patient','/run/dialysis/control'):
+ assert not Path(path).exists() or not list(Path(path).iterdir()), path
+try: request('/experiment','STATUS',token='0'*64)
+except ValueError as error: assert 'unauthorized' in str(error)
+else: raise AssertionError('bad credential accepted')
+print('PASS console mounts; incorrect token denied')
+"""
+        report['isolation']=command(['docker','exec',ui_name,'python3','-c',probe])
+        # A third fresh activation is aborted while paused; preserve its partial artifacts.
+        third=call('START',dict(revision=call('STATUS')['revision'],request_id=uuid.uuid4().hex,wall_speed=1))['run_id']
+        until(lambda:call('STATUS'),lambda s:s['sequence']>=2);call('PAUSE',dict(run_id=third));until(lambda:call('STATUS'),lambda s:s['state']=='paused')
+        call('STOP',dict(run_id=third));stopped=until(lambda:call('STATUS'),lambda s:s['state']=='aborted')
+        assert stopped['experiment']['stop']['outputs_zero_observed'];report['aborted']=stopped['experiment']
+        report['runs']=[original,second['run_id'],third]
+        ui.close();ui=None
+    except Exception as exc:
+        report['primary_exit']=getattr(exc,'returncode',1);report['primary_error']=str(exc)
+    finally:
+        if ui:
+            try:ui.close()
+            except Exception as exc:report['collection_errors'].append(dict(stage='console_close',error=str(exc)))
+        # Stop the broker first: its signal handler preserves actual HALT and partial manifest.
+        try:command(prefix+['stop','scenario-runner'])
+        except Exception as exc:report['collection_errors'].append(dict(stage='broker_stop',error=str(exc)))
+        for name,argv in [('services.log',prefix+['logs','--no-color','--timestamps']),('console.log',['docker','logs',ui_name])]:
+            try:(args.output/name).write_text(command(argv))
+            except Exception as exc:report['collection_errors'].append(dict(stage=name,error=str(exc)))
+        try:report['services']=inspect_services(prefix)
+        except Exception as exc:report['collection_errors'].append(dict(stage='inspect',error=str(exc)))
+        for name,source in [('results',(broker_id or project+'-scenario-runner-1')+':/results/.'),('captures',ui_name+':/captures/.')]:
+            try:command(['docker','cp',source,str(args.output/name)]);extracted.add(name)
+            except Exception as exc:report['collection_errors'].append(dict(stage=name,error=str(exc)))
+        if extracted=={'results','captures'} and not report['collection_errors']:
+            try:command(prefix+['down','--volumes','--remove-orphans']);report['resources_retained']=False
+            except Exception as exc:report['cleanup_errors'].append(str(exc))
+        else:
+            try:command(prefix+['stop'])
+            except Exception as exc:report['cleanup_errors'].append(str(exc))
+            report['recovery_commands']=['docker cp '+(broker_id or project+'-scenario-runner-1')+':/results/. /tmp/'+project+'-results','docker cp '+ui_name+':/captures/. /tmp/'+project+'-captures',' '.join(prefix+['down','--volumes','--remove-orphans'])]
+    try:
+        if report['primary_exit'] or report['collection_errors'] or report['cleanup_errors']:raise ValueError('execution/collection failure')
+        summaries=[]
+        for identifier in report['runs']:
+            data=args.output/'results'/identifier/'data';manifest=json.loads((data/'manifest.json').read_text());measured=scan(data/'trajectory.jsonl')
+            assert manifest['trajectory_sha256']==measured['sha256'] and manifest['completed_ticks']==measured['records']
+            summaries.append(dict(run_id=identifier,manifest=manifest,trajectory={k:v for k,v in measured.items() if k not in ('first','last')}))
+        report['run_evidence']=summaries
+        console=next(s for s in report['services'] if s['service']=='sim-console')
+        mounts={'/experiment','/captures'}|({'/tmp/.X11-unix/X0'} if args.graphical else set())
+        # tmpfs /tmp is a declared sandbox resource, not an administrative volume.
+        assert set(console['mounts'])-{'/tmp'}==mounts
+        for s in report['services']:
+            assert s['network']=='none' and s['read_only'] and not s['oom_killed'] and s['memory_limit_bytes']==128*1024**2
+        for path in (args.output/'captures').glob('*.ppm'):convert(path,path.with_suffix('.png'))
+        report['successful']=True
+    except Exception as exc:report['validation_error']=str(exc)
+    report['artifacts']={str(p.relative_to(args.output)):hashlib.sha256(p.read_bytes()).hexdigest() for p in args.output.rglob('*') if p.is_file()}
+    (args.output/'report.json').write_text(json.dumps(report,indent=2)+'\n')
+    print(json.dumps({k:report.get(k) for k in ('successful','primary_exit','primary_error','validation_error','collection_errors','resources_retained')},indent=2))
+    return report['primary_exit'] or (0 if report['successful'] else 1)
+
+
+if __name__=='__main__':sys.exit(main())

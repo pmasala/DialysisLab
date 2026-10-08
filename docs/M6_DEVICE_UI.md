@@ -197,3 +197,8 @@ confirmation-detail framebuffer must provide at least 7:1 luminance contrast
 between its rendered glyphs and background. This is a project software display
 criterion, not a claim of clinical usability or accessibility conformity. The
 actual frame is checked after rendering, alongside exact-value and SDL input tests.
+
+M7 scheduled experiment deployments allow device observation and immediate STOP;
+ordinary requests receive authoritative `REJECT scheduled` feedback. The external
+console, never this UI, owns configuration, fault calendars and virtual pause.
+A device STOP interrupts the experiment and requires fresh services for replay.

@@ -62,6 +62,11 @@
       "id": "M6-NEED-001",
       "statement": "Operate the simulated device through a real isolated LVGL interface with authoritative measurements, guarded requests and reliable connection state.",
       "status": "draft"
+    },
+    {
+      "id": "M7-NEED-001",
+      "statement": "Administer reproducible synthetic experiments through a separate external console and bounded batch API.",
+      "status": "implemented"
     }
   ],
   "hazards": [
@@ -308,6 +313,36 @@
       "id": "M6-DES-006",
       "description": "Verify actual UI integration and capture evidence; docs/M6_DEVICE_UI.md.",
       "status": "draft"
+    },
+    {
+      "id": "M7-DES-001",
+      "description": "Run a separate real experiment console; docs/M7_EXPERIMENTS.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M7-DES-002",
+      "description": "Validate immutable complete experiment configurations; docs/M7_EXPERIMENTS.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M7-DES-003",
+      "description": "Pause resume and stop virtual experiments safely; docs/M7_EXPERIMENTS.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M7-DES-004",
+      "description": "Replay compare and export trustworthy results; docs/M7_EXPERIMENTS.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M7-DES-005",
+      "description": "Isolate administrative identity and interfaces; docs/M7_EXPERIMENTS.md.",
+      "status": "implemented"
+    },
+    {
+      "id": "M7-DES-006",
+      "description": "Preserve failure evidence and fresh lifecycle; docs/M7_EXPERIMENTS.md.",
+      "status": "implemented"
     }
   ],
   "requirements": [
@@ -513,7 +548,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d7a8ba9ae5fd9d1f798a2c6de98a237d5ad6cfb3849f41505e02e4f10f0a0548"
+          "sha256": "46ca05038826077410e1eb21c79f0114bca2b4552043431338878b7753cbccfd"
         },
         {
           "path": "src/plant.cpp",
@@ -583,7 +618,7 @@
       "implementation": [
         {
           "path": "src/protection.cpp",
-          "sha256": "d4ceed40653e71d3e28b495f5a0232a4316d5cc890b529aa381cb0fca78d94c2"
+          "sha256": "e532e67fa56f566191e8edff9d8be08b5e03f2f4f59c18b47abb43dfc465aaa8"
         },
         {
           "path": "src/plant.cpp",
@@ -620,7 +655,7 @@
         },
         {
           "path": "src/control.cpp",
-          "sha256": "2f0b7c75bc823b92c63bfa68a3a7f2832da8983c7e607e7f8aad8e5a0f69f80f"
+          "sha256": "e511fb546c76f813c9cbca7f298109c9d4264b2d1fd9a13b0b90ef15bd1f2c16"
         }
       ],
       "unresolved": [
@@ -653,11 +688,11 @@
         },
         {
           "path": "src/control.cpp",
-          "sha256": "2f0b7c75bc823b92c63bfa68a3a7f2832da8983c7e607e7f8aad8e5a0f69f80f"
+          "sha256": "e511fb546c76f813c9cbca7f298109c9d4264b2d1fd9a13b0b90ef15bd1f2c16"
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "d4ceed40653e71d3e28b495f5a0232a4316d5cc890b529aa381cb0fca78d94c2"
+          "sha256": "e532e67fa56f566191e8edff9d8be08b5e03f2f4f59c18b47abb43dfc465aaa8"
         },
         {
           "path": "src/plant.cpp",
@@ -699,7 +734,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d7a8ba9ae5fd9d1f798a2c6de98a237d5ad6cfb3849f41505e02e4f10f0a0548"
+          "sha256": "46ca05038826077410e1eb21c79f0114bca2b4552043431338878b7753cbccfd"
         }
       ],
       "unresolved": [
@@ -733,7 +768,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d7a8ba9ae5fd9d1f798a2c6de98a237d5ad6cfb3849f41505e02e4f10f0a0548"
+          "sha256": "46ca05038826077410e1eb21c79f0114bca2b4552043431338878b7753cbccfd"
         },
         {
           "path": "tools/recover_trajectory.py",
@@ -995,7 +1030,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d7a8ba9ae5fd9d1f798a2c6de98a237d5ad6cfb3849f41505e02e4f10f0a0548"
+          "sha256": "46ca05038826077410e1eb21c79f0114bca2b4552043431338878b7753cbccfd"
         }
       ],
       "unresolved": [
@@ -1113,7 +1148,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d7a8ba9ae5fd9d1f798a2c6de98a237d5ad6cfb3849f41505e02e4f10f0a0548"
+          "sha256": "46ca05038826077410e1eb21c79f0114bca2b4552043431338878b7753cbccfd"
         }
       ],
       "unresolved": [
@@ -1211,7 +1246,7 @@
       "implementation": [
         {
           "path": "src/protection.cpp",
-          "sha256": "d4ceed40653e71d3e28b495f5a0232a4316d5cc890b529aa381cb0fca78d94c2"
+          "sha256": "e532e67fa56f566191e8edff9d8be08b5e03f2f4f59c18b47abb43dfc465aaa8"
         },
         {
           "path": "src/plant.cpp",
@@ -1249,7 +1284,7 @@
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "d4ceed40653e71d3e28b495f5a0232a4316d5cc890b529aa381cb0fca78d94c2"
+          "sha256": "e532e67fa56f566191e8edff9d8be08b5e03f2f4f59c18b47abb43dfc465aaa8"
         }
       ],
       "unresolved": [
@@ -1279,11 +1314,11 @@
       "implementation": [
         {
           "path": "src/control.cpp",
-          "sha256": "2f0b7c75bc823b92c63bfa68a3a7f2832da8983c7e607e7f8aad8e5a0f69f80f"
+          "sha256": "e511fb546c76f813c9cbca7f298109c9d4264b2d1fd9a13b0b90ef15bd1f2c16"
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "3c2b406951bcc63d9620bec3f2f4718c5304df3817695f21b1a1234917e039fd"
+          "sha256": "dd03e344e6e141d3bd01dcfb744288a2a89ad50f0652e992c129eb5f80a510f3"
         },
         {
           "path": "compose.yaml",
@@ -1365,7 +1400,7 @@
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "16f57d813171b14276bf5978278f910a7495299a3c5a8314f6765b64fb838aab"
+          "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
         }
       ],
       "unresolved": [
@@ -1407,7 +1442,7 @@
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "16f57d813171b14276bf5978278f910a7495299a3c5a8314f6765b64fb838aab"
+          "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
         }
       ],
       "unresolved": [
@@ -1449,7 +1484,7 @@
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "16f57d813171b14276bf5978278f910a7495299a3c5a8314f6765b64fb838aab"
+          "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
         }
       ],
       "unresolved": [
@@ -1491,7 +1526,7 @@
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "16f57d813171b14276bf5978278f910a7495299a3c5a8314f6765b64fb838aab"
+          "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
         }
       ],
       "unresolved": [
@@ -1533,7 +1568,7 @@
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "16f57d813171b14276bf5978278f910a7495299a3c5a8314f6765b64fb838aab"
+          "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
         }
       ],
       "unresolved": [
@@ -1577,11 +1612,311 @@
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "16f57d813171b14276bf5978278f910a7495299a3c5a8314f6765b64fb838aab"
+          "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
         }
       ],
       "unresolved": [
         "Representative-user validation, clinical alarm limits, independent risk acceptance and physical/standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M7-REQ-001",
+      "statement": "Run a separate real experiment console",
+      "acceptance": "Actual native/headless/X11/Compose services and widgets",
+      "needs": [
+        "M7-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-003",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M7-DES-001"
+      ],
+      "tests": [
+        "M7-TEST-001"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "d872c0e2a2f4fc1b6c50ea50d19b762cf383df703c02f9cd535bd7c30af107e9"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "e8344c635aa00511d1d5f82cc73b67e0947b97f4e4b07578a61a6df0c0a917da"
+        },
+        {
+          "path": "src/console/client.hpp",
+          "sha256": "4d872f0f24aa3ebbda51137acfa029cfc042bcabf8977acfea51f9fb698e7cdd"
+        },
+        {
+          "path": "docs/M7_EXPERIMENTS.md",
+          "sha256": "dcf589212f62e4aa84b5d61cb67706caa71dff734b8d913dbf8c2712c7cd2c57"
+        }
+      ],
+      "unresolved": [
+        "Independent risk acceptance, calibration/validation and physical/standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M7-REQ-002",
+      "statement": "Validate immutable complete experiment configurations",
+      "acceptance": "Patient/circuit/dialyzer/mode/workflow/fault edits validated; live configuration unchanged",
+      "needs": [
+        "M7-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-003",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M7-DES-002"
+      ],
+      "tests": [
+        "M7-TEST-002"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "d872c0e2a2f4fc1b6c50ea50d19b762cf383df703c02f9cd535bd7c30af107e9"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "e8344c635aa00511d1d5f82cc73b67e0947b97f4e4b07578a61a6df0c0a917da"
+        },
+        {
+          "path": "src/console/client.hpp",
+          "sha256": "4d872f0f24aa3ebbda51137acfa029cfc042bcabf8977acfea51f9fb698e7cdd"
+        },
+        {
+          "path": "docs/M7_EXPERIMENTS.md",
+          "sha256": "dcf589212f62e4aa84b5d61cb67706caa71dff734b8d913dbf8c2712c7cd2c57"
+        }
+      ],
+      "unresolved": [
+        "Independent risk acceptance, calibration/validation and physical/standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M7-REQ-003",
+      "statement": "Pause resume and stop virtual experiments safely",
+      "acceptance": "Pause >2 wall seconds preserves sequence/liveness; stop records actual HALT observation",
+      "needs": [
+        "M7-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-003",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M7-DES-003"
+      ],
+      "tests": [
+        "M7-TEST-003"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "d872c0e2a2f4fc1b6c50ea50d19b762cf383df703c02f9cd535bd7c30af107e9"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "e8344c635aa00511d1d5f82cc73b67e0947b97f4e4b07578a61a6df0c0a917da"
+        },
+        {
+          "path": "src/console/client.hpp",
+          "sha256": "4d872f0f24aa3ebbda51137acfa029cfc042bcabf8977acfea51f9fb698e7cdd"
+        },
+        {
+          "path": "docs/M7_EXPERIMENTS.md",
+          "sha256": "dcf589212f62e4aa84b5d61cb67706caa71dff734b8d913dbf8c2712c7cd2c57"
+        }
+      ],
+      "unresolved": [
+        "Independent risk acceptance, calibration/validation and physical/standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M7-REQ-004",
+      "statement": "Replay compare and export trustworthy results",
+      "acceptance": "Fresh services reproduce exact bytes; streaming comparison/export rejects corrupt evidence",
+      "needs": [
+        "M7-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-003",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M7-DES-004"
+      ],
+      "tests": [
+        "M7-TEST-004"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "d872c0e2a2f4fc1b6c50ea50d19b762cf383df703c02f9cd535bd7c30af107e9"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "e8344c635aa00511d1d5f82cc73b67e0947b97f4e4b07578a61a6df0c0a917da"
+        },
+        {
+          "path": "src/console/client.hpp",
+          "sha256": "4d872f0f24aa3ebbda51137acfa029cfc042bcabf8977acfea51f9fb698e7cdd"
+        },
+        {
+          "path": "docs/M7_EXPERIMENTS.md",
+          "sha256": "dcf589212f62e4aa84b5d61cb67706caa71dff734b8d913dbf8c2712c7cd2c57"
+        }
+      ],
+      "unresolved": [
+        "Independent risk acceptance, calibration/validation and physical/standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M7-REQ-005",
+      "statement": "Isolate administrative identity and interfaces",
+      "acceptance": "Bad token/revision/run/path/size rejected; device has no truth administration",
+      "needs": [
+        "M7-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-003",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M7-DES-005"
+      ],
+      "tests": [
+        "M7-TEST-005"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "d872c0e2a2f4fc1b6c50ea50d19b762cf383df703c02f9cd535bd7c30af107e9"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "e8344c635aa00511d1d5f82cc73b67e0947b97f4e4b07578a61a6df0c0a917da"
+        },
+        {
+          "path": "src/console/client.hpp",
+          "sha256": "4d872f0f24aa3ebbda51137acfa029cfc042bcabf8977acfea51f9fb698e7cdd"
+        },
+        {
+          "path": "docs/M7_EXPERIMENTS.md",
+          "sha256": "dcf589212f62e4aa84b5d61cb67706caa71dff734b8d913dbf8c2712c7cd2c57"
+        }
+      ],
+      "unresolved": [
+        "Independent risk acceptance, calibration/validation and physical/standards obligations remain open."
+      ]
+    },
+    {
+      "id": "M7-REQ-006",
+      "statement": "Preserve failure evidence and fresh lifecycle",
+      "acceptance": "Multiple Compose/native runs without Docker socket; interrupted artifacts retained, no implicit resume",
+      "needs": [
+        "M7-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-003",
+        "HAZ-004"
+      ],
+      "designs": [
+        "M7-DES-006"
+      ],
+      "tests": [
+        "M7-TEST-006"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "d872c0e2a2f4fc1b6c50ea50d19b762cf383df703c02f9cd535bd7c30af107e9"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "f5fc032a28fc3f46a7080d91c70a9bc91597e77b121c1381fb538c27735adef4"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "e8344c635aa00511d1d5f82cc73b67e0947b97f4e4b07578a61a6df0c0a917da"
+        },
+        {
+          "path": "src/console/client.hpp",
+          "sha256": "4d872f0f24aa3ebbda51137acfa029cfc042bcabf8977acfea51f9fb698e7cdd"
+        },
+        {
+          "path": "docs/M7_EXPERIMENTS.md",
+          "sha256": "dcf589212f62e4aa84b5d61cb67706caa71dff734b8d913dbf8c2712c7cd2c57"
+        }
+      ],
+      "unresolved": [
+        "Independent risk acceptance, calibration/validation and physical/standards obligations remain open."
       ]
     }
   ],
@@ -3139,6 +3474,66 @@
         "reviewer": "Codex execution and one automatic defect review; independent assurance and risk acceptance remain open.",
         "environment": "WSL2 Linux x86_64, GCC 13.3.0/Python 3.12.3 native; GCC 14.2.0/Python 3.12.14 pinned Docker, 128 MiB per container; actual SDL software X11/WSLg and headless."
       }
+    },
+    {
+      "id": "M7-TEST-001",
+      "requirements": [
+        "M7-REQ-001"
+      ],
+      "procedure": "Execute real broker/role/widget/native/Compose regressions; retain commands, identities, artifacts and the single phase review.",
+      "expected": "Actual native/headless/X11/Compose services and widgets",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M7-TEST-002",
+      "requirements": [
+        "M7-REQ-002"
+      ],
+      "procedure": "Execute real broker/role/widget/native/Compose regressions; retain commands, identities, artifacts and the single phase review.",
+      "expected": "Patient/circuit/dialyzer/mode/workflow/fault edits validated; live configuration unchanged",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M7-TEST-003",
+      "requirements": [
+        "M7-REQ-003"
+      ],
+      "procedure": "Execute real broker/role/widget/native/Compose regressions; retain commands, identities, artifacts and the single phase review.",
+      "expected": "Pause >2 wall seconds preserves sequence/liveness; stop records actual HALT observation",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M7-TEST-004",
+      "requirements": [
+        "M7-REQ-004"
+      ],
+      "procedure": "Execute real broker/role/widget/native/Compose regressions; retain commands, identities, artifacts and the single phase review.",
+      "expected": "Fresh services reproduce exact bytes; streaming comparison/export rejects corrupt evidence",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M7-TEST-005",
+      "requirements": [
+        "M7-REQ-005"
+      ],
+      "procedure": "Execute real broker/role/widget/native/Compose regressions; retain commands, identities, artifacts and the single phase review.",
+      "expected": "Bad token/revision/run/path/size rejected; device has no truth administration",
+      "result": "planned",
+      "evidence": null
+    },
+    {
+      "id": "M7-TEST-006",
+      "requirements": [
+        "M7-REQ-006"
+      ],
+      "procedure": "Execute real broker/role/widget/native/Compose regressions; retain commands, identities, artifacts and the single phase review.",
+      "expected": "Multiple Compose/native runs without Docker socket; interrupted artifacts retained, no implicit resume",
+      "result": "planned",
+      "evidence": null
     }
   ],
   "prerequisites": [

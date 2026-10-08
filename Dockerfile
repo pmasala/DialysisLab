@@ -24,9 +24,10 @@ WORKDIR /opt/dialysislab
 COPY --from=build /opt/build/plant /opt/build/control /opt/build/protection /opt/build/build_identity.json /opt/build/build-packages.txt /opt/bin/
 COPY python/ python/
 COPY scenarios/ scenarios/
+COPY tools/experiment.py tools/
 COPY LICENSE ./LICENSE
-RUN mkdir -p /run/dialysis/admin /run/dialysis/control /run/dialysis/protection /run/dialysis/patient /run/dialysis/device /results \
-    && chown -R 10001:10001 /run/dialysis /results \
+RUN mkdir -p /run/dialysis/admin /run/dialysis/control /run/dialysis/protection /run/dialysis/patient /run/dialysis/device /run/dialysis/sessions /results /experiment /activation \
+    && chown -R 10001:10001 /run/dialysis /results /experiment /activation \
     && dpkg-query -W > /opt/bin/runtime-packages.txt
 USER 10001:10001
 
@@ -49,7 +50,7 @@ RUN printf 'deb [check-valid-until=no] https://snapshot.debian.org/archive/debia
     && apt-get install -y --no-install-recommends libx11-6=2:1.8.12-1 libxext6=2:1.3.4-1+b3 \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir /captures && chown 10001:10001 /captures
-COPY --from=gui-build /opt/gui-build/device-ui /opt/gui-build/plant /opt/gui-build/control /opt/gui-build/protection /opt/gui-build/build_identity.json /opt/gui-build/build-packages.txt /opt/bin/
+COPY --from=gui-build /opt/gui-build/sim-console /opt/gui-build/device-ui /opt/gui-build/plant /opt/gui-build/control /opt/gui-build/protection /opt/gui-build/build_identity.json /opt/gui-build/build-packages.txt /opt/bin/
 COPY gui_dependencies.json ./
 COPY docs/dependencies/GUI_NOTICES.md /opt/dialysislab/GUI_NOTICES.md
 RUN dpkg-query -W > /opt/bin/runtime-packages.txt

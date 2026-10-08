@@ -86,3 +86,16 @@ drives actual widgets in a separate 128 MiB container and retains both result an
 capture volumes before cleanup, preserving original errors and recovery commands.
 Earlier affected native/Compose regression and independent conservation/replay
 checks remain required. Results and the sole review are in `evidence/m6/`.
+
+## M7 experiment protocol
+
+Verify the real DX1 broker, fresh services and actual ImGui widget input/rendering
+in native headless, available WSLg and separate-container deployments. Required
+cases: complete HD/pre/post configuration; immutable active patient/circuit/dialyzer
+and fault schedule; >2 s wall pause with fixed virtual sequence and live watchdogs;
+resume, direct external STOP, requested/observed shutdown, fresh replay with identical
+bytes, streaming comparison/export integrity and partial-prefix recovery. Exercise
+bad credential/revision/run/path/size/deadline and failed service/restart policies.
+Keep exact source/build/configuration/commands and every failed diagnostic attempt.
+Candidate tests are preliminary until review fixes and clean-build regression evidence
+are recorded; AI review remains defect finding, not human or clinical approval.

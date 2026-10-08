@@ -1,0 +1,62 @@
+# Standalone external-administration deployment. No Docker socket or network.
+name: dialysislab-experiments
+x-common: &common
+  image: dialysislab-m1:local
+  platform: linux/amd64
+  network_mode: none
+  user: "10001:10001"
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  pids_limit: 32
+  mem_limit: 128m
+  cpus: 1
+  restart: "no"
+  stop_grace_period: 15s
+  tmpfs: ["/tmp:rw,nosuid,nodev,noexec,size=16m,mode=1777"]
+services:
+  plant:
+    <<: *common
+    command: [python3, -m, dialysislab.role_supervisor, --role, plant]
+    volumes: ["admin:/run/dialysis/admin", "control:/run/dialysis/control", "protection:/run/dialysis/protection", "activation:/activation:ro"]
+  control:
+    <<: *common
+    command: [python3, -m, dialysislab.role_supervisor, --role, control]
+    volumes: ["control:/run/dialysis/control", "device:/run/dialysis/device", "activation:/activation:ro"]
+  protection:
+    <<: *common
+    command: [python3, -m, dialysislab.role_supervisor, --role, protection]
+    volumes: ["protection:/run/dialysis/protection", "device:/run/dialysis/device", "activation:/activation:ro"]
+  patient:
+    <<: *common
+    command: [python3, -m, dialysislab.role_supervisor, --role, patient]
+    volumes: ["patient:/run/dialysis/patient", "activation:/activation:ro"]
+  scenario-runner:
+    <<: *common
+    depends_on: [plant, control, protection, patient]
+    command: [python3, -m, dialysislab.experiments, --build-dir, /opt/bin, --output, /results, --api-dir, /experiment, --activation-dir, /activation, --runtime-dir, /run/dialysis]
+    volumes: ["admin:/run/dialysis/admin", "control:/run/dialysis/control", "protection:/run/dialysis/protection", "patient:/run/dialysis/patient", "device:/run/dialysis/device", "results:/results", "experiment:/experiment", "activation:/activation", "sessions:/run/dialysis/sessions"]
+  sim-console:
+    <<: *common
+    image: dialysislab-ui:local
+    profiles: [console]
+    command: [/opt/bin/sim-console, --headless, --api-dir, /experiment, --capture-dir, /captures]
+    volumes: ["experiment:/experiment:ro", "console-captures:/captures"]
+  device-ui:
+    <<: *common
+    image: dialysislab-ui:local
+    profiles: [device-ui]
+    command: [/opt/bin/device-ui, --headless, --runtime-dir, /run/dialysis, --capture-dir, /captures]
+    volumes: ["device:/run/dialysis/device:ro", "device-captures:/captures"]
+volumes:
+  admin:
+  control:
+  protection:
+  patient:
+  device:
+  activation:
+  sessions:
+  experiment:
+  results:
+  console-captures:
+  device-captures:

@@ -3,7 +3,7 @@
 ## Integrated execution checkpoint — 2026-10-08
 
 Branch `feat/integrated-dialysis-roadmap`. Technical phases M1–M6 COMPLETE;
-M7 NEXT; M8–M9 PLANNED. The full project remains incomplete.
+M7 IN PROGRESS; M8–M9 PLANNED. The full project remains incomplete.
 
 M6 implementation `2ee31ad` passes 114/114 native and sanitizer regressions,
 10/10 actual UI/demo tests in headless, WSLg and instrumented builds, two real
@@ -22,13 +22,19 @@ regression. M1–M6 reviews are consumed: never rerun them. M7 has not been revi
 Earlier long-run/failure evidence remains preserved; no new 100000-tick graphical
 endurance claim is made. Release and independent-assurance gates remain blocked.
 
-Next executable step: commit/push the M6 evidence checkpoint, freeze that commit
-as M7 base, define M7 requirements/risks/contracts/acceptance before implementation,
-and build the separate real experiment console/broker. Then continue automatically
-through M8 and M9. Preparation notes and the successful framework-only ImGui/SDL
-WSLg probe are in `build/m7-preparation.md` and `build/imgui-feasibility/`; they
-are not a finished console or a substitute for the M7 phase plan. No graphical
-or Docker environmental block has been observed in this execution.
+Next executable step: commit the M7 candidate and run its **one** read-only review against fixed base
+`26211813a79d5f05720071de0b51df8089997476`. No M7 review has yet run. Broker and
+actual ImGui console are implemented; nine targeted process tests, three GUI tests
+in headless/WSLg/sanitizer modes, repeated Compose experiments and ten native model
+runs pass. Full native/sanitizer suites each pass 123/123, with ten native/ten Compose
+model runs and successful headless/WSLg console deployments. Do not infer final
+phase PASS before review disposition and clean-build evidence. Preserve `build/m7-*` diagnostics, then fix
+review findings, regress, record clean-build evidence and continue M8/M9.
+
+M7 constraints: immutable scheduled configuration, separate authenticated admin
+channel, fixed-role Compose supervisors, actual STOP evidence and streaming exports.
+Native hard-kill orphan cleanup and shared device-producer ownership are explicit
+M8 hardening work, not hidden assumptions of physical isolation.
 
 Persistent checkpoints: [milestone plan](../docs/MILESTONES.md),
 [decisions](../docs/DECISIONS.md), [reviews](REVIEWS.md).

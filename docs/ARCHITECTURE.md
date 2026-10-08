@@ -143,3 +143,19 @@ scenario runner. The UI conservatively retains received constraints, separates
 intent from effective state and marks invalid/stale/disconnected measurements.
 Only the external runner can pace virtual execution. See `M6_DEVICE_UI.md` for
 timestamps, units, interaction guards, deployment and verification requirements.
+
+## External experiment administration (M7)
+
+The C++ Dear ImGui `sim-console` uses a separate DX1 Unix channel to a Python
+scenario-runner broker. That broker validates immutable schema-5 configuration,
+creates fresh control/protection/plant/patient processes, schedules virtual time
+and retains streamed results. It exposes explicitly administrative internal truth,
+comparison and export; the LVGL device UI receives only modeled observations and
+machine state. Credentials and activation volumes are absent from the device UI.
+
+Native deployments use fresh processes per experiment (same UID remains
+trusted). Compose uses one fixed-command supervisor in each existing role container,
+with a read-only activation record containing only a generated run ID. No Docker
+socket is mounted. Scheduled role policy rejects external device changes except
+immediate STOP, which interrupts the experiment. Full contracts, bounds, recovery
+semantics and acceptance are in [M7_EXPERIMENTS.md](M7_EXPERIMENTS.md).

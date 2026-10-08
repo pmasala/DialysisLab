@@ -174,7 +174,8 @@ def stop_plant(admin, online=False):
     return result
 
 
-def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_speed=0, wait_check=None):
+def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_speed=0, wait_check=None,
+             after_record=None, scheduled=False):
     validate(config)
     if not isinstance(wall_speed, (int, float)) or not math.isfinite(wall_speed) or not 0 <= wall_speed <= 1000:
         raise ValueError('wall speed must be finite in [0,1000]; zero means unpaced')
@@ -185,7 +186,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
                     platform=platform.platform(), interface='DL1', model=config['model'],
                     simulation_only=True, outcome='running', errors=[],
                     trajectory_format=FORMAT, trajectory_file='trajectory.jsonl',
-                    completed_ticks=0, trajectory_sha256=None, wall_speed=wall_speed)
+                    completed_ticks=0, trajectory_sha256=None, wall_speed=wall_speed, scheduled=scheduled)
     writer = TrajectoryWriter(output)
     records = writer.trajectory
     writer.write_manifest(manifest)
@@ -202,6 +203,10 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
     patient_snapshot = None
     try:
         wait_ready(runtime)
+        if scheduled:
+            if not lifecycle: raise ValueError('scheduled experiment requires schema 5')
+            for role in ('control', 'protection'):
+                expect(rpc(runtime / role / 'service.sock', 'SCHEDULE7'), 'OK', 1)
         if extended:
             from . import circuit
             circuit.configure(admin, config)
@@ -233,7 +238,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
             if before_tick:
                 before_tick(n)
             event = next((e for e in config['workflow'] if e['tick'] == n), None) if lifecycle else None
-            workflow_request = machine.request(runtime, event) if event else None
+            workflow_request = machine.request(runtime, event, scheduled) if event else None
             if coupled and patient_snapshot is not None:
                 circuit.transport(admin, config, patient_snapshot['concentration_mmol_L'][2])
             for fault in config['faults']:
@@ -271,7 +276,8 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
                 raise RuntimeError(','.join(failures))
             if workflow_request and workflow_request['delivery'] == 'queued':
                 role = 'protection' if event['action'] == 'RESET' else 'control'
-                intent = machine.view(rpc(runtime / 'device' / (role + '.sock'), 'STATUS5'))['intent']
+                intent = machine.view(rpc(runtime / role / 'service.sock', 'OPERATOR7', 'STATUS5') if scheduled
+                                      else rpc(runtime / 'device' / (role + '.sock'), 'STATUS5'))['intent']
                 workflow_request['result'] = intent['result']
                 if intent['result'] != 'applied': raise RuntimeError('workflow rejected: ' + intent['result'])
             physical = machine.committed(rpc(admin, 'COMMIT5', n, t)) if lifecycle else treatment.committed(rpc(admin, 'COMMIT4', n, t)) if online else (circuit.committed(rpc(admin, 'COMMIT3' if coupled else 'COMMIT2', n, t), coupled) if extended
@@ -314,16 +320,19 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
                 raise ValueError('patient clock mismatch')
             if extended and not coupled:
                 physical['patient_numerical_correction_mL'] = real(volume[5], -1e-8, 1e-8)
-            writer.append(dict(physical, patient_volume_mL=real(volume[3], 0, 100000),
+            record = dict(physical, patient_volume_mL=real(volume[3], 0, 100000),
                                 patient_removed_mL=real(volume[4], -100000, 100000), observations=measurements,
-                                protection_decision=decision))
+                                protection_decision=decision)
+            writer.append(record)
             pending_plant_state = None
+            if after_record: after_record(record)
             if physical['reason'] in ('liveness', 'protocol', 'control_missing', 'protection_missing'):
                 raise RuntimeError('unexpected plant failure: ' + physical['reason'])
         if extended:
             manifest['final_plant_observation'] = treatment.live(rpc(admin, 'STATUS4')) if online else state(rpc(admin, 'STATUS'))
             if manifest['final_plant_observation']['reason'] in ('liveness', 'protocol', 'control_missing', 'protection_missing'):
                 raise RuntimeError('plant stopped after commit: ' + manifest['final_plant_observation']['reason'])
+        if scheduled: expect(rpc(runtime / 'control/service.sock', 'CHECK7'), 'OK', 1)
         manifest['outcome'] = 'completed'
     except (OSError, ValueError, RuntimeError) as exc:
         manifest['outcome'] = 'aborted'

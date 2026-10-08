@@ -185,3 +185,14 @@ prerequisites, safety semantics and native tests: [M6 UI contract](docs/M6_DEVIC
 Actual native, sanitizer, WSLg and Compose results are in [M6 evidence](assurance/evidence/m6/README.md).
 The later external experiment console, security/CI and integrated package phases
 remain required; this UI increment does not complete the project.
+
+## External experiment console (M7)
+
+The separate Dear ImGui/SDL2 console administers the actual Python broker: validated
+patient/circuit/dialyzer/mode/workflow/fault configuration, run/pause/stop, authorised
+internal truth, fresh-service replay, comparison and streamed ZIP export. A batch
+client uses the same bounded authenticated Unix interface. Device UI remains on its
+own observation/request channels; scheduled experiments retain emergency STOP.
+See [M7 contracts and commands](docs/M7_EXPERIMENTS.md) for native, headless and
+separate-container deployment, recovery, replay limits and result preservation.
+M8 cybersecurity/inventory/CI and M9 final integration remain required.

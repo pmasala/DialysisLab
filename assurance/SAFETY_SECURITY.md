@@ -97,3 +97,21 @@ The UI mounts device endpoints only and has no simulation truth/admin channel.
 UI/X11/host or shared code failures remain common causes, not hardware independence.
 Native same-UID trust, shared device producers and broader abuse/availability
 controls remain M8 work. No human residual-risk acceptance is inferred.
+
+## M7 experiment administration increment
+
+DX1 is separate from device DL1 sockets. The broker validates configuration before
+fresh service activation; live runs use immutable configuration and scheduled
+fault/workflow calendars. A filesystem-separated random credential, bounded frame
+size/deadline, four connection workers, one artifact job, bounded run/event inventory
+and explicit generated artifact names constrain administrative access/resources.
+Console disconnect does not replay commands. Reused request IDs are idempotent
+only for identical requests. External device STOP remains immediately authoritative;
+scheduled experiments abort and retain actual stop observation rather than claiming
+successful replay. See `docs/M7_EXPERIMENTS.md` and M7 trace requirements.
+
+The console/broker are trusted simulation administrators, not clinical operators.
+Native same-UID access, inherited OS/kernel/configuration, shared device producer
+ownership and abrupt native broker orphan cleanup remain explicit M8 hardening
+work. Token freshness does not establish hardware independence or eliminate
+common-cause failure. No licensed standards or credentials belong in exports.

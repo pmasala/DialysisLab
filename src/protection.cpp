@@ -9,14 +9,19 @@ int main(int argc, char** argv) {
         const auto plant = root + "/protection/plant.sock";
         long long next = 0, previous_time = -1;
         dl::Intent intent;
+        bool scheduled=false;
         const auto session=dl::device_session();
         dl::serve({&listener, &device}, [&](std::size_t role, dl::Tokens& r) {
             auto op = r.take();
-            if (role==1) {
+            if (role==0 && op=="SCHEDULE7") { r.end(); dl::require(next==0); scheduled=true; intent=dl::Intent{}; return std::string("DL1 OK"); }
+            bool operator7=role==0 && op=="OPERATOR7";
+            if (operator7) { dl::require(scheduled); op=r.take(); }
+            if (role==1 || operator7) {
                 if (op=="HELLO6") { r.end(); return dl::msg("SESSION6",session); }
                 bool view6=op=="STATUS6";
                 if (!dl::session_operation(op,r,session)) return std::string("DL1 REJECT session");
                 if (op=="STATUS5") { r.end(); auto view=dl::rpc(plant,"DL1 VIEW5"); return view.rfind("DL1 VIEW5 ",0)==0 ? (view6 ? dl::msg("VIEW6",session)+view.substr(9) : view) + " " + intent.status().substr(4) : view; }
+                if (scheduled && !operator7) return std::string("DL1 REJECT scheduled");
                 if (op=="ACK5") { r.end(); return dl::rpc(plant,"DL1 ACK5"); }
                 if (op=="SILENCE5") { auto duration=r.integer(120000); r.end(); return dl::rpc(plant,dl::msg("SILENCE5",duration)); }
                 if (op=="REQUEST5") { auto action=r.take(); r.end(); return action=="RESET"?intent.request(action):std::string("DL1 REJECT action"); }

@@ -218,3 +218,14 @@ The detector channels are declared synthetic instrumentation models, not calibra
 bubble transport or blood-leak optics. Common sensor/plant/runner/host causes remain;
 wall watchdog tests do not prove hard real time. Calibration, clinical/quality
 validation, independent risk acceptance and standards applicability remain open.
+
+### M7 scheduled experiment extension
+
+On private control/protection service sockets, `SCHEDULE7` before the first STEP
+locks the session into scheduled mode; no runtime unlock exists. `OPERATOR7`
+prefixes the existing device request/confirmation/status operations for the trusted
+runner. Device endpoints still expose observations and session6 freshness, but
+reject ordinary mutations with `REJECT scheduled`. Control's device STOP remains
+immediate, cancels intent and records external interruption; further STEP5 and
+`CHECK7` reject it so the runner aborts without normal COMMIT. This does not alter
+the default M5/M6 interactive mode. See [experiment contract](M7_EXPERIMENTS.md).

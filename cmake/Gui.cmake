@@ -42,9 +42,21 @@ target_include_directories(device-ui PRIVATE src "${DIALYSISLAB_GUI_DEPS}/lvgl-9
 target_link_libraries(device-ui PRIVATE lvgl SDL2-static Threads::Threads)
 target_compile_options(device-ui PRIVATE -Wall -Wextra -Wpedantic -Werror -fno-fast-math
     "-ffile-prefix-map=${CMAKE_SOURCE_DIR}=." "-ffile-prefix-map=${CMAKE_BINARY_DIR}=build")
+set(IMGUI_ROOT "${DIALYSISLAB_GUI_DEPS}/imgui-1.92.9b")
+add_library(experiment-imgui STATIC "${IMGUI_ROOT}/imgui.cpp" "${IMGUI_ROOT}/imgui_draw.cpp"
+    "${IMGUI_ROOT}/imgui_tables.cpp" "${IMGUI_ROOT}/imgui_widgets.cpp"
+    "${IMGUI_ROOT}/backends/imgui_impl_sdl2.cpp" "${IMGUI_ROOT}/backends/imgui_impl_sdlrenderer2.cpp")
+target_include_directories(experiment-imgui PUBLIC "${IMGUI_ROOT}" "${IMGUI_ROOT}/backends")
+target_link_libraries(experiment-imgui PUBLIC SDL2-static)
+add_executable(sim-console src/console/sim_console.cpp)
+target_include_directories(sim-console PRIVATE src)
+target_link_libraries(sim-console PRIVATE experiment-imgui Threads::Threads)
+target_compile_options(sim-console PRIVATE -Wall -Wextra -Wpedantic -Werror -fno-fast-math
+    "-ffile-prefix-map=${CMAKE_SOURCE_DIR}=." "-ffile-prefix-map=${CMAKE_BINARY_DIR}=build")
 if(DIALYSISLAB_SANITIZE)
-    foreach(gui_target device-ui lvgl SDL2-static)
+    foreach(gui_target device-ui lvgl SDL2-static sim-console experiment-imgui)
         target_compile_options(${gui_target} PRIVATE -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer)
     endforeach()
     target_link_options(device-ui PRIVATE -fsanitize=address,undefined)
+    target_link_options(sim-console PRIVATE -fsanitize=address,undefined)
 endif()

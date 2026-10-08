@@ -68,3 +68,9 @@
 !docs/dependencies/GUI_NOTICES.md
 !scenarios/device_interactive.json
 !scenarios/device_ui_demo.json
+!python/dialysislab/experiments.py
+!python/dialysislab/experiment_rpc.py
+!python/dialysislab/role_supervisor.py
+!src/console/sim_console.cpp
+!src/console/client.hpp
+!tools/experiment.py
