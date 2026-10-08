@@ -1,5 +1,6 @@
 """Real experiment broker: immutable runs, external administration and bounded history."""
 import argparse
+import copy
 import fcntl
 from contextlib import contextmanager
 from datetime import datetime, timezone
@@ -26,6 +27,7 @@ from .trajectory import canonical, scan, strict_json
 
 MAX_RUNS = 1024
 MAX_EVENTS = 10000
+MAX_STORED_JSON = 1048576
 STATES = ('starting', 'running', 'pause_requested', 'paused', 'stopping')
 
 
@@ -43,8 +45,8 @@ def keys(value, expected):
 
 
 def bounded_json(path):
-    with path.open('rb') as stream: raw = stream.read(wire.MAX_JSON + 1)
-    if len(raw) > wire.MAX_JSON: raise ValueError('stored JSON size limit')
+    with path.open('rb') as stream: raw = stream.read(MAX_STORED_JSON + 1)
+    if len(raw) > MAX_STORED_JSON: raise ValueError('stored JSON size limit')
     return strict_json(raw)
 
 
@@ -72,19 +74,37 @@ class Broker:
         self.requested_pause, self.requested_stop = False, False
         self.worker, self.current_runtime, self.events = None, None, 0
         self.draft = configuration(bounded_json(ROOT / 'scenarios/machine_hd.json'))
-        self.revision, self.history, self.requests = 1, {}, {}
+        self.epoch = secrets.token_hex(16)
+        # Exact opaque decimal: 128-bit incarnation and bounded 32-bit counter.
+        self.revision = (int(self.epoch, 16) << 32) + 1
+        self.revision_limit = (int(self.epoch, 16) << 32) + 2**32 - 1
+        self.history, self.requests, self.incomplete = {}, {}, []
+        self.closing = False
         self.job = dict(id='-', state='idle')
         self.job_thread = None
         for directory in sorted(self.output.glob('r*')):
             if not wire.IDENTIFIER.fullmatch(directory.name) or not directory.is_dir() or directory.is_symlink():
                 continue
-            meta = bounded_json(directory / 'experiment.json')
+            try:
+                meta = bounded_json(directory / 'experiment.json')
+                if (meta['run_id'] != directory.name or meta['state'] not in (*STATES, 'completed', 'aborted', 'interrupted')
+                        or not wire.REQUEST_ID.fullmatch(meta['request_id'])
+                        or not isinstance(meta['request_fingerprint'], str)
+                        or len(meta['request_fingerprint']) != 64
+                        or datetime.fromisoformat(meta['created_at']).tzinfo is None):
+                    raise ValueError('experiment metadata schema')
+            except (OSError, ValueError, KeyError, TypeError, RecursionError) as exc:
+                self.incomplete.append(dict(run_id=directory.name, error=type(exc).__name__ + ': ' + str(exc),
+                                            state='quarantined_in_place', recovery='Preserve this directory; metadata is incomplete or invalid. No automatic run/replay.'))
+                continue
             if meta['state'] in STATES:
                 meta.update(state='interrupted', error='broker restart; prior stop unconfirmed', finished_at=now())
                 atomic(directory / 'experiment.json', meta)
             self.history[directory.name] = meta
             self.requests[meta['request_id']] = (meta['request_fingerprint'], directory.name)
-        if len(self.history) > MAX_RUNS: raise ValueError('result inventory exceeds 1024 runs')
+        if len(self.history) + len(self.incomplete) > MAX_RUNS:
+            os.close(self.owner_lock); self.owner_lock = None
+            raise ValueError('result inventory exceeds 1024 runs')
         if self.activation:
             self.activation.mkdir(parents=True, exist_ok=True)
             atomic(self.activation / 'active.json', {'schema_version': 1, 'run_id': None})
@@ -97,13 +117,22 @@ class Broker:
         with (self.output / self.run_id / 'events.jsonl').open('a') as stream:
             stream.write(canonical(data))
 
+    def event_failure(self, exc):
+        """Evidence failures cannot veto physical stop or terminal metadata."""
+        meta = self.history[self.run_id]
+        issue = meta.setdefault('journal_error', dict(count=0, last=None))
+        issue['count'] += 1
+        issue['last'] = type(exc).__name__ + ': ' + str(exc)
+
     def status(self):
         with self.lock:
-            return dict(schema_version=1, revision=self.revision, run_id=self.run_id, state=self.state,
+            return copy.deepcopy(dict(schema_version=1, revision=self.revision, broker_epoch=self.epoch,
+                        run_id=self.run_id, state=self.state,
                         sequence=-1 if self.latest is None else self.latest['sequence'],
                         virtual_time_ms=0 if self.latest is None else self.latest['time_ms'],
                         truth=self.latest, wall_sample_age_s=None if self.received_at is None else time.monotonic()-self.received_at,
-                        job=self.job, experiment=self.history.get(self.run_id), simulation_only=True)
+                        job=self.job, experiment=self.history.get(self.run_id), simulation_only=True,
+                        incomplete_runs=self.incomplete[-100:], incomplete_run_count=len(self.incomplete)))
 
     def directory(self, identifier):
         if not isinstance(identifier, str) or not wire.IDENTIFIER.fullmatch(identifier) or identifier not in self.history:
@@ -113,16 +142,18 @@ class Broker:
         return path
 
     def start(self, config, request_id, fingerprint, speed, replay_of=None):
+        if self.closing: raise ValueError('broker stopping; new work rejected')
         if not isinstance(request_id, str) or not wire.REQUEST_ID.fullmatch(request_id): raise ValueError('request identifier')
         if request_id in self.requests:
             old, identifier = self.requests[request_id]
             if old != fingerprint: raise ValueError('request identifier reused with different arguments')
             return dict(run_id=identifier, duplicate=True)
         if self.state in STATES: raise ValueError('an experiment is active')
-        if len(self.history) >= MAX_RUNS: raise ValueError('1024-run inventory limit; use a new result directory')
+        if len(self.history) + len(self.incomplete) >= MAX_RUNS: raise ValueError('1024-run inventory limit; use a new result directory')
         if type(speed) not in (int, float) or not math.isfinite(speed) or not 0 <= speed <= 1000:
             raise ValueError('wall_speed range [0,1000]')
         config = configuration(config)
+        identity = build_identity(self.build_dir)
         identifier = 'r' + secrets.token_hex(8)
         directory = self.output / identifier
         directory.mkdir()
@@ -130,7 +161,7 @@ class Broker:
         meta = dict(schema_version=1, run_id=identifier, state='starting', created_at=now(),
                     request_id=request_id, request_fingerprint=fingerprint, replay_of=replay_of,
                     configuration_sha256=hashlib.sha256(canonical(config).encode()).hexdigest(),
-                    build=build_identity(self.build_dir), wall_speed=speed, scheduled=True,
+                    build=identity, wall_speed=speed, pacing_owner='experiment_broker', scheduled=True,
                     stop=None, error=None)
         atomic(directory / 'experiment.json', meta)
         self.history[identifier] = meta
@@ -138,9 +169,17 @@ class Broker:
         self.run_id, self.state, self.latest, self.received_at = identifier, 'starting', None, None
         self.requested_pause = self.requested_stop = False
         self.events = 0
-        self.event('start')
-        self.worker = threading.Thread(target=self.execute, args=(identifier, config, speed), daemon=False)
-        self.worker.start()
+        try:
+            self.event('start')
+            self.worker = threading.Thread(target=self.execute, args=(identifier, config, speed), daemon=False)
+            self.worker.start()
+        except (OSError, ValueError, RuntimeError) as exc:
+            self.event_failure(exc)
+            if self.worker and not self.worker.is_alive(): self.worker = None
+            self.state = 'aborted'
+            meta.update(state='aborted', error='start failed before activation: ' + str(exc), finished_at=now())
+            atomic(directory / 'experiment.json', meta)
+            raise
         return dict(run_id=identifier, duplicate=False)
 
     @contextmanager
@@ -207,16 +246,17 @@ class Broker:
                 def record(value):
                     with self.lock: self.latest, self.received_at = value, time.monotonic()
                 _, manifest = simulate(config, runtime, self.build_dir, directory / 'data',
-                                       before_tick=barrier, after_record=record, scheduled=True)
+                                       before_tick=barrier, after_record=record, scheduled=True, external_pacing_speed=speed)
                 stop = manifest.get('stop') or stop_plant(runtime / 'admin/plant.sock', True)
                 manifest['stop'] = stop
+                if not stop['outputs_zero_observed']:
+                    manifest['outcome'] = 'aborted'
+                    manifest['errors'].append('final stop not observed')
                 atomic(directory / 'data/manifest.json', manifest)
                 with self.lock:
                     meta = self.history[identifier]
                     meta.update(state=manifest['outcome'], stop=stop, completed_ticks=manifest['completed_ticks'],
                                 trajectory_sha256=manifest['trajectory_sha256'], error=manifest['errors'])
-                    if not stop['outputs_zero_observed']:
-                        meta.update(state='aborted', error=[*manifest['errors'], 'final stop not observed'])
         except Exception as exc:
             with self.lock:
                 self.history[identifier].update(state='aborted', error=type(exc).__name__ + ': ' + str(exc))
@@ -227,8 +267,11 @@ class Broker:
                 self.state, self.current_runtime = meta['state'], None
                 try:
                     self.event(self.state)
-                    atomic(directory / 'experiment.json', meta)
                 except (OSError, ValueError) as exc:
+                    self.event_failure(exc)
+                try:
+                    atomic(directory / 'experiment.json', meta)
+                except OSError as exc:
                     self.state = 'aborted'
                     meta['error'] = 'evidence write failed: ' + str(exc)
 
@@ -241,6 +284,18 @@ class Broker:
         if config != manifest['configuration'] or meta['configuration_sha256'] != hashlib.sha256(canonical(config).encode()).hexdigest():
             raise ValueError('configuration evidence mismatch')
         if manifest['configuration_sha256'] != meta['configuration_sha256']: raise ValueError('manifest digest mismatch')
+        for key in ('build', 'trajectory_sha256', 'completed_ticks', 'scheduled', 'stop', 'wall_speed', 'pacing_owner'):
+            if key not in meta or key not in manifest or meta[key] != manifest[key]:
+                raise ValueError('experiment/manifest identity mismatch: ' + key)
+        if meta['run_id'] != identifier or meta['state'] != manifest['outcome']:
+            raise ValueError('experiment/manifest outcome mismatch')
+        if meta['state'] == 'completed':
+            observed = manifest['stop'].get('observed_state') or {}
+            if (manifest['completed_ticks'] != config['ticks'] or not manifest['scheduled']
+                    or not manifest['stop'].get('outputs_zero_observed') or not observed.get('latched')
+                    or not observed.get('clamp_closed') or observed.get('blood_mL_min') != 0
+                    or observed.get('uf_mL_min') != 0 or observed.get('online', {}).get('replacement_mL_min') != 0):
+                raise ValueError('completed experiment lacks observed stopped outputs')
         measured = scan(directory / 'data/trajectory.jsonl')
         if (measured['records'] != manifest['completed_ticks'] or measured['sha256'] != manifest['trajectory_sha256']
                 or measured['complete_bytes'] != manifest['trajectory_bytes']): raise ValueError('trajectory evidence mismatch')
@@ -273,7 +328,7 @@ class Broker:
         if not manifest_path.exists() and meta['state'] in ('aborted', 'interrupted'):
             recovery = dict(status='no_run_manifest', outputs_zero_observed=None,
                             note='Failure before run artifacts were available; only existing evidence is exported.')
-        elif meta['state'] == 'interrupted' and bounded_json(manifest_path)['outcome'] == 'running':
+        elif meta['state'] in ('aborted', 'interrupted') and bounded_json(manifest_path)['outcome'] == 'running':
             measured = scan(directory / 'data/trajectory.jsonl', recover=True)
             recovery = dict(status='recovered_complete_prefix', outputs_zero_observed=None,
                             prefix={k:v for k,v in measured.items() if k not in ('first','last')},
@@ -319,6 +374,7 @@ class Broker:
 
     def dispatch(self, op, args):
         with self.lock:
+            if self.closing and op not in ('STATUS', 'RUNS', 'STOP'): raise ValueError('broker stopping; new work rejected')
             if op == 'STATUS': keys(args, ''); return self.status()
             if op == 'PRESETS':
                 keys(args, '')
@@ -327,6 +383,7 @@ class Broker:
             if op == 'LOAD':
                 keys(args, 'name revision')
                 if type(args['revision']) is not int or args['revision'] != self.revision: raise ValueError('stale draft revision')
+                if self.revision == self.revision_limit: raise ValueError('revision budget exhausted; restart broker')
                 if args['name'] not in self.dispatch('PRESETS', {}): raise ValueError('unknown preset')
                 self.draft = configuration(bounded_json(ROOT / 'scenarios' / (args['name'] + '.json')))
                 self.revision += 1
@@ -334,6 +391,7 @@ class Broker:
             if op == 'VALIDATE':
                 keys(args, 'configuration revision')
                 if type(args['revision']) is not int or args['revision'] != self.revision: raise ValueError('stale draft revision')
+                if self.revision == self.revision_limit: raise ValueError('revision budget exhausted; restart broker')
                 self.draft = configuration(args['configuration']); self.revision += 1
                 return self.draft
             if op == 'START':
@@ -345,15 +403,18 @@ class Broker:
             if op == 'RUNS':
                 keys(args, '')
                 return [dict(run_id=identifier, state=meta['state'], created_at=meta['created_at'], replay_of=meta['replay_of'])
-                        for identifier, meta in list(self.history.items())[-100:]]
+                        for identifier, meta in sorted(self.history.items(), key=lambda item:(datetime.fromisoformat(item[1]['created_at']),item[0]))[-100:]]
             if op in ('PAUSE', 'RESUME', 'STOP'):
                 keys(args, 'run_id')
                 if args['run_id'] != self.run_id or self.state not in STATES: raise ValueError('stale or inactive run')
-                if op != 'STOP': self.event(op.lower())
-                elif self.events < MAX_EVENTS: self.event('stop_requested')
+                if op == 'STOP':
+                    self.requested_stop, self.state = True, 'stopping'
+                    try: self.event('stop_requested')
+                    except (OSError, ValueError) as exc: self.event_failure(exc)
+                    return dict(run_id=self.run_id, state=self.state, journal_error=self.history[self.run_id].get('journal_error'))
+                self.event(op.lower())
                 if op == 'PAUSE': self.requested_pause, self.state = True, 'pause_requested'
                 elif op == 'RESUME': self.requested_pause, self.state = False, 'running'
-                else: self.requested_stop, self.state = True, 'stopping'
                 return dict(run_id=self.run_id, state=self.state)
             if op == 'REPLAY':
                 keys(args, 'run_id request_id wall_speed')
@@ -373,10 +434,11 @@ class Broker:
             raise ValueError('unknown administrative operation')
 
     def close(self):
-        with self.lock: self.requested_stop = True
+        with self.lock: self.closing, self.requested_stop = True, True
         if self.worker: self.worker.join(timeout=15)
         if self.job_thread: self.job_thread.join(timeout=30)
         if self.worker and self.worker.is_alive(): raise RuntimeError('experiment worker did not stop')
+        if self.job_thread and self.job_thread.is_alive(): raise RuntimeError('artifact worker did not stop; output ownership retained')
         if self.owner_lock is not None:
             os.close(self.owner_lock)
             self.owner_lock = None
@@ -419,11 +481,13 @@ class Server(socketserver.ThreadingMixIn, socketserver.UnixStreamServer):
 class Handler(socketserver.BaseRequestHandler):
     def handle(self):
         self.request.settimeout(2)
+        authenticated = False
         try:
             fields = wire.line(self.request).split(' ')
             if len(fields) != 4 or fields[0] != 'DX1': raise ValueError('request frame schema')
             if not wire.TOKEN.fullmatch(fields[1]) or not hmac.compare_digest(fields[1], self.server.token):
                 raise ValueError('unauthorized')
+            authenticated = True
             with self.server.broker.lock:
                 result = self.server.broker.dispatch(fields[2], wire.decode(fields[3]))
                 status = self.server.broker.status()
@@ -434,7 +498,8 @@ class Handler(socketserver.BaseRequestHandler):
             kind = 'OK'
         except (ValueError, OSError, KeyError, TypeError, OverflowError, RecursionError) as exc:
             result, kind = {'error': type(exc).__name__ + ': ' + str(exc)}, 'ERROR'
-            status = self.server.broker.status()
+            status = (self.server.broker.status() if authenticated else
+                      dict(revision=0,run_id='-',state='unauthorized',sequence=-1,virtual_time_ms=0))
         # Fixed metadata lets a tiny C++ console display the complete JSON without
         # a second independent model/configuration JSON parser.
         try:
@@ -462,7 +527,8 @@ def main():
     try:
         while not stopping.is_set(): server.handle_request()
     finally:
-        broker.close(); server.server_close()
+        try: broker.close()
+        finally: server.server_close()
 
 
 if __name__ == '__main__': main()

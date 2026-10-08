@@ -90,7 +90,8 @@ class ConsoleTests(unittest.TestCase):
             ui=Console(f.root/'api',EVIDENCE/'stale-editor')
             try:
                 wait_for(ui.snapshot,lambda s:s['connected']);ui.click('DRAFT')
-                original=wait_for(ui.snapshot,lambda s:s['revision']==1)
+                expected=f.call('STATUS')['revision']
+                original=wait_for(ui.snapshot,lambda s:s['revision']==expected)
                 old=f.call('DRAFT')
                 f.configure('machine_hdf_post')
                 time.sleep(.5)
@@ -99,6 +100,44 @@ class ConsoleTests(unittest.TestCase):
                 wait_for(ui.snapshot,lambda s:'stale draft revision' in s['feedback'])
                 self.assertEqual(f.call('DRAFT')['treatment']['mode'],'HDF_POST')
                 self.assertEqual(f.call('RUNS'),[])
+            finally:ui.close()
+
+    def test_render_stall_retains_load_and_start_replies_across_status_polls(self):
+        from unittest.mock import patch
+        with Fixture() as f:
+            ui=Console(f.root/'api',EVIDENCE/'render-stall')
+            original=f.broker.dispatch
+            def delayed(op,args):
+                if op in ('LOAD','START'):time.sleep(.35)
+                return original(op,args)
+            try:
+                wait_for(ui.snapshot,lambda s:s['connected'])
+                with patch.object(f.broker,'dispatch',side_effect=delayed):
+                    ui.set('preset','machine_hdf_pre');ui.click('LOAD');ui.send('STALL 1500');time.sleep(1.7)
+                    revision=f.call('STATUS')['revision']
+                    wait_for(ui.snapshot,lambda s:s['revision']==revision)
+                    ui.set('speed',0);ui.click('START');ui.send('STALL 1500');time.sleep(1.7)
+                    done=wait_for(ui.snapshot,lambda s:s['state']=='completed')
+                    self.assertEqual(done['left'],done['run_id'])
+                    self.assertEqual(f.call('DRAFT')['treatment']['mode'],'HDF_PRE')
+                    ui.capture('retained-reply')
+            finally:ui.close()
+
+    def test_broker_restart_rejects_stale_loaded_editor_even_after_same_edit_count(self):
+        from dialysislab.experiments import Broker,Server
+        from test_experiments import BUILD as CORE_BUILD
+        with Fixture() as f:
+            ui=Console(f.root/'api',EVIDENCE/'broker-restart')
+            try:
+                wait_for(ui.snapshot,lambda s:s['connected']);ui.set('preset','machine_hdf_pre');ui.click('LOAD')
+                old=wait_for(ui.snapshot,lambda s:s['revision']==f.call('STATUS')['revision'])['revision']
+                f.server.shutdown();f.thread.join();f.server.server_close();f.broker.close()
+                f.broker=Broker(CORE_BUILD,f.root/'runs');f.server=Server(f.root/'api',f.broker)
+                f.thread=threading.Thread(target=f.server.serve_forever,kwargs=dict(poll_interval=.02));f.thread.start()
+                f.configure('machine_hdf_post');self.assertNotEqual(old,f.call('STATUS')['revision'])
+                time.sleep(.5);ui.click('START')
+                wait_for(ui.snapshot,lambda s:'stale draft revision' in s['feedback'])
+                self.assertEqual(f.call('RUNS'),[]);self.assertEqual(f.call('DRAFT')['treatment']['mode'],'HDF_POST')
             finally:ui.close()
 
     def test_invalid_draft_disconnect_and_reconnect_do_not_start_hidden_run(self):

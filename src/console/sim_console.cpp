@@ -20,7 +20,8 @@ struct App {
     std::vector<char> config=std::vector<char>(experiment::max_json+1,0);
     std::array<char,80> preset{},left{},right{};
     std::string feedback="Connect to an administrative broker",truth,history,job,last_action;
-    unsigned long generation=0,revision=0;
+    unsigned long generation=0;
+    std::string revision="0";
     bool changed_config=false,running=true;
     double speed=1;
     SDL_Window* window=nullptr; SDL_Renderer* renderer=nullptr;
@@ -49,20 +50,30 @@ struct App {
     std::string run_args(){return "{\"run_id\":"+experiment::quote(status.run)+"}";}
     std::string selected_args(){return "{\"run_id\":"+experiment::quote(left.data())+"}";}
     void update(){
-        status=client.snapshot();if(status.generation==generation)return;generation=status.generation;
-        if(!status.connected){feedback=status.error;return;}
-        if(!status.ok){feedback=status.body;return;}
-        if(status.operation=="STATUS")truth=status.body;
-        else if(status.operation=="DRAFT"||status.operation=="LOAD"||status.operation=="VALIDATE"){
-            revision=status.revision;
-            if(status.body.size()<config.size()){std::copy(status.body.begin(),status.body.end(),config.begin());config[status.body.size()]=0;changed_config=false;}
-            feedback="Validated draft revision "+std::to_string(revision)+"; active run unchanged";
-        }else if(status.operation=="RUNS"||status.operation=="PRESETS"){history=status.body;feedback="Inventory received";}
-        else{feedback=status.body;job=status.body;}
-        if((status.operation=="START"||status.operation=="REPLAY")&&status.run!="-"){
-            if(left[0])std::copy(left.begin(),left.end(),right.begin());
-            std::strncpy(left.data(),status.run.c_str(),left.size()-1);
+        auto command=client.take_reply();
+        status=client.snapshot();
+        if(command){
+            const auto& reply=*command;
+            if(!reply.connected) feedback=reply.error;
+            else if(!reply.ok) feedback=reply.body;
+            else if(reply.operation=="DRAFT"||reply.operation=="LOAD"||reply.operation=="VALIDATE"){
+                revision=reply.revision;
+                if(reply.body.size()<config.size()){std::copy(reply.body.begin(),reply.body.end(),config.begin());config[reply.body.size()]=0;changed_config=false;}
+                feedback="Draft saved; active run unchanged";
+            }else if(reply.operation=="RUNS"||reply.operation=="PRESETS"){history=reply.body;feedback="Inventory received";}
+            else{feedback=reply.body;job=reply.body;}
+            if(reply.connected&&reply.ok&&(reply.operation=="START"||reply.operation=="REPLAY")&&reply.run!="-"){
+                if(left[0])std::copy(left.begin(),left.end(),right.begin());
+                std::strncpy(left.data(),reply.run.c_str(),left.size()-1);
+            }
         }
+        if(status.generation==generation)return;
+        generation=status.generation;
+        if(!status.connected){feedback=status.error;return;}
+        if(status.operation=="STATUS"&&status.ok)truth=status.body;
+    }
+    static std::string revision_label(const std::string& value){
+        return value.size()>20?value.substr(0,8)+"..."+value.substr(value.size()-8):value;
     }
     void draw(){
         update(); widgets.clear();
@@ -70,24 +81,24 @@ struct App {
         ImGui::Begin("External experiment administration",nullptr,ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoResize|ImGuiWindowFlags_NoCollapse);
         ImGui::TextColored(ImVec4(.3f,.85f,1,1),"SIMULATION ONLY | EXTERNAL CONSOLE | synthetic, uncalibrated models");
         ImGui::Text("Broker: %s | state: %s | run: %s",status.connected?"CONNECTED":"DISCONNECTED",status.state.c_str(),status.run.c_str());
-        ImGui::Text("Committed sequence: %lld | virtual time: %lld ms | editor revision: %lu | broker: %lu",status.sequence,status.time,revision,status.revision);
+        ImGui::Text("Sequence: %lld | time: %lld ms | editor: %s | broker: %s",status.sequence,status.time,revision_label(revision).c_str(),revision_label(status.revision).c_str());
         ImGui::Separator();
         ImGui::SetNextItemWidth(265);ImGui::InputText("Preset",preset.data(),preset.size());mark("preset");
         ImGui::SameLine();
         if(button("PRESETS","List presets"))send("PRESETS");
         ImGui::SameLine();
-        if(button("LOAD","Load preset"))send("LOAD","{\"name\":"+experiment::quote(preset.data())+",\"revision\":"+std::to_string(status.revision)+"}");
+        if(button("LOAD","Load preset"))send("LOAD","{\"name\":"+experiment::quote(preset.data())+",\"revision\":"+status.revision+"}");
         ImGui::SameLine();
         if(button("DRAFT","Read draft"))send("DRAFT");
         ImGui::SameLine();
-        if(button("VALIDATE","Validate / save draft"))send("VALIDATE","{\"configuration\":"+std::string(config.data())+",\"revision\":"+std::to_string(revision)+"}");
+        if(button("VALIDATE","Validate / save draft"))send("VALIDATE","{\"configuration\":"+std::string(config.data())+",\"revision\":"+revision+"}");
         ImGui::TextUnformatted("Edit patient volumes/species, circuit nodes/edges/profile, modality, workflow and fault tick calendar below.");
         ImGui::TextUnformatted("Only a validated draft starts. Active configuration is immutable. Pause freezes virtual time, not protective liveness.");
         ImGui::SetNextItemWidth(110);ImGui::InputDouble("Virtual/wall speed (0=batch)",&speed,0,0,"%.3g");mark("speed");
         ImGui::SameLine();
         bool active=status.state=="starting"||status.state=="running"||status.state=="paused"||status.state=="pause_requested"||status.state=="stopping";
         ImGui::BeginDisabled(!status.connected||active||changed_config||!config[0]);
-        if(button("START","Start validated experiment"))send("START","{\"revision\":"+std::to_string(revision)+",\"request_id\":"+experiment::quote(experiment::request_id())+",\"wall_speed\":"+std::to_string(speed)+"}");
+        if(button("START","Start validated experiment"))send("START","{\"revision\":"+revision+",\"request_id\":"+experiment::quote(experiment::request_id())+",\"wall_speed\":"+std::to_string(speed)+"}");
         ImGui::EndDisabled();
         ImGui::SameLine();ImGui::BeginDisabled(!status.connected||!active);
         if(button("PAUSE","Pause"))send("PAUSE",run_args());
@@ -130,7 +141,7 @@ struct App {
         if(!out)throw std::runtime_error("capture write");
     }
     void snapshot(){
-        std::cout<<"SNAPSHOT {\"connected\":"<<(status.connected?"true":"false")<<",\"state\":"<<experiment::quote(status.state)<<",\"run_id\":"<<experiment::quote(status.run)<<",\"sequence\":"<<status.sequence<<",\"revision\":"<<revision<<",\"feedback\":"<<experiment::quote(feedback)<<",\"last_action\":"<<experiment::quote(last_action)<<",\"widgets\":{";
+        std::cout<<"SNAPSHOT {\"connected\":"<<(status.connected?"true":"false")<<",\"state\":"<<experiment::quote(status.state)<<",\"run_id\":"<<experiment::quote(status.run)<<",\"sequence\":"<<status.sequence<<",\"revision\":"<<revision<<",\"feedback\":"<<experiment::quote(feedback)<<",\"last_action\":"<<experiment::quote(last_action)<<",\"left\":"<<experiment::quote(left.data())<<",\"right\":"<<experiment::quote(right.data())<<",\"widgets\":{";
         bool first=true;for(const auto& pair:widgets){if(!first)std::cout<<',';first=false;auto r=pair.second;std::cout<<experiment::quote(pair.first)<<":["<<r.x<<','<<r.y<<','<<r.w<<','<<r.h<<']';}std::cout<<"}}"<<std::endl;
     }
     void input(const std::string& line){
@@ -143,7 +154,8 @@ struct App {
             if(name=="configuration"){if(value.size()>=config.size())throw std::runtime_error("test editor size");std::copy(value.begin(),value.end(),config.begin());config[value.size()]=0;changed_config=true;}
             else if(name=="speed")speed=std::stod(value);
             else{auto* field=name=="preset"?&preset:name=="left"?&left:name=="right"?&right:nullptr;if(!field||value.size()>=field->size())throw std::runtime_error("test field");field->fill(0);std::copy(value.begin(),value.end(),field->begin());}
-        }else if(op=="QUIT")running=false;else throw std::runtime_error("test operation");
+        }else if(op=="STALL"){unsigned int delay=0;in>>delay;if(delay>2000)throw std::runtime_error("test stall bound");SDL_Delay(delay);}
+        else if(op=="QUIT")running=false;else throw std::runtime_error("test operation");
     }
     void pointer(){
         if(clicks.empty())return;

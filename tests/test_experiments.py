@@ -224,4 +224,166 @@ class ExperimentRecoveryTests(unittest.TestCase):
             self.assertEqual(f.call('STATUS')['state'],'idle')
 
 
+class ExperimentReviewTests(unittest.TestCase):
+    def test_stop_reaches_actual_plant_when_journal_write_fails(self):
+        from unittest.mock import patch
+        with Fixture() as f:
+            f.configure();identifier=f.start(10)
+            wait_for(lambda:f.call('STATUS'),lambda s:s['sequence']>=5)
+            f.call('PAUSE',dict(run_id=identifier));before=wait_for(lambda:f.call('STATUS'),lambda s:s['state']=='paused')
+            with patch.object(f.broker,'event',side_effect=OSError(28,'injected journal filesystem full')):
+                reply=f.call('STOP',dict(run_id=identifier));self.assertEqual(reply['state'],'stopping')
+                after=f.finished()
+            self.assertEqual(after['sequence'],before['sequence'])
+            self.assertTrue(after['experiment']['stop']['outputs_zero_observed'])
+            self.assertTrue(after['experiment']['stop']['pending_tick_cancelled'])
+            metadata=bounded_json(f.root/'runs'/identifier/'experiment.json')
+            self.assertEqual(metadata['state'],'aborted');self.assertGreaterEqual(metadata['journal_error']['count'],1)
+            self.assertIn('filesystem full',metadata['journal_error']['last'])
+            self.assertEqual(f.broker.verify(identifier)[2]['outcome'],'aborted')
+
+    def test_shutdown_rejects_new_start_and_replay_before_joining(self):
+        from unittest.mock import patch
+        with Fixture() as f:
+            f.configure(ticks=4,workflow=[],faults=[]);completed=f.start();f.finished()
+            args=dict(revision=f.call('STATUS')['revision'],request_id=uuid.uuid4().hex,wall_speed=0)
+            actual_join=f.broker.worker.join;entered=threading.Event();release=threading.Event()
+            def blocked_join(*args,**kwargs):
+                entered.set();release.wait(3);return actual_join(*args,**kwargs)
+            with patch.object(f.broker.worker,'join',side_effect=blocked_join):
+                closing=threading.Thread(target=f.broker.close);closing.start();self.assertTrue(entered.wait(2))
+                try:
+                    for op,value in [('START',args),('REPLAY',dict(run_id=completed,request_id=uuid.uuid4().hex,wall_speed=0))]:
+                        with self.subTest(op=op),self.assertRaisesRegex(ValueError,'stopping'):f.call(op,value)
+                finally:release.set();closing.join(3)
+            self.assertEqual(len(f.call('RUNS')),1)
+
+    def test_incomplete_metadata_does_not_hide_valid_runs_or_lose_files(self):
+        from unittest.mock import patch
+        with Fixture() as f:
+            f.configure(ticks=4,workflow=[],faults=[]);identifier=f.start();f.finished();f.broker.close()
+            missing=f.root/'runs'/('r'+'0'*16);missing.mkdir();(missing/'configuration.json').write_text('{"preserved":true}\n')
+            malformed=f.root/'runs'/('r'+'f'*16);malformed.mkdir();(malformed/'experiment.json').write_text('{torn')
+            recovered=Broker(BUILD,f.root/'runs')
+            try:
+                self.assertIn(identifier,recovered.history);self.assertEqual(len(recovered.incomplete),2)
+                self.assertEqual((malformed/'experiment.json').read_text(),'{torn')
+                before=set((f.root/'runs').glob('r*'))
+                with patch('dialysislab.experiments.build_identity',side_effect=ValueError('missing build identity')):
+                    with self.assertRaisesRegex(ValueError,'missing build'):
+                        recovered.dispatch('START',dict(revision=recovered.revision,request_id=uuid.uuid4().hex,wall_speed=0))
+                self.assertEqual(before,set((f.root/'runs').glob('r*')))
+            finally:recovered.close()
+
+    def test_slow_artifact_writer_retains_ownership_after_join_timeout(self):
+        from unittest.mock import patch
+        with Fixture() as f:
+            entered=threading.Event();release=threading.Event()
+            def writer():
+                entered.set();release.wait(3);(f.root/'runs/writer-finished').write_text('done')
+            f.broker.job_thread=threading.Thread(target=writer);f.broker.job_thread.start();self.assertTrue(entered.wait(1))
+            actual_join=f.broker.job_thread.join
+            try:
+                with patch.object(f.broker.job_thread,'join',side_effect=lambda **_:actual_join(timeout=.01)):
+                    with self.assertRaisesRegex(RuntimeError,'ownership retained'):f.broker.close()
+                with self.assertRaisesRegex(ValueError,'already owned'):Broker(BUILD,f.root/'runs')
+            finally:release.set();actual_join(3);f.broker.close()
+            recovered=Broker(BUILD,f.root/'runs');recovered.close()
+            self.assertEqual((f.root/'runs/writer-finished').read_text(),'done')
+
+    def test_revisions_cannot_repeat_across_broker_incarnations(self):
+        with Fixture() as f:
+            old=f.configure('machine_hdf_pre');revision=f.call('STATUS')['revision'];f.broker.close()
+            other=Broker(BUILD,f.root/'runs')
+            try:
+                other.dispatch('LOAD',dict(name='machine_hdf_post',revision=other.revision))
+                self.assertNotEqual(other.revision,revision)
+                for op,args in [('VALIDATE',dict(configuration=old,revision=revision)),('START',dict(revision=revision,request_id=uuid.uuid4().hex,wall_speed=0))]:
+                    with self.subTest(op=op),self.assertRaisesRegex(ValueError,'stale draft'):other.dispatch(op,args)
+                self.assertEqual(other.draft['treatment']['mode'],'HDF_POST');self.assertIsNone(other.worker)
+            finally:other.close()
+
+    def test_maximum_schedule_persists_replays_compares_and_exports(self):
+        with Fixture() as f:
+            config=json.loads((ROOT/'scenarios/machine_hd.json').read_text());config.update(ticks=1000)
+            config['workflow']=[dict(tick=i,action='SILENCE',values=[120000]) for i in range(1000)]
+            config['faults']=[dict(tick=i,target='edge:0',value=dict(resistance=.12345678901234567,closed=False)) for i in range(1000)]
+            # Alarm annotation is permitted in PREPARATION; it pumps no blood.
+            f.call('VALIDATE',dict(configuration=config,revision=f.call('STATUS')['revision']))
+            identifier=f.start();self.assertEqual(f.finished()['state'],'completed')
+            directory=f.root/'runs'/identifier
+            self.assertGreater((directory/'data/manifest.json').stat().st_size,wire.MAX_JSON)
+            self.assertEqual(bounded_json(directory/'configuration.json'),config)
+            second=f.call('REPLAY',dict(run_id=identifier,request_id=uuid.uuid4().hex,wall_speed=0))['run_id']
+            self.assertEqual(f.finished()['state'],'completed')
+            self.assertTrue(f.job('COMPARE',dict(left=identifier,right=second))['exact_replay'])
+            self.assertEqual(f.job('EXPORT',dict(run_id=identifier))['integrity'],'verified_manifest_and_trajectory')
+
+    def test_journal_limit_does_not_block_terminal_metadata_or_export(self):
+        from dialysislab.experiments import MAX_EVENTS
+        with Fixture() as f:
+            f.configure(ticks=8,workflow=[],faults=[]);identifier=f.start(1)
+            wait_for(lambda:f.call('STATUS'),lambda s:s['sequence']>=1)
+            with f.broker.lock:f.broker.events=MAX_EVENTS
+            done=f.finished();self.assertEqual(done['state'],'completed')
+            meta=bounded_json(f.root/'runs'/identifier/'experiment.json')
+            self.assertEqual(meta['state'],'completed');self.assertIn('journal limit',meta['journal_error']['last'])
+            self.assertTrue(meta['stop']['outputs_zero_observed'])
+            self.assertEqual(f.job('EXPORT',dict(run_id=identifier))['integrity'],'verified_manifest_and_trajectory')
+
+    def test_comparison_and_export_reject_every_contradictory_identity(self):
+        import copy
+        with Fixture() as f:
+            f.configure(ticks=4,workflow=[],faults=[]);identifier=f.start();f.finished()
+            path=f.root/'runs'/identifier/'experiment.json';original=bounded_json(path)
+            corruptions={
+                'build':dict(original['build'],binary_sha256={'plant':'f'*64}),
+                'trajectory_sha256':'0'*64,'completed_ticks':3,'scheduled':False,
+                'stop':dict(original['stop'],outputs_zero_observed=False),'wall_speed':20,
+                'pacing_owner':'incorrect','state':'aborted','run_id':'r'+'0'*16}
+            for key,value in corruptions.items():
+                with self.subTest(field=key):
+                    bad=copy.deepcopy(original);bad[key]=value;path.write_text(json.dumps(bad))
+                    with self.assertRaisesRegex(ValueError,'mismatch'):f.broker.compare(identifier,identifier)
+                    with self.assertRaisesRegex(ValueError,'mismatch'):f.broker.export(identifier)
+            path.write_text(json.dumps(original));self.assertTrue(f.broker.compare(identifier,identifier)['exact_replay'])
+
+    def test_initial_and_final_manifest_record_external_pacing_without_double_wait(self):
+        with Fixture() as f:
+            f.configure(ticks=4,workflow=[],faults=[]);identifier=f.start(.1)
+            wait_for(lambda:f.call('STATUS'),lambda s:s['sequence']==0)
+            path=f.root/'runs'/identifier/'data/manifest.json'
+            initial=bounded_json(path);self.assertEqual(initial['wall_speed'],.1);self.assertEqual(initial['pacing_owner'],'experiment_broker')
+            start=time.monotonic();self.assertEqual(f.finished()['state'],'completed');self.assertLess(time.monotonic()-start,4.5)
+            final=bounded_json(path);self.assertEqual(final['wall_speed'],.1)
+            self.assertEqual(f.broker.verify(identifier)[1]['wall_speed'],final['wall_speed'])
+
+    def test_restarted_inventory_selects_latest_creation_times_not_random_ids(self):
+        from datetime import datetime,timedelta,timezone
+        import copy
+        with Fixture() as f:
+            f.configure(ticks=4,workflow=[],faults=[]);identifier=f.start();f.finished();meta=bounded_json(f.root/'runs'/identifier/'experiment.json');f.broker.close()
+            expected=[]
+            for i in range(105):
+                # Synthetic inventory fixtures based on one real completed run;
+                # this test does not claim 105 physical executions.
+                run_id='r'+format(200-i,'016x');directory=f.root/'runs'/run_id;directory.mkdir()
+                record=copy.deepcopy(meta);record.update(run_id=run_id,request_id=uuid.uuid4().hex,created_at=(datetime(2027,1,1,tzinfo=timezone.utc)+timedelta(seconds=i)).isoformat())
+                (directory/'experiment.json').write_text(json.dumps(record));expected.append(run_id)
+            recovered=Broker(BUILD,f.root/'runs')
+            try:self.assertEqual([x['run_id'] for x in recovered.dispatch('RUNS',{})],expected[-100:])
+            finally:recovered.close()
+
+    def test_unauthenticated_header_does_not_disclose_experiment_state(self):
+        with Fixture() as f:
+            f.configure();identifier=f.start(.001);wait_for(lambda:f.call('STATUS'),lambda s:s['sequence']==0)
+            with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as connection:
+                connection.settimeout(3);connection.connect(str(f.root/'api/broker.sock'))
+                connection.sendall(('DX1 '+'0'*64+' STATUS 7b7d\n').encode())
+                reply=wire.line(connection).split(' ',7)
+            self.assertEqual(reply[:7],['DX1','ERROR','0','-','unauthorized','-1','0'])
+            self.assertNotIn(identifier,' '.join(reply))
+            f.call('STOP',dict(run_id=identifier));f.finished()
+
+
 if __name__=='__main__':unittest.main()

@@ -175,10 +175,14 @@ def stop_plant(admin, online=False):
 
 
 def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_speed=0, wait_check=None,
-             after_record=None, scheduled=False):
+             after_record=None, scheduled=False, external_pacing_speed=None):
     validate(config)
     if not isinstance(wall_speed, (int, float)) or not math.isfinite(wall_speed) or not 0 <= wall_speed <= 1000:
         raise ValueError('wall speed must be finite in [0,1000]; zero means unpaced')
+    if external_pacing_speed is not None:
+        if (wall_speed != 0 or type(external_pacing_speed) not in (int, float)
+                or not math.isfinite(external_pacing_speed) or not 0 <= external_pacing_speed <= 1000):
+            raise ValueError('external pacing must be finite [0,1000] with internal pacing disabled')
     runtime = Path(runtime)
     manifest = dict(schema_version=2, executed_at=datetime.now(timezone.utc).isoformat(),
                     configuration=config, configuration_sha256=digest(canonical(config).encode()),
@@ -186,7 +190,9 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
                     platform=platform.platform(), interface='DL1', model=config['model'],
                     simulation_only=True, outcome='running', errors=[],
                     trajectory_format=FORMAT, trajectory_file='trajectory.jsonl',
-                    completed_ticks=0, trajectory_sha256=None, wall_speed=wall_speed, scheduled=scheduled)
+                    completed_ticks=0, trajectory_sha256=None,
+                    wall_speed=wall_speed if external_pacing_speed is None else external_pacing_speed,
+                    pacing_owner='runner' if external_pacing_speed is None else 'experiment_broker', scheduled=scheduled)
     writer = TrajectoryWriter(output)
     records = writer.trajectory
     writer.write_manifest(manifest)

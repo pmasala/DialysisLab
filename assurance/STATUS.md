@@ -22,14 +22,14 @@ regression. M1–M6 reviews are consumed: never rerun them. M7 has not been revi
 Earlier long-run/failure evidence remains preserved; no new 100000-tick graphical
 endurance claim is made. Release and independent-assurance gates remain blocked.
 
-Next executable step: commit the M7 candidate and run its **one** read-only review against fixed base
-`26211813a79d5f05720071de0b51df8089997476`. No M7 review has yet run. Broker and
-actual ImGui console are implemented; nine targeted process tests, three GUI tests
-in headless/WSLg/sanitizer modes, repeated Compose experiments and ten native model
-runs pass. Full native/sanitizer suites each pass 123/123, with ten native/ten Compose
-model runs and successful headless/WSLg console deployments. Do not infer final
-phase PASS before review disposition and clean-build evidence. Preserve `build/m7-*` diagnostics, then fix
-review findings, regress, record clean-build evidence and continue M8/M9.
+Next executable step: finish M7 review corrections and targeted regressions, commit
+the corrections and run clean-build native/sanitizer/GUI/Compose integration evidence.
+The sole M7 review examined candidate `1cf008c` against `2621181` and returned one
+P1 plus ten P2 findings; it is consumed and must not run again. The journal/STOP,
+shutdown ownership, restart/revision, storage-bound, evidence identity, GUI reply,
+pacing and inventory fixes are implemented and under regression. Also fix M7-V1,
+the unauthenticated metadata header. Review commands, output and disposition are in
+`assurance/REVIEWS.md` and `build/reviews/m7*`. Continue M8/M9 after final M7 evidence.
 
 M7 constraints: immutable scheduled configuration, separate authenticated admin
 channel, fixed-role Compose supervisors, actual STOP evidence and streaming exports.

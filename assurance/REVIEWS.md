@@ -209,3 +209,41 @@ tests in headless/WSLg/sanitizer modes, 10/10 device-UI regressions, ten native/
 Compose model runs and two repeated-experiment console deployments pass. Exact
 preliminary reports are in `build/m7-*-candidate*`; final clean evidence follows
 the one review and any applicable corrections.
+
+### M7 single review result — corrections required
+
+Candidate `1cf008cfe05e6d61ea7892f278615cd7088a7b64`, base
+`26211813a79d5f05720071de0b51df8089997476`. One read-only CLI invocation,
+2026-10-08T03:10:47Z–03:24:13Z, exit 0 **with one P1 and ten P2 findings**.
+Exact argv/output: `build/reviews/m7.json`, `build/reviews/m7-output.txt`.
+The M7 review is consumed; no second review may run. All findings are applicable.
+
+| ID | Severity | Reproduced problem / required regression |
+| --- | --- | --- |
+| M7-R1 | P1 | Journal write failure prevents STOP cancellation; prove actual HALT despite journal I/O error. |
+| M7-R2 | P2 | START/REPLAY can race broker shutdown; reject new work before draining workers. |
+| M7-R3 | P2 | Incomplete run directory prevents inventory startup; preserve/quarantine it and recover valid runs. |
+| M7-R4 | P2 | Ownership released while artifact worker still writes; retain lock until every writer terminates. |
+| M7-R5 | P2 | Reused revision after broker restart accepts stale editor; bind revision to broker incarnation. |
+| M7-R6 | P2 | Accepted configuration exceeds stored JSON reader bound; cover maximum workflow/fault calendar and manifest overhead. |
+| M7-R7 | P2 | Exhausted journal prevents terminal metadata; persist outcome/stop independently. |
+| M7-R8 | P2 | Contradictory experiment build/hash/count accepted by comparison/export; reject all redundant identity mismatches. |
+| M7-R9 | P2 | STATUS overwrites a command reply before rendering consumes it; retain replies through deliberate render stall. |
+| M7-R10 | P2 | Manifest says unpaced while broker paces; record actual pacing owner/speed without a second wait loop. |
+| M7-R11 | P2 | Random run IDs determine last-100 inventory after restart; sort persisted creation times before limiting. |
+
+Additional integration finding M7-V1 (P2), reproduced in the same review transcript
+but not included in its final finding list: unauthenticated error headers reveal
+run/state/clock metadata. Return a neutral header before authentication and test
+without a valid token. This does not constitute another review invocation.
+
+M7 corrections implemented; 20/20 targeted broker/service tests and 5/5 actual
+console tests pass in the working tree. Regressions map R1/R7 to journal-failure and
+event-cap tests; R2/R4 to shutdown/real ownership-lock tests; R3/R11 to recovery and
+chronological inventory; R5/R9 to actual broker restart/render-stall widgets; R6 to
+a real 1000-tick, 1000-workflow/1000-fault replay/export; R8 to nine independently
+corrupted identity fields; R10 to initial/final pacing metadata and elapsed time.
+M7-V1 verifies a neutral unauthenticated header during an actual running experiment.
+The maximum-calendar fixture uses SILENCE annotations valid in PREPARATION rather
+than unauthorized prescription transitions; machine guards remain unchanged.
+Record correction commit and clean final integration evidence next. No second review.

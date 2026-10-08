@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <map>
 #include <mutex>
+#include <optional>
 #include <poll.h>
 #include <sstream>
 #include <stdexcept>
@@ -60,7 +61,7 @@ inline std::string request_id() {
 }
 struct Reply {
     bool connected=false, ok=false, busy=false;
-    unsigned long revision=0; long long sequence=-1,time=0;
+    std::string revision="0"; long long sequence=-1,time=0;
     std::string run="-",state="disconnected",body,error,operation;
     unsigned long generation=0;
 };
@@ -90,29 +91,34 @@ inline Reply call(const std::string& directory,const std::string& op,const std::
     if(response.back()!='\n' || response.find('\n')!=response.size()-1)throw std::runtime_error("extra reply data");
     std::istringstream in(response); std::string version,result,encoded,extra; Reply reply;
     if(!(in>>version>>result>>reply.revision>>reply.run>>reply.state>>reply.sequence>>reply.time>>encoded) || in>>extra || version!="DX1" || (result!="OK"&&result!="ERROR"))throw std::runtime_error("reply schema");
+    if(reply.revision.empty() || reply.revision.size()>49 || reply.revision.find_first_not_of("0123456789")!=std::string::npos)throw std::runtime_error("revision schema");
     reply.connected=true;reply.ok=result=="OK";reply.body=pretty(unhex(encoded));reply.operation=op;return reply;
 }
 class Client {
-    std::string directory,op,json; bool stopping=false,pending=false;
+    std::string directory,op,json; bool stopping=false,pending=false,command_busy=false;
     std::mutex mutex; std::condition_variable changed;
     Reply result; unsigned long generation=0;
+    std::optional<Reply> completed;
     std::thread worker;
     void run() {
         while(true) {
             std::string command,payload;
             {std::unique_lock<std::mutex> lock(mutex);changed.wait_for(lock,std::chrono::milliseconds(200),[&]{return stopping||pending;});
              if(stopping)return;
-             command=pending?op:"STATUS";payload=pending?json:"{}";pending=false;result.busy=true;}
+             command=pending?op:"STATUS";payload=pending?json:"{}";pending=false;command_busy=command!="STATUS";}
             Reply next;
             try{next=call(directory,command,payload);}
             catch(const std::exception& e){next.error=e.what();next.operation=command;}
-            {std::lock_guard<std::mutex> lock(mutex);next.generation=++generation;result=next;}
+            {std::lock_guard<std::mutex> lock(mutex);next.generation=++generation;result=next;
+             if(command!="STATUS")completed=next;
+             command_busy=false;}
         }
     }
 public:
     explicit Client(std::string dir):directory(std::move(dir)),worker([this]{run();}){}
     ~Client(){{std::lock_guard<std::mutex> lock(mutex);stopping=true;}changed.notify_all();worker.join();}
-    Reply snapshot(){std::lock_guard<std::mutex> lock(mutex);return result;}
-    bool submit(const std::string& command,const std::string& payload){std::lock_guard<std::mutex> lock(mutex);if(pending || result.busy)return false;op=command;json=payload;pending=true;changed.notify_all();return true;}
+    Reply snapshot(){std::lock_guard<std::mutex> lock(mutex);auto copy=result;copy.busy=pending||command_busy||completed.has_value();return copy;}
+    std::optional<Reply> take_reply(){std::lock_guard<std::mutex> lock(mutex);auto reply=std::move(completed);completed.reset();return reply;}
+    bool submit(const std::string& command,const std::string& payload){std::lock_guard<std::mutex> lock(mutex);if(pending || command_busy || completed)return false;op=command;json=payload;pending=true;changed.notify_all();return true;}
 };
 }

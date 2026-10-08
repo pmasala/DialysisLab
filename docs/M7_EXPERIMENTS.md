@@ -46,7 +46,10 @@ One request per connection: ASCII `DX1 TOKEN OP PAYLOAD\n`, where PAYLOAD is the
 hex encoding of UTF-8 strict JSON. Reply: `DX1 OK REVISION RUN STATE SEQUENCE TIME_MS PAYLOAD\n` (or `ERROR`).
 The fixed metadata header is versioned; sequence is -1 before the first commit.
 Decoded JSON is at most 256 KiB, frame at most 524544 bytes, wall timeout 2 seconds;
-nonfinite numbers, unknown keys and extra frames are rejected. Strings/errors do
+nonfinite numbers, unknown keys and extra frames are rejected. Persisted JSON has
+a separate 1 MiB bound to accommodate indentation and build/stop metadata for
+accepted maximum calendars; wire bounds remain unchanged. Unauthenticated errors
+carry neutral revision/run/state/time fields. Strings/errors do
 not echo credentials. No unsolicited messages. Units remain explicit JSON keys.
 
 Operations: STATUS (bounded latest committed truth, state, sequence, virtual ms),
@@ -56,22 +59,33 @@ COMPARE and EXPORT (validated generated run identifiers). These streaming
 artifact operations return a job ID immediately; STATUS reports the bounded job
 result without blocking STOP/pause or the rendering thread. START/REPLAY duplicate
 request IDs return the original run; IDs cannot be reused for a different request.
+Revisions are opaque exact decimal integers: a random 128-bit broker incarnation
+and a bounded 32-bit edit counter. Preserve all digits; do not convert to binary64.
+A restart cannot make an old editor valid by repeating its edit count. Command
+replies remain queued until the GUI consumes them; periodic status is coalesced.
 Status distinguishes requested pause from acknowledged paused barrier and reports
 wall receipt age separately from virtual time. Draft edits never change a live run.
 Only one run may be active. One bounded console job executes off the rendering
 thread. Closing/reconnecting the console does not change the experiment.
 
-Run IDs are generated, never paths. Artifacts are configuration, JSONL v1, manifest
+Run IDs are generated, never paths. RUNS sorts persisted UTC creation timestamps
+before returning the latest 100 entries, including after restart. Artifacts are configuration, JSONL v1, manifest
 v2, experiment metadata/event journal and service logs. Hashes cover actual bytes.
 Export ZIP contains only explicitly named generated artifacts from that run; no
 recursive repository/archive inclusion. Comparison reports configuration/build
 identity and exact trajectory hashes separately from final patient differences.
 Only completed, verified, scheduled records qualify for exact replay comparison.
+Experiment metadata must agree with its manifest on build/configuration, digest,
+count, scheduling, pacing owner/speed, outcome and observed stop. Broker pacing is
+recorded in both initial/final manifests without enabling internal runner pacing.
 
 Pause freezes the next barrier, not wall watchdogs or protection. Resume rebases
 pacing (no catch-up burst). STOP is cooperative scheduler cancellation, serviced
 within bounded 100 ms waits plus existing RPC timeouts; plant watchdog remains an
-independent fallback. Broker shutdown requests stop and collects its actual result.
+independent fallback. Journal failure cannot veto STOP. Terminal metadata is attempted independently
+of the capped event journal; journal errors remain explicit in experiment metadata.
+Broker shutdown first rejects new work, requests stop and collects its actual result.
+Output ownership remains held until every run/artifact writer has terminated.
 Broker crash leaves a recoverable JSONL prefix and an interrupted/unconfirmed run;
 restart never retries the old run or claims zero outputs without observation.
 
@@ -136,7 +150,10 @@ one concurrent job and do not block simulation control. Inventory is bounded to
 After abrupt broker failure, never reuse stale sockets blindly. Preserve results
 and logs, stop the old role processes/containers, then use a fresh API directory
 (native) or explicitly remove the known stopped broker's socket before restarting
-its deployment. The output ownership lock prevents concurrent brokers. Old active
+its deployment. Incomplete/corrupt run metadata is quarantined in place and listed in STATUS; it
+does not prevent recovery of other runs. Preserve these directories for manual
+recovery rather than treating them as verified or deleting them. The output
+ownership lock prevents concurrent brokers. Old active
 runs become `interrupted`, with stop unconfirmed; no automatic treatment resume.
 Native hard-kill orphan cleanup and further shared-resource hardening remain M8
 work; independent plant watchdog behavior continues to apply.
