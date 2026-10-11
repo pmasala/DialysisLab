@@ -433,6 +433,11 @@
     "docs/dependencies/M6.md",
     "docs/dependencies/M7.md",
     "docs/dependencies/M8.md",
+    "docs/diagrams/README.md",
+    "docs/diagrams/dialyzer-transport.svg",
+    "docs/diagrams/extracorporeal-reference.svg",
+    "docs/diagrams/fluid-preparation.svg",
+    "docs/diagrams/hydraulic-equivalent.svg",
     "docs/templates/DEPENDENCY_EXCEPTION.md",
     "docs/templates/LIFECYCLE_INCREMENT.md",
     "docs/templates/MODEL_DATA_ASSESSMENT.md",
@@ -540,6 +545,7 @@
     "tools/platform_inventory.py",
     "tools/recover_trajectory.py",
     "tools/render_checklist.py",
+    "tools/render_hydraulic_diagrams.py",
     "tools/run_device_demo.py",
     "tools/security_scan.py",
     "tools/verify_compose.py",
@@ -652,6 +658,26 @@
       "source_artifact": "build/m9-final-simultaneous-wslg/captures/compose-paused.png",
       "command": "python3 tools/verify_experiments_compose.py --with-device --graphical --output build/m9-final-simultaneous-wslg",
       "rights": "Original DialysisLab framebuffer; MIT project font or selected MIT Proggy font/ImGui. GUI_NOTICES retained; no standards/private images."
+    },
+    "docs/diagrams/hydraulic-equivalent.svg": {
+      "origin": "project-authored-diagram",
+      "command": "python3 tools/render_hydraulic_diagrams.py",
+      "sha256": "85de507b8548565951fa82587d7419da9ae1802f28d37991fb7444921ec16659"
+    },
+    "docs/diagrams/dialyzer-transport.svg": {
+      "origin": "project-authored-diagram",
+      "command": "python3 tools/render_hydraulic_diagrams.py",
+      "sha256": "13c72fcbd3c599f49785106ca1fefca9ec6a566fd7ce4ba6e4bba023d033cf16"
+    },
+    "docs/diagrams/extracorporeal-reference.svg": {
+      "origin": "project-authored-diagram",
+      "command": "python3 tools/render_hydraulic_diagrams.py",
+      "sha256": "2eccd5d2238b9284e46b1641bc52ae4cde5a695caf52aae227cbdd3e034eb143"
+    },
+    "docs/diagrams/fluid-preparation.svg": {
+      "origin": "project-authored-diagram",
+      "command": "python3 tools/render_hydraulic_diagrams.py",
+      "sha256": "d13577a9014ae49dfc09ad7e3f88d262a42456d535f32b55fbc8f4199466b3af"
     }
   }
 }
