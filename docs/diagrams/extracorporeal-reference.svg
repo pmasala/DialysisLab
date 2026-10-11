@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img">
+<title>Extracorporeal circuit — treatment reference</title>
+<desc>Functional hydraulic schematic: physical route, not the default solver topology.</desc>
+<rect width="1200" height="100%" fill="#ffffff"/>
+<text x="40" y="45" font-family="DejaVu Sans, sans-serif" font-size="28" fill="#203246" font-weight="700" text-anchor="start">Extracorporeal circuit — treatment reference</text>
+<text x="40" y="75" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#637589" font-weight="400" text-anchor="start">Functional hydraulic schematic: physical route, not the default solver topology.</text>
+<path d="M40,96 L1160,96" stroke="#d6dfe7" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M70,275 v130 h125 v-130" stroke="#ad3248" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M75,299 L190,299" stroke="#ad3248" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M84,309 L181,309" stroke="#ad3248" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="70" y="235" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#203246" font-weight="700" text-anchor="start">Patient connection</text>
+<text x="70" y="258" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#637589" font-weight="400" text-anchor="start">Common supply / return</text>
+<path d="M105,405 V455 H1060 V300 H960" stroke="#ad3248" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M160,300 H320" stroke="#ad3248" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="347" cy="300" r="27" stroke="#ad3248" stroke-width="3" fill="white"/>
+<path d="M338,288 L362,300 L338,312 Z" stroke="#ad3248" stroke-width="2" fill="#ad3248" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M374,300 H670" stroke="#ad3248" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="347" y="358" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#203246" font-weight="400" text-anchor="middle">Blood pump</text>
+<path d="M255,295 L265,300 L255,305" stroke="#ad3248" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M590,295 L600,300 L590,305" stroke="#ad3248" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M500,300 L500,237" stroke="#ad3248" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="500" cy="216" r="21" stroke="#203246" stroke-width="3" fill="white"/>
+<path d="M500,216 L510,206" stroke="#203246" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="500" y="182" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#203246" font-weight="400" text-anchor="middle">P blood</text>
+<circle cx="500" cy="300" r="4" stroke="#ad3248" stroke-width="3" fill="#ad3248"/>
+<path d="M670,260 h290 v110 h-290 Z" stroke="#203246" stroke-width="2" fill="#fafbfc" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M670,300 L960,300" stroke="#ad3248" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M670,345 L960,345" stroke="#19718b" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M685,323 L945,323" stroke="#637589" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 6"/>
+<path d="M670,345 H630 V410" stroke="#19718b" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M960,345 H1015 V400" stroke="#19718b" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M715,295 L725,300 L715,305" stroke="#ad3248" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M860,340 L850,345 L860,350" stroke="#19718b" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="815" y="225" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#203246" font-weight="700" text-anchor="middle">Dialyzer</text>
+<text x="815" y="246" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#637589" font-weight="400" text-anchor="middle">Two fluid passages / one membrane</text>
+<text x="630" y="434" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#19718b" font-weight="400" text-anchor="middle">Spent dialysate</text>
+<text x="1015" y="425" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#19718b" font-weight="400" text-anchor="middle">Fresh dialysate</text>
+<path d="M625,395 L630,405 L635,395" stroke="#19718b" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1010,380 L1015,370 L1020,380" stroke="#19718b" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M890,450 L880,455 L890,460" stroke="#ad3248" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="580" y="481" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#ad3248" font-weight="400" text-anchor="start">Venous return</text>
+<text x="205" y="326" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#ad3248" font-weight="400" text-anchor="start">Withdrawal</text>
+<path d="M550,145 H570 V300" stroke="#7960a6" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 6"/>
+<path d="M850,145 H1095 V455 H1060" stroke="#7960a6" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 6"/>
+<circle cx="570" cy="300" r="5" stroke="#7960a6" stroke-width="3" fill="#7960a6"/>
+<circle cx="1060" cy="455" r="5" stroke="#7960a6" stroke-width="3" fill="#7960a6"/>
+<path d="M565,270 L570,280 L575,270" stroke="#7960a6" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1090,420 L1095,430 L1100,420" stroke="#7960a6" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="550" y="128" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#7960a6" font-weight="400" text-anchor="start">Pre-HDF inlet</text>
+<text x="850" y="128" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#7960a6" font-weight="400" text-anchor="start">Post-HDF inlet</text>
+<text x="42" y="535" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#203246" font-weight="700" text-anchor="start">LEGEND</text>
+<path d="M145,530 L185,530" stroke="#ad3248" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="198" y="535" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#203246" font-weight="400" text-anchor="start">Blood</text>
+<path d="M305,530 L345,530" stroke="#19718b" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="358" y="535" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#203246" font-weight="400" text-anchor="start">Dialysate</text>
+<path d="M520,530 L560,530" stroke="#7960a6" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 6"/>
+<text x="573" y="535" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#203246" font-weight="400" text-anchor="start">Alternative substitution route</text>
+<path d="M40,568 h1120 v138 h-1120 Z" stroke="#d6dfe7" stroke-width="2" fill="#f4f7fa" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="58" y="595" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#203246" font-weight="700" text-anchor="start">How to read this drawing</text>
+<text x="58" y="621" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#203246" font-weight="400" text-anchor="start">Select pre- OR postdilution for HDF; neither inlet supplies substitution in HD.</text>
+<text x="58" y="646" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#203246" font-weight="400" text-anchor="start">The default solver collapses the blood path to one pressure node and one dialyzer resistance.</text>
+<text x="58" y="671" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#203246" font-weight="400" text-anchor="start">Tubing sections and the dialysate counterflow route are illustrative, not spatially resolved.</text>
+<text x="58" y="696" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#203246" font-weight="400" text-anchor="start">No separate air trap, bubble transport or arterial/venous pressure network is implemented.</text>
+</svg>

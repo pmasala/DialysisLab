@@ -5,9 +5,11 @@ patient and a dialysis circuit. It advances in small time steps: the machine req
 pump settings, protection can restrict them, the circuit calculates flows, and the
 patient model updates water and solutes.
 
-The diagrams below describe the **implemented simulation**, not a construction
-plan for a medical device. GitHub renders them directly; a Markdown viewer needs
-Mermaid support to display them.
+The hydraulic drawings use original SVG symbols for pumps, reservoirs, resistances,
+compliance, filters and pressure measurements. They distinguish the treatment
+reference circuit from its implemented numerical equivalent. They are not a
+construction plan or a claim of compliance with a schematic-symbol standard.
+See the [symbol legend and source mapping](diagrams/README.md).
 
 ## Follow the fluids
 
@@ -20,20 +22,7 @@ There are three paths to keep distinct:
 The membrane allows water and selected solutes to cross. Blood and dialysate are
 not represented as one mixed fluid.
 
-```mermaid
-flowchart TD
-    Patient["Patient"] --> Pump["Blood pump"]
-    Pump --> Pre["Predilution entry"]
-    Pre --> Blood["Dialyzer: blood side"]
-    Blood --> Post["Postdilution entry"]
-    Post --> Patient
-    Fresh["Dialysate supply"] --> Dialysate["Dialyzer: dialysate side"]
-    Dialysate --> Waste["Spent fluid"]
-    Blood <-->|"Solute diffusion"| Dialysate
-    Blood -->|"Removed water and carried solutes"| Waste
-    Prep["Substitution-fluid preparation"] -.->|"Pre-HDF only"| Pre
-    Prep -.->|"Post-HDF only"| Post
-```
+![Extracorporeal reference circuit with blood pump, dialyzer, pressure tap and alternative pre/post substitution inlets.](diagrams/extracorporeal-reference.svg)
 
 This first diagram shows treatment routes. It does **not** mean that every box has
 its own hydraulic pressure state. The numerical representation is smaller, as below.
@@ -49,15 +38,7 @@ The supplied `machine_hdf_pre.json` scenario has just one pressure node and one
 resistive edge. That edge represents the dialyzer. Node 0 is a fixed zero-pressure
 reference for the patient connection; it is not a cardiovascular model.
 
-```mermaid
-flowchart TD
-    Ref["Patient reference: node 0, pressure = 0"] --> Pump["Finite-pressure blood pump"]
-    Pump --> Node["Node 1: pressure and stored circuit fluid"]
-    Node --> Resistance["Dialyzer resistance"]
-    Resistance --> Ref
-    Node -->|"Ultrafiltration: water removal"| Waste["Removed fluid"]
-    Sub["Pre-HDF substitution pump"] --> Node
-```
+![Implemented hydraulic equivalent: fixed-pressure reservoir, finite-head pump, pressure node, shunt compliance, dialyzer resistance and UF sink.](diagrams/hydraulic-equivalent.svg)
 
 The pump setting is a requested flow. Actual flow falls as the opposing pressure
 approaches the pump's configured pressure capability. Closing a modeled edge stops
@@ -89,11 +70,7 @@ effective clearance. A concentration difference drives transfer: a substance can
 leave blood or enter it, depending on which side has the higher concentration.
 The six modeled substances are urea, sodium, potassium, chloride, bicarbonate and calcium.
 
-```mermaid
-flowchart LR
-    Blood["One mixed blood pool"] <-->|"Diffusion: concentration difference"| Dialysate["Specified dialysate composition"]
-    Blood -->|"Convection: removed water × concentration × sieving"| Removed["Removed fluid and solutes"]
-```
+![Dialyzer membrane cross-section showing reversible diffusion and water-borne convection.](diagrams/dialyzer-transport.svg)
 
 Water removal is limited by the request, available blood-pump demand and a
 pressure-dependent permeability calculation. The model assumes zero dialysate-side
@@ -123,17 +100,7 @@ does not necessarily cause the same increase in patient weight loss.
 
 ### Online fluid preparation
 
-```mermaid
-flowchart TD
-    Water["Water supply"] --> Tank["Mixed tank: composition and temperature"]
-    Concentrate["Concentrate ratio"] --> Tank
-    Heat["Heater setting"] --> Tank
-    Tank --> Dialysate["Dialysate boundary supplied to exchange model"]
-    Tank --> Filter1["Substitution filter 1"]
-    Filter1 --> Filter2["Substitution filter 2"]
-    Filter2 --> Pump["Substitution pump and line resistance"]
-    Pump --> Entry["Pre- or postdilution entry"]
-```
+![Fluid preparation schematic with mixing reservoir, heater, dialysate outlet and two filters feeding the substitution pump.](diagrams/fluid-preparation.svg)
 
 The tank calculation updates mixture composition and temperature. A conductivity
 estimate is derived from the ionic composition. Filters contribute resistance and

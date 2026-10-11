@@ -5,6 +5,35 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import zipfile
+import xml.etree.ElementTree as ET
+
+
+def validate_owned_svg(raw, asset):
+    """Accept only registered project diagrams with a small passive SVG vocabulary."""
+    if not isinstance(asset, dict) or asset.get('origin') != 'project-authored-diagram' or not asset.get('command'):
+        raise ValueError('unregistered owned diagram')
+    if asset.get('sha256') != hashlib.sha256(raw).hexdigest():
+        raise ValueError('owned diagram digest')
+    if b'<!' in raw or b'<?' in raw:
+        raise ValueError('SVG declarations are not allowed')
+    try:
+        root = ET.fromstring(raw)
+    except ET.ParseError as error:
+        raise ValueError('invalid SVG') from error
+    namespace = '{http://www.w3.org/2000/svg}'
+    if root.tag != namespace + 'svg':
+        raise ValueError('invalid SVG root')
+    tags = {'svg', 'title', 'desc', 'rect', 'path', 'circle', 'text'}
+    attributes = {'width', 'height', 'viewBox', 'role', 'x', 'y', 'fill',
+                  'font-family', 'font-size', 'font-weight', 'text-anchor',
+                  'd', 'stroke', 'stroke-width', 'stroke-linejoin', 'stroke-linecap',
+                  'stroke-dasharray', 'cx', 'cy', 'r'}
+    for element in root.iter():
+        if element.tag not in {namespace + name for name in tags}:
+            raise ValueError('unsupported SVG element')
+        for key, value in element.attrib.items():
+            if key not in attributes or any(token in value.lower() for token in ('url', 'href', 'javascript:', 'data:')):
+                raise ValueError('unsupported SVG attribute or resource')
 
 
 def collect(root, manifest):
@@ -23,7 +52,7 @@ def collect(root, manifest):
             raise ValueError('symlink publication input rejected')
         if root not in path.resolve().parents:
             raise ValueError('publication input outside project')
-        if path.suffix not in {'.md', '.json', '.jsonl', '.py', '.cpp', '.hpp', '.c', '.h', '.cmake', '.yaml', '.png'} and name not in {
+        if path.suffix not in {'.md', '.json', '.jsonl', '.py', '.cpp', '.hpp', '.c', '.h', '.cmake', '.yaml', '.png', '.svg'} and name not in {
                 '.gitignore', '.dockerignore', 'LICENSE', 'Dockerfile', 'CMakeLists.txt'}:
             raise ValueError('unsupported publication format: ' + name)
         raw = path.read_bytes()
@@ -37,6 +66,8 @@ def collect(root, manifest):
             if hashlib.sha256(raw).hexdigest() in restricted_hashes: raise ValueError('restricted source detected')
             result.append((name, raw))
             continue
+        if path.suffix == '.svg':
+            validate_owned_svg(raw, manifest.get('owned_assets', {}).get(name))
         raw.decode('utf-8')
         if raw.startswith((b'%PDF-', b'PK\x03\x04')) or b'\x00' in raw:
             raise ValueError('binary content in text publication input')

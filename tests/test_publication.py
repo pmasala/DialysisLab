@@ -71,3 +71,48 @@ class OwnedCaptureChecks(unittest.TestCase):
             image.write_bytes(image.read_bytes() + b'%PDF-private')
             manifest['owned_assets']['capture.png']['sha256'] = hashlib.sha256(image.read_bytes()).hexdigest()
             with self.assertRaises(ValueError): collect(root, manifest)
+
+
+class OwnedDiagramChecks(unittest.TestCase):
+    def setUp(self):
+        import hashlib
+        self.hash = lambda raw: hashlib.sha256(raw).hexdigest()
+
+    def check(self, raw, **overrides):
+        from package_release import validate_owned_svg
+        asset = dict(origin='project-authored-diagram', command='python3 tools/render_hydraulic_diagrams.py', sha256=self.hash(raw))
+        asset.update(overrides)
+        validate_owned_svg(raw, asset)
+
+    def test_passive_diagram_and_ownership(self):
+        raw = b'<svg xmlns="http://www.w3.org/2000/svg"><path d="M0,0 H20"/><text x="0" y="10">Pump</text></svg>'
+        self.check(raw)
+        for override in ({'origin': 'unknown'}, {'sha256': '0' * 64}, {'command': ''}):
+            with self.subTest(override=override), self.assertRaises(ValueError):
+                self.check(raw, **override)
+
+    def test_reject_active_external_or_unexpected_content(self):
+        for content in ['<script>alert(1)</script>', '<image href="https://example.org/a.png"/>',
+                        '<path onload="alert(1)"/>', '<path fill="url(https://example.org/a)"/>',
+                        '<foreignObject/>', '<style>text{fill:red}</style>']:
+            with self.subTest(content=content), self.assertRaises(ValueError):
+                self.check(('<svg xmlns="http://www.w3.org/2000/svg">'+content+'</svg>').encode())
+        for raw in [b'<!DOCTYPE svg><svg/>', b'<?xml-stylesheet href="external"?><svg/>', b'<svg>', b'<svg/>']:
+            with self.subTest(raw=raw), self.assertRaises(ValueError):
+                self.check(raw)
+
+    def test_registered_svg_is_packaged_and_restricted_hash_still_rejected(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'assurance/standards').mkdir(parents=True)
+            sources = root / 'assurance/standards/sources.json'
+            sources.write_text('{"standards": []}')
+            raw = b'<svg xmlns="http://www.w3.org/2000/svg"><title>Original</title></svg>'
+            (root / 'diagram.svg').write_bytes(raw)
+            manifest = {'files': ['diagram.svg'], 'owned_assets': {'diagram.svg': dict(
+                origin='project-authored-diagram', command='generate', sha256=hashlib.sha256(raw).hexdigest())}}
+            self.assertEqual(collect(root, manifest), [('diagram.svg', raw)])
+            sources.write_text(json.dumps({'standards': [{'supplied_sources': [{'sha256': hashlib.sha256(raw).hexdigest()}]}]}))
+            with self.assertRaises(ValueError):
+                collect(root, manifest)
