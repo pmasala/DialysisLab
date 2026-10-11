@@ -1,5 +1,8 @@
 # M2 circuit model and interface contract
 
+For an illustrated introduction, start with [How the simulation works](SIMULATION.md).
+This reference contains the detailed equations and implementation contracts.
+
 Frozen before implementation, phase base `1999741`. All parameters and thresholds
 are synthetic; no commercial dialyzer, physiological calibration or experimental
 validation is represented. DL1 and `m1-hd-1` remain compatible.

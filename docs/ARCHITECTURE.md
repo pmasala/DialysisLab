@@ -1,182 +1,84 @@
-# Architecture baseline
+# Software architecture
 
-Status: functional scope and UI separation agreed. M1 now implements the limited
-headless HD slice described in [M1_PLAN.md](M1_PLAN.md), with versioned
-[interfaces](M1_INTERFACES.md), [model equations](M1_MODEL.md) and
-[risk boundaries](M1_RISKS.md). The broader architecture below remains the required
-roadmap. M2–M7 implement the circuit, limited patient/treatment/lifecycle, actual device UI
-and separate experiment console. M8 hardening is verified; M9 integrated acceptance is in progress;
-calibrated physiology is not supplied by this implementation.
+DialysisLab separates the simulated equipment, the patient and the software that
+operates the machine. If you want to understand the fluid paths first, read
+[How the simulation works](SIMULATION.md).
 
-M2 adds an opt-in synthetic compliant circuit and multiple dialyzer profiles in
-the same plant process. [M2_MODEL_INTERFACES.md](M2_MODEL_INTERFACES.md) defines
-the node/edge solver, water accounting and prescribed-boundary membrane transport.
-The M1 path remains compatible; neither decision service receives circuit truth.
+## What runs where
 
-M3 couples the Python patient to actual hydraulic transfers and membrane
-coefficients in atomic COMMIT3 replies. A three-compartment implicit mass solve
-includes the extracorporeal mixing volume, while plant/control/protection remain
-separate processes. Applied solute transfers and body truth stay on simulation
-administration channels. [M3_PATIENT.md](M3_PATIENT.md) defines the deliberately
-limited physiology, conservative ledgers and failure semantics.
+| Component | Language | Responsibility |
+| --- | --- | --- |
+| Plant | C++ | Simulated circuit, pumps, dialyzer and sensor observations |
+| Control | C++ | Machine workflow and requested operating settings |
+| Protection | C++ | Evaluate modeled hazards and constrain plant outputs |
+| Device UI | C++ / LVGL | Operator screens, commands and alarms |
+| Patient | Python | Body water, solutes and exchange with the circuit |
+| Runner / experiment broker | Python | Configure and advance experiments; save results |
+| Experiment console | C++ / Dear ImGui | Separate patient, scenario and experiment controls |
+
+The core can run as separate local processes. Compose deployments separate services
+into containers. Communication uses local Unix sockets; these are simulation
+interfaces, not connections to real equipment.
+
+```mermaid
+flowchart TD
+    Console["Experiment console"] --> Broker["Experiment broker / runner"]
+    UI["Device UI"] -->|"Operator requests"| Control["Control"]
+    Control -->|"Requested outputs"| Plant["Simulated plant"]
+    Protection["Protection"] -->|"Output restrictions"| Plant
+    Plant -->|"Sensor observations"| Control
+    Plant -->|"Sensor observations"| Protection
+    Broker -->|"Simulation steps and configuration"| Plant
+    Broker --> Patient["Python patient"]
+    Patient <-->|"Water and solute exchange through runner"| Plant
+```
+
+This diagram shows responsibilities and information flow, not every socket or reply.
+The runner coordinates control and protection steps as well as plant and patient
+updates. The [interface reference](M1_INTERFACES.md) defines the exact message order.
+
+## Who can change what
+
+The device UI sends machine requests through control. It cannot set raw actuator
+outputs, change patient parameters, inject faults or control simulation time.
+The external experiment tools own those experiment functions.
+
+Protection supplies constraints directly to the plant. A control request cannot
+cancel a protective restriction. Some hazards stop blood flow; others stop fluid
+removal, substitution or exchange while allowing blood flow to continue. The
+[machine reference](M5_MACHINE.md) specifies each response and its reset conditions.
+
+Control and protection receive separate modeled sensor channels. Hidden model state
+is available to experiment administration, not to the operator as an extra sensor.
+The plant owns the authoritative machine state and arbitrates requested outputs.
+
+## Time, failure and results
+
+The runner advances a virtual clock in configured steps. Pausing an experiment
+pauses that clock; wall-clock liveness checks continue. A communication failure
+must not silently advance treatment as though a reply had arrived. The execution
+contracts specify stopping behaviour and distinguish a requested stop from an
+acknowledged or observed one.
+
+Each run has a configuration, seed, trajectory and manifest. The trajectory records
+the changing state; the manifest records the outcome and hashes needed to identify
+its artifacts. A failed run is useful evidence too, so collection must happen before
+its container volumes are removed.
 
 ## Deployment boundaries
 
-| Container/application | Language | Responsibility |
-| --- | --- | --- |
-| device-ui | C++ with LVGL's C API | Medical-device-style operator interaction. |
-| control | C/C++ | Treatment state machine and regulation. |
-| protection | C/C++ | Independent monitoring decisions, alarms, watchdogs, and protective-action requests. |
-| plant | C++ | Circuit, dialysate/substitution preparation, dialyzer, actuators, sensor channels, and actuator arbitration. |
-| patient | Python | Patient compartments, fluid/solute dynamics, and configurable physiology. |
-| scenario-runner | Python | Simulation time, scenario execution, faults, recording, and evaluation. |
-| sim-console | C++ / Dear ImGui | Implemented external experiment application, separate window/process/container from device-ui; ImPlot is not selected. |
+The experiment Compose deployment uses fixed service supervisors to start fresh
+roles for each run. It does not mount the Docker socket into the experiment broker.
+The device and experiment clients have distinct endpoints and permissions.
 
-The earlier combined operator/experiment UI is superseded by two separate applications. The original requirement for separate control, protection, and UI containers is retained. Headless execution excludes both graphical applications.
+Containers provide useful software separation, but share a host kernel and other
+common dependencies. Separate processes do not prove independent hardware protection
+or medical-device safety. The [security reference](M8_SECURITY_CI.md) describes
+implemented controls and remaining findings.
 
-## Device UI contract
+## Further reading
 
-Present treatment setup, HD/HDF mode, operator-entered treatment parameters, preparation and treatment progress, measured values, permitted estimates, alarms, and operator actions. Develop a coherent touchscreen layout with clear units, status, priorities, confirmation flows, and trend presentation.
-
-Device UI is a client of machine command/status APIs. It cannot publish raw actuator commands or create clinical alarm state. Control validates treatment commands. Protective monitoring continues independently of UI availability. Acknowledgment or permitted silencing does not by itself clear a continuing fault or release a protective action.
-
-Do not include patient-model editing, hidden physiological truth, injected faults, simulation-speed controls, or model calibration in device-ui. Operator-entered patient/treatment context is allowed where relevant to the simulated machine workflow; it is distinct from access to the physiology engine's state.
-
-Keep a visible simulation indication. Realistic appearance does not establish usability validation or standards conformity.
-
-## External simulation console contract
-
-The separate console configures patient models, initial conditions, circuit/dialyzer profiles, timed events, and faults; compares true and measured values; manages recording/replay and accelerated runs; and reviews conservation and validation results.
-
-It accesses scenario-runner administration APIs and observer telemetry. Pausing or losing the console must not reset the simulation. Scenario-runner owns simulation progression and model updates.
-
-Patient parameter changes at runtime must be explicit events with defined physical semantics, recorded in the trace. Configuration is validated before a run; configuration snapshots and seeds travel with results.
-
-## Data and authority boundaries
-
-- Plant produces measurements for control and protection through separately modeled sensor channels. Both channels may share underlying physics, but their measurement faults can differ.
-- Protection does not depend on control's interpretation of sensor data and can request action directly from the plant's modeled actuator arbitration interface.
-- Control cannot override a latched protective constraint. Hazard-specific recovery rules govern release.
-- Only simulation services and external observers see hidden physical/patient truth. Device-facing interfaces expose only modeled measurements and explicitly implemented estimates.
-- Scenario-admin endpoints must not be reachable by the device UI, control, or protection. Enforce endpoint authorization and deployment/network boundaries; a hidden menu is insufficient.
-- Preserve distinct physical-state and instrumentation-fault injection paths. An injected occlusion changes the circuit; an injected sensor bias changes its reported value.
-- Containers on one host do not establish hardware safety independence. Shared host/kernel/resource/transport failures remain in the simulation architecture's limitations.
-
-## Physical and numerical scope
-
-Use configurable hydraulic components and a mass-conserving dialyzer/patient interface. Couple pressure losses, pump/valve characteristics, compliant volumes, diffusion, convection, and membrane water transport. Validate physical parameters and transport equations against declared reference ranges.
-
-Implement HD, HDF predilution, and HDF postdilution through explicit circuit topology and fluid injection points. Track gross membrane fluid transfer, substitution, other inputs/outputs, circuit storage, net patient fluid balance, and predicted weight change separately.
-
-Online preparation includes composition/mixing, heating, flow distribution, filtration-stage resistance, and substitution delivery. Initially represent contamination/filter-integrity conditions as declared surrogate states and test scenarios. Hydraulic behavior does not prove sterility, and protection can only respond to evidence available through modeled sensors/tests.
-
-Patient modeling includes fluid compartments and configurable electrolyte/solute imbalance. Select physiological equations and validation datasets before claiming predictive accuracy. Acid-base behavior and electrolyte coupling must have explicit model assumptions rather than independent arbitrary concentration curves.
-
-## Execution and UI backend
-
-Use Linux containers under WSL2 and native Linux, with headless, desktop-wsl, and desktop-linux launch profiles. Plan deterministic tick ordering, bounded message semantics, explicit units, sequence numbers, timestamps, and data validity. Use numerical tolerances for cross-platform reproducibility; do not promise bitwise identity across arbitrary platforms.
-
-Separate the virtual simulation clock from wall-clock process liveness. Paused or accelerated simulation must have defined watchdog behavior. Physics libraries remain independent of transport and containers.
-
-Use LVGL's documented SDL desktop integration initially, with software rendering to limit graphics dependencies. The documentation inspected on 2026-10-07 uses SDL2; verify compatibility when pinning LVGL. WSLg/native Linux display sockets and permissions require platform-specific launch configuration. Containers should run without blanket privileged access.
-
-## Initial acceptance targets
-
-1. Device UI cannot access patient administration or simulation-truth APIs.
-2. External console can configure a synthetic patient and launch a recorded scenario.
-3. Control/protection behavior can be evaluated without either GUI running.
-4. An occlusion changes physical flow/pressure; protection sees only its sensor data and can request a protective action without control cooperation.
-5. The device UI displays machine measurements and treatment data, while the external console can compare them with model truth.
-6. A headless scenario produces a configuration snapshot, event trace, and conservation diagnostics.
-7. Both WSL2 and native Linux can launch the device UI with the selected backend.
-
-These are planned verification targets, not passed tests.
-
-## Sources
-
-Official sources checked 2026-10-07:
-
-- LVGL licensing and separate commercial editor: https://lvgl.io/docs/open/introduction/license
-- LVGL SDL desktop integration: https://lvgl.io/docs/open/integration/pc/sdl
-- Dear ImGui: https://github.com/ocornut/imgui
-- ImPlot: https://github.com/epezent/implot
-- SDL licensing: https://www.libsdl.org/license.php
-- WSL graphical applications: https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps
-- Docker WSL backend: https://docs.docker.com/desktop/features/wsl/
-- IEC 62304 scope: https://webstore.iec.ch/en/publication/22794
-- IEC 60601-1 scope: https://webstore.iec.ch/en/publication/67497
-- IEC 60601-2-16 scope: https://webstore.iec.ch/en/publication/68379
-- ISO 14971 scope: https://www.iso.org/standard/72704.html
-
-## Implemented M4 increment
-
-Schema-4 treatment adds a C++ preparation model to plant, explicit pre-circuit or
-post-return substitution, and conservative Python ADVANCE4 coupling. STEP4 control
-and protection consume frozen OBS4 sensor frames. QUALITY4 directly blocks UF,
-replacement and dialysate exchange at plant arbitration; hard blood TRIP/HALT
-still dominates. Atomic COMMIT4 binds actual water/transport/preparation snapshots.
-Hidden contaminant/breach truth remains admin-only. See `M4_TREATMENT.md` for
-units, timing, numerical acceptance, supported ranges and quality-barrier limits.
-
-## M5 lifecycle and device services
-
-`M5_MACHINE.md` defines schema-5 machine states, protective masks, bounded device
-requests and recovery. State/actuator authority lives in plant; control requests
-transitions and regulates gross UF from measured replacement. Protection acts on
-modeled OBS5 independently, with differentiated blood/fluid isolation. External
-priming/cleaning pass through the real circuit and conservative Python patient
-coupling as source/waste ledgers. Device clients use a dedicated volume and cannot
-reach simulation administration or raw plant command endpoints. Sensor age remains
-distinct from authoritative machine state; pending confirmation is not completion.
-
-
-## M6 device client increment
-
-The C++ LVGL device UI renders on its main thread and sends bounded RPCs from a
-worker to the control/protection **device** endpoints. It receives no patient or
-plant-administration channel. SDL software output supports a real X11 window or
-a headless framebuffer; the same widgets and service client run in both. An
-original project font avoids adopting separately licensed bundled font assets.
-A fresh process session binds version-6 requests/confirmations across reconnect;
-it supplies freshness, not authentication. M5 wire paths remain for the trusted
-scenario runner. The UI conservatively retains received constraints, separates
-intent from effective state and marks invalid/stale/disconnected measurements.
-Only the external runner can pace virtual execution. See `M6_DEVICE_UI.md` for
-timestamps, units, interaction guards, deployment and verification requirements.
-
-## External experiment administration (M7)
-
-The C++ Dear ImGui `sim-console` uses a separate DX1 Unix channel to a Python
-scenario-runner broker. That broker validates immutable schema-5 configuration,
-creates fresh control/protection/plant/patient processes, schedules virtual time
-and retains streamed results. It exposes explicitly administrative internal truth,
-comparison and export; the LVGL device UI receives only modeled observations and
-machine state. Credentials and activation volumes are absent from the device UI.
-
-Native deployments use fresh processes per experiment (same UID remains
-trusted). Compose uses one fixed-command supervisor in each existing role container,
-with a read-only activation record containing only a generated run ID. No Docker
-socket is mounted. Scheduled role policy rejects external device changes except
-immediate STOP, which interrupts the experiment. Full contracts, bounds, recovery
-semantics and acceptance are in [M7_EXPERIMENTS.md](M7_EXPERIMENTS.md).
-
-## M8 local trust and lifecycle hardening
-
-Device endpoint producers now own distinct volumes; clients receive both read-only
-through stable aliases. Native role processes and container supervisor children use
-a Linux parent-death exec guard. JSON ingress is bounded and rejects duplicate keys.
-See [M8 contracts](M8_SECURITY_CI.md) and the versioned [threat register](../assurance/THREATS.json).
-Package inventories, application/container SBOMs and CI evidence remain distinct from
-clinical validation, human risk acceptance and release approval.
-
-## Integrated operation (M9)
-
-The experiment Compose deployment can run device-ui and sim-console simultaneously
-on separate device and administrative volumes. The two graphical clients observe
-the same actual roles; only the console owns experiment configuration/clock/truth.
-During virtual pause the broker also checks the existing CHECK7 cancellation
-contract: device STOP produces terminal run evidence without requiring RESUME or
-advancing the clock. Plant arbitration remains the actuator authority.
-
-`M9_INTEGRATION.md` fixes the mode/patient/dialyzer/fault/long-run/package acceptance;
-`QUICKSTART.md` documents actual native, headless, Compose and WSLg workflows.
+- [Running guide](QUICKSTART.md): native and Docker commands, graphical sessions and recovery.
+- [Experiment reference](M7_EXPERIMENTS.md): run lifecycle, replay, export and client permissions.
+- [Development checks](DEVELOPMENT.md): verification and source packaging.
+- [Decision history](DECISIONS.md): why earlier architectural choices were made.

@@ -1,50 +1,64 @@
-# Linux and WSL2 operating guide
+# Run DialysisLab on Linux or WSL2
 
-Run only simulated equipment/patients. Use a repository checkout or the explicit
-source package. A clean build/configuration and fresh output directories make
-results identifiable; do not reuse an old image after changing source inputs.
+Choose a local run first, or use Docker if you already have it configured.
+All commands below run from the repository root. Use a fresh output directory
+for each experiment.
 
-## Prerequisites and build
+## 1. Run without a display
 
-Core: C++17 compiler, CMake >=3.16, make and Python >=3.9. GUI: X11/Xext development
-headers and libraries, including `X11/extensions/Xext.h`. Docker deployment needs
-Docker Engine/Compose accessible to the current authorized account. WSL2 uses
-Linux binaries and Linux filesystem paths; WSLg supplies the optional display.
-No host configuration or permission changes are performed by these commands.
+You need a C++17 compiler, CMake 3.16 or newer, make and Python 3.9 or newer.
+On WSL2, use Linux tools and keep the checkout in the Linux filesystem.
+
+```bash
+cmake -S . -B build/core -DCMAKE_BUILD_TYPE=Release
+cmake --build build/core --parallel 3
+PYTHONPATH=python python3 -m dialysislab.runner --local --build-dir build/core --config scenarios/machine_hdf_pre.json --output build/first-hdf
+```
+
+The runner starts the services, follows the scenario and writes results.
+Open `build/first-hdf/manifest.json` to see the outcome and completed tick count.
+`trajectory.jsonl` contains one committed record per line. A failed run may contain
+only part of the requested experiment; the manifest records errors and stop status.
+
+The [simulation guide](SIMULATION.md) explains what these models represent.
+For other examples, explore `scenarios/machine_hd.json` and
+`scenarios/machine_hdf_post.json`.
+
+## 2. Build the graphical applications
+
+In addition to the core prerequisites, install X11/Xext development headers and
+libraries, including `X11/extensions/Xext.h`. Use an existing authorized Linux X11
+or WSLg display. The project fetcher downloads pinned GUI dependencies into the
+build directory; downloads require network access.
 
 ```bash
 python3 tools/fetch_gui.py --cache build/gui-deps
 cmake -S . -B build/gui -DCMAKE_BUILD_TYPE=Release -DDIALYSISLAB_GUI=ON
 cmake --build build/gui --parallel 3
-ctest --test-dir build/gui --output-on-failure
-SOURCE_REVISION=$(git rev-parse HEAD) docker compose --profile device-ui build
 ```
 
-For an extracted source archive without Git metadata, use
-`SOURCE_REVISION=unavailable docker compose --profile device-ui build` instead.
-Source and binary digests still identify that build; do not invent a commit ID.
-
-When development headers are deliberately installed in a user-owned prefix, pass
+For headers in a user-owned prefix, CMake accepts
 `-DDIALYSISLAB_XEXT_PREFIX=/absolute/prefix` and
-`-DXEXT_LIB=/absolute/path/libXext.so.6`; do not bypass TLS or library checks.
-The actual WSL2 verification used the recorded local prefix under
-`build/dependency-inspection/xext-platform/usr`; it is not included in packages.
-The pinned Docker GUI build provides its assessed Linux headers separately.
+`-DXEXT_LIB=/absolute/path/libXext.so.6`.
 
-## One headless experiment
+## Alternative: a headless Docker run
+
+You need Docker Engine and Compose available to your account. Build images after
+changing source inputs; initial downloads require network access.
 
 ```bash
-PYTHONPATH=python python3 -m dialysislab.runner --local --build-dir build/gui --config scenarios/machine_hd.json --output build/my-hd
+SOURCE_REVISION=$(git rev-parse HEAD) docker compose --profile device-ui build
 SCENARIO=machine_hdf_pre docker compose up --no-build --abort-on-container-exit --exit-code-from runner
 docker compose cp runner:/results/. /tmp/my-hdf-results
 ```
 
-Inspect `manifest.json`: outcome, complete tick count, configuration/build digests,
-errors and requested/acknowledged/observed stop fields. `trajectory.jsonl` has one
-ordered committed record per line. A failed run may preserve only a prefix; do not
-call it complete or infer zero output from process exit. Use
-`python3 tools/recover_trajectory.py --help` for complete-prefix inspection.
-Only after extraction succeeds, run `docker compose down --volumes --remove-orphans`.
+For a source archive without Git metadata, replace the first command with
+`SOURCE_REVISION=unavailable docker compose --profile device-ui build`.
+
+Collect results even when the runner fails. Only after successful extraction,
+remove the deployment with `docker compose down --volumes --remove-orphans`.
+If extraction fails, keep the volumes so the data can be recovered.
+`python3 tools/recover_trajectory.py --help` describes inspection of partial trajectories.
 
 ## Native interactive device or external console
 
@@ -122,8 +136,8 @@ fresh services/API sessions. No automatic treatment resume is supported.
 
 `verify_integrated.py --group matrix` runs 18 synthetic configurations twice;
 `--group faults` checks the declared detector/response fixtures. Add `--compose`
-for isolated services. `--group long --archive` runs sustained HDF for100000ticks,
-requires at least2048MiB free for raw/extraction storage and verifies gzip round trips
+for isolated services. `--group long --archive` runs sustained HDF for 100,000 ticks,
+requires at least 2048 MiB free for raw/extraction storage and verifies gzip round trips
 before replacing owned raw duplicates. Recover with the recorded gzip command.
 Run long verifications sequentially; free-space checks do not reserve storage
 against concurrent writers. Aggregate reports replace their prior checkpoint
@@ -136,3 +150,8 @@ archives, extracts and runs the actual native tests and widgets. It can accept
 prerequisites. Its report distinguishes the package's SHA-256 from the absent Git
 revision inside an extracted tree. Exact trajectory replay applies to identified
 build/configuration; cross-toolchain numerical limits remain explicitly documented.
+
+
+## Understand the results
+
+Read [How the simulation works](SIMULATION.md) for the fluid paths, pressure model, solute exchange and weight calculation. See the [documentation guide](README.md) for other topics.

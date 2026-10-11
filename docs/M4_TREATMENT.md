@@ -1,5 +1,8 @@
 # M4 treatment and online preparation contract
 
+For an illustrated introduction, start with [How the simulation works](SIMULATION.md).
+This reference contains the detailed equations and implementation contracts.
+
 Phase base `47ffc5efa5ca1cd2878a2924b182d1bb72a7a8e3`, frozen before code.
 All profiles, thresholds, chemistry and quality barriers below are synthetic.
 Neither sterility, microbiological quality nor clinical performance is established.
