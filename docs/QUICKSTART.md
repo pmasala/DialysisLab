@@ -155,3 +155,12 @@ build/configuration; cross-toolchain numerical limits remain explicitly document
 ## Understand the results
 
 Read [How the simulation works](SIMULATION.md) for the fluid paths, pressure model, solute exchange and weight calculation. See the [documentation guide](README.md) for other topics.
+
+## Inspect circuits and trends
+
+See [Visual inspection](UI_INSPECTION.md) for animated circuit views, selectable
+trends and the full numerical inspector. To inspect saved data without a broker:
+
+```bash
+build/gui/sim-console --recorded /absolute/path/to/trajectory.jsonl
+```

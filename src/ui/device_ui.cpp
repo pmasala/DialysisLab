@@ -1,6 +1,7 @@
 // Actual LVGL widgets and software framebuffer; simulated equipment only.
 #include "client.hpp"
 #include <lvgl/lvgl.h>
+#include "synoptic.hpp"
 #include <SDL.h>
 #include <fcntl.h>
 #include <filesystem>
@@ -33,6 +34,13 @@ std::string number(double value,int precision=1) {
 }
 struct App {
     dl::ui::Client client;
+    std::unique_ptr<device_synoptic::View> synoptic;
+    bool circuit_view=true;
+    int metric=0;
+    struct TrendSample {long long time;std::array<double,10> values;};
+    std::deque<TrendSample> all_trends;
+    const std::array<const char*,10> metric_names{{"Upstream pressure [mmHg]","Downstream pressure [mmHg]","Blood flow [mL/min]","Gross UF [mL/min]","Substitution [mL/min]","Temperature [C]","Conductivity [mS/cm]","Filter pressure [mmHg]","Metered UF [mL]","Net meter [mL]"}};
+
     dl::ui::Snapshot snapshot;
     std::vector<uint32_t> framebuffer=std::vector<uint32_t>(width*height);
     lv_display_t* display=nullptr;
@@ -97,7 +105,8 @@ struct App {
         heading=label(screen,20,15,1060,"DialysisLab   |   SIMULATION - synthetic equipment only");
         connection=label(screen,20,45,1060,"");
         panel(15,78,665,400);panel(695,78,390,400);panel(15,485,1070,390);
-        label(screen,30,94,630,"OBSERVED MACHINE / SENSOR DATA");
+        label(screen,30,94,280,"MACHINE MONITOR");
+        button("CIRCUIT","Circuits",340,88,140);button("TREND","Next trend",495,88,165);
         observed=label(screen,30,123,635,""); quality=label(screen,30,190,635,"");totals=label(screen,30,256,635,"");
         chart=lv_chart_create(screen); lv_obj_set_pos(chart,40,337);lv_obj_set_size(chart,620,100);
         lv_chart_set_type(chart,LV_CHART_TYPE_SCATTER);lv_chart_set_point_count(chart,120);
@@ -121,6 +130,8 @@ struct App {
         alarm=label(screen,30,600,1035,"");intent=label(screen,30,742,1035,"");feedback=label(screen,30,807,1035,"");
         lv_obj_set_style_bg_color(widgets.at("STOP"),lv_color_hex(0xaf2035),0);
         lv_obj_set_style_text_color(heading,lv_color_hex(0x65c7ee),0);
+        synoptic=std::make_unique<device_synoptic::View>(screen);
+        switch_view();
         // Optional physical keyboard edits the focused numeric field. No experiment controls.
     }
     ~App() {
@@ -162,7 +173,26 @@ struct App {
             lv_obj_delete(dialog);dialog=nullptr;
         }
     }
+    void switch_view(){
+        for(auto* obj:{observed,quality,totals,chart,trend_text})lv_obj_set_hidden(obj,circuit_view);
+        lv_obj_set_hidden(synoptic->root,!circuit_view);
+    }
+    void redraw_trend(){
+        lv_chart_set_all_values(chart,pressure_series,LV_CHART_POINT_NONE);
+        if(all_trends.empty())return;
+        double low=1e20,high=-1e20;
+        for(const auto& s:all_trends){low=std::min(low,s.values[metric]);high=std::max(high,s.values[metric]);}
+        // Fixed centi-unit encoding preserves conductivity and low-flow precision.
+        auto bottom=static_cast<int32_t>(std::floor(low*100))-10,top=static_cast<int32_t>(std::ceil(high*100))+10;
+        lv_chart_set_axis_range(chart,LV_CHART_AXIS_PRIMARY_Y,bottom,top);
+        lv_chart_set_axis_range(chart,LV_CHART_AXIS_PRIMARY_X,static_cast<int32_t>(all_trends.front().time),static_cast<int32_t>(std::max(all_trends.front().time+1,all_trends.back().time)));
+        for(const auto& s:all_trends)lv_chart_set_next_value2(chart,pressure_series,static_cast<int32_t>(s.time),static_cast<int32_t>(std::lround(s.values[metric]*100)));
+        lv_label_set_text(trend_text,(std::string(metric_names[metric])+" "+number(low,2)+".."+number(high,2)+" | "+std::to_string(all_trends.front().time)+".."+std::to_string(all_trends.back().time)+" ms").c_str());
+    }
     void click(const std::string& id) {
+        if(id=="CIRCUIT"){circuit_view=!circuit_view;switch_view();return;}
+        if(id=="TREND"){if(!circuit_view)metric=(metric+1)%10;circuit_view=false;switch_view();redraw_trend();return;}
+
         if(id=="CANCEL") {dismiss();local_feedback="Cancelled locally; nothing sent";return;}
         if(id=="CONFIRM") {
             if(pending && pending_generation==snapshot.generation && selected && selected->view.machine.revision==pending_revision && mask==pending_mask) {
@@ -207,7 +237,7 @@ struct App {
         }
         if(seen_generation!=snapshot.generation) {
             if(pending) local_feedback="Connection/session changed; confirmation cancelled";
-            dismiss();trend.clear();last_sequence=-1;lv_chart_set_all_values(chart,pressure_series,LV_CHART_POINT_NONE);seen_generation=snapshot.generation;
+            dismiss();trend.clear();all_trends.clear();last_sequence=-1;lv_chart_set_all_values(chart,pressure_series,LV_CHART_POINT_NONE);seen_generation=snapshot.generation;
         }
         if(pending && selected && (selected->view.machine.revision!=pending_revision || mask!=pending_mask)) {dismiss();local_feedback="Machine state changed; confirmation cancelled";}
         std::string c0=dl::ui::freshness(snapshot.channels[0],now),c1=dl::ui::freshness(snapshot.channels[1],now);
@@ -229,12 +259,15 @@ struct App {
             }
             lv_label_set_text(prescribed,(std::string("Effective: ")+modes[m.mode]+"\nBlood "+exact(m.blood)+" mL/min\nNet UF "+exact(m.net_uf)+" mL/min\nSub "+exact(m.replacement)+" mL/min").c_str());
             if(display_status=="LIVE" && q.blood.n!=last_sequence) {
+                all_trends.push_back({q.blood.t,{{q.blood.pressure,o.downstream,q.blood.blood,q.blood.uf,q.replacement,q.temperature,q.conductivity,q.filter_pressure,o.uf_total,o.uf_total-o.sub_total}}});
+                if(all_trends.size()>120)all_trends.pop_front();
                 trend.emplace_back(q.blood.t,q.blood.pressure);if(trend.size()>120)trend.pop_front();
                 lv_chart_set_axis_range(chart,LV_CHART_AXIS_PRIMARY_X,static_cast<int32_t>(trend.front().first),static_cast<int32_t>(std::max(trend.front().first+1,trend.back().first)));
-                lv_chart_set_next_value2(chart,pressure_series,static_cast<int32_t>(q.blood.t),static_cast<int32_t>(std::lround(q.blood.pressure)));last_sequence=q.blood.n;
+                lv_chart_set_next_value2(chart,pressure_series,static_cast<int32_t>(q.blood.t),static_cast<int32_t>(std::lround(q.blood.pressure)));last_sequence=q.blood.n;redraw_trend();
             }
-            if(!trend.empty()) lv_label_set_text(trend_text,("Pressure mmHg (0..1000); sensor time "+std::to_string(trend.front().first)+".."+std::to_string(trend.back().first)+" ms").c_str());
-        } else {lv_label_set_text(observed,"No service observations available");lv_label_set_text(quality,"");lv_label_set_text(totals,"");}
+            synoptic->update(display_status=="LIVE"&&v.valid,m.time,q.blood.blood,q.blood.uf,q.blood.pressure,q.temperature,q.conductivity,q.replacement,display_status);
+
+        } else {synoptic->update(false,0,0,0,0,0,0,0,"UNAVAILABLE");lv_label_set_text(observed,"No service observations available");lv_label_set_text(quality,"");lv_label_set_text(totals,"");}
         std::string text=(!selected || !snapshot.channels[0].connected || !snapshot.channels[1].connected)?"Alarm status incomplete; retain received constraints.\n":"";
         text+=mask?((mask&dl::blood_hazards)?"HIGH (synthetic): ":"MEDIUM (synthetic): "):"No active protective constraints in received views";
         for(int i=0;i<13;++i)if(mask&(1<<i))text+=std::string(alarms[i])+"; ";

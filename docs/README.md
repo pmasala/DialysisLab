@@ -6,6 +6,7 @@ specifications to run an experiment or understand the models.
 | I want to… | Read this |
 | --- | --- |
 | Run a simulation or open the interfaces | [Running guide](QUICKSTART.md) |
+| Inspect animated circuits, trends and patient state | [Visual inspection](UI_INSPECTION.md) |
 | Understand the blood circuit, fluid preparation and dialyzer | [How the simulation works](SIMULATION.md) |
 | Understand the separate software components | [Architecture](ARCHITECTURE.md) |
 | Build, test or package changes | [Development checks](DEVELOPMENT.md) |

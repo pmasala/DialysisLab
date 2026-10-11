@@ -75,3 +75,7 @@
 !src/console/client.hpp
 !tools/experiment.py
 !src/child_guard.cpp
+!src/console/telemetry.hpp
+!src/console/inspector.hpp
+!src/ui/synoptic.hpp
+!docs/dependencies/ROBOTO_NOTICE.md

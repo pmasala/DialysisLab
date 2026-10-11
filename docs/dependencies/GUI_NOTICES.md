@@ -2,7 +2,9 @@
 
 These notices apply to the pinned `linux-software-ui-1` profile. They do not
 replace the separate licenses of host/container platform packages. Original
-DialysisLab code and its bitmap font remain under the repository MIT license.
+DialysisLab code remains under MIT. Current device and console typography uses
+[Roboto Medium under Apache-2.0](ROBOTO_NOTICE.md); the older geometric font
+visible in historical captures was project-owned MIT.
 
 ## LVGL 9.6.0 — MIT
 

@@ -60,5 +60,6 @@ RUN printf 'deb [check-valid-until=no] https://snapshot.debian.org/archive/debia
 COPY --from=gui-build /opt/gui-build/sim-console /opt/gui-build/device-ui /opt/gui-build/plant /opt/gui-build/control /opt/gui-build/protection /opt/gui-build/child-guard /opt/gui-build/build_identity.json /opt/gui-build/build-packages.txt /opt/bin/
 COPY gui_dependencies.json ./
 COPY docs/dependencies/GUI_NOTICES.md /opt/dialysislab/GUI_NOTICES.md
+COPY docs/dependencies/ROBOTO_NOTICE.md /opt/dialysislab/ROBOTO_NOTICE.md
 RUN dpkg-query -W > /opt/bin/runtime-packages.txt
 USER 10001:10001

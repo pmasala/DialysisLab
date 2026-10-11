@@ -40,6 +40,7 @@ For a graphical session or Docker deployment, follow the
 ## Understand and explore
 
 - [How the simulation works](docs/SIMULATION.md): fluid-path diagrams, pressures, dialyzer exchange and patient weight.
+- [Visual inspection](docs/UI_INSPECTION.md): animated circuits, selectable trends and recorded-data inspection.
 - [Software architecture](docs/ARCHITECTURE.md): what each process does and how they communicate.
 - [Documentation guide](docs/README.md): operating instructions, technical references and development checks.
 
