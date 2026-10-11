@@ -625,7 +625,7 @@
         },
         {
           "path": "docs/M4_TREATMENT.md",
-          "sha256": "4aa31886c448b9ce438e023cbad789232c92be9e3d84f62476dcf33c616f720f"
+          "sha256": "f0ed04ad83f121feca1c5de1f0f965300e23a50c1e093a0036de2ec8e605844f"
         }
       ],
       "unresolved": [
@@ -2359,7 +2359,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "479a1ba2d05ad9a01095d0bd8bc8bd53615a8ef2c16283c503cd45f4d11c5611"
+          "sha256": "eefb42baf3e26ed746cf253d2cd1c58050722f6db1ee999dc7440f426c9c1bde"
         },
         {
           "path": "docs/dependencies/CI_NOTICES.md",
@@ -2527,7 +2527,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "479a1ba2d05ad9a01095d0bd8bc8bd53615a8ef2c16283c503cd45f4d11c5611"
+          "sha256": "eefb42baf3e26ed746cf253d2cd1c58050722f6db1ee999dc7440f426c9c1bde"
         }
       ],
       "unresolved": [
@@ -2564,15 +2564,27 @@
         },
         {
           "path": "docs/QUICKSTART.md",
-          "sha256": "267e0f9ea4b50e2ac12a7b3dfb7dc249827c60f079eee7f9d59f825e36433136"
+          "sha256": "1de1cf2a2e55364637caa2ca10a0d04775e6fce2d1e90dbd0feb2a48d9bf1cc5"
         },
         {
           "path": "README.md",
-          "sha256": "5cabce9c5978bd7ae934728df6a9e518187bbe121cfa3b999d299f4d858b460f"
+          "sha256": "6fdc4aff19ceb69957c596386140bf00b2eaf8ef8db2e267b00595551c953a19"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "257faabbd3aa09360c7b79a4aea8a397df185c23d7ae25ff4f7b9a364be898e6"
+          "sha256": "5b67d1cb3aa8ea04751b0fabfcfd6ec50fecd24952b2a0ed5b79bb04fd3657d6"
+        },
+        {
+          "path": "docs/SIMULATION.md",
+          "sha256": "a2d6e3ea0b317b5a8f9c306f540a1b9e91db0b770d2b126bb2d55ac4000cd40e"
+        },
+        {
+          "path": "docs/README.md",
+          "sha256": "575cf12fe41cd32d478732be148904639d44bfb52a9bb9b938abfa63578d1e1c"
+        },
+        {
+          "path": "docs/DEVELOPMENT.md",
+          "sha256": "6b39a3e9ef4add51d2862378aa70c058e0884bb37af329a90c2e1d63bf144d4c"
         }
       ],
       "unresolved": [

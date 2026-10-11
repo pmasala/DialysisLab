@@ -1,5 +1,8 @@
 # M3 conservative synthetic patient
 
+For an illustrated introduction, start with [How the simulation works](SIMULATION.md).
+This reference contains the detailed equations and implementation contracts.
+
 Phase base `40533e4d09643d8913ecc4795757362e034cbb20`, fixed before implementation.
 This adds configurable body compartments and conservative circuit coupling, not
 patient-specific physiological prediction. M1/M2 compatibility remains required.
