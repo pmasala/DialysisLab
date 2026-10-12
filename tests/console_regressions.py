@@ -42,6 +42,10 @@ class Console:
     def click(self,name):
         # The command adds ImGui mouse position/down/up events across rendered frames;
         # application callbacks are not invoked directly by the harness.
+        if name in ('PRESETS','LOAD','DRAFT','VALIDATE') and name not in self.snapshot()['widgets']:
+            self.send('CLICK SETUP');time.sleep(.15)
+        if name in ('RUNS','REPLAY','COMPARE','EXPORT'):
+            self.send('CLICK TAB_ADMIN');time.sleep(.15)
         self.send('CLICK '+name);time.sleep(.15)
     def set(self,name,value):self.send('SET '+name+' '+str(value).encode().hex())
     def capture(self,name):

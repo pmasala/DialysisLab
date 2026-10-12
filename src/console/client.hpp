@@ -115,8 +115,8 @@ class Client {
         }
     }
 public:
-    explicit Client(std::string dir):directory(std::move(dir)),worker([this]{run();}){}
-    ~Client(){{std::lock_guard<std::mutex> lock(mutex);stopping=true;}changed.notify_all();worker.join();}
+    explicit Client(std::string dir,bool enabled=true):directory(std::move(dir)){if(enabled)worker=std::thread([this]{run();});}
+    ~Client(){{std::lock_guard<std::mutex> lock(mutex);stopping=true;}changed.notify_all();if(worker.joinable())worker.join();}
     Reply snapshot(){std::lock_guard<std::mutex> lock(mutex);auto copy=result;copy.busy=pending||command_busy||completed.has_value();return copy;}
     std::optional<Reply> take_reply(){std::lock_guard<std::mutex> lock(mutex);auto reply=std::move(completed);completed.reset();return reply;}
     bool submit(const std::string& command,const std::string& payload){std::lock_guard<std::mutex> lock(mutex);if(pending || command_busy || completed)return false;op=command;json=payload;pending=true;changed.notify_all();return true;}

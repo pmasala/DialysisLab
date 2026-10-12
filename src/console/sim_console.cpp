@@ -1,6 +1,8 @@
 // Real administrative widgets; no plant/device sockets or mock model responses.
 #include "client.hpp"
 #include "imgui.h"
+#include "inspector.hpp"
+#include "gui_font_data.hpp"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_sdlrenderer2.h"
 #include <SDL.h>
@@ -11,10 +13,18 @@
 #include <iostream>
 #include <vector>
 namespace {
-constexpr int width=1260,height=920;
+constexpr int width=1440,height=960;
 struct Rect {float x,y,w,h;};
 struct App {
     experiment::Client client;
+    inspection::Dashboard dashboard;
+    int page=0;
+    bool show_setup=false;
+    std::ifstream recording;
+    bool offline=false,replay_paused=false,replay_done=false;
+    std::chrono::steady_clock::time_point replay_at{};
+    std::vector<char> replay_line=std::vector<char>(experiment::max_json+1);
+
     experiment::Reply status;
     std::map<std::string,Rect> widgets;
     std::vector<char> config=std::vector<char>(experiment::max_json+1,0);
@@ -27,15 +37,22 @@ struct App {
     SDL_Window* window=nullptr; SDL_Renderer* renderer=nullptr;
     std::string captures;
     std::deque<std::pair<std::string,int>> clicks;
-    App(const std::string& api,bool headless,std::string output):client(api),captures(std::move(output)) {
+    App(const std::string& api,bool headless,std::string output,const std::string& record):client(api,record.empty()),captures(std::move(output)) {
+        if(!record.empty()){recording.open(record);if(!recording)throw std::runtime_error("recording unavailable");offline=true;dashboard.recorded=true;feedback="Recorded trajectory: read only; commands are disabled";}
+
         if(headless) SDL_setenv("SDL_VIDEODRIVER","dummy",1);
         if(SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER)!=0)throw std::runtime_error(SDL_GetError());
         window=SDL_CreateWindow("DialysisLab | EXTERNAL EXPERIMENT CONSOLE",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,width,height,headless?SDL_WINDOW_HIDDEN:0);
         if(!window)throw std::runtime_error(SDL_GetError());
         renderer=SDL_CreateRenderer(window,-1,SDL_RENDERER_SOFTWARE);if(!renderer)throw std::runtime_error(SDL_GetError());
         IMGUI_CHECKVERSION();ImGui::CreateContext();auto& io=ImGui::GetIO();io.IniFilename=nullptr;io.LogFilename=nullptr;
-        io.Fonts->AddFontDefaultVector();ImGui::GetStyle().FontSizeBase=18;
-        ImGui::StyleColorsDark();ImGui_ImplSDL2_InitForSDLRenderer(window,renderer);ImGui_ImplSDLRenderer2_Init(renderer);
+        ImFontConfig font_config;font_config.FontDataOwnedByAtlas=false;
+        io.Fonts->AddFontFromMemoryTTF(const_cast<unsigned char*>(roboto_data),sizeof(roboto_data),18,&font_config);ImGui::GetStyle().FontSizeBase=18;
+        ImGui::StyleColorsDark();
+        auto& style=ImGui::GetStyle();style.WindowRounding=0;style.ChildRounding=8;style.FrameRounding=5;style.FramePadding=ImVec2(10,6);style.ItemSpacing=ImVec2(10,8);
+        style.Colors[ImGuiCol_WindowBg]=ImVec4(.045f,.075f,.12f,1);style.Colors[ImGuiCol_ChildBg]=ImVec4(.075f,.12f,.18f,1);
+        style.Colors[ImGuiCol_Button]=ImVec4(.12f,.28f,.40f,1);
+        ImGui_ImplSDL2_InitForSDLRenderer(window,renderer);ImGui_ImplSDLRenderer2_Init(renderer);
         ImGui_ImplSDL2_SetGamepadMode(ImGui_ImplSDL2_GamepadMode_Manual,nullptr,0);
         std::strcpy(preset.data(),"machine_hd");
         std::cout<<"DLCONSOLE_BUILD {\"imgui\":"<<experiment::quote(IMGUI_VERSION)<<",\"backend\":"<<experiment::quote(SDL_GetCurrentVideoDriver())<<"}"<<std::endl;
@@ -44,12 +61,30 @@ struct App {
     void mark(const std::string& id){auto a=ImGui::GetItemRectMin(),b=ImGui::GetItemRectMax();widgets[id]={a.x,a.y,b.x-a.x,b.y-a.y};}
     bool button(const char* id,const char* label){bool clicked=ImGui::Button(label);mark(id);return clicked;}
     void send(const std::string& op,const std::string& args="{}"){
+        if(offline){feedback="Recorded trajectory is read only";return;}
         if(!client.submit(op,args))feedback="Broker request busy; no command queued";
         else {last_action=op;feedback=op+" requested; awaiting authoritative reply";}
     }
     std::string run_args(){return "{\"run_id\":"+experiment::quote(status.run)+"}";}
     std::string selected_args(){return "{\"run_id\":"+experiment::quote(left.data())+"}";}
     void update(){
+        if(offline){
+            status.state=replay_done?"recording ended":replay_paused?"recording paused":"recording";status.run="recorded";
+            auto now=std::chrono::steady_clock::now();
+            if(!replay_paused&&!replay_done&&now-replay_at>=std::chrono::milliseconds(100)){
+                replay_at=now;recording.getline(replay_line.data(),static_cast<std::streamsize>(replay_line.size()));
+                if(recording.fail()&&!recording.eof()){replay_done=true;feedback="Recording line exceeds supported size";}
+                else if(recording.gcount()==0){replay_done=true;}
+                else try{
+                    auto sample=telemetry::Parser(replay_line.data()).parse();auto seq=telemetry::get(sample.numbers,"sequence"),time=telemetry::get(sample.numbers,"time_ms");
+                    if(!seq||!time||*seq<0||*seq>1e12||*time<0||*time>1e12)throw std::runtime_error("invalid recording clock");
+                    status.sequence=static_cast<long long>(*seq);status.time=static_cast<long long>(*time);
+                    truth="{\"broker_epoch\":\"recorded\",\"run_id\":\"recorded\",\"state\":\"recorded\",\"sequence\":"+std::to_string(status.sequence)+",\"virtual_time_ms\":"+std::to_string(status.time)+",\"truth\":"+std::string(replay_line.data())+"}";
+                    dashboard.accept(truth);
+                }catch(const std::exception& e){replay_done=true;feedback=e.what();}
+            }return;
+        }
+
         auto command=client.take_reply();
         status=client.snapshot();
         if(command){
@@ -69,8 +104,8 @@ struct App {
         }
         if(status.generation==generation)return;
         generation=status.generation;
-        if(!status.connected){feedback=status.error;return;}
-        if(status.operation=="STATUS"&&status.ok)truth=status.body;
+        if(!status.connected){dashboard.history.interrupt();feedback=status.error;return;}
+        if(status.operation=="STATUS"&&status.ok){truth=status.body;dashboard.accept(status.body);}
     }
     static std::string revision_label(const std::string& value){
         return value.size()>20?value.substr(0,8)+"..."+value.substr(value.size()-8):value;
@@ -79,10 +114,14 @@ struct App {
         update(); widgets.clear();
         ImGui::SetNextWindowPos(ImVec2(0,0));ImGui::SetNextWindowSize(ImVec2(width,height));
         ImGui::Begin("External experiment administration",nullptr,ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoResize|ImGuiWindowFlags_NoCollapse);
-        ImGui::TextColored(ImVec4(.3f,.85f,1,1),"SIMULATION ONLY | EXTERNAL CONSOLE | synthetic, uncalibrated models");
-        ImGui::Text("Broker: %s | state: %s | run: %s",status.connected?"CONNECTED":"DISCONNECTED",status.state.c_str(),status.run.c_str());
+        ImGui::PushFont(nullptr,24);ImGui::TextColored(ImVec4(.3f,.85f,1,1),"DIALYSISLAB / EXPERIMENT STUDIO");ImGui::PopFont();
+        ImGui::SameLine();ImGui::TextDisabled("Simulation only");
+        ImGui::Text("Broker: %s | state: %s | run: %s",offline?"RECORDED FILE":status.connected?"CONNECTED":"DISCONNECTED",status.state.c_str(),status.run.c_str());
         ImGui::Text("Sequence: %lld | time: %lld ms | editor: %s | broker: %s",status.sequence,status.time,revision_label(revision).c_str(),revision_label(status.revision).c_str());
         ImGui::Separator();
+        if(!offline){
+        if(button("SETUP","Experiment setup"))show_setup=!show_setup;
+        if(show_setup){
         ImGui::SetNextItemWidth(265);ImGui::InputText("Preset",preset.data(),preset.size());mark("preset");
         ImGui::SameLine();
         if(button("PRESETS","List presets"))send("PRESETS");
@@ -94,6 +133,7 @@ struct App {
         if(button("VALIDATE","Validate / save draft"))send("VALIDATE","{\"configuration\":"+std::string(config.data())+",\"revision\":"+revision+"}");
         ImGui::TextUnformatted("Edit patient volumes/species, circuit nodes/edges/profile, modality, workflow and fault tick calendar below.");
         ImGui::TextUnformatted("Only a validated draft starts. Active configuration is immutable. Pause freezes virtual time, not protective liveness.");
+        }
         ImGui::SetNextItemWidth(110);ImGui::InputDouble("Virtual/wall speed (0=batch)",&speed,0,0,"%.3g");mark("speed");
         ImGui::SameLine();
         bool active=status.state=="starting"||status.state=="running"||status.state=="paused"||status.state=="pause_requested"||status.state=="stopping";
@@ -108,8 +148,12 @@ struct App {
         ImGui::PushStyleColor(ImGuiCol_Button,ImVec4(.65f,.12f,.16f,1));
         if(button("STOP","Stop experiment"))send("STOP",run_args());
         ImGui::PopStyleColor();ImGui::EndDisabled();
+        }
         ImGui::BeginChild("feedback",ImVec2(0,62),ImGuiChildFlags_Borders);ImGui::TextWrapped("%s",feedback.c_str());ImGui::EndChild();
-        if(ImGui::BeginTable("panels",2,ImGuiTableFlags_Resizable)){
+        for(int i=0;i<4;++i){if(i)ImGui::SameLine();const char* ids[]={"TAB_LIVE","TAB_TRENDS","TAB_INSPECT","TAB_ADMIN"};const char* names[]={"Live circuits","Trends","Inspector","Configuration / history"};if(button(ids[i],names[i]))page=i;}
+        if(offline){ImGui::SameLine();if(button("REPLAY_PAUSE",replay_paused?"Continue recording":"Hold recording"))replay_paused=!replay_paused;}
+        if(page!=3)dashboard.draw(page,status.connected);
+        if(page==3 && ImGui::BeginTable("panels",2,ImGuiTableFlags_Resizable)){
             ImGui::TableSetupColumn("Draft and history");ImGui::TableSetupColumn("Authorised internal truth (not device measurements)");ImGui::TableHeadersRow();
             ImGui::TableNextColumn();
             if(ImGui::InputTextMultiline("##configuration",config.data(),config.size(),ImVec2(-1,420),ImGuiInputTextFlags_AllowTabInput))changed_config=true;
@@ -141,7 +185,7 @@ struct App {
         if(!out)throw std::runtime_error("capture write");
     }
     void snapshot(){
-        std::cout<<"SNAPSHOT {\"connected\":"<<(status.connected?"true":"false")<<",\"state\":"<<experiment::quote(status.state)<<",\"run_id\":"<<experiment::quote(status.run)<<",\"sequence\":"<<status.sequence<<",\"revision\":"<<revision<<",\"feedback\":"<<experiment::quote(feedback)<<",\"last_action\":"<<experiment::quote(last_action)<<",\"left\":"<<experiment::quote(left.data())<<",\"right\":"<<experiment::quote(right.data())<<",\"widgets\":{";
+        std::cout<<"SNAPSHOT {\"connected\":"<<(status.connected?"true":"false")<<",\"state\":"<<experiment::quote(status.state)<<",\"run_id\":"<<experiment::quote(status.run)<<",\"sequence\":"<<status.sequence<<",\"revision\":"<<revision<<",\"feedback\":"<<experiment::quote(feedback)<<",\"last_action\":"<<experiment::quote(last_action)<<",\"left\":"<<experiment::quote(left.data())<<",\"right\":"<<experiment::quote(right.data())<<",\"page\":"<<page<<",\"telemetry_samples\":"<<dashboard.history.samples.size()<<",\"telemetry_live\":"<<(dashboard.live(status.connected)?"true":"false")<<",\"widgets\":{";
         bool first=true;for(const auto& pair:widgets){if(!first)std::cout<<',';first=false;auto r=pair.second;std::cout<<experiment::quote(pair.first)<<":["<<r.x<<','<<r.y<<','<<r.w<<','<<r.h<<']';}std::cout<<"}}"<<std::endl;
     }
     void input(const std::string& line){
@@ -169,10 +213,11 @@ struct App {
 }
 int main(int argc,char** argv){
     try{
-        std::string api,captures="captures";bool headless=false,test=false;
-        for(int i=1;i<argc;++i){std::string arg=argv[i];if(arg=="--headless")headless=true;else if(arg=="--test-input")test=true;else if((arg=="--api-dir"||arg=="--capture-dir")&&i+1<argc){if(arg=="--api-dir")api=argv[++i];else captures=argv[++i];}else throw std::runtime_error("arguments");}
-        if(api.empty())throw std::runtime_error("--api-dir required");
-        App app(api,headless,captures);std::string pending;
+        std::string api,captures="captures",record;bool headless=false,test=false;
+        for(int i=1;i<argc;++i){std::string arg=argv[i];if(arg=="--headless")headless=true;else if(arg=="--test-input")test=true;else if((arg=="--api-dir"||arg=="--capture-dir"||arg=="--recorded")&&i+1<argc){if(arg=="--api-dir")api=argv[++i];else if(arg=="--recorded")record=argv[++i];else captures=argv[++i];}else throw std::runtime_error("arguments");}
+        if(api.empty()&&record.empty())throw std::runtime_error("--api-dir or --recorded required");
+        if(!api.empty()&&!record.empty())throw std::runtime_error("choose live broker OR recorded file");
+        App app(api,headless,captures,record);std::string pending;
         if(test)fcntl(STDIN_FILENO,F_SETFL,fcntl(STDIN_FILENO,F_GETFL)|O_NONBLOCK);
         while(app.running){
             SDL_Event event;while(SDL_PollEvent(&event)){ImGui_ImplSDL2_ProcessEvent(&event);if(event.type==SDL_QUIT)app.running=false;}

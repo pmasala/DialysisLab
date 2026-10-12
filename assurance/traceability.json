@@ -408,6 +408,11 @@
       "id": "M9-DES-005",
       "description": "Deliver complete supported technical evidence and operations; docs/M9_INTEGRATION.md.",
       "status": "implemented"
+    },
+    {
+      "id": "UI-DES-001",
+      "description": "Read-only numeric inspector and bounded trends; separate device sensor synoptic and external patient/plant truth. See docs/UI_INSPECTION.md.",
+      "status": "implemented"
     }
   ],
   "requirements": [
@@ -584,7 +589,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
+          "sha256": "5a2dab7c743633a99870b3fe0174c335f2385f07f0ec87da057e987f12f8598c"
         },
         {
           "path": "docs/M5_MACHINE.md",
@@ -1531,7 +1536,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
+          "sha256": "5a2dab7c743633a99870b3fe0174c335f2385f07f0ec87da057e987f12f8598c"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1573,7 +1578,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
+          "sha256": "5a2dab7c743633a99870b3fe0174c335f2385f07f0ec87da057e987f12f8598c"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1615,7 +1620,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
+          "sha256": "5a2dab7c743633a99870b3fe0174c335f2385f07f0ec87da057e987f12f8598c"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1657,7 +1662,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
+          "sha256": "5a2dab7c743633a99870b3fe0174c335f2385f07f0ec87da057e987f12f8598c"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1699,7 +1704,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
+          "sha256": "5a2dab7c743633a99870b3fe0174c335f2385f07f0ec87da057e987f12f8598c"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1743,7 +1748,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "8f4ee7b5cf4d1f2a2265603d46555bfa178a0194043832c6eb4aaecdbecbefe1"
+          "sha256": "5a2dab7c743633a99870b3fe0174c335f2385f07f0ec87da057e987f12f8598c"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1797,11 +1802,11 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "27d5cc89a8a28ff17b6490ab49b3e4ed53e42bae40022e616ad4d68087ad2a57"
+          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
         },
         {
           "path": "src/console/client.hpp",
-          "sha256": "f74043b8ed3b387893a7f976e23df36fb85cccbbbfb2359163123bb612434b68"
+          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -1847,11 +1852,11 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "27d5cc89a8a28ff17b6490ab49b3e4ed53e42bae40022e616ad4d68087ad2a57"
+          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
         },
         {
           "path": "src/console/client.hpp",
-          "sha256": "f74043b8ed3b387893a7f976e23df36fb85cccbbbfb2359163123bb612434b68"
+          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -1897,11 +1902,11 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "27d5cc89a8a28ff17b6490ab49b3e4ed53e42bae40022e616ad4d68087ad2a57"
+          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
         },
         {
           "path": "src/console/client.hpp",
-          "sha256": "f74043b8ed3b387893a7f976e23df36fb85cccbbbfb2359163123bb612434b68"
+          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -1947,11 +1952,11 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "27d5cc89a8a28ff17b6490ab49b3e4ed53e42bae40022e616ad4d68087ad2a57"
+          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
         },
         {
           "path": "src/console/client.hpp",
-          "sha256": "f74043b8ed3b387893a7f976e23df36fb85cccbbbfb2359163123bb612434b68"
+          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -1997,11 +2002,11 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "27d5cc89a8a28ff17b6490ab49b3e4ed53e42bae40022e616ad4d68087ad2a57"
+          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
         },
         {
           "path": "src/console/client.hpp",
-          "sha256": "f74043b8ed3b387893a7f976e23df36fb85cccbbbfb2359163123bb612434b68"
+          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -2047,11 +2052,11 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "27d5cc89a8a28ff17b6490ab49b3e4ed53e42bae40022e616ad4d68087ad2a57"
+          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
         },
         {
           "path": "src/console/client.hpp",
-          "sha256": "f74043b8ed3b387893a7f976e23df36fb85cccbbbfb2359163123bb612434b68"
+          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -2359,7 +2364,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "1eed576f1610645796fe7a2a86a1f7bce101b2b9051f7827d089f149f32e6db9"
+          "sha256": "2665177ca6f56615e5fafde9646c7242894194602a1629afbd4f469bd2cf965d"
         },
         {
           "path": "docs/dependencies/CI_NOTICES.md",
@@ -2527,7 +2532,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "1eed576f1610645796fe7a2a86a1f7bce101b2b9051f7827d089f149f32e6db9"
+          "sha256": "2665177ca6f56615e5fafde9646c7242894194602a1629afbd4f469bd2cf965d"
         }
       ],
       "unresolved": [
@@ -2564,11 +2569,11 @@
         },
         {
           "path": "docs/QUICKSTART.md",
-          "sha256": "1de1cf2a2e55364637caa2ca10a0d04775e6fce2d1e90dbd0feb2a48d9bf1cc5"
+          "sha256": "65f31e2f7bda41496fc16102876f13ed81af03518530418be16fa70e246490da"
         },
         {
           "path": "README.md",
-          "sha256": "6fdc4aff19ceb69957c596386140bf00b2eaf8ef8db2e267b00595551c953a19"
+          "sha256": "7c23fad4d8fa364a3b0fbd0b1d859a9eecbd8f7e2a9f89f3907f0dc219881875"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -2580,7 +2585,7 @@
         },
         {
           "path": "docs/README.md",
-          "sha256": "575cf12fe41cd32d478732be148904639d44bfb52a9bb9b938abfa63578d1e1c"
+          "sha256": "315fb84695ac1a7ff4d578e99e70e309a515a8d6d9b68ebf87bc01c807a0fc49"
         },
         {
           "path": "docs/DEVELOPMENT.md",
@@ -2613,6 +2618,61 @@
       ],
       "unresolved": [
         "The specified technical acceptance has actual linked evidence. Model/clinical/usability validation, independent human review, open dependency advisory findings and recorded normative release obligations remain open."
+      ]
+    },
+    {
+      "id": "UI-REQ-001",
+      "statement": "Provide circuit visualization and bounded inspection without crossing device/experiment authority boundaries",
+      "acceptance": "Observe fluid circuits and selectable time-based values; missing/stale data distinguishable; recorded input cannot submit commands; live integration must pass on a socket-capable host.",
+      "needs": [
+        "M7-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-001",
+        "HAZ-003",
+        "HAZ-004"
+      ],
+      "designs": [
+        "UI-DES-001"
+      ],
+      "tests": [
+        "UI-TEST-001",
+        "UI-TEST-002"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "src/console/telemetry.hpp",
+          "sha256": "6cbf6209a303fe1c97325b2fac6f8a8dd790b1d7c2914d4660f965f3d380efe2"
+        },
+        {
+          "path": "src/console/inspector.hpp",
+          "sha256": "6adc0c2a49d836af550dc0525e0a9adef82a7d543e85a81a6ce2a69997ebc751"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
+        },
+        {
+          "path": "src/ui/synoptic.hpp",
+          "sha256": "c73e56f72879d990a6232c449fd900c0f2b28feb5265efcc9b5df8c8755a0c10"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "5a2dab7c743633a99870b3fe0174c335f2385f07f0ec87da057e987f12f8598c"
+        },
+        {
+          "path": "tests/test_inspection.py",
+          "sha256": "235697d0d97f06d04f490de807ee65b85a421ddc44e555529bf3d213f75de1c3"
+        },
+        {
+          "path": "docs/UI_INSPECTION.md",
+          "sha256": "d1c65b5c32b9d178454335a195cd95c6f9d767bcaed7f5a2141fff86a4ffeea9"
+        }
+      ],
+      "unresolved": [
+        "Live service, X11/WSLg and Compose regressions blocked/not executed in this host; human usability review and clinical validation remain open."
       ]
     }
   ],
@@ -5148,6 +5208,37 @@
         "reviewer": "Automated execution and one defect review; independent human assurance approval remains open.",
         "environment": "Actual WSL2/Linux processes, pinned Docker128MiB services, real LVGL/ImGui headless/WSLg clients and hosted Ubuntu CI; exact per-result builds/configurations are in the linked artifacts."
       }
+    },
+    {
+      "id": "UI-TEST-001",
+      "requirements": [
+        "UI-REQ-001"
+      ],
+      "procedure": "Run tests/test_inspection.py and inspect actual headless recorded-data console captures.",
+      "expected": "Bounded numeric history; session resets; recorded read-only navigation and hold/resume.",
+      "result": "blocked",
+      "evidence": null,
+      "candidate_evidence": {
+        "path": "assurance/evidence/ui-inspection/report.json",
+        "sha256": "6aedeefdb58e5def88b84b8c466119d92ec19b7da0dad32a88b02fbe9d65f52c",
+        "baseline": "ui-inspection-local",
+        "run_id": "ui-inspection-2026-10-11",
+        "executed_at": "2026-10-11T21:58:06.028006+00:00",
+        "reviewer": "Codex execution; not independent review",
+        "environment": "Linux headless SDL software rendering, pinned GUI libraries; sockets prohibited"
+      },
+      "candidate_execution_result": "passed",
+      "blocking_reason": "Candidate UI checks passed, but this implementation is outside the historical graph baseline. Candidate evidence is retained separately pending baseline acceptance and live regression completion."
+    },
+    {
+      "id": "UI-TEST-002",
+      "requirements": [
+        "UI-REQ-001"
+      ],
+      "procedure": "Run verify_console.py, verify_device_ui.py and experiment Compose/WSLg checks on a socket-capable Linux/WSL2 host.",
+      "expected": "Live plotting/animation and protective command regressions pass without loss of freshness or session isolation.",
+      "result": "blocked",
+      "evidence": null
     }
   ],
   "prerequisites": [

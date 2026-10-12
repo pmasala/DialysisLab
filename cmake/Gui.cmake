@@ -60,3 +60,9 @@ if(DIALYSISLAB_SANITIZE)
     target_link_options(device-ui PRIVATE -fsanitize=address,undefined)
     target_link_options(sim-console PRIVATE -fsanitize=address,undefined)
 endif()
+# Roboto Medium is already in the verified ImGui archive (Apache-2.0).
+# Embed at build time; no runtime font download/path or extra application library.
+file(READ "${IMGUI_ROOT}/misc/fonts/Roboto-Medium.ttf" roboto_hex HEX)
+string(REGEX REPLACE "(..)" "0x\\1," roboto_bytes "${roboto_hex}")
+file(WRITE "${CMAKE_BINARY_DIR}/gui_font_data.hpp" "#pragma once\nstatic const unsigned char roboto_data[]={${roboto_bytes}};\n")
+target_include_directories(sim-console PRIVATE "${CMAKE_BINARY_DIR}")

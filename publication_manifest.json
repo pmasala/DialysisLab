@@ -387,6 +387,12 @@
     "assurance/evidence/m9/targeted/m9-review-security.json",
     "assurance/evidence/m9/targeted/m9-review-targeted.json",
     "assurance/evidence/m9/targeted/storage-regressions.json",
+    "assurance/evidence/ui-inspection/README.md",
+    "assurance/evidence/ui-inspection/inspector.png",
+    "assurance/evidence/ui-inspection/live.png",
+    "assurance/evidence/ui-inspection/report.json",
+    "assurance/evidence/ui-inspection/tests.md",
+    "assurance/evidence/ui-inspection/trends.png",
     "assurance/standards/CHECKLIST.md",
     "assurance/standards/EDITION_GAPS.md",
     "assurance/standards/PUBLICATION_POLICY.md",
@@ -423,6 +429,7 @@
     "docs/QUICKSTART.md",
     "docs/README.md",
     "docs/SIMULATION.md",
+    "docs/UI_INSPECTION.md",
     "docs/dependencies/CI_NOTICES.md",
     "docs/dependencies/GUI_NOTICES.md",
     "docs/dependencies/M1.md",
@@ -433,6 +440,7 @@
     "docs/dependencies/M6.md",
     "docs/dependencies/M7.md",
     "docs/dependencies/M8.md",
+    "docs/dependencies/ROBOTO_NOTICE.md",
     "docs/diagrams/README.md",
     "docs/diagrams/dialyzer-transport.svg",
     "docs/diagrams/extracorporeal-reference.svg",
@@ -495,7 +503,9 @@
     "src/child_guard.cpp",
     "src/circuit.hpp",
     "src/console/client.hpp",
+    "src/console/inspector.hpp",
     "src/console/sim_console.cpp",
+    "src/console/telemetry.hpp",
     "src/control.cpp",
     "src/device_session.hpp",
     "src/machine.hpp",
@@ -507,6 +517,7 @@
     "src/ui/device_ui.cpp",
     "src/ui/font.cpp",
     "src/ui/lv_conf.h",
+    "src/ui/synoptic.hpp",
     "src/wire.hpp",
     "tests/console_regressions.py",
     "tests/demo_regressions.py",
@@ -519,6 +530,7 @@
     "tests/test_device_sessions.py",
     "tests/test_experiments.py",
     "tests/test_gui_dependencies.py",
+    "tests/test_inspection.py",
     "tests/test_integration.py",
     "tests/test_m1.py",
     "tests/test_machine.py",
@@ -678,6 +690,21 @@
       "origin": "project-authored-diagram",
       "command": "python3 tools/render_hydraulic_diagrams.py",
       "sha256": "d13577a9014ae49dfc09ad7e3f88d262a42456d535f32b55fbc8f4199466b3af"
+    },
+    "assurance/evidence/ui-inspection/live.png": {
+      "origin": "project-rendered-ui",
+      "command": "build/gui/sim-console --headless --test-input --recorded assurance/evidence/m7/console-compose/rf932bb95946f35f9/data/trajectory.jsonl",
+      "sha256": "e433d81b608fa8ead9ad398457a421cc51c5fb58aeb261a5ff07a646fda7fb1e"
+    },
+    "assurance/evidence/ui-inspection/inspector.png": {
+      "origin": "project-rendered-ui",
+      "command": "build/gui/sim-console --headless --test-input --recorded assurance/evidence/m7/console-compose/rf932bb95946f35f9/data/trajectory.jsonl",
+      "sha256": "3ece20f627dbafa717acd93bcc4b9f2e8b6b956fee0235f202ae443466b0c0af"
+    },
+    "assurance/evidence/ui-inspection/trends.png": {
+      "origin": "project-rendered-ui",
+      "command": "build/gui/sim-console --headless --test-input --recorded assurance/evidence/m7/console-compose/rf932bb95946f35f9/data/trajectory.jsonl",
+      "sha256": "341aa4110ef3f4a2995bec2ccedd2fff14cdab520a135d63992604775fcdf43e"
     }
   }
 }
