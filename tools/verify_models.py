@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT / 'python'))
 from dialysislab.runner import LocalCluster, simulate, build_identity, canonical, digest, validate, stop_plant
 from dialysislab.trajectory import scan, read_records, strict_json
 from dialysislab.compartments import validate_snapshot
-from dialysislab.machine import ALARMS, STAGES
+from dialysislab.machine import ALARMS, STAGES, GUIDED_STAGES
 from verify_compose import collect_case, ComposeRunFailure
 
 
@@ -79,10 +79,24 @@ def verify(directory, expected_config, expected_sources):
             if lifecycle:
                 m = record['machine']
                 mask = m['alarm_mask']
-                if type(mask) is not int or not 0 <= mask <= 8191 or m['stage'] not in STAGES:
+                guided=m.get('guided')
+                if bool(guided)!=('guided' in config):raise ValueError('guided evidence/configuration mismatch')
+                if guided:
+                    if (guided['duration_ms']!=config['guided']['treatment_ms'] or guided['test_duration_ms']!=config['guided']['test_ms']
+                            or guided['disinfection_duration_ms']!=config['guided']['disinfection_ms'] or guided['return_target_mL']!=config['guided']['return_mL']):
+                        raise ValueError('guided targets differ from configuration')
+                    pair=(guided['integrated_stage'],m['stage'])
+                    automatic={('SELF_TEST','PREPARATION'),('PRIMING','CONFIGURATION'),('TREATMENT','FINISHED'),('RETURNING','DISCONNECTING'),('CLEANING','CLEANED')}
+                    if pair[0]!=pair[1] and pair not in automatic:raise ValueError('unsupported automatic phase transition')
+                    returning=guided['integrated_stage']=='RETURNING'
+                    if (abs(guided['return_in_tick_mL']-(c['draw_tick_mL'] if returning else 0))>1e-8
+                            or abs(guided['return_out_tick_mL']-(c['return_tick_mL'] if returning else 0))>1e-8):raise ValueError('return path mismatch')
+                stage=guided['integrated_stage'] if guided else m['stage']
+                valid_stages=GUIDED_STAGES if guided else STAGES
+                if type(mask) is not int or not 0 <= mask <= 8191 or m['stage'] not in valid_stages or stage not in valid_stages:
                     raise ValueError('machine alarm/state schema')
                 blood_blocked = bool(mask & (1 | 2 | 4 | 8 | 16 | 4096)) or m['terminal']
-                fluid_blocked = mask != 0 or m['terminal'] or m['stage'] != 'TREATMENT'
+                fluid_blocked = mask != 0 or m['terminal'] or stage != 'TREATMENT'
                 if (record['latched'] != blood_blocked or online['quality_latched'] != bool(mask)
                         or record['clamp_closed'] != (blood_blocked or m['stage'] != 'TREATMENT')
                         or m['alarms'] != [name for i, name in enumerate(ALARMS) if mask & (1 << i)]
@@ -92,14 +106,15 @@ def verify(directory, expected_config, expected_sources):
                         or c['uf_tick_mL'] or any(c['clearance_mL_min'])
                         or any(c['boundary_diffusion_mmol_min']) or any(c['boundary_convection_mmol_min'])):
                     raise ValueError('active fluid output despite machine constraint')
-                pump_blocked = blood_blocked or (m['stage'] in ('PRIMING', 'CLEANING') and mask)
+                pump_blocked = blood_blocked or (stage in (('SELF_TEST','PRIMING','CLEANING','RETURNING') if guided else ('PRIMING','CLEANING')) and mask)
                 if pump_blocked and (record['blood_mL_min'] or c['pump_mL_min'] or c['return_mL_min']
                         or c['draw_tick_mL'] or c['return_tick_mL'] or any(c['edge_mL_min'])):
                     raise ValueError('active circulation despite machine constraint')
                 if m['sequence'] != record['sequence'] or m['time_ms'] != record['time_ms']:
                     raise ValueError('machine clock mismatch')
-                flushing = m['stage'] in ('PRIMING', 'CLEANING')
+                flushing = stage in (('SELF_TEST','PRIMING','CLEANING','RETURNING') if guided else ('PRIMING','CLEANING'))
                 fin, fout = (c['draw_tick_mL'], c['return_tick_mL']) if flushing else (0, 0)
+                if guided and stage=='RETURNING':fout=0
                 if abs(fin - m['flush_in_tick_mL']) > 1e-8 or abs(fout - m['flush_out_tick_mL']) > 1e-8:
                     raise ValueError('flush path mismatch')
                 flush_in += fin; flush_out += fout
@@ -107,13 +122,14 @@ def verify(directory, expected_config, expected_sources):
                     if abs(value - p[name]) > 1e-6 or abs(value - m[name]) > 1e-6:
                         raise ValueError('flush water ledger mismatch')
                 for i in range(6):
-                    flush_input_mass[i] += fin * dialysate[i] / 1000
+                    flush_c=[0,154,0,154,0,0] if guided and stage=='RETURNING' else dialysate
+                    flush_input_mass[i] += fin * flush_c[i] / 1000
                     flush_output_mass[i] += fout * p['concentration_mmol_L'][2][i] / 1000
                     if abs(flush_input_mass[i] - p['flush_input_mmol'][i]) > 1e-6 or abs(flush_output_mass[i] - p['flush_output_mmol'][i]) > 1e-6:
                         raise ValueError('flush solute ledger mismatch')
-                if m['stage'] != 'TREATMENT' and (volume or record['uf_mL_min'] or any(c['clearance_mL_min'])):
+                if stage != 'TREATMENT' and (volume or record['uf_mL_min'] or any(c['clearance_mL_min'])):
                     raise ValueError('patient fluid output outside treatment')
-                if m['stage'] not in ('TREATMENT', 'PRIMING', 'CLEANING') and record['blood_mL_min']:
+                if stage not in (('TREATMENT','SELF_TEST','PRIMING','CLEANING','RETURNING') if guided else ('TREATMENT','PRIMING','CLEANING')) and record['blood_mL_min']:
                     raise ValueError('circulation outside active lifecycle state')
             if p['sequence'] != record['sequence'] or p['time_ms'] != record['time_ms']:
                 raise ValueError('patient/plant clock mismatch in evidence')

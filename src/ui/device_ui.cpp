@@ -2,6 +2,7 @@
 #include "client.hpp"
 #include <lvgl/lvgl.h>
 #include "synoptic.hpp"
+#include "guided.hpp"
 #include <SDL.h>
 #include <fcntl.h>
 #include <filesystem>
@@ -11,7 +12,7 @@
 #include <deque>
 namespace {
 constexpr int width=1100,height=890;
-const char* stages[]={"PREPARATION","PRIMING","CONFIGURATION","TREATMENT","PAUSED","STOPPED","RECOVERY","FINISHED","CLEANING","CLEANED"};
+const char* stages[]={"PREPARATION","PRIMING","CONFIGURATION","TREATMENT","PAUSED","STOPPED","RECOVERY","FINISHED","CLEANING","CLEANED","SELF_TEST","CONNECTED","RETURNING","DISCONNECTING","DISCONNECTED","RECOVERY_READY"};
 const char* modes[]={"HD","HDF pre","HDF post"};
 const char* alarms[]={"pressure","low flow","air","blood leak","measurement","temperature","composition","filter pressure","integrity","route","supply","fluid balance","communication"};
 std::string json(const std::string& text) {
@@ -34,6 +35,10 @@ std::string number(double value,int precision=1) {
 }
 struct App {
     dl::ui::Client client;
+    lv_obj_t* legacy_root=nullptr;
+    std::unique_ptr<guided_ui::View> guided;
+    bool guided_active=false;
+    std::map<std::string,lv_obj_t*> legacy_widgets;
     std::unique_ptr<device_synoptic::View> synoptic;
     bool circuit_view=true;
     int metric=0;
@@ -97,7 +102,8 @@ struct App {
             out->state=a->mouse_pressed?LV_INDEV_STATE_PRESSED:LV_INDEV_STATE_RELEASED;
             out->continue_reading=!a->pointer_events.empty();
         });
-        auto* screen=lv_screen_active();
+        legacy_root=lv_obj_create(lv_screen_active());lv_obj_set_pos(legacy_root,0,0);lv_obj_set_size(legacy_root,width,height);lv_obj_set_style_pad_all(legacy_root,0,0);lv_obj_set_style_border_width(legacy_root,0,0);
+        auto* screen=legacy_root;
         lv_obj_set_style_bg_color(screen,lv_color_hex(0x101b29),0);
         lv_obj_set_style_text_color(screen,lv_color_hex(0xeaf1f8),0);
         lv_obj_set_style_text_font(screen,&dialysis_font,0);
@@ -132,6 +138,9 @@ struct App {
         lv_obj_set_style_text_color(heading,lv_color_hex(0x65c7ee),0);
         synoptic=std::make_unique<device_synoptic::View>(screen);
         switch_view();
+        legacy_widgets=widgets;
+        guided=std::make_unique<guided_ui::View>(lv_screen_active(),[this](const std::string& id){click(id);});
+        lv_obj_set_hidden(legacy_root,true);lv_obj_set_hidden(guided->root,false);
         // Optional physical keyboard edits the focused numeric field. No experiment controls.
     }
     ~App() {
@@ -144,23 +153,23 @@ struct App {
         auto* obj=lv_label_create(parent);lv_obj_set_pos(obj,x,y);lv_obj_set_width(obj,w);lv_label_set_text(obj,text.c_str());return obj;
     }
     void panel(int x,int y,int w,int h) {
-        auto* p=lv_obj_create(lv_screen_active());lv_obj_set_pos(p,x,y);lv_obj_set_size(p,w,h);
+        auto* p=lv_obj_create(legacy_root);lv_obj_set_pos(p,x,y);lv_obj_set_size(p,w,h);
         lv_obj_set_scrollable(p,false);lv_obj_set_style_bg_color(p,lv_color_hex(0x1b2c3c),0);lv_obj_set_style_border_width(p,0,0);
     }
     lv_obj_t* button(const std::string& id,const std::string& text,int x,int y,int w,lv_obj_t* parent=nullptr) {
-        auto* b=lv_button_create(parent?parent:lv_screen_active());lv_obj_set_pos(b,x,y);lv_obj_set_size(b,w,34);
+        auto* b=lv_button_create(parent?parent:legacy_root);lv_obj_set_pos(b,x,y);lv_obj_set_size(b,w,34);
         lv_obj_set_style_bg_color(b,lv_color_hex(0x276492),0);lv_obj_set_style_radius(b,5,0);
         auto* title=lv_label_create(b);lv_label_set_text(title,text.c_str());lv_obj_center(title);
         widgets[id]=b;identifiers[b]=id;
         lv_obj_add_event_cb(b,[](lv_event_t* e){
             auto* a=static_cast<App*>(lv_event_get_user_data(e));
             auto* target=lv_event_get_target_obj(e);
-            if(!lv_obj_has_state(target,LV_STATE_DISABLED)) a->click(a->identifiers.at(target));
+            if(!lv_obj_has_state(target,LV_STATE_DISABLED) && !lv_obj_is_hidden(target)) a->click(a->identifiers.at(target));
         },LV_EVENT_CLICKED,this);return b;
     }
     void field(const std::string& id,const std::string& title,int x,int y,const char* initial) {
-        label(lv_screen_active(),x,y,260,title);
-        auto* f=lv_textarea_create(lv_screen_active());lv_obj_set_pos(f,x+260,y-8);lv_obj_set_size(f,95,40);
+        label(legacy_root,x,y,260,title);
+        auto* f=lv_textarea_create(legacy_root);lv_obj_set_pos(f,x+260,y-8);lv_obj_set_size(f,95,40);
         lv_textarea_set_one_line(f,true);lv_textarea_set_max_length(f,12);lv_textarea_set_accepted_chars(f,"0123456789.-");lv_textarea_set_text(f,initial);
         widgets[id]=f;identifiers[f]=id;
         lv_obj_add_event_cb(f,[](lv_event_t* e){auto* a=static_cast<App*>(lv_event_get_user_data(e));a->focus=lv_event_get_target_obj(e);},LV_EVENT_FOCUSED,this);
@@ -189,13 +198,27 @@ struct App {
         for(const auto& s:all_trends)lv_chart_set_next_value2(chart,pressure_series,static_cast<int32_t>(s.time),static_cast<int32_t>(std::lround(s.values[metric]*100)));
         lv_label_set_text(trend_text,(std::string(metric_names[metric])+" "+number(low,2)+".."+number(high,2)+" | "+std::to_string(all_trends.front().time)+".."+std::to_string(all_trends.back().time)+" ms").c_str());
     }
+    bool guided_live() const {
+        return selected && dl::ui::freshness(snapshot.channels[0],dl::Clock::now())=="LIVE" && dl::ui::freshness(snapshot.channels[1],dl::Clock::now())=="LIVE";
+    }
+    bool action_allowed(const std::string& action) const {
+        if(!selected)return false;
+        auto m=selected->view.machine;m.mask|=mask;
+        return guided_ui::allowed(m,action);
+    }
     void click(const std::string& id) {
+        if(guided_active){
+            const char* tabs[]={"HOME","BLOOD_TAB","FLUID_TAB","TRENDS_TAB","RX_TAB"};
+            for(int i=0;i<5;++i)if(id==tabs[i]){guided->switch_page(i);return;}
+            if(id=="GUIDED_TREND"){guided->metric=(guided->metric+1)%12;return;}
+            if(id!="CONFIRM" && id!="CANCEL" && id!="STOP" && (!selected || !guided_live() || !action_allowed(id))){local_feedback="Operation unavailable in this phase";return;}
+        }
         if(id=="CIRCUIT"){circuit_view=!circuit_view;switch_view();return;}
         if(id=="TREND"){if(!circuit_view)metric=(metric+1)%10;circuit_view=false;switch_view();redraw_trend();return;}
 
         if(id=="CANCEL") {dismiss();local_feedback="Cancelled locally; nothing sent";return;}
         if(id=="CONFIRM") {
-            if(pending && pending_generation==snapshot.generation && selected && selected->view.machine.revision==pending_revision && mask==pending_mask) {
+            if(pending && pending_generation==snapshot.generation && selected && selected->view.machine.revision==pending_revision && mask==pending_mask && (!guided_active || (guided_live() && action_allowed(pending->action)))) {
                 local_feedback=client.submit(*pending)?"Request sent; awaiting service result":"Request not sent: busy";
             } else local_feedback="State/session changed; review action again";
             dismiss(); return;
@@ -235,6 +258,15 @@ struct App {
             mask|=c.view.machine.mask;
             if(!selected || c.view.machine.time>selected->view.machine.time || (c.view.machine.time==selected->view.machine.time && c.view.machine.revision>selected->view.machine.revision)) selected=&c;
         }
+        if(selected && guided_active!=selected->view.machine.guided){
+            dismiss();guided_active=selected->view.machine.guided;widgets=guided_active?guided->widgets:legacy_widgets;
+            for(const auto& pair:widgets)identifiers[pair.second]=pair.first;
+            for(const char* id:{"blood","uf","sub"})if(guided_active){
+                lv_obj_add_event_cb(widgets.at(id),[](lv_event_t* e){auto* a=static_cast<App*>(lv_event_get_user_data(e));a->focus=lv_event_get_target_obj(e);},LV_EVENT_FOCUSED,this);
+            }
+            initialized_fields=false;
+        }
+        if(selected){lv_obj_set_hidden(legacy_root,guided_active);lv_obj_set_hidden(guided->root,!guided_active);}
         if(seen_generation!=snapshot.generation) {
             if(pending) local_feedback="Connection/session changed; confirmation cancelled";
             dismiss();trend.clear();all_trends.clear();last_sequence=-1;lv_chart_set_all_values(chart,pressure_series,LV_CHART_POINT_NONE);seen_generation=snapshot.generation;
@@ -280,6 +312,12 @@ struct App {
         }
         lv_label_set_text(intent,("Requested: "+snapshot.command+"; delivery: "+snapshot.result+"\n"+remote).c_str());
         lv_label_set_text(feedback,local_feedback.c_str());
+        if(guided_active && selected){
+            bool live=display_status=="LIVE" && c0=="LIVE" && c1=="LIVE";
+            guided->update(selected->view,live,live?"LIVE":c0+" / "+c1,mask);
+            guided_ui::View::text(guided->intent,pending?"Review the operation in the confirmation dialog.":snapshot.result=="none"?"":"Last operation: "+snapshot.command+" / "+snapshot.result+". Check the phase above for completion.");
+            guided_ui::View::text(guided->feedback,local_feedback);
+        }
     }
     void pointer(int x,int y,bool pressed) {
         if(pointer_events.size()>=128) {
@@ -328,7 +366,7 @@ struct App {
         }
         lv_obj_update_layout(lv_screen_active());lv_area_t alarm_area{},intent_area{},feedback_area{};
         lv_obj_get_coords(alarm,&alarm_area);lv_obj_get_coords(intent,&intent_area);lv_obj_get_coords(feedback,&feedback_area);
-        std::cout<<",\"selected_mode\":"<<selected_mode<<",\"layout\":{\"alarm_bottom\":"<<alarm_area.y2<<",\"intent_top\":"<<intent_area.y1
+        std::cout<<",\"guided\":"<<(guided_active?"true":"false")<<",\"page\":"<<(guided_active?guided->page:-1)<<",\"selected_mode\":"<<selected_mode<<",\"layout\":{\"alarm_bottom\":"<<alarm_area.y2<<",\"intent_top\":"<<intent_area.y1
             <<",\"intent_bottom\":"<<intent_area.y2<<",\"feedback_top\":"<<feedback_area.y1<<",\"feedback_bottom\":"<<feedback_area.y2<<",\"height\":"<<height<<"}";
         if(pending && dialog) {
             lv_area_t detail{};lv_obj_get_coords(lv_obj_get_child(dialog,1),&detail);

@@ -164,3 +164,6 @@ trends and the full numerical inspector. To inspect saved data without a broker:
 ```bash
 build/gui/sim-console --recorded /absolute/path/to/trajectory.jsonl
 ```
+
+The native interactive demo defaults to the [guided treatment workflow](GUIDED_TREATMENT.md),
+including initial tests, priming, connection, blood return and simulated disinfection.

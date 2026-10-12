@@ -103,6 +103,13 @@ public:
             dl::require(machine.blood+machine.replacement<=500 && (machine.mode || machine.replacement==0));
             machine_set=true; enforce_machine(); return "DL1 OK";
         }
+        if(role==0 && op=="GUIDED8") {
+            dl::require(machine_set && !armed && !machine.guided);
+            machine.test_duration=r.integer(600000);machine.duration=r.integer(86400000);machine.clean_duration=r.integer(3600000);machine.rinse_target=r.real(10,1000);r.end();
+            dl::require(machine.test_duration>0 && machine.duration>0 && machine.clean_duration>0);
+            dl::require(circuit.sensor_node==circuit.edges[circuit.dialyzer_edge].a);
+            machine.guided=true;machine.enter(dl::self_test,"INITIAL_TESTS");return "DL1 OK";
+        }
         if (role == 0 && op == "FAULT5") {
             dl::require(machine_set && !prepared && !halted);
             auto name=r.take(); double value=r.real(0,1000); r.end();
@@ -134,7 +141,7 @@ public:
             if (op=="CHANGE5") { auto action=r.take(); r.end(); reject=machine.transition(action); }
             else {
                 int mode=static_cast<int>(r.integer(2)); double blood=r.real(0,500), uf=r.real(0,20), sub=r.real(0,120); r.end();
-                if (machine.terminal || (machine.stage!=dl::configuration && machine.stage!=dl::paused)) reject="prescription_state";
+                if (!machine.rx_allowed()) reject="prescription_state";
                 else if (blood+sub>500 || (mode==0 && sub!=0) || (mode!=0 && sub<2)) reject="prescription_range";
                 else {
                     machine.mode=online.mode=online.route=mode; machine.blood=blood; machine.net_uf=uf; machine.replacement=sub;
@@ -281,6 +288,11 @@ public:
                 if (machine_set) device_samples[i] = {quality_samples[i], circuit.pressure[circuit.edges[circuit.dialyzer_edge].b],
                     air_stuck ? 0 : air_source, leak_stuck ? 0 : leak_source, total + meter_bias, online.total,
                     supply_stuck ? 1 : online.supply ? 1 : 0};
+                if(machine_set && machine.guided){
+                    device_samples[i].extended=true;
+                    device_samples[i].dialysate_flow=machine.fluid_blocked()?0:circuit.dialysate;
+                    device_samples[i].tmp=(circuit.pressure[circuit.edges[circuit.dialyzer_edge].a]+circuit.pressure[circuit.edges[circuit.dialyzer_edge].b])/2;
+                }
             }
             if (machine_set) { machine.sequence=n; machine.time=t; }
             prepared = true; demand_seen = false; decision_seen = false;
@@ -336,6 +348,7 @@ public:
                 double dialysate_flow = circuit.dialysate;
                 bool isolate = latched;
                 double pump_demand = demand;
+                if(machine_set)machine.tick_stage=machine.stage;
                 if (machine_set) {
                     enforce_machine(); isolate=!machine.pumping();
                     if (pump_stalled) pump_demand=0;
@@ -363,10 +376,14 @@ public:
                 }
                 output = {circuit.pump, circuit.pressure[circuit.sensor_node], circuit.uf};
                 if (machine_set) {
-                    machine.flush_in_tick=machine.flushing()?circuit.draw_tick:0;
+                    machine.return_in_tick=machine.stage==dl::returning?circuit.draw_tick:0;
+                    machine.return_out_tick=machine.stage==dl::returning?circuit.return_tick:0;
+                    machine.rinse_volume+=machine.return_out_tick;
+                    machine.flush_in_tick=(machine.flushing() || machine.stage==dl::returning)?circuit.draw_tick:0;
                     machine.flush_out_tick=machine.flushing()?circuit.return_tick:0;
                     machine.flush_in+=machine.flush_in_tick; machine.flush_out+=machine.flush_out_tick;
                     machine.phase_flush+=machine.flush_out_tick;
+                    if(machine.guided && machine.pumping() && machine.stage!=dl::treatment)++machine.cycles;
                     if (machine.stage==dl::treatment) { ++machine.cycles; if (!machine.fluid_blocked()) machine.expected_net+=machine.net_uf*minutes; }
                 }
             }
@@ -375,14 +392,21 @@ public:
             double updated = total + increment;
             correction = (updated - total) - increment;
             total = updated; end_t = t + dt;
-            if (machine_set) { machine.sequence=n; machine.time=end_t; }
+            if (machine_set) {
+                machine.sequence=n; machine.time=end_t;
+                const auto& observed=device_samples[1];
+                machine.advance_guided(dt,observed,observed.q.blood.valid && observed.q.blood.n==n && observed.q.blood.t==t);
+                // Next PREPARE samples stopped outputs; preserve this committed interval's ledger.
+            }
             next_n = n + 1; next_t = end_t; prepared = false;
             heartbeat.at(role) = dl::Clock::now();
             // Seal the integrated state in a single reply before any asynchronous
             // watchdog/HALT can change live rates or per-step circuit diagnostics.
-            return configured ? std::string(machine_set ? "DL1 COMMITTED5 " : online_set ? "DL1 COMMITTED4 " : patient_coupled ? "DL1 COMMITTED3 " : "DL1 COMMITTED2 ")
+            auto committed = configured ? std::string(machine_set ? "DL1 COMMITTED5 " : online_set ? "DL1 COMMITTED4 " : patient_coupled ? "DL1 COMMITTED3 " : "DL1 COMMITTED2 ")
                 + state().substr(4) + " " + circuit_state().substr(4) + (online_set ? " " + online_state().substr(4) : "")
                 + (machine_set ? " " + machine.encode().substr(4) : "") : state();
+            if(machine.guided)enforce_machine();
+            return committed;
         } else throw std::runtime_error("role or operation");
         heartbeat.at(role) = dl::Clock::now();
         return "DL1 OK";
@@ -399,5 +423,6 @@ int main(int argc, char** argv) {
                   [&](std::size_t role, dl::Tokens& r) { return plant.handle(role, r); },
                   [&] { plant.watchdog(); }, [&] { plant.halt("protocol"); });
         plant.halt("shutdown");
+        return 0;
     } catch (const std::exception& e) { std::cerr << "plant: " << e.what() << '\n'; return 1; }
 }

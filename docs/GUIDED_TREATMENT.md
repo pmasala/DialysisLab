@@ -1,0 +1,100 @@
+# Follow a treatment from start to finish
+
+The guided device screen follows the machine's treatment phase. It starts with
+initial tests and ends with patient disconnection and a simulated disinfection
+cycle. The patient and experiment controls remain in the external console.
+
+Run the interactive native demo after building the GUI:
+
+```bash
+python3 tools/run_device_demo.py --build-dir build/gui --output build/guided-session
+```
+
+The default scenario is `scenarios/device_guided.json`. It uses a four-hour
+prescription in virtual time. Close the window to stop the simulation, or use
+`--wall-speed 10` to accelerate the experiment. The device screen cannot change
+the simulator's clock. Use a new output directory for each run.
+
+![Guided home rendered with synthetic test data](../assurance/evidence/guided-workflow/home.png)
+
+The image is an actual LVGL rendering of a synthetic test fixture.
+
+## What happens next?
+
+| Phase | What the simulator does | Operator action |
+|---|---|---|
+| Initial tests | Checks observation validity, temperature, conductivity, air/leak detectors, filters/integrity, supply and blood-pump response while the patient is isolated. Dialysate preparation runs concurrently. | Wait, or stop if needed. |
+| Preparation | Keeps preparing dialysate after the checks pass. | Confirm **Start priming**. |
+| Priming | Circulates external fluid through the isolated extracorporeal circuit. Completion uses measured delivered volume. | Wait for the connection phase. |
+| Connection | Holds the circuit isolated. | Confirm **Patient connected** after the simulated connection checks. |
+| Connected | Shows the prescription; outputs remain stopped. | Review the prescription and confirm **Start treatment**. |
+| Treatment | Runs HD, HDF pre or HDF post with control and protection active. | Pause, resume, or end treatment. The prescribed treatment time also ends it automatically. |
+| Treatment ended | Stops treatment outputs and waits. | Confirm **Return blood**. |
+| Blood return | Feeds modeled saline into the circuit and returns fluid to the patient. UF and substitution remain off. | Wait for the return-volume target. |
+| Disconnection | Stops circulation. | Confirm **Disconnected**. |
+| Disconnected | Holds the patient isolated. | Confirm **Start disinfection**. |
+| Disinfection | Runs an isolated, timed fluid cycle. Both the duration and flushed volume must be complete. | Wait for **Ready for next session**. |
+
+STOP and alarms remain accessible in every tab. The machine rejects operations
+that do not belong to its current phase; hiding a button is not the interlock.
+After a recoverable stop, recovery checks and protection reset do not restart
+pumps. **Resume phase** needs a separate confirmation. Terminal communication
+failures and latched faults that cannot be demonstrated clear still require a
+new simulation. Completed sessions also start afresh from the external console.
+
+## Home and inspection tabs
+
+**Treatment** is the home page. It shows the phase sequence, current progress,
+elapsed and remaining time, dialysate route/flow/temperature/conductivity, blood
+flow, arterial and venous model pressures, dialyzer TMP, and pre/post infusion.
+A compact line drawing locates the infusion relative to the dialyzer.
+
+**Extracorporeal** and **Hydraulics** contain the detailed circuit views and moving
+pump indicators. **Trends** cycles through twelve observed quantities, including
+TMP, conductivity, flows and fluid meters. **Prescription** is editable before
+treatment or during a treatment pause. Patient configuration is never edited here.
+
+The net UF meter is compared with the prescribed volume goal. It is **not patient
+weight loss**: refill, external intake and returned saline can make these differ.
+The external console remains the place to inspect modeled body weight and solutes.
+
+## What the progress indicators mean
+
+- Initial tests combine completed checks with the configured test duration.
+- Priming and blood return use delivered volume divided by target volume. Their
+  remaining time is an estimate from current observed blood-pump flow.
+- Treatment uses delivered treatment time. Pauses and protective interruptions
+  do not consume the prescribed treatment duration.
+- Disinfection requires elapsed cycle time and flushed volume; the slower
+  condition determines progress.
+- Manual phases show an outstanding confirmation, elapsed waiting time and
+  `--` for remaining time. Paused, stale, invalid or alarm-blocked views do not
+  display a running ETA. The progress bar is not proof of clinical readiness.
+
+Change `guided.test_ms`, `guided.treatment_ms`, `guided.disinfection_ms` and
+`guided.return_mL` in the scenario to configure a simulation. Existing scenarios
+without `guided` retain their original lifecycle and UI for reproducible evidence.
+
+## Model boundaries
+
+These are synthetic equipment checks, not a manufacturer's validated autotest.
+The disinfection phase models isolation, circulation, elapsed time and completion
+interlocks; it does not predict microbial kill, chemical residuals or validated
+thermal exposure. Its completion is not evidence of sterile equipment.
+
+The arterial and venous labels refer to the modeled inlet/outlet nodes of the
+dialyzer. Guided scenarios require the pressure sensor at the inlet node. TMP is
+`(P_in + P_out) / 2`, consistent with the current model's zero dialysate-pressure
+reference. Separate negative pre-pump access pressure and a pressurized dialysate
+compartment are not introduced by this UI change.
+
+Saline return uses an external input with sodium/chloride 154 mmol/L and zero
+other modeled solutes. The existing compartment equations account for that input,
+patient return and retained circuit storage. The return-volume target is not a
+measurement of recovered red-cell mass; the model has no red-cell transport.
+
+Versioned `MACHINE8` and `OBS8` frames add phase timing, patient connection,
+return transfers, initial-check status, observed dialysate flow and TMP. Legacy
+frames remain readable. Each committed guided record retains both the phase
+integrated during that interval and the resulting phase, avoiding an ambiguous
+water/solute balance on automatic transitions.

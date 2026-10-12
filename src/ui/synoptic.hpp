@@ -18,7 +18,7 @@ struct View {
         s->object=lv_line_create(root);lv_line_set_points_mutable(s->object,s->points.data(),2);lv_obj_set_style_line_color(s->object,lv_color_hex(color),0);lv_obj_set_style_line_width(s->object,3,0);auto* result=s.get();strokes.push_back(std::move(s));return result;
     }
     void box(int x,int y,int w,int h,uint32_t color,bool circle=false){auto* o=lv_obj_create(root);lv_obj_set_pos(o,x,y);lv_obj_set_size(o,w,h);lv_obj_set_scrollable(o,false);lv_obj_set_style_bg_color(o,lv_color_hex(0x142536),0);lv_obj_set_style_border_color(o,lv_color_hex(color),0);lv_obj_set_style_border_width(o,2,0);lv_obj_set_style_radius(o,circle?LV_RADIUS_CIRCLE:3,0);}
-    View(lv_obj_t* screen){
+    View(lv_obj_t* screen,int kind=0){
         root=lv_obj_create(screen);lv_obj_set_pos(root,30,126);lv_obj_set_size(root,635,338);lv_obj_set_scrollable(root,false);lv_obj_set_style_pad_all(root,0,0);lv_obj_set_style_text_color(root,lv_color_hex(0xeaf1f8),0);lv_obj_set_style_border_width(root,0,0);lv_obj_set_style_bg_color(root,lv_color_hex(0x142536),0);
         blood_label=label(10,5,600,"Blood -- mL/min | UF -- mL/min");
         line(40,75,575,75,blood);line(575,75,575,130,blood);line(575,130,40,130,blood);line(40,130,40,75,blood);
@@ -26,11 +26,18 @@ struct View {
         box(152,53,44,44,blood,true);blood_rotor=line(160,75,188,75,blood);
         box(345,47,105,65,water);line(350,75,445,75,blood);line(350,95,445,95,water);label(347,142,130,"Dialyzer");
         pressure_label=label(235,27,260,"P -- mmHg");
+        auto blood_end=lv_obj_get_child_count(root);
         line(70,218,565,218,water);box(30,180,90,75,water);label(40,188,75,"Tank");
         line(200,218,200,284,sub);line(200,284,565,284,sub);box(255,268,42,32,sub);box(328,268,42,32,sub);label(235,240,170,"Filters 1 / 2");
         box(432,262,44,44,sub,true);sub_rotor=line(440,284,468,284,sub);
         fluid_label=label(140,170,470,"Temperature -- | conductivity --\nSubstitution -- mL/min");
+        auto fluid_end=lv_obj_get_child_count(root);
         state_label=label(10,315,610,"Waiting for live measurements");
+        if(kind){
+            lv_obj_set_pos(root,0,0);lv_obj_set_size(root,1034,250);lv_obj_set_pos(state_label,10,220);lv_obj_update_layout(root);
+            for(uint32_t i=0;i<fluid_end;++i){auto* child=lv_obj_get_child(root,i);bool blood_item=i<blood_end;lv_obj_set_hidden(child,kind==1?!blood_item:blood_item);if(kind==2 && !blood_item)lv_obj_set_y(child,lv_obj_get_y(child)-145);}
+            label(670,35,340,kind==1?"EXTRACORPOREAL CIRCUIT\nBlood pump, dialyzer and return\nMeasured values from device service":"HYDRAULIC CIRCUIT\nDialysate tank, serial filters\nand substitution pump");
+        }
     }
     static void rotor(Stroke* s,int x,int y,double phase){
         auto dx=static_cast<lv_value_precise_t>(std::cos(phase)*14),dy=static_cast<lv_value_precise_t>(std::sin(phase)*14);

@@ -157,7 +157,8 @@ class Compartments:
     def advance(self, request):
         keys(request, 'sequence time_ms dt_ms draw_mL return_mL uf_mL stored_mL clearance_mL_min sieving dialysate_mmol_L'
              + (' pre_mL post_mL substitution_mmol_L' if self.online else '')
-             + (' flush_in_mL flush_out_mL flush_mmol_L' if self.lifecycle else ''))
+             + (' flush_in_mL flush_out_mL flush_mmol_L' if self.lifecycle else '')
+             + (' rinseback' if self.lifecycle and 'rinseback' in request else ''))
         for key in ('sequence', 'time_ms', 'dt_ms'):
             if type(request[key]) is not int: raise ProtocolError('clock type')
         if (request['sequence'] != self.next_sequence or request['time_ms'] != self.time_ms
@@ -176,7 +177,11 @@ class Compartments:
             flush_in = number(request['flush_in_mL'], 0, 500 * dt)
             flush_out = number(request['flush_out_mL'], 0, 100000)
             flush_c = request['flush_mmol_L']; vector(flush_c, 0, CONCENTRATION_CEILING)
-            if (flush_in or flush_out) and (draw or returned or uf or any(request['clearance_mL_min'])):
+            rinseback=request.get('rinseback',False)
+            if type(rinseback) is not bool:raise ProtocolError('rinseback flag')
+            if rinseback and (draw or uf or flush_out or any(request['clearance_mL_min'])):
+                raise ProtocolError('rinseback must have saline inlet and patient return only')
+            if not rinseback and (flush_in or flush_out) and (draw or returned or uf or any(request['clearance_mL_min'])):
                 raise ProtocolError('simultaneous patient connection and external flushing')
         pre = post = 0
         replacement_c = [0] * 6

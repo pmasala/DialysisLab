@@ -19,7 +19,7 @@ def main():
     signal.signal(signal.SIGTERM, interrupt); signal.signal(signal.SIGINT, interrupt)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--build-dir', type=Path, default=ROOT / 'build/gui')
-    parser.add_argument('--config', type=Path, default=ROOT / 'scenarios/device_interactive.json')
+    parser.add_argument('--config', type=Path, default=ROOT / 'scenarios/device_guided.json')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--wall-speed', type=float, default=1)
     parser.add_argument('--headless', action='store_true')

@@ -79,3 +79,5 @@
 !src/console/inspector.hpp
 !src/ui/synoptic.hpp
 !docs/dependencies/ROBOTO_NOTICE.md
+!src/ui/guided.hpp
+!scenarios/device_guided.json
