@@ -1,0 +1,127 @@
+{
+  "phase": "M7",
+  "base": "26211813a79d5f05720071de0b51df8089997476",
+  "candidate": "1cf008cfe05e6d61ea7892f278615cd7088a7b64",
+  "invocations": 1,
+  "command": [
+    "codex",
+    "-c",
+    "sandbox_mode=\"read-only\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "-c",
+    "developer_instructions=\"Read-only automatic M7 phase review. Analyze the complete diff against the fixed base for concrete behavior, safety, concurrency, resource, numerical, interface and evidence defects. Focus on the real experiment broker, authenticated administration, immutable configuration, pause/stop, scheduled role policy, fresh service/container lifecycle, replay/comparison/export integrity and actual ImGui integration. Never edit project files, never launch recursive reviewers, and never access private licensed standards or extracts. M1-M6 reviews are consumed; review M7 changes and regressions only. Simulation only; this is not human, clinical or regulatory approval. Report actionable findings with severity, scenario, file and line.\"",
+    "review",
+    "--base",
+    "26211813a79d5f05720071de0b51df8089997476"
+  ],
+  "status": "FINDINGS_FIXED_AND_REGRESSION_PASSED",
+  "started_at": "2026-10-08T03:10:47.416446+00:00",
+  "exit_code": 0,
+  "finished_at": "2026-10-08T03:24:13.014662+00:00",
+  "full_output_path": "build/reviews/m7-output.txt",
+  "full_output_sha256": "e4f1a2be26c9f252c1e4a953d734535b52520e787c02002658b97bed1a3940e2",
+  "final_output": "The patch contains concrete STOP-delivery, shutdown/recovery, configuration-freshness, GUI concurrency, and evidence-integrity defects. Read-only probes confirmed several failures; the full integration suite was not rerun.\n\nFull review comments:\n\n- [P1] Deliver STOP even when the event journal cannot be written \u2014 /home/pietro/DialysisLab/python/dialysislab/experiments.py:352-356\n  If appending `events.jsonl` fails, such as when the results filesystem is full, STOP raises before setting `requested_stop`. A paused experiment therefore remains paused and continues sending watchdog heartbeats instead of reaching HALT. Set the cancellation flag independently of journal success and report the evidence failure separately.\n\n- [P2] Reject new work before beginning broker shutdown \u2014 /home/pietro/DialysisLab/python/dialysislab/experiments.py:375-379\n  An already-accepted DX1 handler can dispatch START or REPLAY after the current worker finishes while `close()` is joining workers or an artifact job. Nothing marks the broker as closing, so `start()` can launch another worker and reset `requested_stop`. Shutdown can then miss that worker or raise before socket cleanup, leaving an experiment running without an administrative request loop. Mark shutdown under the lock and reject new work before draining handlers and workers.\n\n- [P2] Recover incomplete run directories during broker startup \u2014 /home/pietro/DialysisLab/python/dialysislab/experiments.py:78-81\n  `start()` creates the run directory and configuration before checking build identity or writing `experiment.json`. A missing build identity, write failure, or crash in that interval leaves a directory that this unconditional read turns into a fatal startup error, preventing recovery of all other runs. Retain or quarantine incomplete entries instead of failing the entire inventory scan, and cover missing evidence as required by [AGENTS.md:36](/home/pietro/DialysisLab/AGENTS.md#L36).\n\n- [P2] Retain output ownership until artifact jobs actually finish \u2014 /home/pietro/DialysisLab/python/dialysislab/experiments.py:378-382\n  If an export or comparison takes longer than 30 seconds, `join()` returns while the non-daemon job remains alive, but the output lock is nevertheless released. Another broker can then acquire the same results directory while the old exporter still writes `exports/<run>.tmp`, allowing concurrent exports to collide or replace each other's files. Check job termination and retain ownership until every artifact writer has stopped.\n\n- [P2] Scope draft revisions to a broker incarnation \u2014 /home/pietro/DialysisLab/python/dialysislab/experiments.py:74-75\n  Resetting revisions permits stale editors to become valid again after restart. For example, console A retains HDF_PRE at revision 2; after restart, console B loads HDF_POST at revision 2. A's START now executes HDF_POST despite displaying its saved HDF_PRE configuration, and its VALIDATE can overwrite B's draft. The C++ client silently reloads the rotated token, so token rotation does not invalidate the editor. Bind revisions to a broker epoch or configuration identity.\n\n- [P2] Align persisted JSON limits with accepted configurations \u2014 /home/pietro/DialysisLab/python/dialysislab/experiments.py:45-47\n  Configuration validation bounds compact JSON, but `atomic()` and the trajectory writer persist indented JSON. An accepted configuration with 1,000 workflow entries and 1,000 faults can occupy 192,218 compact bytes but 331,287 stored bytes. This reader then rejects the broker's own configuration or manifest, breaking comparison, export, and eligible replay. Bound the actual stored representations, including manifest overhead, or use consistent serialization and storage limits.\n\n- [P2] Persist final metadata even when the journal is full \u2014 /home/pietro/DialysisLab/python/dialysislab/experiments.py:228-233\n  Once `MAX_EVENTS` is reached, the final `event()` always raises before `experiment.json` is updated. Even a successfully completed or stopped run retains its on-disk `starting` state, so comparison/export reject it as active and restart misclassifies it as interrupted. Persist terminal metadata independently of the bounded journal, reserving terminal-event capacity or recording exhaustion separately.\n\n- [P2] Cross-check experiment identities when verifying run evidence \u2014 /home/pietro/DialysisLab/python/dialysislab/experiments.py:243-247\n  Verification checks the trajectory against the manifest but ignores the corresponding build identity, trajectory digest, and completed count in `experiment.json`. Corrupting only that file's plant binary hash and trajectory hash still allows comparison to report `same_build: true` and `exact_replay: true`, and export labels the contradictory evidence verified. Cross-check overlapping identity fields and add the tampered-hash rejection coverage required by [AGENTS.md:36](/home/pietro/DialysisLab/AGENTS.md#L36).\n\n- [P2] Retain command replies until the GUI consumes them \u2014 /home/pietro/DialysisLab/src/console/client.hpp:105-109\n  Every response overwrites the single result slot, including automatic STATUS polls every 200 ms. If rendering stalls longer than that after LOAD, VALIDATE, START, or REPLAY completes, `App::update()` can receive only the subsequent STATUS and permanently miss the command reply. This loses draft/revision updates or run selections even though the operation succeeded. Keep command replies until acknowledged by the GUI; only replaceable status snapshots should be coalesced.\n\n- [P2] Record the broker's actual pacing in the run manifest \u2014 /home/pietro/DialysisLab/python/dialysislab/experiments.py:209-210\n  For every nonzero broker speed, `simulate()` still receives its default `wall_speed=0`, so the exported run manifest describes an unpaced run while `experiment.json` records the requested pacing. The retained console workflow already contains a run with experiment speed 20 and manifest speed 0. Record the broker-controlled speed in the final manifest without enabling a second pacing loop.\n\n- [P2] Order retained runs by creation time before applying the limit \u2014 /home/pietro/DialysisLab/python/dialysislab/experiments.py:345-348\n  After restart, history insertion order comes from sorting randomly generated run IDs, not creation times. With more than 100 retained runs, this slice returns the highest random IDs rather than the latest 100, potentially hiding recent or interrupted experiments from the only inventory API. Sort by persisted creation time before truncating, or restore chronological insertion order during startup.",
+  "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+  "findings": [
+    {
+      "id": "M7-R1",
+      "severity": "P1",
+      "disposition": "fixed",
+      "test": "test_stop_reaches_actual_plant_when_journal_write_fails",
+      "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+      "evidence": "native-tests.json, sanitizer-tests.json, console-headless.json, console-wslg.json, console-sanitizer.json"
+    },
+    {
+      "id": "M7-R2",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_shutdown_rejects_new_start_and_replay_before_joining",
+      "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+      "evidence": "native-tests.json, sanitizer-tests.json, console-headless.json, console-wslg.json, console-sanitizer.json"
+    },
+    {
+      "id": "M7-R3",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_incomplete_metadata_does_not_hide_valid_runs_or_lose_files",
+      "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+      "evidence": "native-tests.json, sanitizer-tests.json, console-headless.json, console-wslg.json, console-sanitizer.json"
+    },
+    {
+      "id": "M7-R4",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_slow_artifact_writer_retains_ownership_after_join_timeout",
+      "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+      "evidence": "native-tests.json, sanitizer-tests.json, console-headless.json, console-wslg.json, console-sanitizer.json"
+    },
+    {
+      "id": "M7-R5",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_revisions_cannot_repeat_across_broker_incarnations; test_broker_restart_rejects_stale_loaded_editor_even_after_same_edit_count",
+      "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+      "evidence": "native-tests.json, sanitizer-tests.json, console-headless.json, console-wslg.json, console-sanitizer.json"
+    },
+    {
+      "id": "M7-R6",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_maximum_schedule_persists_replays_compares_and_exports",
+      "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+      "evidence": "native-tests.json, sanitizer-tests.json, console-headless.json, console-wslg.json, console-sanitizer.json"
+    },
+    {
+      "id": "M7-R7",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_journal_limit_does_not_block_terminal_metadata_or_export",
+      "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+      "evidence": "native-tests.json, sanitizer-tests.json, console-headless.json, console-wslg.json, console-sanitizer.json"
+    },
+    {
+      "id": "M7-R8",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_comparison_and_export_reject_every_contradictory_identity",
+      "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+      "evidence": "native-tests.json, sanitizer-tests.json, console-headless.json, console-wslg.json, console-sanitizer.json"
+    },
+    {
+      "id": "M7-R9",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_render_stall_retains_load_and_start_replies_across_status_polls",
+      "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+      "evidence": "native-tests.json, sanitizer-tests.json, console-headless.json, console-wslg.json, console-sanitizer.json"
+    },
+    {
+      "id": "M7-R10",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_initial_and_final_manifest_record_external_pacing_without_double_wait",
+      "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+      "evidence": "native-tests.json, sanitizer-tests.json, console-headless.json, console-wslg.json, console-sanitizer.json"
+    },
+    {
+      "id": "M7-R11",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_restarted_inventory_selects_latest_creation_times_not_random_ids",
+      "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+      "evidence": "native-tests.json, sanitizer-tests.json, console-headless.json, console-wslg.json, console-sanitizer.json"
+    }
+  ],
+  "integration_findings": [
+    {
+      "id": "M7-V1",
+      "severity": "P2",
+      "problem": "Unauthenticated header discloses real run/state/clock",
+      "disposition": "fixed",
+      "test": "test_unauthenticated_header_does_not_disclose_experiment_state",
+      "correction_commit": "bbecf598154f0dc00b787ed839141d96a704ce0d",
+      "evidence": "native-tests.json and sanitizer-tests.json"
+    }
+  ]
+}

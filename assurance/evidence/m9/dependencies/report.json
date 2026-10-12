@@ -1,0 +1,46 @@
+{
+  "artifacts": {
+    "adopted-dependencies.json": "d7da7768e9e00daca9338c922a8fcda332d70fb4c83ab63d0d51dd649e419c25",
+    "application.cdx.json": "d2bf5251acf0e9629e8e7c4dc9acc5aacd155bde04c437d1eef0d4740aa67470",
+    "build.json": "3283fb88465e357b96dd934320736992be9c3aa80921a67e52fd341f199b9ed4",
+    "image-0-application.cdx.json": "40fa0630befc515e239aafc653661379753e30ab765f5d6f902b4dec45ae3bf6",
+    "image-0-build.json": "0c81ef787d947fbd19f33fd59ba420563e153f6f4ad6a671a5fcef4615973d24",
+    "image-0-platform.json": "15b4f7c552cc551a5ca63535efdc6a376d8ffd69ecad7a9d11e8e5a2a76d1fa3",
+    "image-0.cdx.json": "1c0abda586eac160c7942a57a8d73fea9b504b304bfc884770e627e74a99bb42",
+    "image-1-application.cdx.json": "d573c4fe07e7ab4d2585aa1dbaf55a24b53612b7f87d96eb49ab299c4b6c00c1",
+    "image-1-build.json": "115932aac3d2e65ac6b917b61340f263a97ddb6c5fffde2c855242ca5d895d6e",
+    "image-1-platform.json": "9bf929381a6535c167248a51e10b1940997931a7e2149c1f0865cc68316214a9",
+    "image-1.cdx.json": "b4515a4e414f8e6580b12918fc052565bb782c968d2a0b4cdeccdd3840f6acaa",
+    "native-platform.json": "85cfa36455d1cff60fec1bdb3f2f8215c04d7170d5582e74e6f858c0524e1858"
+  },
+  "command": [
+    "tools/dependency_report.py",
+    "--build-dir",
+    "build/gui",
+    "--output",
+    "build/m9-corrected-inventory",
+    "--images",
+    "dialysislab-m1:local",
+    "dialysislab-ui:local"
+  ],
+  "images": [
+    {
+      "application": "image-0-application.cdx.json",
+      "build": "image-0-build.json",
+      "id": "sha256:c62c2712de727d096526ef7da6b4353637059a782ea75384c218e78cda59b298",
+      "inventory": "image-0-platform.json",
+      "name": "dialysislab-m1:local",
+      "repo_digests": []
+    },
+    {
+      "application": "image-1-application.cdx.json",
+      "build": "image-1-build.json",
+      "id": "sha256:ee7268995d2bf0db3918af6cbcfbe82d5660cff823af18039394f36898a4abff",
+      "inventory": "image-1-platform.json",
+      "name": "dialysislab-ui:local",
+      "repo_digests": []
+    }
+  ],
+  "schema_version": 1,
+  "successful": true
+}

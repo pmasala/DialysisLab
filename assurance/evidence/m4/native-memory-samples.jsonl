@@ -1,0 +1,2 @@
+{"pid": 665748, "time": "2026-10-08T00:15:48.523430+00:00", "memory": {"VmHWM": "19684 kB", "VmRSS": "19684 kB"}, "scenario": "treatment_100000", "source": "Linux /proc PID/status"}
+{"pid": 665954, "time": "2026-10-08T00:15:48.523503+00:00", "memory": {"VmHWM": "19936 kB", "VmRSS": "19936 kB"}, "scenario": "treatment_100000", "source": "Linux /proc PID/status"}

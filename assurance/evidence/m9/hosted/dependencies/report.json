@@ -1,0 +1,46 @@
+{
+  "artifacts": {
+    "adopted-dependencies.json": "d7da7768e9e00daca9338c922a8fcda332d70fb4c83ab63d0d51dd649e419c25",
+    "application.cdx.json": "de3a300f3f5d9dabc8ff39d6b19fc15c914667c4a141b6b483818b878be2f4a6",
+    "build.json": "72ef18be319646c8641d01183789ebcfd9e9b960096f641e1ba1ee560bee0c9b",
+    "image-0-application.cdx.json": "b3d3182b4c67d0937b20172274fe36a6e7021e1e32d58c0a50059dd6addd8fe2",
+    "image-0-build.json": "25f8c2047490d83d4aae3b0706edd2a64e04cb63773a043aa5dad919bd26a5a4",
+    "image-0-platform.json": "15b4f7c552cc551a5ca63535efdc6a376d8ffd69ecad7a9d11e8e5a2a76d1fa3",
+    "image-0.cdx.json": "6215ce0a641aa03f178e266ddb015553f719e4ce39e1c9cf85af8197c38f0f0e",
+    "image-1-application.cdx.json": "4e745633cf33b9cdb302ff85e117d50480a99f4a5c9dc53be8d12d2bdfe1da9b",
+    "image-1-build.json": "8d779e43f693e0d9c8ee38a5ecacf42486c211f9f997b24183c51a8072fbea92",
+    "image-1-platform.json": "9bf929381a6535c167248a51e10b1940997931a7e2149c1f0865cc68316214a9",
+    "image-1.cdx.json": "a9bc59b39bf27b326098c3db4dc096159be4b0d94f585c8d47c6ec63c46f440c",
+    "native-platform.json": "05247d177a61e6be58e33630ad765ebee70cf15b683c8dab812feca54a6dcaf4"
+  },
+  "command": [
+    "tools/dependency_report.py",
+    "--build-dir",
+    "/home/runner/work/DialysisLab/DialysisLab/build/ci/native",
+    "--output",
+    "/home/runner/work/DialysisLab/DialysisLab/build/ci/dependencies",
+    "--images",
+    "dialysislab-m1:local",
+    "dialysislab-ui:local"
+  ],
+  "images": [
+    {
+      "application": "image-0-application.cdx.json",
+      "build": "image-0-build.json",
+      "id": "sha256:ea4ec0bf28bb3057b7c120882563a8c411898d0ae381b0a7d0965deffb8a7cf2",
+      "inventory": "image-0-platform.json",
+      "name": "dialysislab-m1:local",
+      "repo_digests": []
+    },
+    {
+      "application": "image-1-application.cdx.json",
+      "build": "image-1-build.json",
+      "id": "sha256:a4db04ad2ece4b193a22a97c179cd3658859a11d46132993d062cdd68e57ea05",
+      "inventory": "image-1-platform.json",
+      "name": "dialysislab-ui:local",
+      "repo_digests": []
+    }
+  ],
+  "schema_version": 1,
+  "successful": true
+}

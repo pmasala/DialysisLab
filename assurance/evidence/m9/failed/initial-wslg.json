@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "executed_at": "2026-10-08T07:41:01.371932+00:00",
+  "command": [
+    "tools/verify_experiments_compose.py",
+    "--with-device",
+    "--graphical",
+    "--output",
+    "build/m9-corrected-simultaneous-wslg"
+  ],
+  "project": "dl-m7-463adfd993",
+  "graphical": true,
+  "successful": false,
+  "primary_exit": 1,
+  "primary_error": "RuntimeError: condition timeout: {'connected': True, 'state': 'idle', 'run_id': '-', 'sequence': -1, 'revision': 683441863884357943299020618211717947868384854018, 'feedback': 'Draft saved; active run unchanged', 'last_action': 'LOAD', 'left': '', 'right': '', 'widgets': {'COMPARE': [104, 795, 118, 24], 'DRAFT': [607, 103, 108, 24], 'EXPORT': [230, 795, 88, 24], 'LOAD': [481, 103, 118, 24], 'PAUSE': [686, 175, 58, 24], 'PRESETS': [345, 103, 128, 24], 'REPLAY': [8, 795, 88, 24], 'RESUME': [752, 175, 68, 24], 'RUNS': [280, 739, 98, 24], 'START': [410, 175, 268, 24], 'STOP': [828, 175, 158, 24], 'VALIDATE': [723, 103, 218, 24], 'configuration': [8, 293, 609, 420], 'left': [8, 739, 264, 24], 'preset': [8, 103, 329, 24], 'right': [8, 767, 264, 24], 'speed': [8, 175, 394, 24]}}",
+  "collection_errors": [],
+  "cleanup_errors": [],
+  "resources_retained": false,
+  "simultaneous_device": true,
+  "startup": " Volume dl-m7-463adfd993_device-protection Creating \n Volume dl-m7-463adfd993_device-protection Created \n Volume dl-m7-463adfd993_experiment Creating \n Volume dl-m7-463adfd993_experiment Created \n Volume dl-m7-463adfd993_activation Creating \n Volume dl-m7-463adfd993_activation Created \n Volume dl-m7-463adfd993_control Creating \n Volume dl-m7-463adfd993_control Created \n Volume dl-m7-463adfd993_admin Creating \n Volume dl-m7-463adfd993_admin Created \n Volume dl-m7-463adfd993_results Creating \n Volume dl-m7-463adfd993_results Created \n Volume dl-m7-463adfd993_protection Creating \n Volume dl-m7-463adfd993_protection Created \n Volume dl-m7-463adfd993_sessions Creating \n Volume dl-m7-463adfd993_sessions Created \n Volume dl-m7-463adfd993_patient Creating \n Volume dl-m7-463adfd993_patient Created \n Volume dl-m7-463adfd993_device-control Creating \n Volume dl-m7-463adfd993_device-control Created \n Container dl-m7-463adfd993-plant-1 Creating \n Container dl-m7-463adfd993-control-1 Creating \n Container dl-m7-463adfd993-protection-1 Creating \n Container dl-m7-463adfd993-patient-1 Creating \n Container dl-m7-463adfd993-control-1 Created \n Container dl-m7-463adfd993-patient-1 Created \n Container dl-m7-463adfd993-plant-1 Created \n Container dl-m7-463adfd993-protection-1 Created \n Container dl-m7-463adfd993-scenario-runner-1 Creating \n Container dl-m7-463adfd993-scenario-runner-1 Created \n Container dl-m7-463adfd993-patient-1 Starting \n Container dl-m7-463adfd993-plant-1 Starting \n Container dl-m7-463adfd993-control-1 Starting \n Container dl-m7-463adfd993-protection-1 Starting \n Container dl-m7-463adfd993-protection-1 Started \n Container dl-m7-463adfd993-patient-1 Started \n Container dl-m7-463adfd993-control-1 Started \n Container dl-m7-463adfd993-plant-1 Started \n Container dl-m7-463adfd993-scenario-runner-1 Starting \n Container dl-m7-463adfd993-scenario-runner-1 Started \n",
+  "primary_traceback": "Traceback (most recent call last):\n  File \"/home/pietro/DialysisLab/tools/verify_experiments_compose.py\", line 57, in main\n    running=until(ui.snapshot,lambda s:s['state']=='running' and s['sequence']>=5)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/pietro/DialysisLab/tools/verify_experiments_compose.py\", line 40, in until\n    raise RuntimeError('condition timeout: '+str(value)[:2000])\nRuntimeError: condition timeout: {'connected': True, 'state': 'idle', 'run_id': '-', 'sequence': -1, 'revision': 683441863884357943299020618211717947868384854018, 'feedback': 'Draft saved; active run unchanged', 'last_action': 'LOAD', 'left': '', 'right': '', 'widgets': {'COMPARE': [104, 795, 118, 24], 'DRAFT': [607, 103, 108, 24], 'EXPORT': [230, 795, 88, 24], 'LOAD': [481, 103, 118, 24], 'PAUSE': [686, 175, 58, 24], 'PRESETS': [345, 103, 128, 24], 'REPLAY': [8, 795, 88, 24], 'RESUME': [752, 175, 68, 24], 'RUNS': [280, 739, 98, 24], 'START': [410, 175, 268, 24], 'STOP': [828, 175, 158, 24], 'VALIDATE': [723, 103, 218, 24], 'configuration': [8, 293, 609, 420], 'left': [8, 739, 264, 24], 'preset': [8, 103, 329, 24], 'right': [8, 767, 264, 24], 'speed': [8, 175, 394, 24]}}\n",
+  "services": [
+    {
+      "service": "sim-console",
+      "image": "sha256:ee7268995d2bf0db3918af6cbcfbe82d5660cff823af18039394f36898a4abff",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/captures",
+        "/tmp/.X11-unix/X0",
+        "/experiment"
+      ]
+    },
+    {
+      "service": "control",
+      "image": "sha256:c62c2712de727d096526ef7da6b4353637059a782ea75384c218e78cda59b298",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/control",
+        "/run/dialysis/device/control",
+        "/activation"
+      ]
+    },
+    {
+      "service": "device-ui",
+      "image": "sha256:ee7268995d2bf0db3918af6cbcfbe82d5660cff823af18039394f36898a4abff",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/device/control",
+        "/run/dialysis/device/protection",
+        "/captures",
+        "/tmp/.X11-unix/X0"
+      ]
+    },
+    {
+      "service": "patient",
+      "image": "sha256:c62c2712de727d096526ef7da6b4353637059a782ea75384c218e78cda59b298",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/patient",
+        "/activation"
+      ]
+    },
+    {
+      "service": "plant",
+      "image": "sha256:c62c2712de727d096526ef7da6b4353637059a782ea75384c218e78cda59b298",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/activation",
+        "/run/dialysis/admin",
+        "/run/dialysis/control",
+        "/run/dialysis/protection"
+      ]
+    },
+    {
+      "service": "protection",
+      "image": "sha256:c62c2712de727d096526ef7da6b4353637059a782ea75384c218e78cda59b298",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/protection",
+        "/run/dialysis/device/protection",
+        "/activation"
+      ]
+    },
+    {
+      "service": "scenario-runner",
+      "image": "sha256:c62c2712de727d096526ef7da6b4353637059a782ea75384c218e78cda59b298",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/activation",
+        "/run/dialysis/control",
+        "/run/dialysis/patient",
+        "/run/dialysis/device/control",
+        "/results",
+        "/run/dialysis/device/protection",
+        "/run/dialysis/admin",
+        "/run/dialysis/protection",
+        "/experiment",
+        "/run/dialysis/sessions"
+      ]
+    }
+  ],
+  "validation_error": "execution/collection failure",
+  "artifacts": {
+    "console.log": "00380e0bded29af426fcef728deefa5d5a381e868ff2cd3b7d106e07d0f0911f",
+    "services.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "device.log": "1628aae6b3c18ef6f2562a0df860d723c2f1d1dd2db87dcc5f52458e14383162",
+    "results/.broker.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "device-captures/final.ppm": "d03566356c0c8fe08bc019ec031cd8b7720f08870ba1764f01946b824f73a8a4",
+    "widget-events/output.log": "228d39012305a9c1e09889dc7fd005ce0dca20de6923caa476b7cf750e83cd07",
+    "widget-events/input.log": "7c1ca07cd09ba082db062efbe53fd4999f9a99ec5e133a98a8483fec1c790331",
+    "device-widget-events/simultaneous/input.jsonl": "c7b6fc5df9b1eda360aa078e2f83f884ef182a2ab18bf4e6f55fd8415ecd1f4e",
+    "device-widget-events/simultaneous/events.jsonl": "1628aae6b3c18ef6f2562a0df860d723c2f1d1dd2db87dcc5f52458e14383162",
+    "device-widget-events/simultaneous/stderr.txt": "dcd7d53e0a8413e04cda42b3ea4101ea06db49d28297a01b0edcc576041956cf"
+  }
+}

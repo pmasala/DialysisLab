@@ -1,0 +1,746 @@
+[
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/mode_0/final.ppm",
+    "original_sha256": "2c9be1ef45cf966a94ffe1f89d04ad22c8e6bb3e8276d7ef13c1ce7df514919f",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/mode_0/final.ppm.gz",
+    "sha256": "a10fba980a7d0b871a6643ea2a857c634a3d4e7c3dda5338840fa771142e8c38",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/mode_0/final.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/mode_0/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/mode_0/treatment.ppm",
+    "original_sha256": "548965f38afabb8ff1ab22edd38d214c22fff4d0171dbf91cd5ec016c90b0bbc",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/mode_0/treatment.ppm.gz",
+    "sha256": "997b5ccfcb87f74aa70911c3c2755c10acbbf24a4b4b31b57785f5a8920fac54",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/mode_0/treatment.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/mode_0/treatment.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/mode_0/stopped.ppm",
+    "original_sha256": "8369b30206789eccbedf89111c69e7d61569b77e98d799b8677d3241e6de80d5",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/mode_0/stopped.ppm.gz",
+    "sha256": "3af65a86accbdbbbbe77c2b3be21883cbc8a1c753b6b03671ebd13d9f28f0a30",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/mode_0/stopped.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/mode_0/stopped.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/sdl_pointer/final.ppm",
+    "original_sha256": "7e14f7d93b5f34685fce50336398cecb6c72b3ba7da976ef11191cd592ef07cf",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/sdl_pointer/final.ppm.gz",
+    "sha256": "f9ab9867e7a1b40fc28644af17bf8bd2d0b6f9076460c46ad0dc9ac56102c679",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/sdl_pointer/final.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/sdl_pointer/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/sdl_pointer/exact_confirmation.ppm",
+    "original_sha256": "9b90cd1a35337968aa51121bb3179a5f492ae020a961a761a0fd2aa096f7d580",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/sdl_pointer/exact_confirmation.ppm.gz",
+    "sha256": "ca4ec2ac84815d8980156c5b903cc879558813001318e4bf2851d06b0ab58098",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/sdl_pointer/exact_confirmation.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/sdl_pointer/exact_confirmation.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/mode_1/final.ppm",
+    "original_sha256": "a621686b9949fabb5cd6687e892d5a405fbcf03302869d9e3a0882e294d54a6d",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/mode_1/final.ppm.gz",
+    "sha256": "817c834511519fa9fbd3171687a838aef97a5ca3fee667e120f8a5e3baff7daa",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/mode_1/final.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/mode_1/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/mode_1/treatment.ppm",
+    "original_sha256": "f552dd8b4a8e3c8911fef1d549fc3c82a4f964e285b8bcd2570236f301254217",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/mode_1/treatment.ppm.gz",
+    "sha256": "c2659244720a5fbd3e8fda6816fa997592a2e343148d943eae9a336603b0bfbb",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/mode_1/treatment.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/mode_1/treatment.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/mode_1/stopped.ppm",
+    "original_sha256": "278b33ebf04d28b7533aa58cad7d4dd458e45dddcda13a7ded1bdd5efbb5cbba",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/mode_1/stopped.ppm.gz",
+    "sha256": "30b32554fa82ac6b428c1ecba437ab55e69c7b0f4568079d903a908ff0b509c5",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/mode_1/stopped.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/mode_1/stopped.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/same_session_age/final.ppm",
+    "original_sha256": "592155652a9436da8f4fe96079b7b02247249f4eb465220422fc11703453efc9",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/same_session_age/final.ppm.gz",
+    "sha256": "26d85a373dece6b9e4fb78733a87746a6eda052b93d301003fe94ad81bb4d54b",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/same_session_age/final.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/same_session_age/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/same_session_age/same_session_still_stale.ppm",
+    "original_sha256": "592155652a9436da8f4fe96079b7b02247249f4eb465220422fc11703453efc9",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/same_session_age/same_session_still_stale.ppm.gz",
+    "sha256": "26d85a373dece6b9e4fb78733a87746a6eda052b93d301003fe94ad81bb4d54b",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/same_session_age/same_session_still_stale.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/same_session_age/same_session_still_stale.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/alarm_layout/final.ppm",
+    "original_sha256": "2c29e4564b8d1311c64effc126f02cbceb0126c48b1a7e98ac13ad2b814eb9dd",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/alarm_layout/final.ppm.gz",
+    "sha256": "85f39fbb295ac27dda709a9e99a950a9039a5819328c46edfec4281e5b7db547",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/alarm_layout/final.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/alarm_layout/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/alarm_layout/all_alarms_disconnected.ppm",
+    "original_sha256": "bca8d2914b6acb9f340c88a46ddfc7501d28f9afa97f34becc1bff5cb40597b2",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/alarm_layout/all_alarms_disconnected.ppm.gz",
+    "sha256": "05cff5181bce10c23f8d2d8c5a5e157cc69ddb2a90720b791a295c2ef18ca978",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/alarm_layout/all_alarms_disconnected.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/alarm_layout/all_alarms_disconnected.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/mode_2/final.ppm",
+    "original_sha256": "551019116e4efce15ed403141e457ff42227d17870b5893a63a1bdf8191a545b",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/mode_2/final.ppm.gz",
+    "sha256": "92315eb79ed24553da3744c29cb51a21d979788b1ae00a95178141609ae2784c",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/mode_2/final.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/mode_2/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/mode_2/treatment.ppm",
+    "original_sha256": "679d843bdc8986c3c0a462320df95f17de9baf014b1ce944f465578e161fea19",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/mode_2/treatment.ppm.gz",
+    "sha256": "9abbcecc0eff4b93960f098083faae924d5f19bc2658df36987a1bef68759821",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/mode_2/treatment.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/mode_2/treatment.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/mode_2/stopped.ppm",
+    "original_sha256": "89c6b4f70652d52a0dede680281a43b8ebe1d5afca7bc9f82257755ac7a8ca10",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/mode_2/stopped.ppm.gz",
+    "sha256": "5933553be6fcaffd8346acf4965f337c23ff16e1e3a828bc1ea1b64459d14d57",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/mode_2/stopped.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/mode_2/stopped.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/lost_replies/final.ppm",
+    "original_sha256": "aa7074cc5cdaa4cb726b668dfda5b06431724bffda15021a84084a66cdc25e06",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/lost_replies/final.ppm.gz",
+    "sha256": "97ce1e253246fa2267119a8c9663526112bb9c5f0940842f7bab2494a95feb1a",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/lost_replies/final.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/lost_replies/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/lost_replies/stop_reply_lost.ppm",
+    "original_sha256": "aa7074cc5cdaa4cb726b668dfda5b06431724bffda15021a84084a66cdc25e06",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/lost_replies/stop_reply_lost.ppm.gz",
+    "sha256": "97ce1e253246fa2267119a8c9663526112bb9c5f0940842f7bab2494a95feb1a",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/lost_replies/stop_reply_lost.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/lost_replies/stop_reply_lost.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/alarms/final.ppm",
+    "original_sha256": "fdb6ef99c327b4d003d15f80f46cf4c69a2b436f9497fb575f274969a5cb5118",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/alarms/final.ppm.gz",
+    "sha256": "1def9cd27bd34f12586530d99778fbea090a804c62c2b943f1d31e2c6a1816aa",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/alarms/final.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/alarms/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/alarms/air_alarm.ppm",
+    "original_sha256": "89c3e51f1de2f2ea0fe711020a6561f7fff55d6066e46a6cd4e78829d2ef0b04",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/alarms/air_alarm.ppm.gz",
+    "sha256": "16ba3400cf66d5b1d35c16956b3b7bc55911a3b8b1d82ef392bea23dbc2764d8",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/alarms/air_alarm.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/alarms/air_alarm.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/alarms/recovered.ppm",
+    "original_sha256": "6c72af7790be2ad0fe52f747c4b389525180f2d1272daf2690a91589c9c83e8a",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/alarms/recovered.ppm.gz",
+    "sha256": "9a3c19ecd0bf88f5b24f8f79c02146609b8f7ee4f71b6531f44ca44062dc9792",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/alarms/recovered.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/alarms/recovered.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/invalid/final.ppm",
+    "original_sha256": "cad294574c7cfa0da34866384b1f61e70d0b7db1807e54e3d80e038617d06297",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/invalid/final.ppm.gz",
+    "sha256": "eb8cb230889ffc2e838f60436c2ae2b79667fe516eb08c7ac1e00f450cf7e275",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/invalid/final.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/invalid/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/invalid/invalid_sensor.ppm",
+    "original_sha256": "e10017241c3903ca8603ce9a30dd40d97121be1f92bf85adf4d6ad600f5d251b",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/invalid/invalid_sensor.ppm.gz",
+    "sha256": "3ac5ecc0a63b63ed3acced267a53ebc5c8aa02e0a260197103a0668e6a8d0ac7",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/invalid/invalid_sensor.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/invalid/invalid_sensor.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/connection/final.ppm",
+    "original_sha256": "d8993c6c0aacf40bf4fa9116a6b009cac9197c317c1e32907b5c55c5503ebc14",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/connection/final.ppm.gz",
+    "sha256": "b2034bf2eea84886054c4e7d55798cfd7eed8d71df6c3b9d3428f5c0b22bbd1c",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/connection/final.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/connection/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/connection/disconnected.ppm",
+    "original_sha256": "2238117263f0f6c9bd6bdababc8901852176ed421ce47e67b6e46470ae40791e",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/connection/disconnected.ppm.gz",
+    "sha256": "4f3044e0ae71f819cebb6d90047511ff37d92968d3c3e0523618c209b607a980",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/connection/disconnected.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/connection/disconnected.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/connection/reconnected.ppm",
+    "original_sha256": "afd2d8bf1d487c88f9d57230a4e01ca88845032df550912d67c548442489c9be",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/connection/reconnected.ppm.gz",
+    "sha256": "1adbe7c1ec77f265d9e31368519e7ffef5374eeb8cd798227021ed06320538df",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/connection/reconnected.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/connection/reconnected.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/device/connection/stale.ppm",
+    "original_sha256": "c442501c0b1d85b2fb85cf0c3a7be027344a0c6940348b455946649b79d1dbe9",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/device/connection/stale.ppm.gz",
+    "sha256": "591aa8e787838ecced6275f302e7e3ca1b36d89797160c020658ec1072cfaffc",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/device/connection/stale.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/device/connection/stale.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/console/render-stall/retained-reply.ppm",
+    "original_sha256": "c29f66ef43a71bae1412ee166005e042cd0cd70c19d04f77c8a0ff53229058ac",
+    "original_bytes": 3477616,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/console/render-stall/retained-reply.ppm.gz",
+    "sha256": "a9c4181210781701f95c06fba785b9f19c1b784284f4f92f3f43d99d594331e2",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/console/render-stall/retained-reply.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/console/render-stall/retained-reply.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/console/workflow/paused-truth.ppm",
+    "original_sha256": "3c3e7ebed0fc3a64513c99b457f3d44c2665df4ba097cf97371e674d4d243b0a",
+    "original_bytes": 3477616,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/console/workflow/paused-truth.ppm.gz",
+    "sha256": "c26f24b54a0dbcdc998992cbd3494adfc9b5646bb2b6fd5934a2d342d8f4ce6f",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/console/workflow/paused-truth.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/console/workflow/paused-truth.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/console/workflow/comparison-export.ppm",
+    "original_sha256": "2b9bf0abece7e4be65b5a119720ef79bdb8d1e67a3171a476ebe6efefa11047e",
+    "original_bytes": 3477616,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/console/workflow/comparison-export.ppm.gz",
+    "sha256": "cf61cf617fd6deabf399adf847842f3d1779a9a7f6566cf7d2d95945f4cbb244",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/console/workflow/comparison-export.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/console/workflow/comparison-export.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/console/workflow/completed.ppm",
+    "original_sha256": "9a4551dac91b94ef162b277cd2c9de1d87e67277b9f7b3c23db02c47bc386d0f",
+    "original_bytes": 3477616,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/console/workflow/completed.ppm.gz",
+    "sha256": "c92cd831b51403b2ddd14b4a121b078d417095c4ec58d959fa1420a8e65035f6",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/console/workflow/completed.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/console/workflow/completed.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-nogit-verification/console/invalid-reconnect/reconnected.ppm",
+    "original_sha256": "cc16117d4834ad6e7d875616e87da0fee2fc288ef28da13923ff4b1b4a1db64f",
+    "original_bytes": 3477616,
+    "archive": "/tmp/DialysisLab-m9-nogit-verification/console/invalid-reconnect/reconnected.ppm.gz",
+    "sha256": "df6661d8f49f8f9e34b574f28e63247a51e6a2626f490513380ddcdf1930fae1",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-nogit-verification/console/invalid-reconnect/reconnected.ppm.gz > /tmp/DialysisLab-m9-nogit-verification/console/invalid-reconnect/reconnected.ppm"
+  },
+  {
+    "original": "build/m9-final-console-widgets/render-stall/retained-reply.ppm",
+    "original_sha256": "239eff15d78fbe0c2f18c87bd217dfd43db3269133f8105121da54464da460b6",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-console-widgets/render-stall/retained-reply.ppm.gz",
+    "sha256": "09a3017900692ffa31780cd3561d03867a44bacfa09a6ff636ab25a636718bbf",
+    "recovery": "gzip -dc build/m9-final-console-widgets/render-stall/retained-reply.ppm.gz > build/m9-final-console-widgets/render-stall/retained-reply.ppm"
+  },
+  {
+    "original": "build/m9-final-console-widgets/workflow/paused-truth.ppm",
+    "original_sha256": "a594091e855226b49a6b8f44954ee7a9536cb414d6905fa4ae068a5d3e217812",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-console-widgets/workflow/paused-truth.ppm.gz",
+    "sha256": "f4a3ecfcbd3b80e3a97dbb6de881a122701a70e3f14a93e99f77e805356fdec5",
+    "recovery": "gzip -dc build/m9-final-console-widgets/workflow/paused-truth.ppm.gz > build/m9-final-console-widgets/workflow/paused-truth.ppm"
+  },
+  {
+    "original": "build/m9-final-console-widgets/workflow/comparison-export.ppm",
+    "original_sha256": "d69a8275693b1ef6fa39724bc5b1ac2cb226cb6023b06b38736a40443c67b341",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-console-widgets/workflow/comparison-export.ppm.gz",
+    "sha256": "252975af115b3b0bc758e2cebd63608c13b2d047db9bb25c6732923fe2fe4bd0",
+    "recovery": "gzip -dc build/m9-final-console-widgets/workflow/comparison-export.ppm.gz > build/m9-final-console-widgets/workflow/comparison-export.ppm"
+  },
+  {
+    "original": "build/m9-final-console-widgets/workflow/completed.ppm",
+    "original_sha256": "5781ade79cc077740ea6bfd724f816a28b8750224ca5438a82272e5f299f77b3",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-console-widgets/workflow/completed.ppm.gz",
+    "sha256": "2dc9bdcacbebe86061c3df84d8eb203b9fb742fcbf731e705e33c79c7cec4311",
+    "recovery": "gzip -dc build/m9-final-console-widgets/workflow/completed.ppm.gz > build/m9-final-console-widgets/workflow/completed.ppm"
+  },
+  {
+    "original": "build/m9-final-console-widgets/invalid-reconnect/reconnected.ppm",
+    "original_sha256": "2d7a1010e96d6e2153445171e929b025391fbdf1729c762a70c441dc43b9ff67",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-console-widgets/invalid-reconnect/reconnected.ppm.gz",
+    "sha256": "dc174848b981f4b924042a3d8e17c67cc53934f7196b9cd7d09c47e16bf001a5",
+    "recovery": "gzip -dc build/m9-final-console-widgets/invalid-reconnect/reconnected.ppm.gz > build/m9-final-console-widgets/invalid-reconnect/reconnected.ppm"
+  },
+  {
+    "original": "build/m9-final-console-sanitizer/render-stall/retained-reply.ppm",
+    "original_sha256": "453a319c9f93b7c0a2609cbb3eab44ba4e5ffac1d876bc05ba2d5856281693da",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-console-sanitizer/render-stall/retained-reply.ppm.gz",
+    "sha256": "1a43062805e0305a34c78a724a932321789ae2a99e8934943bc6fde02609298f",
+    "recovery": "gzip -dc build/m9-final-console-sanitizer/render-stall/retained-reply.ppm.gz > build/m9-final-console-sanitizer/render-stall/retained-reply.ppm"
+  },
+  {
+    "original": "build/m9-final-console-sanitizer/workflow/paused-truth.ppm",
+    "original_sha256": "4dde9b25b402a251e4a63ba147bcb8e44d663d340ad5fbbb0e76aebc36aea305",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-console-sanitizer/workflow/paused-truth.ppm.gz",
+    "sha256": "40e3430852b44c7ec31b802d0c9fe91a4ccb89b34ff4a37f9f757cfa9cdc1ea3",
+    "recovery": "gzip -dc build/m9-final-console-sanitizer/workflow/paused-truth.ppm.gz > build/m9-final-console-sanitizer/workflow/paused-truth.ppm"
+  },
+  {
+    "original": "build/m9-final-console-sanitizer/workflow/comparison-export.ppm",
+    "original_sha256": "3a431b8bb8a821a1b4f33698bb3b6c9fd5f6b33bd1409f9aa15f9f5bad675639",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-console-sanitizer/workflow/comparison-export.ppm.gz",
+    "sha256": "0a0e2383945775cd2736815a80776ca57aadf784e031912e0e110768d573c25d",
+    "recovery": "gzip -dc build/m9-final-console-sanitizer/workflow/comparison-export.ppm.gz > build/m9-final-console-sanitizer/workflow/comparison-export.ppm"
+  },
+  {
+    "original": "build/m9-final-console-sanitizer/workflow/completed.ppm",
+    "original_sha256": "7a0618568a8ce49228f3231cc27ec13346827078c7b11d1c4f3b1913ea216812",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-console-sanitizer/workflow/completed.ppm.gz",
+    "sha256": "aff76e7b8d430857183ed1cdbca009954623c04a981d131414c1913c6b0c87ba",
+    "recovery": "gzip -dc build/m9-final-console-sanitizer/workflow/completed.ppm.gz > build/m9-final-console-sanitizer/workflow/completed.ppm"
+  },
+  {
+    "original": "build/m9-final-console-sanitizer/invalid-reconnect/reconnected.ppm",
+    "original_sha256": "1ee1a99a7b5bdeb1eacb4a5e9daf998c0c941c6fc1e71c726a658460a24c3a8b",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-console-sanitizer/invalid-reconnect/reconnected.ppm.gz",
+    "sha256": "f1fc373fe6075746b874f7a327f53de51baa93c9b31f14af72fc225cec5f6726",
+    "recovery": "gzip -dc build/m9-final-console-sanitizer/invalid-reconnect/reconnected.ppm.gz > build/m9-final-console-sanitizer/invalid-reconnect/reconnected.ppm"
+  },
+  {
+    "original": "build/m9-corrected-console-widgets/render-stall/retained-reply.ppm",
+    "original_sha256": "3362ac8f1a19e16207c07705e86762e4b13d770a751e3e26788d919cf25b699c",
+    "original_bytes": 3477616,
+    "archive": "build/m9-corrected-console-widgets/render-stall/retained-reply.ppm.gz",
+    "sha256": "b25efa6090ac0ba714dde1523bcb389965291525616ac0a1a4dba6fbae90caaa",
+    "recovery": "gzip -dc build/m9-corrected-console-widgets/render-stall/retained-reply.ppm.gz > build/m9-corrected-console-widgets/render-stall/retained-reply.ppm"
+  },
+  {
+    "original": "build/m9-corrected-console-widgets/workflow/paused-truth.ppm",
+    "original_sha256": "a2b5c3b534119a76aec087370fab41f57f64d37f1814022557c9f297a6112a5a",
+    "original_bytes": 3477616,
+    "archive": "build/m9-corrected-console-widgets/workflow/paused-truth.ppm.gz",
+    "sha256": "a2781f894a71d0b1fbbd2454689e22971b1bfea794fccaeaa8747e8acf36fc61",
+    "recovery": "gzip -dc build/m9-corrected-console-widgets/workflow/paused-truth.ppm.gz > build/m9-corrected-console-widgets/workflow/paused-truth.ppm"
+  },
+  {
+    "original": "build/m9-corrected-console-widgets/workflow/comparison-export.ppm",
+    "original_sha256": "a1529f864358d05e647334d8aa5cf266040c4449ad48cfb28b7afb31d1bcb02d",
+    "original_bytes": 3477616,
+    "archive": "build/m9-corrected-console-widgets/workflow/comparison-export.ppm.gz",
+    "sha256": "d7fbe705f7f157840dd3ad686040999368dc6f96331538962c17833c592b5ab6",
+    "recovery": "gzip -dc build/m9-corrected-console-widgets/workflow/comparison-export.ppm.gz > build/m9-corrected-console-widgets/workflow/comparison-export.ppm"
+  },
+  {
+    "original": "build/m9-corrected-console-widgets/workflow/completed.ppm",
+    "original_sha256": "484b770167f23a92f01c5e1fee26ad46ac60c685e1ef6a4caa16ac5d2ad552e4",
+    "original_bytes": 3477616,
+    "archive": "build/m9-corrected-console-widgets/workflow/completed.ppm.gz",
+    "sha256": "e690269147fb4f755d7503c783a90e094c11718c3cb3eb4ce21d03762a0da016",
+    "recovery": "gzip -dc build/m9-corrected-console-widgets/workflow/completed.ppm.gz > build/m9-corrected-console-widgets/workflow/completed.ppm"
+  },
+  {
+    "original": "build/m9-corrected-console-widgets/invalid-reconnect/reconnected.ppm",
+    "original_sha256": "d65398ee71c7fce1246fb74959d58ca46add34f58f380a577db9611c58486662",
+    "original_bytes": 3477616,
+    "archive": "build/m9-corrected-console-widgets/invalid-reconnect/reconnected.ppm.gz",
+    "sha256": "cca413d93767d1e61c41c7e5d90c6e22528bc309127240cf5be2640ba72c7930",
+    "recovery": "gzip -dc build/m9-corrected-console-widgets/invalid-reconnect/reconnected.ppm.gz > build/m9-corrected-console-widgets/invalid-reconnect/reconnected.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/mode_0/final.ppm",
+    "original_sha256": "3380928843e55fc1ad5c84946a12909246b005ec908753fd9739d7f8c04aad1f",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/mode_0/final.ppm.gz",
+    "sha256": "217d03a1f487775331ad6e7699fd11651f8d19494c82cb5f61b4605418a886c0",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/mode_0/final.ppm.gz > build/m9-corrected-device-widgets/mode_0/final.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/mode_0/treatment.ppm",
+    "original_sha256": "bd287c7202c6fdafb3077fae7e4c7b83afde102c3d10490d3b4883555f69a3fd",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/mode_0/treatment.ppm.gz",
+    "sha256": "1a811f59b1df6d288864d014f02721a8b76235db4444d02c1aad7fa5caa17043",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/mode_0/treatment.ppm.gz > build/m9-corrected-device-widgets/mode_0/treatment.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/mode_0/stopped.ppm",
+    "original_sha256": "28d36a6c3daf5bf7f3a7005b7afe3c922d0e14e53f4d8e9beb584415c525de8a",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/mode_0/stopped.ppm.gz",
+    "sha256": "265e731d6aaa9d3fba4701c05ed2c50a2d84f1d68cbc25fc8bc82c28f2d28619",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/mode_0/stopped.ppm.gz > build/m9-corrected-device-widgets/mode_0/stopped.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/sdl_pointer/final.ppm",
+    "original_sha256": "83567e453bc8db63cced8caba323ba8ac5f1a9bc57bd702ecc846a6c7a94a38e",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/sdl_pointer/final.ppm.gz",
+    "sha256": "caad1a2b8bd16eb9b86ef2ec82b6a6c2431632357126a67df8e9df9d09f22fe8",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/sdl_pointer/final.ppm.gz > build/m9-corrected-device-widgets/sdl_pointer/final.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/sdl_pointer/exact_confirmation.ppm",
+    "original_sha256": "9b90cd1a35337968aa51121bb3179a5f492ae020a961a761a0fd2aa096f7d580",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/sdl_pointer/exact_confirmation.ppm.gz",
+    "sha256": "ca4ec2ac84815d8980156c5b903cc879558813001318e4bf2851d06b0ab58098",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/sdl_pointer/exact_confirmation.ppm.gz > build/m9-corrected-device-widgets/sdl_pointer/exact_confirmation.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/mode_1/final.ppm",
+    "original_sha256": "e86d143f0d2cd3967d952702f07af249d4ccb12f15e2da54f395decaa431f840",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/mode_1/final.ppm.gz",
+    "sha256": "a6c2bccbf455db3ce936c0f45f1ec80b7a4f7d528266725fff57edd9a7ee8cce",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/mode_1/final.ppm.gz > build/m9-corrected-device-widgets/mode_1/final.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/mode_1/treatment.ppm",
+    "original_sha256": "481a1f52c25d3f34b9fca28f53bbb9bed361f933b85b53c217cdc687f0343cc9",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/mode_1/treatment.ppm.gz",
+    "sha256": "7dd29bb9a098f10dbed3b09829e6ed8aa075f78202137feeb59815e94efa3e26",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/mode_1/treatment.ppm.gz > build/m9-corrected-device-widgets/mode_1/treatment.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/mode_1/stopped.ppm",
+    "original_sha256": "44b52fade406287a85f53afdc99ff0cf6c5672b83fcb590ed74248751daff254",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/mode_1/stopped.ppm.gz",
+    "sha256": "c868c0a0e3730bfe90e524cf4dbea0a2cb0bf0628496b3debd99b36e90645699",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/mode_1/stopped.ppm.gz > build/m9-corrected-device-widgets/mode_1/stopped.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/same_session_age/final.ppm",
+    "original_sha256": "592155652a9436da8f4fe96079b7b02247249f4eb465220422fc11703453efc9",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/same_session_age/final.ppm.gz",
+    "sha256": "26d85a373dece6b9e4fb78733a87746a6eda052b93d301003fe94ad81bb4d54b",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/same_session_age/final.ppm.gz > build/m9-corrected-device-widgets/same_session_age/final.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/same_session_age/same_session_still_stale.ppm",
+    "original_sha256": "592155652a9436da8f4fe96079b7b02247249f4eb465220422fc11703453efc9",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/same_session_age/same_session_still_stale.ppm.gz",
+    "sha256": "26d85a373dece6b9e4fb78733a87746a6eda052b93d301003fe94ad81bb4d54b",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/same_session_age/same_session_still_stale.ppm.gz > build/m9-corrected-device-widgets/same_session_age/same_session_still_stale.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/alarm_layout/final.ppm",
+    "original_sha256": "2c29e4564b8d1311c64effc126f02cbceb0126c48b1a7e98ac13ad2b814eb9dd",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/alarm_layout/final.ppm.gz",
+    "sha256": "85f39fbb295ac27dda709a9e99a950a9039a5819328c46edfec4281e5b7db547",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/alarm_layout/final.ppm.gz > build/m9-corrected-device-widgets/alarm_layout/final.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/alarm_layout/all_alarms_disconnected.ppm",
+    "original_sha256": "bca8d2914b6acb9f340c88a46ddfc7501d28f9afa97f34becc1bff5cb40597b2",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/alarm_layout/all_alarms_disconnected.ppm.gz",
+    "sha256": "05cff5181bce10c23f8d2d8c5a5e157cc69ddb2a90720b791a295c2ef18ca978",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/alarm_layout/all_alarms_disconnected.ppm.gz > build/m9-corrected-device-widgets/alarm_layout/all_alarms_disconnected.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/mode_2/final.ppm",
+    "original_sha256": "f09ce021ff8f44fbfb31fe0883e5cec4519703010a4b58330cb334b5b3c73a3e",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/mode_2/final.ppm.gz",
+    "sha256": "0ddc6edba3a2f4355bbe7708ee96ab0e76f72ee01efad36d2c3a5ff721462fad",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/mode_2/final.ppm.gz > build/m9-corrected-device-widgets/mode_2/final.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/mode_2/treatment.ppm",
+    "original_sha256": "d10a38fce78d031c59884a3c1f1c71d7dfb0eab7a71fcb2ba0123dc4c1458a06",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/mode_2/treatment.ppm.gz",
+    "sha256": "9e3c3b72c81992e40685a9a96625ad7117e6be979bb82370f6dd6260492e74d7",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/mode_2/treatment.ppm.gz > build/m9-corrected-device-widgets/mode_2/treatment.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/mode_2/stopped.ppm",
+    "original_sha256": "0c2efefe2d0e747954fad1a5b9b76f177e89c70bd28956f175d6b408419df0eb",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/mode_2/stopped.ppm.gz",
+    "sha256": "8a859a6291289a1b09e0c51d09143839404059b8eaf25bd4e9cfcd8c822f0142",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/mode_2/stopped.ppm.gz > build/m9-corrected-device-widgets/mode_2/stopped.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/lost_replies/final.ppm",
+    "original_sha256": "aa7074cc5cdaa4cb726b668dfda5b06431724bffda15021a84084a66cdc25e06",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/lost_replies/final.ppm.gz",
+    "sha256": "97ce1e253246fa2267119a8c9663526112bb9c5f0940842f7bab2494a95feb1a",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/lost_replies/final.ppm.gz > build/m9-corrected-device-widgets/lost_replies/final.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/lost_replies/stop_reply_lost.ppm",
+    "original_sha256": "aa7074cc5cdaa4cb726b668dfda5b06431724bffda15021a84084a66cdc25e06",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/lost_replies/stop_reply_lost.ppm.gz",
+    "sha256": "97ce1e253246fa2267119a8c9663526112bb9c5f0940842f7bab2494a95feb1a",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/lost_replies/stop_reply_lost.ppm.gz > build/m9-corrected-device-widgets/lost_replies/stop_reply_lost.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/alarms/final.ppm",
+    "original_sha256": "fdb6ef99c327b4d003d15f80f46cf4c69a2b436f9497fb575f274969a5cb5118",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/alarms/final.ppm.gz",
+    "sha256": "1def9cd27bd34f12586530d99778fbea090a804c62c2b943f1d31e2c6a1816aa",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/alarms/final.ppm.gz > build/m9-corrected-device-widgets/alarms/final.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/alarms/air_alarm.ppm",
+    "original_sha256": "89c3e51f1de2f2ea0fe711020a6561f7fff55d6066e46a6cd4e78829d2ef0b04",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/alarms/air_alarm.ppm.gz",
+    "sha256": "16ba3400cf66d5b1d35c16956b3b7bc55911a3b8b1d82ef392bea23dbc2764d8",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/alarms/air_alarm.ppm.gz > build/m9-corrected-device-widgets/alarms/air_alarm.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/alarms/recovered.ppm",
+    "original_sha256": "6c72af7790be2ad0fe52f747c4b389525180f2d1272daf2690a91589c9c83e8a",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/alarms/recovered.ppm.gz",
+    "sha256": "9a3c19ecd0bf88f5b24f8f79c02146609b8f7ee4f71b6531f44ca44062dc9792",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/alarms/recovered.ppm.gz > build/m9-corrected-device-widgets/alarms/recovered.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/invalid/final.ppm",
+    "original_sha256": "cad294574c7cfa0da34866384b1f61e70d0b7db1807e54e3d80e038617d06297",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/invalid/final.ppm.gz",
+    "sha256": "eb8cb230889ffc2e838f60436c2ae2b79667fe516eb08c7ac1e00f450cf7e275",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/invalid/final.ppm.gz > build/m9-corrected-device-widgets/invalid/final.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/invalid/invalid_sensor.ppm",
+    "original_sha256": "e10017241c3903ca8603ce9a30dd40d97121be1f92bf85adf4d6ad600f5d251b",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/invalid/invalid_sensor.ppm.gz",
+    "sha256": "3ac5ecc0a63b63ed3acced267a53ebc5c8aa02e0a260197103a0668e6a8d0ac7",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/invalid/invalid_sensor.ppm.gz > build/m9-corrected-device-widgets/invalid/invalid_sensor.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/connection/final.ppm",
+    "original_sha256": "d8993c6c0aacf40bf4fa9116a6b009cac9197c317c1e32907b5c55c5503ebc14",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/connection/final.ppm.gz",
+    "sha256": "b2034bf2eea84886054c4e7d55798cfd7eed8d71df6c3b9d3428f5c0b22bbd1c",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/connection/final.ppm.gz > build/m9-corrected-device-widgets/connection/final.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/connection/disconnected.ppm",
+    "original_sha256": "2238117263f0f6c9bd6bdababc8901852176ed421ce47e67b6e46470ae40791e",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/connection/disconnected.ppm.gz",
+    "sha256": "4f3044e0ae71f819cebb6d90047511ff37d92968d3c3e0523618c209b607a980",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/connection/disconnected.ppm.gz > build/m9-corrected-device-widgets/connection/disconnected.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/connection/reconnected.ppm",
+    "original_sha256": "afd2d8bf1d487c88f9d57230a4e01ca88845032df550912d67c548442489c9be",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/connection/reconnected.ppm.gz",
+    "sha256": "1adbe7c1ec77f265d9e31368519e7ffef5374eeb8cd798227021ed06320538df",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/connection/reconnected.ppm.gz > build/m9-corrected-device-widgets/connection/reconnected.ppm"
+  },
+  {
+    "original": "build/m9-corrected-device-widgets/connection/stale.ppm",
+    "original_sha256": "c442501c0b1d85b2fb85cf0c3a7be027344a0c6940348b455946649b79d1dbe9",
+    "original_bytes": 2937016,
+    "archive": "build/m9-corrected-device-widgets/connection/stale.ppm.gz",
+    "sha256": "591aa8e787838ecced6275f302e7e3ca1b36d89797160c020658ec1072cfaffc",
+    "recovery": "gzip -dc build/m9-corrected-device-widgets/connection/stale.ppm.gz > build/m9-corrected-device-widgets/connection/stale.ppm"
+  },
+  {
+    "original": "build/m9-final-simultaneous-headless/captures/compose-export.ppm",
+    "original_sha256": "bac3d15c93763a29776deaa8774818263d469469e96f30faac13d9a1ce83d89a",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-simultaneous-headless/captures/compose-export.ppm.gz",
+    "sha256": "465133c1acfd6808c78b5ab3c18675e4cfb849e0199275741a08b43ee0d87fe3",
+    "recovery": "gzip -dc build/m9-final-simultaneous-headless/captures/compose-export.ppm.gz > build/m9-final-simultaneous-headless/captures/compose-export.ppm"
+  },
+  {
+    "original": "build/m9-final-simultaneous-headless/captures/compose-paused.ppm",
+    "original_sha256": "cd046e3eb4f2c09bacf01f38ef300fbd1abbe2b7ea82f24429f57240616b6f4b",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-simultaneous-headless/captures/compose-paused.ppm.gz",
+    "sha256": "e7e9f08fea2cba9186cbcf67b80f375c89fdeef718dc08c43706d4f302d15abc",
+    "recovery": "gzip -dc build/m9-final-simultaneous-headless/captures/compose-paused.ppm.gz > build/m9-final-simultaneous-headless/captures/compose-paused.ppm"
+  },
+  {
+    "original": "build/m9-final-simultaneous-headless/device-captures/final.ppm",
+    "original_sha256": "0c41bcb2f563503df5c2dbb2040c03461e50715eb93ededa3583df763c580a43",
+    "original_bytes": 2937016,
+    "archive": "build/m9-final-simultaneous-headless/device-captures/final.ppm.gz",
+    "sha256": "86e30a66bf5cac0beca93fc4481c6fdd5ef2f2e86dded82f049604a22dbccf5d",
+    "recovery": "gzip -dc build/m9-final-simultaneous-headless/device-captures/final.ppm.gz > build/m9-final-simultaneous-headless/device-captures/final.ppm"
+  },
+  {
+    "original": "build/m9-final-simultaneous-headless/device-captures/simultaneous-stopped.ppm",
+    "original_sha256": "0c41bcb2f563503df5c2dbb2040c03461e50715eb93ededa3583df763c580a43",
+    "original_bytes": 2937016,
+    "archive": "build/m9-final-simultaneous-headless/device-captures/simultaneous-stopped.ppm.gz",
+    "sha256": "86e30a66bf5cac0beca93fc4481c6fdd5ef2f2e86dded82f049604a22dbccf5d",
+    "recovery": "gzip -dc build/m9-final-simultaneous-headless/device-captures/simultaneous-stopped.ppm.gz > build/m9-final-simultaneous-headless/device-captures/simultaneous-stopped.ppm"
+  },
+  {
+    "original": "build/m9-final-simultaneous-headless/device-captures/simultaneous-paused.ppm",
+    "original_sha256": "f08e7f831ce4d9b797d4e759ced694ebaef555975731f386fbabd3450ef9893a",
+    "original_bytes": 2937016,
+    "archive": "build/m9-final-simultaneous-headless/device-captures/simultaneous-paused.ppm.gz",
+    "sha256": "bcb84d8293823e21fb8cee8cf257d7fd49e91ca4842a738383b25fd43aa581b3",
+    "recovery": "gzip -dc build/m9-final-simultaneous-headless/device-captures/simultaneous-paused.ppm.gz > build/m9-final-simultaneous-headless/device-captures/simultaneous-paused.ppm"
+  },
+  {
+    "original": "build/m9-final-simultaneous-wslg/captures/compose-export.ppm",
+    "original_sha256": "31327a9d764109d335307d4f7a960231f114f179dc312cbf5cfda1336ab0d84f",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-simultaneous-wslg/captures/compose-export.ppm.gz",
+    "sha256": "bdb647bc337b010cb6a07b86a03f8ca2de5ac6e58c79e4a060666f42d6d33e26",
+    "recovery": "gzip -dc build/m9-final-simultaneous-wslg/captures/compose-export.ppm.gz > build/m9-final-simultaneous-wslg/captures/compose-export.ppm"
+  },
+  {
+    "original": "build/m9-final-simultaneous-wslg/captures/compose-paused.ppm",
+    "original_sha256": "c5984faeccc11ff7cff8a738cf668a83b1afbd18f854988d07c0718fb77eb4b9",
+    "original_bytes": 3477616,
+    "archive": "build/m9-final-simultaneous-wslg/captures/compose-paused.ppm.gz",
+    "sha256": "47148b2cea2ac01571ed8cd4f98bfc7a10811ca03aa508eee397e6ac87ccb929",
+    "recovery": "gzip -dc build/m9-final-simultaneous-wslg/captures/compose-paused.ppm.gz > build/m9-final-simultaneous-wslg/captures/compose-paused.ppm"
+  },
+  {
+    "original": "build/m9-final-simultaneous-wslg/device-captures/final.ppm",
+    "original_sha256": "f07e0677df7cf2cb1c38221d432d9ad7884b49939bd41def5808c862ee3cbf8a",
+    "original_bytes": 2937016,
+    "archive": "build/m9-final-simultaneous-wslg/device-captures/final.ppm.gz",
+    "sha256": "c0abe8aed3755a6f9aa0220b373f88c7623497c5dd1fdc62866400384ac4cc25",
+    "recovery": "gzip -dc build/m9-final-simultaneous-wslg/device-captures/final.ppm.gz > build/m9-final-simultaneous-wslg/device-captures/final.ppm"
+  },
+  {
+    "original": "build/m9-final-simultaneous-wslg/device-captures/simultaneous-stopped.ppm",
+    "original_sha256": "f07e0677df7cf2cb1c38221d432d9ad7884b49939bd41def5808c862ee3cbf8a",
+    "original_bytes": 2937016,
+    "archive": "build/m9-final-simultaneous-wslg/device-captures/simultaneous-stopped.ppm.gz",
+    "sha256": "c0abe8aed3755a6f9aa0220b373f88c7623497c5dd1fdc62866400384ac4cc25",
+    "recovery": "gzip -dc build/m9-final-simultaneous-wslg/device-captures/simultaneous-stopped.ppm.gz > build/m9-final-simultaneous-wslg/device-captures/simultaneous-stopped.ppm"
+  },
+  {
+    "original": "build/m9-final-simultaneous-wslg/device-captures/simultaneous-paused.ppm",
+    "original_sha256": "fa94bf6a5b6a7542936b6ddfc5e0ab70f59e60772cef7d1b6fcb2fe055319181",
+    "original_bytes": 2937016,
+    "archive": "build/m9-final-simultaneous-wslg/device-captures/simultaneous-paused.ppm.gz",
+    "sha256": "1d21bf391a16b1f74f41cd5fb2982958db3345cc9de436a369b82b923d849d24",
+    "recovery": "gzip -dc build/m9-final-simultaneous-wslg/device-captures/simultaneous-paused.ppm.gz > build/m9-final-simultaneous-wslg/device-captures/simultaneous-paused.ppm"
+  },
+  {
+    "original": "build/m9-preliminary-simultaneous-headless/captures/compose-export.ppm",
+    "original_sha256": "2291e4823501d6f74e4ae43afdbd8abd95399690ee6eabf730f3aae5d6caec22",
+    "original_bytes": 3477616,
+    "archive": "build/m9-preliminary-simultaneous-headless/captures/compose-export.ppm.gz",
+    "sha256": "f32eabb6c30d85d562c9e98e74a5a71d3a3ebc1cee53a0388ce4e428cafd60a9",
+    "recovery": "gzip -dc build/m9-preliminary-simultaneous-headless/captures/compose-export.ppm.gz > build/m9-preliminary-simultaneous-headless/captures/compose-export.ppm"
+  },
+  {
+    "original": "build/m9-preliminary-simultaneous-headless/captures/compose-paused.ppm",
+    "original_sha256": "fdd5ee81c8781b5c74a61a4bb1cad6499a1e7c789edae91f4743d3f3f86d96ce",
+    "original_bytes": 3477616,
+    "archive": "build/m9-preliminary-simultaneous-headless/captures/compose-paused.ppm.gz",
+    "sha256": "0dd3b02dcbddd080b0d00178d6d64ddfc0bbd34edfdfcd100b8e4749c77b88b8",
+    "recovery": "gzip -dc build/m9-preliminary-simultaneous-headless/captures/compose-paused.ppm.gz > build/m9-preliminary-simultaneous-headless/captures/compose-paused.ppm"
+  },
+  {
+    "original": "build/m9-preliminary-simultaneous-headless/device-captures/final.ppm",
+    "original_sha256": "0c41bcb2f563503df5c2dbb2040c03461e50715eb93ededa3583df763c580a43",
+    "original_bytes": 2937016,
+    "archive": "build/m9-preliminary-simultaneous-headless/device-captures/final.ppm.gz",
+    "sha256": "86e30a66bf5cac0beca93fc4481c6fdd5ef2f2e86dded82f049604a22dbccf5d",
+    "recovery": "gzip -dc build/m9-preliminary-simultaneous-headless/device-captures/final.ppm.gz > build/m9-preliminary-simultaneous-headless/device-captures/final.ppm"
+  },
+  {
+    "original": "build/m9-preliminary-simultaneous-headless/device-captures/simultaneous-stopped.ppm",
+    "original_sha256": "0c41bcb2f563503df5c2dbb2040c03461e50715eb93ededa3583df763c580a43",
+    "original_bytes": 2937016,
+    "archive": "build/m9-preliminary-simultaneous-headless/device-captures/simultaneous-stopped.ppm.gz",
+    "sha256": "86e30a66bf5cac0beca93fc4481c6fdd5ef2f2e86dded82f049604a22dbccf5d",
+    "recovery": "gzip -dc build/m9-preliminary-simultaneous-headless/device-captures/simultaneous-stopped.ppm.gz > build/m9-preliminary-simultaneous-headless/device-captures/simultaneous-stopped.ppm"
+  },
+  {
+    "original": "build/m9-preliminary-simultaneous-headless/device-captures/simultaneous-paused.ppm",
+    "original_sha256": "5fb51c1b9e43903c02225153e9add2d5d7087c8db57c9ef95853713dee2cc36d",
+    "original_bytes": 2937016,
+    "archive": "build/m9-preliminary-simultaneous-headless/device-captures/simultaneous-paused.ppm.gz",
+    "sha256": "8e5235e5141ec7a4bf54eecce9abb783ee781a38c08c8a232da4c5788d0892b2",
+    "recovery": "gzip -dc build/m9-preliminary-simultaneous-headless/device-captures/simultaneous-paused.ppm.gz > build/m9-preliminary-simultaneous-headless/device-captures/simultaneous-paused.ppm"
+  },
+  {
+    "original": "build/m9-second-simultaneous-wslg/captures/compose-export.ppm",
+    "original_sha256": "dedbfc39f89672ea693e1ac575c8e89b9fdaa1d4cfe3f9a1119b4ed5d9e0482f",
+    "original_bytes": 3477616,
+    "archive": "build/m9-second-simultaneous-wslg/captures/compose-export.ppm.gz",
+    "sha256": "a799a4c60ed54252d705d2aa2fc7b5a77243904334aabd58c237273e7be3a8e7",
+    "recovery": "gzip -dc build/m9-second-simultaneous-wslg/captures/compose-export.ppm.gz > build/m9-second-simultaneous-wslg/captures/compose-export.ppm"
+  },
+  {
+    "original": "build/m9-second-simultaneous-wslg/captures/compose-paused.ppm",
+    "original_sha256": "fb4531efa19ac70dceec84f2a1e1f4dde48f6ed4288750cff5796048c01e79e9",
+    "original_bytes": 3477616,
+    "archive": "build/m9-second-simultaneous-wslg/captures/compose-paused.ppm.gz",
+    "sha256": "9fcd86071db899b3f5a93b6a3372537f4be02aadf0d2a1ca5e087a556a5cb2e1",
+    "recovery": "gzip -dc build/m9-second-simultaneous-wslg/captures/compose-paused.ppm.gz > build/m9-second-simultaneous-wslg/captures/compose-paused.ppm"
+  },
+  {
+    "original": "build/m9-second-simultaneous-wslg/device-captures/final.ppm",
+    "original_sha256": "0c41bcb2f563503df5c2dbb2040c03461e50715eb93ededa3583df763c580a43",
+    "original_bytes": 2937016,
+    "archive": "build/m9-second-simultaneous-wslg/device-captures/final.ppm.gz",
+    "sha256": "86e30a66bf5cac0beca93fc4481c6fdd5ef2f2e86dded82f049604a22dbccf5d",
+    "recovery": "gzip -dc build/m9-second-simultaneous-wslg/device-captures/final.ppm.gz > build/m9-second-simultaneous-wslg/device-captures/final.ppm"
+  },
+  {
+    "original": "build/m9-second-simultaneous-wslg/device-captures/simultaneous-stopped.ppm",
+    "original_sha256": "0c41bcb2f563503df5c2dbb2040c03461e50715eb93ededa3583df763c580a43",
+    "original_bytes": 2937016,
+    "archive": "build/m9-second-simultaneous-wslg/device-captures/simultaneous-stopped.ppm.gz",
+    "sha256": "86e30a66bf5cac0beca93fc4481c6fdd5ef2f2e86dded82f049604a22dbccf5d",
+    "recovery": "gzip -dc build/m9-second-simultaneous-wslg/device-captures/simultaneous-stopped.ppm.gz > build/m9-second-simultaneous-wslg/device-captures/simultaneous-stopped.ppm"
+  },
+  {
+    "original": "build/m9-second-simultaneous-wslg/device-captures/simultaneous-paused.ppm",
+    "original_sha256": "d5ceaff8c71aab699c7492d1943a91e0c8fb30bedc1642099c0ea376492ef785",
+    "original_bytes": 2937016,
+    "archive": "build/m9-second-simultaneous-wslg/device-captures/simultaneous-paused.ppm.gz",
+    "sha256": "38638024c1bba1368495f43a2d68f3462cd966956f08dcf71c0852e07989641d",
+    "recovery": "gzip -dc build/m9-second-simultaneous-wslg/device-captures/simultaneous-paused.ppm.gz > build/m9-second-simultaneous-wslg/device-captures/simultaneous-paused.ppm"
+  },
+  {
+    "original": "build/m9-preliminary-simultaneous-wslg/device-captures/final.ppm",
+    "original_sha256": "0bba888c7b64d2d256c3a3331878f370beafa866a45c87dc085482dc20ab83a2",
+    "original_bytes": 2937016,
+    "archive": "build/m9-preliminary-simultaneous-wslg/device-captures/final.ppm.gz",
+    "sha256": "e4b1445e6f3349cb6e70eb037fd509268b79eb08656acd7489f0ff30cd97b93b",
+    "recovery": "gzip -dc build/m9-preliminary-simultaneous-wslg/device-captures/final.ppm.gz > build/m9-preliminary-simultaneous-wslg/device-captures/final.ppm"
+  }
+]

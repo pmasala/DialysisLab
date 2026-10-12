@@ -1,0 +1,458 @@
+[
+  {
+    "original": "build/m8-final-device/mode_0/final.ppm",
+    "original_sha256": "dfc5eb1346d302cdae21771bb950e054b9ed119f44ef745881fb51403d8b1552",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/mode_0/final.ppm.gz",
+    "sha256": "21b11763b80084e486314ced472265974712a64dc548d42acb4ab606a8077f03",
+    "recovery": "gzip -dc build/m8-final-device/mode_0/final.ppm.gz > build/m8-final-device/mode_0/final.ppm"
+  },
+  {
+    "original": "build/m8-final-device/mode_0/treatment.ppm",
+    "original_sha256": "b9673f998862164dac4d0a83a2ec09dc10487cab3621cf79f963610a58168c39",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/mode_0/treatment.ppm.gz",
+    "sha256": "f20987bdcf6c61b5e65e3be4757b28bceac2d62b9716df476d5dbbc5e5372ded",
+    "recovery": "gzip -dc build/m8-final-device/mode_0/treatment.ppm.gz > build/m8-final-device/mode_0/treatment.ppm"
+  },
+  {
+    "original": "build/m8-final-device/mode_0/stopped.ppm",
+    "original_sha256": "83dc4835bb101797f4c4e87b099606071295ad7f4f267fa506daf94b06d05afb",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/mode_0/stopped.ppm.gz",
+    "sha256": "1bff8d1dbdbc56894b96ac4141006ebccbdd26cea78edc275f75f10674f5538c",
+    "recovery": "gzip -dc build/m8-final-device/mode_0/stopped.ppm.gz > build/m8-final-device/mode_0/stopped.ppm"
+  },
+  {
+    "original": "build/m8-final-device/sdl_pointer/final.ppm",
+    "original_sha256": "8b4373182176e18f0ec4c76b25a465bc66c34b8635a1b021149b4fe69fc3517a",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/sdl_pointer/final.ppm.gz",
+    "sha256": "2a6c3200b408fcd78ad83a4ac5e309ee4dbc306128bd94eaf86db9b908abf6c6",
+    "recovery": "gzip -dc build/m8-final-device/sdl_pointer/final.ppm.gz > build/m8-final-device/sdl_pointer/final.ppm"
+  },
+  {
+    "original": "build/m8-final-device/sdl_pointer/exact_confirmation.ppm",
+    "original_sha256": "9b90cd1a35337968aa51121bb3179a5f492ae020a961a761a0fd2aa096f7d580",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/sdl_pointer/exact_confirmation.ppm.gz",
+    "sha256": "ca4ec2ac84815d8980156c5b903cc879558813001318e4bf2851d06b0ab58098",
+    "recovery": "gzip -dc build/m8-final-device/sdl_pointer/exact_confirmation.ppm.gz > build/m8-final-device/sdl_pointer/exact_confirmation.ppm"
+  },
+  {
+    "original": "build/m8-final-device/mode_1/final.ppm",
+    "original_sha256": "c7b86ebe7a6892a14735bd36592b6419c905f7da43819e34a8cf8e0ff90acb66",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/mode_1/final.ppm.gz",
+    "sha256": "b2e3eb1f4c226977d73eee0feba9f651027940e09484d4143d26104d5b02a3be",
+    "recovery": "gzip -dc build/m8-final-device/mode_1/final.ppm.gz > build/m8-final-device/mode_1/final.ppm"
+  },
+  {
+    "original": "build/m8-final-device/mode_1/treatment.ppm",
+    "original_sha256": "1b6a5e3e0bdd43c2f5941d8cdd8549b2f2552e3f8c52b4b83dc0b50d4af6ef60",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/mode_1/treatment.ppm.gz",
+    "sha256": "89c6183f46a1cf4028aafdde5e533556112796b7f983333c0681496d7c0ce1a2",
+    "recovery": "gzip -dc build/m8-final-device/mode_1/treatment.ppm.gz > build/m8-final-device/mode_1/treatment.ppm"
+  },
+  {
+    "original": "build/m8-final-device/mode_1/stopped.ppm",
+    "original_sha256": "96c91f4a911980f260c43d0f41cfe786cacc8d854a89664617679233fcc09ce1",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/mode_1/stopped.ppm.gz",
+    "sha256": "0c436a04543da3fcce8dbda41495a91668b8db41d0a97b65d4fb12fde5bee53d",
+    "recovery": "gzip -dc build/m8-final-device/mode_1/stopped.ppm.gz > build/m8-final-device/mode_1/stopped.ppm"
+  },
+  {
+    "original": "build/m8-final-device/same_session_age/final.ppm",
+    "original_sha256": "592155652a9436da8f4fe96079b7b02247249f4eb465220422fc11703453efc9",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/same_session_age/final.ppm.gz",
+    "sha256": "26d85a373dece6b9e4fb78733a87746a6eda052b93d301003fe94ad81bb4d54b",
+    "recovery": "gzip -dc build/m8-final-device/same_session_age/final.ppm.gz > build/m8-final-device/same_session_age/final.ppm"
+  },
+  {
+    "original": "build/m8-final-device/same_session_age/same_session_still_stale.ppm",
+    "original_sha256": "592155652a9436da8f4fe96079b7b02247249f4eb465220422fc11703453efc9",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/same_session_age/same_session_still_stale.ppm.gz",
+    "sha256": "26d85a373dece6b9e4fb78733a87746a6eda052b93d301003fe94ad81bb4d54b",
+    "recovery": "gzip -dc build/m8-final-device/same_session_age/same_session_still_stale.ppm.gz > build/m8-final-device/same_session_age/same_session_still_stale.ppm"
+  },
+  {
+    "original": "build/m8-final-device/alarm_layout/final.ppm",
+    "original_sha256": "2c29e4564b8d1311c64effc126f02cbceb0126c48b1a7e98ac13ad2b814eb9dd",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/alarm_layout/final.ppm.gz",
+    "sha256": "85f39fbb295ac27dda709a9e99a950a9039a5819328c46edfec4281e5b7db547",
+    "recovery": "gzip -dc build/m8-final-device/alarm_layout/final.ppm.gz > build/m8-final-device/alarm_layout/final.ppm"
+  },
+  {
+    "original": "build/m8-final-device/alarm_layout/all_alarms_disconnected.ppm",
+    "original_sha256": "bca8d2914b6acb9f340c88a46ddfc7501d28f9afa97f34becc1bff5cb40597b2",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/alarm_layout/all_alarms_disconnected.ppm.gz",
+    "sha256": "05cff5181bce10c23f8d2d8c5a5e157cc69ddb2a90720b791a295c2ef18ca978",
+    "recovery": "gzip -dc build/m8-final-device/alarm_layout/all_alarms_disconnected.ppm.gz > build/m8-final-device/alarm_layout/all_alarms_disconnected.ppm"
+  },
+  {
+    "original": "build/m8-final-device/mode_2/final.ppm",
+    "original_sha256": "ac69b2907077b7a310f2dbf1871d195f92506d0a0edabceae6e88b8fbca2b28f",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/mode_2/final.ppm.gz",
+    "sha256": "0437f648d8f765eae299b081ebc6370fdb9e3fbc866bb545782946bfa70c4525",
+    "recovery": "gzip -dc build/m8-final-device/mode_2/final.ppm.gz > build/m8-final-device/mode_2/final.ppm"
+  },
+  {
+    "original": "build/m8-final-device/mode_2/treatment.ppm",
+    "original_sha256": "880d1d24a428359f5e8ae99caaad308a7f52582317789bd9de02cef79fac3799",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/mode_2/treatment.ppm.gz",
+    "sha256": "33ec5d713f8c31ca2c038be89de1f2eabc11e0d21283e613b91468c48a4e3fd2",
+    "recovery": "gzip -dc build/m8-final-device/mode_2/treatment.ppm.gz > build/m8-final-device/mode_2/treatment.ppm"
+  },
+  {
+    "original": "build/m8-final-device/mode_2/stopped.ppm",
+    "original_sha256": "e0817f6627d009aebfab68a9489f06998dbe9817f7121709fb67872c8adaf1c3",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/mode_2/stopped.ppm.gz",
+    "sha256": "42387ca2cc796a739587a3efcbbba84445d6a86ee97b31684f0f3aeab9e38596",
+    "recovery": "gzip -dc build/m8-final-device/mode_2/stopped.ppm.gz > build/m8-final-device/mode_2/stopped.ppm"
+  },
+  {
+    "original": "build/m8-final-device/lost_replies/final.ppm",
+    "original_sha256": "aa7074cc5cdaa4cb726b668dfda5b06431724bffda15021a84084a66cdc25e06",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/lost_replies/final.ppm.gz",
+    "sha256": "97ce1e253246fa2267119a8c9663526112bb9c5f0940842f7bab2494a95feb1a",
+    "recovery": "gzip -dc build/m8-final-device/lost_replies/final.ppm.gz > build/m8-final-device/lost_replies/final.ppm"
+  },
+  {
+    "original": "build/m8-final-device/lost_replies/stop_reply_lost.ppm",
+    "original_sha256": "aa7074cc5cdaa4cb726b668dfda5b06431724bffda15021a84084a66cdc25e06",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/lost_replies/stop_reply_lost.ppm.gz",
+    "sha256": "97ce1e253246fa2267119a8c9663526112bb9c5f0940842f7bab2494a95feb1a",
+    "recovery": "gzip -dc build/m8-final-device/lost_replies/stop_reply_lost.ppm.gz > build/m8-final-device/lost_replies/stop_reply_lost.ppm"
+  },
+  {
+    "original": "build/m8-final-device/alarms/final.ppm",
+    "original_sha256": "fdb6ef99c327b4d003d15f80f46cf4c69a2b436f9497fb575f274969a5cb5118",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/alarms/final.ppm.gz",
+    "sha256": "1def9cd27bd34f12586530d99778fbea090a804c62c2b943f1d31e2c6a1816aa",
+    "recovery": "gzip -dc build/m8-final-device/alarms/final.ppm.gz > build/m8-final-device/alarms/final.ppm"
+  },
+  {
+    "original": "build/m8-final-device/alarms/air_alarm.ppm",
+    "original_sha256": "89c3e51f1de2f2ea0fe711020a6561f7fff55d6066e46a6cd4e78829d2ef0b04",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/alarms/air_alarm.ppm.gz",
+    "sha256": "16ba3400cf66d5b1d35c16956b3b7bc55911a3b8b1d82ef392bea23dbc2764d8",
+    "recovery": "gzip -dc build/m8-final-device/alarms/air_alarm.ppm.gz > build/m8-final-device/alarms/air_alarm.ppm"
+  },
+  {
+    "original": "build/m8-final-device/alarms/recovered.ppm",
+    "original_sha256": "6c72af7790be2ad0fe52f747c4b389525180f2d1272daf2690a91589c9c83e8a",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/alarms/recovered.ppm.gz",
+    "sha256": "9a3c19ecd0bf88f5b24f8f79c02146609b8f7ee4f71b6531f44ca44062dc9792",
+    "recovery": "gzip -dc build/m8-final-device/alarms/recovered.ppm.gz > build/m8-final-device/alarms/recovered.ppm"
+  },
+  {
+    "original": "build/m8-final-device/invalid/final.ppm",
+    "original_sha256": "cad294574c7cfa0da34866384b1f61e70d0b7db1807e54e3d80e038617d06297",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/invalid/final.ppm.gz",
+    "sha256": "eb8cb230889ffc2e838f60436c2ae2b79667fe516eb08c7ac1e00f450cf7e275",
+    "recovery": "gzip -dc build/m8-final-device/invalid/final.ppm.gz > build/m8-final-device/invalid/final.ppm"
+  },
+  {
+    "original": "build/m8-final-device/invalid/invalid_sensor.ppm",
+    "original_sha256": "e10017241c3903ca8603ce9a30dd40d97121be1f92bf85adf4d6ad600f5d251b",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/invalid/invalid_sensor.ppm.gz",
+    "sha256": "3ac5ecc0a63b63ed3acced267a53ebc5c8aa02e0a260197103a0668e6a8d0ac7",
+    "recovery": "gzip -dc build/m8-final-device/invalid/invalid_sensor.ppm.gz > build/m8-final-device/invalid/invalid_sensor.ppm"
+  },
+  {
+    "original": "build/m8-final-device/connection/final.ppm",
+    "original_sha256": "d8993c6c0aacf40bf4fa9116a6b009cac9197c317c1e32907b5c55c5503ebc14",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/connection/final.ppm.gz",
+    "sha256": "b2034bf2eea84886054c4e7d55798cfd7eed8d71df6c3b9d3428f5c0b22bbd1c",
+    "recovery": "gzip -dc build/m8-final-device/connection/final.ppm.gz > build/m8-final-device/connection/final.ppm"
+  },
+  {
+    "original": "build/m8-final-device/connection/disconnected.ppm",
+    "original_sha256": "2238117263f0f6c9bd6bdababc8901852176ed421ce47e67b6e46470ae40791e",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/connection/disconnected.ppm.gz",
+    "sha256": "4f3044e0ae71f819cebb6d90047511ff37d92968d3c3e0523618c209b607a980",
+    "recovery": "gzip -dc build/m8-final-device/connection/disconnected.ppm.gz > build/m8-final-device/connection/disconnected.ppm"
+  },
+  {
+    "original": "build/m8-final-device/connection/reconnected.ppm",
+    "original_sha256": "afd2d8bf1d487c88f9d57230a4e01ca88845032df550912d67c548442489c9be",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/connection/reconnected.ppm.gz",
+    "sha256": "1adbe7c1ec77f265d9e31368519e7ffef5374eeb8cd798227021ed06320538df",
+    "recovery": "gzip -dc build/m8-final-device/connection/reconnected.ppm.gz > build/m8-final-device/connection/reconnected.ppm"
+  },
+  {
+    "original": "build/m8-final-device/connection/stale.ppm",
+    "original_sha256": "c442501c0b1d85b2fb85cf0c3a7be027344a0c6940348b455946649b79d1dbe9",
+    "original_bytes": 2937016,
+    "archive": "build/m8-final-device/connection/stale.ppm.gz",
+    "sha256": "591aa8e787838ecced6275f302e7e3ca1b36d89797160c020658ec1072cfaffc",
+    "recovery": "gzip -dc build/m8-final-device/connection/stale.ppm.gz > build/m8-final-device/connection/stale.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/mode_0/final.ppm",
+    "original_sha256": "34b0ac21d98cbf6ab0fd775e7ed01d26cbe8d776f72f65066e0292e7158fbe6f",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/mode_0/final.ppm.gz",
+    "sha256": "b8a689b7de9244db139ebeb2c005b7283b0dbaef8e7283c71043a1fdb6356867",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/mode_0/final.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/mode_0/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/mode_0/treatment.ppm",
+    "original_sha256": "505ef306f9c1808f4990ba011270e41e04dc3b006540da4db3e6c1e13ea258a7",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/mode_0/treatment.ppm.gz",
+    "sha256": "244f64f9e6654985e7c28432328e96abdc60b6a64ea59d369790aa321ff2ce34",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/mode_0/treatment.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/mode_0/treatment.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/mode_0/stopped.ppm",
+    "original_sha256": "489264e48fea2a687e07002c02736b9012f8a6bda2880401a124b9bda8538810",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/mode_0/stopped.ppm.gz",
+    "sha256": "3408f431e74993128aeb14a6290a2fde24ce4e8fc5146430882be523e65d9d51",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/mode_0/stopped.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/mode_0/stopped.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/sdl_pointer/final.ppm",
+    "original_sha256": "5a59508551b2c9f68a96fcde0bae0cc3d948d0f274447ccedf6b78ca79644c6c",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/sdl_pointer/final.ppm.gz",
+    "sha256": "48f566d49c2887d09049a73faab61575ba844ba87983e8323c450f571307034e",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/sdl_pointer/final.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/sdl_pointer/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/sdl_pointer/exact_confirmation.ppm",
+    "original_sha256": "9b90cd1a35337968aa51121bb3179a5f492ae020a961a761a0fd2aa096f7d580",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/sdl_pointer/exact_confirmation.ppm.gz",
+    "sha256": "ca4ec2ac84815d8980156c5b903cc879558813001318e4bf2851d06b0ab58098",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/sdl_pointer/exact_confirmation.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/sdl_pointer/exact_confirmation.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/mode_1/final.ppm",
+    "original_sha256": "4fb0efe72be7e10075e1f7fdd179a16f44813299a984854216297ff4bea8e2f1",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/mode_1/final.ppm.gz",
+    "sha256": "2a04cb384dab3c272b89226a26d5c9dd0b3048bbc04390e0cf7912bd04ed841b",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/mode_1/final.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/mode_1/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/mode_1/treatment.ppm",
+    "original_sha256": "0426ead5ae5f42751552548583424490da5b8e55875270cae30dd425ef14b0a6",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/mode_1/treatment.ppm.gz",
+    "sha256": "92803ec44bf42aff29386b64d803a3c3ba9f394ac4147ef780a97818be96161d",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/mode_1/treatment.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/mode_1/treatment.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/mode_1/stopped.ppm",
+    "original_sha256": "23a4cdc82cb92d31d4a2de8af951952293fe2587f6340fd640d7bcef3fa0aaec",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/mode_1/stopped.ppm.gz",
+    "sha256": "803264a51155d52f2363e8222b556aca5d3dce3f59e65aab4847c4401e5024cb",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/mode_1/stopped.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/mode_1/stopped.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/same_session_age/final.ppm",
+    "original_sha256": "592155652a9436da8f4fe96079b7b02247249f4eb465220422fc11703453efc9",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/same_session_age/final.ppm.gz",
+    "sha256": "26d85a373dece6b9e4fb78733a87746a6eda052b93d301003fe94ad81bb4d54b",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/same_session_age/final.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/same_session_age/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/same_session_age/same_session_still_stale.ppm",
+    "original_sha256": "592155652a9436da8f4fe96079b7b02247249f4eb465220422fc11703453efc9",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/same_session_age/same_session_still_stale.ppm.gz",
+    "sha256": "26d85a373dece6b9e4fb78733a87746a6eda052b93d301003fe94ad81bb4d54b",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/same_session_age/same_session_still_stale.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/same_session_age/same_session_still_stale.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/alarm_layout/final.ppm",
+    "original_sha256": "2c29e4564b8d1311c64effc126f02cbceb0126c48b1a7e98ac13ad2b814eb9dd",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/alarm_layout/final.ppm.gz",
+    "sha256": "85f39fbb295ac27dda709a9e99a950a9039a5819328c46edfec4281e5b7db547",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/alarm_layout/final.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/alarm_layout/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/alarm_layout/all_alarms_disconnected.ppm",
+    "original_sha256": "bca8d2914b6acb9f340c88a46ddfc7501d28f9afa97f34becc1bff5cb40597b2",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/alarm_layout/all_alarms_disconnected.ppm.gz",
+    "sha256": "05cff5181bce10c23f8d2d8c5a5e157cc69ddb2a90720b791a295c2ef18ca978",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/alarm_layout/all_alarms_disconnected.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/alarm_layout/all_alarms_disconnected.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/mode_2/final.ppm",
+    "original_sha256": "d6feabe6371ecf9567f9ffe9585deb21de2e4e04aeeb2d71b50a2712810fbf60",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/mode_2/final.ppm.gz",
+    "sha256": "dbfceb610091450ea666058f9c597c7afee8ef66fe0dd0254b0a2db8ccdbd210",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/mode_2/final.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/mode_2/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/mode_2/treatment.ppm",
+    "original_sha256": "271c31670e6a6b23891a60eb3895b5413fbb7cde598830c0dc01ba07ab9fd77a",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/mode_2/treatment.ppm.gz",
+    "sha256": "2cb1b5894dcf0305a37a96735bc5a4ddcd3ba274868fcee9af3c3730c91a48d4",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/mode_2/treatment.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/mode_2/treatment.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/mode_2/stopped.ppm",
+    "original_sha256": "aeeab1c6d267a9f07666d05fe9f74a45be3aa6a0a72a19b5c1f509613b05413e",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/mode_2/stopped.ppm.gz",
+    "sha256": "748c450738d1f1a8cd7f99b573befb582f1ea50e53a90dfab54d1de5529521cc",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/mode_2/stopped.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/mode_2/stopped.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/lost_replies/final.ppm",
+    "original_sha256": "aa7074cc5cdaa4cb726b668dfda5b06431724bffda15021a84084a66cdc25e06",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/lost_replies/final.ppm.gz",
+    "sha256": "97ce1e253246fa2267119a8c9663526112bb9c5f0940842f7bab2494a95feb1a",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/lost_replies/final.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/lost_replies/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/lost_replies/stop_reply_lost.ppm",
+    "original_sha256": "aa7074cc5cdaa4cb726b668dfda5b06431724bffda15021a84084a66cdc25e06",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/lost_replies/stop_reply_lost.ppm.gz",
+    "sha256": "97ce1e253246fa2267119a8c9663526112bb9c5f0940842f7bab2494a95feb1a",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/lost_replies/stop_reply_lost.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/lost_replies/stop_reply_lost.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/alarms/final.ppm",
+    "original_sha256": "fdb6ef99c327b4d003d15f80f46cf4c69a2b436f9497fb575f274969a5cb5118",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/alarms/final.ppm.gz",
+    "sha256": "1def9cd27bd34f12586530d99778fbea090a804c62c2b943f1d31e2c6a1816aa",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/alarms/final.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/alarms/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/alarms/air_alarm.ppm",
+    "original_sha256": "89c3e51f1de2f2ea0fe711020a6561f7fff55d6066e46a6cd4e78829d2ef0b04",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/alarms/air_alarm.ppm.gz",
+    "sha256": "16ba3400cf66d5b1d35c16956b3b7bc55911a3b8b1d82ef392bea23dbc2764d8",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/alarms/air_alarm.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/alarms/air_alarm.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/alarms/recovered.ppm",
+    "original_sha256": "6c72af7790be2ad0fe52f747c4b389525180f2d1272daf2690a91589c9c83e8a",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/alarms/recovered.ppm.gz",
+    "sha256": "9a3c19ecd0bf88f5b24f8f79c02146609b8f7ee4f71b6531f44ca44062dc9792",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/alarms/recovered.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/alarms/recovered.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/invalid/final.ppm",
+    "original_sha256": "cad294574c7cfa0da34866384b1f61e70d0b7db1807e54e3d80e038617d06297",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/invalid/final.ppm.gz",
+    "sha256": "eb8cb230889ffc2e838f60436c2ae2b79667fe516eb08c7ac1e00f450cf7e275",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/invalid/final.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/invalid/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/invalid/invalid_sensor.ppm",
+    "original_sha256": "e10017241c3903ca8603ce9a30dd40d97121be1f92bf85adf4d6ad600f5d251b",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/invalid/invalid_sensor.ppm.gz",
+    "sha256": "3ac5ecc0a63b63ed3acced267a53ebc5c8aa02e0a260197103a0668e6a8d0ac7",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/invalid/invalid_sensor.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/invalid/invalid_sensor.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/connection/final.ppm",
+    "original_sha256": "b70e6769bf36196028fe74a12dd96a3a54d454372164d2a2d8d847476095a63f",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/connection/final.ppm.gz",
+    "sha256": "3497460b0ecd5a1473540b818e29c9a25353958226b8c8910c4577db82ca07aa",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/connection/final.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/connection/final.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/connection/disconnected.ppm",
+    "original_sha256": "973bd4c60bf6a69068b6dcc09c4d69f2ff21f2a16ddcb80d41d05f00ed78c69a",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/connection/disconnected.ppm.gz",
+    "sha256": "d99fddbdf60b83ebd2f58b673db1d2e9e1d60e9f26889e34334822f0169f38a6",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/connection/disconnected.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/connection/disconnected.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/connection/reconnected.ppm",
+    "original_sha256": "562d8155c41af7b24f89f6d31a1effaa8d1b29815cdf4339b2dbf16e5bec31c7",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/connection/reconnected.ppm.gz",
+    "sha256": "47f579904a89e17be9bff36c7f87bd849ba7da0f3b9a3522213d20c3a6d08034",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/connection/reconnected.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/connection/reconnected.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/device/connection/stale.ppm",
+    "original_sha256": "c442501c0b1d85b2fb85cf0c3a7be027344a0c6940348b455946649b79d1dbe9",
+    "original_bytes": 2937016,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/device/connection/stale.ppm.gz",
+    "sha256": "591aa8e787838ecced6275f302e7e3ca1b36d89797160c020658ec1072cfaffc",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/device/connection/stale.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/device/connection/stale.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/console/render-stall/retained-reply.ppm",
+    "original_sha256": "cd35889b75d51dacb5a85f15344d4f32c2b3297d636f4510ecfe60eb89ccc436",
+    "original_bytes": 3477616,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/console/render-stall/retained-reply.ppm.gz",
+    "sha256": "22f96149bbebfd34786fed379b21b47e036cccdaa72660a30b75ba2a1f2d1066",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/console/render-stall/retained-reply.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/console/render-stall/retained-reply.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/console/workflow/paused-truth.ppm",
+    "original_sha256": "23c2dd83cd06db9411eca574fe1ab5498c8cdf2ed06da9a56f26c4d9b15c5769",
+    "original_bytes": 3477616,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/console/workflow/paused-truth.ppm.gz",
+    "sha256": "c6e3fbc179029cd88bf4d5796eb5cb8ddd90d3f33535c6a41c7a44066e62622d",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/console/workflow/paused-truth.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/console/workflow/paused-truth.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/console/workflow/comparison-export.ppm",
+    "original_sha256": "b4aedf33b022e6005833eef8b337f7a4fb1caf5542e9988251369c7ce84b3c55",
+    "original_bytes": 3477616,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/console/workflow/comparison-export.ppm.gz",
+    "sha256": "26b4e212229fba8d0f461c57077b3996ce69e5f87a9223be63dcefa426dcbc5c",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/console/workflow/comparison-export.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/console/workflow/comparison-export.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/console/workflow/completed.ppm",
+    "original_sha256": "dae2bf414da44c9c7c3425d71afb3babc0abdca7160e65be49b86c6c716de73e",
+    "original_bytes": 3477616,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/console/workflow/completed.ppm.gz",
+    "sha256": "f9f2b68dcc01eb882bc9d94638c3e01b40c98b75cdffbec45c3c71bb5963b6c1",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/console/workflow/completed.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/console/workflow/completed.ppm"
+  },
+  {
+    "original": "/tmp/DialysisLab-m9-preliminary-package/console/invalid-reconnect/reconnected.ppm",
+    "original_sha256": "e1847f96ff1f20038a2e05d13304555cbab53ecc6c9310038a486f71c1952bdc",
+    "original_bytes": 3477616,
+    "archive": "/tmp/DialysisLab-m9-preliminary-package/console/invalid-reconnect/reconnected.ppm.gz",
+    "sha256": "0e1dd43bbedd7a998beb3be929b2714f213e16f595102921c07b35ebeae193b3",
+    "recovery": "gzip -dc /tmp/DialysisLab-m9-preliminary-package/console/invalid-reconnect/reconnected.ppm.gz > /tmp/DialysisLab-m9-preliminary-package/console/invalid-reconnect/reconnected.ppm"
+  }
+]

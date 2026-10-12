@@ -1,0 +1,224 @@
+{
+  "blood_mL_min": 300,
+  "circuit": {
+    "compliance_mL_mmHg": [
+      0.001
+    ],
+    "dialyzer_edge": 0,
+    "edges": [
+      [
+        1,
+        0,
+        1,
+        "dialyzer",
+        false
+      ]
+    ],
+    "profile": {
+      "id": "synthetic-small",
+      "koa_mL_min": [
+        300,
+        200,
+        220,
+        200,
+        180,
+        100
+      ],
+      "kuf_mL_min_mmHg": 1,
+      "provenance": "synthetic",
+      "resistance_mmHg_min_mL": 1,
+      "sieving": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0.7
+      ]
+    },
+    "pump_head_mmHg": 600,
+    "pump_node": 1,
+    "sensor_edge": 0,
+    "sensor_node": 1
+  },
+  "dt_ms": 100,
+  "faults": [],
+  "model": "m5-device-1",
+  "patient": {
+    "concentration_mmol_L": [
+      [
+        20,
+        140,
+        5,
+        105,
+        22,
+        2.4
+      ],
+      [
+        20,
+        14,
+        100,
+        10.5,
+        22,
+        2.4
+      ]
+    ],
+    "exchange_mL_min": [
+      600,
+      80,
+      200,
+      80,
+      100,
+      50
+    ],
+    "external_in_mL_min": 0,
+    "external_mmol_L": [
+      0,
+      140,
+      4,
+      105,
+      24,
+      2.4
+    ],
+    "external_out_mL_min": 0,
+    "generation_mmol_min": [
+      0.05,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "id": "synthetic-baseline",
+    "initial_weight_kg": 70,
+    "partition": [
+      1,
+      0.1,
+      20,
+      0.1,
+      1,
+      1
+    ],
+    "pco2_mmHg": 40,
+    "prime_mL": 20,
+    "provenance": "synthetic",
+    "refill_mL_min": 500,
+    "volume_mL": [
+      14000,
+      26000
+    ]
+  },
+  "patient_volume_mL": 40000,
+  "pressure_limit_mmHg": 250,
+  "resistance_mmHg_min_mL": 0.5,
+  "schema_version": 5,
+  "seed": 42,
+  "ticks": 400,
+  "transport": {
+    "blood_mmol_L": [
+      20,
+      140,
+      5,
+      105,
+      22,
+      2.4
+    ],
+    "dialysate_mL_min": 500,
+    "dialysate_mmol_L": [
+      0,
+      138,
+      2,
+      105,
+      30,
+      1.5
+    ]
+  },
+  "treatment": {
+    "concentrate_mmol_L": [
+      0,
+      3500,
+      100,
+      2625,
+      600,
+      60
+    ],
+    "filter1_R": 0.2,
+    "filter2_R": 0.2,
+    "head_mmHg": 600,
+    "heater_min_inverse": 30,
+    "initial_temperature_C": 37,
+    "inlet_temperature_C": 37,
+    "line_R": 0.1,
+    "mode": "HDF_PRE",
+    "penetration1": 0.001,
+    "penetration2": 0.001,
+    "ratio": 0.04,
+    "replacement_mL_min": 60,
+    "reservoir_mL": 50,
+    "setpoint_C": 37,
+    "source_contaminant": 1
+  },
+  "uf_mL_min": 5,
+  "workflow": [
+    {
+      "action": "PRIME",
+      "tick": 4,
+      "values": []
+    },
+    {
+      "action": "CONFIGURE",
+      "tick": 90,
+      "values": []
+    },
+    {
+      "action": "START",
+      "tick": 94,
+      "values": []
+    },
+    {
+      "action": "PAUSE",
+      "tick": 150,
+      "values": []
+    },
+    {
+      "action": "START",
+      "tick": 155,
+      "values": []
+    },
+    {
+      "action": "STOP",
+      "tick": 190,
+      "values": []
+    },
+    {
+      "action": "RECOVER",
+      "tick": 191,
+      "values": []
+    },
+    {
+      "action": "RESET",
+      "tick": 195,
+      "values": []
+    },
+    {
+      "action": "START",
+      "tick": 197,
+      "values": []
+    },
+    {
+      "action": "FINISH",
+      "tick": 240,
+      "values": []
+    },
+    {
+      "action": "CLEAN",
+      "tick": 244,
+      "values": []
+    },
+    {
+      "action": "COMPLETE",
+      "tick": 330,
+      "values": []
+    }
+  ]
+}

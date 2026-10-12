@@ -1,0 +1,5036 @@
+{
+  "executed_at": "2026-10-07T23:32:50.539800+00:00",
+  "command": [
+    "/usr/bin/python3",
+    "tools/verify_models.py",
+    "--scenarios",
+    "patient_baseline",
+    "patient_overload",
+    "patient_imbalance",
+    "patient_large",
+    "--output",
+    "build/m3-final-native"
+  ],
+  "successful": true,
+  "cases": [
+    {
+      "manifest": {
+        "schema_version": 2,
+        "executed_at": "2026-10-07T23:32:50.583205+00:00",
+        "configuration": {
+          "schema_version": 3,
+          "model": "m3-patient-1",
+          "seed": 42,
+          "ticks": 500,
+          "dt_ms": 100,
+          "blood_mL_min": 300,
+          "uf_mL_min": 5,
+          "resistance_mmHg_min_mL": 0.5,
+          "pressure_limit_mmHg": 250,
+          "patient_volume_mL": 40000,
+          "faults": [],
+          "circuit": {
+            "compliance_mL_mmHg": [
+              0.005,
+              0.005,
+              0.005
+            ],
+            "edges": [
+              [
+                1,
+                2,
+                0.1,
+                "tube",
+                false
+              ],
+              [
+                2,
+                3,
+                0.3,
+                "dialyzer",
+                false
+              ],
+              [
+                3,
+                0,
+                0.1,
+                "clamp",
+                false
+              ]
+            ],
+            "pump_node": 1,
+            "pump_head_mmHg": 600,
+            "sensor_node": 1,
+            "sensor_edge": 0,
+            "dialyzer_edge": 1,
+            "profile": {
+              "id": "synthetic-small",
+              "provenance": "synthetic",
+              "resistance_mmHg_min_mL": 0.3,
+              "kuf_mL_min_mmHg": 0.1,
+              "koa_mL_min": [
+                300,
+                200,
+                220,
+                200,
+                180,
+                100
+              ],
+              "sieving": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0.7
+              ]
+            }
+          },
+          "transport": {
+            "blood_mmol_L": [
+              20,
+              140,
+              5,
+              105,
+              22,
+              2.4
+            ],
+            "dialysate_mmol_L": [
+              0,
+              138,
+              2,
+              105,
+              30,
+              1.5
+            ],
+            "dialysate_mL_min": 500
+          },
+          "patient": {
+            "id": "synthetic-baseline",
+            "provenance": "synthetic",
+            "volume_mL": [
+              14000,
+              26000
+            ],
+            "concentration_mmol_L": [
+              [
+                20,
+                140,
+                5,
+                105,
+                22,
+                2.4
+              ],
+              [
+                20,
+                14,
+                100,
+                10.5,
+                22,
+                2.4
+              ]
+            ],
+            "exchange_mL_min": [
+              600,
+              80,
+              200,
+              80,
+              100,
+              50
+            ],
+            "partition": [
+              1,
+              0.1,
+              20,
+              0.1,
+              1,
+              1
+            ],
+            "refill_mL_min": 500,
+            "prime_mL": 200,
+            "initial_weight_kg": 70,
+            "pco2_mmHg": 40,
+            "external_in_mL_min": 0,
+            "external_out_mL_min": 0,
+            "external_mmol_L": [
+              0,
+              140,
+              4,
+              105,
+              24,
+              2.4
+            ],
+            "generation_mmol_min": [
+              0.05,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "configuration_sha256": "d4074b46cc425fbc6d983653ad31a1753cd2a0398c160efaef50769589a3231b",
+        "build": {
+          "source_revision": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+          "worktree_dirty_at_configure": false,
+          "compiler_id": "GNU",
+          "compiler_version": "13.3.0",
+          "build_type": "Release",
+          "source_sha256": {
+            "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+            "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+            "src/circuit.hpp": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b",
+            "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+            "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+            "src/plant.cpp": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488",
+            "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+            "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932",
+            "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+            "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+            "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+            "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+            "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+            "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+            "scenarios/patient_baseline.json": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+            "scenarios/patient_imbalance.json": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+            "scenarios/patient_large.json": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+            "scenarios/patient_overload.json": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4"
+          },
+          "binary_sha256": {
+            "plant": "a960cb06a093abc58afa0b80d851a98fac6ffc4b0257667168337b67e6cb587d",
+            "control": "fdf7d70414c684ef7430abe4d37b53bdd56ac32de5fab1b57a09d8e8b91c45df",
+            "protection": "4dcc49883fff2fcd8d5ad15446aa9a48d95f2028d2d8d57fea73683c9b8094b6"
+          },
+          "python_sha256": {
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932"
+          }
+        },
+        "python": "3.12.3",
+        "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "interface": "DL1",
+        "model": "m3-patient-1",
+        "simulation_only": true,
+        "outcome": "completed",
+        "errors": [],
+        "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+        "trajectory_file": "trajectory.jsonl",
+        "completed_ticks": 500,
+        "trajectory_sha256": "464ff0743c1e0e2d4fdc875d4ea6e70c70efeb5d30f6e2658f1f0c71bc0b2a38",
+        "final_plant_observation": {
+          "sequence": 499,
+          "time_ms": 50000,
+          "blood_mL_min": 240.8,
+          "pressure_mmHg": 118.39999999999996,
+          "uf_mL_min": 5.0,
+          "removed_total_mL": 4.146674287773503,
+          "removed_tick_mL": 0.008333333333333333,
+          "latched": false,
+          "clamp_closed": false,
+          "reason": "none"
+        },
+        "trajectory_bytes": 1520838,
+        "memory": {
+          "peak_rss_bytes": 463904768,
+          "memory.peak": 32890675200
+        }
+      },
+      "scan": {
+        "format": "dialysislab.trajectory.jsonl.v1",
+        "records": 500,
+        "complete_bytes": 1520838,
+        "sha256": "464ff0743c1e0e2d4fdc875d4ea6e70c70efeb5d30f6e2658f1f0c71bc0b2a38",
+        "discarded_tail_bytes": 0,
+        "first": {
+          "blood_mL_min": 278.9073242277019,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.0352379056340832,
+              0.09530209542427757,
+              0.14611799567436237,
+              0.0,
+              -0.37137699129089213,
+              0.034634170408012234
+            ],
+            "clearance_mL_min": [
+              51.76189528170416,
+              47.65104771213879,
+              48.70599855812079,
+              47.65104771213879,
+              46.42212391136152,
+              38.48241156445804
+            ],
+            "draw_tick_mL": 0.4648455403795032,
+            "edge_mL_min": [
+              152.35126959391326,
+              71.50059583829865,
+              55.000458337152786
+            ],
+            "pressure_mmHg": [
+              42.1853515445962,
+              26.950224585204875,
+              5.500045833715279
+            ],
+            "pump_mL_min": 278.9073242277019,
+            "return_mL_min": 55.000458337152786,
+            "return_tick_mL": 0.09166743056192131,
+            "sequence": 0,
+            "storage_change_mL": 0.3731781098175818,
+            "stored_mL": 0.3731781098175818,
+            "time_ms": 100,
+            "uf_mL_min": 0.0,
+            "uf_tick_mL": 0.0
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                20.00000589558989,
+                139.9999997949188,
+                5.0000001427617535,
+                104.99999985007851,
+                22.000000020208635,
+                2.3999999981152316
+              ],
+              [
+                20.00000000022674,
+                13.999999999998948,
+                100.00000000000183,
+                10.49999999999923,
+                22.000000000000124,
+                2.399999999999994
+              ],
+              [
+                19.99139673810487,
+                139.99920797075964,
+                4.998785665635492,
+                104.99999999965249,
+                22.003086440723916,
+                2.3997121432653272
+              ]
+            ],
+            "convective_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diffusive_mmol": [
+              0.0017246543074879777,
+              0.00015877392400192645,
+              0.0002434314171775926,
+              -2.7598870643729897e-14,
+              -0.0006187228535952692,
+              5.770515497779494e-05
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 0.0,
+            "illustrative_pH": 7.363241435173513,
+            "input_mmol": [
+              8.333333333333334e-05,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                279.9926194180811,
+                1959.9477553030981,
+                69.99813621911693,
+                1469.9608165317738,
+                307.9917908531382,
+                33.59910439945666
+              ],
+              [
+                519.9999995616763,
+                363.9999996890194,
+                2599.999997778953,
+                272.99999976676503,
+                571.9999995113624,
+                62.39999994669357
+              ],
+              [
+                4.005739699268314,
+                28.052086233958416,
+                1.0016225705131836,
+                21.039183701461212,
+                4.408828358352886,
+                0.4808379486947955
+              ]
+            ],
+            "mass_residual_mmol": [
+              -1.0786128392357985e-13,
+              -8.632485459965367e-14,
+              2.929385249997307e-13,
+              5.766625764748212e-14,
+              -1.272902139595744e-13,
+              -4.8618878020767475e-15
+            ],
+            "net_patient_loss_mL": 0.3731781098176725,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 0,
+            "time_ms": 100,
+            "volume_mL": [
+              13999.62684410113,
+              25999.99997778905,
+              200.3731781098176
+            ],
+            "weight_kg": 69.99962682189019
+          },
+          "patient_removed_mL": 0.3731781098176725,
+          "patient_volume_mL": 39999.62682189018,
+          "pressure_mmHg": 42.1853515445962,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.0,
+          "removed_total_mL": 0.0,
+          "sequence": 0,
+          "time_ms": 100,
+          "uf_mL_min": 0.0
+        },
+        "last": {
+          "blood_mL_min": 240.8,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.07700224369841584,
+              0.6979902091995861,
+              0.021879951697778253,
+              0.5249991227916666,
+              0.11770827024441993,
+              0.007970635440760813
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.6085337583350865,
+              0.14216338408378454,
+              0.22027778446826912,
+              -1.560746434798605e-05,
+              -0.5474827348551753,
+              0.047862203955012075
+            ],
+            "clearance_mL_min": [
+              104.44720056697378,
+              88.96098996453632,
+              92.70988219146744,
+              88.96098996453632,
+              84.77135461604831,
+              61.573010236055985
+            ],
+            "draw_tick_mL": 0.4013333333333334,
+            "edge_mL_min": [
+              240.79999999999998,
+              235.79999999999995,
+              235.79999999999984
+            ],
+            "pressure_mmHg": [
+              118.39999999999996,
+              94.31999999999996,
+              23.579999999999984
+            ],
+            "pump_mL_min": 240.8,
+            "return_mL_min": 235.79999999999984,
+            "return_tick_mL": 0.39299999999999974,
+            "sequence": 499,
+            "storage_change_mL": 0.0,
+            "stored_mL": 1.1814999999999996,
+            "time_ms": 50000,
+            "uf_mL_min": 5.0,
+            "uf_tick_mL": 0.008333333333333333
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 240.79999999999998,
+              "pressure_mmHg": 118.39999999999996,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 240.79999999999998,
+              "pressure_mmHg": 118.39999999999996,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                19.963960845195842,
+                139.99573761868456,
+                4.995337677853914,
+                104.99936367075124,
+                22.013068675319644,
+                2.3989713873725806
+              ],
+              [
+                19.999751614234352,
+                13.999995941734882,
+                99.99998907985295,
+                10.499999359202208,
+                22.000015409328604,
+                2.3999993968626323
+              ],
+              [
+                15.39623872247093,
+                139.59765850586362,
+                4.375402620379576,
+                104.99982377036805,
+                23.543136266097754,
+                2.2771991851852604
+              ]
+            ],
+            "convective_mmol": [
+              0.07116279149321893,
+              0.5795138552222728,
+              0.01914547299664194,
+              0.4354005717525512,
+              0.09513406241083812,
+              0.006751382889308268
+            ],
+            "diffusive_mmol": [
+              1.4904465287745867,
+              0.12977184011176066,
+              0.2017864733567427,
+              -4.064870664479894e-06,
+              -0.49765139952024945,
+              0.042316762744767325
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 4.146674287773503,
+            "illustrative_pH": 7.363499342433134,
+            "input_mmol": [
+              0.04166666666666667,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                279.39097360564074,
+                1959.2076811419138,
+                69.9085851814019,
+                1469.4415938510201,
+                308.067759546092,
+                33.57304478642024
+              ],
+              [
+                519.9916453402024,
+                363.9985668280797,
+                2599.9902328099834,
+                272.9989875962591,
+                571.998314322292,
+                62.39975672007213
+              ],
+              [
+                3.0974384005447857,
+                28.0844663346974,
+                0.8802500622718937,
+                21.1240220458583,
+                4.736443468717946,
+                0.4581303478743484
+              ]
+            ],
+            "mass_residual_mmol": [
+              -1.0983575160494752e-11,
+              2.4888618943563756e-11,
+              1.053602344258664e-11,
+              1.9401511305900288e-11,
+              -7.419218017723495e-12,
+              7.93880586269502e-13
+            ],
+            "net_patient_loss_mL": 5.328174287773436,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 499,
+            "time_ms": 50000,
+            "volume_mL": [
+              13994.766658384518,
+              25999.905167327706,
+              201.1815
+            ],
+            "weight_kg": 69.99467182571223
+          },
+          "patient_removed_mL": 5.328174287773436,
+          "patient_volume_mL": 39994.67182571223,
+          "pressure_mmHg": 118.39999999999996,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.008333333333333333,
+          "removed_total_mL": 4.146674287773503,
+          "sequence": 499,
+          "time_ms": 50000,
+          "uf_mL_min": 5.0
+        }
+      },
+      "maximum_water_error_mL": 7.945977209544708e-12,
+      "expected_water_error_mL": 1e-06,
+      "first_latch_ms": null,
+      "maximum_mass_error_mmol": 2.5011104298755527e-11,
+      "requested_configuration_sha256": "d4074b46cc425fbc6d983653ad31a1753cd2a0398c160efaef50769589a3231b",
+      "scenario": "patient_baseline",
+      "repeat": 1,
+      "collection": null,
+      "directory": "build/m3-final-native/patient_baseline-1"
+    },
+    {
+      "manifest": {
+        "schema_version": 2,
+        "executed_at": "2026-10-07T23:32:52.959452+00:00",
+        "configuration": {
+          "schema_version": 3,
+          "model": "m3-patient-1",
+          "seed": 42,
+          "ticks": 500,
+          "dt_ms": 100,
+          "blood_mL_min": 300,
+          "uf_mL_min": 5,
+          "resistance_mmHg_min_mL": 0.5,
+          "pressure_limit_mmHg": 250,
+          "patient_volume_mL": 40000,
+          "faults": [],
+          "circuit": {
+            "compliance_mL_mmHg": [
+              0.005,
+              0.005,
+              0.005
+            ],
+            "edges": [
+              [
+                1,
+                2,
+                0.1,
+                "tube",
+                false
+              ],
+              [
+                2,
+                3,
+                0.3,
+                "dialyzer",
+                false
+              ],
+              [
+                3,
+                0,
+                0.1,
+                "clamp",
+                false
+              ]
+            ],
+            "pump_node": 1,
+            "pump_head_mmHg": 600,
+            "sensor_node": 1,
+            "sensor_edge": 0,
+            "dialyzer_edge": 1,
+            "profile": {
+              "id": "synthetic-small",
+              "provenance": "synthetic",
+              "resistance_mmHg_min_mL": 0.3,
+              "kuf_mL_min_mmHg": 0.1,
+              "koa_mL_min": [
+                300,
+                200,
+                220,
+                200,
+                180,
+                100
+              ],
+              "sieving": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0.7
+              ]
+            }
+          },
+          "transport": {
+            "blood_mmol_L": [
+              20,
+              140,
+              5,
+              105,
+              22,
+              2.4
+            ],
+            "dialysate_mmol_L": [
+              0,
+              138,
+              2,
+              105,
+              30,
+              1.5
+            ],
+            "dialysate_mL_min": 500
+          },
+          "patient": {
+            "id": "synthetic-baseline",
+            "provenance": "synthetic",
+            "volume_mL": [
+              14000,
+              26000
+            ],
+            "concentration_mmol_L": [
+              [
+                20,
+                140,
+                5,
+                105,
+                22,
+                2.4
+              ],
+              [
+                20,
+                14,
+                100,
+                10.5,
+                22,
+                2.4
+              ]
+            ],
+            "exchange_mL_min": [
+              600,
+              80,
+              200,
+              80,
+              100,
+              50
+            ],
+            "partition": [
+              1,
+              0.1,
+              20,
+              0.1,
+              1,
+              1
+            ],
+            "refill_mL_min": 500,
+            "prime_mL": 200,
+            "initial_weight_kg": 70,
+            "pco2_mmHg": 40,
+            "external_in_mL_min": 0,
+            "external_out_mL_min": 0,
+            "external_mmol_L": [
+              0,
+              140,
+              4,
+              105,
+              24,
+              2.4
+            ],
+            "generation_mmol_min": [
+              0.05,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "configuration_sha256": "d4074b46cc425fbc6d983653ad31a1753cd2a0398c160efaef50769589a3231b",
+        "build": {
+          "source_revision": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+          "worktree_dirty_at_configure": false,
+          "compiler_id": "GNU",
+          "compiler_version": "13.3.0",
+          "build_type": "Release",
+          "source_sha256": {
+            "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+            "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+            "src/circuit.hpp": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b",
+            "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+            "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+            "src/plant.cpp": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488",
+            "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+            "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932",
+            "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+            "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+            "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+            "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+            "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+            "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+            "scenarios/patient_baseline.json": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+            "scenarios/patient_imbalance.json": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+            "scenarios/patient_large.json": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+            "scenarios/patient_overload.json": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4"
+          },
+          "binary_sha256": {
+            "plant": "a960cb06a093abc58afa0b80d851a98fac6ffc4b0257667168337b67e6cb587d",
+            "control": "fdf7d70414c684ef7430abe4d37b53bdd56ac32de5fab1b57a09d8e8b91c45df",
+            "protection": "4dcc49883fff2fcd8d5ad15446aa9a48d95f2028d2d8d57fea73683c9b8094b6"
+          },
+          "python_sha256": {
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932"
+          }
+        },
+        "python": "3.12.3",
+        "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "interface": "DL1",
+        "model": "m3-patient-1",
+        "simulation_only": true,
+        "outcome": "completed",
+        "errors": [],
+        "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+        "trajectory_file": "trajectory.jsonl",
+        "completed_ticks": 500,
+        "trajectory_sha256": "464ff0743c1e0e2d4fdc875d4ea6e70c70efeb5d30f6e2658f1f0c71bc0b2a38",
+        "final_plant_observation": {
+          "sequence": 499,
+          "time_ms": 50000,
+          "blood_mL_min": 240.8,
+          "pressure_mmHg": 118.39999999999996,
+          "uf_mL_min": 5.0,
+          "removed_total_mL": 4.146674287773503,
+          "removed_tick_mL": 0.008333333333333333,
+          "latched": false,
+          "clamp_closed": false,
+          "reason": "none"
+        },
+        "trajectory_bytes": 1520838,
+        "memory": {
+          "peak_rss_bytes": 463904768,
+          "memory.peak": 32890675200
+        }
+      },
+      "scan": {
+        "format": "dialysislab.trajectory.jsonl.v1",
+        "records": 500,
+        "complete_bytes": 1520838,
+        "sha256": "464ff0743c1e0e2d4fdc875d4ea6e70c70efeb5d30f6e2658f1f0c71bc0b2a38",
+        "discarded_tail_bytes": 0,
+        "first": {
+          "blood_mL_min": 278.9073242277019,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.0352379056340832,
+              0.09530209542427757,
+              0.14611799567436237,
+              0.0,
+              -0.37137699129089213,
+              0.034634170408012234
+            ],
+            "clearance_mL_min": [
+              51.76189528170416,
+              47.65104771213879,
+              48.70599855812079,
+              47.65104771213879,
+              46.42212391136152,
+              38.48241156445804
+            ],
+            "draw_tick_mL": 0.4648455403795032,
+            "edge_mL_min": [
+              152.35126959391326,
+              71.50059583829865,
+              55.000458337152786
+            ],
+            "pressure_mmHg": [
+              42.1853515445962,
+              26.950224585204875,
+              5.500045833715279
+            ],
+            "pump_mL_min": 278.9073242277019,
+            "return_mL_min": 55.000458337152786,
+            "return_tick_mL": 0.09166743056192131,
+            "sequence": 0,
+            "storage_change_mL": 0.3731781098175818,
+            "stored_mL": 0.3731781098175818,
+            "time_ms": 100,
+            "uf_mL_min": 0.0,
+            "uf_tick_mL": 0.0
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                20.00000589558989,
+                139.9999997949188,
+                5.0000001427617535,
+                104.99999985007851,
+                22.000000020208635,
+                2.3999999981152316
+              ],
+              [
+                20.00000000022674,
+                13.999999999998948,
+                100.00000000000183,
+                10.49999999999923,
+                22.000000000000124,
+                2.399999999999994
+              ],
+              [
+                19.99139673810487,
+                139.99920797075964,
+                4.998785665635492,
+                104.99999999965249,
+                22.003086440723916,
+                2.3997121432653272
+              ]
+            ],
+            "convective_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diffusive_mmol": [
+              0.0017246543074879777,
+              0.00015877392400192645,
+              0.0002434314171775926,
+              -2.7598870643729897e-14,
+              -0.0006187228535952692,
+              5.770515497779494e-05
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 0.0,
+            "illustrative_pH": 7.363241435173513,
+            "input_mmol": [
+              8.333333333333334e-05,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                279.9926194180811,
+                1959.9477553030981,
+                69.99813621911693,
+                1469.9608165317738,
+                307.9917908531382,
+                33.59910439945666
+              ],
+              [
+                519.9999995616763,
+                363.9999996890194,
+                2599.999997778953,
+                272.99999976676503,
+                571.9999995113624,
+                62.39999994669357
+              ],
+              [
+                4.005739699268314,
+                28.052086233958416,
+                1.0016225705131836,
+                21.039183701461212,
+                4.408828358352886,
+                0.4808379486947955
+              ]
+            ],
+            "mass_residual_mmol": [
+              -1.0786128392357985e-13,
+              -8.632485459965367e-14,
+              2.929385249997307e-13,
+              5.766625764748212e-14,
+              -1.272902139595744e-13,
+              -4.8618878020767475e-15
+            ],
+            "net_patient_loss_mL": 0.3731781098176725,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 0,
+            "time_ms": 100,
+            "volume_mL": [
+              13999.62684410113,
+              25999.99997778905,
+              200.3731781098176
+            ],
+            "weight_kg": 69.99962682189019
+          },
+          "patient_removed_mL": 0.3731781098176725,
+          "patient_volume_mL": 39999.62682189018,
+          "pressure_mmHg": 42.1853515445962,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.0,
+          "removed_total_mL": 0.0,
+          "sequence": 0,
+          "time_ms": 100,
+          "uf_mL_min": 0.0
+        },
+        "last": {
+          "blood_mL_min": 240.8,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.07700224369841584,
+              0.6979902091995861,
+              0.021879951697778253,
+              0.5249991227916666,
+              0.11770827024441993,
+              0.007970635440760813
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.6085337583350865,
+              0.14216338408378454,
+              0.22027778446826912,
+              -1.560746434798605e-05,
+              -0.5474827348551753,
+              0.047862203955012075
+            ],
+            "clearance_mL_min": [
+              104.44720056697378,
+              88.96098996453632,
+              92.70988219146744,
+              88.96098996453632,
+              84.77135461604831,
+              61.573010236055985
+            ],
+            "draw_tick_mL": 0.4013333333333334,
+            "edge_mL_min": [
+              240.79999999999998,
+              235.79999999999995,
+              235.79999999999984
+            ],
+            "pressure_mmHg": [
+              118.39999999999996,
+              94.31999999999996,
+              23.579999999999984
+            ],
+            "pump_mL_min": 240.8,
+            "return_mL_min": 235.79999999999984,
+            "return_tick_mL": 0.39299999999999974,
+            "sequence": 499,
+            "storage_change_mL": 0.0,
+            "stored_mL": 1.1814999999999996,
+            "time_ms": 50000,
+            "uf_mL_min": 5.0,
+            "uf_tick_mL": 0.008333333333333333
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 240.79999999999998,
+              "pressure_mmHg": 118.39999999999996,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 240.79999999999998,
+              "pressure_mmHg": 118.39999999999996,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                19.963960845195842,
+                139.99573761868456,
+                4.995337677853914,
+                104.99936367075124,
+                22.013068675319644,
+                2.3989713873725806
+              ],
+              [
+                19.999751614234352,
+                13.999995941734882,
+                99.99998907985295,
+                10.499999359202208,
+                22.000015409328604,
+                2.3999993968626323
+              ],
+              [
+                15.39623872247093,
+                139.59765850586362,
+                4.375402620379576,
+                104.99982377036805,
+                23.543136266097754,
+                2.2771991851852604
+              ]
+            ],
+            "convective_mmol": [
+              0.07116279149321893,
+              0.5795138552222728,
+              0.01914547299664194,
+              0.4354005717525512,
+              0.09513406241083812,
+              0.006751382889308268
+            ],
+            "diffusive_mmol": [
+              1.4904465287745867,
+              0.12977184011176066,
+              0.2017864733567427,
+              -4.064870664479894e-06,
+              -0.49765139952024945,
+              0.042316762744767325
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 4.146674287773503,
+            "illustrative_pH": 7.363499342433134,
+            "input_mmol": [
+              0.04166666666666667,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                279.39097360564074,
+                1959.2076811419138,
+                69.9085851814019,
+                1469.4415938510201,
+                308.067759546092,
+                33.57304478642024
+              ],
+              [
+                519.9916453402024,
+                363.9985668280797,
+                2599.9902328099834,
+                272.9989875962591,
+                571.998314322292,
+                62.39975672007213
+              ],
+              [
+                3.0974384005447857,
+                28.0844663346974,
+                0.8802500622718937,
+                21.1240220458583,
+                4.736443468717946,
+                0.4581303478743484
+              ]
+            ],
+            "mass_residual_mmol": [
+              -1.0983575160494752e-11,
+              2.4888618943563756e-11,
+              1.053602344258664e-11,
+              1.9401511305900288e-11,
+              -7.419218017723495e-12,
+              7.93880586269502e-13
+            ],
+            "net_patient_loss_mL": 5.328174287773436,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 499,
+            "time_ms": 50000,
+            "volume_mL": [
+              13994.766658384518,
+              25999.905167327706,
+              201.1815
+            ],
+            "weight_kg": 69.99467182571223
+          },
+          "patient_removed_mL": 5.328174287773436,
+          "patient_volume_mL": 39994.67182571223,
+          "pressure_mmHg": 118.39999999999996,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.008333333333333333,
+          "removed_total_mL": 4.146674287773503,
+          "sequence": 499,
+          "time_ms": 50000,
+          "uf_mL_min": 5.0
+        }
+      },
+      "maximum_water_error_mL": 7.945977209544708e-12,
+      "expected_water_error_mL": 1e-06,
+      "first_latch_ms": null,
+      "maximum_mass_error_mmol": 2.5011104298755527e-11,
+      "requested_configuration_sha256": "d4074b46cc425fbc6d983653ad31a1753cd2a0398c160efaef50769589a3231b",
+      "scenario": "patient_baseline",
+      "repeat": 2,
+      "collection": null,
+      "directory": "build/m3-final-native/patient_baseline-2"
+    },
+    {
+      "manifest": {
+        "schema_version": 2,
+        "executed_at": "2026-10-07T23:32:55.212978+00:00",
+        "configuration": {
+          "schema_version": 3,
+          "model": "m3-patient-1",
+          "seed": 42,
+          "ticks": 500,
+          "dt_ms": 100,
+          "blood_mL_min": 300,
+          "uf_mL_min": 5,
+          "resistance_mmHg_min_mL": 0.5,
+          "pressure_limit_mmHg": 250,
+          "patient_volume_mL": 46000,
+          "faults": [],
+          "circuit": {
+            "compliance_mL_mmHg": [
+              0.005,
+              0.005,
+              0.005
+            ],
+            "edges": [
+              [
+                1,
+                2,
+                0.1,
+                "tube",
+                false
+              ],
+              [
+                2,
+                3,
+                0.3,
+                "dialyzer",
+                false
+              ],
+              [
+                3,
+                0,
+                0.1,
+                "clamp",
+                false
+              ]
+            ],
+            "pump_node": 1,
+            "pump_head_mmHg": 600,
+            "sensor_node": 1,
+            "sensor_edge": 0,
+            "dialyzer_edge": 1,
+            "profile": {
+              "id": "synthetic-small",
+              "provenance": "synthetic",
+              "resistance_mmHg_min_mL": 0.3,
+              "kuf_mL_min_mmHg": 0.1,
+              "koa_mL_min": [
+                300,
+                200,
+                220,
+                200,
+                180,
+                100
+              ],
+              "sieving": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0.7
+              ]
+            }
+          },
+          "transport": {
+            "blood_mmol_L": [
+              20,
+              140,
+              5,
+              105,
+              22,
+              2.4
+            ],
+            "dialysate_mmol_L": [
+              0,
+              138,
+              2,
+              105,
+              30,
+              1.5
+            ],
+            "dialysate_mL_min": 500
+          },
+          "patient": {
+            "id": "synthetic-overload",
+            "provenance": "synthetic",
+            "volume_mL": [
+              18000,
+              28000
+            ],
+            "concentration_mmol_L": [
+              [
+                20,
+                140,
+                5,
+                105,
+                22,
+                2.4
+              ],
+              [
+                20,
+                14,
+                100,
+                10.5,
+                22,
+                2.4
+              ]
+            ],
+            "exchange_mL_min": [
+              600,
+              80,
+              200,
+              80,
+              100,
+              50
+            ],
+            "partition": [
+              1,
+              0.1,
+              20,
+              0.1,
+              1,
+              1
+            ],
+            "refill_mL_min": 500,
+            "prime_mL": 200,
+            "initial_weight_kg": 76,
+            "pco2_mmHg": 40,
+            "external_in_mL_min": 0,
+            "external_out_mL_min": 0,
+            "external_mmol_L": [
+              0,
+              140,
+              4,
+              105,
+              24,
+              2.4
+            ],
+            "generation_mmol_min": [
+              0.05,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "configuration_sha256": "9b2b14b0144a615f6899250ca278d7f9a73122bcb1d963bb9f57e1bf09ec6fe7",
+        "build": {
+          "source_revision": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+          "worktree_dirty_at_configure": false,
+          "compiler_id": "GNU",
+          "compiler_version": "13.3.0",
+          "build_type": "Release",
+          "source_sha256": {
+            "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+            "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+            "src/circuit.hpp": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b",
+            "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+            "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+            "src/plant.cpp": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488",
+            "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+            "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932",
+            "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+            "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+            "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+            "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+            "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+            "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+            "scenarios/patient_baseline.json": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+            "scenarios/patient_imbalance.json": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+            "scenarios/patient_large.json": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+            "scenarios/patient_overload.json": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4"
+          },
+          "binary_sha256": {
+            "plant": "a960cb06a093abc58afa0b80d851a98fac6ffc4b0257667168337b67e6cb587d",
+            "control": "fdf7d70414c684ef7430abe4d37b53bdd56ac32de5fab1b57a09d8e8b91c45df",
+            "protection": "4dcc49883fff2fcd8d5ad15446aa9a48d95f2028d2d8d57fea73683c9b8094b6"
+          },
+          "python_sha256": {
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932"
+          }
+        },
+        "python": "3.12.3",
+        "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "interface": "DL1",
+        "model": "m3-patient-1",
+        "simulation_only": true,
+        "outcome": "completed",
+        "errors": [],
+        "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+        "trajectory_file": "trajectory.jsonl",
+        "completed_ticks": 500,
+        "trajectory_sha256": "c2706624c71db68f1600a1ce8cea475c091ffa0353a43d97e206c607a7b4a334",
+        "final_plant_observation": {
+          "sequence": 499,
+          "time_ms": 50000,
+          "blood_mL_min": 240.8,
+          "pressure_mmHg": 118.39999999999996,
+          "uf_mL_min": 5.0,
+          "removed_total_mL": 4.146674287773503,
+          "removed_tick_mL": 0.008333333333333333,
+          "latched": false,
+          "clamp_closed": false,
+          "reason": "none"
+        },
+        "trajectory_bytes": 1521451,
+        "memory": {
+          "peak_rss_bytes": 463904768,
+          "memory.peak": 32890675200
+        }
+      },
+      "scan": {
+        "format": "dialysislab.trajectory.jsonl.v1",
+        "records": 500,
+        "complete_bytes": 1521451,
+        "sha256": "c2706624c71db68f1600a1ce8cea475c091ffa0353a43d97e206c607a7b4a334",
+        "discarded_tail_bytes": 0,
+        "first": {
+          "blood_mL_min": 278.9073242277019,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.0352379056340832,
+              0.09530209542427757,
+              0.14611799567436237,
+              0.0,
+              -0.37137699129089213,
+              0.034634170408012234
+            ],
+            "clearance_mL_min": [
+              51.76189528170416,
+              47.65104771213879,
+              48.70599855812079,
+              47.65104771213879,
+              46.42212391136152,
+              38.48241156445804
+            ],
+            "draw_tick_mL": 0.4648455403795032,
+            "edge_mL_min": [
+              152.35126959391326,
+              71.50059583829865,
+              55.000458337152786
+            ],
+            "pressure_mmHg": [
+              42.1853515445962,
+              26.950224585204875,
+              5.500045833715279
+            ],
+            "pump_mL_min": 278.9073242277019,
+            "return_mL_min": 55.000458337152786,
+            "return_tick_mL": 0.09166743056192131,
+            "sequence": 0,
+            "storage_change_mL": 0.3731781098175818,
+            "stored_mL": 0.3731781098175818,
+            "time_ms": 100,
+            "uf_mL_min": 0.0,
+            "uf_tick_mL": 0.0
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                20.00000458553824,
+                139.99999987503986,
+                5.000000084989819,
+                104.999999909305,
+                22.000000015717887,
+                2.399999998534065
+              ],
+              [
+                20.000000000163766,
+                13.999999999999405,
+                100.00000000000101,
+                10.499999999999568,
+                22.000000000000092,
+                2.3999999999999964
+              ],
+              [
+                19.991396735068385,
+                139.99920797094535,
+                4.9987856655015825,
+                104.99999999978978,
+                22.003086440713503,
+                2.399712143266298
+              ]
+            ],
+            "convective_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diffusive_mmol": [
+              0.0017246543072260206,
+              0.00015877392401667504,
+              0.0002434314171667223,
+              -1.6695431971566875e-14,
+              -0.0006187228535960747,
+              5.77051549778572e-05
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 0.0,
+            "illustrative_pH": 7.363241435084863,
+            "input_mmol": [
+              8.333333333333334e-05,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                359.9926193212898,
+                2519.9477552339526,
+                89.9981357256132,
+                1889.9608164799156,
+                395.9917907445601,
+                43.199104387611236
+              ],
+              [
+                559.9999996590765,
+                391.99999975812705,
+                2799.999998272483,
+                293.99999981859565,
+                615.9999996199426,
+                67.19999995853881
+              ],
+              [
+                4.005739698659883,
+                28.052086233995627,
+                1.0016225704863515,
+                21.039183701488724,
+                4.4088283583507994,
+                0.48083794869499
+              ]
+            ],
+            "mass_residual_mmol": [
+              4.940180751457357e-14,
+              -6.613267333928363e-13,
+              -2.599426750238276e-13,
+              -4.511714140197088e-14,
+              -5.437696733862074e-14,
+              4.97033512437961e-15
+            ],
+            "net_patient_loss_mL": 0.3731781098176725,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 0,
+            "time_ms": 100,
+            "volume_mL": [
+              17999.626839165634,
+              27999.99998272455,
+              200.3731781098176
+            ],
+            "weight_kg": 75.99962682189019
+          },
+          "patient_removed_mL": 0.3731781098176725,
+          "patient_volume_mL": 45999.62682189018,
+          "pressure_mmHg": 42.1853515445962,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.0,
+          "removed_total_mL": 0.0,
+          "sequence": 0,
+          "time_ms": 100,
+          "uf_mL_min": 0.0
+        },
+        "last": {
+          "blood_mL_min": 240.8,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.07701238445121866,
+              0.6979916643338197,
+              0.02188114735002837,
+              0.5249994675104536,
+              0.11770444868048005,
+              0.00797084984848222
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.6087455929834658,
+              0.1421892741201754,
+              0.22029995422411916,
+              -9.474159439232656e-06,
+              -0.5475475266855623,
+              0.04786597587753348
+            ],
+            "clearance_mL_min": [
+              104.44720056697378,
+              88.96098996453632,
+              92.70988219146744,
+              88.96098996453632,
+              84.77135461604831,
+              61.573010236055985
+            ],
+            "draw_tick_mL": 0.4013333333333334,
+            "edge_mL_min": [
+              240.79999999999998,
+              235.79999999999995,
+              235.79999999999984
+            ],
+            "pressure_mmHg": [
+              118.39999999999996,
+              94.31999999999996,
+              23.579999999999984
+            ],
+            "pump_mL_min": 240.8,
+            "return_mL_min": 235.79999999999984,
+            "return_tick_mL": 0.39299999999999974,
+            "sequence": 499,
+            "storage_change_mL": 0.0,
+            "stored_mL": 1.1814999999999996,
+            "time_ms": 50000,
+            "uf_mL_min": 5.0,
+            "uf_tick_mL": 0.008333333333333333
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 240.79999999999998,
+              "pressure_mmHg": 118.39999999999996,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 240.79999999999998,
+              "pressure_mmHg": 118.39999999999996,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                19.97186726882546,
+                139.99682593006557,
+                4.996257894093027,
+                104.999613382069,
+                22.010178117072428,
+                2.3991990998069435
+              ],
+              [
+                19.99982006897063,
+                13.999997201094144,
+                99.99999184453382,
+                10.499999638692147,
+                22.00001114066806,
+                2.3999995640341694
+              ],
+              [
+                15.398276816131624,
+                139.5979509049668,
+                4.37564292261478,
+                104.99989302308062,
+                23.54236825842789,
+                2.2772607453518336
+              ]
+            ],
+            "convective_mmol": [
+              0.0711651582384897,
+              0.57951421266958,
+              0.019145751394500355,
+              0.43540066163983326,
+              0.0951331514414208,
+              0.00675143357803934
+            ],
+            "diffusive_mmol": [
+              1.4904959687580874,
+              0.12977819988493153,
+              0.2017916354032936,
+              -2.4655783947295613e-06,
+              -0.49766684434246516,
+              0.04231765447555221
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 4.146674287773503,
+            "illustrative_pH": 7.363442311042237,
+            "input_mmol": [
+              0.04166666666666667,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                359.3886748152279,
+                2519.207296549558,
+                89.9063907958173,
+                1889.441352757011,
+                396.0675604072841,
+                43.1729779440004
+              ],
+              [
+                559.9934822971331,
+                391.9988858776938,
+                2799.9923734107692,
+                293.9992130685448,
+                615.9986843257896,
+                67.19981023530624
+              ],
+              [
+                3.0978484272845845,
+                28.08452515998758,
+                0.8802984066360254,
+                21.124035978222892,
+                4.73628895978291,
+                0.4581427326409999
+              ]
+            ],
+            "mass_residual_mmol": [
+              -2.4476656812488784e-11,
+              -2.0598936445459515e-10,
+              2.03538193244146e-11,
+              -1.5994655750923637e-10,
+              -4.4480211180975004e-11,
+              1.2276776817365942e-12
+            ],
+            "net_patient_loss_mL": 5.328174287773436,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 499,
+            "time_ms": 50000,
+            "volume_mL": [
+              17994.74580808004,
+              27999.926017632188,
+              201.1815
+            ],
+            "weight_kg": 75.99467182571223
+          },
+          "patient_removed_mL": 5.328174287773436,
+          "patient_volume_mL": 45994.67182571223,
+          "pressure_mmHg": 118.39999999999996,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.008333333333333333,
+          "removed_total_mL": 4.146674287773503,
+          "sequence": 499,
+          "time_ms": 50000,
+          "uf_mL_min": 5.0
+        }
+      },
+      "maximum_water_error_mL": 6.975864330627246e-12,
+      "expected_water_error_mL": 1e-06,
+      "first_latch_ms": null,
+      "maximum_mass_error_mmol": 2.0600054995156825e-10,
+      "requested_configuration_sha256": "9b2b14b0144a615f6899250ca278d7f9a73122bcb1d963bb9f57e1bf09ec6fe7",
+      "scenario": "patient_overload",
+      "repeat": 1,
+      "collection": null,
+      "directory": "build/m3-final-native/patient_overload-1"
+    },
+    {
+      "manifest": {
+        "schema_version": 2,
+        "executed_at": "2026-10-07T23:32:57.497253+00:00",
+        "configuration": {
+          "schema_version": 3,
+          "model": "m3-patient-1",
+          "seed": 42,
+          "ticks": 500,
+          "dt_ms": 100,
+          "blood_mL_min": 300,
+          "uf_mL_min": 5,
+          "resistance_mmHg_min_mL": 0.5,
+          "pressure_limit_mmHg": 250,
+          "patient_volume_mL": 46000,
+          "faults": [],
+          "circuit": {
+            "compliance_mL_mmHg": [
+              0.005,
+              0.005,
+              0.005
+            ],
+            "edges": [
+              [
+                1,
+                2,
+                0.1,
+                "tube",
+                false
+              ],
+              [
+                2,
+                3,
+                0.3,
+                "dialyzer",
+                false
+              ],
+              [
+                3,
+                0,
+                0.1,
+                "clamp",
+                false
+              ]
+            ],
+            "pump_node": 1,
+            "pump_head_mmHg": 600,
+            "sensor_node": 1,
+            "sensor_edge": 0,
+            "dialyzer_edge": 1,
+            "profile": {
+              "id": "synthetic-small",
+              "provenance": "synthetic",
+              "resistance_mmHg_min_mL": 0.3,
+              "kuf_mL_min_mmHg": 0.1,
+              "koa_mL_min": [
+                300,
+                200,
+                220,
+                200,
+                180,
+                100
+              ],
+              "sieving": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0.7
+              ]
+            }
+          },
+          "transport": {
+            "blood_mmol_L": [
+              20,
+              140,
+              5,
+              105,
+              22,
+              2.4
+            ],
+            "dialysate_mmol_L": [
+              0,
+              138,
+              2,
+              105,
+              30,
+              1.5
+            ],
+            "dialysate_mL_min": 500
+          },
+          "patient": {
+            "id": "synthetic-overload",
+            "provenance": "synthetic",
+            "volume_mL": [
+              18000,
+              28000
+            ],
+            "concentration_mmol_L": [
+              [
+                20,
+                140,
+                5,
+                105,
+                22,
+                2.4
+              ],
+              [
+                20,
+                14,
+                100,
+                10.5,
+                22,
+                2.4
+              ]
+            ],
+            "exchange_mL_min": [
+              600,
+              80,
+              200,
+              80,
+              100,
+              50
+            ],
+            "partition": [
+              1,
+              0.1,
+              20,
+              0.1,
+              1,
+              1
+            ],
+            "refill_mL_min": 500,
+            "prime_mL": 200,
+            "initial_weight_kg": 76,
+            "pco2_mmHg": 40,
+            "external_in_mL_min": 0,
+            "external_out_mL_min": 0,
+            "external_mmol_L": [
+              0,
+              140,
+              4,
+              105,
+              24,
+              2.4
+            ],
+            "generation_mmol_min": [
+              0.05,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "configuration_sha256": "9b2b14b0144a615f6899250ca278d7f9a73122bcb1d963bb9f57e1bf09ec6fe7",
+        "build": {
+          "source_revision": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+          "worktree_dirty_at_configure": false,
+          "compiler_id": "GNU",
+          "compiler_version": "13.3.0",
+          "build_type": "Release",
+          "source_sha256": {
+            "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+            "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+            "src/circuit.hpp": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b",
+            "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+            "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+            "src/plant.cpp": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488",
+            "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+            "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932",
+            "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+            "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+            "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+            "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+            "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+            "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+            "scenarios/patient_baseline.json": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+            "scenarios/patient_imbalance.json": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+            "scenarios/patient_large.json": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+            "scenarios/patient_overload.json": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4"
+          },
+          "binary_sha256": {
+            "plant": "a960cb06a093abc58afa0b80d851a98fac6ffc4b0257667168337b67e6cb587d",
+            "control": "fdf7d70414c684ef7430abe4d37b53bdd56ac32de5fab1b57a09d8e8b91c45df",
+            "protection": "4dcc49883fff2fcd8d5ad15446aa9a48d95f2028d2d8d57fea73683c9b8094b6"
+          },
+          "python_sha256": {
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932"
+          }
+        },
+        "python": "3.12.3",
+        "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "interface": "DL1",
+        "model": "m3-patient-1",
+        "simulation_only": true,
+        "outcome": "completed",
+        "errors": [],
+        "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+        "trajectory_file": "trajectory.jsonl",
+        "completed_ticks": 500,
+        "trajectory_sha256": "c2706624c71db68f1600a1ce8cea475c091ffa0353a43d97e206c607a7b4a334",
+        "final_plant_observation": {
+          "sequence": 499,
+          "time_ms": 50000,
+          "blood_mL_min": 240.8,
+          "pressure_mmHg": 118.39999999999996,
+          "uf_mL_min": 5.0,
+          "removed_total_mL": 4.146674287773503,
+          "removed_tick_mL": 0.008333333333333333,
+          "latched": false,
+          "clamp_closed": false,
+          "reason": "none"
+        },
+        "trajectory_bytes": 1521451,
+        "memory": {
+          "peak_rss_bytes": 463904768,
+          "memory.peak": 32890675200
+        }
+      },
+      "scan": {
+        "format": "dialysislab.trajectory.jsonl.v1",
+        "records": 500,
+        "complete_bytes": 1521451,
+        "sha256": "c2706624c71db68f1600a1ce8cea475c091ffa0353a43d97e206c607a7b4a334",
+        "discarded_tail_bytes": 0,
+        "first": {
+          "blood_mL_min": 278.9073242277019,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.0352379056340832,
+              0.09530209542427757,
+              0.14611799567436237,
+              0.0,
+              -0.37137699129089213,
+              0.034634170408012234
+            ],
+            "clearance_mL_min": [
+              51.76189528170416,
+              47.65104771213879,
+              48.70599855812079,
+              47.65104771213879,
+              46.42212391136152,
+              38.48241156445804
+            ],
+            "draw_tick_mL": 0.4648455403795032,
+            "edge_mL_min": [
+              152.35126959391326,
+              71.50059583829865,
+              55.000458337152786
+            ],
+            "pressure_mmHg": [
+              42.1853515445962,
+              26.950224585204875,
+              5.500045833715279
+            ],
+            "pump_mL_min": 278.9073242277019,
+            "return_mL_min": 55.000458337152786,
+            "return_tick_mL": 0.09166743056192131,
+            "sequence": 0,
+            "storage_change_mL": 0.3731781098175818,
+            "stored_mL": 0.3731781098175818,
+            "time_ms": 100,
+            "uf_mL_min": 0.0,
+            "uf_tick_mL": 0.0
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                20.00000458553824,
+                139.99999987503986,
+                5.000000084989819,
+                104.999999909305,
+                22.000000015717887,
+                2.399999998534065
+              ],
+              [
+                20.000000000163766,
+                13.999999999999405,
+                100.00000000000101,
+                10.499999999999568,
+                22.000000000000092,
+                2.3999999999999964
+              ],
+              [
+                19.991396735068385,
+                139.99920797094535,
+                4.9987856655015825,
+                104.99999999978978,
+                22.003086440713503,
+                2.399712143266298
+              ]
+            ],
+            "convective_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diffusive_mmol": [
+              0.0017246543072260206,
+              0.00015877392401667504,
+              0.0002434314171667223,
+              -1.6695431971566875e-14,
+              -0.0006187228535960747,
+              5.77051549778572e-05
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 0.0,
+            "illustrative_pH": 7.363241435084863,
+            "input_mmol": [
+              8.333333333333334e-05,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                359.9926193212898,
+                2519.9477552339526,
+                89.9981357256132,
+                1889.9608164799156,
+                395.9917907445601,
+                43.199104387611236
+              ],
+              [
+                559.9999996590765,
+                391.99999975812705,
+                2799.999998272483,
+                293.99999981859565,
+                615.9999996199426,
+                67.19999995853881
+              ],
+              [
+                4.005739698659883,
+                28.052086233995627,
+                1.0016225704863515,
+                21.039183701488724,
+                4.4088283583507994,
+                0.48083794869499
+              ]
+            ],
+            "mass_residual_mmol": [
+              4.940180751457357e-14,
+              -6.613267333928363e-13,
+              -2.599426750238276e-13,
+              -4.511714140197088e-14,
+              -5.437696733862074e-14,
+              4.97033512437961e-15
+            ],
+            "net_patient_loss_mL": 0.3731781098176725,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 0,
+            "time_ms": 100,
+            "volume_mL": [
+              17999.626839165634,
+              27999.99998272455,
+              200.3731781098176
+            ],
+            "weight_kg": 75.99962682189019
+          },
+          "patient_removed_mL": 0.3731781098176725,
+          "patient_volume_mL": 45999.62682189018,
+          "pressure_mmHg": 42.1853515445962,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.0,
+          "removed_total_mL": 0.0,
+          "sequence": 0,
+          "time_ms": 100,
+          "uf_mL_min": 0.0
+        },
+        "last": {
+          "blood_mL_min": 240.8,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.07701238445121866,
+              0.6979916643338197,
+              0.02188114735002837,
+              0.5249994675104536,
+              0.11770444868048005,
+              0.00797084984848222
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.6087455929834658,
+              0.1421892741201754,
+              0.22029995422411916,
+              -9.474159439232656e-06,
+              -0.5475475266855623,
+              0.04786597587753348
+            ],
+            "clearance_mL_min": [
+              104.44720056697378,
+              88.96098996453632,
+              92.70988219146744,
+              88.96098996453632,
+              84.77135461604831,
+              61.573010236055985
+            ],
+            "draw_tick_mL": 0.4013333333333334,
+            "edge_mL_min": [
+              240.79999999999998,
+              235.79999999999995,
+              235.79999999999984
+            ],
+            "pressure_mmHg": [
+              118.39999999999996,
+              94.31999999999996,
+              23.579999999999984
+            ],
+            "pump_mL_min": 240.8,
+            "return_mL_min": 235.79999999999984,
+            "return_tick_mL": 0.39299999999999974,
+            "sequence": 499,
+            "storage_change_mL": 0.0,
+            "stored_mL": 1.1814999999999996,
+            "time_ms": 50000,
+            "uf_mL_min": 5.0,
+            "uf_tick_mL": 0.008333333333333333
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 240.79999999999998,
+              "pressure_mmHg": 118.39999999999996,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 240.79999999999998,
+              "pressure_mmHg": 118.39999999999996,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                19.97186726882546,
+                139.99682593006557,
+                4.996257894093027,
+                104.999613382069,
+                22.010178117072428,
+                2.3991990998069435
+              ],
+              [
+                19.99982006897063,
+                13.999997201094144,
+                99.99999184453382,
+                10.499999638692147,
+                22.00001114066806,
+                2.3999995640341694
+              ],
+              [
+                15.398276816131624,
+                139.5979509049668,
+                4.37564292261478,
+                104.99989302308062,
+                23.54236825842789,
+                2.2772607453518336
+              ]
+            ],
+            "convective_mmol": [
+              0.0711651582384897,
+              0.57951421266958,
+              0.019145751394500355,
+              0.43540066163983326,
+              0.0951331514414208,
+              0.00675143357803934
+            ],
+            "diffusive_mmol": [
+              1.4904959687580874,
+              0.12977819988493153,
+              0.2017916354032936,
+              -2.4655783947295613e-06,
+              -0.49766684434246516,
+              0.04231765447555221
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 4.146674287773503,
+            "illustrative_pH": 7.363442311042237,
+            "input_mmol": [
+              0.04166666666666667,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                359.3886748152279,
+                2519.207296549558,
+                89.9063907958173,
+                1889.441352757011,
+                396.0675604072841,
+                43.1729779440004
+              ],
+              [
+                559.9934822971331,
+                391.9988858776938,
+                2799.9923734107692,
+                293.9992130685448,
+                615.9986843257896,
+                67.19981023530624
+              ],
+              [
+                3.0978484272845845,
+                28.08452515998758,
+                0.8802984066360254,
+                21.124035978222892,
+                4.73628895978291,
+                0.4581427326409999
+              ]
+            ],
+            "mass_residual_mmol": [
+              -2.4476656812488784e-11,
+              -2.0598936445459515e-10,
+              2.03538193244146e-11,
+              -1.5994655750923637e-10,
+              -4.4480211180975004e-11,
+              1.2276776817365942e-12
+            ],
+            "net_patient_loss_mL": 5.328174287773436,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 499,
+            "time_ms": 50000,
+            "volume_mL": [
+              17994.74580808004,
+              27999.926017632188,
+              201.1815
+            ],
+            "weight_kg": 75.99467182571223
+          },
+          "patient_removed_mL": 5.328174287773436,
+          "patient_volume_mL": 45994.67182571223,
+          "pressure_mmHg": 118.39999999999996,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.008333333333333333,
+          "removed_total_mL": 4.146674287773503,
+          "sequence": 499,
+          "time_ms": 50000,
+          "uf_mL_min": 5.0
+        }
+      },
+      "maximum_water_error_mL": 6.975864330627246e-12,
+      "expected_water_error_mL": 1e-06,
+      "first_latch_ms": null,
+      "maximum_mass_error_mmol": 2.0600054995156825e-10,
+      "requested_configuration_sha256": "9b2b14b0144a615f6899250ca278d7f9a73122bcb1d963bb9f57e1bf09ec6fe7",
+      "scenario": "patient_overload",
+      "repeat": 2,
+      "collection": null,
+      "directory": "build/m3-final-native/patient_overload-2"
+    },
+    {
+      "manifest": {
+        "schema_version": 2,
+        "executed_at": "2026-10-07T23:32:59.794876+00:00",
+        "configuration": {
+          "schema_version": 3,
+          "model": "m3-patient-1",
+          "seed": 42,
+          "ticks": 500,
+          "dt_ms": 100,
+          "blood_mL_min": 300,
+          "uf_mL_min": 5,
+          "resistance_mmHg_min_mL": 0.5,
+          "pressure_limit_mmHg": 250,
+          "patient_volume_mL": 40000,
+          "faults": [],
+          "circuit": {
+            "compliance_mL_mmHg": [
+              0.005,
+              0.005,
+              0.005
+            ],
+            "edges": [
+              [
+                1,
+                2,
+                0.1,
+                "tube",
+                false
+              ],
+              [
+                2,
+                3,
+                0.3,
+                "dialyzer",
+                false
+              ],
+              [
+                3,
+                0,
+                0.1,
+                "clamp",
+                false
+              ]
+            ],
+            "pump_node": 1,
+            "pump_head_mmHg": 600,
+            "sensor_node": 1,
+            "sensor_edge": 0,
+            "dialyzer_edge": 1,
+            "profile": {
+              "id": "synthetic-small",
+              "provenance": "synthetic",
+              "resistance_mmHg_min_mL": 0.3,
+              "kuf_mL_min_mmHg": 0.1,
+              "koa_mL_min": [
+                300,
+                200,
+                220,
+                200,
+                180,
+                100
+              ],
+              "sieving": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0.7
+              ]
+            }
+          },
+          "transport": {
+            "blood_mmol_L": [
+              30,
+              155,
+              7,
+              105,
+              15,
+              2.4
+            ],
+            "dialysate_mmol_L": [
+              0,
+              138,
+              2,
+              105,
+              30,
+              1.5
+            ],
+            "dialysate_mL_min": 500
+          },
+          "patient": {
+            "id": "synthetic-imbalance",
+            "provenance": "synthetic",
+            "volume_mL": [
+              14000,
+              26000
+            ],
+            "concentration_mmol_L": [
+              [
+                30,
+                155,
+                7,
+                105,
+                15,
+                2.4
+              ],
+              [
+                30,
+                15.5,
+                140,
+                10.5,
+                15,
+                2.4
+              ]
+            ],
+            "exchange_mL_min": [
+              600,
+              80,
+              200,
+              80,
+              100,
+              50
+            ],
+            "partition": [
+              1,
+              0.1,
+              20,
+              0.1,
+              1,
+              1
+            ],
+            "refill_mL_min": 500,
+            "prime_mL": 200,
+            "initial_weight_kg": 70,
+            "pco2_mmHg": 40,
+            "external_in_mL_min": 0,
+            "external_out_mL_min": 0,
+            "external_mmol_L": [
+              0,
+              140,
+              4,
+              105,
+              24,
+              2.4
+            ],
+            "generation_mmol_min": [
+              0.05,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "configuration_sha256": "cced578b24e2bcb94b6e50c7f5c46ca961eb62fee49bf66a4063948b27db3faf",
+        "build": {
+          "source_revision": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+          "worktree_dirty_at_configure": false,
+          "compiler_id": "GNU",
+          "compiler_version": "13.3.0",
+          "build_type": "Release",
+          "source_sha256": {
+            "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+            "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+            "src/circuit.hpp": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b",
+            "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+            "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+            "src/plant.cpp": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488",
+            "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+            "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932",
+            "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+            "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+            "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+            "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+            "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+            "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+            "scenarios/patient_baseline.json": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+            "scenarios/patient_imbalance.json": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+            "scenarios/patient_large.json": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+            "scenarios/patient_overload.json": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4"
+          },
+          "binary_sha256": {
+            "plant": "a960cb06a093abc58afa0b80d851a98fac6ffc4b0257667168337b67e6cb587d",
+            "control": "fdf7d70414c684ef7430abe4d37b53bdd56ac32de5fab1b57a09d8e8b91c45df",
+            "protection": "4dcc49883fff2fcd8d5ad15446aa9a48d95f2028d2d8d57fea73683c9b8094b6"
+          },
+          "python_sha256": {
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932"
+          }
+        },
+        "python": "3.12.3",
+        "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "interface": "DL1",
+        "model": "m3-patient-1",
+        "simulation_only": true,
+        "outcome": "completed",
+        "errors": [],
+        "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+        "trajectory_file": "trajectory.jsonl",
+        "completed_ticks": 500,
+        "trajectory_sha256": "f93d2d9d0b125ee55ab95970f23c533cadf2330cfb0dd98c0fad7babf46020f0",
+        "final_plant_observation": {
+          "sequence": 499,
+          "time_ms": 50000,
+          "blood_mL_min": 240.8,
+          "pressure_mmHg": 118.39999999999996,
+          "uf_mL_min": 5.0,
+          "removed_total_mL": 4.146674287773503,
+          "removed_tick_mL": 0.008333333333333333,
+          "latched": false,
+          "clamp_closed": false,
+          "reason": "none"
+        },
+        "trajectory_bytes": 1520240,
+        "memory": {
+          "peak_rss_bytes": 463904768,
+          "memory.peak": 32890675200
+        }
+      },
+      "scan": {
+        "format": "dialysislab.trajectory.jsonl.v1",
+        "records": 500,
+        "complete_bytes": 1520240,
+        "sha256": "f93d2d9d0b125ee55ab95970f23c533cadf2330cfb0dd98c0fad7babf46020f0",
+        "discarded_tail_bytes": 0,
+        "first": {
+          "blood_mL_min": 278.9073242277019,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.5528568584511249,
+              0.8100678111063594,
+              0.24352999279060394,
+              0.0,
+              -0.6963318586704228,
+              0.034634170408012234
+            ],
+            "clearance_mL_min": [
+              51.76189528170416,
+              47.65104771213879,
+              48.70599855812079,
+              47.65104771213879,
+              46.42212391136152,
+              38.48241156445804
+            ],
+            "draw_tick_mL": 0.4648455403795032,
+            "edge_mL_min": [
+              152.35126959391326,
+              71.50059583829865,
+              55.000458337152786
+            ],
+            "pressure_mmHg": [
+              42.1853515445962,
+              26.950224585204875,
+              5.500045833715279
+            ],
+            "pump_mL_min": 278.9073242277019,
+            "return_mL_min": 55.000458337152786,
+            "return_tick_mL": 0.09166743056192131,
+            "sequence": 0,
+            "storage_change_mL": 0.3731781098175818,
+            "stored_mL": 0.3731781098175818,
+            "time_ms": 100,
+            "uf_mL_min": 0.0,
+            "uf_tick_mL": 0.0
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                30.000005867426363,
+                154.99999973460748,
+                7.000000197746234,
+                104.99999985007851,
+                15.000000037891189,
+                2.3999999981152316
+              ],
+              [
+                30.000000000225658,
+                15.49999999999864,
+                140.00000000000256,
+                10.49999999999923,
+                15.000000000000242,
+                2.399999999999994
+              ],
+              [
+                29.98709510025951,
+                154.9932677548823,
+                6.997976109299331,
+                104.99999999965249,
+                15.00578707635734,
+                2.3997121432653272
+              ]
+            ],
+            "convective_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diffusive_mmol": [
+              0.0025869814606368944,
+              0.0013495783542884113,
+              0.00040571902862175896,
+              -2.7598870643729897e-14,
+              -0.0011601053504911296,
+              5.770515497779494e-05
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 0.0,
+            "illustrative_pH": 7.196910014105118,
+            "input_mmol": [
+              8.333333333333334e-05,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                419.98888746481356,
+                2169.9421571202793,
+                97.9973906770814,
+                1469.9608165317738,
+                209.99440319197944,
+                33.59910439945666
+              ],
+              [
+                779.9999993395386,
+                402.9999996556949,
+                3639.9999968905336,
+                272.99999976676503,
+                389.99999966684203,
+                62.39999994669357
+              ],
+              [
+                6.0086095475203365,
+                31.05649364567168,
+                1.402206713356883,
+                21.039183701461212,
+                3.0067572465289483,
+                0.4808379486947955
+              ]
+            ],
+            "mass_residual_mmol": [
+              -2.1157346165832924e-13,
+              1.5111826720537458e-13,
+              3.7838026982484063e-13,
+              5.766625764748212e-14,
+              -6.936009926128417e-14,
+              -4.8618878020767475e-15
+            ],
+            "net_patient_loss_mL": 0.3731781098176725,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 0,
+            "time_ms": 100,
+            "volume_mL": [
+              13999.62684410113,
+              25999.99997778905,
+              200.3731781098176
+            ],
+            "weight_kg": 69.99962682189019
+          },
+          "patient_removed_mL": 0.3731781098176725,
+          "patient_volume_mL": 39999.62682189018,
+          "pressure_mmHg": 42.1853515445962,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.0,
+          "removed_total_mL": 0.0,
+          "sequence": 0,
+          "time_ms": 100,
+          "uf_mL_min": 0.0
+        },
+        "last": {
+          "blood_mL_min": 240.8,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.11550098348677434,
+              0.7579254249644618,
+              0.029799685697867596,
+              0.5249991227916666,
+              0.08945300670829198,
+              0.007970635440760813
+            ],
+            "boundary_diffusion_mmol_min": [
+              2.4127508775851694,
+              1.2085426097200718,
+              0.36712530569547747,
+              -1.560746434798605e-05,
+              -1.0265301278533756,
+              0.047862203955012075
+            ],
+            "clearance_mL_min": [
+              104.44720056697378,
+              88.96098996453632,
+              92.70988219146744,
+              88.96098996453632,
+              84.77135461604831,
+              61.573010236055985
+            ],
+            "draw_tick_mL": 0.4013333333333334,
+            "edge_mL_min": [
+              240.79999999999998,
+              235.79999999999995,
+              235.79999999999984
+            ],
+            "pressure_mmHg": [
+              118.39999999999996,
+              94.31999999999996,
+              23.579999999999984
+            ],
+            "pump_mL_min": 240.8,
+            "return_mL_min": 235.79999999999984,
+            "return_tick_mL": 0.39299999999999974,
+            "sequence": 499,
+            "storage_change_mL": 0.0,
+            "stored_mL": 1.1814999999999996,
+            "time_ms": 50000,
+            "uf_mL_min": 5.0,
+            "uf_tick_mL": 0.008333333333333333
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 240.79999999999998,
+              "pressure_mmHg": 118.39999999999996,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 240.79999999999998,
+              "pressure_mmHg": 118.39999999999996,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                29.944486704983262,
+                154.97004214712783,
+                6.992059359334487,
+                104.99936367075124,
+                15.024503766223805,
+                2.3989713873725806
+              ],
+              [
+                29.99961339460121,
+                15.499971821181981,
+                139.99998136803714,
+                10.499999359202208,
+                15.000028892491805,
+                2.3999993968626323
+              ],
+              [
+                23.093880136861646,
+                151.5818344205235,
+                5.958957398049103,
+                104.99982377036805,
+                17.893380498934206,
+                2.2771991851852604
+              ]
+            ],
+            "convective_mmol": [
+              0.10674344633624801,
+              0.6340621335427918,
+              0.02638016164653935,
+              0.4354005717525512,
+              0.06952616696626883,
+              0.006751382889308268
+            ],
+            "diffusive_mmol": [
+              2.235654316101687,
+              1.1031007089616789,
+              0.3363096585318208,
+              -4.064870664479894e-06,
+              -0.9330963741004371,
+              0.042316762744767325
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 4.146674287773503,
+            "illustrative_pH": 7.1976188908567895,
+            "input_mmol": [
+              0.04166666666666667,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                419.06610414133826,
+                2168.7695788890683,
+                97.8522391954597,
+                1469.4415938510201,
+                210.26442436632152,
+                33.57304478642024
+              ],
+              [
+                779.9871033161255,
+                402.9977974469832,
+                3639.9862389966115,
+                272.9989875962591,
+                389.99932871196256,
+                62.39975672007213
+              ],
+              [
+                4.646061446754031,
+                30.495460821472548,
+                1.1988319877756155,
+                21.1240220458583,
+                3.599817128846332,
+                0.4581303478743484
+              ]
+            ],
+            "mass_residual_mmol": [
+              -1.0930728544522594e-11,
+              2.850297775580657e-11,
+              2.5106153267451248e-11,
+              1.9401511305900288e-11,
+              -3.753511390591768e-12,
+              7.93880586269502e-13
+            ],
+            "net_patient_loss_mL": 5.328174287773436,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 499,
+            "time_ms": 50000,
+            "volume_mL": [
+              13994.766658384518,
+              25999.905167327706,
+              201.1815
+            ],
+            "weight_kg": 69.99467182571223
+          },
+          "patient_removed_mL": 5.328174287773436,
+          "patient_volume_mL": 39994.67182571223,
+          "pressure_mmHg": 118.39999999999996,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.008333333333333333,
+          "removed_total_mL": 4.146674287773503,
+          "sequence": 499,
+          "time_ms": 50000,
+          "uf_mL_min": 5.0
+        }
+      },
+      "maximum_water_error_mL": 7.945977209544708e-12,
+      "expected_water_error_mL": 1e-06,
+      "first_latch_ms": null,
+      "maximum_mass_error_mmol": 2.9103830456733704e-11,
+      "requested_configuration_sha256": "cced578b24e2bcb94b6e50c7f5c46ca961eb62fee49bf66a4063948b27db3faf",
+      "scenario": "patient_imbalance",
+      "repeat": 1,
+      "collection": null,
+      "directory": "build/m3-final-native/patient_imbalance-1"
+    },
+    {
+      "manifest": {
+        "schema_version": 2,
+        "executed_at": "2026-10-07T23:33:02.124643+00:00",
+        "configuration": {
+          "schema_version": 3,
+          "model": "m3-patient-1",
+          "seed": 42,
+          "ticks": 500,
+          "dt_ms": 100,
+          "blood_mL_min": 300,
+          "uf_mL_min": 5,
+          "resistance_mmHg_min_mL": 0.5,
+          "pressure_limit_mmHg": 250,
+          "patient_volume_mL": 40000,
+          "faults": [],
+          "circuit": {
+            "compliance_mL_mmHg": [
+              0.005,
+              0.005,
+              0.005
+            ],
+            "edges": [
+              [
+                1,
+                2,
+                0.1,
+                "tube",
+                false
+              ],
+              [
+                2,
+                3,
+                0.3,
+                "dialyzer",
+                false
+              ],
+              [
+                3,
+                0,
+                0.1,
+                "clamp",
+                false
+              ]
+            ],
+            "pump_node": 1,
+            "pump_head_mmHg": 600,
+            "sensor_node": 1,
+            "sensor_edge": 0,
+            "dialyzer_edge": 1,
+            "profile": {
+              "id": "synthetic-small",
+              "provenance": "synthetic",
+              "resistance_mmHg_min_mL": 0.3,
+              "kuf_mL_min_mmHg": 0.1,
+              "koa_mL_min": [
+                300,
+                200,
+                220,
+                200,
+                180,
+                100
+              ],
+              "sieving": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0.7
+              ]
+            }
+          },
+          "transport": {
+            "blood_mmol_L": [
+              30,
+              155,
+              7,
+              105,
+              15,
+              2.4
+            ],
+            "dialysate_mmol_L": [
+              0,
+              138,
+              2,
+              105,
+              30,
+              1.5
+            ],
+            "dialysate_mL_min": 500
+          },
+          "patient": {
+            "id": "synthetic-imbalance",
+            "provenance": "synthetic",
+            "volume_mL": [
+              14000,
+              26000
+            ],
+            "concentration_mmol_L": [
+              [
+                30,
+                155,
+                7,
+                105,
+                15,
+                2.4
+              ],
+              [
+                30,
+                15.5,
+                140,
+                10.5,
+                15,
+                2.4
+              ]
+            ],
+            "exchange_mL_min": [
+              600,
+              80,
+              200,
+              80,
+              100,
+              50
+            ],
+            "partition": [
+              1,
+              0.1,
+              20,
+              0.1,
+              1,
+              1
+            ],
+            "refill_mL_min": 500,
+            "prime_mL": 200,
+            "initial_weight_kg": 70,
+            "pco2_mmHg": 40,
+            "external_in_mL_min": 0,
+            "external_out_mL_min": 0,
+            "external_mmol_L": [
+              0,
+              140,
+              4,
+              105,
+              24,
+              2.4
+            ],
+            "generation_mmol_min": [
+              0.05,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "configuration_sha256": "cced578b24e2bcb94b6e50c7f5c46ca961eb62fee49bf66a4063948b27db3faf",
+        "build": {
+          "source_revision": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+          "worktree_dirty_at_configure": false,
+          "compiler_id": "GNU",
+          "compiler_version": "13.3.0",
+          "build_type": "Release",
+          "source_sha256": {
+            "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+            "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+            "src/circuit.hpp": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b",
+            "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+            "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+            "src/plant.cpp": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488",
+            "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+            "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932",
+            "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+            "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+            "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+            "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+            "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+            "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+            "scenarios/patient_baseline.json": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+            "scenarios/patient_imbalance.json": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+            "scenarios/patient_large.json": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+            "scenarios/patient_overload.json": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4"
+          },
+          "binary_sha256": {
+            "plant": "a960cb06a093abc58afa0b80d851a98fac6ffc4b0257667168337b67e6cb587d",
+            "control": "fdf7d70414c684ef7430abe4d37b53bdd56ac32de5fab1b57a09d8e8b91c45df",
+            "protection": "4dcc49883fff2fcd8d5ad15446aa9a48d95f2028d2d8d57fea73683c9b8094b6"
+          },
+          "python_sha256": {
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932"
+          }
+        },
+        "python": "3.12.3",
+        "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "interface": "DL1",
+        "model": "m3-patient-1",
+        "simulation_only": true,
+        "outcome": "completed",
+        "errors": [],
+        "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+        "trajectory_file": "trajectory.jsonl",
+        "completed_ticks": 500,
+        "trajectory_sha256": "f93d2d9d0b125ee55ab95970f23c533cadf2330cfb0dd98c0fad7babf46020f0",
+        "final_plant_observation": {
+          "sequence": 499,
+          "time_ms": 50000,
+          "blood_mL_min": 240.8,
+          "pressure_mmHg": 118.39999999999996,
+          "uf_mL_min": 5.0,
+          "removed_total_mL": 4.146674287773503,
+          "removed_tick_mL": 0.008333333333333333,
+          "latched": false,
+          "clamp_closed": false,
+          "reason": "none"
+        },
+        "trajectory_bytes": 1520240,
+        "memory": {
+          "peak_rss_bytes": 463904768,
+          "memory.peak": 32890675200
+        }
+      },
+      "scan": {
+        "format": "dialysislab.trajectory.jsonl.v1",
+        "records": 500,
+        "complete_bytes": 1520240,
+        "sha256": "f93d2d9d0b125ee55ab95970f23c533cadf2330cfb0dd98c0fad7babf46020f0",
+        "discarded_tail_bytes": 0,
+        "first": {
+          "blood_mL_min": 278.9073242277019,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.5528568584511249,
+              0.8100678111063594,
+              0.24352999279060394,
+              0.0,
+              -0.6963318586704228,
+              0.034634170408012234
+            ],
+            "clearance_mL_min": [
+              51.76189528170416,
+              47.65104771213879,
+              48.70599855812079,
+              47.65104771213879,
+              46.42212391136152,
+              38.48241156445804
+            ],
+            "draw_tick_mL": 0.4648455403795032,
+            "edge_mL_min": [
+              152.35126959391326,
+              71.50059583829865,
+              55.000458337152786
+            ],
+            "pressure_mmHg": [
+              42.1853515445962,
+              26.950224585204875,
+              5.500045833715279
+            ],
+            "pump_mL_min": 278.9073242277019,
+            "return_mL_min": 55.000458337152786,
+            "return_tick_mL": 0.09166743056192131,
+            "sequence": 0,
+            "storage_change_mL": 0.3731781098175818,
+            "stored_mL": 0.3731781098175818,
+            "time_ms": 100,
+            "uf_mL_min": 0.0,
+            "uf_tick_mL": 0.0
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                30.000005867426363,
+                154.99999973460748,
+                7.000000197746234,
+                104.99999985007851,
+                15.000000037891189,
+                2.3999999981152316
+              ],
+              [
+                30.000000000225658,
+                15.49999999999864,
+                140.00000000000256,
+                10.49999999999923,
+                15.000000000000242,
+                2.399999999999994
+              ],
+              [
+                29.98709510025951,
+                154.9932677548823,
+                6.997976109299331,
+                104.99999999965249,
+                15.00578707635734,
+                2.3997121432653272
+              ]
+            ],
+            "convective_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diffusive_mmol": [
+              0.0025869814606368944,
+              0.0013495783542884113,
+              0.00040571902862175896,
+              -2.7598870643729897e-14,
+              -0.0011601053504911296,
+              5.770515497779494e-05
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 0.0,
+            "illustrative_pH": 7.196910014105118,
+            "input_mmol": [
+              8.333333333333334e-05,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                419.98888746481356,
+                2169.9421571202793,
+                97.9973906770814,
+                1469.9608165317738,
+                209.99440319197944,
+                33.59910439945666
+              ],
+              [
+                779.9999993395386,
+                402.9999996556949,
+                3639.9999968905336,
+                272.99999976676503,
+                389.99999966684203,
+                62.39999994669357
+              ],
+              [
+                6.0086095475203365,
+                31.05649364567168,
+                1.402206713356883,
+                21.039183701461212,
+                3.0067572465289483,
+                0.4808379486947955
+              ]
+            ],
+            "mass_residual_mmol": [
+              -2.1157346165832924e-13,
+              1.5111826720537458e-13,
+              3.7838026982484063e-13,
+              5.766625764748212e-14,
+              -6.936009926128417e-14,
+              -4.8618878020767475e-15
+            ],
+            "net_patient_loss_mL": 0.3731781098176725,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 0,
+            "time_ms": 100,
+            "volume_mL": [
+              13999.62684410113,
+              25999.99997778905,
+              200.3731781098176
+            ],
+            "weight_kg": 69.99962682189019
+          },
+          "patient_removed_mL": 0.3731781098176725,
+          "patient_volume_mL": 39999.62682189018,
+          "pressure_mmHg": 42.1853515445962,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.0,
+          "removed_total_mL": 0.0,
+          "sequence": 0,
+          "time_ms": 100,
+          "uf_mL_min": 0.0
+        },
+        "last": {
+          "blood_mL_min": 240.8,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.11550098348677434,
+              0.7579254249644618,
+              0.029799685697867596,
+              0.5249991227916666,
+              0.08945300670829198,
+              0.007970635440760813
+            ],
+            "boundary_diffusion_mmol_min": [
+              2.4127508775851694,
+              1.2085426097200718,
+              0.36712530569547747,
+              -1.560746434798605e-05,
+              -1.0265301278533756,
+              0.047862203955012075
+            ],
+            "clearance_mL_min": [
+              104.44720056697378,
+              88.96098996453632,
+              92.70988219146744,
+              88.96098996453632,
+              84.77135461604831,
+              61.573010236055985
+            ],
+            "draw_tick_mL": 0.4013333333333334,
+            "edge_mL_min": [
+              240.79999999999998,
+              235.79999999999995,
+              235.79999999999984
+            ],
+            "pressure_mmHg": [
+              118.39999999999996,
+              94.31999999999996,
+              23.579999999999984
+            ],
+            "pump_mL_min": 240.8,
+            "return_mL_min": 235.79999999999984,
+            "return_tick_mL": 0.39299999999999974,
+            "sequence": 499,
+            "storage_change_mL": 0.0,
+            "stored_mL": 1.1814999999999996,
+            "time_ms": 50000,
+            "uf_mL_min": 5.0,
+            "uf_tick_mL": 0.008333333333333333
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 240.79999999999998,
+              "pressure_mmHg": 118.39999999999996,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 240.79999999999998,
+              "pressure_mmHg": 118.39999999999996,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                29.944486704983262,
+                154.97004214712783,
+                6.992059359334487,
+                104.99936367075124,
+                15.024503766223805,
+                2.3989713873725806
+              ],
+              [
+                29.99961339460121,
+                15.499971821181981,
+                139.99998136803714,
+                10.499999359202208,
+                15.000028892491805,
+                2.3999993968626323
+              ],
+              [
+                23.093880136861646,
+                151.5818344205235,
+                5.958957398049103,
+                104.99982377036805,
+                17.893380498934206,
+                2.2771991851852604
+              ]
+            ],
+            "convective_mmol": [
+              0.10674344633624801,
+              0.6340621335427918,
+              0.02638016164653935,
+              0.4354005717525512,
+              0.06952616696626883,
+              0.006751382889308268
+            ],
+            "diffusive_mmol": [
+              2.235654316101687,
+              1.1031007089616789,
+              0.3363096585318208,
+              -4.064870664479894e-06,
+              -0.9330963741004371,
+              0.042316762744767325
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 4.146674287773503,
+            "illustrative_pH": 7.1976188908567895,
+            "input_mmol": [
+              0.04166666666666667,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                419.06610414133826,
+                2168.7695788890683,
+                97.8522391954597,
+                1469.4415938510201,
+                210.26442436632152,
+                33.57304478642024
+              ],
+              [
+                779.9871033161255,
+                402.9977974469832,
+                3639.9862389966115,
+                272.9989875962591,
+                389.99932871196256,
+                62.39975672007213
+              ],
+              [
+                4.646061446754031,
+                30.495460821472548,
+                1.1988319877756155,
+                21.1240220458583,
+                3.599817128846332,
+                0.4581303478743484
+              ]
+            ],
+            "mass_residual_mmol": [
+              -1.0930728544522594e-11,
+              2.850297775580657e-11,
+              2.5106153267451248e-11,
+              1.9401511305900288e-11,
+              -3.753511390591768e-12,
+              7.93880586269502e-13
+            ],
+            "net_patient_loss_mL": 5.328174287773436,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 499,
+            "time_ms": 50000,
+            "volume_mL": [
+              13994.766658384518,
+              25999.905167327706,
+              201.1815
+            ],
+            "weight_kg": 69.99467182571223
+          },
+          "patient_removed_mL": 5.328174287773436,
+          "patient_volume_mL": 39994.67182571223,
+          "pressure_mmHg": 118.39999999999996,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.008333333333333333,
+          "removed_total_mL": 4.146674287773503,
+          "sequence": 499,
+          "time_ms": 50000,
+          "uf_mL_min": 5.0
+        }
+      },
+      "maximum_water_error_mL": 7.945977209544708e-12,
+      "expected_water_error_mL": 1e-06,
+      "first_latch_ms": null,
+      "maximum_mass_error_mmol": 2.9103830456733704e-11,
+      "requested_configuration_sha256": "cced578b24e2bcb94b6e50c7f5c46ca961eb62fee49bf66a4063948b27db3faf",
+      "scenario": "patient_imbalance",
+      "repeat": 2,
+      "collection": null,
+      "directory": "build/m3-final-native/patient_imbalance-2"
+    },
+    {
+      "manifest": {
+        "schema_version": 2,
+        "executed_at": "2026-10-07T23:33:04.351005+00:00",
+        "configuration": {
+          "schema_version": 3,
+          "model": "m3-patient-1",
+          "seed": 42,
+          "ticks": 500,
+          "dt_ms": 100,
+          "blood_mL_min": 300,
+          "uf_mL_min": 5,
+          "resistance_mmHg_min_mL": 0.5,
+          "pressure_limit_mmHg": 250,
+          "patient_volume_mL": 40000,
+          "faults": [],
+          "circuit": {
+            "compliance_mL_mmHg": [
+              0.005,
+              0.005,
+              0.005
+            ],
+            "edges": [
+              [
+                1,
+                2,
+                0.1,
+                "tube",
+                false
+              ],
+              [
+                2,
+                3,
+                0.3,
+                "dialyzer",
+                false
+              ],
+              [
+                3,
+                0,
+                0.1,
+                "clamp",
+                false
+              ]
+            ],
+            "pump_node": 1,
+            "pump_head_mmHg": 600,
+            "sensor_node": 1,
+            "sensor_edge": 0,
+            "dialyzer_edge": 1,
+            "profile": {
+              "id": "synthetic-large",
+              "provenance": "synthetic",
+              "resistance_mmHg_min_mL": 0.2,
+              "kuf_mL_min_mmHg": 0.2,
+              "koa_mL_min": [
+                600,
+                400,
+                440,
+                400,
+                360,
+                200
+              ],
+              "sieving": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0.7
+              ]
+            }
+          },
+          "transport": {
+            "blood_mmol_L": [
+              20,
+              140,
+              5,
+              105,
+              22,
+              2.4
+            ],
+            "dialysate_mmol_L": [
+              0,
+              138,
+              2,
+              105,
+              30,
+              1.5
+            ],
+            "dialysate_mL_min": 500
+          },
+          "patient": {
+            "id": "synthetic-baseline",
+            "provenance": "synthetic",
+            "volume_mL": [
+              14000,
+              26000
+            ],
+            "concentration_mmol_L": [
+              [
+                20,
+                140,
+                5,
+                105,
+                22,
+                2.4
+              ],
+              [
+                20,
+                14,
+                100,
+                10.5,
+                22,
+                2.4
+              ]
+            ],
+            "exchange_mL_min": [
+              600,
+              80,
+              200,
+              80,
+              100,
+              50
+            ],
+            "partition": [
+              1,
+              0.1,
+              20,
+              0.1,
+              1,
+              1
+            ],
+            "refill_mL_min": 500,
+            "prime_mL": 200,
+            "initial_weight_kg": 70,
+            "pco2_mmHg": 40,
+            "external_in_mL_min": 0,
+            "external_out_mL_min": 0,
+            "external_mmol_L": [
+              0,
+              140,
+              4,
+              105,
+              24,
+              2.4
+            ],
+            "generation_mmol_min": [
+              0.05,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "configuration_sha256": "22bdb1d93991fc9c6dc4d2f4707be11b84bf2f2b4b86ed01bc1865c74346829e",
+        "build": {
+          "source_revision": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+          "worktree_dirty_at_configure": false,
+          "compiler_id": "GNU",
+          "compiler_version": "13.3.0",
+          "build_type": "Release",
+          "source_sha256": {
+            "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+            "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+            "src/circuit.hpp": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b",
+            "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+            "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+            "src/plant.cpp": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488",
+            "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+            "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932",
+            "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+            "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+            "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+            "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+            "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+            "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+            "scenarios/patient_baseline.json": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+            "scenarios/patient_imbalance.json": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+            "scenarios/patient_large.json": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+            "scenarios/patient_overload.json": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4"
+          },
+          "binary_sha256": {
+            "plant": "a960cb06a093abc58afa0b80d851a98fac6ffc4b0257667168337b67e6cb587d",
+            "control": "fdf7d70414c684ef7430abe4d37b53bdd56ac32de5fab1b57a09d8e8b91c45df",
+            "protection": "4dcc49883fff2fcd8d5ad15446aa9a48d95f2028d2d8d57fea73683c9b8094b6"
+          },
+          "python_sha256": {
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932"
+          }
+        },
+        "python": "3.12.3",
+        "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "interface": "DL1",
+        "model": "m3-patient-1",
+        "simulation_only": true,
+        "outcome": "completed",
+        "errors": [],
+        "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+        "trajectory_file": "trajectory.jsonl",
+        "completed_ticks": 500,
+        "trajectory_sha256": "3f08245d262bc97733be2a498ade7c257af2f26502f095569628248ff811449d",
+        "final_plant_observation": {
+          "sequence": 499,
+          "time_ms": 50000,
+          "blood_mL_min": 250.62500000000003,
+          "pressure_mmHg": 98.74999999999993,
+          "uf_mL_min": 5.0,
+          "removed_total_mL": 4.155141962888441,
+          "removed_tick_mL": 0.008333333333333333,
+          "latched": false,
+          "clamp_closed": false,
+          "reason": "none"
+        },
+        "trajectory_bytes": 1531860,
+        "memory": {
+          "peak_rss_bytes": 463904768,
+          "memory.peak": 32890675200
+        }
+      },
+      "scan": {
+        "format": "dialysislab.trajectory.jsonl.v1",
+        "records": 500,
+        "complete_bytes": 1531860,
+        "sha256": "3f08245d262bc97733be2a498ade7c257af2f26502f095569628248ff811449d",
+        "discarded_tail_bytes": 0,
+        "first": {
+          "blood_mL_min": 279.94634473507716,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.3213620193122138,
+              0.12524084778420036,
+              0.19057349740127041,
+              0.0,
+              -0.49239833762954377,
+              0.04872969596001664
+            ],
+            "clearance_mL_min": [
+              66.06810096561068,
+              62.62042389210018,
+              63.524499133756805,
+              62.62042389210018,
+              61.549792203692974,
+              54.14410662224072
+            ],
+            "draw_tick_mL": 0.4665772412251286,
+            "edge_mL_min": [
+              159.62441314553993,
+              87.18980549966463,
+              67.06908115358819
+            ],
+            "pressure_mmHg": [
+              40.10731052984574,
+              24.144869215291745,
+              6.706908115358819
+            ],
+            "pump_mL_min": 279.94634473507716,
+            "return_mL_min": 67.06908115358819,
+            "return_tick_mL": 0.11178180192264699,
+            "sequence": 0,
+            "storage_change_mL": 0.35479543930248153,
+            "stored_mL": 0.35479543930248153,
+            "time_ms": 100,
+            "uf_mL_min": 0.0,
+            "uf_tick_mL": 0.0
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                20.000005864248966,
+                139.99999980164245,
+                5.000000130644748,
+                104.99999985746379,
+                22.000000032668982,
+                2.399999996766729
+              ],
+              [
+                20.00000000022554,
+                13.999999999998984,
+                100.00000000000169,
+                10.49999999999927,
+                22.00000000000021,
+                2.39999999999999
+              ],
+              [
+                19.98902032291037,
+                139.99895929672536,
+                4.998416420438172,
+                104.99999999966842,
+                22.004091675461765,
+                2.3995950466182743
+              ]
+            ],
+            "convective_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diffusive_mmol": [
+              0.0022010610214961437,
+              0.0002086261308399942,
+              0.0003174548355046114,
+              -3.460632907761326e-14,
+              -0.0008202441597585121,
+              8.117961686823243e-05
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 0.0,
+            "illustrative_pH": 7.3632414354194875,
+            "input_mmol": [
+              8.333333333333334e-05,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                279.9929866109559,
+                1959.9503288179205,
+                69.99822795736785,
+                1469.9627467006858,
+                307.99219542226007,
+                33.59914849636146
+              ],
+              [
+                519.9999995835271,
+                363.9999997043377,
+                2599.9999978883598,
+                272.9999997782541,
+                571.9999995354349,
+                62.399999949319316
+              ],
+              [
+                4.004896077828767,
+                28.04946285161064,
+                1.0014566994373404,
+                21.03725352106033,
+                4.4086252864648,
+                0.4807703747023679
+              ]
+            ],
+            "mass_residual_mmol": [
+              -4.658174345383015e-14,
+              -2.720609924410783e-13,
+              4.482037028845365e-13,
+              1.8566191900801778e-13,
+              1.3042735294566121e-14,
+              6.128696725463123e-15
+            ],
+            "net_patient_loss_mL": 0.3547954392997781,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 0,
+            "time_ms": 100,
+            "volume_mL": [
+              13999.645225677543,
+              25999.999978883156,
+              200.35479543930248
+            ],
+            "weight_kg": 69.99964520456071
+          },
+          "patient_removed_mL": 0.3547954392997781,
+          "patient_volume_mL": 39999.6452045607,
+          "pressure_mmHg": 40.10731052984574,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.0,
+          "removed_total_mL": 0.0,
+          "sequence": 0,
+          "time_ms": 100,
+          "uf_mL_min": 0.0
+        },
+        "last": {
+          "blood_mL_min": 250.62500000000003,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.07302709395432001,
+              0.6975151741379682,
+              0.021192762919412873,
+              0.5249991787536676,
+              0.11967855614927117,
+              0.007794960667035099
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.8875138391350046,
+              0.17535778157764562,
+              0.2682837409587859,
+              -1.9162820758487173e-05,
+              -0.6853059005081812,
+              0.06567748249300939
+            ],
+            "clearance_mL_min": [
+              129.23380466951653,
+              116.6691405670179,
+              119.84696847883335,
+              116.6691405670179,
+              113.00680532924369,
+              90.32406343369338
+            ],
+            "draw_tick_mL": 0.4177083333333334,
+            "edge_mL_min": [
+              250.62499999999986,
+              245.62499999999977,
+              245.6249999999998
+            ],
+            "pressure_mmHg": [
+              98.74999999999993,
+              73.68749999999994,
+              24.562499999999982
+            ],
+            "pump_mL_min": 250.62500000000003,
+            "return_mL_min": 245.6249999999998,
+            "return_tick_mL": 0.4093749999999997,
+            "sequence": 499,
+            "storage_change_mL": 0.0,
+            "stored_mL": 0.9849999999999992,
+            "time_ms": 50000,
+            "uf_mL_min": 5.0,
+            "uf_tick_mL": 0.008333333333333333
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 250.62499999999986,
+              "pressure_mmHg": 98.74999999999993,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 250.62499999999986,
+              "pressure_mmHg": 98.74999999999993,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                19.954506225306954,
+                139.99471953504838,
+                4.993739526672055,
+                104.99940013036276,
+                22.017421854785706,
+                2.39846044639805
+              ],
+              [
+                19.99968147666618,
+                13.999994962749941,
+                99.99998511544207,
+                10.499999405665111,
+                22.000020740572744,
+                2.3999990885227462
+              ],
+              [
+                14.600897877263144,
+                139.50260385837285,
+                4.23789935924719,
+                104.99983500655524,
+                23.937402232694133,
+                2.226971217054934
+              ]
+            ],
+            "convective_mmol": [
+              0.0690542781164685,
+              0.5804337426316595,
+              0.018801470578803808,
+              0.4362896936723992,
+              0.09641505120613375,
+              0.006671578493648039
+            ],
+            "diffusive_mmol": [
+              1.7858184148329534,
+              0.16402086516319594,
+              0.2516406719442762,
+              -4.956825274150779e-06,
+              -0.6387479426149815,
+              0.0596466250358025
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 4.155141962888441,
+            "illustrative_pH": 7.363585217553045,
+            "input_mmol": [
+              0.04166666666666667,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                279.26230222502966,
+                1959.218997216933,
+                69.88713131683195,
+                1469.4612776468803,
+                308.13270179691233,
+                33.5663322606966
+              ],
+              [
+                519.9899302888232,
+                363.99861733886587,
+                2599.9906723379463,
+                272.99904577753387,
+                571.9985723067639,
+                62.39976172571582
+              ],
+              [
+                2.9345614598617327,
+                28.037930836475066,
+                0.8517542027182964,
+                21.103391838792504,
+                4.81105878773803,
+                0.4475878100597859
+              ]
+            ],
+            "mass_residual_mmol": [
+              -2.6662144714251212e-12,
+              6.886749503998146e-11,
+              1.9638329157301015e-11,
+              5.375686426982619e-11,
+              5.424494187167284e-12,
+              1.6498287111477161e-12
+            ],
+            "net_patient_loss_mL": 5.1401419628891745,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 499,
+            "time_ms": 50000,
+            "volume_mL": [
+              13994.949264685894,
+              25999.91059335122,
+              200.98499999999999
+            ],
+            "weight_kg": 69.99485985803712
+          },
+          "patient_removed_mL": 5.1401419628891745,
+          "patient_volume_mL": 39994.85985803711,
+          "pressure_mmHg": 98.74999999999993,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.008333333333333333,
+          "removed_total_mL": 4.155141962888441,
+          "sequence": 499,
+          "time_ms": 50000,
+          "uf_mL_min": 5.0
+        }
+      },
+      "maximum_water_error_mL": 8.396713879754714e-12,
+      "expected_water_error_mL": 1e-06,
+      "first_latch_ms": null,
+      "maximum_mass_error_mmol": 6.912159733474255e-11,
+      "requested_configuration_sha256": "22bdb1d93991fc9c6dc4d2f4707be11b84bf2f2b4b86ed01bc1865c74346829e",
+      "scenario": "patient_large",
+      "repeat": 1,
+      "collection": null,
+      "directory": "build/m3-final-native/patient_large-1"
+    },
+    {
+      "manifest": {
+        "schema_version": 2,
+        "executed_at": "2026-10-07T23:33:06.414188+00:00",
+        "configuration": {
+          "schema_version": 3,
+          "model": "m3-patient-1",
+          "seed": 42,
+          "ticks": 500,
+          "dt_ms": 100,
+          "blood_mL_min": 300,
+          "uf_mL_min": 5,
+          "resistance_mmHg_min_mL": 0.5,
+          "pressure_limit_mmHg": 250,
+          "patient_volume_mL": 40000,
+          "faults": [],
+          "circuit": {
+            "compliance_mL_mmHg": [
+              0.005,
+              0.005,
+              0.005
+            ],
+            "edges": [
+              [
+                1,
+                2,
+                0.1,
+                "tube",
+                false
+              ],
+              [
+                2,
+                3,
+                0.3,
+                "dialyzer",
+                false
+              ],
+              [
+                3,
+                0,
+                0.1,
+                "clamp",
+                false
+              ]
+            ],
+            "pump_node": 1,
+            "pump_head_mmHg": 600,
+            "sensor_node": 1,
+            "sensor_edge": 0,
+            "dialyzer_edge": 1,
+            "profile": {
+              "id": "synthetic-large",
+              "provenance": "synthetic",
+              "resistance_mmHg_min_mL": 0.2,
+              "kuf_mL_min_mmHg": 0.2,
+              "koa_mL_min": [
+                600,
+                400,
+                440,
+                400,
+                360,
+                200
+              ],
+              "sieving": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0.7
+              ]
+            }
+          },
+          "transport": {
+            "blood_mmol_L": [
+              20,
+              140,
+              5,
+              105,
+              22,
+              2.4
+            ],
+            "dialysate_mmol_L": [
+              0,
+              138,
+              2,
+              105,
+              30,
+              1.5
+            ],
+            "dialysate_mL_min": 500
+          },
+          "patient": {
+            "id": "synthetic-baseline",
+            "provenance": "synthetic",
+            "volume_mL": [
+              14000,
+              26000
+            ],
+            "concentration_mmol_L": [
+              [
+                20,
+                140,
+                5,
+                105,
+                22,
+                2.4
+              ],
+              [
+                20,
+                14,
+                100,
+                10.5,
+                22,
+                2.4
+              ]
+            ],
+            "exchange_mL_min": [
+              600,
+              80,
+              200,
+              80,
+              100,
+              50
+            ],
+            "partition": [
+              1,
+              0.1,
+              20,
+              0.1,
+              1,
+              1
+            ],
+            "refill_mL_min": 500,
+            "prime_mL": 200,
+            "initial_weight_kg": 70,
+            "pco2_mmHg": 40,
+            "external_in_mL_min": 0,
+            "external_out_mL_min": 0,
+            "external_mmol_L": [
+              0,
+              140,
+              4,
+              105,
+              24,
+              2.4
+            ],
+            "generation_mmol_min": [
+              0.05,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "configuration_sha256": "22bdb1d93991fc9c6dc4d2f4707be11b84bf2f2b4b86ed01bc1865c74346829e",
+        "build": {
+          "source_revision": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+          "worktree_dirty_at_configure": false,
+          "compiler_id": "GNU",
+          "compiler_version": "13.3.0",
+          "build_type": "Release",
+          "source_sha256": {
+            "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+            "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+            "src/circuit.hpp": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b",
+            "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+            "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+            "src/plant.cpp": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488",
+            "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+            "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932",
+            "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+            "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+            "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+            "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+            "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+            "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+            "scenarios/patient_baseline.json": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+            "scenarios/patient_imbalance.json": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+            "scenarios/patient_large.json": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+            "scenarios/patient_overload.json": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4"
+          },
+          "binary_sha256": {
+            "plant": "a960cb06a093abc58afa0b80d851a98fac6ffc4b0257667168337b67e6cb587d",
+            "control": "fdf7d70414c684ef7430abe4d37b53bdd56ac32de5fab1b57a09d8e8b91c45df",
+            "protection": "4dcc49883fff2fcd8d5ad15446aa9a48d95f2028d2d8d57fea73683c9b8094b6"
+          },
+          "python_sha256": {
+            "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+            "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+            "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+            "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+            "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+            "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+            "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932"
+          }
+        },
+        "python": "3.12.3",
+        "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "interface": "DL1",
+        "model": "m3-patient-1",
+        "simulation_only": true,
+        "outcome": "completed",
+        "errors": [],
+        "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+        "trajectory_file": "trajectory.jsonl",
+        "completed_ticks": 500,
+        "trajectory_sha256": "3f08245d262bc97733be2a498ade7c257af2f26502f095569628248ff811449d",
+        "final_plant_observation": {
+          "sequence": 499,
+          "time_ms": 50000,
+          "blood_mL_min": 250.62500000000003,
+          "pressure_mmHg": 98.74999999999993,
+          "uf_mL_min": 5.0,
+          "removed_total_mL": 4.155141962888441,
+          "removed_tick_mL": 0.008333333333333333,
+          "latched": false,
+          "clamp_closed": false,
+          "reason": "none"
+        },
+        "trajectory_bytes": 1531860,
+        "memory": {
+          "peak_rss_bytes": 463904768,
+          "memory.peak": 32890675200
+        }
+      },
+      "scan": {
+        "format": "dialysislab.trajectory.jsonl.v1",
+        "records": 500,
+        "complete_bytes": 1531860,
+        "sha256": "3f08245d262bc97733be2a498ade7c257af2f26502f095569628248ff811449d",
+        "discarded_tail_bytes": 0,
+        "first": {
+          "blood_mL_min": 279.94634473507716,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.3213620193122138,
+              0.12524084778420036,
+              0.19057349740127041,
+              0.0,
+              -0.49239833762954377,
+              0.04872969596001664
+            ],
+            "clearance_mL_min": [
+              66.06810096561068,
+              62.62042389210018,
+              63.524499133756805,
+              62.62042389210018,
+              61.549792203692974,
+              54.14410662224072
+            ],
+            "draw_tick_mL": 0.4665772412251286,
+            "edge_mL_min": [
+              159.62441314553993,
+              87.18980549966463,
+              67.06908115358819
+            ],
+            "pressure_mmHg": [
+              40.10731052984574,
+              24.144869215291745,
+              6.706908115358819
+            ],
+            "pump_mL_min": 279.94634473507716,
+            "return_mL_min": 67.06908115358819,
+            "return_tick_mL": 0.11178180192264699,
+            "sequence": 0,
+            "storage_change_mL": 0.35479543930248153,
+            "stored_mL": 0.35479543930248153,
+            "time_ms": 100,
+            "uf_mL_min": 0.0,
+            "uf_tick_mL": 0.0
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 0.0,
+              "pressure_mmHg": 0.0,
+              "sequence": 0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                20.000005864248966,
+                139.99999980164245,
+                5.000000130644748,
+                104.99999985746379,
+                22.000000032668982,
+                2.399999996766729
+              ],
+              [
+                20.00000000022554,
+                13.999999999998984,
+                100.00000000000169,
+                10.49999999999927,
+                22.00000000000021,
+                2.39999999999999
+              ],
+              [
+                19.98902032291037,
+                139.99895929672536,
+                4.998416420438172,
+                104.99999999966842,
+                22.004091675461765,
+                2.3995950466182743
+              ]
+            ],
+            "convective_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diffusive_mmol": [
+              0.0022010610214961437,
+              0.0002086261308399942,
+              0.0003174548355046114,
+              -3.460632907761326e-14,
+              -0.0008202441597585121,
+              8.117961686823243e-05
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 0.0,
+            "illustrative_pH": 7.3632414354194875,
+            "input_mmol": [
+              8.333333333333334e-05,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                279.9929866109559,
+                1959.9503288179205,
+                69.99822795736785,
+                1469.9627467006858,
+                307.99219542226007,
+                33.59914849636146
+              ],
+              [
+                519.9999995835271,
+                363.9999997043377,
+                2599.9999978883598,
+                272.9999997782541,
+                571.9999995354349,
+                62.399999949319316
+              ],
+              [
+                4.004896077828767,
+                28.04946285161064,
+                1.0014566994373404,
+                21.03725352106033,
+                4.4086252864648,
+                0.4807703747023679
+              ]
+            ],
+            "mass_residual_mmol": [
+              -4.658174345383015e-14,
+              -2.720609924410783e-13,
+              4.482037028845365e-13,
+              1.8566191900801778e-13,
+              1.3042735294566121e-14,
+              6.128696725463123e-15
+            ],
+            "net_patient_loss_mL": 0.3547954392997781,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 0,
+            "time_ms": 100,
+            "volume_mL": [
+              13999.645225677543,
+              25999.999978883156,
+              200.35479543930248
+            ],
+            "weight_kg": 69.99964520456071
+          },
+          "patient_removed_mL": 0.3547954392997781,
+          "patient_volume_mL": 39999.6452045607,
+          "pressure_mmHg": 40.10731052984574,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.0,
+          "removed_total_mL": 0.0,
+          "sequence": 0,
+          "time_ms": 100,
+          "uf_mL_min": 0.0
+        },
+        "last": {
+          "blood_mL_min": 250.62500000000003,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.07302709395432001,
+              0.6975151741379682,
+              0.021192762919412873,
+              0.5249991787536676,
+              0.11967855614927117,
+              0.007794960667035099
+            ],
+            "boundary_diffusion_mmol_min": [
+              1.8875138391350046,
+              0.17535778157764562,
+              0.2682837409587859,
+              -1.9162820758487173e-05,
+              -0.6853059005081812,
+              0.06567748249300939
+            ],
+            "clearance_mL_min": [
+              129.23380466951653,
+              116.6691405670179,
+              119.84696847883335,
+              116.6691405670179,
+              113.00680532924369,
+              90.32406343369338
+            ],
+            "draw_tick_mL": 0.4177083333333334,
+            "edge_mL_min": [
+              250.62499999999986,
+              245.62499999999977,
+              245.6249999999998
+            ],
+            "pressure_mmHg": [
+              98.74999999999993,
+              73.68749999999994,
+              24.562499999999982
+            ],
+            "pump_mL_min": 250.62500000000003,
+            "return_mL_min": 245.6249999999998,
+            "return_tick_mL": 0.4093749999999997,
+            "sequence": 499,
+            "storage_change_mL": 0.0,
+            "stored_mL": 0.9849999999999992,
+            "time_ms": 50000,
+            "uf_mL_min": 5.0,
+            "uf_tick_mL": 0.008333333333333333
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "observations": {
+            "control": {
+              "blood_mL_min": 250.62499999999986,
+              "pressure_mmHg": 98.74999999999993,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            },
+            "protection": {
+              "blood_mL_min": 250.62499999999986,
+              "pressure_mmHg": 98.74999999999993,
+              "sequence": 499,
+              "time_ms": 49900,
+              "uf_mL_min": 5.0,
+              "valid": 1
+            }
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                19.954506225306954,
+                139.99471953504838,
+                4.993739526672055,
+                104.99940013036276,
+                22.017421854785706,
+                2.39846044639805
+              ],
+              [
+                19.99968147666618,
+                13.999994962749941,
+                99.99998511544207,
+                10.499999405665111,
+                22.000020740572744,
+                2.3999990885227462
+              ],
+              [
+                14.600897877263144,
+                139.50260385837285,
+                4.23789935924719,
+                104.99983500655524,
+                23.937402232694133,
+                2.226971217054934
+              ]
+            ],
+            "convective_mmol": [
+              0.0690542781164685,
+              0.5804337426316595,
+              0.018801470578803808,
+              0.4362896936723992,
+              0.09641505120613375,
+              0.006671578493648039
+            ],
+            "diffusive_mmol": [
+              1.7858184148329534,
+              0.16402086516319594,
+              0.2516406719442762,
+              -4.956825274150779e-06,
+              -0.6387479426149815,
+              0.0596466250358025
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "gross_uf_mL": 4.155141962888441,
+            "illustrative_pH": 7.363585217553045,
+            "input_mmol": [
+              0.04166666666666667,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                279.26230222502966,
+                1959.218997216933,
+                69.88713131683195,
+                1469.4612776468803,
+                308.13270179691233,
+                33.5663322606966
+              ],
+              [
+                519.9899302888232,
+                363.99861733886587,
+                2599.9906723379463,
+                272.99904577753387,
+                571.9985723067639,
+                62.39976172571582
+              ],
+              [
+                2.9345614598617327,
+                28.037930836475066,
+                0.8517542027182964,
+                21.103391838792504,
+                4.81105878773803,
+                0.4475878100597859
+              ]
+            ],
+            "mass_residual_mmol": [
+              -2.6662144714251212e-12,
+              6.886749503998146e-11,
+              1.9638329157301015e-11,
+              5.375686426982619e-11,
+              5.424494187167284e-12,
+              1.6498287111477161e-12
+            ],
+            "net_patient_loss_mL": 5.1401419628891745,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 499,
+            "time_ms": 50000,
+            "volume_mL": [
+              13994.949264685894,
+              25999.91059335122,
+              200.98499999999999
+            ],
+            "weight_kg": 69.99485985803712
+          },
+          "patient_removed_mL": 5.1401419628891745,
+          "patient_volume_mL": 39994.85985803711,
+          "pressure_mmHg": 98.74999999999993,
+          "protection_decision": "none",
+          "reason": "none",
+          "removed_tick_mL": 0.008333333333333333,
+          "removed_total_mL": 4.155141962888441,
+          "sequence": 499,
+          "time_ms": 50000,
+          "uf_mL_min": 5.0
+        }
+      },
+      "maximum_water_error_mL": 8.396713879754714e-12,
+      "expected_water_error_mL": 1e-06,
+      "first_latch_ms": null,
+      "maximum_mass_error_mmol": 6.912159733474255e-11,
+      "requested_configuration_sha256": "22bdb1d93991fc9c6dc4d2f4707be11b84bf2f2b4b86ed01bc1865c74346829e",
+      "scenario": "patient_large",
+      "repeat": 2,
+      "collection": null,
+      "directory": "build/m3-final-native/patient_large-2"
+    }
+  ],
+  "expected_source_sha256": {
+    "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+    "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+    "src/circuit.hpp": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b",
+    "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+    "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+    "src/plant.cpp": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488",
+    "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+    "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+    "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+    "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+    "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+    "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+    "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+    "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+    "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932",
+    "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+    "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+    "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+    "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+    "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+    "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+    "scenarios/patient_baseline.json": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+    "scenarios/patient_imbalance.json": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+    "scenarios/patient_large.json": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+    "scenarios/patient_overload.json": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4"
+  }
+}

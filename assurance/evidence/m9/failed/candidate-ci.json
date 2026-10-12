@@ -1,0 +1,377 @@
+{
+  "schema_version": 2,
+  "source_revision": "4719ebce7a95f14f4ed4295c8b1bfcdd08f8e4c8",
+  "started_at": "2026-10-08T05:33:52.574547+00:00",
+  "command": [
+    "tools/ci_verify.py",
+    "--output",
+    "build/ci"
+  ],
+  "steps": [
+    {
+      "name": "traceability",
+      "command": [
+        "python3",
+        "tools/check_traceability.py",
+        "assurance/traceability.json"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "663bddbad9b69ecb9691627100ff8827d8a5ef59d19586a08b43967e3cb1c945",
+      "log_bytes": 7947
+    },
+    {
+      "name": "standards",
+      "command": [
+        "python3",
+        "tools/check_standards.py"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "c7204808d6f76bf4cb14de04c4e9462a311b65d65d870551f82c7001c725bec7",
+      "log_bytes": 181
+    },
+    {
+      "name": "publication",
+      "command": [
+        "python3",
+        "tools/check_publication.py"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "2479e3ef9641d7c1fc780bc864d2c606740a161104acf17ab41e1916a2725527",
+      "log_bytes": 2701
+    },
+    {
+      "name": "release-traceability",
+      "command": [
+        "python3",
+        "tools/check_traceability.py",
+        "assurance/traceability.json",
+        "--release"
+      ],
+      "status": "BLOCKED",
+      "exit_code": 1,
+      "reason": "Outstanding recorded release obligations",
+      "validated_release_obligations": true,
+      "log_sha256": "663bddbad9b69ecb9691627100ff8827d8a5ef59d19586a08b43967e3cb1c945",
+      "log_bytes": 7947
+    },
+    {
+      "name": "release-standards",
+      "command": [
+        "python3",
+        "tools/check_standards.py",
+        "--release"
+      ],
+      "status": "BLOCKED",
+      "exit_code": 1,
+      "reason": "Outstanding recorded release obligations",
+      "validated_release_obligations": true,
+      "log_sha256": "c7204808d6f76bf4cb14de04c4e9462a311b65d65d870551f82c7001c725bec7",
+      "log_bytes": 181
+    },
+    {
+      "name": "fetch-gui",
+      "command": [
+        "python3",
+        "tools/fetch_gui.py",
+        "--cache",
+        "build/gui-deps"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "a9e7ef731ed74090014b56be857886f1ef8aada6d3d9ea7b87c4dea7b5d51f9f",
+      "log_bytes": 265
+    },
+    {
+      "name": "native-configure",
+      "command": [
+        "cmake",
+        "-S",
+        ".",
+        "-B",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/native",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DDIALYSISLAB_GUI=ON"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "082b0448622d4692b71259d5332ef707e4eb90e81fb8d44327e7fba0cc2b3790",
+      "log_bytes": 20647
+    },
+    {
+      "name": "native-build",
+      "command": [
+        "cmake",
+        "--build",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/native",
+        "--parallel",
+        "3"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "0ed7ef8797fd0f9156b7d9f06eaef74c21963f82917f04d08734ac4f8e3ad761",
+      "log_bytes": 63563
+    },
+    {
+      "name": "native-tests",
+      "command": [
+        "python3",
+        "tools/verify_m1.py",
+        "--build-dir",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/native",
+        "--output",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/native-tests.json"
+      ],
+      "status": "FAIL",
+      "exit_code": 1,
+      "log_sha256": "458ebe126bd5894bf70ed6b8eb5f8113b7fee69f4ed36aeb1f4eb57b639fd431",
+      "log_bytes": 24372,
+      "report": "native-tests.json",
+      "report_sha256": "c0e2f931cfc2e0baeb67faf1e30175dff75d3bad1d5d5754cb4c603111154534"
+    },
+    {
+      "name": "device-widgets",
+      "command": [
+        "python3",
+        "tools/verify_device_ui.py",
+        "--build-dir",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/native",
+        "--output",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/device"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "c047a89107c3f1a87cfec86bdc03797e4c9a24da28d0105c1c01018893b8e859",
+      "log_bytes": 1754,
+      "report": "device/report.json",
+      "report_sha256": "d2cf6b7bc05d2f3f465a9af4e5e78bbab9123a3e3a2410e6a5e402c705c65041"
+    },
+    {
+      "name": "console-widgets",
+      "command": [
+        "python3",
+        "tools/verify_console.py",
+        "--build-dir",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/native",
+        "--output",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/console"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "ef1027817c253e22f7f71c2f3e88f3baf0f82f96ddf85963c7909a9ecee61f3e",
+      "log_bytes": 983,
+      "report": "console/report.json",
+      "report_sha256": "53a841584c9370fa26f43d12eb23f0efc371955b50a18a3e0a6f0107965eb169"
+    },
+    {
+      "name": "sanitizer-configure",
+      "command": [
+        "cmake",
+        "-S",
+        ".",
+        "-B",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/sanitizer",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DDIALYSISLAB_GUI=ON",
+        "-DDIALYSISLAB_SANITIZE=ON"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "5f465ef9d2dfd2bc3e9689ce4206a3038b3b3a65f360f6d9f3008c97d3a03cd5",
+      "log_bytes": 20714
+    },
+    {
+      "name": "sanitizer-build",
+      "command": [
+        "cmake",
+        "--build",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/sanitizer",
+        "--parallel",
+        "3"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "93e68698b14594fad48a2b216dca74611307e7a06c39ed0a3d55281ea27d913e",
+      "log_bytes": 63564
+    },
+    {
+      "name": "sanitizer-tests",
+      "command": [
+        "python3",
+        "tools/verify_m1.py",
+        "--build-dir",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/sanitizer",
+        "--output",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/sanitizer-tests.json"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "1938ddec1d619c022385fb13c4416c854b8acb7b001443511f62e49068d999cd",
+      "log_bytes": 22967,
+      "report": "sanitizer-tests.json",
+      "report_sha256": "eae30575fb9c6b02ee80afc453539fc9cebd58fa71604d5d3ea06a0d05b87222"
+    },
+    {
+      "name": "docker-build",
+      "command": [
+        "docker",
+        "compose",
+        "--profile",
+        "device-ui",
+        "build"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "a75ab715ef022b5b3d8b7d735f82ca7dd3c9a7cf0abb2986bd2093c48dbb83ac",
+      "log_bytes": 158208
+    },
+    {
+      "name": "integrated-models",
+      "command": [
+        "python3",
+        "tools/verify_integrated.py",
+        "--build-dir",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/native",
+        "--output",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/integrated-models"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "bf3c8c44b0bfd3a5dd0af926db834f74ea70df3880da965d28cc6d91a6d2d56f",
+      "log_bytes": 1653,
+      "report": "integrated-models/integration.json",
+      "report_sha256": "730ee73eb9a8c97d06abd7c7982e4e30f8e3b475f37e971e3938e1d316175639"
+    },
+    {
+      "name": "compose",
+      "command": [
+        "python3",
+        "tools/verify_compose.py",
+        "--output",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/compose"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "a22d1cba60d8a8a583090b29feb6dc57f7d43d0d22435faaf21fa3ed8ff783bb",
+      "log_bytes": 76,
+      "report": "compose/compose-results.json",
+      "report_sha256": "87ddff679df928c63c6dea6898bbc772a2487e1dd6dc8989d709ee2726ca8860"
+    },
+    {
+      "name": "experiments",
+      "command": [
+        "python3",
+        "tools/verify_experiments_compose.py",
+        "--with-device",
+        "--output",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/experiments"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "09b9e33a76def198c300f5c7c5c363354d582b372524c486a3ad7e86e2ee9228",
+      "log_bytes": 157,
+      "report": "experiments/report.json",
+      "report_sha256": "81f8b2f31b8aa72fcb960d225fd76394c81f97e41265b001147c5d15e04a5e67"
+    },
+    {
+      "name": "device-compose",
+      "command": [
+        "python3",
+        "tools/verify_ui_compose.py",
+        "--output",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/device-compose"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "5eab78f97f32bffc6bfb91c03a2264d6412ca0474f57b6e78371d70770843aaf",
+      "log_bytes": 129,
+      "report": "device-compose/report.json",
+      "report_sha256": "667102336ef5d553070c8f3970d69f9686e57318e0c2aed24db0bfb9aef7ae80"
+    },
+    {
+      "name": "dependencies",
+      "command": [
+        "python3",
+        "tools/dependency_report.py",
+        "--build-dir",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/native",
+        "--output",
+        "/home/runner/work/DialysisLab/DialysisLab/build/ci/dependencies",
+        "--images",
+        "dialysislab-m1:local",
+        "dialysislab-ui:local"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "eb650fb051b64a546b4cfead5e8948375c63599b3af74e5418f22c91ccd69e46",
+      "log_bytes": 64,
+      "report": "dependencies/report.json",
+      "report_sha256": "e80a594a62b509eba90e5adc5c6e1b442ad7ab6251177d661779b5c6a42b6990"
+    },
+    {
+      "name": "package",
+      "command": [
+        "python3",
+        "tools/package_release.py",
+        "--output",
+        "/tmp/DialysisLab-ci-4719ebce7a95f14f4ed4295c8b1bfcdd08f8e4c8.zip"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log_sha256": "55c339c45489d937ce1ea7de3fec5d16e6c118c55a622eae0aa03d34e29b234b",
+      "log_bytes": 104
+    }
+  ],
+  "release_gate": "BLOCKED",
+  "public_reports": [
+    "native-tests.json",
+    "device/report.json",
+    "console/report.json",
+    "sanitizer-tests.json",
+    "integrated-models/integration.json",
+    "compose/compose-results.json",
+    "experiments/report.json",
+    "device-compose/report.json",
+    "dependencies/report.json",
+    "dependencies/application.cdx.json",
+    "dependencies/build.json",
+    "dependencies/adopted-dependencies.json",
+    "dependencies/native-platform.json",
+    "dependencies/image-0-platform.json",
+    "dependencies/image-0-build.json",
+    "dependencies/image-0-application.cdx.json",
+    "dependencies/image-0.cdx.json",
+    "dependencies/image-1-platform.json",
+    "dependencies/image-1-build.json",
+    "dependencies/image-1-application.cdx.json",
+    "dependencies/image-1.cdx.json"
+  ],
+  "report_sha256": {
+    "native-tests.json": "c0e2f931cfc2e0baeb67faf1e30175dff75d3bad1d5d5754cb4c603111154534",
+    "device/report.json": "d2cf6b7bc05d2f3f465a9af4e5e78bbab9123a3e3a2410e6a5e402c705c65041",
+    "console/report.json": "53a841584c9370fa26f43d12eb23f0efc371955b50a18a3e0a6f0107965eb169",
+    "sanitizer-tests.json": "eae30575fb9c6b02ee80afc453539fc9cebd58fa71604d5d3ea06a0d05b87222",
+    "integrated-models/integration.json": "730ee73eb9a8c97d06abd7c7982e4e30f8e3b475f37e971e3938e1d316175639",
+    "compose/compose-results.json": "87ddff679df928c63c6dea6898bbc772a2487e1dd6dc8989d709ee2726ca8860",
+    "experiments/report.json": "81f8b2f31b8aa72fcb960d225fd76394c81f97e41265b001147c5d15e04a5e67",
+    "device-compose/report.json": "667102336ef5d553070c8f3970d69f9686e57318e0c2aed24db0bfb9aef7ae80",
+    "dependencies/report.json": "e80a594a62b509eba90e5adc5c6e1b442ad7ab6251177d661779b5c6a42b6990",
+    "dependencies/application.cdx.json": "90bbbec37c9cbc6728cf8a9ae8bebdaf54ee05929ea482fcbd43cca6e17f11a8",
+    "dependencies/build.json": "088fc6b67373d0b91fcb87748b3d386bfc60e3d5c22207994bace1ece4caadd5",
+    "dependencies/adopted-dependencies.json": "d7da7768e9e00daca9338c922a8fcda332d70fb4c83ab63d0d51dd649e419c25",
+    "dependencies/native-platform.json": "8125427bc4835dc901ff57cd7cccf0af058320f0b2916eb15b9c8f605054de00",
+    "dependencies/image-0-platform.json": "15b4f7c552cc551a5ca63535efdc6a376d8ffd69ecad7a9d11e8e5a2a76d1fa3",
+    "dependencies/image-0-build.json": "814eaae09a7577fd8aa2a07983c566497aa82925d626f88405375c3103cc2ebe",
+    "dependencies/image-0-application.cdx.json": "05e10427bb1c09dc21f2d650dd621fc04d66effa083d8c889365d42d1d7be4da",
+    "dependencies/image-0.cdx.json": "5738a40e441b63370b8ac77cde2a82b9e63da6080a74c118f15ef0cc4d809fb5",
+    "dependencies/image-1-platform.json": "9bf929381a6535c167248a51e10b1940997931a7e2149c1f0865cc68316214a9",
+    "dependencies/image-1-build.json": "e6b285da63fb0941fb1c65268828c0943c06f9923a8d0622a379448704511970",
+    "dependencies/image-1-application.cdx.json": "bee8f5eb9d5b5ae33b8e5092b57c20d07e4369034e0c48c1dc1efd8df552f329",
+    "dependencies/image-1.cdx.json": "3e5cc5177164779759c6c16f395926b08766a94dc8dd613c77aeb5ff762fb5ea"
+  },
+  "successful": false,
+  "package_sha256": "ed29962650e3231aa30eaba10a0982a45d611c4ee39e3da3ba96db91e5326bae",
+  "finished_at": "2026-10-08T05:50:52.510491+00:00"
+}

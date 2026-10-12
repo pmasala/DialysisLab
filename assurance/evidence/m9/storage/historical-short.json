@@ -1,0 +1,3752 @@
+[
+  {
+    "path": "build/m5-candidate-native/machine_pressure-1/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-candidate-native/machine_pressure-1/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_pressure-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_pressure-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_air-1/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-candidate-native/machine_air-1/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_air-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_air-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_balance-2/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-candidate-native/machine_balance-2/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_balance-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_balance-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_pressure-2/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-candidate-native/machine_pressure-2/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_pressure-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_pressure-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_hdf_post-1/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-candidate-native/machine_hdf_post-1/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_hdf_post-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_hdf_post-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_hd-1/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-candidate-native/machine_hd-1/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_hd-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_hd-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_balance-1/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-candidate-native/machine_balance-1/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_balance-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_balance-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_invalid-1/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-candidate-native/machine_invalid-1/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_invalid-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_invalid-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_stall-1/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-candidate-native/machine_stall-1/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_stall-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_stall-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_quality-2/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-candidate-native/machine_quality-2/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_quality-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_quality-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_leak-1/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-candidate-native/machine_leak-1/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_leak-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_leak-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_recovery-1/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-candidate-native/machine_recovery-1/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_recovery-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_recovery-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_recovery-2/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-candidate-native/machine_recovery-2/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_recovery-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_recovery-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_air-2/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-candidate-native/machine_air-2/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_air-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_air-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_quality-1/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-candidate-native/machine_quality-1/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_quality-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_quality-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_hdf_post-2/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-candidate-native/machine_hdf_post-2/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_hdf_post-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_hdf_post-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_stall-2/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-candidate-native/machine_stall-2/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_stall-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_stall-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_hdf_pre-2/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-candidate-native/machine_hdf_pre-2/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_hdf_pre-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_hdf_pre-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_hd-2/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-candidate-native/machine_hd-2/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_hd-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_hd-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_invalid-2/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-candidate-native/machine_invalid-2/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_invalid-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_invalid-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_leak-2/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-candidate-native/machine_leak-2/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_leak-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_leak-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-native/machine_hdf_pre-1/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-candidate-native/machine_hdf_pre-1/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-native/machine_hdf_pre-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-native/machine_hdf_pre-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_pressure-1/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-final-native/machine_pressure-1/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_pressure-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_pressure-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_air-1/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-final-native/machine_air-1/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_air-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_air-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_balance-2/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-final-native/machine_balance-2/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_balance-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_balance-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_pressure-2/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-final-native/machine_pressure-2/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_pressure-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_pressure-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_hdf_post-1/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-final-native/machine_hdf_post-1/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_hdf_post-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_hdf_post-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_hd-1/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-final-native/machine_hd-1/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_hd-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_hd-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_balance-1/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-final-native/machine_balance-1/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_balance-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_balance-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_invalid-1/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-final-native/machine_invalid-1/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_invalid-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_invalid-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_stall-1/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-final-native/machine_stall-1/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_stall-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_stall-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_quality-2/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-final-native/machine_quality-2/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_quality-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_quality-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_leak-1/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-final-native/machine_leak-1/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_leak-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_leak-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_recovery-1/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-final-native/machine_recovery-1/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_recovery-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_recovery-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_recovery-2/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-final-native/machine_recovery-2/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_recovery-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_recovery-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_air-2/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-final-native/machine_air-2/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_air-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_air-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_quality-1/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-final-native/machine_quality-1/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_quality-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_quality-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_hdf_post-2/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-final-native/machine_hdf_post-2/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_hdf_post-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_hdf_post-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_stall-2/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-final-native/machine_stall-2/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_stall-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_stall-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_hdf_pre-2/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-final-native/machine_hdf_pre-2/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_hdf_pre-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_hdf_pre-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_hd-2/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-final-native/machine_hd-2/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_hd-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_hd-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_invalid-2/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-final-native/machine_invalid-2/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_invalid-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_invalid-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_leak-2/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-final-native/machine_leak-2/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_leak-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_leak-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-native/machine_hdf_pre-1/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-final-native/machine_hdf_pre-1/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-native/machine_hdf_pre-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-native/machine_hdf_pre-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_pressure-1/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-initial-models/machine_pressure-1/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_pressure-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_pressure-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_air-1/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-initial-models/machine_air-1/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_air-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_air-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_balance-2/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-initial-models/machine_balance-2/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_balance-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_balance-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_pressure-2/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-initial-models/machine_pressure-2/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_pressure-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_pressure-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_hdf_post-1/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-initial-models/machine_hdf_post-1/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_hdf_post-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_hdf_post-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_hd-1/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-initial-models/machine_hd-1/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_hd-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_hd-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_balance-1/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-initial-models/machine_balance-1/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_balance-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_balance-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_invalid-1/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-initial-models/machine_invalid-1/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_invalid-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_invalid-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_stall-1/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-initial-models/machine_stall-1/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_stall-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_stall-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_quality-2/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-initial-models/machine_quality-2/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_quality-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_quality-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_leak-1/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-initial-models/machine_leak-1/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_leak-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_leak-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_recovery-1/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-initial-models/machine_recovery-1/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_recovery-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_recovery-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_recovery-2/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-initial-models/machine_recovery-2/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_recovery-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_recovery-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_air-2/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-initial-models/machine_air-2/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_air-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_air-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_quality-1/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-initial-models/machine_quality-1/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_quality-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_quality-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_hdf_post-2/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-initial-models/machine_hdf_post-2/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_hdf_post-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_hdf_post-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_stall-2/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-initial-models/machine_stall-2/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_stall-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_stall-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_hdf_pre-2/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-initial-models/machine_hdf_pre-2/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_hdf_pre-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_hdf_pre-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_hd-2/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-initial-models/machine_hd-2/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_hd-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_hd-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_invalid-2/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-initial-models/machine_invalid-2/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_invalid-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_invalid-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_leak-2/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-initial-models/machine_leak-2/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_leak-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_leak-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-initial-models/machine_hdf_pre-1/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-initial-models/machine_hdf_pre-1/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-initial-models/machine_hdf_pre-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-initial-models/machine_hdf_pre-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_pressure-1/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-verified-native/machine_pressure-1/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_pressure-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_pressure-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_air-1/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-verified-native/machine_air-1/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_air-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_air-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_balance-2/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-verified-native/machine_balance-2/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_balance-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_balance-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_pressure-2/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-verified-native/machine_pressure-2/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_pressure-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_pressure-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_hdf_post-1/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-verified-native/machine_hdf_post-1/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_hdf_post-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_hdf_post-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_hd-1/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-verified-native/machine_hd-1/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_hd-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_hd-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_balance-1/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-verified-native/machine_balance-1/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_balance-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_balance-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_invalid-1/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-verified-native/machine_invalid-1/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_invalid-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_invalid-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_stall-1/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-verified-native/machine_stall-1/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_stall-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_stall-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_quality-2/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-verified-native/machine_quality-2/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_quality-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_quality-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_leak-1/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-verified-native/machine_leak-1/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_leak-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_leak-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_recovery-1/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-verified-native/machine_recovery-1/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_recovery-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_recovery-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_recovery-2/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-verified-native/machine_recovery-2/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_recovery-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_recovery-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_air-2/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-verified-native/machine_air-2/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_air-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_air-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_quality-1/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-verified-native/machine_quality-1/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_quality-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_quality-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_hdf_post-2/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-verified-native/machine_hdf_post-2/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_hdf_post-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_hdf_post-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_stall-2/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-verified-native/machine_stall-2/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_stall-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_stall-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_hdf_pre-2/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-verified-native/machine_hdf_pre-2/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_hdf_pre-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_hdf_pre-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_hd-2/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-verified-native/machine_hd-2/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_hd-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_hd-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_invalid-2/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-verified-native/machine_invalid-2/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_invalid-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_invalid-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_leak-2/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-verified-native/machine_leak-2/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_leak-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_leak-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-native/machine_hdf_pre-1/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-verified-native/machine_hdf_pre-1/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-native/machine_hdf_pre-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-native/machine_hdf_pre-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_contaminant-1/trajectory.jsonl.gz",
+    "sha256": "61618aee010be5346e6a31682b9b2ea75b1fc8f637601e3eacbb86be0a4df860",
+    "bytes": 247087,
+    "original_path": "build/m4-candidate-native/treatment_contaminant-1/trajectory.jsonl",
+    "original_sha256": "c843d45fd36c440b212c7ed6f820a2ba5bb56c2b02696026b5ae75402838c7ad",
+    "original_bytes": 1250130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_contaminant-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_contaminant-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_hd-1/trajectory.jsonl.gz",
+    "sha256": "4b32042bd4a2bd639e22158d8f8a6e52f77c80145be608dc1c9dd7f556deed31",
+    "bytes": 223891,
+    "original_path": "build/m4-candidate-native/treatment_hd-1/trajectory.jsonl",
+    "original_sha256": "3049c41cbeb2e8af67688d0a7c2577cea473a768d46f6606b160ac3660eae382",
+    "original_bytes": 1137488,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_hd-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_hd-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_hdf_imbalance-1/trajectory.jsonl.gz",
+    "sha256": "ff0be7eaaad7552c5cd34e56f36673d7885ea21e9512eecd7d5ec23b07c9f404",
+    "bytes": 246659,
+    "original_path": "build/m4-candidate-native/treatment_hdf_imbalance-1/trajectory.jsonl",
+    "original_sha256": "938ca9f6ed6bd5ff48c8a94e52225e444e5ec2fc87416dec75c0e5f91c407a2a",
+    "original_bytes": 1240012,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_hdf_imbalance-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_hdf_imbalance-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_supply-2/trajectory.jsonl.gz",
+    "sha256": "f9abba2b77e96009d97aed4d2a914c58fb5d77d5425ff1707ba6e4d9662f9e6a",
+    "bytes": 153781,
+    "original_path": "build/m4-candidate-native/treatment_supply-2/trajectory.jsonl",
+    "original_sha256": "a6ae6da362689d65de228f7007d5f3025833d7eb94b1d73e3c2394f0e36f84e8",
+    "original_bytes": 1117688,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_supply-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_supply-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_ratio-2/trajectory.jsonl.gz",
+    "sha256": "b87f935fdd0e23e559810217289ea99c4502159f9b3bf098bef63640e08d4ba5",
+    "bytes": 178406,
+    "original_path": "build/m4-candidate-native/treatment_ratio-2/trajectory.jsonl",
+    "original_sha256": "778973d9d1ceaea45b5ef1a4cf3911fe81d83c147d0d5dbb5cdbeac55ecf8394",
+    "original_bytes": 1140094,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_ratio-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_ratio-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_filter1-1/trajectory.jsonl.gz",
+    "sha256": "8504855f4dd69c4d4d98c54f693ffb463dcb34028232c7219c6f01285bf394cc",
+    "bytes": 153841,
+    "original_path": "build/m4-candidate-native/treatment_filter1-1/trajectory.jsonl",
+    "original_sha256": "0999cd34d1ac6fb869cec9438d8a9ee0c2bf833bc092726be97ca1c1a3ba7018",
+    "original_bytes": 1123714,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_filter1-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_filter1-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_integrity-2/trajectory.jsonl.gz",
+    "sha256": "a9c5ea6726d19c9f6465509e47edd9159679863a6d70920bc688c3a81ecf6512",
+    "bytes": 153115,
+    "original_path": "build/m4-candidate-native/treatment_integrity-2/trajectory.jsonl",
+    "original_sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+    "original_bytes": 1119390,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_integrity-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_integrity-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_route-1/trajectory.jsonl.gz",
+    "sha256": "20643a2bdb7610bc1f6d5a751faed89a07ba96535997345582dd983fbc48cc13",
+    "bytes": 153019,
+    "original_path": "build/m4-candidate-native/treatment_route-1/trajectory.jsonl",
+    "original_sha256": "b8fa5229d6bf1f6c7fc78612cf5b20d50c50c7467a71f38b1ecab504e22ce7e7",
+    "original_bytes": 1117230,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_route-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_route-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_hdf_pre-2/trajectory.jsonl.gz",
+    "sha256": "fb61cd69658dfe059cf6b212dd6fff7d0da24c028c2fcbba9effcc7e84f89eb1",
+    "bytes": 232723,
+    "original_path": "build/m4-candidate-native/treatment_hdf_pre-2/trajectory.jsonl",
+    "original_sha256": "cb10b60b5e10d80a8be7a255e489fe0cd6fc26c2466964da8386d1233b561d37",
+    "original_bytes": 1163114,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_hdf_pre-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_hdf_pre-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_temperature-2/trajectory.jsonl.gz",
+    "sha256": "1750c520be2bc3af6479a649f5640ed7e902ade8ec05332c5a3c70b99490a5e6",
+    "bytes": 155849,
+    "original_path": "build/m4-candidate-native/treatment_temperature-2/trajectory.jsonl",
+    "original_sha256": "93e37012d105447f9c0789a8a8467426e96b835308914700c4770329adf7a361",
+    "original_bytes": 1131474,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_temperature-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_temperature-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_ratio-1/trajectory.jsonl.gz",
+    "sha256": "b87f935fdd0e23e559810217289ea99c4502159f9b3bf098bef63640e08d4ba5",
+    "bytes": 178406,
+    "original_path": "build/m4-candidate-native/treatment_ratio-1/trajectory.jsonl",
+    "original_sha256": "778973d9d1ceaea45b5ef1a4cf3911fe81d83c147d0d5dbb5cdbeac55ecf8394",
+    "original_bytes": 1140094,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_ratio-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_ratio-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_hdf_post-1/trajectory.jsonl.gz",
+    "sha256": "08ce8949b8e3d55500f905e14544a5e1adb0e40759224a8a466543c5d21da522",
+    "bytes": 242920,
+    "original_path": "build/m4-candidate-native/treatment_hdf_post-1/trajectory.jsonl",
+    "original_sha256": "a2bf7cdd3a3b2f0da99e8dccdf91dc1cb179cc719b026d9ddf04ff3e121a67c7",
+    "original_bytes": 1243152,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_hdf_post-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_hdf_post-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_hd-2/trajectory.jsonl.gz",
+    "sha256": "4b32042bd4a2bd639e22158d8f8a6e52f77c80145be608dc1c9dd7f556deed31",
+    "bytes": 223891,
+    "original_path": "build/m4-candidate-native/treatment_hd-2/trajectory.jsonl",
+    "original_sha256": "3049c41cbeb2e8af67688d0a7c2577cea473a768d46f6606b160ac3660eae382",
+    "original_bytes": 1137488,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_hd-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_hd-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_hdf_post-2/trajectory.jsonl.gz",
+    "sha256": "08ce8949b8e3d55500f905e14544a5e1adb0e40759224a8a466543c5d21da522",
+    "bytes": 242920,
+    "original_path": "build/m4-candidate-native/treatment_hdf_post-2/trajectory.jsonl",
+    "original_sha256": "a2bf7cdd3a3b2f0da99e8dccdf91dc1cb179cc719b026d9ddf04ff3e121a67c7",
+    "original_bytes": 1243152,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_hdf_post-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_hdf_post-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_filter1-2/trajectory.jsonl.gz",
+    "sha256": "8504855f4dd69c4d4d98c54f693ffb463dcb34028232c7219c6f01285bf394cc",
+    "bytes": 153841,
+    "original_path": "build/m4-candidate-native/treatment_filter1-2/trajectory.jsonl",
+    "original_sha256": "0999cd34d1ac6fb869cec9438d8a9ee0c2bf833bc092726be97ca1c1a3ba7018",
+    "original_bytes": 1123714,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_filter1-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_filter1-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_supply-1/trajectory.jsonl.gz",
+    "sha256": "f9abba2b77e96009d97aed4d2a914c58fb5d77d5425ff1707ba6e4d9662f9e6a",
+    "bytes": 153781,
+    "original_path": "build/m4-candidate-native/treatment_supply-1/trajectory.jsonl",
+    "original_sha256": "a6ae6da362689d65de228f7007d5f3025833d7eb94b1d73e3c2394f0e36f84e8",
+    "original_bytes": 1117688,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_supply-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_supply-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_hdf_large-2/trajectory.jsonl.gz",
+    "sha256": "21599bb802f6e5bdabd1f07546982ea6b5d495285a649dd0683a8570b09e0afb",
+    "bytes": 241414,
+    "original_path": "build/m4-candidate-native/treatment_hdf_large-2/trajectory.jsonl",
+    "original_sha256": "e3b51495037bd774cbbffbcb1805476d68c18c11322c48d0245740a40901f39a",
+    "original_bytes": 1246130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_hdf_large-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_hdf_large-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_route-2/trajectory.jsonl.gz",
+    "sha256": "20643a2bdb7610bc1f6d5a751faed89a07ba96535997345582dd983fbc48cc13",
+    "bytes": 153019,
+    "original_path": "build/m4-candidate-native/treatment_route-2/trajectory.jsonl",
+    "original_sha256": "b8fa5229d6bf1f6c7fc78612cf5b20d50c50c7467a71f38b1ecab504e22ce7e7",
+    "original_bytes": 1117230,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_route-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_route-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_hdf_large-1/trajectory.jsonl.gz",
+    "sha256": "21599bb802f6e5bdabd1f07546982ea6b5d495285a649dd0683a8570b09e0afb",
+    "bytes": 241414,
+    "original_path": "build/m4-candidate-native/treatment_hdf_large-1/trajectory.jsonl",
+    "original_sha256": "e3b51495037bd774cbbffbcb1805476d68c18c11322c48d0245740a40901f39a",
+    "original_bytes": 1246130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_hdf_large-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_hdf_large-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_hdf_pre-1/trajectory.jsonl.gz",
+    "sha256": "fb61cd69658dfe059cf6b212dd6fff7d0da24c028c2fcbba9effcc7e84f89eb1",
+    "bytes": 232723,
+    "original_path": "build/m4-candidate-native/treatment_hdf_pre-1/trajectory.jsonl",
+    "original_sha256": "cb10b60b5e10d80a8be7a255e489fe0cd6fc26c2466964da8386d1233b561d37",
+    "original_bytes": 1163114,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_hdf_pre-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_hdf_pre-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_temperature-1/trajectory.jsonl.gz",
+    "sha256": "1750c520be2bc3af6479a649f5640ed7e902ade8ec05332c5a3c70b99490a5e6",
+    "bytes": 155849,
+    "original_path": "build/m4-candidate-native/treatment_temperature-1/trajectory.jsonl",
+    "original_sha256": "93e37012d105447f9c0789a8a8467426e96b835308914700c4770329adf7a361",
+    "original_bytes": 1131474,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_temperature-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_temperature-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_hdf_imbalance-2/trajectory.jsonl.gz",
+    "sha256": "ff0be7eaaad7552c5cd34e56f36673d7885ea21e9512eecd7d5ec23b07c9f404",
+    "bytes": 246659,
+    "original_path": "build/m4-candidate-native/treatment_hdf_imbalance-2/trajectory.jsonl",
+    "original_sha256": "938ca9f6ed6bd5ff48c8a94e52225e444e5ec2fc87416dec75c0e5f91c407a2a",
+    "original_bytes": 1240012,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_hdf_imbalance-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_hdf_imbalance-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_contaminant-2/trajectory.jsonl.gz",
+    "sha256": "61618aee010be5346e6a31682b9b2ea75b1fc8f637601e3eacbb86be0a4df860",
+    "bytes": 247087,
+    "original_path": "build/m4-candidate-native/treatment_contaminant-2/trajectory.jsonl",
+    "original_sha256": "c843d45fd36c440b212c7ed6f820a2ba5bb56c2b02696026b5ae75402838c7ad",
+    "original_bytes": 1250130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_contaminant-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_contaminant-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-native/treatment_integrity-1/trajectory.jsonl.gz",
+    "sha256": "a9c5ea6726d19c9f6465509e47edd9159679863a6d70920bc688c3a81ecf6512",
+    "bytes": 153115,
+    "original_path": "build/m4-candidate-native/treatment_integrity-1/trajectory.jsonl",
+    "original_sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+    "original_bytes": 1119390,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-native/treatment_integrity-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-native/treatment_integrity-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_contaminant-1/trajectory.jsonl.gz",
+    "sha256": "61618aee010be5346e6a31682b9b2ea75b1fc8f637601e3eacbb86be0a4df860",
+    "bytes": 247087,
+    "original_path": "build/m4-final-native/treatment_contaminant-1/trajectory.jsonl",
+    "original_sha256": "c843d45fd36c440b212c7ed6f820a2ba5bb56c2b02696026b5ae75402838c7ad",
+    "original_bytes": 1250130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_contaminant-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_contaminant-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_hd-1/trajectory.jsonl.gz",
+    "sha256": "4b32042bd4a2bd639e22158d8f8a6e52f77c80145be608dc1c9dd7f556deed31",
+    "bytes": 223891,
+    "original_path": "build/m4-final-native/treatment_hd-1/trajectory.jsonl",
+    "original_sha256": "3049c41cbeb2e8af67688d0a7c2577cea473a768d46f6606b160ac3660eae382",
+    "original_bytes": 1137488,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_hd-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_hd-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_hdf_imbalance-1/trajectory.jsonl.gz",
+    "sha256": "ff0be7eaaad7552c5cd34e56f36673d7885ea21e9512eecd7d5ec23b07c9f404",
+    "bytes": 246659,
+    "original_path": "build/m4-final-native/treatment_hdf_imbalance-1/trajectory.jsonl",
+    "original_sha256": "938ca9f6ed6bd5ff48c8a94e52225e444e5ec2fc87416dec75c0e5f91c407a2a",
+    "original_bytes": 1240012,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_hdf_imbalance-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_hdf_imbalance-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_supply-2/trajectory.jsonl.gz",
+    "sha256": "f9abba2b77e96009d97aed4d2a914c58fb5d77d5425ff1707ba6e4d9662f9e6a",
+    "bytes": 153781,
+    "original_path": "build/m4-final-native/treatment_supply-2/trajectory.jsonl",
+    "original_sha256": "a6ae6da362689d65de228f7007d5f3025833d7eb94b1d73e3c2394f0e36f84e8",
+    "original_bytes": 1117688,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_supply-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_supply-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_ratio-2/trajectory.jsonl.gz",
+    "sha256": "b87f935fdd0e23e559810217289ea99c4502159f9b3bf098bef63640e08d4ba5",
+    "bytes": 178406,
+    "original_path": "build/m4-final-native/treatment_ratio-2/trajectory.jsonl",
+    "original_sha256": "778973d9d1ceaea45b5ef1a4cf3911fe81d83c147d0d5dbb5cdbeac55ecf8394",
+    "original_bytes": 1140094,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_ratio-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_ratio-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_filter1-1/trajectory.jsonl.gz",
+    "sha256": "8504855f4dd69c4d4d98c54f693ffb463dcb34028232c7219c6f01285bf394cc",
+    "bytes": 153841,
+    "original_path": "build/m4-final-native/treatment_filter1-1/trajectory.jsonl",
+    "original_sha256": "0999cd34d1ac6fb869cec9438d8a9ee0c2bf833bc092726be97ca1c1a3ba7018",
+    "original_bytes": 1123714,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_filter1-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_filter1-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_integrity-2/trajectory.jsonl.gz",
+    "sha256": "a9c5ea6726d19c9f6465509e47edd9159679863a6d70920bc688c3a81ecf6512",
+    "bytes": 153115,
+    "original_path": "build/m4-final-native/treatment_integrity-2/trajectory.jsonl",
+    "original_sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+    "original_bytes": 1119390,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_integrity-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_integrity-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_route-1/trajectory.jsonl.gz",
+    "sha256": "20643a2bdb7610bc1f6d5a751faed89a07ba96535997345582dd983fbc48cc13",
+    "bytes": 153019,
+    "original_path": "build/m4-final-native/treatment_route-1/trajectory.jsonl",
+    "original_sha256": "b8fa5229d6bf1f6c7fc78612cf5b20d50c50c7467a71f38b1ecab504e22ce7e7",
+    "original_bytes": 1117230,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_route-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_route-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_hdf_pre-2/trajectory.jsonl.gz",
+    "sha256": "fb61cd69658dfe059cf6b212dd6fff7d0da24c028c2fcbba9effcc7e84f89eb1",
+    "bytes": 232723,
+    "original_path": "build/m4-final-native/treatment_hdf_pre-2/trajectory.jsonl",
+    "original_sha256": "cb10b60b5e10d80a8be7a255e489fe0cd6fc26c2466964da8386d1233b561d37",
+    "original_bytes": 1163114,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_hdf_pre-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_hdf_pre-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_temperature-2/trajectory.jsonl.gz",
+    "sha256": "1750c520be2bc3af6479a649f5640ed7e902ade8ec05332c5a3c70b99490a5e6",
+    "bytes": 155849,
+    "original_path": "build/m4-final-native/treatment_temperature-2/trajectory.jsonl",
+    "original_sha256": "93e37012d105447f9c0789a8a8467426e96b835308914700c4770329adf7a361",
+    "original_bytes": 1131474,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_temperature-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_temperature-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_ratio-1/trajectory.jsonl.gz",
+    "sha256": "b87f935fdd0e23e559810217289ea99c4502159f9b3bf098bef63640e08d4ba5",
+    "bytes": 178406,
+    "original_path": "build/m4-final-native/treatment_ratio-1/trajectory.jsonl",
+    "original_sha256": "778973d9d1ceaea45b5ef1a4cf3911fe81d83c147d0d5dbb5cdbeac55ecf8394",
+    "original_bytes": 1140094,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_ratio-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_ratio-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_hdf_post-1/trajectory.jsonl.gz",
+    "sha256": "08ce8949b8e3d55500f905e14544a5e1adb0e40759224a8a466543c5d21da522",
+    "bytes": 242920,
+    "original_path": "build/m4-final-native/treatment_hdf_post-1/trajectory.jsonl",
+    "original_sha256": "a2bf7cdd3a3b2f0da99e8dccdf91dc1cb179cc719b026d9ddf04ff3e121a67c7",
+    "original_bytes": 1243152,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_hdf_post-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_hdf_post-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_hd-2/trajectory.jsonl.gz",
+    "sha256": "4b32042bd4a2bd639e22158d8f8a6e52f77c80145be608dc1c9dd7f556deed31",
+    "bytes": 223891,
+    "original_path": "build/m4-final-native/treatment_hd-2/trajectory.jsonl",
+    "original_sha256": "3049c41cbeb2e8af67688d0a7c2577cea473a768d46f6606b160ac3660eae382",
+    "original_bytes": 1137488,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_hd-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_hd-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_hdf_post-2/trajectory.jsonl.gz",
+    "sha256": "08ce8949b8e3d55500f905e14544a5e1adb0e40759224a8a466543c5d21da522",
+    "bytes": 242920,
+    "original_path": "build/m4-final-native/treatment_hdf_post-2/trajectory.jsonl",
+    "original_sha256": "a2bf7cdd3a3b2f0da99e8dccdf91dc1cb179cc719b026d9ddf04ff3e121a67c7",
+    "original_bytes": 1243152,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_hdf_post-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_hdf_post-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_filter1-2/trajectory.jsonl.gz",
+    "sha256": "8504855f4dd69c4d4d98c54f693ffb463dcb34028232c7219c6f01285bf394cc",
+    "bytes": 153841,
+    "original_path": "build/m4-final-native/treatment_filter1-2/trajectory.jsonl",
+    "original_sha256": "0999cd34d1ac6fb869cec9438d8a9ee0c2bf833bc092726be97ca1c1a3ba7018",
+    "original_bytes": 1123714,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_filter1-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_filter1-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_supply-1/trajectory.jsonl.gz",
+    "sha256": "f9abba2b77e96009d97aed4d2a914c58fb5d77d5425ff1707ba6e4d9662f9e6a",
+    "bytes": 153781,
+    "original_path": "build/m4-final-native/treatment_supply-1/trajectory.jsonl",
+    "original_sha256": "a6ae6da362689d65de228f7007d5f3025833d7eb94b1d73e3c2394f0e36f84e8",
+    "original_bytes": 1117688,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_supply-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_supply-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_hdf_large-2/trajectory.jsonl.gz",
+    "sha256": "21599bb802f6e5bdabd1f07546982ea6b5d495285a649dd0683a8570b09e0afb",
+    "bytes": 241414,
+    "original_path": "build/m4-final-native/treatment_hdf_large-2/trajectory.jsonl",
+    "original_sha256": "e3b51495037bd774cbbffbcb1805476d68c18c11322c48d0245740a40901f39a",
+    "original_bytes": 1246130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_hdf_large-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_hdf_large-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_route-2/trajectory.jsonl.gz",
+    "sha256": "20643a2bdb7610bc1f6d5a751faed89a07ba96535997345582dd983fbc48cc13",
+    "bytes": 153019,
+    "original_path": "build/m4-final-native/treatment_route-2/trajectory.jsonl",
+    "original_sha256": "b8fa5229d6bf1f6c7fc78612cf5b20d50c50c7467a71f38b1ecab504e22ce7e7",
+    "original_bytes": 1117230,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_route-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_route-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_hdf_large-1/trajectory.jsonl.gz",
+    "sha256": "21599bb802f6e5bdabd1f07546982ea6b5d495285a649dd0683a8570b09e0afb",
+    "bytes": 241414,
+    "original_path": "build/m4-final-native/treatment_hdf_large-1/trajectory.jsonl",
+    "original_sha256": "e3b51495037bd774cbbffbcb1805476d68c18c11322c48d0245740a40901f39a",
+    "original_bytes": 1246130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_hdf_large-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_hdf_large-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_hdf_pre-1/trajectory.jsonl.gz",
+    "sha256": "fb61cd69658dfe059cf6b212dd6fff7d0da24c028c2fcbba9effcc7e84f89eb1",
+    "bytes": 232723,
+    "original_path": "build/m4-final-native/treatment_hdf_pre-1/trajectory.jsonl",
+    "original_sha256": "cb10b60b5e10d80a8be7a255e489fe0cd6fc26c2466964da8386d1233b561d37",
+    "original_bytes": 1163114,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_hdf_pre-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_hdf_pre-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_temperature-1/trajectory.jsonl.gz",
+    "sha256": "1750c520be2bc3af6479a649f5640ed7e902ade8ec05332c5a3c70b99490a5e6",
+    "bytes": 155849,
+    "original_path": "build/m4-final-native/treatment_temperature-1/trajectory.jsonl",
+    "original_sha256": "93e37012d105447f9c0789a8a8467426e96b835308914700c4770329adf7a361",
+    "original_bytes": 1131474,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_temperature-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_temperature-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_hdf_imbalance-2/trajectory.jsonl.gz",
+    "sha256": "ff0be7eaaad7552c5cd34e56f36673d7885ea21e9512eecd7d5ec23b07c9f404",
+    "bytes": 246659,
+    "original_path": "build/m4-final-native/treatment_hdf_imbalance-2/trajectory.jsonl",
+    "original_sha256": "938ca9f6ed6bd5ff48c8a94e52225e444e5ec2fc87416dec75c0e5f91c407a2a",
+    "original_bytes": 1240012,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_hdf_imbalance-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_hdf_imbalance-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_contaminant-2/trajectory.jsonl.gz",
+    "sha256": "61618aee010be5346e6a31682b9b2ea75b1fc8f637601e3eacbb86be0a4df860",
+    "bytes": 247087,
+    "original_path": "build/m4-final-native/treatment_contaminant-2/trajectory.jsonl",
+    "original_sha256": "c843d45fd36c440b212c7ed6f820a2ba5bb56c2b02696026b5ae75402838c7ad",
+    "original_bytes": 1250130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_contaminant-2/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_contaminant-2/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-native/treatment_integrity-1/trajectory.jsonl.gz",
+    "sha256": "a9c5ea6726d19c9f6465509e47edd9159679863a6d70920bc688c3a81ecf6512",
+    "bytes": 153115,
+    "original_path": "build/m4-final-native/treatment_integrity-1/trajectory.jsonl",
+    "original_sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+    "original_bytes": 1119390,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-native/treatment_integrity-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-native/treatment_integrity-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_pressure-1/results/run/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-candidate-compose/machine_pressure-1/results/run/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_pressure-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_pressure-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_air-1/results/run/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-candidate-compose/machine_air-1/results/run/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_air-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_air-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_balance-2/results/run/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-candidate-compose/machine_balance-2/results/run/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_balance-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_balance-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_pressure-2/results/run/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-candidate-compose/machine_pressure-2/results/run/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_pressure-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_pressure-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_hdf_post-1/results/run/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-candidate-compose/machine_hdf_post-1/results/run/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_hdf_post-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_hdf_post-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_hd-1/results/run/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-candidate-compose/machine_hd-1/results/run/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_hd-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_hd-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_balance-1/results/run/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-candidate-compose/machine_balance-1/results/run/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_balance-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_balance-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_invalid-1/results/run/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-candidate-compose/machine_invalid-1/results/run/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_invalid-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_invalid-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_stall-1/results/run/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-candidate-compose/machine_stall-1/results/run/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_stall-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_stall-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_quality-2/results/run/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-candidate-compose/machine_quality-2/results/run/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_quality-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_quality-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_leak-1/results/run/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-candidate-compose/machine_leak-1/results/run/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_leak-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_leak-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_recovery-1/results/run/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-candidate-compose/machine_recovery-1/results/run/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_recovery-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_recovery-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_recovery-2/results/run/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-candidate-compose/machine_recovery-2/results/run/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_recovery-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_recovery-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_air-2/results/run/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-candidate-compose/machine_air-2/results/run/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_air-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_air-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_quality-1/results/run/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-candidate-compose/machine_quality-1/results/run/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_quality-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_quality-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_hdf_post-2/results/run/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-candidate-compose/machine_hdf_post-2/results/run/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_hdf_post-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_hdf_post-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_stall-2/results/run/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-candidate-compose/machine_stall-2/results/run/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_stall-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_stall-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_hdf_pre-2/results/run/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-candidate-compose/machine_hdf_pre-2/results/run/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_hdf_pre-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_hdf_pre-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_hd-2/results/run/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-candidate-compose/machine_hd-2/results/run/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_hd-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_hd-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_invalid-2/results/run/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-candidate-compose/machine_invalid-2/results/run/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_invalid-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_invalid-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_leak-2/results/run/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-candidate-compose/machine_leak-2/results/run/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_leak-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_leak-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-candidate-compose/machine_hdf_pre-1/results/run/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-candidate-compose/machine_hdf_pre-1/results/run/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-candidate-compose/machine_hdf_pre-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-candidate-compose/machine_hdf_pre-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_pressure-1/results/run/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-final-compose/machine_pressure-1/results/run/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_pressure-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_pressure-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_air-1/results/run/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-final-compose/machine_air-1/results/run/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_air-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_air-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_balance-2/results/run/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-final-compose/machine_balance-2/results/run/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_balance-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_balance-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_pressure-2/results/run/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-final-compose/machine_pressure-2/results/run/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_pressure-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_pressure-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_hdf_post-1/results/run/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-final-compose/machine_hdf_post-1/results/run/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_hdf_post-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_hdf_post-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_hd-1/results/run/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-final-compose/machine_hd-1/results/run/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_hd-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_hd-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_balance-1/results/run/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-final-compose/machine_balance-1/results/run/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_balance-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_balance-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_invalid-1/results/run/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-final-compose/machine_invalid-1/results/run/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_invalid-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_invalid-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_stall-1/results/run/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-final-compose/machine_stall-1/results/run/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_stall-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_stall-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_quality-2/results/run/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-final-compose/machine_quality-2/results/run/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_quality-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_quality-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_leak-1/results/run/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-final-compose/machine_leak-1/results/run/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_leak-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_leak-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_recovery-1/results/run/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-final-compose/machine_recovery-1/results/run/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_recovery-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_recovery-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_recovery-2/results/run/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-final-compose/machine_recovery-2/results/run/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_recovery-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_recovery-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_air-2/results/run/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-final-compose/machine_air-2/results/run/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_air-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_air-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_quality-1/results/run/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-final-compose/machine_quality-1/results/run/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_quality-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_quality-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_hdf_post-2/results/run/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-final-compose/machine_hdf_post-2/results/run/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_hdf_post-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_hdf_post-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_stall-2/results/run/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-final-compose/machine_stall-2/results/run/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_stall-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_stall-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_hdf_pre-2/results/run/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-final-compose/machine_hdf_pre-2/results/run/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_hdf_pre-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_hdf_pre-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_hd-2/results/run/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-final-compose/machine_hd-2/results/run/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_hd-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_hd-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_invalid-2/results/run/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-final-compose/machine_invalid-2/results/run/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_invalid-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_invalid-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_leak-2/results/run/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-final-compose/machine_leak-2/results/run/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_leak-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_leak-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-final-compose/machine_hdf_pre-1/results/run/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-final-compose/machine_hdf_pre-1/results/run/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-final-compose/machine_hdf_pre-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-final-compose/machine_hdf_pre-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_pressure-1/results/run/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-verified-compose/machine_pressure-1/results/run/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_pressure-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_pressure-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_air-1/results/run/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-verified-compose/machine_air-1/results/run/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_air-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_air-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_balance-2/results/run/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-verified-compose/machine_balance-2/results/run/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_balance-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_balance-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_pressure-2/results/run/trajectory.jsonl.gz",
+    "sha256": "60cce24b3a702236aea68972c2ce493b34a56b67444c7eb5ee886de9275f80f2",
+    "bytes": 75520,
+    "original_path": "build/m5-verified-compose/machine_pressure-2/results/run/trajectory.jsonl",
+    "original_sha256": "3a7c44d2878689548d14d561936d08767abe23f34b120dc29ee5af48333cbd05",
+    "original_bytes": 814492,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_pressure-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_pressure-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_hdf_post-1/results/run/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-verified-compose/machine_hdf_post-1/results/run/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_hdf_post-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_hdf_post-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_hd-1/results/run/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-verified-compose/machine_hd-1/results/run/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_hd-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_hd-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_balance-1/results/run/trajectory.jsonl.gz",
+    "sha256": "c6c6c5671dd114da6c1928a75dff4b02d1facfe9070d2e364f97764376893417",
+    "bytes": 86006,
+    "original_path": "build/m5-verified-compose/machine_balance-1/results/run/trajectory.jsonl",
+    "original_sha256": "c90666550cfc1c4804ebb947c721b25c2cc5eabe62744ef0b9a6adbb061445f5",
+    "original_bytes": 819543,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_balance-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_balance-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_invalid-1/results/run/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-verified-compose/machine_invalid-1/results/run/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_invalid-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_invalid-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_stall-1/results/run/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-verified-compose/machine_stall-1/results/run/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_stall-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_stall-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_quality-2/results/run/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-verified-compose/machine_quality-2/results/run/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_quality-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_quality-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_leak-1/results/run/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-verified-compose/machine_leak-1/results/run/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_leak-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_leak-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_recovery-1/results/run/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-verified-compose/machine_recovery-1/results/run/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_recovery-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_recovery-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_recovery-2/results/run/trajectory.jsonl.gz",
+    "sha256": "1da59f6e6d756808a30c3dfef9b8b144f8e9fe57867f587626d500f71a486678",
+    "bytes": 215470,
+    "original_path": "build/m5-verified-compose/machine_recovery-2/results/run/trajectory.jsonl",
+    "original_sha256": "b057412448d6b39d0db0076313c0d8f82d5167c93f41d17467b7f44b78c8d175",
+    "original_bytes": 1920329,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_recovery-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_recovery-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_air-2/results/run/trajectory.jsonl.gz",
+    "sha256": "269a009bc4792708737651d8c95b0b66b7d4d29916e056b87c2cd24fa6e85d39",
+    "bytes": 74292,
+    "original_path": "build/m5-verified-compose/machine_air-2/results/run/trajectory.jsonl",
+    "original_sha256": "0b8e65ef085fe9759d44685ad8d6c8e7f94a96d52e3c96899409ebdf27416e4c",
+    "original_bytes": 813766,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_air-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_air-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_quality-1/results/run/trajectory.jsonl.gz",
+    "sha256": "fb65a2233534f555ea2ec5711a43cdb1e0102a16405d9cfc11b1cfceb8151bf9",
+    "bytes": 85998,
+    "original_path": "build/m5-verified-compose/machine_quality-1/results/run/trajectory.jsonl",
+    "original_sha256": "02ba607baea89b49398f19b8603b87b766553c020c4e6e4df791ca74a9cc669a",
+    "original_bytes": 819483,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_quality-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_quality-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_hdf_post-2/results/run/trajectory.jsonl.gz",
+    "sha256": "852ea462c7e485d03c06add2c10c9f45b1c6a76ef9050e09220208130669c27f",
+    "bytes": 228696,
+    "original_path": "build/m5-verified-compose/machine_hdf_post-2/results/run/trajectory.jsonl",
+    "original_sha256": "6183baaf341d245769e894e855640fb1bcd400b62975d66cac8878247c236b3d",
+    "original_bytes": 1930451,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_hdf_post-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_hdf_post-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_stall-2/results/run/trajectory.jsonl.gz",
+    "sha256": "e555ba16a378fcb45307c394aee638f553802940b76f5d9c784b46ad4958773c",
+    "bytes": 75041,
+    "original_path": "build/m5-verified-compose/machine_stall-2/results/run/trajectory.jsonl",
+    "original_sha256": "60e44b19f7484afe7fd4013e04a6b35420dc219bc7082152682cff4ba28997e1",
+    "original_bytes": 815204,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_stall-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_stall-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_hdf_pre-2/results/run/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-verified-compose/machine_hdf_pre-2/results/run/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_hdf_pre-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_hdf_pre-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_hd-2/results/run/trajectory.jsonl.gz",
+    "sha256": "3fd5b4c8dbe58480a86f7426f02f12ed3110cf23543461bd746bd47654e35994",
+    "bytes": 214003,
+    "original_path": "build/m5-verified-compose/machine_hd-2/results/run/trajectory.jsonl",
+    "original_sha256": "6a3142610889f1861c3c41e0044ba22e8c5d328524b2420a5f61a0e2e4fda725",
+    "original_bytes": 1844871,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_hd-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_hd-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_invalid-2/results/run/trajectory.jsonl.gz",
+    "sha256": "1f6f5f872bf8745203fee6d65adf2c495f58591f59d58262b8d6542669c09078",
+    "bytes": 74223,
+    "original_path": "build/m5-verified-compose/machine_invalid-2/results/run/trajectory.jsonl",
+    "original_sha256": "5cd269a01374a177ff37f270dc64fee44ea5c21d078cb2db859445b52ea7b3e4",
+    "original_bytes": 817668,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_invalid-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_invalid-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_leak-2/results/run/trajectory.jsonl.gz",
+    "sha256": "c14db264da17c3a09b1a45a798e6965c388191ec59a6232ff75810a3f1bbcf8b",
+    "bytes": 74291,
+    "original_path": "build/m5-verified-compose/machine_leak-2/results/run/trajectory.jsonl",
+    "original_sha256": "fc63aa5ebc99b2d025a92462c0a7ef10f4689fa8716292a0e49ac1cc0d4ecde7",
+    "original_bytes": 814186,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_leak-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_leak-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m5-verified-compose/machine_hdf_pre-1/results/run/trajectory.jsonl.gz",
+    "sha256": "b8711ffa6e54b2984e9c4d43af34fb17693ce491f19d32cefb4ef0d78621e431",
+    "bytes": 238545,
+    "original_path": "build/m5-verified-compose/machine_hdf_pre-1/results/run/trajectory.jsonl",
+    "original_sha256": "be96d06b239af97b3961f45011fc48342a9140999ce30388678f854cfc1b0903",
+    "original_bytes": 1933384,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m5-verified-compose/machine_hdf_pre-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m5-verified-compose/machine_hdf_pre-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_contaminant-1/results/run/trajectory.jsonl.gz",
+    "sha256": "61618aee010be5346e6a31682b9b2ea75b1fc8f637601e3eacbb86be0a4df860",
+    "bytes": 247087,
+    "original_path": "build/m4-candidate-compose/treatment_contaminant-1/results/run/trajectory.jsonl",
+    "original_sha256": "c843d45fd36c440b212c7ed6f820a2ba5bb56c2b02696026b5ae75402838c7ad",
+    "original_bytes": 1250130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_contaminant-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_contaminant-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_hd-1/results/run/trajectory.jsonl.gz",
+    "sha256": "4b32042bd4a2bd639e22158d8f8a6e52f77c80145be608dc1c9dd7f556deed31",
+    "bytes": 223891,
+    "original_path": "build/m4-candidate-compose/treatment_hd-1/results/run/trajectory.jsonl",
+    "original_sha256": "3049c41cbeb2e8af67688d0a7c2577cea473a768d46f6606b160ac3660eae382",
+    "original_bytes": 1137488,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_hd-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_hd-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_hdf_imbalance-1/results/run/trajectory.jsonl.gz",
+    "sha256": "ff0be7eaaad7552c5cd34e56f36673d7885ea21e9512eecd7d5ec23b07c9f404",
+    "bytes": 246659,
+    "original_path": "build/m4-candidate-compose/treatment_hdf_imbalance-1/results/run/trajectory.jsonl",
+    "original_sha256": "938ca9f6ed6bd5ff48c8a94e52225e444e5ec2fc87416dec75c0e5f91c407a2a",
+    "original_bytes": 1240012,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_hdf_imbalance-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_hdf_imbalance-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_supply-2/results/run/trajectory.jsonl.gz",
+    "sha256": "f9abba2b77e96009d97aed4d2a914c58fb5d77d5425ff1707ba6e4d9662f9e6a",
+    "bytes": 153781,
+    "original_path": "build/m4-candidate-compose/treatment_supply-2/results/run/trajectory.jsonl",
+    "original_sha256": "a6ae6da362689d65de228f7007d5f3025833d7eb94b1d73e3c2394f0e36f84e8",
+    "original_bytes": 1117688,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_supply-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_supply-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_ratio-2/results/run/trajectory.jsonl.gz",
+    "sha256": "b87f935fdd0e23e559810217289ea99c4502159f9b3bf098bef63640e08d4ba5",
+    "bytes": 178406,
+    "original_path": "build/m4-candidate-compose/treatment_ratio-2/results/run/trajectory.jsonl",
+    "original_sha256": "778973d9d1ceaea45b5ef1a4cf3911fe81d83c147d0d5dbb5cdbeac55ecf8394",
+    "original_bytes": 1140094,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_ratio-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_ratio-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_filter1-1/results/run/trajectory.jsonl.gz",
+    "sha256": "8504855f4dd69c4d4d98c54f693ffb463dcb34028232c7219c6f01285bf394cc",
+    "bytes": 153841,
+    "original_path": "build/m4-candidate-compose/treatment_filter1-1/results/run/trajectory.jsonl",
+    "original_sha256": "0999cd34d1ac6fb869cec9438d8a9ee0c2bf833bc092726be97ca1c1a3ba7018",
+    "original_bytes": 1123714,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_filter1-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_filter1-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_integrity-2/results/run/trajectory.jsonl.gz",
+    "sha256": "a9c5ea6726d19c9f6465509e47edd9159679863a6d70920bc688c3a81ecf6512",
+    "bytes": 153115,
+    "original_path": "build/m4-candidate-compose/treatment_integrity-2/results/run/trajectory.jsonl",
+    "original_sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+    "original_bytes": 1119390,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_integrity-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_integrity-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_route-1/results/run/trajectory.jsonl.gz",
+    "sha256": "20643a2bdb7610bc1f6d5a751faed89a07ba96535997345582dd983fbc48cc13",
+    "bytes": 153019,
+    "original_path": "build/m4-candidate-compose/treatment_route-1/results/run/trajectory.jsonl",
+    "original_sha256": "b8fa5229d6bf1f6c7fc78612cf5b20d50c50c7467a71f38b1ecab504e22ce7e7",
+    "original_bytes": 1117230,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_route-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_route-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_hdf_pre-2/results/run/trajectory.jsonl.gz",
+    "sha256": "fb61cd69658dfe059cf6b212dd6fff7d0da24c028c2fcbba9effcc7e84f89eb1",
+    "bytes": 232723,
+    "original_path": "build/m4-candidate-compose/treatment_hdf_pre-2/results/run/trajectory.jsonl",
+    "original_sha256": "cb10b60b5e10d80a8be7a255e489fe0cd6fc26c2466964da8386d1233b561d37",
+    "original_bytes": 1163114,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_hdf_pre-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_hdf_pre-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_temperature-2/results/run/trajectory.jsonl.gz",
+    "sha256": "1750c520be2bc3af6479a649f5640ed7e902ade8ec05332c5a3c70b99490a5e6",
+    "bytes": 155849,
+    "original_path": "build/m4-candidate-compose/treatment_temperature-2/results/run/trajectory.jsonl",
+    "original_sha256": "93e37012d105447f9c0789a8a8467426e96b835308914700c4770329adf7a361",
+    "original_bytes": 1131474,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_temperature-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_temperature-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_ratio-1/results/run/trajectory.jsonl.gz",
+    "sha256": "b87f935fdd0e23e559810217289ea99c4502159f9b3bf098bef63640e08d4ba5",
+    "bytes": 178406,
+    "original_path": "build/m4-candidate-compose/treatment_ratio-1/results/run/trajectory.jsonl",
+    "original_sha256": "778973d9d1ceaea45b5ef1a4cf3911fe81d83c147d0d5dbb5cdbeac55ecf8394",
+    "original_bytes": 1140094,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_ratio-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_ratio-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_hdf_post-1/results/run/trajectory.jsonl.gz",
+    "sha256": "08ce8949b8e3d55500f905e14544a5e1adb0e40759224a8a466543c5d21da522",
+    "bytes": 242920,
+    "original_path": "build/m4-candidate-compose/treatment_hdf_post-1/results/run/trajectory.jsonl",
+    "original_sha256": "a2bf7cdd3a3b2f0da99e8dccdf91dc1cb179cc719b026d9ddf04ff3e121a67c7",
+    "original_bytes": 1243152,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_hdf_post-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_hdf_post-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_hd-2/results/run/trajectory.jsonl.gz",
+    "sha256": "4b32042bd4a2bd639e22158d8f8a6e52f77c80145be608dc1c9dd7f556deed31",
+    "bytes": 223891,
+    "original_path": "build/m4-candidate-compose/treatment_hd-2/results/run/trajectory.jsonl",
+    "original_sha256": "3049c41cbeb2e8af67688d0a7c2577cea473a768d46f6606b160ac3660eae382",
+    "original_bytes": 1137488,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_hd-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_hd-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_hdf_post-2/results/run/trajectory.jsonl.gz",
+    "sha256": "08ce8949b8e3d55500f905e14544a5e1adb0e40759224a8a466543c5d21da522",
+    "bytes": 242920,
+    "original_path": "build/m4-candidate-compose/treatment_hdf_post-2/results/run/trajectory.jsonl",
+    "original_sha256": "a2bf7cdd3a3b2f0da99e8dccdf91dc1cb179cc719b026d9ddf04ff3e121a67c7",
+    "original_bytes": 1243152,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_hdf_post-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_hdf_post-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_filter1-2/results/run/trajectory.jsonl.gz",
+    "sha256": "8504855f4dd69c4d4d98c54f693ffb463dcb34028232c7219c6f01285bf394cc",
+    "bytes": 153841,
+    "original_path": "build/m4-candidate-compose/treatment_filter1-2/results/run/trajectory.jsonl",
+    "original_sha256": "0999cd34d1ac6fb869cec9438d8a9ee0c2bf833bc092726be97ca1c1a3ba7018",
+    "original_bytes": 1123714,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_filter1-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_filter1-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_supply-1/results/run/trajectory.jsonl.gz",
+    "sha256": "f9abba2b77e96009d97aed4d2a914c58fb5d77d5425ff1707ba6e4d9662f9e6a",
+    "bytes": 153781,
+    "original_path": "build/m4-candidate-compose/treatment_supply-1/results/run/trajectory.jsonl",
+    "original_sha256": "a6ae6da362689d65de228f7007d5f3025833d7eb94b1d73e3c2394f0e36f84e8",
+    "original_bytes": 1117688,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_supply-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_supply-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_hdf_large-2/results/run/trajectory.jsonl.gz",
+    "sha256": "21599bb802f6e5bdabd1f07546982ea6b5d495285a649dd0683a8570b09e0afb",
+    "bytes": 241414,
+    "original_path": "build/m4-candidate-compose/treatment_hdf_large-2/results/run/trajectory.jsonl",
+    "original_sha256": "e3b51495037bd774cbbffbcb1805476d68c18c11322c48d0245740a40901f39a",
+    "original_bytes": 1246130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_hdf_large-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_hdf_large-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_route-2/results/run/trajectory.jsonl.gz",
+    "sha256": "20643a2bdb7610bc1f6d5a751faed89a07ba96535997345582dd983fbc48cc13",
+    "bytes": 153019,
+    "original_path": "build/m4-candidate-compose/treatment_route-2/results/run/trajectory.jsonl",
+    "original_sha256": "b8fa5229d6bf1f6c7fc78612cf5b20d50c50c7467a71f38b1ecab504e22ce7e7",
+    "original_bytes": 1117230,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_route-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_route-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_hdf_large-1/results/run/trajectory.jsonl.gz",
+    "sha256": "21599bb802f6e5bdabd1f07546982ea6b5d495285a649dd0683a8570b09e0afb",
+    "bytes": 241414,
+    "original_path": "build/m4-candidate-compose/treatment_hdf_large-1/results/run/trajectory.jsonl",
+    "original_sha256": "e3b51495037bd774cbbffbcb1805476d68c18c11322c48d0245740a40901f39a",
+    "original_bytes": 1246130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_hdf_large-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_hdf_large-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_hdf_pre-1/results/run/trajectory.jsonl.gz",
+    "sha256": "fb61cd69658dfe059cf6b212dd6fff7d0da24c028c2fcbba9effcc7e84f89eb1",
+    "bytes": 232723,
+    "original_path": "build/m4-candidate-compose/treatment_hdf_pre-1/results/run/trajectory.jsonl",
+    "original_sha256": "cb10b60b5e10d80a8be7a255e489fe0cd6fc26c2466964da8386d1233b561d37",
+    "original_bytes": 1163114,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_hdf_pre-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_hdf_pre-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_temperature-1/results/run/trajectory.jsonl.gz",
+    "sha256": "1750c520be2bc3af6479a649f5640ed7e902ade8ec05332c5a3c70b99490a5e6",
+    "bytes": 155849,
+    "original_path": "build/m4-candidate-compose/treatment_temperature-1/results/run/trajectory.jsonl",
+    "original_sha256": "93e37012d105447f9c0789a8a8467426e96b835308914700c4770329adf7a361",
+    "original_bytes": 1131474,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_temperature-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_temperature-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_hdf_imbalance-2/results/run/trajectory.jsonl.gz",
+    "sha256": "ff0be7eaaad7552c5cd34e56f36673d7885ea21e9512eecd7d5ec23b07c9f404",
+    "bytes": 246659,
+    "original_path": "build/m4-candidate-compose/treatment_hdf_imbalance-2/results/run/trajectory.jsonl",
+    "original_sha256": "938ca9f6ed6bd5ff48c8a94e52225e444e5ec2fc87416dec75c0e5f91c407a2a",
+    "original_bytes": 1240012,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_hdf_imbalance-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_hdf_imbalance-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_contaminant-2/results/run/trajectory.jsonl.gz",
+    "sha256": "61618aee010be5346e6a31682b9b2ea75b1fc8f637601e3eacbb86be0a4df860",
+    "bytes": 247087,
+    "original_path": "build/m4-candidate-compose/treatment_contaminant-2/results/run/trajectory.jsonl",
+    "original_sha256": "c843d45fd36c440b212c7ed6f820a2ba5bb56c2b02696026b5ae75402838c7ad",
+    "original_bytes": 1250130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_contaminant-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_contaminant-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-candidate-compose/treatment_integrity-1/results/run/trajectory.jsonl.gz",
+    "sha256": "a9c5ea6726d19c9f6465509e47edd9159679863a6d70920bc688c3a81ecf6512",
+    "bytes": 153115,
+    "original_path": "build/m4-candidate-compose/treatment_integrity-1/results/run/trajectory.jsonl",
+    "original_sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+    "original_bytes": 1119390,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-candidate-compose/treatment_integrity-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-candidate-compose/treatment_integrity-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_contaminant-1/results/run/trajectory.jsonl.gz",
+    "sha256": "61618aee010be5346e6a31682b9b2ea75b1fc8f637601e3eacbb86be0a4df860",
+    "bytes": 247087,
+    "original_path": "build/m4-final-compose/treatment_contaminant-1/results/run/trajectory.jsonl",
+    "original_sha256": "c843d45fd36c440b212c7ed6f820a2ba5bb56c2b02696026b5ae75402838c7ad",
+    "original_bytes": 1250130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_contaminant-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_contaminant-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_hd-1/results/run/trajectory.jsonl.gz",
+    "sha256": "4b32042bd4a2bd639e22158d8f8a6e52f77c80145be608dc1c9dd7f556deed31",
+    "bytes": 223891,
+    "original_path": "build/m4-final-compose/treatment_hd-1/results/run/trajectory.jsonl",
+    "original_sha256": "3049c41cbeb2e8af67688d0a7c2577cea473a768d46f6606b160ac3660eae382",
+    "original_bytes": 1137488,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_hd-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_hd-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_hdf_imbalance-1/results/run/trajectory.jsonl.gz",
+    "sha256": "ff0be7eaaad7552c5cd34e56f36673d7885ea21e9512eecd7d5ec23b07c9f404",
+    "bytes": 246659,
+    "original_path": "build/m4-final-compose/treatment_hdf_imbalance-1/results/run/trajectory.jsonl",
+    "original_sha256": "938ca9f6ed6bd5ff48c8a94e52225e444e5ec2fc87416dec75c0e5f91c407a2a",
+    "original_bytes": 1240012,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_hdf_imbalance-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_hdf_imbalance-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_supply-2/results/run/trajectory.jsonl.gz",
+    "sha256": "f9abba2b77e96009d97aed4d2a914c58fb5d77d5425ff1707ba6e4d9662f9e6a",
+    "bytes": 153781,
+    "original_path": "build/m4-final-compose/treatment_supply-2/results/run/trajectory.jsonl",
+    "original_sha256": "a6ae6da362689d65de228f7007d5f3025833d7eb94b1d73e3c2394f0e36f84e8",
+    "original_bytes": 1117688,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_supply-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_supply-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_ratio-2/results/run/trajectory.jsonl.gz",
+    "sha256": "b87f935fdd0e23e559810217289ea99c4502159f9b3bf098bef63640e08d4ba5",
+    "bytes": 178406,
+    "original_path": "build/m4-final-compose/treatment_ratio-2/results/run/trajectory.jsonl",
+    "original_sha256": "778973d9d1ceaea45b5ef1a4cf3911fe81d83c147d0d5dbb5cdbeac55ecf8394",
+    "original_bytes": 1140094,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_ratio-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_ratio-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_filter1-1/results/run/trajectory.jsonl.gz",
+    "sha256": "8504855f4dd69c4d4d98c54f693ffb463dcb34028232c7219c6f01285bf394cc",
+    "bytes": 153841,
+    "original_path": "build/m4-final-compose/treatment_filter1-1/results/run/trajectory.jsonl",
+    "original_sha256": "0999cd34d1ac6fb869cec9438d8a9ee0c2bf833bc092726be97ca1c1a3ba7018",
+    "original_bytes": 1123714,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_filter1-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_filter1-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_integrity-2/results/run/trajectory.jsonl.gz",
+    "sha256": "a9c5ea6726d19c9f6465509e47edd9159679863a6d70920bc688c3a81ecf6512",
+    "bytes": 153115,
+    "original_path": "build/m4-final-compose/treatment_integrity-2/results/run/trajectory.jsonl",
+    "original_sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+    "original_bytes": 1119390,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_integrity-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_integrity-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_route-1/results/run/trajectory.jsonl.gz",
+    "sha256": "20643a2bdb7610bc1f6d5a751faed89a07ba96535997345582dd983fbc48cc13",
+    "bytes": 153019,
+    "original_path": "build/m4-final-compose/treatment_route-1/results/run/trajectory.jsonl",
+    "original_sha256": "b8fa5229d6bf1f6c7fc78612cf5b20d50c50c7467a71f38b1ecab504e22ce7e7",
+    "original_bytes": 1117230,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_route-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_route-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_hdf_pre-2/results/run/trajectory.jsonl.gz",
+    "sha256": "fb61cd69658dfe059cf6b212dd6fff7d0da24c028c2fcbba9effcc7e84f89eb1",
+    "bytes": 232723,
+    "original_path": "build/m4-final-compose/treatment_hdf_pre-2/results/run/trajectory.jsonl",
+    "original_sha256": "cb10b60b5e10d80a8be7a255e489fe0cd6fc26c2466964da8386d1233b561d37",
+    "original_bytes": 1163114,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_hdf_pre-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_hdf_pre-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_temperature-2/results/run/trajectory.jsonl.gz",
+    "sha256": "1750c520be2bc3af6479a649f5640ed7e902ade8ec05332c5a3c70b99490a5e6",
+    "bytes": 155849,
+    "original_path": "build/m4-final-compose/treatment_temperature-2/results/run/trajectory.jsonl",
+    "original_sha256": "93e37012d105447f9c0789a8a8467426e96b835308914700c4770329adf7a361",
+    "original_bytes": 1131474,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_temperature-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_temperature-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_ratio-1/results/run/trajectory.jsonl.gz",
+    "sha256": "b87f935fdd0e23e559810217289ea99c4502159f9b3bf098bef63640e08d4ba5",
+    "bytes": 178406,
+    "original_path": "build/m4-final-compose/treatment_ratio-1/results/run/trajectory.jsonl",
+    "original_sha256": "778973d9d1ceaea45b5ef1a4cf3911fe81d83c147d0d5dbb5cdbeac55ecf8394",
+    "original_bytes": 1140094,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_ratio-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_ratio-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_hdf_post-1/results/run/trajectory.jsonl.gz",
+    "sha256": "08ce8949b8e3d55500f905e14544a5e1adb0e40759224a8a466543c5d21da522",
+    "bytes": 242920,
+    "original_path": "build/m4-final-compose/treatment_hdf_post-1/results/run/trajectory.jsonl",
+    "original_sha256": "a2bf7cdd3a3b2f0da99e8dccdf91dc1cb179cc719b026d9ddf04ff3e121a67c7",
+    "original_bytes": 1243152,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_hdf_post-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_hdf_post-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_hd-2/results/run/trajectory.jsonl.gz",
+    "sha256": "4b32042bd4a2bd639e22158d8f8a6e52f77c80145be608dc1c9dd7f556deed31",
+    "bytes": 223891,
+    "original_path": "build/m4-final-compose/treatment_hd-2/results/run/trajectory.jsonl",
+    "original_sha256": "3049c41cbeb2e8af67688d0a7c2577cea473a768d46f6606b160ac3660eae382",
+    "original_bytes": 1137488,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_hd-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_hd-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_hdf_post-2/results/run/trajectory.jsonl.gz",
+    "sha256": "08ce8949b8e3d55500f905e14544a5e1adb0e40759224a8a466543c5d21da522",
+    "bytes": 242920,
+    "original_path": "build/m4-final-compose/treatment_hdf_post-2/results/run/trajectory.jsonl",
+    "original_sha256": "a2bf7cdd3a3b2f0da99e8dccdf91dc1cb179cc719b026d9ddf04ff3e121a67c7",
+    "original_bytes": 1243152,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_hdf_post-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_hdf_post-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_filter1-2/results/run/trajectory.jsonl.gz",
+    "sha256": "8504855f4dd69c4d4d98c54f693ffb463dcb34028232c7219c6f01285bf394cc",
+    "bytes": 153841,
+    "original_path": "build/m4-final-compose/treatment_filter1-2/results/run/trajectory.jsonl",
+    "original_sha256": "0999cd34d1ac6fb869cec9438d8a9ee0c2bf833bc092726be97ca1c1a3ba7018",
+    "original_bytes": 1123714,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_filter1-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_filter1-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_supply-1/results/run/trajectory.jsonl.gz",
+    "sha256": "f9abba2b77e96009d97aed4d2a914c58fb5d77d5425ff1707ba6e4d9662f9e6a",
+    "bytes": 153781,
+    "original_path": "build/m4-final-compose/treatment_supply-1/results/run/trajectory.jsonl",
+    "original_sha256": "a6ae6da362689d65de228f7007d5f3025833d7eb94b1d73e3c2394f0e36f84e8",
+    "original_bytes": 1117688,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_supply-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_supply-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_hdf_large-2/results/run/trajectory.jsonl.gz",
+    "sha256": "21599bb802f6e5bdabd1f07546982ea6b5d495285a649dd0683a8570b09e0afb",
+    "bytes": 241414,
+    "original_path": "build/m4-final-compose/treatment_hdf_large-2/results/run/trajectory.jsonl",
+    "original_sha256": "e3b51495037bd774cbbffbcb1805476d68c18c11322c48d0245740a40901f39a",
+    "original_bytes": 1246130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_hdf_large-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_hdf_large-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_route-2/results/run/trajectory.jsonl.gz",
+    "sha256": "20643a2bdb7610bc1f6d5a751faed89a07ba96535997345582dd983fbc48cc13",
+    "bytes": 153019,
+    "original_path": "build/m4-final-compose/treatment_route-2/results/run/trajectory.jsonl",
+    "original_sha256": "b8fa5229d6bf1f6c7fc78612cf5b20d50c50c7467a71f38b1ecab504e22ce7e7",
+    "original_bytes": 1117230,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_route-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_route-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_hdf_large-1/results/run/trajectory.jsonl.gz",
+    "sha256": "21599bb802f6e5bdabd1f07546982ea6b5d495285a649dd0683a8570b09e0afb",
+    "bytes": 241414,
+    "original_path": "build/m4-final-compose/treatment_hdf_large-1/results/run/trajectory.jsonl",
+    "original_sha256": "e3b51495037bd774cbbffbcb1805476d68c18c11322c48d0245740a40901f39a",
+    "original_bytes": 1246130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_hdf_large-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_hdf_large-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_hdf_pre-1/results/run/trajectory.jsonl.gz",
+    "sha256": "fb61cd69658dfe059cf6b212dd6fff7d0da24c028c2fcbba9effcc7e84f89eb1",
+    "bytes": 232723,
+    "original_path": "build/m4-final-compose/treatment_hdf_pre-1/results/run/trajectory.jsonl",
+    "original_sha256": "cb10b60b5e10d80a8be7a255e489fe0cd6fc26c2466964da8386d1233b561d37",
+    "original_bytes": 1163114,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_hdf_pre-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_hdf_pre-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_temperature-1/results/run/trajectory.jsonl.gz",
+    "sha256": "1750c520be2bc3af6479a649f5640ed7e902ade8ec05332c5a3c70b99490a5e6",
+    "bytes": 155849,
+    "original_path": "build/m4-final-compose/treatment_temperature-1/results/run/trajectory.jsonl",
+    "original_sha256": "93e37012d105447f9c0789a8a8467426e96b835308914700c4770329adf7a361",
+    "original_bytes": 1131474,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_temperature-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_temperature-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_hdf_imbalance-2/results/run/trajectory.jsonl.gz",
+    "sha256": "ff0be7eaaad7552c5cd34e56f36673d7885ea21e9512eecd7d5ec23b07c9f404",
+    "bytes": 246659,
+    "original_path": "build/m4-final-compose/treatment_hdf_imbalance-2/results/run/trajectory.jsonl",
+    "original_sha256": "938ca9f6ed6bd5ff48c8a94e52225e444e5ec2fc87416dec75c0e5f91c407a2a",
+    "original_bytes": 1240012,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_hdf_imbalance-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_hdf_imbalance-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_contaminant-2/results/run/trajectory.jsonl.gz",
+    "sha256": "61618aee010be5346e6a31682b9b2ea75b1fc8f637601e3eacbb86be0a4df860",
+    "bytes": 247087,
+    "original_path": "build/m4-final-compose/treatment_contaminant-2/results/run/trajectory.jsonl",
+    "original_sha256": "c843d45fd36c440b212c7ed6f820a2ba5bb56c2b02696026b5ae75402838c7ad",
+    "original_bytes": 1250130,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_contaminant-2/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_contaminant-2/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m4-final-compose/treatment_integrity-1/results/run/trajectory.jsonl.gz",
+    "sha256": "a9c5ea6726d19c9f6465509e47edd9159679863a6d70920bc688c3a81ecf6512",
+    "bytes": 153115,
+    "original_path": "build/m4-final-compose/treatment_integrity-1/results/run/trajectory.jsonl",
+    "original_sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6",
+    "original_bytes": 1119390,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m4-final-compose/treatment_integrity-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m4-final-compose/treatment_integrity-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  }
+]

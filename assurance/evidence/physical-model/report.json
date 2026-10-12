@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "baseline": "physical-model-local",
+  "run_id": "physical-model-2026-10-12",
+  "executed_at": "2026-10-12T13:05:33.300083+00:00",
+  "command": "PYTHONPATH=tests python3 -m unittest test_physical.PhysicalTests test_guided.GuidedUnitTests -v",
+  "tests_run": 8,
+  "successful": true,
+  "source_sha256": {
+    "src/blood_physics.hpp": "3c94f7f60c97c393738bf123129f821c26e606d33930c96d7aa663abb7b85840",
+    "src/circuit.hpp": "7fe233bcd08bb443311b322d32b714afb9de0280062822038c2120221134a3a8",
+    "src/online.hpp": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3",
+    "src/machine.hpp": "4a07e83a39f8115609959f0c9e71b96c98cdf0d4dcecf70c6c7393db9bb6d740",
+    "src/plant.cpp": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab",
+    "src/ui/client.hpp": "dde905acae38ed026509bd6131a6501bb6806f30021ef901e805f588e68784a3",
+    "src/ui/guided.hpp": "92c9a09fb446090a55590e356b73183e1cafaae2564ebdd740c3d6fc3f3c9808",
+    "python/dialysislab/physical.py": "a8bbca67c52537d4c82d9eb53809fc3b4825f06850e14dd2863abbd895f1aa38",
+    "python/dialysislab/compartments.py": "ff6d34cf2d803f8745371df9ad34efdcd62f0a52cce1afa83d6f25a0f5205d0a",
+    "python/dialysislab/machine.py": "08dbda6f538c39c8cfa327219246d04bf5ccb9f4eb47b48348ed2ddb17fb74ab",
+    "python/dialysislab/runner.py": "4c2beb4f10456441f11766bef4a9ca24e4a9b13ba821b27a2e0a4bda023dc6f4",
+    "tests/physical_model.cpp": "d2bf484455fb6469013c981333d5498fd75d1fe87825c805d266f5e978e8e118",
+    "tests/test_physical.py": "3b145ac30bf89edae295a53020899973bb9400fc711befe999111b412b4f58d3",
+    "tests/guided_view.cpp": "5ba9a506c813c272d751d3f2a5c56b7c59dd98e5e46bf64524065c5a6a27d298",
+    "tests/guided_plant.cpp": "7939c43f0a13545921838fb84a4794d029d026d22d4e2d8e92a3cf0b0dd5754b",
+    "tests/test_guided.py": "c2baa598a885b452a9104a64ebbda297b452144ad8ae62169952d8ba0a9a3989",
+    "tools/verify_models.py": "55c93dfd061ef6f114126f6265306bd6043223dea3129e68b2900e3cf745fdd5"
+  },
+  "output": "test_equations_and_limits (test_physical.PhysicalTests.test_equations_and_limits) ... ok\ntest_in_process_physical_treatments (test_physical.PhysicalTests.test_in_process_physical_treatments) ... ok\ntest_initial_hematocrit_and_geometry_are_configuration_only (test_physical.PhysicalTests.test_initial_hematocrit_and_geometry_are_configuration_only) ... ok\ntest_uf_hemoconcentration_refill_and_rbc_conservation (test_physical.PhysicalTests.test_uf_hemoconcentration_refill_and_rbc_conservation) ... ok\ntest_configuration_rejects_invalid_duration_and_sensor_position (test_guided.GuidedUnitTests.test_configuration_rejects_invalid_duration_and_sensor_position) ... ok\ntest_guided_machine_protocol_and_actual_lvgl_view (test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view) ... ok\ntest_in_process_hydraulics_complete_cycle_and_patient_transactions (test_guided.GuidedUnitTests.test_in_process_hydraulics_complete_cycle_and_patient_transactions) ... ok\ntest_return_salinity_body_gain_and_all_solute_balances (test_guided.GuidedUnitTests.test_return_salinity_body_gain_and_all_solute_balances) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 10.987s\n\nOK\n",
+  "scope": "Four physical and four guided unit/in-process tests; 648 hydraulic operating points; actual C++ plant boundaries and Python patient conservation in HD/pre/post; actual headless LVGL. No clinical calibration.",
+  "pending": [
+    "PhysicalProcessTests over real sockets, sanitized native binaries and container verification on hosted CI",
+    "Independent calibration, safety and usability assessment"
+  ]
+}

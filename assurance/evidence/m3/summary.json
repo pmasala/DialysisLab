@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "phase": "M3",
+  "technical_status": "COMPLETE",
+  "executed_at": "2026-10-07T23:34:10.159817+00:00",
+  "implementation_commit": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+  "build_worktree_clean": true,
+  "native_tests": 72,
+  "sanitizer_tests": 72,
+  "m3_process_runs": 8,
+  "m3_compose_runs": 8,
+  "m2_compose_runs": 6,
+  "m1_compose_runs": 4,
+  "isolation_probes": 2,
+  "cross_build_exact_replay": true,
+  "maximum_water_residual_mL": 8.396713879754714e-12,
+  "maximum_mass_residual_mmol": 2.0600054995156825e-10,
+  "tolerance_mL_mmol": 1e-06,
+  "patient_100000_step_peak_rss_bytes": 12996608,
+  "review_invocations": 1,
+  "review_findings_fixed": 5,
+  "scope": "Software/numerical verification of synthetic surrogate compartments; calibration, physiological validation and independent risk acceptance unavailable.",
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m3/compose-models.json",
+      "sha256": "ec4cec0ea0872a4589e8145beef2c818d73820269ff38be987ddb9911ea4a0ad"
+    },
+    {
+      "path": "assurance/evidence/m3/m1-compose.json",
+      "sha256": "4ecea2beec5e00a33ff597e98bce7b5ddd6495b213056b51031eeeb3515b7ee3"
+    },
+    {
+      "path": "assurance/evidence/m3/m2-compose.json",
+      "sha256": "89a572d2db8de1cc25153d3e8400274eb580375ff7d91474d2d7c30eee9c004f"
+    },
+    {
+      "path": "assurance/evidence/m3/memory.json",
+      "sha256": "03e5b56ddab085ce5795f039e0dc8ada4f8f965cb7695fe873cd7ddbead5aa64"
+    },
+    {
+      "path": "assurance/evidence/m3/native-models.json",
+      "sha256": "cdae8eeb194631426fe912d4e2d3761d9b4c115a26a53a6959a52f2c410b20ff"
+    },
+    {
+      "path": "assurance/evidence/m3/native-tests.json",
+      "sha256": "cf6a7d37e30fc894716a47a39f9ca23aa92da062bd45336aa9465cb504d54805"
+    },
+    {
+      "path": "assurance/evidence/m3/patient_baseline/manifest.json",
+      "sha256": "3f1edac880093a7fb179aca1ddd301402b6d40f27fc3eabe1ae7874f2774bf18"
+    },
+    {
+      "path": "assurance/evidence/m3/patient_baseline/trajectory.jsonl",
+      "sha256": "464ff0743c1e0e2d4fdc875d4ea6e70c70efeb5d30f6e2658f1f0c71bc0b2a38"
+    },
+    {
+      "path": "assurance/evidence/m3/patient_imbalance/manifest.json",
+      "sha256": "cfe2cac7b813f4e9104c8bf04c35fb988399850ba713a37315e9db4bf82f82d0"
+    },
+    {
+      "path": "assurance/evidence/m3/patient_imbalance/trajectory.jsonl",
+      "sha256": "f93d2d9d0b125ee55ab95970f23c533cadf2330cfb0dd98c0fad7babf46020f0"
+    },
+    {
+      "path": "assurance/evidence/m3/patient_large/manifest.json",
+      "sha256": "384d4f78467f916e1a771ed574741c78cdc39739a355de265fd470d1bc7977da"
+    },
+    {
+      "path": "assurance/evidence/m3/patient_large/trajectory.jsonl",
+      "sha256": "3f08245d262bc97733be2a498ade7c257af2f26502f095569628248ff811449d"
+    },
+    {
+      "path": "assurance/evidence/m3/patient_overload/manifest.json",
+      "sha256": "fcbc567ff9f62721b8d610d6a4d9e20b82709168e92bd434ca4f6f438be163f6"
+    },
+    {
+      "path": "assurance/evidence/m3/patient_overload/trajectory.jsonl",
+      "sha256": "c2706624c71db68f1600a1ce8cea475c091ffa0353a43d97e206c607a7b4a334"
+    },
+    {
+      "path": "assurance/evidence/m3/review.json",
+      "sha256": "5702154314875de538661d1da1a935b12678a85030daaa90a2f1047eeedb9fb3"
+    },
+    {
+      "path": "assurance/evidence/m3/sanitizer-tests.json",
+      "sha256": "d8da2b4144e7dde5a6a6e0ad99feb4f261ea11302bfd251b8a50febd3476c984"
+    }
+  ]
+}

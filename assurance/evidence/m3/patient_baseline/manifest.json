@@ -1,0 +1,235 @@
+{
+  "schema_version": 2,
+  "executed_at": "2026-10-07T23:32:04.027819+00:00",
+  "configuration": {
+    "schema_version": 3,
+    "model": "m3-patient-1",
+    "seed": 42,
+    "ticks": 500,
+    "dt_ms": 100,
+    "blood_mL_min": 300,
+    "uf_mL_min": 5,
+    "resistance_mmHg_min_mL": 0.5,
+    "pressure_limit_mmHg": 250,
+    "patient_volume_mL": 40000,
+    "faults": [],
+    "circuit": {
+      "compliance_mL_mmHg": [
+        0.005,
+        0.005,
+        0.005
+      ],
+      "edges": [
+        [
+          1,
+          2,
+          0.1,
+          "tube",
+          false
+        ],
+        [
+          2,
+          3,
+          0.3,
+          "dialyzer",
+          false
+        ],
+        [
+          3,
+          0,
+          0.1,
+          "clamp",
+          false
+        ]
+      ],
+      "pump_node": 1,
+      "pump_head_mmHg": 600,
+      "sensor_node": 1,
+      "sensor_edge": 0,
+      "dialyzer_edge": 1,
+      "profile": {
+        "id": "synthetic-small",
+        "provenance": "synthetic",
+        "resistance_mmHg_min_mL": 0.3,
+        "kuf_mL_min_mmHg": 0.1,
+        "koa_mL_min": [
+          300,
+          200,
+          220,
+          200,
+          180,
+          100
+        ],
+        "sieving": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          0.7
+        ]
+      }
+    },
+    "transport": {
+      "blood_mmol_L": [
+        20,
+        140,
+        5,
+        105,
+        22,
+        2.4
+      ],
+      "dialysate_mmol_L": [
+        0,
+        138,
+        2,
+        105,
+        30,
+        1.5
+      ],
+      "dialysate_mL_min": 500
+    },
+    "patient": {
+      "id": "synthetic-baseline",
+      "provenance": "synthetic",
+      "volume_mL": [
+        14000,
+        26000
+      ],
+      "concentration_mmol_L": [
+        [
+          20,
+          140,
+          5,
+          105,
+          22,
+          2.4
+        ],
+        [
+          20,
+          14,
+          100,
+          10.5,
+          22,
+          2.4
+        ]
+      ],
+      "exchange_mL_min": [
+        600,
+        80,
+        200,
+        80,
+        100,
+        50
+      ],
+      "partition": [
+        1,
+        0.1,
+        20,
+        0.1,
+        1,
+        1
+      ],
+      "refill_mL_min": 500,
+      "prime_mL": 200,
+      "initial_weight_kg": 70,
+      "pco2_mmHg": 40,
+      "external_in_mL_min": 0,
+      "external_out_mL_min": 0,
+      "external_mmol_L": [
+        0,
+        140,
+        4,
+        105,
+        24,
+        2.4
+      ],
+      "generation_mmol_min": [
+        0.05,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "configuration_sha256": "d4074b46cc425fbc6d983653ad31a1753cd2a0398c160efaef50769589a3231b",
+  "build": {
+    "source_revision": "64645fdea8067731a0879b6e801f8e01d9e5c3a9",
+    "worktree_dirty_at_configure": null,
+    "compiler_id": "GNU",
+    "compiler_version": "14.2.0",
+    "build_type": "Release",
+    "source_sha256": {
+      "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+      "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+      "src/circuit.hpp": "4570c7254ca76018ee6c43a88ac3048f30a124dbc500f91760296c4d0359684b",
+      "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+      "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+      "src/plant.cpp": "3c476293d71d0c98600f4d60f6ba9e86096a4204b1200911b6567b7100fe9488",
+      "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+      "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+      "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+      "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+      "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+      "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+      "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+      "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+      "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932",
+      "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+      "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+      "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+      "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+      "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+      "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+      "scenarios/patient_baseline.json": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+      "scenarios/patient_imbalance.json": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+      "scenarios/patient_large.json": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+      "scenarios/patient_overload.json": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4"
+    },
+    "binary_sha256": {
+      "plant": "86f651e9dc4efe9ddf5a1530ada68c143ad3b59fa66d5b2c25c0186f69e4680e",
+      "control": "cf486b2f0287ee30b856583342c9c5442a6b1d8899e26971633fb939bb3f192a",
+      "protection": "0be665fe19b7f68b3d07add7c3989f8765d2e02ebd74db450f80c42d15d1f9f9"
+    },
+    "python_sha256": {
+      "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+      "python/dialysislab/circuit.py": "4d2e3865bcea11e4752eff92ff8358ddd4408ede7e54fae33b4c0643d85dad40",
+      "python/dialysislab/compartments.py": "c6bdd692f64bd0c12c4d4625dd071b3a9209b1e5187e41096bffe5bf5cf4538e",
+      "python/dialysislab/patient.py": "61be8b249af35be3d66b66604a4a23585222fa96383daf68d5e98ad61bd51251",
+      "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+      "python/dialysislab/runner.py": "1251f419d709ba517a67a71bb0b4b96e0d383c086c6fb4b3d237646967225c32",
+      "python/dialysislab/trajectory.py": "359f89db479f71f0d1b5c56b7e4e22bf39da476ba4ef098f7325005a6326d932"
+    }
+  },
+  "python": "3.12.14",
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+  "interface": "DL1",
+  "model": "m3-patient-1",
+  "simulation_only": true,
+  "outcome": "completed",
+  "errors": [],
+  "trajectory_format": "dialysislab.trajectory.jsonl.v1",
+  "trajectory_file": "trajectory.jsonl",
+  "completed_ticks": 500,
+  "trajectory_sha256": "464ff0743c1e0e2d4fdc875d4ea6e70c70efeb5d30f6e2658f1f0c71bc0b2a38",
+  "final_plant_observation": {
+    "sequence": 499,
+    "time_ms": 50000,
+    "blood_mL_min": 240.8,
+    "pressure_mmHg": 118.39999999999996,
+    "uf_mL_min": 5.0,
+    "removed_total_mL": 4.146674287773503,
+    "removed_tick_mL": 0.008333333333333333,
+    "latched": false,
+    "clamp_closed": false,
+    "reason": "none"
+  },
+  "trajectory_bytes": 1520838,
+  "memory": {
+    "peak_rss_bytes": 23076864,
+    "memory.peak": 16359424,
+    "memory.max": 134217728
+  }
+}

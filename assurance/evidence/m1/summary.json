@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "run_id": "m1-b598a5c-2026-10-07",
+  "executed_at": "2026-10-07T21:37:39.907885+00:00",
+  "source_revision": "b598a5c735b8f8f4a47dc218f83e6792bdd7ef29",
+  "scope": "Synthetic M1 implementation and tooling; not clinical validation, standards conformity or independent review.",
+  "results": {
+    "native_tests": 32,
+    "sanitizer_tests": 32,
+    "compose_runs": 4,
+    "container_boundary_probes": 2,
+    "same_build_replay": "byte-identical",
+    "native_container_replay": "byte-identical",
+    "clean_cmake_binaries": "identical SHA-256",
+    "independent_balance_tolerance_mL": 1e-08,
+    "occlusion_onset_ms": 500,
+    "first_protected_interval_end_ms": 600,
+    "synthetic_pressure_limit_mmHg": 250,
+    "fault_observed_pressure_mmHg": 600
+  },
+  "environment": "WSL2 Linux x86_64; native GCC 13.3.0/Python 3.12.3; container GCC 14.2.0/Python 3.12.14; Docker 29.3.1/Compose v5.1.1",
+  "review": "Codex automated execution and result inspection only; independent review and risk acceptance pending.",
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m1/compose-results.json",
+      "sha256": "7ded625efd12f7d4652139f8c4da737a93728303978cb1d84e8c79d50ac562a3"
+    },
+    {
+      "path": "assurance/evidence/m1/container-packages.json",
+      "sha256": "47573958ab5d4350ac2ad864efc11039102a5378d1b13c4fa94767f3434126a8"
+    },
+    {
+      "path": "assurance/evidence/m1/hd_nominal-1/manifest.json",
+      "sha256": "7c4d93563052315f4d2a06553f276f3ee71c5e9066e4f9e62f6132e4c684c941"
+    },
+    {
+      "path": "assurance/evidence/m1/hd_nominal-1/trajectory.json",
+      "sha256": "76fc0170bbe978e6bae34394e85b318f3aef39be60b2bd26f029cbf4a2dc44c2"
+    },
+    {
+      "path": "assurance/evidence/m1/hd_nominal-2/manifest.json",
+      "sha256": "66aef5e4e6f3c0295fd03ee8556d508789a68c415d6f293375ecb0e64744afd9"
+    },
+    {
+      "path": "assurance/evidence/m1/hd_nominal-2/trajectory.json",
+      "sha256": "76fc0170bbe978e6bae34394e85b318f3aef39be60b2bd26f029cbf4a2dc44c2"
+    },
+    {
+      "path": "assurance/evidence/m1/hd_occlusion-1/manifest.json",
+      "sha256": "1d774dc0c4023328eff6ba2c662d6dfaee28edb5311af02e5c7e5c9702b9526f"
+    },
+    {
+      "path": "assurance/evidence/m1/hd_occlusion-1/trajectory.json",
+      "sha256": "b3e3c8bdaea011e44320bafc612029a2809425048e336c78ddf164d15b8f1be0"
+    },
+    {
+      "path": "assurance/evidence/m1/hd_occlusion-2/manifest.json",
+      "sha256": "6b4df6f952109022254b076289c39c1c640584235a1cf0a83993b3ee394da8b6"
+    },
+    {
+      "path": "assurance/evidence/m1/hd_occlusion-2/trajectory.json",
+      "sha256": "b3e3c8bdaea011e44320bafc612029a2809425048e336c78ddf164d15b8f1be0"
+    },
+    {
+      "path": "assurance/evidence/m1/native-tests.json",
+      "sha256": "12ca06c2dadfacac1786bb518cd213e358b949fb71e2fd8c62e0b75a2406427c"
+    },
+    {
+      "path": "assurance/evidence/m1/reproducibility.json",
+      "sha256": "75c17b082983e94948b8073ad73a6f2f1e996aa05986fe3cc6ed88dc951953ff"
+    },
+    {
+      "path": "assurance/evidence/m1/sanitizer-tests.json",
+      "sha256": "9806db30000332b4cc1ee7c411976fddf3f06a476c82aa97e2dddc379b26234f"
+    },
+    {
+      "path": "assurance/evidence/m1/assurance-checks.json",
+      "sha256": "664b1ae45d20f8e18eda4f60550741f8bf705dc1dc8d1a6377d1c840c5b41812"
+    }
+  ]
+}

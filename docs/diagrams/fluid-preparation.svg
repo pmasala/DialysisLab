@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img">
+<title>Dialysate and substitution — preparation model</title>
+<desc>Open tank, heater, filters and pump symbols; no complete dialysate pressure-network solver.</desc>
+<rect width="1200" height="100%" fill="#ffffff"/>
+<text x="40" y="45" font-family="DejaVu Sans, sans-serif" font-size="28" fill="#203246" font-weight="700" text-anchor="start">Dialysate and substitution — preparation model</text>
+<text x="40" y="75" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#637589" font-weight="400" text-anchor="start">Open tank, heater, filters and pump symbols; no complete dialysate pressure-network solver.</text>
+<path d="M40,96 L1160,96" stroke="#d6dfe7" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M70,200 H350 V255" stroke="#19718b" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M250,195 L260,200 L250,205" stroke="#19718b" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="65" y="170" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#19718b" font-weight="700" text-anchor="start">Water supply</text>
+<path d="M290,135 H445 V255" stroke="#7960a6" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M440,230 L445,240 L450,230" stroke="#7960a6" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="290" y="121" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#7960a6" font-weight="400" text-anchor="start">Concentrate ratio</text>
+<path d="M295,255 v180 h250 v-180" stroke="#19718b" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M300,279 L540,279" stroke="#19718b" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M309,289 L531,289" stroke="#19718b" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="320" y="315" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#203246" font-weight="700" text-anchor="start">Mixed reservoir</text>
+<text x="320" y="342" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#203246" font-weight="400" text-anchor="start">Volume V</text>
+<text x="320" y="366" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#203246" font-weight="400" text-anchor="start">Composition / T</text>
+<path d="M335,402 h25 l10,-12 l20,24 l20,-24 l20,24 l10,-12 h25" stroke="#203246" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="375" y="478" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#203246" font-weight="400" text-anchor="middle">Heater</text>
+<path d="M430,435 L430,455" stroke="#203246" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M395,455 L465,455" stroke="#203246" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M545,325 H820" stroke="#19718b" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M780,320 L790,325 L780,330" stroke="#19718b" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="640" y="285" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#19718b" font-weight="400" text-anchor="start">Qd and Cd</text>
+<path d="M820,290 h125 v95 h-125 Z" stroke="#203246" stroke-width="2" fill="#fafbfc" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M832,336 L933,336" stroke="#637589" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 6"/>
+<path d="M820,325 L945,325" stroke="#19718b" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M945,325 H1090 V395" stroke="#19718b" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1085,372 L1090,382 L1095,372" stroke="#19718b" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1065,402 h50 M1073,411 h34 M1082,420 h16" stroke="#637589" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="815" y="263" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#203246" font-weight="700" text-anchor="start">Dialyzer boundary</text>
+<text x="1010" y="455" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#19718b" font-weight="400" text-anchor="start">Spent fluid</text>
+<path d="M545,405 H600 V565 H680" stroke="#7960a6" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M680,565 l35,-35 l35,35 l-35,35 Z" stroke="#7960a6" stroke-width="2" fill="white" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M698,582 L732,548" stroke="#7960a6" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 6"/>
+<text x="715" y="626" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#7960a6" font-weight="400" text-anchor="middle">Filter 1</text>
+<path d="M830,565 l35,-35 l35,35 l-35,35 Z" stroke="#7960a6" stroke-width="2" fill="white" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M848,582 L882,548" stroke="#7960a6" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 6"/>
+<text x="865" y="626" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#7960a6" font-weight="400" text-anchor="middle">Filter 2</text>
+<path d="M750,565 L830,565" stroke="#7960a6" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M900,565 L967,565" stroke="#7960a6" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="994" cy="565" r="27" stroke="#7960a6" stroke-width="3" fill="white"/>
+<path d="M985,553 L1009,565 L985,577 Z" stroke="#7960a6" stroke-width="2" fill="#7960a6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1021,565 H1110 V650" stroke="#7960a6" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1105,628 L1110,638 L1115,628" stroke="#7960a6" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="965" y="520" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#7960a6" font-weight="400" text-anchor="start">Delivery pump</text>
+<text x="790" y="675" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#7960a6" font-weight="400" text-anchor="start">To selected pre- or postdilution inlet</text>
+<path d="M40,709 h1120 v88 h-1120 Z" stroke="#d6dfe7" stroke-width="2" fill="#f4f7fa" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="58" y="736" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#203246" font-weight="700" text-anchor="start">Represented effects</text>
+<text x="58" y="762" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#203246" font-weight="400" text-anchor="start">Tank mixing and temperature; ionic conductivity estimate; filter/line pressure losses; finite pump head.</text>
+<text x="58" y="787" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#203246" font-weight="400" text-anchor="start">Filter penetration acts on a synthetic contamination indicator. This does not model sterility.</text>
+</svg>

@@ -1,0 +1,8 @@
+{
+  "scope": "Empty Python process launched by the same execution environment",
+  "rusage_peak_rss_bytes": 12242944,
+  "proc_memory": {
+    "VmHWM": "11972 kB",
+    "VmRSS": "11972 kB"
+  }
+}

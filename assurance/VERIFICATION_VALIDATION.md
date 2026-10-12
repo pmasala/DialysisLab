@@ -1,6 +1,8 @@
 # Verification and validation strategy
 
-Status: proposed strategy. No dialysis application tests or model validation have been executed.
+Status: M1–M8 execute actual software/numerical/process/container/widget/security
+verification; M9 integrated acceptance is active. See STATUS.md for exact results
+and builds. No calibrated physiology or clinical model validation is claimed.
 
 ## Evidence contract
 
@@ -45,3 +47,77 @@ For a downstream medical device, identify and retain obligations for real electr
 ## Completion rule
 
 Reference release requires reviewed results for all applicable requirements and risk/security controls, with justified dispositions for issues and documented model validity. A finished-device claim additionally requires its external evidence and responsible approvals. The project cannot become complete merely by creating this strategy or filling a trace matrix.
+
+## M4 evidence protocol
+
+Run `tests/test_treatment.py` plus all existing regressions, and
+`tools/verify_models.py` over treatment HD/pre/post modes, large/imbalance fixtures,
+and temperature/ratio/supply/integrity/route/filter/hidden-contamination faults in
+native and Compose deployments. Predeclared water/solute tolerance is 1e-6 mL/mmol.
+Check reservoir analytic transients/convergence, actual sensor-to-latch time,
+continued blood circulation under quality-only faults, conflicting DEMAND4, and
+lost STEP4 replies before commit. Retain exact build/config/hash and partial-failure
+artifacts. Hidden contamination must not acquire an invented protective sensor.
+Numerical/software verification remains separate from quality-barrier validation.
+
+## M5 evidence protocol
+
+Execute all earlier tests and `tests/test_machine.py`: real transition rejection
+matrix, HD/pre/post lifecycle, conservative flush ledgers, each detector, aggregate
+constraints before commit, hostile commands, ACK/silence/reset/confirmation expiry,
+stuck detector gaps, lost STEP5 replies, killed/restarted decision services and
+wall watchdog. Native and actual Compose workflows must reproduce hashes and
+independent water/species residuals <=1e-6 mL/mmol. Every first unsafe frozen sample
+must impose its constraint before that tick commits (<=dt); no wall-time hard-real-
+time claim. A device-only container must reach device endpoints while actual
+admin/patient/control-plant/protection-plant connection attempts are denied.
+Keep review base/candidate/output and all applicable fixes; one review only.
+
+
+## M6 device UI evidence protocol
+
+Run `tools/verify_device_ui.py` against actual native and instrumented services,
+headless and available graphical SDL/WSLg output; its ten tests drive real LVGL
+and SDL events, exact prescription confirmation, alarms, retained sensor samples,
+same/new-session reconnects, lost replies and bounded demo shutdown. Inspect the
+actual framebuffer, not a mockup: detail contrast >=7:1 is a project software
+criterion, not usability or accessibility approval. `tools/verify_ui_compose.py`
+drives actual widgets in a separate 128 MiB container and retains both result and
+capture volumes before cleanup, preserving original errors and recovery commands.
+Earlier affected native/Compose regression and independent conservation/replay
+checks remain required. Results and the sole review are in `evidence/m6/`.
+
+## M7 experiment protocol
+
+Verify the real DX1 broker, fresh services and actual ImGui widget input/rendering
+in native headless, available WSLg and separate-container deployments. Required
+cases: complete HD/pre/post configuration; immutable active patient/circuit/dialyzer
+and fault schedule; >2 s wall pause with fixed virtual sequence and live watchdogs;
+resume, direct external STOP, requested/observed shutdown, fresh replay with identical
+bytes, streaming comparison/export integrity and partial-prefix recovery. Exercise
+bad credential/revision/run/path/size/deadline and failed service/restart policies.
+Keep exact source/build/configuration/commands and every failed diagnostic attempt.
+Candidate tests are preliminary until review fixes and clean-build regression evidence
+are recorded; AI review remains defect finding, not human or clinical approval.
+
+## M8/M9 evidence protocols and tool confidence
+
+M8 verifies malformed/deep/duplicate/slow input, actual boundary impersonation
+denial, owner-death cleanup and protected output behavior. Actual-image SBOMs
+are checked against immutable images and official CycloneDX1.6; stale images fail.
+CI checker crashes/timeouts are regressions, not release-gap exemptions. Original
+report/log bytes survive hashed version2 envelopes with independent recovery and
+tamper/order/truncation tests. OSV results retain matching and blocked identities.
+
+M9 predeclares18 mode/patient/dialyzer configurations, fifteen fault scenarios,
+sustained100000-tick HDF, simultaneous real graphical clients and extracted-source
+package execution in `docs/M9_INTEGRATION.md`. The existing independent water and
+six-species checks stay at1e-6 mL/mmol. Detector budgets remain specified before
+execution. GUI tests distinguish state transitions from next modeled observations.
+Lossless archive regressions verify byte identity/order and preservation on failure;
+raw-data archival is not permission to discard uncollected failed-run volumes.
+
+Full device usability/audio/acoustic assessment, normative reviewer competence,
+independent model-validation datasets and qualified tool confidence remain open.
+The software-level detectors, parsers, oracles and evidence tools have targeted
+regressions; this does not qualify them under a standard or establish model truth.

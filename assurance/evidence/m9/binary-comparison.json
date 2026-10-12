@@ -1,0 +1,53 @@
+{
+  "scope": "Observed same-toolchain Release binaries from checkout and earlier extracted no-Git source; no cross-platform bit-reproducibility claim.",
+  "binaries": [
+    {
+      "name": "control",
+      "checkout": "build/gui/control",
+      "extracted": "/tmp/DialysisLab-m9-nogit-verification/extracted/DialysisLab/build/gui/control",
+      "checkout_sha256": "184ff5dcaa5940efab5f076e39b300b74cc8b5bef51d348bf4cc39ce5fc7afdc",
+      "extracted_sha256": "184ff5dcaa5940efab5f076e39b300b74cc8b5bef51d348bf4cc39ce5fc7afdc",
+      "identical": true
+    },
+    {
+      "name": "protection",
+      "checkout": "build/gui/protection",
+      "extracted": "/tmp/DialysisLab-m9-nogit-verification/extracted/DialysisLab/build/gui/protection",
+      "checkout_sha256": "10e02d04638b0820e3ae94bdaee2b4b0e7b98b40ffbb22f186c112eb31e27252",
+      "extracted_sha256": "10e02d04638b0820e3ae94bdaee2b4b0e7b98b40ffbb22f186c112eb31e27252",
+      "identical": true
+    },
+    {
+      "name": "plant",
+      "checkout": "build/gui/plant",
+      "extracted": "/tmp/DialysisLab-m9-nogit-verification/extracted/DialysisLab/build/gui/plant",
+      "checkout_sha256": "554f7659237fe19c4c8b8f494e73705cdae4e1403c0ac6d67515ca3be9e1d379",
+      "extracted_sha256": "554f7659237fe19c4c8b8f494e73705cdae4e1403c0ac6d67515ca3be9e1d379",
+      "identical": true
+    },
+    {
+      "name": "child-guard",
+      "checkout": "build/gui/child-guard",
+      "extracted": "/tmp/DialysisLab-m9-nogit-verification/extracted/DialysisLab/build/gui/child-guard",
+      "checkout_sha256": "41225b4de807a52c4e6e37cdbee189aa654622ebe270901c026666217472f67a",
+      "extracted_sha256": "41225b4de807a52c4e6e37cdbee189aa654622ebe270901c026666217472f67a",
+      "identical": true
+    },
+    {
+      "name": "device-ui",
+      "checkout": "build/gui/device-ui",
+      "extracted": "/tmp/DialysisLab-m9-nogit-verification/extracted/DialysisLab/build/gui/device-ui",
+      "checkout_sha256": "64245e2d9d6da19e34f63f0e834997ec4ace404e59f94b5c0a8004d17e1d7f53",
+      "extracted_sha256": "64245e2d9d6da19e34f63f0e834997ec4ace404e59f94b5c0a8004d17e1d7f53",
+      "identical": true
+    },
+    {
+      "name": "sim-console",
+      "checkout": "build/gui/sim-console",
+      "extracted": "/tmp/DialysisLab-m9-nogit-verification/extracted/DialysisLab/build/gui/sim-console",
+      "checkout_sha256": "66ad6cd3f99eb0a91b746e1c1c85458bde6564b63f4b862ff9eaf34255128e9c",
+      "extracted_sha256": "66ad6cd3f99eb0a91b746e1c1c85458bde6564b63f4b862ff9eaf34255128e9c",
+      "identical": true
+    }
+  ]
+}

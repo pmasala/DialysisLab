@@ -1,0 +1,87 @@
+{
+  "phase": "M6",
+  "base": "445c667939d1fcdf37e46dea697f3c881dfbadca",
+  "candidate": "00baa5805f9f9408ef0648ec64e065d67a2cc9c8",
+  "invocations": 1,
+  "command": [
+    "codex",
+    "-c",
+    "sandbox_mode=\"read-only\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "-c",
+    "developer_instructions=\"Read-only automatic M6 phase review. Analyze the complete diff against the fixed base for concrete behavioral, safety, concurrency, resource, numerical, interface and evidence defects. Focus on actual LVGL/service integration, session and stale-data semantics, confirmation and alarms, dependency/publication boundaries and evidence collection. Never edit project files, do not start recursive reviewers, and do not access private licensed standards or extracts. Existing M1-M5 reviews are consumed; focus on new M6 changes and regressions. Simulation only; do not claim clinical or regulatory approval. Report actionable findings with severity, scenario, file and line.\"",
+    "review",
+    "--base",
+    "445c667939d1fcdf37e46dea697f3c881dfbadca"
+  ],
+  "status": "FINDINGS_FIXED_AND_REGRESSION_PASSED",
+  "started_at": "2026-10-08T01:58:14.174076+00:00",
+  "exit_code": 0,
+  "finished_at": "2026-10-08T02:09:25.977373+00:00",
+  "full_output_path": "build/reviews/m6-output.txt",
+  "full_output_sha256": "257f9b40e15a7110da5600ef49d347b09cbd41c3583215eb98b61e5d59d1f985",
+  "final_output": "The M6 changes introduce reproducible pointer-input, freshness, confirmation, and alarm-layout defects. The demo also mishandles unexpected failure status and delays shutdown during slow pacing.\n\nFull review comments:\n\n- [P2] Preserve sample age across same-session reconnections \u2014 /home/pietro/DialysisLab/src/ui/client.hpp:92-94\n  After a transient polling failure, `!previous.connected` makes `generation` true and resets `last_sample`, even when the session and sensor timestamp are unchanged. A frozen observation consequently changes from STALE to LIVE for another 1500 ms; repeated reconnects can conceal staleness indefinitely. Keep confirmation/trend invalidation separate from sample freshness, preserving the original sample age on same-session reconnects.\n\n- [P2] Preserve mouse transitions until LVGL consumes them \u2014 /home/pietro/DialysisLab/src/ui/device_ui.cpp:242-243\n  When mouse-down and mouse-up arrive before the next LVGL input read, this loop consumes both and leaves `mouse_pressed` false, so LVGL never observes the press. This silently loses clicks, including STOP. An SDL event probe reproduced this: batching both events did nothing, while separate renders registered the click. Queue the transitions for the input callback; the existing direct-widget CLICK tests bypass this failure.\n\n- [P2] Confirm the same prescription precision that is transmitted \u2014 /home/pietro/DialysisLab/src/ui/device_ui.cpp:176-177\n  The fields accept multiple decimal places and `job.values` preserves them, but the confirmation uses one-decimal formatting. For example, net UF `0.04` is displayed as `0.0 mL/min` while the submitted request remains nonzero. Display the validated values without this precision loss, or explicitly restrict and normalize input precision before constructing both the request and confirmation.\n\n- [P2] Reserve space for wrapped alarm text \u2014 /home/pietro/DialysisLab/src/ui/device_ui.cpp:108-108\n  With a disconnected channel and multiple latched hazards, the alarm label grows into the fixed-position intent label. For the supported mask 8191, LVGL places the alarm bottom at y=676 while intent starts at y=664, overlapping acknowledgment/silence information with delivery feedback. Use a layout or reserved region that accommodates the complete supported alarm text without obscuring either status.\n\n- [P2] Propagate unexpected simulation aborts from the demo launcher \u2014 /home/pietro/DialysisLab/tools/run_device_demo.py:51-51\n  If `simulate()` aborts because of a workflow rejection or service failure, successful HALT observation and the UI's normal SIGTERM exit still make this command return zero. The exit condition ignores the aborted manifest entirely. Distinguish expected operator closure/duration expiry from unexpected simulation failures and return nonzero for the latter, even when shutdown succeeds.\n\n- [P2] Detect UI closure during paced waits \u2014 /home/pietro/DialysisLab/python/dialysislab/runner.py:221-223\n  The demo detects UI termination only through `before_tick`, which runs after this entire wait. With the supported `--headless --seconds 1 --wall-speed 0.001` and default 100 ms ticks, the UI exits after one second but the runner keeps heartbeating for roughly 100 seconds before noticing and issuing HALT. Make the pacing wait cancellable by UI termination so closing the interface does not leave the launcher and services running until the next tick.",
+  "correction_commit": "55526223fc7edcecea8a4bbfc4e88468d1aa0859",
+  "integration_findings": [
+    {
+      "id": "M6-V1",
+      "severity": "P2",
+      "disposition": "fixed",
+      "problem": "Theme-default dark confirmation text on dark dialog",
+      "test": "test_coalesced_sdl_clicks_and_exact_prescription_confirmation: rendered-pixel contrast",
+      "correction_commit": "2ee31adc06f3a68ff5844a67a133632cae35d8e7",
+      "evidence": "assurance/evidence/m6/ui-wslg.json and ui-sanitizer.json"
+    }
+  ],
+  "findings": [
+    {
+      "id": "M6-R1",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_same_session_reconnections_do_not_refresh_frozen_samples",
+      "correction_commit": "55526223fc7edcecea8a4bbfc4e88468d1aa0859",
+      "evidence": "assurance/evidence/m6/ui-wslg.json and ui-sanitizer.json"
+    },
+    {
+      "id": "M6-R2",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_coalesced_sdl_clicks_and_exact_prescription_confirmation",
+      "correction_commit": "55526223fc7edcecea8a4bbfc4e88468d1aa0859",
+      "evidence": "assurance/evidence/m6/ui-wslg.json and ui-sanitizer.json"
+    },
+    {
+      "id": "M6-R3",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_coalesced_sdl_clicks_and_exact_prescription_confirmation",
+      "correction_commit": "55526223fc7edcecea8a4bbfc4e88468d1aa0859",
+      "evidence": "assurance/evidence/m6/ui-wslg.json and ui-sanitizer.json"
+    },
+    {
+      "id": "M6-R4",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_all_latched_alarms_and_disconnect_fit_without_overlapping_intent",
+      "correction_commit": "55526223fc7edcecea8a4bbfc4e88468d1aa0859",
+      "evidence": "assurance/evidence/m6/ui-wslg.json and ui-sanitizer.json"
+    },
+    {
+      "id": "M6-R5",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_unexpected_workflow_abort_returns_failure_despite_confirmed_halt",
+      "correction_commit": "55526223fc7edcecea8a4bbfc4e88468d1aa0859",
+      "evidence": "assurance/evidence/m6/ui-wslg.json and ui-sanitizer.json"
+    },
+    {
+      "id": "M6-R6",
+      "severity": "P2",
+      "disposition": "fixed",
+      "test": "test_window_closure_interrupts_100_second_pacing_wait",
+      "correction_commit": "55526223fc7edcecea8a4bbfc4e88468d1aa0859",
+      "evidence": "assurance/evidence/m6/ui-wslg.json and ui-sanitizer.json"
+    }
+  ]
+}

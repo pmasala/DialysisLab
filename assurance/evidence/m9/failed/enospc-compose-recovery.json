@@ -1,0 +1,216 @@
+{
+  "outcome": "FAILED_ENOSPC",
+  "source_project": "dl-m1-verify-69e36d65be93",
+  "services": [
+    {
+      "service": "control",
+      "image": "sha256:c62c2712de727d096526ef7da6b4353637059a782ea75384c218e78cda59b298",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/control",
+        "/run/dialysis/device/control"
+      ]
+    },
+    {
+      "service": "patient",
+      "image": "sha256:c62c2712de727d096526ef7da6b4353637059a782ea75384c218e78cda59b298",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/patient"
+      ]
+    },
+    {
+      "service": "plant",
+      "image": "sha256:c62c2712de727d096526ef7da6b4353637059a782ea75384c218e78cda59b298",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/control",
+        "/run/dialysis/protection",
+        "/run/dialysis/admin"
+      ]
+    },
+    {
+      "service": "protection",
+      "image": "sha256:c62c2712de727d096526ef7da6b4353637059a782ea75384c218e78cda59b298",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/protection",
+        "/run/dialysis/device/protection"
+      ]
+    },
+    {
+      "service": "runner",
+      "image": "sha256:c62c2712de727d096526ef7da6b4353637059a782ea75384c218e78cda59b298",
+      "exit_code": 1,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/device/control",
+        "/run/dialysis/device/protection",
+        "/results",
+        "/scenario.json",
+        "/run/dialysis/admin",
+        "/run/dialysis/control",
+        "/run/dialysis/protection",
+        "/run/dialysis/patient"
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "name": "logs",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "dl-m1-verify-69e36d65be93",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "build/m9-corrected-long-compose/integrated_hdf_100000-compose.json",
+        "logs",
+        "--no-color",
+        "--timestamps"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "extract",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "dl-m1-verify-69e36d65be93",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "build/m9-corrected-long-compose/integrated_hdf_100000-compose.json",
+        "cp",
+        "runner:/results/.",
+        "build/m9-enospc-compose-recovery/results"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "cleanup_after_verified_recovery",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "dl-m1-verify-69e36d65be93",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "build/m9-corrected-long-compose/integrated_hdf_100000-compose.json",
+        "down",
+        "--volumes",
+        "--remove-orphans"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "resources_retained": false,
+  "independent_volume_hash_verification": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--read-only",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges:true",
+      "--user",
+      "10001:10001",
+      "--memory",
+      "128m",
+      "--mount",
+      "type=volume,src=dl-m1-verify-69e36d65be93_results,dst=/results,readonly",
+      "dialysislab-m1:local",
+      "python3",
+      "-c",
+      "from pathlib import Path;import hashlib,json;print(json.dumps({str(p.relative_to('/results')):hashlib.sha256(p.read_bytes()).hexdigest() for p in Path('/results').rglob('*') if p.is_file()}))"
+    ],
+    "files": {
+      "run/trajectory.jsonl": "0647a8bdab2329428d8ce84f19c7967abe192dac7f8b5a82e41c046f4ae27e74",
+      "run/manifest.json.tmp": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run/manifest.json": "785262a15b82b87b8d96add6ca8419f31995d0e2965504ad8be277f9c087db5b"
+    }
+  },
+  "stop_observation": "unavailable: final manifest could not be persisted",
+  "archives": [
+    {
+      "path": "build/m9-enospc-compose-recovery/results/run/trajectory.jsonl.gz",
+      "sha256": "c770d50353edd1243bce8f15a9b05d982bf15b9aba303223875f94fac96098b8",
+      "bytes": 29959281,
+      "original_path": "build/m9-enospc-compose-recovery/results/run/trajectory.jsonl",
+      "original_sha256": "0647a8bdab2329428d8ce84f19c7967abe192dac7f8b5a82e41c046f4ae27e74",
+      "original_bytes": 200052736,
+      "recovery_argv": [
+        "gzip",
+        "-dc",
+        "build/m9-enospc-compose-recovery/results/run/trajectory.jsonl.gz"
+      ],
+      "recovery_output": "build/m9-enospc-compose-recovery/results/run/trajectory.jsonl",
+      "round_trip_verified": true
+    }
+  ],
+  "runner_original_exit_code": 1,
+  "verification_process_exit_code": 120,
+  "original_failure": "ENOSPC in final runner manifest persistence and host collection/report persistence"
+}

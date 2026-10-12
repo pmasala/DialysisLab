@@ -1,0 +1,29 @@
+[
+  {
+    "paths": [
+      "build/gui-deps/lvgl-9.6.0.tar.gz",
+      "build/dependency-inspection/lvgl-9.6.0.tar.gz"
+    ],
+    "sha256": "b20ee3acc1bba13c62d854f9ebd62e4c51e0b443b1e0225892e86442defa84df",
+    "bytes": 111467067,
+    "storage": "Two existing immutable archive paths share one verified inode; no content/path lost."
+  },
+  {
+    "paths": [
+      "build/gui-deps/SDL2-2.32.10.tar.gz",
+      "build/dependency-inspection/SDL2-2.32.10.tar.gz"
+    ],
+    "sha256": "5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165",
+    "bytes": 7630262,
+    "storage": "Two existing immutable archive paths share one verified inode; no content/path lost."
+  },
+  {
+    "paths": [
+      "build/gui-deps/imgui-1.92.9b.tar.gz",
+      "build/dependency-inspection/imgui-1.92.9b.tar.gz"
+    ],
+    "sha256": "21d8a0a565e85dce943e375db00812c2f3f0ab21f3f0f7964e364a63422d7f99",
+    "bytes": 2123074,
+    "storage": "Two existing immutable archive paths share one verified inode; no content/path lost."
+  }
+]

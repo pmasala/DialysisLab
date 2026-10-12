@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "phase": "M4",
+  "technical_status": "COMPLETE",
+  "executed_at": "2026-10-08T00:19:25.197656+00:00",
+  "implementation_commit": "cca9ce696fc40e931edbb6662a8f75146fce55f7",
+  "build_worktree_clean": true,
+  "native_tests": 87,
+  "sanitizer_tests": 87,
+  "short_native_runs": 24,
+  "short_compose_runs": 24,
+  "compatibility_m2_m3_compose_runs": 14,
+  "m1_compose_runs": 4,
+  "isolation_probes": 2,
+  "long_native_runs": 2,
+  "long_compose_runs": 2,
+  "ticks_per_long_run": 100000,
+  "long_trajectory_sha256": "53263cf9909693eaf4427dd857f1c44ba51a503210b3af569c1f9a5d0efaffc6",
+  "cross_build_exact_replay": true,
+  "maximum_water_residual_mL": 3.653694875538349e-07,
+  "maximum_mass_residual_mmol": 4.064349923282862e-08,
+  "tolerance_mL_mmol": 1e-06,
+  "long_gross_uf_mL": 166665.0,
+  "long_final_body_mL": 27178.75384615387,
+  "native_long_halt_confirmed": true,
+  "runner_compose_peak_rss_bytes": 23388160,
+  "runner_rss_acceptance_bytes": 67108864,
+  "compose_limit_bytes": 134217728,
+  "cgroup_peak_including_cache_bytes": 134217728,
+  "oom_kills": 0,
+  "review_invocations": 1,
+  "review_findings_fixed": 6,
+  "scope": "Synthetic software/numerical verification only; no physiological calibration, sterility, quality-barrier validation, hardware independence, human risk acceptance or standards conformity.",
+  "artifacts": [
+    {
+      "path": "assurance/evidence/m4/compat-compose.json",
+      "sha256": "cccbeda3a92edea29c5e731a3970c17026cbc125695c6548b4f2abc9fe8e6b1e"
+    },
+    {
+      "path": "assurance/evidence/m4/compose-models.json",
+      "sha256": "55f1e0b6a2556cf179f544a122e3d799f39ff29be6605ed4c9464e1328fb041b"
+    },
+    {
+      "path": "assurance/evidence/m4/long-compose.json",
+      "sha256": "a91d08148cf4377b26e9c5196143105425519254cae42483d1757a4cf74563a4"
+    },
+    {
+      "path": "assurance/evidence/m4/long-native.json",
+      "sha256": "7a479606812a043de74eaa58c91b1f179edb3426d24c2600350933022272cbe1"
+    },
+    {
+      "path": "assurance/evidence/m4/m1-compose.json",
+      "sha256": "a5e9874363ebe6aa1503c55f8a7890c83e1ebaf1a7beb242ee216fdab7032079"
+    },
+    {
+      "path": "assurance/evidence/m4/memory-launch-diagnostic.json",
+      "sha256": "61964093269259d20f93c8b6ee4442a3b3a2c8e924ef01500ab932407c9e15b0"
+    },
+    {
+      "path": "assurance/evidence/m4/native-memory-samples.jsonl",
+      "sha256": "30b6441b8f12befb08e15be87f35e1563c40f6da3678c566d6e06c97b85bef0b"
+    },
+    {
+      "path": "assurance/evidence/m4/native-models.json",
+      "sha256": "c5fd914a6b264217d46820a26c934ffee9301a5d3a51dcb0e60290d07b61c4d4"
+    },
+    {
+      "path": "assurance/evidence/m4/native-tests.json",
+      "sha256": "e3c990e91cdd4033d237ce35d4e1b87d3d25f67d8ae826017228530bd236a637"
+    },
+    {
+      "path": "assurance/evidence/m4/review.json",
+      "sha256": "661c19f473540ce3053a189f15869de9354b5aebfae5a82613df4bc5b02dd649"
+    },
+    {
+      "path": "assurance/evidence/m4/sanitizer-tests.json",
+      "sha256": "21501bd67493947f3bf31c4687500a06e2a37bc0d16b8b5fafc2ec9f8b985fed"
+    },
+    {
+      "path": "assurance/evidence/m4/treatment_hd/manifest.json",
+      "sha256": "0b34a45faae045d328a41aff95bcacb08d830e3147287b32453bb2f3cc918711"
+    },
+    {
+      "path": "assurance/evidence/m4/treatment_hd/trajectory.jsonl",
+      "sha256": "3049c41cbeb2e8af67688d0a7c2577cea473a768d46f6606b160ac3660eae382"
+    },
+    {
+      "path": "assurance/evidence/m4/treatment_hdf_post/manifest.json",
+      "sha256": "1e4ccd5501ae9fa0038a783e5e9bdd7dd3e45f31983f1c1ad57725033cf36e88"
+    },
+    {
+      "path": "assurance/evidence/m4/treatment_hdf_post/trajectory.jsonl",
+      "sha256": "a2bf7cdd3a3b2f0da99e8dccdf91dc1cb179cc719b026d9ddf04ff3e121a67c7"
+    },
+    {
+      "path": "assurance/evidence/m4/treatment_hdf_pre/manifest.json",
+      "sha256": "702abed0bc5f499a02e0ab82049bccfb710f5a8b57d2ed17b7887071f805975f"
+    },
+    {
+      "path": "assurance/evidence/m4/treatment_hdf_pre/trajectory.jsonl",
+      "sha256": "cb10b60b5e10d80a8be7a255e489fe0cd6fc26c2466964da8386d1233b561d37"
+    },
+    {
+      "path": "assurance/evidence/m4/treatment_integrity/manifest.json",
+      "sha256": "a180c62ab914f9f3c83984ade5631ad071ac55700fe6a31adaaa03c9ffcdefa9"
+    },
+    {
+      "path": "assurance/evidence/m4/treatment_integrity/trajectory.jsonl",
+      "sha256": "cfeb5e2b3f0fb2587ba2ce0759a51d76b75c2ccde4d606ffacfb71bcce4751b6"
+    }
+  ]
+}

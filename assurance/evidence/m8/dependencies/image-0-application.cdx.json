@@ -1,0 +1,349 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "bom-ref": "binary:plant",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "627f01318eb1b553242c4360917eff2582c290063748ee513112df688d46c832"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "binary:plant",
+      "type": "application",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "binary:control",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7e8f8f384ff7fefd3e64b8abd2d30efcccdf13cbad06c54d9da2698da6dda0b0"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "binary:control",
+      "type": "application",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "binary:protection",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ed5c3964d5eccdfaf50b8cd94652acc301c6d3485daf399d2279681afe8c1010"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "binary:protection",
+      "type": "application",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "binary:child-guard",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "66f965b8ac34c9b192c954a5a77c6046cba3835f6cff37866dcf9c62e4c27af6"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "binary:child-guard",
+      "type": "application",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/__init__.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/__init__.py",
+      "type": "file",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/circuit.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f88fcefafe538d09996ed6bea896d0018596635c931a3a4314f5f04b7c2d4928"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/circuit.py",
+      "type": "file",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/compartments.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d18bb2176b1415b6fbf3dbf6d32accec214a1691d82e3ff2be05e470f443e9bd"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/compartments.py",
+      "type": "file",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/experiment_rpc.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/experiment_rpc.py",
+      "type": "file",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/experiments.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "34ee7c9dbe1c2bc0b3586082b853575450fe44216ce8607ecf6e29bcdf7fec32"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/experiments.py",
+      "type": "file",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/machine.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dd03e344e6e141d3bd01dcfb744288a2a89ad50f0652e992c129eb5f80a510f3"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/machine.py",
+      "type": "file",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/patient.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/patient.py",
+      "type": "file",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/protocol.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/protocol.py",
+      "type": "file",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/role_supervisor.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/role_supervisor.py",
+      "type": "file",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/runner.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "299456d7bf33b4c552ddfba2eedeff2950c62199014ad4d5e60545fb3b1fd94b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/runner.py",
+      "type": "file",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/trajectory.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0cd9026cc01878f359cc1edef63b6915a41266b5e9c2fa56478e7e07730a72a1"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/trajectory.py",
+      "type": "file",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    },
+    {
+      "bom-ref": "module:python/dialysislab/treatment.py",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4d6712cd02ac9004c4fc74885f26f15fd88e8df24d2fb7a18d85051e2612d79d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "module:python/dialysislab/treatment.py",
+      "type": "file",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    }
+  ],
+  "dependencies": [
+    {
+      "dependsOn": [],
+      "ref": "binary:plant"
+    },
+    {
+      "dependsOn": [],
+      "ref": "binary:control"
+    },
+    {
+      "dependsOn": [],
+      "ref": "binary:protection"
+    },
+    {
+      "dependsOn": [],
+      "ref": "binary:child-guard"
+    },
+    {
+      "dependsOn": [
+        "binary:plant",
+        "binary:control",
+        "binary:protection",
+        "binary:child-guard",
+        "module:python/dialysislab/__init__.py",
+        "module:python/dialysislab/circuit.py",
+        "module:python/dialysislab/compartments.py",
+        "module:python/dialysislab/experiment_rpc.py",
+        "module:python/dialysislab/experiments.py",
+        "module:python/dialysislab/machine.py",
+        "module:python/dialysislab/patient.py",
+        "module:python/dialysislab/protocol.py",
+        "module:python/dialysislab/role_supervisor.py",
+        "module:python/dialysislab/runner.py",
+        "module:python/dialysislab/trajectory.py",
+        "module:python/dialysislab/treatment.py"
+      ],
+      "ref": "DialysisLab"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "bom-ref": "DialysisLab",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "DialysisLab",
+      "type": "application",
+      "version": "e8c497c995949562b1901d1346b841b955100a17"
+    }
+  },
+  "properties": [
+    {
+      "name": "dialysislab:scope",
+      "value": "Selected application and built executable identities; platform/CI tools separately inventoried, not complete image license clearance."
+    },
+    {
+      "name": "dialysislab:build-sha256",
+      "value": "d6558c4baef5dc7a223826150bf62dbb41d8182199af8df3fd44ba9f21e40c1a"
+    },
+    {
+      "name": "dialysislab:image-id",
+      "value": "sha256:71e8d33103ab8f3e557697693184770042e0a083bef64b66e8413b0d990b7793"
+    },
+    {
+      "name": "dialysislab:image-build-record",
+      "value": "image-0-build.json"
+    }
+  ],
+  "specVersion": "1.6",
+  "version": 1
+}

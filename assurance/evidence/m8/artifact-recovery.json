@@ -1,0 +1,134 @@
+{
+  "successful": true,
+  "scope": "Actual local generated artifacts retention/recovery verification, not a hosted CI execution report.",
+  "artifacts": [
+    {
+      "kind": "begin",
+      "name": "ci-report.json",
+      "bytes": 2390,
+      "sha256": "1818dbf26d8233f513903e66d18fa486443ff3dc4c87ee9ac7ea71ecfd2e9355",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "commands/native-tests.log",
+      "bytes": 22585,
+      "sha256": "532daa6ed9d3e19dd14179029036da3fe43bf4a905482cbe2b7f4a0970ee5824",
+      "chunks": 8,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/report.json",
+      "bytes": 2043,
+      "sha256": "551e3478a199a48e6d868cbb101d32a66641f23639a775b63e70ee56672546c0",
+      "chunks": 1,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/application.cdx.json",
+      "bytes": 15589,
+      "sha256": "4880842ceca7eb1f2527b33a8f8dac2ca7794e0754a6fdf4545ce7ed04cb36a3",
+      "chunks": 6,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/build.json",
+      "bytes": 9088,
+      "sha256": "6d7c6a37056fb7defb09e4ee2cd54c69ff8c05c2772144a3fcf4cc866c133136",
+      "chunks": 3,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/adopted-dependencies.json",
+      "bytes": 4724,
+      "sha256": "d7da7768e9e00daca9338c922a8fcda332d70fb4c83ab63d0d51dd649e419c25",
+      "chunks": 2,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/native-platform.json",
+      "bytes": 712740,
+      "sha256": "85cfa36455d1cff60fec1bdb3f2f8215c04d7170d5582e74e6f858c0524e1858",
+      "chunks": 233,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-0-platform.json",
+      "bytes": 46285,
+      "sha256": "15b4f7c552cc551a5ca63535efdc6a376d8ffd69ecad7a9d11e8e5a2a76d1fa3",
+      "chunks": 16,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-0-build.json",
+      "bytes": 13410,
+      "sha256": "d9ac33c2c1702fb999383f2d71cc5c86807a3a2133d679a86b4649f0e2992a7d",
+      "chunks": 5,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-0-application.cdx.json",
+      "bytes": 9130,
+      "sha256": "2f3dad0fa9ef2f7c5e26eaaa852c59c142ebf5779bd4d8fe2cbac71141a1571d",
+      "chunks": 3,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-0.cdx.json",
+      "bytes": 53390,
+      "sha256": "e5016a27e3c6c2c9e1090f0c50315e0ea659546cd262e856414bee89f79619dd",
+      "chunks": 18,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-1-platform.json",
+      "bytes": 48312,
+      "sha256": "9bf929381a6535c167248a51e10b1940997931a7e2149c1f0865cc68316214a9",
+      "chunks": 16,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-1-build.json",
+      "bytes": 13679,
+      "sha256": "131645dfaabce8302aceb9820dfa44faabd01853ba3baf3f02d80088543d29be",
+      "chunks": 5,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-1-application.cdx.json",
+      "bytes": 15826,
+      "sha256": "06fa4025352688f37bc66becdf4851e605add5034de0dc0a6b2a793db5150f72",
+      "chunks": 6,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "dependencies/image-1.cdx.json",
+      "bytes": 62989,
+      "sha256": "e42988decf8b514c56de60c045c5098a088844249c960fc105ce84cfde419c50",
+      "chunks": 21,
+      "encoding": "base64"
+    },
+    {
+      "kind": "begin",
+      "name": "native-tests.json",
+      "bytes": 170298,
+      "sha256": "e54b65348744880425e9926ac99af3183bee1b2d7548fbb68729e539554e2e6c",
+      "chunks": 56,
+      "encoding": "base64"
+    }
+  ]
+}

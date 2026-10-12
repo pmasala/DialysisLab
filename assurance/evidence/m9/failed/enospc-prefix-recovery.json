@@ -1,0 +1,1218 @@
+{
+  "successful": true,
+  "scope": "Recovery verification only; original runs FAILED_ENOSPC",
+  "results": [
+    {
+      "storage": {
+        "path": "build/m9-corrected-long-native/integrated_hdf_100000-2/trajectory.jsonl.gz",
+        "sha256": "6d22466325fc235874619d79d92509b71bc3755a5030e192b9327d61488e0dc1",
+        "bytes": 36024965,
+        "original_path": "build/m9-corrected-long-native/integrated_hdf_100000-2/trajectory.jsonl",
+        "original_sha256": "8b2100eb7c53aac0d16f10a5554226f8a7f56ac69344285601ec770510db89c5",
+        "original_bytes": 241360896,
+        "recovery_argv": [
+          "gzip",
+          "-dc",
+          "build/m9-corrected-long-native/integrated_hdf_100000-2/trajectory.jsonl.gz"
+        ],
+        "recovery_output": "build/m9-corrected-long-native/integrated_hdf_100000-2/trajectory.jsonl",
+        "round_trip_verified": true,
+        "status": "FAILED_ENOSPC_PARTIAL_NOT_ACCEPTANCE",
+        "stop_observation": "unavailable: final manifest could not be persisted"
+      },
+      "complete_prefix": {
+        "format": "dialysislab.trajectory.jsonl.v1",
+        "records": 45445,
+        "complete_bytes": 241357065,
+        "sha256": "7d4fcf5341581ab7e89feca33615be58a201837d6048c6c01304f69c0970c8a0",
+        "discarded_tail_bytes": 3831,
+        "first": {
+          "blood_mL_min": 0.0,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "boundary_diffusion_mmol_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "clearance_mL_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "draw_tick_mL": 0.0,
+            "edge_mL_min": [
+              0.0
+            ],
+            "pressure_mmHg": [
+              0.0
+            ],
+            "pump_mL_min": 0.0,
+            "return_mL_min": 0.0,
+            "return_tick_mL": 0.0,
+            "sequence": 0,
+            "storage_change_mL": 0.0,
+            "stored_mL": 0.0,
+            "time_ms": 1000,
+            "uf_mL_min": 0.0,
+            "uf_tick_mL": 0.0
+          },
+          "clamp_closed": true,
+          "latched": false,
+          "machine": {
+            "acknowledged_mask": 0,
+            "action": "INITIAL",
+            "alarm_mask": 0,
+            "alarms": [],
+            "annunciating": false,
+            "blood_prescribed_mL_min": 300.0,
+            "expected_net_mL": 0.0,
+            "flush_in_mL": 0.0,
+            "flush_in_tick_mL": 0.0,
+            "flush_out_mL": 0.0,
+            "flush_out_tick_mL": 0.0,
+            "measured_net_mL": 0.0,
+            "mode": "HDF_POST",
+            "net_uf_prescribed_mL_min": 5.0,
+            "phase_flush_mL": 0.0,
+            "pressure_limit_mmHg": 250.0,
+            "prime_mL": 20.0,
+            "ready_cycles": 1,
+            "replacement_prescribed_mL_min": 70.0,
+            "revision": 0,
+            "safe_cycles": 1,
+            "sequence": 0,
+            "silence_until_ms": 0,
+            "stage": "PREPARATION",
+            "terminal": false,
+            "time_ms": 1000,
+            "treatment_cycles": 0
+          },
+          "observations": {
+            "control": {
+              "air_signal": 0.0,
+              "blood_mL_min": 0.0,
+              "conductivity_mS_cm": 13.77,
+              "downstream_mmHg": 0.0,
+              "filter_pressure_mmHg": 0.0,
+              "integrity": 1,
+              "leak_signal": 0.0,
+              "measured_substitution_mL": 0.0,
+              "measured_uf_mL": 0.0,
+              "pressure_mmHg": 0.0,
+              "replacement_mL_min": 0.0,
+              "route": 2,
+              "sequence": 0,
+              "supply_ready": 1,
+              "temperature_C": 37.0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            },
+            "protection": {
+              "air_signal": 0.0,
+              "blood_mL_min": 0.0,
+              "conductivity_mS_cm": 13.77,
+              "downstream_mmHg": 0.0,
+              "filter_pressure_mmHg": 0.0,
+              "integrity": 1,
+              "leak_signal": 0.0,
+              "measured_substitution_mL": 0.0,
+              "measured_uf_mL": 0.0,
+              "pressure_mmHg": 0.0,
+              "replacement_mL_min": 0.0,
+              "route": 2,
+              "sequence": 0,
+              "supply_ready": 1,
+              "temperature_C": 37.0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            }
+          },
+          "online": {
+            "concentration_mmol_L": [
+              0.0,
+              140.0,
+              4.0,
+              105.0,
+              24.0,
+              2.4
+            ],
+            "conductivity_mS_cm": 13.77,
+            "delivered_contaminant": 1e-06,
+            "filter1_pressure_mmHg": 0.0,
+            "filter2_pressure_mmHg": 0.0,
+            "mixing_mL_min": 500.0,
+            "mode": "HDF_POST",
+            "post_tick_mL": 0.0,
+            "pre_tick_mL": 0.0,
+            "quality_latched": false,
+            "reason": "none",
+            "replacement_mL_min": 0.0,
+            "route": 2,
+            "sequence": 0,
+            "substitution_total_mL": 0.0,
+            "tank_contaminant": 1.0,
+            "temperature_C": 37.0,
+            "time_ms": 1000
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                20.000059481339186,
+                140.0,
+                5.0,
+                105.0,
+                22.000000000000004,
+                2.4
+              ],
+              [
+                20.000000022868644,
+                14.000000000000002,
+                99.99999999999999,
+                10.5,
+                21.999999999999996,
+                2.4
+              ],
+              [
+                20.0,
+                140.0,
+                5.0,
+                105.0,
+                22.0,
+                2.4
+              ]
+            ],
+            "convective_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diffusive_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "flush_in_mL": 0.0,
+            "flush_input_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "flush_out_mL": 0.0,
+            "flush_output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "gross_uf_mL": 0.0,
+            "illustrative_pH": 7.363241434774581,
+            "input_mmol": [
+              0.0008333333333333334,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                280.00083273874856,
+                1960.0,
+                70.0,
+                1470.0,
+                308.00000000000006,
+                33.6
+              ],
+              [
+                520.0000005945848,
+                364.00000000000006,
+                2599.9999999999995,
+                273.0,
+                571.9999999999999,
+                62.4
+              ],
+              [
+                0.4,
+                2.8,
+                0.1,
+                2.1,
+                0.44,
+                0.048
+              ]
+            ],
+            "mass_residual_mmol": [
+              2.2001606266031093e-14,
+              -1.2523315717771766e-13,
+              -3.6379232959404817e-13,
+              9.103828801926284e-14,
+              -1.1141088052113446e-13,
+              -1.817990202823694e-15
+            ],
+            "net_patient_loss_mL": 0.0,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 0,
+            "substitution_mL": 0.0,
+            "substitution_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "time_ms": 1000,
+            "volume_mL": [
+              14000.0,
+              26000.0,
+              20.0
+            ],
+            "weight_kg": 70.0
+          },
+          "patient_removed_mL": 0.0,
+          "patient_volume_mL": 40000.0,
+          "pressure_mmHg": 0.0,
+          "protection_decision": "0",
+          "reason": "none",
+          "removed_tick_mL": 0.0,
+          "removed_total_mL": 0.0,
+          "sequence": 0,
+          "time_ms": 1000,
+          "uf_mL_min": 0.0,
+          "workflow_request": null
+        },
+        "last": {
+          "blood_mL_min": 223.71391076115486,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.15335786799057435,
+              9.756515584963411,
+              0.38025019489788126,
+              7.317386688724283,
+              1.6894209374980969,
+              0.14184620635478493
+            ],
+            "boundary_diffusion_mmol_min": [
+              0.1813372988016913,
+              -0.21085999309722475,
+              0.10267133942252232,
+              -0.15814499482113098,
+              -0.01791260913998905,
+              0.024164912685568196
+            ],
+            "clearance_mL_min": [
+              84.12121095182047,
+              73.77746189285578,
+              76.33745445515713,
+              73.77746189285578,
+              70.87257377564401,
+              53.89593532116896
+            ],
+            "draw_tick_mL": 3.728565179352581,
+            "edge_mL_min": [
+              152.57217847769027
+            ],
+            "pressure_mmHg": [
+              152.57217847769027
+            ],
+            "pump_mL_min": 223.71391076115486,
+            "return_mL_min": 152.57217847769027,
+            "return_tick_mL": 2.5428696412948377,
+            "sequence": 45444,
+            "storage_change_mL": 0.0,
+            "stored_mL": 0.15257217847769028,
+            "time_ms": 45445000,
+            "uf_mL_min": 71.14173228346456,
+            "uf_tick_mL": 1.1856955380577427
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "machine": {
+            "acknowledged_mask": 0,
+            "action": "START",
+            "alarm_mask": 0,
+            "alarms": [],
+            "annunciating": false,
+            "blood_prescribed_mL_min": 300.0,
+            "expected_net_mL": 3779.250000002404,
+            "flush_in_mL": 286.73333333333346,
+            "flush_in_tick_mL": 0.0,
+            "flush_out_mL": 286.5333333333334,
+            "flush_out_tick_mL": 0.0,
+            "measured_net_mL": 3778.06430446195,
+            "mode": "HDF_POST",
+            "net_uf_prescribed_mL_min": 5.0,
+            "phase_flush_mL": 286.5333333333334,
+            "pressure_limit_mmHg": 250.0,
+            "prime_mL": 20.0,
+            "ready_cycles": 3,
+            "replacement_prescribed_mL_min": 70.0,
+            "revision": 3,
+            "safe_cycles": 3,
+            "sequence": 45444,
+            "silence_until_ms": 0,
+            "stage": "TREATMENT",
+            "terminal": false,
+            "time_ms": 45445000,
+            "treatment_cycles": 45351
+          },
+          "observations": {
+            "control": {
+              "air_signal": 0.0,
+              "blood_mL_min": 223.71391076115486,
+              "conductivity_mS_cm": 13.77,
+              "downstream_mmHg": 0.0,
+              "filter_pressure_mmHg": 26.456692913385826,
+              "integrity": 1,
+              "leak_signal": 0.0,
+              "measured_substitution_mL": 49992.12598425196,
+              "measured_uf_mL": 53770.19028871391,
+              "pressure_mmHg": 152.57217847769027,
+              "replacement_mL_min": 66.14173228346456,
+              "route": 2,
+              "sequence": 45444,
+              "supply_ready": 1,
+              "temperature_C": 37.0,
+              "time_ms": 45444000,
+              "uf_mL_min": 71.14173228346456,
+              "valid": 1
+            },
+            "protection": {
+              "air_signal": 0.0,
+              "blood_mL_min": 223.71391076115486,
+              "conductivity_mS_cm": 13.77,
+              "downstream_mmHg": 0.0,
+              "filter_pressure_mmHg": 26.456692913385826,
+              "integrity": 1,
+              "leak_signal": 0.0,
+              "measured_substitution_mL": 49992.12598425196,
+              "measured_uf_mL": 53770.19028871391,
+              "pressure_mmHg": 152.57217847769027,
+              "replacement_mL_min": 66.14173228346456,
+              "route": 2,
+              "sequence": 45444,
+              "supply_ready": 1,
+              "temperature_C": 37.0,
+              "time_ms": 45444000,
+              "uf_mL_min": 71.14173228346456,
+              "valid": 1
+            }
+          },
+          "online": {
+            "concentration_mmol_L": [
+              0.0,
+              140.0,
+              4.0,
+              105.0,
+              24.0,
+              2.4000000000000004
+            ],
+            "conductivity_mS_cm": 13.77,
+            "delivered_contaminant": 1e-06,
+            "filter1_pressure_mmHg": 13.228346456692913,
+            "filter2_pressure_mmHg": 13.228346456692913,
+            "mixing_mL_min": 570.0,
+            "mode": "HDF_POST",
+            "post_tick_mL": 1.1023622047244093,
+            "pre_tick_mL": 0.0,
+            "quality_latched": false,
+            "reason": "none",
+            "replacement_mL_min": 66.14173228346456,
+            "route": 2,
+            "sequence": 45444,
+            "substitution_total_mL": 49993.228346456686,
+            "tank_contaminant": 1.0,
+            "temperature_C": 37.0,
+            "time_ms": 45445000
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                2.9656786308948146,
+                136.19938531991767,
+                5.803926308019269,
+                102.14953898997041,
+                23.667239064809046,
+                2.6846512827686975
+              ],
+              [
+                3.2689985716472223,
+                13.620696689182852,
+                103.53782021790715,
+                10.215522516890385,
+                23.41081398041297,
+                2.589783425078966
+              ],
+              [
+                2.1555834587816265,
+                137.14194311733715,
+                5.344969613605905,
+                102.85645733802708,
+                23.747263889526444,
+                2.848363700121562
+              ]
+            ],
+            "convective_mmol": [
+              331.3904026189175,
+              7407.718184097068,
+              281.54867002313483,
+              5555.788638073859,
+              1259.5099566456508,
+              105.04823106431793
+            ],
+            "diffusive_mmol": [
+              391.8550994818259,
+              -124.73050120633557,
+              71.31737922978844,
+              -93.54787590365466,
+              -30.886106616157445,
+              15.922627933076294
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "flush_in_mL": 286.7333333333334,
+            "flush_input_mmol": [
+              0.0,
+              40.14266666666667,
+              1.1469333333333336,
+              30.107000000000003,
+              6.8816000000000015,
+              0.6881600000000001
+            ],
+            "flush_out_mL": 286.53333333333336,
+            "flush_output_mmol": [
+              0.39999920577261555,
+              40.11466666666667,
+              1.1661332936219648,
+              30.086000000000002,
+              6.836800079422742,
+              0.68768
+            ],
+            "gross_uf_mL": 53771.375984251965,
+            "illustrative_pH": 7.394966351600319,
+            "input_mmol": [
+              37.87083333333334,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                37.42246007117807,
+                1718.633976640873,
+                73.23693075010544,
+                1288.9754824810605,
+                298.6454094085744,
+                33.87631228409113
+              ],
+              [
+                77.15943140487407,
+                321.4945460640035,
+                2443.8430185328093,
+                241.12090954807923,
+                552.5744523478726,
+                61.12765489529396
+              ],
+              [
+                0.04344055123982932,
+                2.7637629073688186,
+                0.107714885929963,
+                2.072822180527102,
+                0.4785684495750385,
+                0.05740185505725556
+              ]
+            ],
+            "mass_residual_mmol": [
+              4.746811832490039e-10,
+              -9.57814716429084e-10,
+              -3.7700143284968846e-09,
+              1.9191945810348443e-09,
+              -2.2344903705118213e-11,
+              3.405162540826012e-10
+            ],
+            "net_patient_loss_mL": 3778.1002099737816,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 45444,
+            "substitution_mL": 49993.228346456686,
+            "substitution_mmol": [
+              0.0,
+              6999.051968503935,
+              199.97291338582673,
+              5249.288976377952,
+              1199.8374803149604,
+              119.98374803149605
+            ],
+            "time_ms": 45445000,
+            "volume_mL": [
+              12618.514926510037,
+              23603.38486351618,
+              20.15257217847769
+            ],
+            "weight_kg": 66.22189979002621
+          },
+          "patient_removed_mL": 3778.1002099737816,
+          "patient_volume_mL": 36221.89979002622,
+          "pressure_mmHg": 152.57217847769027,
+          "protection_decision": "0",
+          "reason": "none",
+          "removed_tick_mL": 1.1856955380577427,
+          "removed_total_mL": 53771.375984251965,
+          "sequence": 45444,
+          "time_ms": 45445000,
+          "uf_mL_min": 71.14173228346456,
+          "workflow_request": null
+        }
+      },
+      "shutdown_state": "UNCONFIRMED; last committed record is not a shutdown observation"
+    },
+    {
+      "storage": {
+        "path": "build/m9-enospc-compose-recovery/results/run/trajectory.jsonl.gz",
+        "sha256": "c770d50353edd1243bce8f15a9b05d982bf15b9aba303223875f94fac96098b8",
+        "bytes": 29959281,
+        "original_path": "build/m9-enospc-compose-recovery/results/run/trajectory.jsonl",
+        "original_sha256": "0647a8bdab2329428d8ce84f19c7967abe192dac7f8b5a82e41c046f4ae27e74",
+        "original_bytes": 200052736,
+        "recovery_argv": [
+          "gzip",
+          "-dc",
+          "build/m9-enospc-compose-recovery/results/run/trajectory.jsonl.gz"
+        ],
+        "recovery_output": "build/m9-enospc-compose-recovery/results/run/trajectory.jsonl",
+        "round_trip_verified": true
+      },
+      "complete_prefix": {
+        "format": "dialysislab.trajectory.jsonl.v1",
+        "records": 37674,
+        "complete_bytes": 200049505,
+        "sha256": "eb5241960e048dd5efc7d8cf17f3aee977ee716f5a629ebd824381672485c495",
+        "discarded_tail_bytes": 3231,
+        "first": {
+          "blood_mL_min": 0.0,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "boundary_diffusion_mmol_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "clearance_mL_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "draw_tick_mL": 0.0,
+            "edge_mL_min": [
+              0.0
+            ],
+            "pressure_mmHg": [
+              0.0
+            ],
+            "pump_mL_min": 0.0,
+            "return_mL_min": 0.0,
+            "return_tick_mL": 0.0,
+            "sequence": 0,
+            "storage_change_mL": 0.0,
+            "stored_mL": 0.0,
+            "time_ms": 1000,
+            "uf_mL_min": 0.0,
+            "uf_tick_mL": 0.0
+          },
+          "clamp_closed": true,
+          "latched": false,
+          "machine": {
+            "acknowledged_mask": 0,
+            "action": "INITIAL",
+            "alarm_mask": 0,
+            "alarms": [],
+            "annunciating": false,
+            "blood_prescribed_mL_min": 300.0,
+            "expected_net_mL": 0.0,
+            "flush_in_mL": 0.0,
+            "flush_in_tick_mL": 0.0,
+            "flush_out_mL": 0.0,
+            "flush_out_tick_mL": 0.0,
+            "measured_net_mL": 0.0,
+            "mode": "HDF_POST",
+            "net_uf_prescribed_mL_min": 5.0,
+            "phase_flush_mL": 0.0,
+            "pressure_limit_mmHg": 250.0,
+            "prime_mL": 20.0,
+            "ready_cycles": 1,
+            "replacement_prescribed_mL_min": 70.0,
+            "revision": 0,
+            "safe_cycles": 1,
+            "sequence": 0,
+            "silence_until_ms": 0,
+            "stage": "PREPARATION",
+            "terminal": false,
+            "time_ms": 1000,
+            "treatment_cycles": 0
+          },
+          "observations": {
+            "control": {
+              "air_signal": 0.0,
+              "blood_mL_min": 0.0,
+              "conductivity_mS_cm": 13.77,
+              "downstream_mmHg": 0.0,
+              "filter_pressure_mmHg": 0.0,
+              "integrity": 1,
+              "leak_signal": 0.0,
+              "measured_substitution_mL": 0.0,
+              "measured_uf_mL": 0.0,
+              "pressure_mmHg": 0.0,
+              "replacement_mL_min": 0.0,
+              "route": 2,
+              "sequence": 0,
+              "supply_ready": 1,
+              "temperature_C": 37.0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            },
+            "protection": {
+              "air_signal": 0.0,
+              "blood_mL_min": 0.0,
+              "conductivity_mS_cm": 13.77,
+              "downstream_mmHg": 0.0,
+              "filter_pressure_mmHg": 0.0,
+              "integrity": 1,
+              "leak_signal": 0.0,
+              "measured_substitution_mL": 0.0,
+              "measured_uf_mL": 0.0,
+              "pressure_mmHg": 0.0,
+              "replacement_mL_min": 0.0,
+              "route": 2,
+              "sequence": 0,
+              "supply_ready": 1,
+              "temperature_C": 37.0,
+              "time_ms": 0,
+              "uf_mL_min": 0.0,
+              "valid": 1
+            }
+          },
+          "online": {
+            "concentration_mmol_L": [
+              0.0,
+              140.0,
+              4.0,
+              105.0,
+              24.0,
+              2.4
+            ],
+            "conductivity_mS_cm": 13.77,
+            "delivered_contaminant": 1e-06,
+            "filter1_pressure_mmHg": 0.0,
+            "filter2_pressure_mmHg": 0.0,
+            "mixing_mL_min": 500.0,
+            "mode": "HDF_POST",
+            "post_tick_mL": 0.0,
+            "pre_tick_mL": 0.0,
+            "quality_latched": false,
+            "reason": "none",
+            "replacement_mL_min": 0.0,
+            "route": 2,
+            "sequence": 0,
+            "substitution_total_mL": 0.0,
+            "tank_contaminant": 1.0,
+            "temperature_C": 37.0,
+            "time_ms": 1000
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                20.000059481339186,
+                140.0,
+                5.0,
+                105.0,
+                22.000000000000004,
+                2.4
+              ],
+              [
+                20.000000022868644,
+                14.000000000000002,
+                99.99999999999999,
+                10.5,
+                21.999999999999996,
+                2.4
+              ],
+              [
+                20.0,
+                140.0,
+                5.0,
+                105.0,
+                22.0,
+                2.4
+              ]
+            ],
+            "convective_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diffusive_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "flush_in_mL": 0.0,
+            "flush_input_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "flush_out_mL": 0.0,
+            "flush_output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "gross_uf_mL": 0.0,
+            "illustrative_pH": 7.363241434774581,
+            "input_mmol": [
+              0.0008333333333333334,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                280.00083273874856,
+                1960.0,
+                70.0,
+                1470.0,
+                308.00000000000006,
+                33.6
+              ],
+              [
+                520.0000005945848,
+                364.00000000000006,
+                2599.9999999999995,
+                273.0,
+                571.9999999999999,
+                62.4
+              ],
+              [
+                0.4,
+                2.8,
+                0.1,
+                2.1,
+                0.44,
+                0.048
+              ]
+            ],
+            "mass_residual_mmol": [
+              2.2001606266031093e-14,
+              -1.2523315717771766e-13,
+              -3.6379232959404817e-13,
+              9.103828801926284e-14,
+              -1.1141088052113446e-13,
+              -1.817990202823694e-15
+            ],
+            "net_patient_loss_mL": 0.0,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 0,
+            "substitution_mL": 0.0,
+            "substitution_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "time_ms": 1000,
+            "volume_mL": [
+              14000.0,
+              26000.0,
+              20.0
+            ],
+            "weight_kg": 70.0
+          },
+          "patient_removed_mL": 0.0,
+          "patient_volume_mL": 40000.0,
+          "pressure_mmHg": 0.0,
+          "protection_decision": "0",
+          "reason": "none",
+          "removed_tick_mL": 0.0,
+          "removed_total_mL": 0.0,
+          "sequence": 0,
+          "time_ms": 1000,
+          "uf_mL_min": 0.0,
+          "workflow_request": null
+        },
+        "last": {
+          "blood_mL_min": 223.71391076115486,
+          "circuit": {
+            "boundary_convection_mmol_min": [
+              0.20809845543993197,
+              9.758773776833312,
+              0.37868518293752934,
+              7.3190803326266884,
+              1.6846181144443704,
+              0.1413174653007087
+            ],
+            "boundary_diffusion_mmol_min": [
+              0.24606505221238933,
+              -0.20851813749038603,
+              0.1009920293268795,
+              -0.15638860311602187,
+              -0.022697261133706487,
+              0.023592674849561956
+            ],
+            "clearance_mL_min": [
+              84.12121095182047,
+              73.77746189285578,
+              76.33745445515713,
+              73.77746189285578,
+              70.87257377564401,
+              53.89593532116896
+            ],
+            "draw_tick_mL": 3.728565179352581,
+            "edge_mL_min": [
+              152.57217847769027
+            ],
+            "pressure_mmHg": [
+              152.57217847769027
+            ],
+            "pump_mL_min": 223.71391076115486,
+            "return_mL_min": 152.57217847769027,
+            "return_tick_mL": 2.5428696412948377,
+            "sequence": 37673,
+            "storage_change_mL": 0.0,
+            "stored_mL": 0.15257217847769028,
+            "time_ms": 37674000,
+            "uf_mL_min": 71.14173228346456,
+            "uf_tick_mL": 1.1856955380577427
+          },
+          "clamp_closed": false,
+          "latched": false,
+          "machine": {
+            "acknowledged_mask": 0,
+            "action": "START",
+            "alarm_mask": 0,
+            "alarms": [],
+            "annunciating": false,
+            "blood_prescribed_mL_min": 300.0,
+            "expected_net_mL": 3131.6666666678925,
+            "flush_in_mL": 286.73333333333346,
+            "flush_in_tick_mL": 0.0,
+            "flush_out_mL": 286.5333333333334,
+            "flush_out_tick_mL": 0.0,
+            "measured_net_mL": 3130.4809711286143,
+            "mode": "HDF_POST",
+            "net_uf_prescribed_mL_min": 5.0,
+            "phase_flush_mL": 286.5333333333334,
+            "pressure_limit_mmHg": 250.0,
+            "prime_mL": 20.0,
+            "ready_cycles": 3,
+            "replacement_prescribed_mL_min": 70.0,
+            "revision": 3,
+            "safe_cycles": 3,
+            "sequence": 37673,
+            "silence_until_ms": 0,
+            "stage": "TREATMENT",
+            "terminal": false,
+            "time_ms": 37674000,
+            "treatment_cycles": 37580
+          },
+          "observations": {
+            "control": {
+              "air_signal": 0.0,
+              "blood_mL_min": 223.71391076115486,
+              "conductivity_mS_cm": 13.77,
+              "downstream_mmHg": 0.0,
+              "filter_pressure_mmHg": 26.456692913385826,
+              "integrity": 1,
+              "leak_signal": 0.0,
+              "measured_substitution_mL": 41425.66929133858,
+              "measured_uf_mL": 44556.15026246719,
+              "pressure_mmHg": 152.57217847769027,
+              "replacement_mL_min": 66.14173228346456,
+              "route": 2,
+              "sequence": 37673,
+              "supply_ready": 1,
+              "temperature_C": 37.0,
+              "time_ms": 37673000,
+              "uf_mL_min": 71.14173228346456,
+              "valid": 1
+            },
+            "protection": {
+              "air_signal": 0.0,
+              "blood_mL_min": 223.71391076115486,
+              "conductivity_mS_cm": 13.77,
+              "downstream_mmHg": 0.0,
+              "filter_pressure_mmHg": 26.456692913385826,
+              "integrity": 1,
+              "leak_signal": 0.0,
+              "measured_substitution_mL": 41425.66929133858,
+              "measured_uf_mL": 44556.15026246719,
+              "pressure_mmHg": 152.57217847769027,
+              "replacement_mL_min": 66.14173228346456,
+              "route": 2,
+              "sequence": 37673,
+              "supply_ready": 1,
+              "temperature_C": 37.0,
+              "time_ms": 37673000,
+              "uf_mL_min": 71.14173228346456,
+              "valid": 1
+            }
+          },
+          "online": {
+            "concentration_mmol_L": [
+              0.0,
+              140.0,
+              4.0,
+              105.0,
+              24.0,
+              2.4000000000000004
+            ],
+            "conductivity_mS_cm": 13.77,
+            "delivered_contaminant": 1e-06,
+            "filter1_pressure_mmHg": 13.228346456692913,
+            "filter2_pressure_mmHg": 13.228346456692913,
+            "mixing_mL_min": 570.0,
+            "mode": "HDF_POST",
+            "post_tick_mL": 1.1023622047244093,
+            "pre_tick_mL": 0.0,
+            "quality_latched": false,
+            "reason": "none",
+            "replacement_mL_min": 66.14173228346456,
+            "route": 2,
+            "sequence": 37673,
+            "substitution_total_mL": 41426.7716535433,
+            "tank_contaminant": 1.0,
+            "temperature_C": 37.0,
+            "time_ms": 37674000
+          },
+          "patient": {
+            "concentration_mmol_L": [
+              [
+                4.024244632907059,
+                136.24157187370315,
+                5.77442109986365,
+                102.1811789053092,
+                23.578353867985676,
+                2.6724901967216472
+              ],
+              [
+                4.455878581720692,
+                13.625984500628237,
+                102.85318302014625,
+                10.219488375474421,
+                23.253464954540025,
+                2.5618973980943487
+              ],
+              [
+                2.92500846840803,
+                137.17368175543365,
+                5.322971077089526,
+                102.88026131659919,
+                23.679755165489468,
+                2.83774644910182
+              ]
+            ],
+            "convective_mmol": [
+              308.18204291256706,
+              6143.9613712093205,
+              232.40141154432953,
+              4607.9710284078255,
+              1041.0013358123542,
+              86.71014871910066
+            ],
+            "diffusive_mmol": [
+              364.4124823281611,
+              -97.55070108808862,
+              58.12862022436147,
+              -73.16302581519979,
+              -28.267710912753348,
+              12.828979277859128
+            ],
+            "external_in_mL": 0.0,
+            "external_out_mL": 0.0,
+            "flush_in_mL": 286.7333333333334,
+            "flush_input_mmol": [
+              0.0,
+              40.14266666666667,
+              1.1469333333333336,
+              30.107000000000003,
+              6.8816000000000015,
+              0.6881600000000001
+            ],
+            "flush_out_mL": 286.53333333333336,
+            "flush_output_mmol": [
+              0.39999920577261555,
+              40.11466666666667,
+              1.1661332936219648,
+              30.086000000000002,
+              6.836800079422742,
+              0.68768
+            ],
+            "gross_uf_mL": 44557.33595800525,
+            "illustrative_pH": 7.393332235330383,
+            "input_mmol": [
+              31.395000000000003,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mass_mmol": [
+              [
+                51.69210278199999,
+                1750.046028237905,
+                74.17341544295601,
+                1312.5345211788374,
+                302.8679423730331,
+                34.32858847674664
+              ],
+              [
+                107.0494263276237,
+                327.35493061349706,
+                2470.9771678798643,
+                245.5161979602007,
+                558.6485443577212,
+                61.54782760492701
+              ],
+              [
+                0.05894644428225131,
+                2.7644025225639046,
+                0.1072715588349958,
+                2.0733018919234114,
+                0.47720797514120644,
+                0.05718789013974319
+              ]
+            ],
+            "mass_residual_mmol": [
+              4.067449640987597e-10,
+              -8.645182347777336e-10,
+              -3.5381752389040955e-09,
+              1.5400773989426852e-09,
+              -1.2007411731573825e-10,
+              2.692499070922061e-10
+            ],
+            "net_patient_loss_mL": 3130.5168766404386,
+            "output_mmol": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sequence": 37673,
+            "substitution_mL": 41426.7716535433,
+            "substitution_mmol": [
+              0.0,
+              5799.748031496062,
+              165.7070866141732,
+              4349.811023622047,
+              994.2425196850392,
+              99.42425196850392
+            ],
+            "time_ms": 37674000,
+            "volume_mL": [
+              12845.169093176708,
+              24024.314030182853,
+              20.15257217847769
+            ],
+            "weight_kg": 66.86948312335956
+          },
+          "patient_removed_mL": 3130.5168766404386,
+          "patient_volume_mL": 36869.48312335956,
+          "pressure_mmHg": 152.57217847769027,
+          "protection_decision": "0",
+          "reason": "none",
+          "removed_tick_mL": 1.1856955380577427,
+          "removed_total_mL": 44557.33595800525,
+          "sequence": 37673,
+          "time_ms": 37674000,
+          "uf_mL_min": 71.14173228346456,
+          "workflow_request": null
+        }
+      },
+      "shutdown_state": "UNCONFIRMED; last committed record is not a shutdown observation"
+    }
+  ]
+}

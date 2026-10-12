@@ -1,0 +1,7 @@
+{
+  "path": "build/m8-corrected-hosted-ci.log",
+  "sha256": "d2d60d8e70099b0bf77f56d98408b53b3d23ad3334b71efb55773e84211ba86b",
+  "recovery_command": "python3 tools/ci_artifacts.py --log build/m8-corrected-hosted-ci.log --output build/m8-corrected-hosted-recovered",
+  "verified_original_artifacts": 41,
+  "scope": "Downloaded actual GitHub job log; every report/log hash cross-checked after recovery."
+}

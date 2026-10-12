@@ -1,0 +1,36 @@
+{
+  "successful": true,
+  "tool": "jsonschema 4.10.3 / Draft7Validator",
+  "schema_sha256": {
+    "bom-1.6.schema.json": "3e92dddbc30cf7f6a02b80f0942b1a4cfd4fb1c26f1dfc4310afa9d613cafb93",
+    "jsf-0.82.schema.json": "8bae002c25e723db7ee1f26afde680ae1a2b1a8f6b4b4b0fd65dc3becb090aae",
+    "spdx.schema.json": "baa9d3bd1ed57b6751b0887edead6b5063ff53ff7429cf85d476c6c94af0166e"
+  },
+  "artifacts": [
+    {
+      "path": "build/m9-corrected-inventory/application.cdx.json",
+      "sha256": "d2bf5251acf0e9629e8e7c4dc9acc5aacd155bde04c437d1eef0d4740aa67470",
+      "errors": []
+    },
+    {
+      "path": "build/m9-corrected-inventory/image-0-application.cdx.json",
+      "sha256": "40fa0630befc515e239aafc653661379753e30ab765f5d6f902b4dec45ae3bf6",
+      "errors": []
+    },
+    {
+      "path": "build/m9-corrected-inventory/image-0.cdx.json",
+      "sha256": "1c0abda586eac160c7942a57a8d73fea9b504b304bfc884770e627e74a99bb42",
+      "errors": []
+    },
+    {
+      "path": "build/m9-corrected-inventory/image-1-application.cdx.json",
+      "sha256": "d573c4fe07e7ab4d2585aa1dbaf55a24b53612b7f87d96eb49ab299c4b6c00c1",
+      "errors": []
+    },
+    {
+      "path": "build/m9-corrected-inventory/image-1.cdx.json",
+      "sha256": "b4515a4e414f8e6580b12918fc052565bb782c968d2a0b4cdeccdd3840f6acaa",
+      "errors": []
+    }
+  ]
+}

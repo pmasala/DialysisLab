@@ -1,0 +1,128 @@
+{
+  "project": "dl-m1-review-8b959461c880",
+  "directory": "/home/pietro/DialysisLab/build/review-docker/hd_nominal-before_runner_start",
+  "compose_exit_code": 1,
+  "collection_errors": [
+    {
+      "stage": "extract",
+      "error": "Command failed: docker compose -p dl-m1-review-8b959461c880 -f /home/pietro/DialysisLab/compose.yaml -f /home/pietro/DialysisLab/build/review-docker/before_runner_start.json cp runner:/results/. /home/pietro/DialysisLab/build/review-docker/hd_nominal-before_runner_start/results\nno container found for service \"runner\"\n"
+    }
+  ],
+  "cleanup_errors": [],
+  "extracted": false,
+  "resources_retained": true,
+  "services": [
+    {
+      "service": "control",
+      "image": "sha256:c04716bc406e3257c355be6b713f0b9d36ecb4853b28ca94a97ab6a2be6b22c3",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/control"
+      ]
+    },
+    {
+      "service": "patient",
+      "image": "sha256:c04716bc406e3257c355be6b713f0b9d36ecb4853b28ca94a97ab6a2be6b22c3",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/patient"
+      ]
+    },
+    {
+      "service": "plant",
+      "image": "sha256:c04716bc406e3257c355be6b713f0b9d36ecb4853b28ca94a97ab6a2be6b22c3",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/admin",
+        "/run/dialysis/control",
+        "/run/dialysis/protection"
+      ]
+    },
+    {
+      "service": "protection",
+      "image": "sha256:c04716bc406e3257c355be6b713f0b9d36ecb4853b28ca94a97ab6a2be6b22c3",
+      "exit_code": 0,
+      "user": "10001:10001",
+      "oom_killed": false,
+      "memory_limit_bytes": 134217728,
+      "network": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mounts": [
+        "/run/dialysis/protection"
+      ]
+    }
+  ],
+  "recovery_commands": [
+    "docker compose -p dl-m1-review-8b959461c880 -f /home/pietro/DialysisLab/compose.yaml -f /home/pietro/DialysisLab/build/review-docker/before_runner_start.json logs --no-color --timestamps",
+    "docker compose -p dl-m1-review-8b959461c880 -f /home/pietro/DialysisLab/compose.yaml -f /home/pietro/DialysisLab/build/review-docker/before_runner_start.json cp runner:/results/. /home/pietro/DialysisLab/build/review-docker/hd_nominal-before_runner_start/recovered-results",
+    "# If the runner container was never created, inspect the retained volume:",
+    "docker volume inspect dl-m1-review-8b959461c880_results",
+    "# Only after recovery/inspection succeeds, remove this test project:",
+    "docker compose -p dl-m1-review-8b959461c880 -f /home/pietro/DialysisLab/compose.yaml -f /home/pietro/DialysisLab/build/review-docker/before_runner_start.json down --volumes --remove-orphans"
+  ],
+  "up_command": [
+    "docker",
+    "compose",
+    "-p",
+    "dl-m1-review-8b959461c880",
+    "-f",
+    "/home/pietro/DialysisLab/compose.yaml",
+    "-f",
+    "/home/pietro/DialysisLab/build/review-docker/before_runner_start.json",
+    "up",
+    "--no-build",
+    "--abort-on-container-exit",
+    "--exit-code-from",
+    "runner"
+  ],
+  "cleanup_command": [
+    "docker",
+    "compose",
+    "-p",
+    "dl-m1-review-8b959461c880",
+    "-f",
+    "/home/pietro/DialysisLab/compose.yaml",
+    "-f",
+    "/home/pietro/DialysisLab/build/review-docker/before_runner_start.json",
+    "stop"
+  ]
+}

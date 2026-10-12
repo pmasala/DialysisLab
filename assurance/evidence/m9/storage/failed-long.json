@@ -1,0 +1,32 @@
+[
+  {
+    "path": "build/m9-preliminary-long-native/integrated_hdf_100000-1/trajectory.jsonl.gz",
+    "sha256": "b48824abc286dad8a078163d620dda515a53e0c89ab10e9d3a6453c142b6ab77",
+    "bytes": 30252408,
+    "original_path": "build/m9-preliminary-long-native/integrated_hdf_100000-1/trajectory.jsonl",
+    "original_sha256": "597a1cf399c5a611d34182b203ea600ce0122b6abe07f0cf8570440a734dbaf6",
+    "original_bytes": 475540550,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-long-native/integrated_hdf_100000-1/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-long-native/integrated_hdf_100000-1/trajectory.jsonl",
+    "round_trip_verified": true
+  },
+  {
+    "path": "build/m9-preliminary-long-compose/integrated_hdf_100000-1/results/run/trajectory.jsonl.gz",
+    "sha256": "b48824abc286dad8a078163d620dda515a53e0c89ab10e9d3a6453c142b6ab77",
+    "bytes": 30252408,
+    "original_path": "build/m9-preliminary-long-compose/integrated_hdf_100000-1/results/run/trajectory.jsonl",
+    "original_sha256": "597a1cf399c5a611d34182b203ea600ce0122b6abe07f0cf8570440a734dbaf6",
+    "original_bytes": 475540550,
+    "recovery_argv": [
+      "gzip",
+      "-dc",
+      "build/m9-preliminary-long-compose/integrated_hdf_100000-1/results/run/trajectory.jsonl.gz"
+    ],
+    "recovery_output": "build/m9-preliminary-long-compose/integrated_hdf_100000-1/results/run/trajectory.jsonl",
+    "round_trip_verified": true
+  }
+]

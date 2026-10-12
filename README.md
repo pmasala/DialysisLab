@@ -1,67 +1,56 @@
 # DialysisLab
 
-Project baseline, 7 October 2026. Confirmed project name: DialysisLab.
+DialysisLab is an open-source laboratory for experimenting with dialysis software.
+It simulates a patient, a dialysis circuit and the software that operates and protects
+the machine. It connects only to simulated equipment and patients.
 
-Repository: [pmasala/DialysisLab](https://github.com/pmasala/DialysisLab). SSH remote: `git@github.com:pmasala/DialysisLab.git`.
+You can run haemodialysis (HD) or haemodiafiltration (HDF), choose a patient and
+dialyzer, change treatment settings, inject faults and inspect the results.
+HDF supports both predilution and postdilution, including acid/bicarbonate preparation, a power-limited heater and segmented
+blood-flow physics, dynamic chamber levels and countercurrent solute transport. Initial hematocrit and needle geometry are configured in the scenario.
 
-An open-source dialysis software reference project, intended to democratize access to a working implementation together with its development and assurance evidence. Execution remains limited to simulated patients and equipment. This package contains the project baseline and an executable traceability checker, but no executable dialysis simulator.
+There are two separate graphical applications:
 
-## Agreed scope
+- **Machine interface (LVGL):** operate the simulated machine, view measurements and handle alarms.
+- **Experiment console (Dear ImGui):** configure patients and scenarios, run experiments and inspect their results.
 
-- Intermittent haemodialysis and both predilution and postdilution haemodiafiltration.
-- Online substitution-fluid preparation, including modeled mixing, thermal behavior, filtration stages, hydraulics, and delivery.
-- A generic machine assembled from configurable components; multiple dialyzer profiles.
-- C/C++ machine control, protective system, physical plant, and medical-device-style user interface.
-- A configurable Python patient model for fluid volumes, electrolyte/solute dynamics, and patient scenarios.
-- Linux containers usable on WSL2 and native Linux, with headless experiments and automated verification.
-- LVGL for the device UI. Patient simulation and experiment tools are separate applications, not device-UI pages or modes.
-- Application libraries should preferably use MIT, BSD, Apache-2.0, or zlib licenses; exceptions require explicit review.
+The machine components are written in C++; the patient and experiment tools use
+Python. Control, protection and the machine interface run separately, with Docker
+Compose deployments available for Linux and WSL2.
 
-## Documents
+## Run your first simulation
 
-- [Architecture decisions](docs/ARCHITECTURE.md)
-- [Dependency policy](DEPENDENCY_POLICY.md)
-- [Candidate dependencies](docs/DEPENDENCY_CANDIDATES.md)
-- [Dependency exception template](docs/templates/DEPENDENCY_EXCEPTION.md)
-- [Assurance and completion plan](assurance/ASSURANCE_PLAN.md)
-- [Safety and security design obligations](assurance/SAFETY_SECURITY.md)
-- [Verification and validation strategy](assurance/VERIFICATION_VALIDATION.md)
-- [Current evidence status](assurance/STATUS.md)
-- [Machine-readable starter trace graph](assurance/traceability.json)
-- [Explained standards checklist and coverage](assurance/standards/README.md)
-- [Edition and EU applicability gaps](assurance/standards/EDITION_GAPS.md)
-- [Licensed-source publication policy](assurance/standards/PUBLICATION_POLICY.md)
-
-## Run the assurance infrastructure
-
-From this directory, using Python 3.9 or newer:
+Install a C++17 compiler, CMake 3.16 or newer, make and Python 3.9 or newer.
+From the repository root:
 
 ```bash
-python3 tools/check_traceability.py assurance/traceability.json
-python3 tools/check_standards.py
-python3 -m unittest discover -s tests -v
-python3 tools/check_traceability.py assurance/traceability.json --release
-python3 tools/check_standards.py --release
+cmake -S . -B build/core -DCMAKE_BUILD_TYPE=Release
+cmake --build build/core --parallel 3
+PYTHONPATH=python python3 -m dialysislab.runner --local --build-dir build/core --config scenarios/physical_hdf_pre.json --output build/first-run
 ```
 
-The normal commands check trace/register structure and report gaps. The tests exercise the original trace checker only. Both release commands deliberately fail on this incomplete baseline. None of these commands verifies dialysis software or certifies conformity.
+This runs a short, scripted predilution HDF experiment without a graphical display.
+It creates `build/first-run/trajectory.jsonl` (one record per simulation step) and
+`build/first-run/manifest.json` (configuration, outcome and file hashes).
+Use a new output directory for each run.
 
-## Engineering intent
+For a graphical session or Docker deployment, follow the
+[Linux and WSL2 running guide](docs/QUICKSTART.md).
 
-Develop traceable requirements, risk analysis, design, configuration management, and verification evidence with reference to IEC 62304, IEC 60601-1, IEC 60601-2-16, and ISO 14971. No standards conformity or clinical validation is claimed by this starter package. Simulation cannot establish the conformity of a physical medical device.
+## Understand and explore
 
-The target is a complete, executable reference implementation with reviewed lifecycle artifacts and evidence for an explicitly defined configuration and scope. The assurance plan now makes this a release objective, not optional supporting documentation. The project owner has confirmed ISO 14971 and EU-first, US-second adaptation. The supplied standards have been inspected and used to draft an original 184-entry explained checklist. All entries remain open; edition gaps and detailed hardware/annex coverage are explicit.
+- [Physical model](docs/PHYSICAL_MODEL.md): what is simulated and how the fluid paths work.
+- [Dynamic circuits and reference checks](docs/DYNAMIC_MODEL.md): chamber levels, transport, dialysate control and calibration.
+- [How the simulation works](docs/SIMULATION.md): fluid-path diagrams, pressures, dialyzer exchange and patient weight.
+- [Guided treatment](docs/GUIDED_TREATMENT.md): initial checks, priming, connection, treatment, blood return and disinfection.
+- [Visual inspection](docs/UI_INSPECTION.md): animated circuits, selectable trends and recorded-data inspection.
+- [Software architecture](docs/ARCHITECTURE.md): what each process does and how they communicate.
+- [Documentation guide](docs/README.md): operating instructions, technical references and development checks.
 
-Calibration may use public papers, manufacturer specifications, shareable bench measurements, and authorized de-identified datasets. Availability and redistribution rights must be checked per source. Public demonstrations should use synthetic scenarios unless a dataset is explicitly cleared for redistribution.
+The models and alarm settings are synthetic and have not been clinically validated.
+This is a simulation and development template, not software for treating patients.
+The repository includes requirements, risk records and tests; it does not establish
+medical-device compliance. See the [evidence and remaining work](assurance/STATUS.md).
 
-## Open project decisions
-
-Exact dependency versions and numerical acceptance tolerances remain to be selected. The project uses the [MIT license](LICENSE) already established in the repository. Third-party standards and dependencies retain their own licensing terms.
-
-## Package the reviewed public files
-
-```bash
-python3 tools/package_release.py --output ../DialysisLab-project-baseline.zip
-```
-
-The builder includes only paths in `publication_manifest.json`. Review new content before adding it; standards PDFs and private analysis are never publication inputs. Packaging success is not a software release approval.
+[MIT licensed](LICENSE). Third-party dependencies retain their own licences;
+see the [dependency policy](DEPENDENCY_POLICY.md).

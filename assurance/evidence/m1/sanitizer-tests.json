@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "executed_at": "2026-10-07T21:37:49.572861+00:00",
+  "command": "python3 tools/verify_m1.py --build-dir build/sanitize --output build/sanitizer-tests.json",
+  "build": {
+    "source_revision": "b598a5c735b8f8f4a47dc218f83e6792bdd7ef29",
+    "worktree_dirty_at_configure": false,
+    "compiler_id": "GNU",
+    "compiler_version": "13.3.0",
+    "build_type": "Debug",
+    "source_sha256": {
+      "CMakeLists.txt": "52e324c3fb646390c989c14c83256e45d610d6dfd43dde117cd0113ecb4c8e10",
+      "tools/build_identity.py": "0065b307e57987535429938c1ff713e33c5c1f1c2632448ff7c5387e6a5dc76a",
+      "src/control.cpp": "eb49f8af34a2a62ef46d481e8b3f97f74b73fb5a666fd13ff64c1e0aaca892d7",
+      "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+      "src/plant.cpp": "a2e1aac7d661bf7b0fcc920b31b1a9a45f53854bfa1549846073b60577960e6e",
+      "src/protection.cpp": "1f05569c729861aa80c9d62541bc90898e07623ec71ba73125ec30aae8951566",
+      "src/wire.hpp": "cc59132d328ce7c7dba73e98efd25471f71bb84e1bd1b215eb415cb75b55fcf9",
+      "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+      "python/dialysislab/patient.py": "8613dd04857033721227aa541f11c821baedcb9abd7f07fd45031a706f1565d9",
+      "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+      "python/dialysislab/runner.py": "67399ec1eaae0a255c3482509355a38f81b0fffa45982ac14a7912c2f096ef25",
+      "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+      "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d"
+    },
+    "binary_sha256": {
+      "plant": "e013f1c54989b90da6ce1b591297843b5c95b2ac0bee553e61b74c6fe916b6fc",
+      "control": "a1fe7cd6126a50fc6ff341fbed4eac810ed07f1470295252434f6eacf26613d9",
+      "protection": "39038664f295d52f6e43496fad5c041bd03c372cae652392f050150d65bf1a1a"
+    },
+    "python_sha256": {
+      "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+      "python/dialysislab/patient.py": "8613dd04857033721227aa541f11c821baedcb9abd7f07fd45031a706f1565d9",
+      "python/dialysislab/protocol.py": "1afe8bf654c488f4ce5607e19d4793b309fce79b6ff3d032d9cddb190f7f5ca8",
+      "python/dialysislab/runner.py": "67399ec1eaae0a255c3482509355a38f81b0fffa45982ac14a7912c2f096ef25"
+    }
+  },
+  "tests_run": 32,
+  "successful": true,
+  "cases": [
+    {
+      "test": "test_m1.M1Configuration.test_patient_sequence_and_conservation_long_run",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Configuration.test_reject_configuration_before_execution",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_control_sensor_fault_is_separate",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_malformed_frames_fail_closed",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_measurement_invalidity_bound",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_missing_control_or_protection_blocks_commit",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_nominal_conservation_and_build_identity",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_occlusion_bound_and_persistent_conflicting_commands",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_plant_or_patient_loss_aborts_uncommitted_record",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_protection_acts_when_control_is_killed",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_role_authority_and_duplicate_tick_rejection",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_runner_loss_wall_watchdog_does_not_advance_clock",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_same_seed_exact_replay",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_virtual_pause_maintains_liveness_without_integrating",
+      "result": "passed"
+    },
+    {
+      "test": "test_m1.M1Processes.test_zero_and_partial_flow_independent_balance",
+      "result": "passed"
+    },
+    {
+      "test": "test_publication.PublicationChecks.test_actual_context_is_explicit_reviewed_subset",
+      "result": "passed"
+    },
+    {
+      "test": "test_publication.PublicationChecks.test_context_rejects_broad_inclusion",
+      "result": "passed"
+    },
+    {
+      "test": "test_publication.PublicationChecks.test_paths_symlinks_and_duplicates",
+      "result": "passed"
+    },
+    {
+      "test": "test_publication.PublicationChecks.test_reject_binary_source_and_restricted_format",
+      "result": "passed"
+    },
+    {
+      "test": "test_publication.PublicationChecks.test_source_and_build_formats",
+      "result": "passed"
+    },
+    {
+      "test": "test_traceability.TraceChecks.test_broken_bidirectional_link",
+      "result": "passed"
+    },
+    {
+      "test": "test_traceability.TraceChecks.test_complete_synthetic_graph",
+      "result": "passed"
+    },
+    {
+      "test": "test_traceability.TraceChecks.test_draft_cannot_pass_release",
+      "result": "passed"
+    },
+    {
+      "test": "test_traceability.TraceChecks.test_duplicate_id",
+      "result": "passed"
+    },
+    {
+      "test": "test_traceability.TraceChecks.test_open_prerequisite",
+      "result": "passed"
+    },
+    {
+      "test": "test_traceability.TraceChecks.test_orphan_hazard",
+      "result": "passed"
+    },
+    {
+      "test": "test_traceability.TraceChecks.test_outside_root_artifact",
+      "result": "passed"
+    },
+    {
+      "test": "test_traceability.TraceChecks.test_pass_without_evidence_is_error",
+      "result": "passed"
+    },
+    {
+      "test": "test_traceability.TraceChecks.test_planned_test_is_not_pass",
+      "result": "passed"
+    },
+    {
+      "test": "test_traceability.TraceChecks.test_tampered_evidence",
+      "result": "passed"
+    },
+    {
+      "test": "test_traceability.TraceChecks.test_unknown_reference",
+      "result": "passed"
+    },
+    {
+      "test": "test_traceability.TraceChecks.test_wrong_baseline",
+      "result": "passed"
+    }
+  ],
+  "output": "test_patient_sequence_and_conservation_long_run (test_m1.M1Configuration.test_patient_sequence_and_conservation_long_run) ... ok\ntest_reject_configuration_before_execution (test_m1.M1Configuration.test_reject_configuration_before_execution) ... ok\ntest_control_sensor_fault_is_separate (test_m1.M1Processes.test_control_sensor_fault_is_separate) ... ok\ntest_malformed_frames_fail_closed (test_m1.M1Processes.test_malformed_frames_fail_closed) ... ok\ntest_measurement_invalidity_bound (test_m1.M1Processes.test_measurement_invalidity_bound) ... ok\ntest_missing_control_or_protection_blocks_commit (test_m1.M1Processes.test_missing_control_or_protection_blocks_commit) ... ok\ntest_nominal_conservation_and_build_identity (test_m1.M1Processes.test_nominal_conservation_and_build_identity) ... ok\ntest_occlusion_bound_and_persistent_conflicting_commands (test_m1.M1Processes.test_occlusion_bound_and_persistent_conflicting_commands) ... ok\ntest_plant_or_patient_loss_aborts_uncommitted_record (test_m1.M1Processes.test_plant_or_patient_loss_aborts_uncommitted_record) ... ok\ntest_protection_acts_when_control_is_killed (test_m1.M1Processes.test_protection_acts_when_control_is_killed) ... ok\ntest_role_authority_and_duplicate_tick_rejection (test_m1.M1Processes.test_role_authority_and_duplicate_tick_rejection) ... ok\ntest_runner_loss_wall_watchdog_does_not_advance_clock (test_m1.M1Processes.test_runner_loss_wall_watchdog_does_not_advance_clock) ... ok\ntest_same_seed_exact_replay (test_m1.M1Processes.test_same_seed_exact_replay) ... ok\ntest_virtual_pause_maintains_liveness_without_integrating (test_m1.M1Processes.test_virtual_pause_maintains_liveness_without_integrating) ... ok\ntest_zero_and_partial_flow_independent_balance (test_m1.M1Processes.test_zero_and_partial_flow_independent_balance) ... ok\ntest_actual_context_is_explicit_reviewed_subset (test_publication.PublicationChecks.test_actual_context_is_explicit_reviewed_subset) ... ok\ntest_context_rejects_broad_inclusion (test_publication.PublicationChecks.test_context_rejects_broad_inclusion) ... ok\ntest_paths_symlinks_and_duplicates (test_publication.PublicationChecks.test_paths_symlinks_and_duplicates) ... ok\ntest_reject_binary_source_and_restricted_format (test_publication.PublicationChecks.test_reject_binary_source_and_restricted_format) ... ok\ntest_source_and_build_formats (test_publication.PublicationChecks.test_source_and_build_formats) ... ok\ntest_broken_bidirectional_link (test_traceability.TraceChecks.test_broken_bidirectional_link) ... ok\ntest_complete_synthetic_graph (test_traceability.TraceChecks.test_complete_synthetic_graph) ... ok\ntest_draft_cannot_pass_release (test_traceability.TraceChecks.test_draft_cannot_pass_release) ... ok\ntest_duplicate_id (test_traceability.TraceChecks.test_duplicate_id) ... ok\ntest_open_prerequisite (test_traceability.TraceChecks.test_open_prerequisite) ... ok\ntest_orphan_hazard (test_traceability.TraceChecks.test_orphan_hazard) ... ok\ntest_outside_root_artifact (test_traceability.TraceChecks.test_outside_root_artifact) ... ok\ntest_pass_without_evidence_is_error (test_traceability.TraceChecks.test_pass_without_evidence_is_error) ... ok\ntest_planned_test_is_not_pass (test_traceability.TraceChecks.test_planned_test_is_not_pass) ... ok\ntest_tampered_evidence (test_traceability.TraceChecks.test_tampered_evidence) ... ok\ntest_unknown_reference (test_traceability.TraceChecks.test_unknown_reference) ... ok\ntest_wrong_baseline (test_traceability.TraceChecks.test_wrong_baseline) ... ok\n\n----------------------------------------------------------------------\nRan 32 tests in 9.615s\n\nOK\n",
+  "scope": "Synthetic M1 and assurance tooling only; independent review pending",
+  "test_source_sha256": {
+    "tests/test_m1.py": "2dd3312eebb35fec08b18fced7ddc62f2cb84f9ea5d5b9ea57f9b41870c30a4d",
+    "tests/test_publication.py": "0700144b422143c33f923cb6baba3a3b4faaac3b4b30bd6e1cc9cae80f177bf3",
+    "tests/test_traceability.py": "b51e3ab211592525bb035c52e7642120b9ad054739b9cbc6f881fa85b620019f"
+  },
+  "configurations": {
+    "hd_nominal.json": {
+      "schema_version": 1,
+      "model": "m1-hd-1",
+      "seed": 42,
+      "ticks": 20,
+      "dt_ms": 100,
+      "blood_mL_min": 300,
+      "uf_mL_min": 10,
+      "resistance_mmHg_min_mL": 0.5,
+      "pressure_limit_mmHg": 250,
+      "patient_volume_mL": 40000,
+      "faults": []
+    },
+    "hd_occlusion.json": {
+      "schema_version": 1,
+      "model": "m1-hd-1",
+      "seed": 42,
+      "ticks": 20,
+      "dt_ms": 100,
+      "blood_mL_min": 300,
+      "uf_mL_min": 10,
+      "resistance_mmHg_min_mL": 0.5,
+      "pressure_limit_mmHg": 250,
+      "patient_volume_mL": 40000,
+      "faults": [
+        {
+          "tick": 5,
+          "target": "resistance",
+          "value": 4.0
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "model": "m1-hd-1",
+  "seed": 42,
+  "ticks": 20,
+  "dt_ms": 100,
+  "blood_mL_min": 300,
+  "uf_mL_min": 10,
+  "resistance_mmHg_min_mL": 0.5,
+  "pressure_limit_mmHg": 250,
+  "patient_volume_mL": 40000,
+  "faults": []
+}

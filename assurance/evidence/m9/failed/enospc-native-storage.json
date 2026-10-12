@@ -1,0 +1,18 @@
+{
+  "path": "build/m9-corrected-long-native/integrated_hdf_100000-2/trajectory.jsonl.gz",
+  "sha256": "6d22466325fc235874619d79d92509b71bc3755a5030e192b9327d61488e0dc1",
+  "bytes": 36024965,
+  "original_path": "build/m9-corrected-long-native/integrated_hdf_100000-2/trajectory.jsonl",
+  "original_sha256": "8b2100eb7c53aac0d16f10a5554226f8a7f56ac69344285601ec770510db89c5",
+  "original_bytes": 241360896,
+  "recovery_argv": [
+    "gzip",
+    "-dc",
+    "build/m9-corrected-long-native/integrated_hdf_100000-2/trajectory.jsonl.gz"
+  ],
+  "recovery_output": "build/m9-corrected-long-native/integrated_hdf_100000-2/trajectory.jsonl",
+  "round_trip_verified": true,
+  "status": "FAILED_ENOSPC_PARTIAL_NOT_ACCEPTANCE",
+  "stop_observation": "unavailable: final manifest could not be persisted",
+  "verification_process_exit_code": 1
+}
