@@ -2395,7 +2395,7 @@
         },
         {
           "path": "tests/test_ci.py",
-          "sha256": "4194de39580beb6446cd39e5c1dfffa93fc66369f0d218ad29c6f3e569158da7"
+          "sha256": "04be4fde9608cf6e8d240d02cfcfe651e11fab68c5a070b9aa93275658d14c0d"
         }
       ],
       "unresolved": [
