@@ -1,5 +1,11 @@
 # How the simulation works
 
+The default guided session now uses the [physical blood/fluid model](PHYSICAL_MODEL.md).
+That guide describes the configurable needles, dynamic hematocrit, segmented filter,
+acid/bicarbonate supplies and heater. The simpler network described below remains
+in the older regression scenarios; its limitations do not describe the new profile.
+
+
 DialysisLab calculates how fluid and dissolved substances move between a simulated
 patient and a dialysis circuit. It advances in small time steps: the machine requests
 pump settings, protection can restrict them, the circuit calculates flows, and the

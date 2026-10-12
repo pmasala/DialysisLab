@@ -17,9 +17,12 @@ FAULT_RANGES = {'air': (0, 1), 'leak': (0, 1), 'air_stuck': (0, 1), 'leak_stuck'
 def validate(config, validate_treatment):
     if config.get('model') != 'm5-device-1' or type(config['schema_version']) is not int:
         raise ValueError('device version/model')
-    base = {k: v for k, v in config.items() if k not in ('workflow', 'guided')}
+    base = {k: v for k, v in config.items() if k not in ('workflow', 'guided', 'physical')}
     base.update(schema_version=4, model='m4-treatment-1', faults=[])
     validate_treatment(base)
+    if 'physical' in config:
+        from .physical import validate as validate_physical
+        validate_physical(config)
     if 'guided' in config:
         guided=config['guided'];keys(guided,'test_ms treatment_ms disinfection_ms return_mL')
         index(guided['test_ms'],1,600000);index(guided['treatment_ms'],1,86400000)
@@ -62,6 +65,9 @@ def validate(config, validate_treatment):
 
 
 def configure(admin, config):
+    if 'physical' in config:
+        from . import physical
+        physical.configure(admin,config)
     expect(rpc(admin, 'MACHINE5', config['blood_mL_min'], config['uf_mL_min'],
                config['treatment']['replacement_mL_min'], config['pressure_limit_mmHg'],
                config['patient']['prime_mL']), 'OK', 1)
@@ -88,14 +94,18 @@ def request(runtime, event, scheduled=False):
 
 
 def observation(response):
-    extended=response[0]=='OBS8'
-    expect(response,'OBS8' if extended else 'OBS5',21 if extended else 19)
+    physical=response[0]=='OBS9'
+    extended=response[0] in ('OBS8','OBS9')
+    expect(response,'OBS9' if physical else 'OBS8' if extended else 'OBS5',28 if physical else 21 if extended else 19)
     result = treatment.observation(['OBS4', *response[1:13]])
     for name, value, high in zip(('downstream_mmHg', 'air_signal', 'leak_signal', 'measured_uf_mL', 'measured_substitution_mL'),
                                response[13:18], (1000, 1, 1, 1e9, 1e9)):
         result[name] = real(value, 0, high)
     result['supply_ready'] = integer(response[18], 1)
-    if extended:result.update(dialysate_mL_min=real(response[19],0,2000),tmp_mmHg=real(response[20],0,1000))
+    if extended:result.update(dialysate_mL_min=real(response[19],0,2000),tmp_mmHg=real(response[20],-1000,1000))
+    if physical:
+        result.update(arterial_mmHg=real(response[21],-1000,1000),limitation=response[22])
+        result.update({name:real(value,-1000,20000) for name,value in zip(('dialysate_mmHg','heater_W','acid_remaining_mL','bicarbonate_remaining_g','conductivity_raw_mS_cm'),response[23:28])})
     return result
 
 
@@ -131,7 +141,11 @@ def committed(response):
     if tag not in response:raise ProtocolError('commit5 machine schema')
     split=response.index(tag)
     result = treatment.committed(['COMMITTED4', *response[1:split]])
-    result['machine'] = metadata(response[split:])
+    end=response.index('PHYSICS9') if 'PHYSICS9' in response else len(response)
+    result['machine'] = metadata(response[split:end])
+    if end<len(response):
+        from . import physical
+        result['physical']=physical.state(response[end:])
     return result
 
 
@@ -140,7 +154,7 @@ def view(response):
     if len(response)<2:raise ProtocolError('device view size')
     m_end=41 if response[1]=='MACHINE8' else 27
     if len(response)<=m_end:raise ProtocolError('device view size')
-    o_end=m_end+(21 if response[m_end]=='OBS8' else 19)
+    o_end=m_end+(28 if response[m_end]=='OBS9' else 21 if response[m_end]=='OBS8' else 19)
     if len(response)!=o_end+4:raise ProtocolError('device view size')
     result=dict(machine=metadata(response[1:m_end]),observation=observation(response[m_end:o_end]))
     expect(response[o_end:],'INTENT5',4)

@@ -82,6 +82,15 @@ public:
         if (patient_coupled) for (double x : circuit.clearances) out << ' ' << x;
         return out.str();
     }
+    std::string physical_state() const {
+        const auto& p=circuit.physical;
+        auto result=dl::msg("PHYSICS9",n,end_t,p.arterial_pressure,p.venous_pressure,p.pre_pressure,p.post_pressure,
+            p.dialysate_pressure,p.tmp,p.inlet_hct,p.out_hct,p.return_hct,p.fraction,online.acid_remaining,
+            online.bicarbonate_remaining,online.heater_power,online.conductivity_raw(),p.arterial_chamber,p.venous_chamber,
+            p.filter_volume,p.limit);
+        for(int i=0;i<p.segments;++i)result+=dl::msg(p.local_hct[i],p.viscosity[i],p.pressure[i],p.filtration[i],p.oncotic[i]).substr(3);
+        return result;
+    }
     std::string online_state() const {
         std::ostringstream out;
         out << dl::msg("ONLINE4", n, end_t, online.mode, online.route, online.temperature, online.conductivity(),
@@ -95,6 +104,39 @@ public:
         if (role >= heartbeat.size()) throw std::runtime_error("invalid listener role");
         auto op = r.take();
         if (!machine_set && (op=="META5" || op=="VIEW5" || op=="STOP5" || op=="ACK5" || op=="SILENCE5")) return "DL1 REJECT uninitialized";
+        if(role==0 && op=="PHYSICAL9") {
+            dl::require(configured && online_set && !armed && !machine_set && !circuit.physical.enabled);
+            dl::BloodPhysics p;
+            p.arterial={r.real(.5,3),r.real(5,100)};p.venous={r.real(.5,3),r.real(5,100)};
+            p.tube_diameter=r.real(2,8);p.arterial_length=r.real(50,3000);p.venous_length=r.real(50,3000);
+            p.arterial_chamber=r.real(1,100);p.venous_chamber=r.real(1,100);
+            p.filter_volume=r.real(1,250);p.filter_resistance=r.real(.01,2);p.kuf=r.real(.01,1);
+            p.max_hct=r.real(.4,.7);p.max_fraction=r.real(.05,.6);p.pd_min=r.real(-500,0);p.pd_max=r.real(0,500);
+            p.qd_resistance=r.real(.001,1);p.access_pressure=r.real(0,100);p.pump_head=r.real(100,600);
+            p.hct=r.real(.1,.6);p.protein=r.real(1,15);p.temperature=r.real(30,42);r.end();dl::require(p.hct<p.max_hct);
+            p.enabled=true;circuit.physical=p;circuit.compliance={.001,.001,.001};
+            circuit.edges={{1,2,p.filter_resistance,3,false},{2,0,1,0,false},{3,0,1,0,false}};
+            circuit.pump_node=circuit.sensor_node=1;circuit.sensor_edge=circuit.dialyzer_edge=0;circuit.initialize();
+            return "DL1 OK";
+        }
+        if(role==0 && op=="FLUID9") {
+            dl::require(circuit.physical.enabled && !armed && !machine_set && !online.physical);
+            auto o=online;o.acid_remaining=r.real(0,20000);o.bicarbonate_remaining=r.real(0,2000);
+            o.acid_installed=r.integer(1)!=0;o.bicarbonate_installed=r.integer(1)!=0;
+            o.acid_fraction=r.real(0,.1);o.bicarbonate_fraction=r.real(0,.2);o.bicarbonate_stock=r.real(100,1500);
+            o.dissolution=r.real(0,100);o.heater_max=r.real(0,5000);o.heater_capacity=r.real(1,10000);
+            o.heater_loss=r.real(0,100);o.ambient=r.real(0,50);o.heater_gain=r.real(0,5000);
+            o.conductivity_factor=r.real(.1,1);o.temperature_coefficient=r.real(.001,.03);
+            for(auto& x:o.acid){x=r.real(0,10000);}r.end();dl::require(o.acid_fraction+o.bicarbonate_fraction<1);o.physical=true;
+            for(std::size_t i=0;i<6;++i)o.concentration[i]=o.acid_fraction*o.acid[i]+((i==1 || i==4)?o.bicarbonate_fraction*o.bicarbonate_stock:0);
+            online=o;return "DL1 OK";
+        }
+        if(role==0 && op=="BLOOD9") {
+            dl::require(circuit.physical.enabled && !prepared && !halted);
+            auto seq=r.integer(100000),time=r.integer();double h=r.real(.01,.7),p=r.real(.1,30),temp=r.real(30,42),ch=r.real(0,.8),cp=r.real(0,40);r.end();
+            dl::require(seq==next_n && time==next_t);circuit.physical.hct=h;circuit.physical.protein=p;circuit.physical.temperature=temp;circuit.physical.circuit_hct=ch;circuit.physical.circuit_protein=cp;
+            return "DL1 OK";
+        }
         if (role == 0 && op == "MACHINE5") {
             dl::require(online_set && !armed && !halted && !machine_set);
             machine.blood=r.real(0,500); machine.net_uf=r.real(0,20); machine.replacement=r.real(0,120);
@@ -241,6 +283,7 @@ public:
             return "DL1 OK";
         }
         if (role == 0 && op == "EDGE2") {
+            if(circuit.physical.enabled)return "DL1 REJECT physical_geometry";
             dl::require(configured && !prepared && !halted);
             auto index = r.integer(static_cast<long long>(circuit.edges.size() - 1));
             double value = r.real(0.01, 100); bool closed = r.integer(1) != 0;
@@ -283,11 +326,17 @@ public:
                     online.flow, online.filter1_pressure + online.filter2_pressure, online.integrity ? 1 : 0, online.route};
                 if (machine_set) device_samples[i] = {quality_samples[i], circuit.pressure[circuit.edges[circuit.dialyzer_edge].b],
                     air_stuck ? 0 : air_source, leak_stuck ? 0 : leak_source, total + meter_bias, online.total,
-                    supply_stuck ? 1 : online.supply ? 1 : 0};
+                    supply_stuck ? 1 : online.supplies_ready() ? 1 : 0};
                 if(machine_set && machine.guided){
                     device_samples[i].extended=true;
                     device_samples[i].dialysate_flow=machine.fluid_blocked()?0:circuit.dialysate;
-                    device_samples[i].tmp=(circuit.pressure[circuit.edges[circuit.dialyzer_edge].a]+circuit.pressure[circuit.edges[circuit.dialyzer_edge].b])/2;
+                    device_samples[i].tmp=circuit.physical.enabled?circuit.physical.tmp:(circuit.pressure[circuit.edges[circuit.dialyzer_edge].a]+circuit.pressure[circuit.edges[circuit.dialyzer_edge].b])/2;
+                    device_samples[i].physical=circuit.physical.enabled;
+                    device_samples[i].arterial=circuit.physical.arterial_pressure;
+                    device_samples[i].limitation=circuit.physical.limit;
+                    device_samples[i].dialysate_pressure=circuit.physical.dialysate_pressure;
+                    device_samples[i].heater_power=online.heater_power;device_samples[i].acid_remaining=online.acid_remaining;
+                    device_samples[i].bicarbonate_remaining=online.bicarbonate_remaining;device_samples[i].raw_conductivity=online.conductivity_raw();
                 }
             }
             if (machine_set) { machine.sequence=n; machine.time=t; }
@@ -363,10 +412,21 @@ public:
                         if (machine.fluid_blocked()) circuit.dialysate=0;
                     }
                 }
+                if(circuit.physical.enabled){
+                    circuit.replacement_route=online.route;circuit.replacement_request=circuit.sub_command;
+                    circuit.net_request=machine.fluid_blocked()?0:machine.net_uf;
+                }
+                const auto patient_hct=circuit.physical.hct,patient_protein=circuit.physical.protein;
+                if(circuit.physical.enabled && machine.stage!=dl::treatment){
+                    circuit.physical.hct=machine.stage==dl::returning?circuit.physical.circuit_hct:0;
+                    circuit.physical.protein=machine.stage==dl::returning?circuit.physical.circuit_protein:0;
+                }
                 circuit.advance(pump_demand, requested_uf, minutes, isolate);
+                circuit.physical.hct=patient_hct;circuit.physical.protein=patient_protein;
                 if (online_set) {
                     double delivered = online.route == 1 ? circuit.sub_flow :
                         online.route == 2 ? online.hydraulic_command(isolate || (machine_set && machine.fluid_blocked())) : 0;
+                    if(circuit.physical.enabled)delivered=circuit.physical.sub;
                     online.delivery(delivered, minutes);
                     circuit.dialysate = dialysate_flow;
                 }
@@ -400,7 +460,8 @@ public:
             // watchdog/HALT can change live rates or per-step circuit diagnostics.
             auto committed = configured ? std::string(machine_set ? "DL1 COMMITTED5 " : online_set ? "DL1 COMMITTED4 " : patient_coupled ? "DL1 COMMITTED3 " : "DL1 COMMITTED2 ")
                 + state().substr(4) + " " + circuit_state().substr(4) + (online_set ? " " + online_state().substr(4) : "")
-                + (machine_set ? " " + machine.encode().substr(4) : "") : state();
+                + (machine_set ? " " + machine.encode().substr(4) : "")
+                + (circuit.physical.enabled ? " " + physical_state().substr(4) : "") : state();
             if(machine.guided)enforce_machine();
             return committed;
         } else throw std::runtime_error("role or operation");

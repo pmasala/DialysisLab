@@ -55,7 +55,9 @@ static void check_machine(){
     for(int stage=0;stage<16;++stage){Machine a;a.guided=true;a.stage=stage;a.mask=air_alarm;a.safe=3;a.primed=true;a.patient_connected=true;
         for(const char* action:{"PRIME","CONNECT","START","FINISH","RETURN","DISCONNECT","CLEAN","RESUME"})assert(!guided_ui::allowed(a,action));}
     std::string frame="DL1 VIEW6 "+std::string(32,'a')+" "+m.encode().substr(4)+" "+o.encode().substr(4)+" INTENT5 0 none none";
-    auto view=ui::parse_view(frame,std::string(32,'a'));assert(view.machine.stage==cleaned && view.observation.tmp==105);
+    o.physical=true;o.arterial=-80;o.dialysate_pressure=-40;o.heater_power=600;o.acid_remaining=4500;o.bicarbonate_remaining=500;o.raw_conductivity=17;
+    frame="DL1 VIEW6 "+std::string(32,'a')+" "+m.encode().substr(4)+" "+o.encode().substr(4)+" INTENT5 0 none none";
+    auto view=ui::parse_view(frame,std::string(32,'a'));assert(view.machine.stage==cleaned && view.observation.tmp==105 && view.observation.arterial==-80 && view.observation.heater_power==600);
 }
 int main(int argc,char** argv){
     check_machine();check_live_rates();lv_init();constexpr int w=1100,h=890;std::vector<uint32_t> pixels(w*h);auto* d=lv_display_create(w,h);
@@ -81,6 +83,7 @@ int main(int argc,char** argv){
         ui.update(v,true,"LIVE",air_alarm);assert(lv_obj_has_state(ui.widgets.at("PRESCRIBE"),LV_STATE_DISABLED));
         ui.update(v,false,"STALE",0);assert(lv_obj_has_state(ui.widgets.at("blood"),LV_STATE_DISABLED));
         v.machine.mode=0;ui.update(v,true,"LIVE",0);assert(lv_obj_has_state(ui.widgets.at("sub"),LV_STATE_DISABLED));v.machine.mode=2;
+        v.observation.physical=true;v.observation.arterial=-80;v.observation.dialysate_pressure=-40;v.observation.heater_power=600;v.observation.acid_remaining=4500;v.observation.bicarbonate_remaining=500;
         if(argc>1){std::filesystem::create_directories(argv[1]);for(int page=0;page<5;++page){ui.switch_page(page);ui.update(v,true,"SYNTHETIC RENDER TEST",0);lv_tick_inc(20);lv_timer_handler();lv_refr_now(d);std::ofstream out(std::string(argv[1])+"/guided-"+std::to_string(page)+".ppm",std::ios::binary);out<<"P6\n"<<w<<' '<<h<<"\n255\n";for(auto p:pixels){char b[]={static_cast<char>(p>>16),static_cast<char>(p>>8),static_cast<char>(p)};out.write(b,3);}}}
     }
     lv_deinit();std::cout<<"guided transitions, interlocks, protocol, timing and actual LVGL rendering passed\n";

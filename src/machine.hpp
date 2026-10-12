@@ -15,20 +15,22 @@ struct MachineObservation {
     int supply_ready = 1;
     bool extended = false;
     double dialysate_flow = 0, tmp = 0;
+    bool physical=false;double arterial=0,dialysate_pressure=0,heater_power=0,acid_remaining=0,bicarbonate_remaining=0,raw_conductivity=0;std::string limitation="none";
     std::string encode() const {
-        return std::string(extended ? "DL1 OBS8 " : "DL1 OBS5 ") + q.encode().substr(9) + msg(downstream, air, leak, uf_total, sub_total, supply_ready).substr(3)
-            + (extended ? msg(dialysate_flow,tmp).substr(3) : "");
+        return std::string(physical ? "DL1 OBS9 " : extended ? "DL1 OBS8 " : "DL1 OBS5 ") + q.encode().substr(9) + msg(downstream, air, leak, uf_total, sub_total, supply_ready).substr(3)
+            + (extended ? msg(dialysate_flow,tmp).substr(3) : "") + (physical?msg(arterial,limitation,dialysate_pressure,heater_power,acid_remaining,bicarbonate_remaining,raw_conductivity).substr(3):"");
     }
 };
 inline bool usable5(const std::string& frame, long long n, long long t, MachineObservation& o) {
-    Tokens r(frame); auto tag=r.take(); require(tag=="OBS5" || tag=="OBS8"); o.extended=tag=="OBS8";
+    Tokens r(frame); auto tag=r.take(); require(tag=="OBS5" || tag=="OBS8" || tag=="OBS9"); o.extended=tag!="OBS5";o.physical=tag=="OBS9";
     std::string quality = "DL1 OBS4";
     for (int i = 0; i < 12; ++i) quality += " " + r.take();
     bool valid = usable4(quality, n, t, o.q);
     o.downstream = r.real(0, 1000); o.air = r.real(0, 1); o.leak = r.real(0, 1);
     o.uf_total = r.real(0, 1e9); o.sub_total = r.real(0, 1e9);
     o.supply_ready = static_cast<int>(r.integer(1));
-    if(o.extended){o.dialysate_flow=r.real(0,2000);o.tmp=r.real(0,1000);}
+    if(o.extended){o.dialysate_flow=r.real(0,2000);o.tmp=r.real(-1000,1000);}
+    if(o.physical){o.arterial=r.real(-1000,1000);o.limitation=r.take();o.dialysate_pressure=r.real(-1000,1000);o.heater_power=r.real(0,5000);o.acid_remaining=r.real(0,20000);o.bicarbonate_remaining=r.real(0,2000);o.raw_conductivity=r.real(0,1000);}
     r.end(); return valid;
 }
 struct Machine {
@@ -164,7 +166,7 @@ inline int hazards5(const MachineObservation& o, const Machine& m, bool valid) {
     // No automatic functional pump/filter test is modeled during recovery.
     // Zero flow/pressure after isolation is not evidence of a cleared blockage.
     mask |= m.mask & (flow_alarm | filter_alarm);
-    if (q.blood.pressure >= m.pressure_limit || o.downstream >= m.pressure_limit) mask |= pressure_alarm;
+    if (q.blood.pressure >= m.pressure_limit || o.downstream >= m.pressure_limit || (o.physical && o.arterial<=-m.pressure_limit)) mask |= pressure_alarm;
     if ((m.stage == treatment || (m.guided && (m.flushing() || m.stage==returning))) && m.cycles > 1 && m.blood > 10 && q.blood.blood < 1 && !m.blood_blocked()) mask |= flow_alarm;
     if (o.air >= .5) mask |= air_alarm;
     if (o.leak >= .5) mask |= leak_alarm;
@@ -174,7 +176,7 @@ inline int hazards5(const MachineObservation& o, const Machine& m, bool valid) {
     if (!q.integrity) mask |= integrity_alarm;
     if ((m.stage==treatment || m.flushing()) && q.route != m.mode) mask |= route_alarm;
     // A modeled supply-pressure switch is distinct from the hidden supply fault.
-    if (!o.supply_ready || (m.stage == treatment && m.cycles > 1 && m.mode && !m.mask && q.replacement < 1)) mask |= supply_alarm;
+    if (!o.supply_ready || (m.stage == treatment && m.cycles > 1 && m.mode && !m.mask && q.replacement < 1 && (!o.physical || o.limitation=="none"))) mask |= supply_alarm;
     if (m.stage == treatment && std::abs(o.uf_total - o.sub_total - m.expected_net) > 5) mask |= balance_alarm;
     return mask;
 }

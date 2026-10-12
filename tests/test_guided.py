@@ -19,7 +19,10 @@ BUILD=Path(os.environ.get('DIALYSISLAB_GUI_BUILD_DIR',os.environ.get('DIALYSISLA
 
 
 def configuration():
-    return json.loads((ROOT/'scenarios/device_guided.json').read_text())
+    c=json.loads((ROOT/'scenarios/device_guided.json').read_text())
+    c.pop('physical',None);c['patient'].pop('hemodynamics',None)
+    c['patient']['prime_mL']=20;c['treatment']['inlet_temperature_C']=37
+    return c
 
 
 class GuidedUnitTests(unittest.TestCase):

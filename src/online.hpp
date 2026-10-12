@@ -6,6 +6,37 @@
 namespace dl {
 struct Online {
     int mode = 0, route = 0;
+    bool physical=false,acid_installed=true,bicarbonate_installed=true;
+    double acid_remaining=5000,bicarbonate_remaining=550,acid_fraction=1.0/45,bicarbonate_fraction=.034;
+    double bicarbonate_stock=1000,dissolution=3,heater_max=1500,heater_capacity=100,heater_loss=2,ambient=22,heater_gain=100;
+    double conductivity_factor=.8,temperature_coefficient=.02,heater_power=0;
+    std::array<double,6> acid{};
+    bool supplies_ready() const {return supply && (!physical || (acid_installed && bicarbonate_installed && acid_remaining>0 && bicarbonate_remaining>0));}
+    double conductivity_raw() const {
+        const std::array<double,6> mobility{0,50.1,73.5,76.3,44.5,119};
+        double value=0;for(std::size_t i=1;i<6;++i)value+=mobility[i]*concentration[i]/1000;
+        return conductivity_factor*value*(1+temperature_coefficient*(temperature-25));
+    }
+    void advance_physical(double dialysate,double dt) {
+        mixing_flow=supply?dialysate+demand:0;
+        double volume_in=mixing_flow*dt;
+        double acid_in=acid_installed?std::min(acid_remaining,volume_in*acid_fraction*ratio/.04):0;
+        double bicarbonate_wanted=volume_in*bicarbonate_fraction*bicarbonate_stock*.0000840066;
+        double bicarbonate_used=bicarbonate_installed?std::min({bicarbonate_remaining,bicarbonate_wanted,dissolution*dt}):0;
+        acid_remaining-=acid_in;bicarbonate_remaining-=bicarbonate_used;
+        // Two separately metered sources. 84.0066 g/mol NaHCO3; carrier water
+        // completes the total prepared volume, including depleted-source faults.
+        for(std::size_t i=0;i<6;++i){
+            double incoming=acid_in*acid[i];
+            if(i==1 || i==4)incoming+=bicarbonate_used/.0000840066;
+            concentration[i]=(volume*concentration[i]+incoming)/(volume+volume_in);
+        }
+        contaminant=(volume*contaminant+volume_in*source_contaminant)/(volume+volume_in);
+        double seconds=dt*60,flow_heat=mixing_flow*4.18/60,capacity=volume*4.18+heater_capacity;
+        heater_power=std::clamp(flow_heat*(setpoint-inlet_temperature)+heater_loss*(setpoint-ambient)+heater_gain*(setpoint-temperature),0.0,heater_max);
+        temperature=(capacity*temperature+seconds*(flow_heat*inlet_temperature+heater_power+heater_loss*ambient))/(capacity+seconds*(flow_heat+heater_loss));
+        delivered_contaminant=contaminant*(breach1?1:penetration1)*(breach2?1:penetration2);
+    }
     double volume = 50, ratio = 0.04, inlet_temperature = 37, setpoint = 37, heater = 30;
     double temperature = 37, head = 600, r1 = 0.2, r2 = 0.2, line_r = 0.1;
     double penetration1 = 0.001, penetration2 = 0.001, source_contaminant = 1;
@@ -17,6 +48,7 @@ struct Online {
     double filter1_pressure = 0, filter2_pressure = 0, mixing_flow = 0;
     std::array<double, 6> concentrate{}, concentration{};
     double conductivity() const {
+        if(physical)return conductivity_raw()/(1+temperature_coefficient*(temperature-25));
         double sum = 0;
         for (std::size_t i = 1; i < concentration.size(); ++i) sum += concentration[i];
         return 0.05 * sum;
@@ -27,10 +59,11 @@ struct Online {
         stop_delivery();
     }
     double hydraulic_command(bool blocked) const {
-        return blocked || !supply || quality_latched || mode == 0 || route == 3
+        return blocked || !supplies_ready() || quality_latched || mode == 0 || route == 3
             ? 0 : demand / (1 + demand * (r1 + r2 + line_r) / head);
     }
     void advance_tank(double dialysate, double dt) {
+        if(physical){advance_physical(dialysate,dt);return;}
         // Supply is external to the patient/circuit accounting boundary.
         mixing_flow = supply ? dialysate + demand : 0;
         double transfer = mixing_flow * dt;

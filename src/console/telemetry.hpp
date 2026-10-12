@@ -68,9 +68,10 @@ public:
 };
 inline std::optional<double> get(const std::map<std::string,double>& values,const std::string& key){auto it=values.find(key);return it==values.end()?std::nullopt:std::optional<double>(it->second);}
 inline std::string unit(const std::string& key){
-    for(const char* u:{"mmol_min","mmol_L","mL_min","mS_cm","mmHg","weight_kg","_mL","_mmol","_C","_ms"}){
+    for(const char* u:{"mPa_s","_W","_g","mmol_min","mmol_L","mL_min","mS_cm","mmHg","weight_kg","_mL","_mmol","_C","_ms"}){
         if(key.find(u)==std::string::npos)continue;
         std::string s=u;if(s=="weight_kg")return "kg";if(s=="_C")return "C";if(s=="_ms")return "ms";
+        if(s=="mPa_s")return "mPa s";
         if(s=="mmol_min")return "mmol/min";
         if(s=="mmol_L")return "mmol/L";
         if(s=="mL_min")return "mL/min";

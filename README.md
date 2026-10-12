@@ -6,8 +6,8 @@ the machine. It connects only to simulated equipment and patients.
 
 You can run haemodialysis (HD) or haemodiafiltration (HDF), choose a patient and
 dialyzer, change treatment settings, inject faults and inspect the results.
-HDF supports both predilution and postdilution, including a simplified model of
-online substitution-fluid preparation.
+HDF supports both predilution and postdilution, including acid/bicarbonate preparation, a power-limited heater and segmented
+blood-flow physics. Initial hematocrit and needle geometry are configured in the scenario.
 
 There are two separate graphical applications:
 
@@ -26,7 +26,7 @@ From the repository root:
 ```bash
 cmake -S . -B build/core -DCMAKE_BUILD_TYPE=Release
 cmake --build build/core --parallel 3
-PYTHONPATH=python python3 -m dialysislab.runner --local --build-dir build/core --config scenarios/machine_hdf_pre.json --output build/first-run
+PYTHONPATH=python python3 -m dialysislab.runner --local --build-dir build/core --config scenarios/physical_hdf_pre.json --output build/first-run
 ```
 
 This runs a short, scripted predilution HDF experiment without a graphical display.
@@ -39,6 +39,7 @@ For a graphical session or Docker deployment, follow the
 
 ## Understand and explore
 
+- [Physical model](docs/PHYSICAL_MODEL.md): configurable needles, hematocrit, viscosity, filter limits, concentrates and heater.
 - [How the simulation works](docs/SIMULATION.md): fluid-path diagrams, pressures, dialyzer exchange and patient weight.
 - [Guided treatment](docs/GUIDED_TREATMENT.md): initial checks, priming, connection, treatment, blood return and disinfection.
 - [Visual inspection](docs/UI_INSPECTION.md): animated circuits, selectable trends and recorded-data inspection.
