@@ -1802,7 +1802,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         },
         {
           "path": "src/console/client.hpp",
@@ -1852,7 +1852,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         },
         {
           "path": "src/console/client.hpp",
@@ -1902,7 +1902,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         },
         {
           "path": "src/console/client.hpp",
@@ -1952,7 +1952,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         },
         {
           "path": "src/console/client.hpp",
@@ -2002,7 +2002,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         },
         {
           "path": "src/console/client.hpp",
@@ -2052,7 +2052,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         },
         {
           "path": "src/console/client.hpp",
@@ -2652,7 +2652,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         },
         {
           "path": "src/ui/synoptic.hpp",
@@ -2664,7 +2664,7 @@
         },
         {
           "path": "tests/test_inspection.py",
-          "sha256": "e3c9cd401956c3e7fa094315b3b57c12d55c8f8e01dc16d822e44ac5f2b4e821"
+          "sha256": "8913358ba6df5e84bc78e00824184f8b57a1410b50acceb53975dae06ef85e06"
         },
         {
           "path": "docs/UI_INSPECTION.md",

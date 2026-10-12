@@ -189,7 +189,7 @@ struct App {
         if(!out)throw std::runtime_error("capture write");
     }
     void snapshot(){
-        std::cout<<"SNAPSHOT {\"connected\":"<<(status.connected?"true":"false")<<",\"state\":"<<experiment::quote(status.state)<<",\"run_id\":"<<experiment::quote(status.run)<<",\"sequence\":"<<status.sequence<<",\"revision\":"<<revision<<",\"feedback\":"<<experiment::quote(feedback)<<",\"last_action\":"<<experiment::quote(last_action)<<",\"left\":"<<experiment::quote(left.data())<<",\"right\":"<<experiment::quote(right.data())<<",\"page\":"<<page<<",\"telemetry_samples\":"<<dashboard.history.samples.size()<<",\"telemetry_live\":"<<(dashboard.live(status.connected)?"true":"false")<<",\"widgets\":{";
+        std::cout<<"SNAPSHOT {\"connected\":"<<(status.connected?"true":"false")<<",\"state\":"<<experiment::quote(status.state)<<",\"run_id\":"<<experiment::quote(status.run)<<",\"sequence\":"<<status.sequence<<",\"revision\":"<<revision<<",\"feedback\":"<<experiment::quote(feedback)<<",\"last_action\":"<<experiment::quote(last_action)<<",\"left\":"<<experiment::quote(left.data())<<",\"right\":"<<experiment::quote(right.data())<<",\"pending_clicks\":"<<clicks.size()<<",\"page\":"<<page<<",\"telemetry_samples\":"<<dashboard.history.samples.size()<<",\"telemetry_live\":"<<(dashboard.live(status.connected)?"true":"false")<<",\"widgets\":{";
         bool first=true;for(const auto& pair:widgets){if(!first)std::cout<<',';first=false;auto r=pair.second;std::cout<<experiment::quote(pair.first)<<":["<<r.x<<','<<r.y<<','<<r.w<<','<<r.h<<']';}std::cout<<"}}"<<std::endl;
     }
     void input(const std::string& line){
