@@ -49,6 +49,8 @@ def check(root):
         if not declared['consumers'] or not (root/declared['notices']).is_file():raise ValueError('missing consumer/notices')
     for item in data['embedded']:
         if item['license'] not in preferred or not (root/item['notices']).is_file():raise ValueError('embedded license/notices')
+    for item in data['project_assets']:
+        if item['license'] not in preferred or not (root/item['notices']).is_file():raise ValueError('asset license/notices')
     for name,expected in data['reviewed_files'].items():
         if digest(root/name)!=expected: raise ValueError('reviewed dependency file changed: '+name)
     workflow=(root/'.github/workflows/verify.yaml').read_text()
@@ -94,10 +96,11 @@ def application_bom(data,identity,build_dir=None,binary_hashes=None,runtime_hash
             properties={'dialysislab:commit':item['commit'],'dialysislab:archive':item['url'],
                         'dialysislab:notice':item['notices']}))
         dependencies.append({'ref':item['name'],'dependsOn':[e['name'] for e in data['embedded'] if e['parent']==item['name']]})
-    for item in data['embedded']:
-        if item['parent'] not in [p['name'] for p in active]: continue
+    embedded=[item for item in data['embedded'] if item['parent'] in [p['name'] for p in active]
+              or any(name in binary_hashes for name in item.get('consumers',[]))]
+    for item in embedded:
         components.append(component(item['name'],item['version'],kind='library',license=item['license'],
-                                    properties={'dialysislab:parent':item['parent'],'dialysislab:notice':item['notices']}))
+                                    sha=item.get('sha256'),properties={'dialysislab:parent':item['parent'],'dialysislab:notice':item['notices']}))
     for item in data['project_assets']:
         if 'device-ui' not in binary_hashes:continue
         components.append(component(item['name'],identity['source_revision'],kind='file',license=item['license'],sha=identity['source_sha256'][item['path']]))
@@ -107,6 +110,12 @@ def application_bom(data,identity,build_dir=None,binary_hashes=None,runtime_hash
             licenses={'MIT'}
             for item in data['application']:
                 if item['name'] in uses: licenses.update(item['license'].split(' AND '))
+            for item in embedded:
+                if item['parent'] in uses or name in item.get('consumers',[]):
+                    licenses.add(item['license'])
+                if name in item.get('consumers',[]):uses.append(item['name'])
+            if name=='device-ui':
+                for item in data['project_assets']:licenses.add(item['license'])
             components.append(component('binary:'+name,identity['source_revision'],'application',' AND '.join(sorted(licenses)),binary_hashes[name]))
             if name=='device-ui':uses += [a['name'] for a in data['project_assets']]
             dependencies.append({'ref':'binary:'+name,'dependsOn':uses})

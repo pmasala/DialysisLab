@@ -39,14 +39,17 @@ class Console:
                 continue
             if line.startswith('SNAPSHOT '):return json.loads(line[9:])
         raise AssertionError('no snapshot: '+''.join(self.lines)[-2000:])
+    def pointer_click(self,name):
+        wait_for(self.snapshot,lambda s:name in s['widgets'],timeout=5)
+        self.send('CLICK '+name)
+        wait_for(self.snapshot,lambda s:s['pending_clicks']==0,timeout=5)
     def click(self,name):
-        # The command adds ImGui mouse position/down/up events across rendered frames;
-        # application callbacks are not invoked directly by the harness.
+        # Wait for real ImGui pointer events to be consumed, never invoke callbacks.
         if name in ('PRESETS','LOAD','DRAFT','VALIDATE') and name not in self.snapshot()['widgets']:
-            self.send('CLICK SETUP');time.sleep(.15)
+            self.pointer_click('SETUP')
         if name in ('RUNS','REPLAY','COMPARE','EXPORT'):
-            self.send('CLICK TAB_ADMIN');time.sleep(.15)
-        self.send('CLICK '+name);time.sleep(.15)
+            self.pointer_click('TAB_ADMIN')
+        self.pointer_click(name)
     def set(self,name,value):self.send('SET '+name+' '+str(value).encode().hex())
     def capture(self,name):
         self.send('CAPTURE '+name)
@@ -181,6 +184,7 @@ class ConsoleTests(unittest.TestCase):
             ui=Console(f.root/'api',EVIDENCE/'invalid-reconnect')
             try:
                 wait_for(ui.snapshot,lambda s:s['connected']);ui.click('DRAFT')
+                wait_for(ui.snapshot,lambda s:s['revision']!=0 and 'Draft saved' in s['feedback'])
                 ui.set('configuration','{"schema_version":5,"model":"bad"}');ui.click('VALIDATE')
                 wait_for(ui.snapshot,lambda s:'ERROR' in s['feedback'] or 'error' in s['feedback'])
                 self.assertEqual(f.call('RUNS'),[])

@@ -7,6 +7,8 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
+BINARY = Path(os.environ.get('DIALYSISLAB_GUI_BUILD_DIR',
+                            os.environ.get('DIALYSISLAB_BUILD_DIR', ROOT/'build/gui')))/'sim-console'
 
 
 class InspectionTests(unittest.TestCase):
@@ -52,7 +54,7 @@ int main(){
         import queue
         import threading
         import time
-        binary = Path(os.environ.get('DIALYSISLAB_GUI_BUILD_DIR', ROOT/'build/gui'))/'sim-console'
+        binary = BINARY
         if not binary.exists():
             self.skipTest('GUI build unavailable')
         trajectory = next((ROOT/'assurance/evidence/m7').rglob('trajectory.jsonl'))
@@ -76,23 +78,66 @@ int main(){
                     if line.startswith('SNAPSHOT '):return json.loads(line[9:])
                 raise AssertionError('no console snapshot')
             try:
-                time.sleep(.5)
-                first = snapshot()
+                def wait_state(predicate):
+                    deadline=time.monotonic()+5
+                    while time.monotonic()<deadline:
+                        state=snapshot()
+                        if predicate(state):return state
+                        time.sleep(.02)
+                    raise AssertionError('console state timeout: '+str(state))
+                def click(name):
+                    wait_state(lambda s:name in s['widgets'])
+                    send('CLICK '+name)
+                    return wait_state(lambda s:s['pending_clicks']==0)
+                first = wait_state(lambda s:s['telemetry_samples']>0)
                 self.assertFalse(first['connected'])
                 self.assertFalse(first['telemetry_live'])
                 self.assertGreater(first['telemetry_samples'], 0)
                 self.assertNotIn('START', first['widgets'])
-                send('CLICK REPLAY_PAUSE');time.sleep(.3)
-                paused = snapshot();time.sleep(.4)
+                click('REPLAY_PAUSE')
+                paused = wait_state(lambda s:s['state']=='recording paused');time.sleep(.4)
                 self.assertEqual(snapshot()['sequence'], paused['sequence'])
                 for tab, page in [('TAB_TRENDS',1),('TAB_INSPECT',2),('TAB_ADMIN',3),('TAB_LIVE',0)]:
-                    send('CLICK '+tab);time.sleep(.15)
+                    click(tab)
                     self.assertEqual(snapshot()['page'],page)
-                send('CLICK TAB_ADMIN');time.sleep(.15);send('CLICK REPLAY');time.sleep(.2)
+                click('TAB_ADMIN');click('REPLAY')
                 self.assertIn('read only', snapshot()['feedback'])
-                send('CLICK REPLAY_PAUSE');time.sleep(.4)
-                self.assertGreater(snapshot()['sequence'],paused['sequence'])
+                click('REPLAY_PAUSE')
+                self.assertGreater(wait_state(lambda s:s['sequence']>paused['sequence'])['sequence'],paused['sequence'])
             finally:
                 send('QUIT');process.wait(timeout=5);thread.join(timeout=2)
                 process.stdin.close();process.stdout.close()
             self.assertEqual(process.returncode,0)
+
+    def test_history_controls_fit_and_receive_pointer_clicks_with_setup_open(self):
+        from console_regressions import Console
+        from test_experiments import wait_for
+        import time
+        if not BINARY.exists():
+            self.skipTest('GUI build unavailable')
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)
+            ui = Console(path/'absent-api', path/'captures', command=[
+                str(BINARY), '--headless', '--test-input', '--api-dir', str(path/'absent-api'),
+                '--capture-dir', str(path/'captures')])
+            try:
+                time.sleep(.5)
+                ui.pointer_click('TAB_ADMIN')
+                wait_for(ui.snapshot, lambda s: s['page']==3)
+                for setup_open in (True, False):
+                    with self.subTest(setup_open=setup_open):
+                        ui.pointer_click('SETUP')
+                        state = wait_for(ui.snapshot, lambda s: ('LOAD' in s['widgets'])==setup_open)
+                        self.assertEqual('LOAD' in state['widgets'], setup_open)
+                        for name in ('configuration', 'left', 'right', 'RUNS', 'REPLAY', 'COMPARE', 'EXPORT'):
+                            x, y, width, height = state['widgets'][name]
+                            self.assertGreaterEqual(x, 0, name)
+                            self.assertGreaterEqual(y, 0, name)
+                            self.assertLessEqual(x+width, 1440, name)
+                            self.assertLessEqual(y+height, 960, name)
+                        for name in ('REPLAY', 'COMPARE', 'EXPORT'):
+                            ui.click(name)
+                            wait_for(ui.snapshot, lambda s: s['last_action']==name, timeout=3)
+                ui.capture('history-controls')
+            finally:
+                ui.close()
