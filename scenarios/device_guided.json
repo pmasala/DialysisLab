@@ -219,6 +219,19 @@
         0,
         67.5
       ]
+    },
+    "dynamics": {
+      "arterial_air_mL": 20,
+      "venous_air_mL": 20,
+      "level_gain_mL_s_mL": 1,
+      "gas_max_mL_s": 1,
+      "dialysate_compliance_mL_mmHg": 0.05,
+      "pump_tau_s": 0.25,
+      "sensor_tau_s": 0.2,
+      "pressure_gain_mL_min_mmHg": 3,
+      "uf_pump_max_mL_min": 140,
+      "balance_chamber_mL": 30,
+      "dialysate_volume_mL": 100
     }
   }
 }

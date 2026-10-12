@@ -423,6 +423,11 @@
       "id": "PHY-DES-001",
       "description": "Generic quasi-steady segmented filter, configurable needles and fixed-volume disposable, conservative vascular/circuit RBC and protein pools, two-source preparation and power-limited heater. Equations and exclusions in docs/PHYSICAL_MODEL.md.",
       "status": "implemented"
+    },
+    {
+      "id": "DYN-DES-001",
+      "description": "Dynamic gas/liquid chambers, lagged actuators, duplex balancing with changeover hold, compliant dialysate inventory and pressure feedback, sixteen blood and twelve countercurrent dialysate transport volumes. Detailed model and boundaries in docs/DYNAMIC_MODEL.md.",
+      "status": "implemented"
     }
   ],
   "requirements": [
@@ -455,7 +460,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "dde905acae38ed026509bd6131a6501bb6806f30021ef901e805f588e68784a3"
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
         }
       ],
       "unresolved": [
@@ -484,11 +489,11 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "4a07e83a39f8115609959f0c9e71b96c98cdf0d4dcecf70c6c7393db9bb6d740"
+          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
         },
         {
           "path": "tests/test_machine.py",
@@ -521,15 +526,15 @@
       "implementation": [
         {
           "path": "python/dialysislab/compartments.py",
-          "sha256": "ff6d34cf2d803f8745371df9ad34efdcd62f0a52cce1afa83d6f25a0f5205d0a"
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         },
         {
           "path": "src/circuit.hpp",
-          "sha256": "7fe233bcd08bb443311b322d32b714afb9de0280062822038c2120221134a3a8"
+          "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
         },
         {
           "path": "tools/verify_models.py",
-          "sha256": "55c93dfd061ef6f114126f6265306bd6043223dea3129e68b2900e3cf745fdd5"
+          "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
         }
       ],
       "unresolved": [
@@ -599,7 +604,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "f16b95fc164954b4802b9b47805578db2184f504e795cfb45d6bbf1f0204b41e"
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         },
         {
           "path": "docs/M5_MACHINE.md",
@@ -706,11 +711,11 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "4c2beb4f10456441f11766bef4a9ca24e4a9b13ba821b27a2e0a4bda023dc6f4"
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         }
       ],
       "unresolved": [
@@ -743,7 +748,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         },
         {
           "path": "python/dialysislab/patient.py",
@@ -780,7 +785,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         }
       ],
       "unresolved": [
@@ -809,7 +814,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         },
         {
           "path": "src/control.cpp",
@@ -854,7 +859,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         }
       ],
       "unresolved": [
@@ -884,7 +889,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         },
         {
           "path": "src/wire.hpp",
@@ -892,7 +897,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "4c2beb4f10456441f11766bef4a9ca24e4a9b13ba821b27a2e0a4bda023dc6f4"
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
         }
       ],
       "unresolved": [
@@ -922,11 +927,11 @@
       "implementation": [
         {
           "path": "python/dialysislab/trajectory.py",
-          "sha256": "0cd9026cc01878f359cc1edef63b6915a41266b5e9c2fa56478e7e07730a72a1"
+          "sha256": "bec7e3ce0d42ffd88120fa7b3120dcb0ededeb9d1ac53c7208cb5ca3da2801ee"
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "4c2beb4f10456441f11766bef4a9ca24e4a9b13ba821b27a2e0a4bda023dc6f4"
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
         },
         {
           "path": "tools/recover_trajectory.py",
@@ -987,7 +992,7 @@
       "implementation": [
         {
           "path": "src/circuit.hpp",
-          "sha256": "7fe233bcd08bb443311b322d32b714afb9de0280062822038c2120221134a3a8"
+          "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
         }
       ],
       "unresolved": [
@@ -1015,7 +1020,7 @@
       "implementation": [
         {
           "path": "src/circuit.hpp",
-          "sha256": "7fe233bcd08bb443311b322d32b714afb9de0280062822038c2120221134a3a8"
+          "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
         }
       ],
       "unresolved": [
@@ -1043,7 +1048,7 @@
       "implementation": [
         {
           "path": "src/circuit.hpp",
-          "sha256": "7fe233bcd08bb443311b322d32b714afb9de0280062822038c2120221134a3a8"
+          "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
         }
       ],
       "unresolved": [
@@ -1073,7 +1078,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/circuit.py",
-          "sha256": "f88fcefafe538d09996ed6bea896d0018596635c931a3a4314f5f04b7c2d4928"
+          "sha256": "6c7e9b2cfdddd606b531e27dd523ef4e0a09ca510f178f18c18a61675750be13"
         }
       ],
       "unresolved": [
@@ -1102,7 +1107,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/compartments.py",
-          "sha256": "ff6d34cf2d803f8745371df9ad34efdcd62f0a52cce1afa83d6f25a0f5205d0a"
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         }
       ],
       "unresolved": [
@@ -1130,7 +1135,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/compartments.py",
-          "sha256": "ff6d34cf2d803f8745371df9ad34efdcd62f0a52cce1afa83d6f25a0f5205d0a"
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         }
       ],
       "unresolved": [
@@ -1158,7 +1163,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/compartments.py",
-          "sha256": "ff6d34cf2d803f8745371df9ad34efdcd62f0a52cce1afa83d6f25a0f5205d0a"
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         }
       ],
       "unresolved": [
@@ -1188,7 +1193,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "4c2beb4f10456441f11766bef4a9ca24e4a9b13ba821b27a2e0a4bda023dc6f4"
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
         }
       ],
       "unresolved": [
@@ -1216,7 +1221,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/compartments.py",
-          "sha256": "ff6d34cf2d803f8745371df9ad34efdcd62f0a52cce1afa83d6f25a0f5205d0a"
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         }
       ],
       "unresolved": [
@@ -1275,7 +1280,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         }
       ],
       "unresolved": [
@@ -1306,7 +1311,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "4c2beb4f10456441f11766bef4a9ca24e4a9b13ba821b27a2e0a4bda023dc6f4"
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
         }
       ],
       "unresolved": [
@@ -1336,11 +1341,11 @@
       "implementation": [
         {
           "path": "src/machine.hpp",
-          "sha256": "4a07e83a39f8115609959f0c9e71b96c98cdf0d4dcecf70c6c7393db9bb6d740"
+          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         }
       ],
       "unresolved": [
@@ -1369,7 +1374,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/compartments.py",
-          "sha256": "ff6d34cf2d803f8745371df9ad34efdcd62f0a52cce1afa83d6f25a0f5205d0a"
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         },
         {
           "path": "python/dialysislab/patient.py",
@@ -1408,7 +1413,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         }
       ],
       "unresolved": [
@@ -1438,7 +1443,7 @@
       "implementation": [
         {
           "path": "src/machine.hpp",
-          "sha256": "4a07e83a39f8115609959f0c9e71b96c98cdf0d4dcecf70c6c7393db9bb6d740"
+          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
         },
         {
           "path": "src/protection.cpp",
@@ -1476,7 +1481,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "08dbda6f538c39c8cfa327219246d04bf5ccb9f4eb47b48348ed2ddb17fb74ab"
+          "sha256": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3"
         },
         {
           "path": "compose.yaml",
@@ -1517,7 +1522,7 @@
         },
         {
           "path": "tools/verify_models.py",
-          "sha256": "55c93dfd061ef6f114126f6265306bd6043223dea3129e68b2900e3cf745fdd5"
+          "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
         }
       ],
       "unresolved": [
@@ -1546,11 +1551,11 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "f16b95fc164954b4802b9b47805578db2184f504e795cfb45d6bbf1f0204b41e"
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "dde905acae38ed026509bd6131a6501bb6806f30021ef901e805f588e68784a3"
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
         },
         {
           "path": "src/device_session.hpp",
@@ -1588,11 +1593,11 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "f16b95fc164954b4802b9b47805578db2184f504e795cfb45d6bbf1f0204b41e"
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "dde905acae38ed026509bd6131a6501bb6806f30021ef901e805f588e68784a3"
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
         },
         {
           "path": "src/device_session.hpp",
@@ -1630,11 +1635,11 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "f16b95fc164954b4802b9b47805578db2184f504e795cfb45d6bbf1f0204b41e"
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "dde905acae38ed026509bd6131a6501bb6806f30021ef901e805f588e68784a3"
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
         },
         {
           "path": "src/device_session.hpp",
@@ -1672,11 +1677,11 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "f16b95fc164954b4802b9b47805578db2184f504e795cfb45d6bbf1f0204b41e"
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "dde905acae38ed026509bd6131a6501bb6806f30021ef901e805f588e68784a3"
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
         },
         {
           "path": "src/device_session.hpp",
@@ -1714,11 +1719,11 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "f16b95fc164954b4802b9b47805578db2184f504e795cfb45d6bbf1f0204b41e"
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "dde905acae38ed026509bd6131a6501bb6806f30021ef901e805f588e68784a3"
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
         },
         {
           "path": "src/device_session.hpp",
@@ -1758,11 +1763,11 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "f16b95fc164954b4802b9b47805578db2184f504e795cfb45d6bbf1f0204b41e"
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "dde905acae38ed026509bd6131a6501bb6806f30021ef901e805f588e68784a3"
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
         },
         {
           "path": "src/device_session.hpp",
@@ -2158,7 +2163,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "4c2beb4f10456441f11766bef4a9ca24e4a9b13ba821b27a2e0a4bda023dc6f4"
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
         },
         {
           "path": "python/dialysislab/role_supervisor.py",
@@ -2203,7 +2208,7 @@
       "implementation": [
         {
           "path": "python/dialysislab/trajectory.py",
-          "sha256": "0cd9026cc01878f359cc1edef63b6915a41266b5e9c2fa56478e7e07730a72a1"
+          "sha256": "bec7e3ce0d42ffd88120fa7b3120dcb0ededeb9d1ac53c7208cb5ca3da2801ee"
         },
         {
           "path": "python/dialysislab/patient.py",
@@ -2215,7 +2220,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         },
         {
           "path": "tests/test_security.py",
@@ -2366,7 +2371,7 @@
         },
         {
           "path": "tools/ci_verify.py",
-          "sha256": "198034b149f4eaa93922dcf25e9a90c913cc58d4e722f539edd822e5e9aed09b"
+          "sha256": "e530965ec1afb14c9c8041173bc64d954563402ade06332d7900b06fc977aad0"
         },
         {
           "path": "tools/check_publication.py",
@@ -2374,7 +2379,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "49b0e10d17b11af641a3c0331093692f1c7eb89ccb34c0ceef8d2d5c7e4a273a"
+          "sha256": "872b95a108b55c85edcf4bf94c7b1f7c1aaa7e4717822817a71e8cae9ef7c95a"
         },
         {
           "path": "docs/dependencies/CI_NOTICES.md",
@@ -2390,7 +2395,7 @@
         },
         {
           "path": "tests/test_ci.py",
-          "sha256": "4194de39580beb6446cd39e5c1dfffa93fc66369f0d218ad29c6f3e569158da7"
+          "sha256": "04be4fde9608cf6e8d240d02cfcfe651e11fab68c5a070b9aa93275658d14c0d"
         }
       ],
       "unresolved": [
@@ -2425,7 +2430,7 @@
         },
         {
           "path": "tools/verify_models.py",
-          "sha256": "55c93dfd061ef6f114126f6265306bd6043223dea3129e68b2900e3cf745fdd5"
+          "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
         },
         {
           "path": "docs/M9_INTEGRATION.md",
@@ -2542,7 +2547,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "49b0e10d17b11af641a3c0331093692f1c7eb89ccb34c0ceef8d2d5c7e4a273a"
+          "sha256": "872b95a108b55c85edcf4bf94c7b1f7c1aaa7e4717822817a71e8cae9ef7c95a"
         }
       ],
       "unresolved": [
@@ -2575,7 +2580,7 @@
       "implementation": [
         {
           "path": "tools/ci_verify.py",
-          "sha256": "198034b149f4eaa93922dcf25e9a90c913cc58d4e722f539edd822e5e9aed09b"
+          "sha256": "e530965ec1afb14c9c8041173bc64d954563402ade06332d7900b06fc977aad0"
         },
         {
           "path": "docs/QUICKSTART.md",
@@ -2583,7 +2588,7 @@
         },
         {
           "path": "README.md",
-          "sha256": "67b86d6ac325d9a3471446aa6b7282a6cd32c0630fa4def9e19f3aa3fd37efd6"
+          "sha256": "91994442891bc1ad7c0b69dcbbcdbd78de832d26ed19e7f629a3cdc9662bb594"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -2654,7 +2659,7 @@
       "implementation": [
         {
           "path": "src/console/telemetry.hpp",
-          "sha256": "30f94a61e98dee4fee836064cb738a10a39521d658f21bac0d21f1df7a886f05"
+          "sha256": "634998b179ef689fe9c99c01980bdb4a451b1c80305b627fe1e37cfcf772a857"
         },
         {
           "path": "src/console/inspector.hpp",
@@ -2666,19 +2671,19 @@
         },
         {
           "path": "src/ui/synoptic.hpp",
-          "sha256": "3cb1c96963b831b5c862ca19e10402fcad7e5c135e6665782280114cd1a30004"
+          "sha256": "1070a4f5546aa700039f93b5f1b3a07a4132ddec109e753d6cf8881d7fe46cf4"
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "f16b95fc164954b4802b9b47805578db2184f504e795cfb45d6bbf1f0204b41e"
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         },
         {
           "path": "tests/test_inspection.py",
-          "sha256": "8913358ba6df5e84bc78e00824184f8b57a1410b50acceb53975dae06ef85e06"
+          "sha256": "39a9375822a845a775bc6c1752a09063366dc7028647cfab4359b1f6390a557f"
         },
         {
           "path": "docs/UI_INSPECTION.md",
-          "sha256": "2576afb3aaa722634971868ebff6fe3426fdf41a9b71d2a1ae20752597deb99e"
+          "sha256": "806d89e79bdb254877693e269bd09ae0f531e53d0b10c389563565df07313601"
         }
       ],
       "unresolved": [
@@ -2709,11 +2714,11 @@
       "implementation": [
         {
           "path": "src/machine.hpp",
-          "sha256": "4a07e83a39f8115609959f0c9e71b96c98cdf0d4dcecf70c6c7393db9bb6d740"
+          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         },
         {
           "path": "src/control.cpp",
@@ -2721,35 +2726,35 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "dde905acae38ed026509bd6131a6501bb6806f30021ef901e805f588e68784a3"
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "f16b95fc164954b4802b9b47805578db2184f504e795cfb45d6bbf1f0204b41e"
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         },
         {
           "path": "src/ui/guided.hpp",
-          "sha256": "92c9a09fb446090a55590e356b73183e1cafaae2564ebdd740c3d6fc3f3c9808"
+          "sha256": "429f6e1dd9799c6a04bfc6261305be810de504293194c4c7eec747485c481e18"
         },
         {
           "path": "src/ui/synoptic.hpp",
-          "sha256": "3cb1c96963b831b5c862ca19e10402fcad7e5c135e6665782280114cd1a30004"
+          "sha256": "1070a4f5546aa700039f93b5f1b3a07a4132ddec109e753d6cf8881d7fe46cf4"
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "08dbda6f538c39c8cfa327219246d04bf5ccb9f4eb47b48348ed2ddb17fb74ab"
+          "sha256": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3"
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "4c2beb4f10456441f11766bef4a9ca24e4a9b13ba821b27a2e0a4bda023dc6f4"
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
         },
         {
           "path": "python/dialysislab/compartments.py",
-          "sha256": "ff6d34cf2d803f8745371df9ad34efdcd62f0a52cce1afa83d6f25a0f5205d0a"
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         },
         {
           "path": "tools/verify_models.py",
-          "sha256": "55c93dfd061ef6f114126f6265306bd6043223dea3129e68b2900e3cf745fdd5"
+          "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
         },
         {
           "path": "tests/test_guided.py",
@@ -2757,7 +2762,7 @@
         },
         {
           "path": "tests/guided_view.cpp",
-          "sha256": "5ba9a506c813c272d751d3f2a5c56b7c59dd98e5e46bf64524065c5a6a27d298"
+          "sha256": "b12026437b481052f39754589f8a7b03a304f8350eeb6903627d57fd6d0ccfd2"
         },
         {
           "path": "tests/guided_plant.cpp",
@@ -2765,11 +2770,11 @@
         },
         {
           "path": "scenarios/device_guided.json",
-          "sha256": "f8da826720c58cb5a5def35a6f3819316c0b67ddd90feeed1147ea8bd1f79b4f"
+          "sha256": "277381ea309540e50b6ef594e4554cf6be31d0c6a296738d11245bb67feab81c"
         },
         {
           "path": "docs/GUIDED_TREATMENT.md",
-          "sha256": "42b97f16c8dd1f560371a485fd640939537252d7ea7d28fa09bf65c968a2f625"
+          "sha256": "577fe6cae58ef02b42ace10d7b50f914d749da86905144457b23a59312e0c691"
         },
         {
           "path": "tests/ui_regressions.py",
@@ -2806,11 +2811,11 @@
       "implementation": [
         {
           "path": "src/blood_physics.hpp",
-          "sha256": "3c94f7f60c97c393738bf123129f821c26e606d33930c96d7aa663abb7b85840"
+          "sha256": "a5ae40d3ef24ac42acffc8b0a984de60ad7d1063ea554f2e60ee1659c85c478b"
         },
         {
           "path": "src/circuit.hpp",
-          "sha256": "7fe233bcd08bb443311b322d32b714afb9de0280062822038c2120221134a3a8"
+          "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
         },
         {
           "path": "src/online.hpp",
@@ -2818,35 +2823,35 @@
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "4a07e83a39f8115609959f0c9e71b96c98cdf0d4dcecf70c6c7393db9bb6d740"
+          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "0fdb941b58d0f653fc795c2dfc46ae177d99912d4463da3e2ffa1206b7b865ab"
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "dde905acae38ed026509bd6131a6501bb6806f30021ef901e805f588e68784a3"
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
         },
         {
           "path": "src/ui/guided.hpp",
-          "sha256": "92c9a09fb446090a55590e356b73183e1cafaae2564ebdd740c3d6fc3f3c9808"
+          "sha256": "429f6e1dd9799c6a04bfc6261305be810de504293194c4c7eec747485c481e18"
         },
         {
           "path": "python/dialysislab/physical.py",
-          "sha256": "a8bbca67c52537d4c82d9eb53809fc3b4825f06850e14dd2863abbd895f1aa38"
+          "sha256": "dc63bd0179156c9e6360436ad0a50aaea7255b4f5b098db7bf5d07b3b4524802"
         },
         {
           "path": "python/dialysislab/compartments.py",
-          "sha256": "ff6d34cf2d803f8745371df9ad34efdcd62f0a52cce1afa83d6f25a0f5205d0a"
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "08dbda6f538c39c8cfa327219246d04bf5ccb9f4eb47b48348ed2ddb17fb74ab"
+          "sha256": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3"
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "4c2beb4f10456441f11766bef4a9ca24e4a9b13ba821b27a2e0a4bda023dc6f4"
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
         },
         {
           "path": "tests/physical_model.cpp",
@@ -2854,20 +2859,205 @@
         },
         {
           "path": "tests/test_physical.py",
-          "sha256": "3b145ac30bf89edae295a53020899973bb9400fc711befe999111b412b4f58d3"
+          "sha256": "b409789a9870c49b5bfefb384ffd4472e8c8f0332f620d080585f5390c22117e"
         },
         {
           "path": "tools/verify_models.py",
-          "sha256": "55c93dfd061ef6f114126f6265306bd6043223dea3129e68b2900e3cf745fdd5"
+          "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
         },
         {
           "path": "docs/PHYSICAL_MODEL.md",
-          "sha256": "a2432ad84da277dc1cc8e8843edb4a2357f77b9a9d4bd071a855e094904df201"
+          "sha256": "c72b9abe1bf687a9d2bbeb3b0ce6b8a69dd6861d68ed3761c928da18217aba93"
         }
       ],
       "unresolved": [
-        "Synthetic constitutive coefficients and operational bounds need calibration and independent review. Fixed chamber volumes; no gas-level dynamics, clotting, protein deposition, backfiltration or chemical sterilization efficacy.",
-        "Hosted physical-process acceptance pending for this revision."
+        "Synthetic rheology and operational coefficients require independent calibration/review; forward-only filtration and excluded clotting/hemolysis/chemistry remain model boundaries. Dynamic chamber/transport extensions are covered by DYN-REQ-001."
+      ]
+    },
+    {
+      "id": "DYN-REQ-001",
+      "statement": "Make chamber levels, dialysate control and blood/dialysate inventories evolve conservatively through the treatment lifecycle.",
+      "acceptance": "Preserve water, RBC, protein and six-solute inventories across HD/PRE/POST and rinseback. Differentiate pump, access and return flows. Use actual local retained blood properties for hydraulic coupling; expose levels and actuator states with bounded telemetry. Stop outputs on solver nonconvergence. Reference fits must separate fitting and holdout data and label uncalibrated parameters.",
+      "needs": [
+        "M7-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-003",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "DYN-DES-001"
+      ],
+      "tests": [
+        "DYN-TEST-001",
+        "DYN-TEST-002",
+        "DYN-TEST-003"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/DYNAMIC_MODEL.md",
+          "sha256": "558db2e3ef874f38af3fd0b7e82d4efdff75635ea0001d83c9a43446f6fa7c7e"
+        },
+        {
+          "path": "docs/GUIDED_TREATMENT.md",
+          "sha256": "577fe6cae58ef02b42ace10d7b50f914d749da86905144457b23a59312e0c691"
+        },
+        {
+          "path": "docs/M1_INTERFACES.md",
+          "sha256": "e5f0a2ded690d3d91ee54d5ee976c50f8d79507801b3ab17f1089f53220b004b"
+        },
+        {
+          "path": "docs/PHYSICAL_MODEL.md",
+          "sha256": "c72b9abe1bf687a9d2bbeb3b0ce6b8a69dd6861d68ed3761c928da18217aba93"
+        },
+        {
+          "path": "docs/UI_INSPECTION.md",
+          "sha256": "806d89e79bdb254877693e269bd09ae0f531e53d0b10c389563565df07313601"
+        },
+        {
+          "path": "docs/images/physical-circuit.svg",
+          "sha256": "dc48e04e15fbdea3c410ee4858f7a55bda69da7c2848a670eb7ac46cba985c68"
+        },
+        {
+          "path": "python/dialysislab/calibration.py",
+          "sha256": "cf120a8bc7c6aefb63e819bfe54ddecbeb4155c36b17e9d38b311b11545fe369"
+        },
+        {
+          "path": "python/dialysislab/circuit.py",
+          "sha256": "6c7e9b2cfdddd606b531e27dd523ef4e0a09ca510f178f18c18a61675750be13"
+        },
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
+        },
+        {
+          "path": "python/dialysislab/distributed.py",
+          "sha256": "ec592f0edc8c73e182dbf9cfb5610eeee84e586f87cdce24ba1a8e9b929b9b37"
+        },
+        {
+          "path": "python/dialysislab/machine.py",
+          "sha256": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3"
+        },
+        {
+          "path": "python/dialysislab/physical.py",
+          "sha256": "dc63bd0179156c9e6360436ad0a50aaea7255b4f5b098db7bf5d07b3b4524802"
+        },
+        {
+          "path": "python/dialysislab/protocol.py",
+          "sha256": "80cc249e00a98d3f7dbb3533b48c01e487cb36bbc5800b77cee940dcdf5d8cad"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
+        },
+        {
+          "path": "python/dialysislab/trajectory.py",
+          "sha256": "bec7e3ce0d42ffd88120fa7b3120dcb0ededeb9d1ac53c7208cb5ca3da2801ee"
+        },
+        {
+          "path": "references/dialyzer_benchmarks.json",
+          "sha256": "d01860387ac84b214566b50c16352eaf7d6b895f11ee90abe6abd2fd5ac94378"
+        },
+        {
+          "path": "scenarios/device_guided.json",
+          "sha256": "277381ea309540e50b6ef594e4554cf6be31d0c6a296738d11245bb67feab81c"
+        },
+        {
+          "path": "scenarios/physical_hd.json",
+          "sha256": "20a3e048740e3630608cbd1742de6c1a7ab4593377348abc1794fdd4ba3ad9eb"
+        },
+        {
+          "path": "scenarios/physical_hdf_post.json",
+          "sha256": "f7c15ff2e5e2bcaa80b4662bcf127e0c0da0d74b8b701637244bb07af7923e9f"
+        },
+        {
+          "path": "scenarios/physical_hdf_pre.json",
+          "sha256": "1a06a94afa107f72b8498306c6dee156fed2df0da2831899859cd9fa278b38f2"
+        },
+        {
+          "path": "src/blood_physics.hpp",
+          "sha256": "a5ae40d3ef24ac42acffc8b0a984de60ad7d1063ea554f2e60ee1659c85c478b"
+        },
+        {
+          "path": "src/circuit.hpp",
+          "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
+        },
+        {
+          "path": "src/console/telemetry.hpp",
+          "sha256": "634998b179ef689fe9c99c01980bdb4a451b1c80305b627fe1e37cfcf772a857"
+        },
+        {
+          "path": "src/dynamics.hpp",
+          "sha256": "f44dd6c7e6c2ddecd1cdfc466d28b26e60e70fb6869a184db85a1fbf94904993"
+        },
+        {
+          "path": "src/machine.hpp",
+          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
+        },
+        {
+          "path": "src/ui/guided.hpp",
+          "sha256": "429f6e1dd9799c6a04bfc6261305be810de504293194c4c7eec747485c481e18"
+        },
+        {
+          "path": "src/ui/synoptic.hpp",
+          "sha256": "1070a4f5546aa700039f93b5f1b3a07a4132ddec109e753d6cf8881d7fe46cf4"
+        },
+        {
+          "path": "tests/dynamic_model.cpp",
+          "sha256": "9fb5eb72715995debc1999a822e7ef369d3c5bd691d0fa03005dee14bdb94a37"
+        },
+        {
+          "path": "tests/guided_view.cpp",
+          "sha256": "b12026437b481052f39754589f8a7b03a304f8350eeb6903627d57fd6d0ccfd2"
+        },
+        {
+          "path": "tests/test_dynamics.py",
+          "sha256": "b5ac8f1ef084c3a3431bd206f2ed11175021a50297660fd1881aab3b2ee23412"
+        },
+        {
+          "path": "tests/test_inspection.py",
+          "sha256": "39a9375822a845a775bc6c1752a09063366dc7028647cfab4359b1f6390a557f"
+        },
+        {
+          "path": "tests/test_physical.py",
+          "sha256": "b409789a9870c49b5bfefb384ffd4472e8c8f0332f620d080585f5390c22117e"
+        },
+        {
+          "path": "tools/calibrate_models.py",
+          "sha256": "e68bdefc70826d6b5cc227aee8ae2484512806e7b86766c451e7504d06a0b0bf"
+        },
+        {
+          "path": "tools/ci_verify.py",
+          "sha256": "e530965ec1afb14c9c8041173bc64d954563402ade06332d7900b06fc977aad0"
+        },
+        {
+          "path": "tools/verify_models.py",
+          "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
+        },
+        {
+          "path": "tests/test_ci.py",
+          "sha256": "04be4fde9608cf6e8d240d02cfcfe651e11fab68c5a070b9aa93275658d14c0d"
+        }
+      ],
+      "unresolved": [
+        "Independent safety/clinical/usability review and physical calibration data remain required.",
+        "Full process, sanitizer and Docker execution is a hosted CI gate; local evidence is explicitly in-process."
       ]
     }
   ],
@@ -5494,6 +5684,58 @@
       ],
       "procedure": "Run PhysicalProcessTests on the socket-capable CI host with native and sanitized service binaries; independently verify retained physical trajectories.",
       "expected": "Complete three physical modality cycles through real RPC and verify all physical and patient ledgers.",
+      "result": "blocked",
+      "evidence": null
+    },
+    {
+      "id": "DYN-TEST-001",
+      "requirements": [
+        "DYN-REQ-001"
+      ],
+      "procedure": "Execute dynamic equations, complete HD/PRE/POST plant/patient cycles, independent trajectory balances, malformed/oversize rejection, streaming memory and actual LVGL/console checks.",
+      "expected": "All scoped numerical/software assertions pass with calibration limits explicitly retained.",
+      "result": "blocked",
+      "evidence": null,
+      "blocking_reason": "Candidate implementation outside the historical accepted baseline; execution evidence is retained separately.",
+      "candidate_execution_result": "passed",
+      "candidate_evidence": {
+        "path": "assurance/evidence/dynamic-model/report.json",
+        "sha256": "1d377d4116574c9512472cab9e04e687cffa8013098984eb20ff8139f25dbedc",
+        "baseline": "dynamic-model-local",
+        "run_id": "dynamic-model-2026-10-12",
+        "executed_at": "2026-10-12T14:20:35.484936+00:00",
+        "reviewer": "Codex execution; not independent safety review",
+        "environment": "Linux; in-process plant/patient and headless actual UI; AF_UNIX blocked locally"
+      }
+    },
+    {
+      "id": "DYN-TEST-002",
+      "requirements": [
+        "DYN-REQ-001"
+      ],
+      "procedure": "Fit selected public urea reference points at Qb 300, check held-out Qb 400 within the stated 5% comparison tolerance, and execute the exported largest profile in three modalities.",
+      "expected": "All scoped numerical/software assertions pass with calibration limits explicitly retained.",
+      "result": "blocked",
+      "evidence": null,
+      "blocking_reason": "Candidate implementation outside the historical accepted baseline; execution evidence is retained separately.",
+      "candidate_execution_result": "passed",
+      "candidate_evidence": {
+        "path": "assurance/evidence/dynamic-model/calibration.json",
+        "sha256": "04916ee6f687af7ca428b1c21d6b4dcfc241e83ed762d1a85ca17db8ad28a82e",
+        "baseline": "dynamic-model-local",
+        "run_id": "dynamic-model-2026-10-12",
+        "executed_at": "2026-10-12T14:20:35.484936+00:00",
+        "reviewer": "Codex execution; not independent safety review",
+        "environment": "Linux; in-process plant/patient and headless actual UI; AF_UNIX blocked locally"
+      }
+    },
+    {
+      "id": "DYN-TEST-003",
+      "requirements": [
+        "DYN-REQ-001"
+      ],
+      "procedure": "Run PhysicalProcessTests in native and sanitized CI; run all three physical modalities through Compose and verify retained trajectories.",
+      "expected": "Bounded real RPC and containers preserve lifecycle constraints and all physical/distributed ledgers.",
       "result": "blocked",
       "evidence": null
     }

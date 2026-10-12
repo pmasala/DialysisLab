@@ -7,7 +7,7 @@ from pathlib import Path
 import tempfile
 
 FORMAT = 'dialysislab.trajectory.jsonl.v1'
-MAX_RECORD_BYTES = 16384
+MAX_RECORD_BYTES = 32768
 
 
 def strict_json(raw):

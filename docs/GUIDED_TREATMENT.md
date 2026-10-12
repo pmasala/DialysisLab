@@ -112,7 +112,8 @@ retained explicitly; the return-volume target is not a guarantee of full recover
 
 `OBS9` adds the pre-pump pressure, flow-limitation status, dialysate pressure,
 heater power, remaining supplies and raw conductivity. The physical guided UI
-provides eighteen selectable trends. Patient hematocrit remains external to the
+provides eighteen selectable trends. `OBS10` adds chamber levels, drain and UF-pump flow,
+balancing displacement, bypass and valve phase; the dynamic model offers 24 trends. Patient hematocrit remains external to the
 device UI and cannot be prescribed there.
 
 Versioned `MACHINE8` and `OBS8` frames add phase timing, patient connection,

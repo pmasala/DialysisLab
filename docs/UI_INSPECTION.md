@@ -74,8 +74,8 @@ records stop playback with an error.
 ## Sampling and precision
 
 The live console observes the existing broker STATUS stream (approximately 5 Hz).
-It is not a recorder of every simulation tick. It retains at most 600 samples and
-512 numeric truth fields per sample; old samples are evicted. The complete run
+It is not a recorder of every simulation tick. It retains at most 300 samples and
+1024 numeric truth fields per sample; old samples are evicted. The complete run
 remains in `trajectory.jsonl`. Run/epoch changes and time rollback clear history.
 Disconnections and stale periods break plotted continuity. A paused experiment
 freezes virtual time and pump animation, while service liveness remains separate.

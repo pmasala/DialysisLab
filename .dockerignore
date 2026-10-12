@@ -86,3 +86,6 @@
 !scenarios/physical_hd.json
 !scenarios/physical_hdf_pre.json
 !scenarios/physical_hdf_post.json
+!src/dynamics.hpp
+!python/dialysislab/distributed.py
+!python/dialysislab/calibration.py

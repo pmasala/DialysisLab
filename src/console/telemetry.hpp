@@ -52,7 +52,7 @@ public:
 struct Sample {double seconds;long long sequence;std::map<std::string,double> numbers;bool gap=false;};
 class History {
 public:
-    static constexpr std::size_t capacity=600,max_metrics=512;
+    static constexpr std::size_t capacity=300,max_metrics=1024;
     std::deque<Sample> samples;
     std::string epoch,run;
     bool interrupted=false;

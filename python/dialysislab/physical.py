@@ -2,6 +2,8 @@
 from .circuit import keys, number, vector
 from .protocol import rpc, expect, real, integer, ProtocolError
 
+DYNAMIC_FIELDS='arterial_air_mL venous_air_mL level_gain_mL_s_mL gas_max_mL_s dialysate_compliance_mL_mmHg pump_tau_s sensor_tau_s pressure_gain_mL_min_mmHg uf_pump_max_mL_min balance_chamber_mL dialysate_volume_mL'
+
 BLOOD_FIELDS = ('arterial_diameter_mm arterial_length_mm venous_diameter_mm venous_length_mm '
                 'tube_diameter_mm arterial_tube_mm venous_tube_mm arterial_chamber_mL venous_chamber_mL '
                 'filter_mL filter_R kuf_mL_min_mmHg '
@@ -14,11 +16,15 @@ FLUID_FIELDS = ('acid_mL bicarbonate_g acid_installed bicarbonate_installed acid
 def validate(config):
     if 'guided' not in config:raise ValueError('physical model requires guided lifecycle')
     if any(f['target'].startswith('edge:') or f['target']=='resistance' for f in config['faults']):raise ValueError('use physical geometry; legacy edge faults are not supported')
-    p=config['physical'];keys(p,'blood fluid')
+    p=config['physical'];keys(p,'blood fluid'+(' dynamics' if 'dynamics' in p else ''))
+    if 'dynamics' in p:
+        keys(p['dynamics'],DYNAMIC_FIELDS)
+        for k,bounds in zip(DYNAMIC_FIELDS.split(),[(5,100),(5,100),(0,10),(0,10),(.01,1),(.05,5),(.01,5),(.1,20),(20,200),(5,100),(50,2000)]):number(p['dynamics'][k],*bounds)
     b=p['blood'];keys(b,BLOOD_FIELDS)
     ranges=[(.5,3),(5,100),(.5,3),(5,100),(2,8),(50,3000),(50,3000),(1,100),(1,100),
-            (1,250),(.01,2),(.01,1),(.4,.7),(.05,.6),(-500,0),(0,500),(.001,1),(0,100),(100,600)]
+            (1,250),(.01,2),(.01,2),(.4,.7),(.05,.6),(-500,0),(0,500),(.001,1),(0,100),(100,600)]
     for k,bounds in zip(BLOOD_FIELDS.split(),ranges):number(b[k],*bounds)
+    if 'dynamics' in p and p['dynamics']['dialysate_volume_mL']+p['dynamics']['dialysate_compliance_mL_mmHg']*b['dialysate_min_mmHg']<=1:raise ValueError('dialysate compliance exceeds inventory')
     h=config['patient'].get('hemodynamics')
     if not h:raise ValueError('physical scenario requires patient hemodynamics')
     if h['initial_hematocrit']>=b['max_filter_hct']:raise ValueError('initial hematocrit exceeds filter limit')
@@ -41,9 +47,13 @@ def configure(admin,config):
     expect(rpc(admin,'PHYSICAL9',*fields,h['initial_hematocrit'],h['protein_g_dL'],h['temperature_C']),'OK',1)
     fields=[int(p['fluid'][k]) if type(p['fluid'][k]) is bool else p['fluid'][k] for k in FLUID_FIELDS.split()]
     expect(rpc(admin,'FLUID9',*fields,*p['fluid']['acid_mmol_L']),'OK',1)
+    if 'dynamics' in p:expect(rpc(admin,'DYNAMICS10',*[p['dynamics'][k] for k in DYNAMIC_FIELDS.split()]),'OK',1)
 
 def update_blood(admin,snapshot):
     h=snapshot['hemodynamics']
+    if 'distributed' in snapshot:
+        values=[x for c in snapshot['distributed']['compartments'][2:14] for x in (c['hematocrit'],c['protein_g_dL'])]
+        expect(rpc(admin,'INVENTORY10',snapshot['sequence']+1,snapshot['time_ms'],*values),'OK',1)
     expect(rpc(admin,'BLOOD9',snapshot['sequence']+1,snapshot['time_ms'],h['hematocrit'],h['protein_g_dL'],h['temperature_C'],h['circuit_hematocrit'],h['circuit_protein_g_dL']),'OK',1)
 
 DIAGNOSTICS=('arterial_mmHg venous_mmHg prefilter_mmHg postfilter_mmHg dialysate_mmHg tmp_mmHg '
@@ -51,12 +61,19 @@ DIAGNOSTICS=('arterial_mmHg venous_mmHg prefilter_mmHg postfilter_mmHg dialysate
              'acid_remaining_mL bicarbonate_remaining_g heater_W conductivity_raw_mS_cm '
              'arterial_chamber_mL venous_chamber_mL filter_mL')
 def state(response):
+    dynamic=None
+    if 'DYNAMICS10' in response:
+        end=response.index('DYNAMICS10');dynamic=response[end+1:];response=response[:end]
+        if len(dynamic)!=15:raise ProtocolError('dynamic state schema')
     if len(response)!=1+2+17+1+12*5 or response[0]!='PHYSICS9':raise ProtocolError('physical state schema')
     result=dict(sequence=integer(response[1]),time_ms=integer(response[2]))
     result.update({name:real(x,-1e6,1e6) for name,x in zip(DIAGNOSTICS.split(),response[3:20])})
     result['limitation']=response[20]
     result['segments']=[dict(zip(('hematocrit','viscosity_mPa_s','blood_mmHg','uf_mL_min','oncotic_mmHg'),
         [real(x,-1e6,1e6) for x in response[21+i*5:26+i*5]])) for i in range(12)]
+    if dynamic is not None:
+        names='arterial_volume_mL venous_volume_mL arterial_level venous_level arterial_gas_mL_s venous_gas_mL_s feed_mL_min drain_mL_min uf_pump_mL_min sensed_dialysate_mmHg dialysate_storage_mL dialysate_residual_mL balance_position_mL balance_cycles bypass'
+        result['dynamics']=dict(zip(names.split(),[real(x,-1e9,1e9) for x in dynamic]))
     return result
 
 
@@ -74,19 +91,55 @@ def verify_record(record, config):
     qb=record['blood_mL_min'];uf=record['uf_mL_min'];sub=record['online']['replacement_mL_min']
     if abs(sum(s['uf_mL_min'] for s in p['segments'])-uf)>1e-5:raise ValueError('segment UF sum')
     if not b['dialysate_min_mmHg']-1e-6<=p['dialysate_mmHg']<=b['dialysate_max_mmHg']+1e-6:raise ValueError('dialysate pressure bound')
-    if not qb:return
+    if not qb and 'dynamics' not in p:return
     route=record['online']['mode'];q=qb+(sub if route=='HDF_PRE' else 0)
     cells=qb*p['inlet_hematocrit'];out=q-uf
-    if out<=0 or abs(p['outlet_hematocrit']*out-cells)>1e-5:raise ValueError('filter cell flux')
+    if qb and (out<=0 or abs(p['outlet_hematocrit']*out-cells)>1e-5):raise ValueError('filter cell flux')
     if p['outlet_hematocrit']>b['max_filter_hct']+1e-6:raise ValueError('filter hematocrit bound')
     if p['plasma_filtration_fraction']>b['max_plasma_filtration_fraction']+1e-6:raise ValueError('plasma filtration bound')
     if p['prefilter_mmHg']-p['arterial_mmHg']>b['pump_head_mmHg']+1e-5:raise ValueError('pump head bound')
     qd=config['transport']['dialysate_mL_min'] if record['machine']['guided']['integrated_stage']=='TREATMENT' and not record['machine']['alarm_mask'] else 0
+    if 'dynamics' in p:
+        d=p['dynamics'];qd=d['feed_mL_min']
+        if abs(d['dialysate_residual_mL'])>1e-5:raise ValueError('dialysate water ledger')
+        if 'distributed' not in record['patient']:raise ValueError('missing distributed inventory')
+        cells_record=record['patient']['distributed']['compartments']
+        if abs(sum(c['volume_mL'] for c in cells_record)-record['patient']['volume_mL'][2])>1e-7:raise ValueError('distributed volume summary')
+        if abs(sum(c['rbc_mL'] for c in cells_record)-h['circuit_rbc_mL'])>1e-7:raise ValueError('distributed RBC summary')
+        if abs(sum(c['protein_g'] for c in cells_record)-h['circuit_protein_g'])>1e-7:raise ValueError('distributed protein summary')
+        for cell in cells_record:
+            if abs(cell['hematocrit']*cell['volume_mL']-cell['rbc_mL'])>1e-7:raise ValueError('local hematocrit inventory')
+            if abs(cell['protein_g_dL']*(cell['volume_mL']-cell['rbc_mL'])/100-cell['protein_g'])>1e-7:raise ValueError('local protein inventory')
+        for j in range(6):
+            if abs(sum(c['volume_mL']*c['concentration_mmol_L'][j]/1000 for c in cells_record)-record['patient']['mass_mmol'][2][j])>1e-7:raise ValueError('distributed solute summary')
+    if not qb:return
     for i,s in enumerate(p['segments']):
         mid=q-s['uf_mL_min']/2
-        if abs(mid*s['hematocrit']-cells)>1e-5:raise ValueError('segment cell flux')
+        if 'dynamics' not in p and abs(mid*s['hematocrit']-cells)>1e-5:raise ValueError('segment cell flux')
         pd=p['dialysate_mmHg']+b['dialysate_R']*qd*(.5-(i+.5)/12)
-        expected=max(0,b['kuf_mL_min_mmHg']/12*(s['blood_mmHg']-s['oncotic_mmHg']-pd))
+        expected=0 if p.get('dynamics',{}).get('bypass') else max(0,b['kuf_mL_min_mmHg']/12*(s['blood_mmHg']-s['oncotic_mmHg']-pd))
         if abs(expected-s['uf_mL_min'])>1e-5:raise ValueError('segment Starling flux')
         if not math.isfinite(s['viscosity_mPa_s']) or s['viscosity_mPa_s']<=0:raise ValueError('viscosity domain')
         q-=s['uf_mL_min']
+
+
+def patient_configuration(config):
+    """Keep geometry in one scenario location; expand only the patient INIT frame."""
+    import copy,math
+    p=copy.deepcopy(config['patient'])
+    if 'dynamics' in config.get('physical',{}):
+        b=config['physical']['blood'];area=math.pi*(b['tube_diameter_mm']/2)**2/1000
+        p['extracorporeal']=dict(volumes_mL=[area*b['arterial_tube_mm'],b['arterial_chamber_mL']]+[b['filter_mL']/12]*12+[b['venous_chamber_mL'],area*b['venous_tube_mm']],
+            koa_mL_min=config['circuit']['profile']['koa_mL_min'],dialysate_volume_mL=config['physical']['dynamics']['dialysate_volume_mL'],
+            dialysate_mmol_L=config['transport']['dialysate_mmol_L'])
+    return p
+
+
+def attach_transaction(transaction,record,config):
+    d=record.get('physical',{}).get('dynamics')
+    if d is None:return
+    volumes=patient_configuration(config)['extracorporeal']['volumes_mL']
+    volumes[1]=d['arterial_volume_mL'];volumes[14]=d['venous_volume_mL']
+    transaction['distributed']=dict(volumes_mL=volumes,
+        filtration_mL=[s['uf_mL_min']*transaction['dt_ms']/60000 for s in record['physical']['segments']],
+        dialysate_mL_min=d['feed_mL_min'],dialysate_storage_mL=d['dialysate_storage_mL'],dialysate_drain_mL_min=d['drain_mL_min'],membrane_open=not bool(d['bypass']))

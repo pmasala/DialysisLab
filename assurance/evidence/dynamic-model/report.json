@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "baseline": "dynamic-model-local",
+  "run_id": "dynamic-model-2026-10-12",
+  "executed_at": "2026-10-12T14:20:35.484936+00:00",
+  "successful": true,
+  "tests_run": 41,
+  "source_sha256": {
+    "docs/DYNAMIC_MODEL.md": "558db2e3ef874f38af3fd0b7e82d4efdff75635ea0001d83c9a43446f6fa7c7e",
+    "docs/GUIDED_TREATMENT.md": "577fe6cae58ef02b42ace10d7b50f914d749da86905144457b23a59312e0c691",
+    "docs/M1_INTERFACES.md": "e5f0a2ded690d3d91ee54d5ee976c50f8d79507801b3ab17f1089f53220b004b",
+    "docs/PHYSICAL_MODEL.md": "c72b9abe1bf687a9d2bbeb3b0ce6b8a69dd6861d68ed3761c928da18217aba93",
+    "docs/UI_INSPECTION.md": "806d89e79bdb254877693e269bd09ae0f531e53d0b10c389563565df07313601",
+    "docs/images/physical-circuit.svg": "dc48e04e15fbdea3c410ee4858f7a55bda69da7c2848a670eb7ac46cba985c68",
+    "python/dialysislab/calibration.py": "cf120a8bc7c6aefb63e819bfe54ddecbeb4155c36b17e9d38b311b11545fe369",
+    "python/dialysislab/circuit.py": "6c7e9b2cfdddd606b531e27dd523ef4e0a09ca510f178f18c18a61675750be13",
+    "python/dialysislab/compartments.py": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75",
+    "python/dialysislab/distributed.py": "ec592f0edc8c73e182dbf9cfb5610eeee84e586f87cdce24ba1a8e9b929b9b37",
+    "python/dialysislab/machine.py": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3",
+    "python/dialysislab/physical.py": "dc63bd0179156c9e6360436ad0a50aaea7255b4f5b098db7bf5d07b3b4524802",
+    "python/dialysislab/protocol.py": "80cc249e00a98d3f7dbb3533b48c01e487cb36bbc5800b77cee940dcdf5d8cad",
+    "python/dialysislab/runner.py": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8",
+    "python/dialysislab/trajectory.py": "bec7e3ce0d42ffd88120fa7b3120dcb0ededeb9d1ac53c7208cb5ca3da2801ee",
+    "references/dialyzer_benchmarks.json": "d01860387ac84b214566b50c16352eaf7d6b895f11ee90abe6abd2fd5ac94378",
+    "scenarios/device_guided.json": "277381ea309540e50b6ef594e4554cf6be31d0c6a296738d11245bb67feab81c",
+    "scenarios/physical_hd.json": "20a3e048740e3630608cbd1742de6c1a7ab4593377348abc1794fdd4ba3ad9eb",
+    "scenarios/physical_hdf_post.json": "f7c15ff2e5e2bcaa80b4662bcf127e0c0da0d74b8b701637244bb07af7923e9f",
+    "scenarios/physical_hdf_pre.json": "1a06a94afa107f72b8498306c6dee156fed2df0da2831899859cd9fa278b38f2",
+    "src/blood_physics.hpp": "a5ae40d3ef24ac42acffc8b0a984de60ad7d1063ea554f2e60ee1659c85c478b",
+    "src/circuit.hpp": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b",
+    "src/console/telemetry.hpp": "634998b179ef689fe9c99c01980bdb4a451b1c80305b627fe1e37cfcf772a857",
+    "src/dynamics.hpp": "f44dd6c7e6c2ddecd1cdfc466d28b26e60e70fb6869a184db85a1fbf94904993",
+    "src/machine.hpp": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22",
+    "src/plant.cpp": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758",
+    "src/ui/client.hpp": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410",
+    "src/ui/device_ui.cpp": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e",
+    "src/ui/guided.hpp": "429f6e1dd9799c6a04bfc6261305be810de504293194c4c7eec747485c481e18",
+    "src/ui/synoptic.hpp": "1070a4f5546aa700039f93b5f1b3a07a4132ddec109e753d6cf8881d7fe46cf4",
+    "tests/dynamic_model.cpp": "9fb5eb72715995debc1999a822e7ef369d3c5bd691d0fa03005dee14bdb94a37",
+    "tests/guided_view.cpp": "b12026437b481052f39754589f8a7b03a304f8350eeb6903627d57fd6d0ccfd2",
+    "tests/test_dynamics.py": "b5ac8f1ef084c3a3431bd206f2ed11175021a50297660fd1881aab3b2ee23412",
+    "tests/test_inspection.py": "39a9375822a845a775bc6c1752a09063366dc7028647cfab4359b1f6390a557f",
+    "tests/test_physical.py": "b409789a9870c49b5bfefb384ffd4472e8c8f0332f620d080585f5390c22117e",
+    "tools/calibrate_models.py": "e68bdefc70826d6b5cc227aee8ae2484512806e7b86766c451e7504d06a0b0bf",
+    "tools/ci_verify.py": "e530965ec1afb14c9c8041173bc64d954563402ade06332d7900b06fc977aad0",
+    "tools/verify_models.py": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740",
+    "tests/test_ci.py": "04be4fde9608cf6e8d240d02cfcfe651e11fab68c5a070b9aa93275658d14c0d"
+  },
+  "commands": [
+    "PYTHONPATH=tests python3 -m unittest test_dynamics test_physical.PhysicalTests test_guided.GuidedUnitTests test_inspection.InspectionTests.test_nested_values_bounds_missing_samples_and_session_resets -v",
+    "PYTHONPATH=tests python3 -m unittest test_trajectory.TrajectoryTests.test_100000_records_rss_order_repeatability_and_hash test_trajectory.TrajectoryTests.test_short_writes_hash_exactly_the_written_bytes test_trajectory.TrajectoryTests.test_recovery_discards_only_an_incomplete_final_line -v",
+    "python3 tools/calibrate_models.py --output /tmp/dialysis-calibration-final --profile reference-fx100",
+    "PhysicalTests.test_in_process_physical_treatments with configuration() supplied by the exported reference-fx100 scenario; all three modalities",
+    "tools.verify_models.verify applied to the retained actual in-process captures; test metadata identified as in-process, not socket/Compose execution",
+    "PYTHONPATH=tests python3 -m unittest test_ci -v",
+    "PYTHONPATH=tests python3 -m unittest test_publication test_traceability -v"
+  ],
+  "output": {
+    "model_tests": "test_distributed_transit_delay_conservation_and_atomic_rejection (test_dynamics.DynamicsTests.test_distributed_transit_delay_conservation_and_atomic_rejection) ... ok\ntest_gas_pumps_balancing_and_independent_level_protection (test_dynamics.DynamicsTests.test_gas_pumps_balancing_and_independent_level_protection) ... ok\ntest_reference_holdout_and_discretization_are_reported (test_dynamics.DynamicsTests.test_reference_holdout_and_discretization_are_reported) ... ok\ntest_equations_and_limits (test_physical.PhysicalTests.test_equations_and_limits) ... ok\ntest_in_process_physical_treatments (test_physical.PhysicalTests.test_in_process_physical_treatments) ... ok\ntest_initial_hematocrit_and_geometry_are_configuration_only (test_physical.PhysicalTests.test_initial_hematocrit_and_geometry_are_configuration_only) ... ok\ntest_uf_hemoconcentration_refill_and_rbc_conservation (test_physical.PhysicalTests.test_uf_hemoconcentration_refill_and_rbc_conservation) ... ok\ntest_configuration_rejects_invalid_duration_and_sensor_position (test_guided.GuidedUnitTests.test_configuration_rejects_invalid_duration_and_sensor_position) ... ok\ntest_guided_machine_protocol_and_actual_lvgl_view (test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view) ... ok\ntest_in_process_hydraulics_complete_cycle_and_patient_transactions (test_guided.GuidedUnitTests.test_in_process_hydraulics_complete_cycle_and_patient_transactions) ... ok\ntest_return_salinity_body_gain_and_all_solute_balances (test_guided.GuidedUnitTests.test_return_salinity_body_gain_and_all_solute_balances) ... ok\ntest_nested_values_bounds_missing_samples_and_session_resets (test_inspection.InspectionTests.test_nested_values_bounds_missing_samples_and_session_resets) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 16.931s\n\nOK\n",
+    "storage_tests": "test_100000_records_rss_order_repeatability_and_hash (test_trajectory.TrajectoryTests.test_100000_records_rss_order_repeatability_and_hash) ... ok\ntest_short_writes_hash_exactly_the_written_bytes (test_trajectory.TrajectoryTests.test_short_writes_hash_exactly_the_written_bytes) ... ok\ntest_recovery_discards_only_an_incomplete_final_line (test_trajectory.TrajectoryTests.test_recovery_discards_only_an_incomplete_final_line) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 11.032s\n\nOK\n",
+    "exported_profile_tests": "test_in_process_physical_treatments (test_physical.PhysicalTests.test_in_process_physical_treatments) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 6.214s\n\nOK\n",
+    "ci_tests": "test_corruption_order_truncation_and_path_escape_are_rejected (test_ci.CITests.test_corruption_order_truncation_and_path_escape_are_rejected) ... ok\ntest_exact_byte_retention_includes_every_sbom_and_platform_file (test_ci.CITests.test_exact_byte_retention_includes_every_sbom_and_platform_file) ... ok\ntest_only_valid_outstanding_release_obligations_are_exempt (test_ci.CITests.test_only_valid_outstanding_release_obligations_are_exempt) ... ok\ntest_release_checker_crash_and_timeout_fail_actual_orchestration (test_ci.CITests.test_release_checker_crash_and_timeout_fail_actual_orchestration) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.051s\n\nOK\n",
+    "assurance_tests": "test_only_registered_encoder_profile_with_matching_digest_is_allowed (test_publication.OwnedCaptureChecks.test_only_registered_encoder_profile_with_matching_digest_is_allowed) ... ok\ntest_passive_diagram_and_ownership (test_publication.OwnedDiagramChecks.test_passive_diagram_and_ownership) ... ok\ntest_registered_svg_is_packaged_and_restricted_hash_still_rejected (test_publication.OwnedDiagramChecks.test_registered_svg_is_packaged_and_restricted_hash_still_rejected) ... ok\ntest_reject_active_external_or_unexpected_content (test_publication.OwnedDiagramChecks.test_reject_active_external_or_unexpected_content) ... ok\ntest_actual_context_is_explicit_reviewed_subset (test_publication.PublicationChecks.test_actual_context_is_explicit_reviewed_subset) ... ok\ntest_context_rejects_broad_inclusion (test_publication.PublicationChecks.test_context_rejects_broad_inclusion) ... ok\ntest_paths_symlinks_and_duplicates (test_publication.PublicationChecks.test_paths_symlinks_and_duplicates) ... ok\ntest_reject_binary_source_and_restricted_format (test_publication.PublicationChecks.test_reject_binary_source_and_restricted_format) ... ok\ntest_source_and_build_formats (test_publication.PublicationChecks.test_source_and_build_formats) ... ok\ntest_broken_bidirectional_link (test_traceability.TraceChecks.test_broken_bidirectional_link) ... ok\ntest_complete_synthetic_graph (test_traceability.TraceChecks.test_complete_synthetic_graph) ... ok\ntest_draft_cannot_pass_release (test_traceability.TraceChecks.test_draft_cannot_pass_release) ... ok\ntest_duplicate_id (test_traceability.TraceChecks.test_duplicate_id) ... ok\ntest_open_prerequisite (test_traceability.TraceChecks.test_open_prerequisite) ... ok\ntest_orphan_hazard (test_traceability.TraceChecks.test_orphan_hazard) ... ok\ntest_outside_root_artifact (test_traceability.TraceChecks.test_outside_root_artifact) ... ok\ntest_pass_without_evidence_is_error (test_traceability.TraceChecks.test_pass_without_evidence_is_error) ... ok\ntest_planned_test_is_not_pass (test_traceability.TraceChecks.test_planned_test_is_not_pass) ... ok\ntest_tampered_evidence (test_traceability.TraceChecks.test_tampered_evidence) ... ok\ntest_unknown_reference (test_traceability.TraceChecks.test_unknown_reference) ... ok\ntest_wrong_baseline (test_traceability.TraceChecks.test_wrong_baseline) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.017s\n\nOK\n"
+  },
+  "independent_records": [
+    {
+      "mode": "HD",
+      "records": 327,
+      "trajectory_sha256": "682350bf12bed3174590cc137d523b22fa60964869e680cf13e24bb1ae08f3e1",
+      "maximum_mass_error_mmol": 3.207156762385921e-11,
+      "maximum_water_error_mL": 8.204992241189757e-12
+    },
+    {
+      "mode": "HDF_POST",
+      "records": 327,
+      "trajectory_sha256": "14b1c79eee2bbb0ef72f87be1eaca61c74c456828c42d24093209bf6beb03769",
+      "maximum_mass_error_mmol": 2.734590331954223e-11,
+      "maximum_water_error_mL": 1.1652900866465643e-11
+    },
+    {
+      "mode": "HDF_PRE",
+      "records": 327,
+      "trajectory_sha256": "f60b461d9622045b6cbbb87c81ec6048ef2466f3128b4af4608b70bb967f6e91",
+      "maximum_mass_error_mmol": 2.7811197789162634e-11,
+      "maximum_water_error_mL": 1.1361578344804002e-11
+    }
+  ],
+  "gui": {
+    "build": "CMake Release build/gui; SDL_X11=OFF local profile; passed",
+    "device": "Actual headless LVGL rendered and inspected; circuit tabs and 24 trends",
+    "console": "Actual sim-console replayed distributed HDF_POST capture, retained samples and opened Inspector"
+  },
+  "sanitizers": {
+    "address_and_undefined": "Dynamic C++ regression passed with ASAN_OPTIONS=detect_leaks=0",
+    "leaks": "Blocked locally: LeakSanitizer cannot inspect /proc task state in this environment; full hosted sanitizer acceptance pending"
+  },
+  "limits": [
+    "In-process execution is not process/socket/container acceptance. Local AF_UNIX creation is denied.",
+    "Calibration is conditional in-vitro urea transport only; public table lacks complete test-fluid and uncertainty information.",
+    "No independent chamber, controller, rheology, conductivity or patient calibration measurements supplied.",
+    "No clinical validation, regulatory conformity or independent safety review claimed."
+  ]
+}

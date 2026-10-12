@@ -6,11 +6,13 @@
 #include <stdexcept>
 #include <vector>
 #include "blood_physics.hpp"
+#include "dynamics.hpp"
 
 namespace dl {
 struct CircuitEdge { int a, b; double resistance; int kind; bool closed; };
 struct Circuit {
     BloodPhysics physical;
+    FluidDynamics dynamics;
     int replacement_route=0;
     double replacement_request=0,net_request=0;
     static constexpr std::size_t solutes = 6;
@@ -82,14 +84,15 @@ struct Circuit {
         diffusion.fill(0); convection.fill(0); clearances.fill(0);
     }
     void advance(double demand, double uf_demand, double minutes, bool blocked) {
-        if (blocked) { isolate(); if(physical.enabled)physical.advance(0,0,0,0,0,true); return; }
+        if (blocked) { isolate(); if(physical.enabled){if(dynamics.enabled)dynamics.advance(physical,0,0,0,0,0,minutes,true);else physical.advance(0,0,0,0,0,true);} return; }
         if(physical.enabled) {
-            physical.advance(demand,replacement_request,net_request,replacement_route,dialysate,false);
+            if(dynamics.enabled)dynamics.advance(physical,demand,replacement_request,net_request,replacement_route,dialysate,minutes,false);
+            else physical.advance(demand,replacement_request,net_request,replacement_route,dialysate,false);
             pump=physical.qb;uf=physical.uf;sub_flow=replacement_route==1?physical.sub:0;
-            returned=pump+sub_flow-uf;stored=delta=0;
+            returned=dynamics.enabled?dynamics.returned:pump+sub_flow-uf;stored=dynamics.enabled?dynamics.stored:0;delta=dynamics.enabled?dynamics.delta:0;
             pressure[1]=physical.pre_pressure;pressure[2]=physical.post_pressure;pressure[3]=physical.arterial_pressure;
             flow[0]=(pump+sub_flow+returned)/2;flow[1]=returned;flow[2]=-pump;
-            draw_tick=pump*minutes;return_tick=returned*minutes;uf_tick=uf*minutes;
+            draw_tick=(dynamics.enabled?dynamics.draw:pump)*minutes;return_tick=returned*minutes;uf_tick=uf*minutes;
             for(std::size_t i=0;i<solutes;++i){
                 double plasma=pump*(1-physical.hct)+sub_flow;
                 clearances[i]=koa[i]>0 && plasma>0 && dialysate>0 ? 1/(1/koa[i]+1/plasma+1/dialysate):0;

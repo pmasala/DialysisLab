@@ -13,9 +13,10 @@ def message(*fields):
     return 'DL1 ' + ' '.join(format(x, '.17g') if isinstance(x, float) else str(x) for x in fields)
 
 
-def read_line(connection, deadline):
+def read_line(connection, deadline, limit=4096):
+    if limit not in (4096,32768):raise ProtocolError("unsupported frame budget")
     data = bytearray()
-    while len(data) < 4096:
+    while len(data) < limit:
         remaining = deadline - time.monotonic()
         if remaining <= 0:
             raise TimeoutError('RPC deadline')
@@ -35,7 +36,7 @@ def read_line(connection, deadline):
     raise ProtocolError('oversize')
 
 
-def rpc(path, *fields):
+def rpc(path, *fields, response_limit=4096):
     data = (message(*fields) + '\n').encode('ascii')
     if len(data) > 4096:
         raise ProtocolError('oversize')
@@ -44,7 +45,7 @@ def rpc(path, *fields):
         connection.settimeout(0.5)
         connection.connect(str(path))
         connection.sendall(data)
-        response = read_line(connection, deadline)
+        response = read_line(connection, deadline, response_limit)
     if not response or response[0] == 'ERR':
         raise ProtocolError('peer rejected request')
     return response

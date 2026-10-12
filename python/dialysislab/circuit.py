@@ -77,7 +77,7 @@ def validate(config, validate_m1):
         raise ValueError('profile identity/provenance')
     number(profile['resistance_mmHg_min_mL'], 0.01, 100)
     number(profile['kuf_mL_min_mmHg'], 0, 1)
-    vector(profile['koa_mL_min'], 0, 2000); vector(profile['sieving'], 0, 1)
+    vector(profile['koa_mL_min'], 0, 3000); vector(profile['sieving'], 0, 1)
     keys(transport, 'blood_mmol_L dialysate_mmol_L dialysate_mL_min')
     vector(transport['blood_mmol_L'], 0, 1000); vector(transport['dialysate_mmol_L'], 0, 1000)
     number(transport['dialysate_mL_min'], 0, 1000)
