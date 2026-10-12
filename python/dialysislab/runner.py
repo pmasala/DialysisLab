@@ -317,7 +317,13 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
                     m = physical['machine']
                     transaction.update(flush_in_mL=m['flush_in_tick_mL'], flush_out_mL=m['flush_out_tick_mL'],
                                        flush_mmol_L=o['concentration_mmol_L'])
-                    if m['stage'] in ('PRIMING', 'CLEANING'): transaction.update(draw_mL=0, return_mL=0)
+                    # Use committed boundary transfers, not the possibly advanced end-of-tick phase.
+                    transaction.update(draw_mL=max(0,c['draw_tick_mL']-m['flush_in_tick_mL']),
+                                       return_mL=max(0,c['return_tick_mL']-m['flush_out_tick_mL']))
+                    if 'guided' in m:
+                        g=m['guided'];rinse=bool(g['return_in_tick_mL'] or g['return_out_tick_mL'])
+                        transaction['rinseback']=rinse
+                        if rinse:transaction['flush_mmol_L']=[0,154,0,154,0,0]
                     physical['workflow_request'] = workflow_request
                 reply = expect(rpc(patient, 'ADVANCE5' if lifecycle else 'ADVANCE4' if online else 'ADVANCE3', canonical(transaction)), 'PATIENT5' if lifecycle else 'PATIENT4' if online else 'PATIENT3', 2)
                 patient_snapshot = validate_snapshot(strict_json(reply[1]), online, lifecycle)

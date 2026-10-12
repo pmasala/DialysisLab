@@ -1,0 +1,139 @@
+#pragma once
+// Presentation only: phase, timing and eligibility come from the machine view.
+#include "client.hpp"
+#include "synoptic.hpp"
+#include <functional>
+#include <deque>
+#include <map>
+namespace guided_ui {
+inline const char* stage_name(int stage) {
+    const char* names[]={"Prepare dialysate / start priming","Priming","Connect patient","Treatment","Treatment paused","Stopped","Recovery checks","Treatment ended / return blood","Disinfection cycle","Ready for next session","Initial tests","Patient connected / ready to start","Blood return","Disconnect patient","Patient disconnected","Recovery ready / confirm resume"};
+    return stage>=0 && stage<16?names[stage]:"Unavailable";
+}
+inline bool allowed(const dl::Machine& m,const std::string& action){
+    if(action=="STOP")return true;
+    if(action=="ACK" || action=="SILENCE")return m.mask!=0;
+    if(action=="PRESCRIBE" || action=="MODE")return m.rx_allowed();
+    auto copy=m;return (action=="RESET"?copy.reset():copy.transition(action))=="none";
+}
+inline std::string fixed(double x,int precision=1){std::ostringstream s;s<<std::fixed<<std::setprecision(precision)<<x;return s.str();}
+inline std::string clock(long long ms){auto seconds=std::max(0LL,ms)/1000;return std::to_string(seconds/3600)+":"+(seconds/60%60<10?"0":"")+std::to_string(seconds/60%60)+":"+(seconds%60<10?"0":"")+std::to_string(seconds%60);}
+struct Progress {double percent=0;long long remaining=-1;std::string detail="Awaiting operator confirmation";};
+inline Progress progress(const dl::Machine& m,const dl::MachineObservation& o,bool live){
+    Progress p;double total=0,done=0,rate=0;
+    if(m.stage==dl::self_test){int count=0;for(int i=0;i<7;++i)count+=(m.tests_passed>>i)&1;
+        p.percent=100*std::min(static_cast<double>(count)/7,static_cast<double>(m.phase_elapsed)/m.test_duration);
+        p.remaining=std::max(0LL,m.test_duration-m.phase_elapsed);p.detail="Initial checks: "+std::to_string(count)+" / 7";
+    }else if(m.stage==dl::priming || m.stage==dl::returning || m.stage==dl::cleaning){
+        total=m.stage==dl::returning?m.rinse_target:m.prime;done=m.stage==dl::returning?m.rinse_volume:m.phase_flush;rate=o.q.blood.blood;
+        p.percent=100*std::min(1.0,done/total);p.detail=fixed(done)+" / "+fixed(total)+" mL";
+        if(rate>0)p.remaining=static_cast<long long>(std::max(0.0,total-done)*60000/rate);
+        if(m.stage==dl::cleaning){p.percent=std::min(p.percent,100.0*m.phase_elapsed/m.clean_duration);if(p.remaining>=0)p.remaining=std::max(p.remaining,std::max(0LL,m.clean_duration-m.phase_elapsed));p.detail+=" | timed disinfection flush";}
+    }else if(m.stage==dl::treatment || m.stage==dl::paused || m.stage==dl::finished){
+        p.percent=100.0*std::min(m.duration,m.treatment_elapsed)/m.duration;p.remaining=m.stage==dl::treatment?std::max(0LL,m.duration-m.treatment_elapsed):-1;
+        p.detail="Treatment delivered "+clock(m.treatment_elapsed)+" / "+clock(m.duration);
+    }else if(m.stage==dl::cleaned){p.percent=100;p.remaining=0;p.detail="Cycle completed. Start a new simulation for the next session.";}
+    if(!live || m.mask || m.terminal){p.remaining=-1;p.detail+=" | progress held / verify alarms";}
+    return p;
+}
+struct View {
+    lv_obj_t *root,*phase,*phase_detail,*progress_bar,*time_label,*values,*infusion,*fluid,*blood,*uf,*alarm,*intent,*feedback,*prescription,*next_step;
+    lv_obj_t *pre_feed,*post_feed;
+    std::vector<std::unique_ptr<device_synoptic::Stroke>> infusion_lines;
+    lv_obj_t *home,*blood_page,*fluid_page,*trends_page,*rx_page,*chart,*trend_label;
+    std::array<lv_obj_t*,8> milestones{};
+    std::map<std::string,lv_obj_t*> widgets;
+    std::unique_ptr<device_synoptic::View> blood_circuit,fluid_circuit;
+    std::function<void(const std::string&)> callback;
+    lv_chart_series_t* series;
+    int page=0,metric=0;
+    std::deque<std::array<double,13>> history;
+    long long last_sequence=-1;
+    std::string latest_stage;
+    static lv_obj_t* label(lv_obj_t* parent,int x,int y,int w,const std::string& text){auto* o=lv_label_create(parent);lv_obj_set_pos(o,x,y);lv_obj_set_width(o,w);lv_label_set_text(o,text.c_str());return o;}
+    static void text(lv_obj_t* o,const std::string& s){lv_label_set_text(o,s.c_str());}
+    static lv_obj_t* panel(lv_obj_t* parent,int x,int y,int w,int h){auto* o=lv_obj_create(parent);lv_obj_set_pos(o,x,y);lv_obj_set_size(o,w,h);lv_obj_set_style_pad_all(o,12,0);lv_obj_set_style_text_color(o,lv_color_hex(0xeaf1f8),0);lv_obj_set_style_bg_color(o,lv_color_hex(0x172d40),0);lv_obj_set_style_border_width(o,0,0);lv_obj_set_scrollable(o,false);return o;}
+    lv_obj_t* button(lv_obj_t* parent,const std::string& id,const char* caption,int x,int y,int w=150){
+        auto* o=lv_button_create(parent);lv_obj_set_pos(o,x,y);lv_obj_set_size(o,w,38);lv_obj_set_style_bg_color(o,lv_color_hex(id=="STOP"?0xa6233c:0x276492),0);
+        auto* l=lv_label_create(o);lv_label_set_text(l,caption);lv_obj_center(l);widgets[id]=o;
+        lv_obj_add_event_cb(o,[](lv_event_t* event){auto* self=static_cast<View*>(lv_event_get_user_data(event));auto* target=lv_event_get_target_obj(event);if(lv_obj_is_hidden(target)||lv_obj_has_state(target,LV_STATE_DISABLED))return;for(const auto& pair:self->widgets)if(pair.second==target){self->callback(pair.first);return;}},LV_EVENT_CLICKED,this);return o;
+    }
+    explicit View(lv_obj_t* screen,std::function<void(const std::string&)> cb):callback(std::move(cb)){
+        root=panel(screen,0,0,1100,890);lv_obj_set_style_pad_all(root,0,0);lv_obj_set_style_bg_color(root,lv_color_hex(0x0d1b2a),0);lv_obj_set_style_text_font(root,&dialysis_font,0);lv_obj_set_style_text_color(root,lv_color_hex(0xeaf1f8),0);
+        label(root,22,18,900,"DIALYSISLAB  /  GUIDED TREATMENT                                   SIMULATION ONLY");
+        const char* ids[]={"HOME","BLOOD_TAB","FLUID_TAB","TRENDS_TAB","RX_TAB"};const char* captions[]={"Treatment","Extracorporeal","Hydraulics","Trends","Prescription"};
+        for(int i=0;i<5;++i)button(root,ids[i],captions[i],20+i*190,54,180);
+        const char* steps[]={"1 Tests","2 Priming","3 Connect","4 Therapy","5 Return","6 Disconnect","7 Disinfect","8 Ready"};
+        for(int i=0;i<8;++i)milestones[i]=label(root,22+i*134,110,132,steps[i]);
+        phase=label(root,22,151,1045,"Waiting for authoritative machine state");
+        progress_bar=lv_bar_create(root);lv_obj_set_pos(progress_bar,22,185);lv_obj_set_size(progress_bar,1038,12);lv_bar_set_range(progress_bar,0,1000);
+        phase_detail=label(root,22,210,1035,"");time_label=label(root,22,241,1035,"");
+        home=panel(root,20,282,1060,280);
+        fluid=label(home,12,8,500,"");blood=label(home,535,8,500,"");
+        // Compact state/flow indicators, deliberately not a full circuit diagram.
+        auto* dial_bar=lv_bar_create(home);lv_obj_set_pos(dial_bar,12,76);lv_obj_set_size(dial_bar,470,12);widgets["dial_flow"]=dial_bar;lv_bar_set_range(dial_bar,0,2000);
+        auto* blood_bar=lv_bar_create(home);lv_obj_set_pos(blood_bar,535,76);lv_obj_set_size(blood_bar,470,12);widgets["blood_flow"]=blood_bar;lv_bar_set_range(blood_bar,0,500);lv_obj_set_style_bg_color(blood_bar,lv_color_hex(0xe36a83),LV_PART_INDICATOR);
+        values=label(home,12,111,1000,"");infusion=label(home,12,161,450,"");
+        infusion_line(490,181,990,181,0xe36a83);
+        auto* dialyzer=panel(home,685,158,110,46);lv_obj_set_style_border_width(dialyzer,2,0);label(dialyzer,0,0,100,"Dialyzer");
+        pre_feed=infusion_line(590,141,590,181,0xb69bfb);post_feed=infusion_line(890,141,890,181,0xb69bfb);
+        label(home,510,134,75,"PRE");label(home,910,134,75,"POST");
+        uf=label(home,12,213,1000,"");
+        blood_page=panel(root,20,282,1060,280);fluid_page=panel(root,20,282,1060,280);
+        blood_circuit=std::make_unique<device_synoptic::View>(blood_page,1);
+        fluid_circuit=std::make_unique<device_synoptic::View>(fluid_page,2);
+        trends_page=panel(root,20,282,1060,280);button(trends_page,"GUIDED_TREND","Next quantity",840,5,180);
+        chart=lv_chart_create(trends_page);lv_obj_set_pos(chart,10,48);lv_obj_set_size(chart,1010,165);lv_chart_set_type(chart,LV_CHART_TYPE_SCATTER);lv_chart_set_point_count(chart,120);
+        series=lv_chart_add_series(chart,lv_color_hex(0x55c8e8),LV_CHART_AXIS_PRIMARY_Y);lv_chart_set_all_values(chart,series,LV_CHART_POINT_NONE);trend_label=label(trends_page,12,226,1000,"");
+        rx_page=panel(root,20,282,1060,280);prescription=label(rx_page,12,8,1000,"");
+        button(rx_page,"MODE","Mode",12,72,170);
+        const char* names[]={"blood","uf","sub"};const char* titles[]={"Blood mL/min","Net UF mL/min","Substitution mL/min"};
+        for(int i=0;i<3;++i){label(rx_page,220+i*265,60,250,titles[i]);auto* field=lv_textarea_create(rx_page);lv_obj_set_pos(field,220+i*265,92);lv_obj_set_size(field,230,45);lv_textarea_set_one_line(field,true);lv_textarea_set_max_length(field,12);lv_textarea_set_accepted_chars(field,"0123456789.-");widgets[names[i]]=field;}
+        button(rx_page,"PRESCRIBE","Review prescription",12,173,250);
+        label(rx_page,285,182,730,"Editing is available only before treatment or during a treatment pause.");
+        alarm=label(root,22,581,1040,"");next_step=label(root,22,625,1040,"");intent=label(root,22,687,1040,"");feedback=label(root,22,842,1040,"");
+        const char* actions[]={"PRIME","CONNECT","START","PAUSE","FINISH","RETURN","DISCONNECT","CLEAN","RECOVER","RESET","RESUME","STOP","ACK","SILENCE"};
+        const char* labels[]={"Start priming","Patient connected","Start treatment","Pause","End treatment","Return blood","Disconnected","Start disinfection","Recovery checks","Reset protection","Resume phase","STOP","Acknowledge","Silence"};
+        for(int i=0;i<14;++i){auto* b=button(root,actions[i],labels[i],20,775,180);lv_obj_set_hidden(b,std::string(actions[i])!="STOP");}
+        switch_page(0);lv_obj_set_hidden(root,true);
+    }
+    lv_obj_t* infusion_line(int x,int y,int a,int b,uint32_t color){
+        auto s=std::make_unique<device_synoptic::Stroke>();s->points={{{static_cast<lv_value_precise_t>(x),static_cast<lv_value_precise_t>(y)},{static_cast<lv_value_precise_t>(a),static_cast<lv_value_precise_t>(b)}}};
+        s->object=lv_line_create(home);lv_line_set_points_mutable(s->object,s->points.data(),2);lv_obj_set_style_line_color(s->object,lv_color_hex(color),0);lv_obj_set_style_line_width(s->object,4,0);auto* result=s->object;infusion_lines.push_back(std::move(s));return result;
+    }
+    void switch_page(int next){page=next;std::array<lv_obj_t*,5> pages{{home,blood_page,fluid_page,trends_page,rx_page}};for(int i=0;i<5;++i)lv_obj_set_hidden(pages[i],i!=page);}
+    void update(const dl::ui::View& v,bool live,const std::string& status,int combined_mask){
+        const auto& m=v.machine;const auto& o=v.observation;const auto& q=o.q;auto p=progress(m,o,live);
+        const char* instructions[]={"Dialysate preparation is running. Confirm Start priming when ready.","Priming fills the isolated circuit. Connection becomes available after the required volume.","Complete the simulated connection checks, then confirm Patient connected.","Monitor treatment. Pause or end treatment when required.","Treatment time is held. Review prescription or confirm Start treatment to continue.","Outputs stopped. Review the cause and request recovery checks.","Wait for safe observations, then explicitly reset protection.","Confirm Return blood to begin saline-driven restitution.","Patient is isolated. The simulated disinfection cycle is running.","Cycle complete. Launch a new session from the external simulation console.","Checking sensors, fluid quality, detectors, supply and blood pump response.","Review the prescription, then explicitly confirm Start treatment.","Saline enters the circuit; return flow is delivered to the patient model.","Return complete. Confirm patient disconnection before disinfection.","Patient disconnected. Confirm Start disinfection.","Protection reset. Confirm Resume phase; treatment never resumes automatically."};
+        text(next_step,combined_mask?"Protection active. Stop and inspect the alarm; recovery requires safe observations.":instructions[m.stage]);
+        latest_stage=stage_name(m.stage);text(phase,latest_stage+"   |   "+status);lv_bar_set_value(progress_bar,static_cast<int>(p.percent*10),LV_ANIM_OFF);
+        text(phase_detail,fixed(p.percent)+"%  |  "+p.detail);text(time_label,"Phase elapsed "+clock(m.phase_elapsed)+"     Remaining "+(p.remaining<0?"-- (waiting / held)":clock(p.remaining)));
+        int milestone=m.stage==dl::self_test?0:(m.stage==dl::preparation||m.stage==dl::priming)?1:(m.stage==dl::configuration||m.stage==dl::connected)?2:(m.stage==dl::treatment||m.stage==dl::paused)?3:(m.stage==dl::finished||m.stage==dl::returning)?4:m.stage==dl::disconnecting?5:(m.stage==dl::disconnected||m.stage==dl::cleaning)?6:m.stage==dl::cleaned?7:-1;
+        for(int i=0;i<8;++i)lv_obj_set_style_text_color(milestones[i],lv_color_hex(i==milestone?0x65d8f2:i<milestone?0x8bd2a4:0x8d9ca9),0);
+        auto val=[&](double x){return v.valid?fixed(x):std::string("--");};
+        text(fluid,"DIALYSATE  /  "+std::string(m.fluid_blocked()?"BYPASS / ISOLATED":"TO DIALYZER")+"\n"+val(o.dialysate_flow)+" mL/min   "+val(q.temperature)+" C   "+val(q.conductivity)+" mS/cm");
+        text(blood,"BLOOD FLOW\n"+val(q.blood.blood)+" mL/min  |  "+(m.patient_connected?"Patient connected":"Patient isolated"));
+        lv_bar_set_value(widgets.at("dial_flow"),v.valid?static_cast<int>(o.dialysate_flow):0,LV_ANIM_OFF);lv_bar_set_value(widgets.at("blood_flow"),v.valid?static_cast<int>(q.blood.blood):0,LV_ANIM_OFF);
+        text(values,"ARTERIAL  "+val(q.blood.pressure)+" mmHg        VENOUS  "+val(o.downstream)+" mmHg        DIALYZER TMP  "+val(o.tmp)+" mmHg");
+        text(infusion,std::string(m.mode==0?"HD / no substitution":m.mode==1?"HDF / predilution":"HDF / postdilution")+"\nInfusion "+val(q.replacement)+" mL/min");
+        lv_obj_set_hidden(pre_feed,m.mode!=1);lv_obj_set_hidden(post_feed,m.mode!=2);
+        text(uf,"Net UF meter "+val(o.uf_total-o.sub_total)+" / "+fixed(m.net_uf*m.duration/60000.0)+" mL goal  |  Patient weight: external simulator");
+        text(prescription,"Effective prescription: "+std::string(m.mode==0?"HD":m.mode==1?"HDF PRE":"HDF POST")+" | Blood "+fixed(m.blood)+" | Net UF "+fixed(m.net_uf)+" | Sub "+fixed(m.replacement)+" mL/min");
+        blood_circuit->update(live,m.time,q.blood.blood,q.blood.uf,q.blood.pressure,q.temperature,q.conductivity,q.replacement,status);
+        fluid_circuit->update(live,m.time,q.blood.blood,q.blood.uf,q.blood.pressure,q.temperature,q.conductivity,q.replacement,status);
+        auto eligible=m;eligible.mask|=combined_mask;
+        int column=0;
+        for(const char* id:{"PRIME","CONNECT","START","PAUSE","FINISH","RETURN","DISCONNECT","CLEAN","RECOVER","RESET","RESUME","STOP","ACK","SILENCE"}){
+            bool visible=std::string(id)=="STOP" || (live && allowed(eligible,id));auto* obj=widgets.at(id);lv_obj_set_hidden(obj,!visible);
+            if(visible){lv_obj_set_pos(obj,20+column*190,775);++column;}
+        }
+        bool edit=live && m.rx_allowed();for(const char* id:{"MODE","PRESCRIBE","blood","uf","sub"}){if(edit)lv_obj_remove_state(widgets.at(id),LV_STATE_DISABLED);else lv_obj_add_state(widgets.at(id),LV_STATE_DISABLED);}
+        std::string alarms=combined_mask?"PROTECTION ACTIVE: ":"No active protective constraints";
+        const char* names[]={"pressure","flow","air","blood leak","measurement","temperature","composition","filter","integrity","route","supply","balance","communication"};
+        for(int i=0;i<13;++i)if(combined_mask&(1<<i))alarms+=std::string(names[i])+"; ";
+        text(alarm,alarms);lv_obj_set_style_text_color(alarm,lv_color_hex(combined_mask?0xff8793:0x8bd2a4),0);
+        if(live && v.observation.q.blood.n!=last_sequence){if(v.observation.q.blood.n<last_sequence)history.clear();last_sequence=v.observation.q.blood.n;history.push_back({static_cast<double>(q.blood.t),q.blood.pressure,o.downstream,o.tmp,q.blood.blood,o.dialysate_flow,q.blood.uf,q.replacement,q.temperature,q.conductivity,q.filter_pressure,o.uf_total,o.uf_total-o.sub_total});if(history.size()>120)history.pop_front();}
+        if(!history.empty()){double lo=1e9,hi=-1e9;for(const auto& s:history){lo=std::min(lo,s[metric+1]);hi=std::max(hi,s[metric+1]);}lv_chart_set_all_values(chart,series,LV_CHART_POINT_NONE);lv_chart_set_axis_range(chart,LV_CHART_AXIS_PRIMARY_Y,static_cast<int32_t>(lo*100)-100,static_cast<int32_t>(hi*100)+100);lv_chart_set_axis_range(chart,LV_CHART_AXIS_PRIMARY_X,static_cast<int32_t>(history.front()[0]),static_cast<int32_t>(std::max(history.front()[0]+1,history.back()[0])));for(const auto& s:history)lv_chart_set_next_value2(chart,series,static_cast<int32_t>(s[0]),static_cast<int32_t>(s[metric+1]*100));const char* names[]={"Arterial mmHg","Venous mmHg","TMP mmHg","Blood mL/min","Dialysate mL/min","Gross UF mL/min","Substitution mL/min","Temperature C","Conductivity mS/cm","Filter pressure mmHg","UF meter mL","Net meter mL"};text(trend_label,std::string(names[metric])+"  "+fixed(lo)+".."+fixed(hi)+" | virtual time ms");}
+    }
+};
+}

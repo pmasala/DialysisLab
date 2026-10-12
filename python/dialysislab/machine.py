@@ -5,10 +5,11 @@ from .protocol import rpc, expect, integer, real, ProtocolError
 
 STAGES = ('PREPARATION', 'PRIMING', 'CONFIGURATION', 'TREATMENT', 'PAUSED', 'STOPPED',
           'RECOVERY', 'FINISHED', 'CLEANING', 'CLEANED')
+GUIDED_STAGES = STAGES + ('SELF_TEST', 'CONNECTED', 'RETURNING', 'DISCONNECTING', 'DISCONNECTED', 'RECOVERY_READY')
 ALARMS = ('pressure', 'low_flow', 'air', 'blood_leak', 'measurement', 'temperature',
           'composition', 'filter_pressure', 'integrity', 'route', 'supply', 'balance', 'communication')
 ACTIONS = ('PRIME', 'CONFIGURE', 'START', 'PAUSE', 'STOP', 'RECOVER', 'FINISH', 'CLEAN',
-           'COMPLETE', 'RESET', 'ACK', 'SILENCE', 'PRESCRIBE')
+           'COMPLETE', 'RESET', 'ACK', 'SILENCE', 'PRESCRIBE', 'CONNECT', 'RETURN', 'DISCONNECT', 'RESUME')
 FAULT_RANGES = {'air': (0, 1), 'leak': (0, 1), 'air_stuck': (0, 1), 'leak_stuck': (0, 1),
                 'supply_stuck': (0, 1), 'pump_stalled': (0, 1), 'meter_bias': (0, 1000)}
 
@@ -16,9 +17,15 @@ FAULT_RANGES = {'air': (0, 1), 'leak': (0, 1), 'air_stuck': (0, 1), 'leak_stuck'
 def validate(config, validate_treatment):
     if config.get('model') != 'm5-device-1' or type(config['schema_version']) is not int:
         raise ValueError('device version/model')
-    base = {k: v for k, v in config.items() if k != 'workflow'}
+    base = {k: v for k, v in config.items() if k not in ('workflow', 'guided')}
     base.update(schema_version=4, model='m4-treatment-1', faults=[])
     validate_treatment(base)
+    if 'guided' in config:
+        guided=config['guided'];keys(guided,'test_ms treatment_ms disinfection_ms return_mL')
+        index(guided['test_ms'],1,600000);index(guided['treatment_ms'],1,86400000)
+        index(guided['disinfection_ms'],1,3600000);number(guided['return_mL'],10,1000)
+        edge=config['circuit']['edges'][config['circuit']['dialyzer_edge']]
+        if config['circuit']['sensor_node']!=edge[0]:raise ValueError('guided arterial sensor must be at dialyzer inlet')
     if not isinstance(config.get('workflow'), list) or len(config['workflow']) > 1000:
         raise ValueError('bounded workflow list')
     previous = -1
@@ -58,6 +65,9 @@ def configure(admin, config):
     expect(rpc(admin, 'MACHINE5', config['blood_mL_min'], config['uf_mL_min'],
                config['treatment']['replacement_mL_min'], config['pressure_limit_mmHg'],
                config['patient']['prime_mL']), 'OK', 1)
+    if 'guided' in config:
+        g=config['guided']
+        expect(rpc(admin,'GUIDED8',g['test_ms'],g['treatment_ms'],g['disinfection_ms'],g['return_mL']),'OK',1)
 
 
 def request(runtime, event, scheduled=False):
@@ -78,19 +88,22 @@ def request(runtime, event, scheduled=False):
 
 
 def observation(response):
-    expect(response, 'OBS5', 19)
+    extended=response[0]=='OBS8'
+    expect(response,'OBS8' if extended else 'OBS5',21 if extended else 19)
     result = treatment.observation(['OBS4', *response[1:13]])
     for name, value, high in zip(('downstream_mmHg', 'air_signal', 'leak_signal', 'measured_uf_mL', 'measured_substitution_mL'),
                                response[13:18], (1000, 1, 1, 1e9, 1e9)):
         result[name] = real(value, 0, high)
     result['supply_ready'] = integer(response[18], 1)
+    if extended:result.update(dialysate_mL_min=real(response[19],0,2000),tmp_mmHg=real(response[20],0,1000))
     return result
 
 
 def metadata(response):
-    expect(response, 'MACHINE5', 26)
+    guided=response[0]=='MACHINE8'
+    expect(response,'MACHINE8' if guided else 'MACHINE5',40 if guided else 26)
     result = dict(sequence=integer(response[1], 99999), time_ms=integer(response[2]),
-                  stage=STAGES[integer(response[3], 9)], mode=treatment.MODES[integer(response[4], 2)])
+                  stage=(GUIDED_STAGES if guided else STAGES)[integer(response[3],15 if guided else 9)], mode=treatment.MODES[integer(response[4], 2)])
     for name, value, high in zip(('blood_prescribed_mL_min', 'net_uf_prescribed_mL_min', 'replacement_prescribed_mL_min',
                                   'pressure_limit_mmHg', 'prime_mL'), response[5:10], (500, 20, 120, 1000, 1000)):
         result[name] = real(value, 0, high)
@@ -101,14 +114,22 @@ def metadata(response):
     for name, value in zip(('phase_flush_mL', 'flush_in_mL', 'flush_out_mL', 'expected_net_mL', 'measured_net_mL',
                            'flush_in_tick_mL', 'flush_out_tick_mL'), response[19:26]):
         result[name] = real(value, -1e9 if 'net' in name else 0, 1e9)
+    if guided:
+        names=('phase_elapsed_ms','treatment_elapsed_ms','duration_ms','test_duration_ms','disinfection_duration_ms')
+        result['guided']={name:integer(value) for name,value in zip(names,response[26:31])}
+        result['guided'].update(return_target_mL=real(response[31],10,1000),returned_mL=real(response[32],0,1e9),
+            resume_stage=GUIDED_STAGES[integer(response[33],15)],patient_connected=bool(integer(response[34],1)),
+            return_in_tick_mL=real(response[35],0,100000),return_out_tick_mL=real(response[36],0,100000),tests_passed=integer(response[37],127),primed=bool(integer(response[38],1)),integrated_stage=GUIDED_STAGES[integer(response[39],15)])
     result['alarms'] = [name for i, name in enumerate(ALARMS) if result['alarm_mask'] & (1 << i)]
     result['annunciating'] = bool(result['alarm_mask'] & ~result['acknowledged_mask']) and result['time_ms'] >= result['silence_until_ms']
     return result
 
 
 def committed(response):
-    if not response or response[0] != 'COMMITTED5' or 'MACHINE5' not in response: raise ProtocolError('commit5 schema')
-    split = response.index('MACHINE5')
+    if not response or response[0]!='COMMITTED5':raise ProtocolError('commit5 schema')
+    tag='MACHINE8' if 'MACHINE8' in response else 'MACHINE5'
+    if tag not in response:raise ProtocolError('commit5 machine schema')
+    split=response.index(tag)
     result = treatment.committed(['COMMITTED4', *response[1:split]])
     result['machine'] = metadata(response[split:])
     return result
@@ -116,8 +137,12 @@ def committed(response):
 
 def view(response):
     expect(response[:1], 'VIEW5', 1)
-    if len(response) != 50: raise ProtocolError('device view size')
-    result = dict(machine=metadata(response[1:27]), observation=observation(response[27:46]))
-    expect(response[46:], 'INTENT5', 4)
-    result['intent'] = dict(id=integer(response[47]), state=response[48], result=response[49])
+    if len(response)<2:raise ProtocolError('device view size')
+    m_end=41 if response[1]=='MACHINE8' else 27
+    if len(response)<=m_end:raise ProtocolError('device view size')
+    o_end=m_end+(21 if response[m_end]=='OBS8' else 19)
+    if len(response)!=o_end+4:raise ProtocolError('device view size')
+    result=dict(machine=metadata(response[1:m_end]),observation=observation(response[m_end:o_end]))
+    expect(response[o_end:],'INTENT5',4)
+    result['intent']=dict(id=integer(response[o_end+1]),state=response[o_end+2],result=response[o_end+3])
     return result

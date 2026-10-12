@@ -129,6 +129,33 @@ class DeviceUiTests(unittest.TestCase):
         for _ in range(4): f.step()
         return ui.until(lambda s: s['control'] == s['protection'] == 'LIVE', f)
 
+    def test_guided_widgets_follow_connection_return_and_disinfection(self):
+        with LocalCluster(BUILD) as cluster:
+            f=DeviceFixture(cluster)
+            self.assertEqual(rpc(f.admin,'GUIDED8',500,1000,500,10),['OK'])
+            ui=self.launch(cluster,'guided-cycle');self.ready(ui,f)
+            ui.until(lambda s:s.get('guided') and s.get('stage')=='PREPARATION',f)
+            self.assertEqual(ui.snapshot()['page'],0)
+            ui.click('PRIME',f);ui.until(lambda s:s.get('stage')=='PRIMING',f)
+            for _ in range(90):f.step()
+            ui.until(lambda s:s.get('stage')=='CONFIGURATION',f)
+            ui.send('CLICK CLEAN')
+            self.assertFalse(ui.snapshot()['pending'])
+            ui.click('CONNECT',f);ui.until(lambda s:s.get('stage')=='CONNECTED',f)
+            ui.click('START',f);ui.until(lambda s:s.get('stage')=='TREATMENT',f)
+            for tab,page in [('BLOOD_TAB',1),('FLUID_TAB',2),('TRENDS_TAB',3),('HOME',0)]:
+                ui.send('CLICK '+tab)
+                ui.until(lambda s:s.get('page')==page,f,stepping=False)
+            ui.until(lambda s:s.get('stage')=='FINISHED',f)
+            ui.click('RETURN',f);ui.until(lambda s:s.get('stage')=='RETURNING',f)
+            for _ in range(90):f.step()
+            ui.until(lambda s:s.get('stage')=='DISCONNECTING',f)
+            ui.click('DISCONNECT',f);ui.until(lambda s:s.get('stage')=='DISCONNECTED',f)
+            ui.click('CLEAN',f);ui.until(lambda s:s.get('stage')=='CLEANING',f)
+            for _ in range(90):f.step()
+            ui.until(lambda s:s.get('stage')=='CLEANED',f)
+            ui.snapshot('guided-complete')
+
     def test_real_widgets_prescription_confirm_and_treatment_all_modes(self):
         for mode in range(3):
             with self.subTest(mode=mode), LocalCluster(BUILD) as cluster:

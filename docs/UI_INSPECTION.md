@@ -7,6 +7,10 @@ balances. Their permissions remain separate.
 
 ## Machine interface
 
+The default interactive scenario now uses the [guided treatment screen](GUIDED_TREATMENT.md):
+home follows the treatment phase; extracorporeal and hydraulic circuits have separate tabs.
+The monitor described below remains available for historical scenarios without `guided`.
+
 The LVGL monitor opens on a blood/fluid synoptic. The pump markers change orientation
 with reported flow and virtual time. They are illustrative flow activity, not a
 measurement of rotor speed. Invalid or missing measurements display `--`; stale

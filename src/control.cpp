@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
                 if (op=="CONFIRM5") { auto token=r.integer(); r.end(); return intent.confirm(token); }
                 if (op=="REQUEST5") {
                     auto action=r.take(); r.end();
-                    const std::vector<std::string> allowed={"PRIME","CONFIGURE","START","PAUSE","RECOVER","FINISH","CLEAN","COMPLETE"};
+                    const std::vector<std::string> allowed={"PRIME","CONFIGURE","START","PAUSE","RECOVER","FINISH","CLEAN","COMPLETE","CONNECT","RETURN","DISCONNECT","RESUME"};
                     if (std::find(allowed.begin(),allowed.end(),action)==allowed.end()) return std::string("DL1 REJECT action");
                     return intent.request(action);
                 }

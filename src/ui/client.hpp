@@ -17,8 +17,8 @@ inline bool valid_session(const std::string& text) {
 }
 inline View parse_view(const std::string& response,const std::string& session) {
     Tokens r(response); require(r.take()=="VIEW6" && r.take()==session);
-    std::string machine="DL1"; for(int i=0;i<26;++i) machine+=' '+r.take();
-    std::string observation="DL1"; for(int i=0;i<19;++i) observation+=' '+r.take();
+    std::string tag=r.take(),machine="DL1 "+tag; for(int i=1;i<(tag=="MACHINE8"?40:26);++i) machine+=' '+r.take();
+    tag=r.take(); std::string observation="DL1 "+tag; for(int i=1;i<(tag=="OBS8"?21:19);++i) observation+=' '+r.take();
     View v; v.machine=machine_metadata(machine);
     usable5(observation,v.machine.sequence,v.machine.time,v.observation);
     const auto& sensor=v.observation.q.blood;

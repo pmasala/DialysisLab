@@ -41,3 +41,5 @@ its limitations. Licensed standards themselves are not distributed here.
 For project history, use [decisions](DECISIONS.md), [milestones](MILESTONES.md)
 and [review records](../assurance/REVIEWS.md). Historical evidence describes the
 revision at which it was collected; it is not automatically evidence for a later change.
+
+- [Guided treatment](GUIDED_TREATMENT.md): follow the phase sequence and understand progress indicators.

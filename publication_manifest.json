@@ -570,7 +570,19 @@
     "tools/verify_models.py",
     "tools/verify_package.py",
     "tools/verify_reproducibility.py",
-    "tools/verify_ui_compose.py"
+    "tools/verify_ui_compose.py",
+    "src/ui/guided.hpp",
+    "scenarios/device_guided.json",
+    "tests/guided_view.cpp",
+    "tests/guided_plant.cpp",
+    "tests/test_guided.py",
+    "docs/GUIDED_TREATMENT.md",
+    "assurance/evidence/guided-workflow/README.md",
+    "assurance/evidence/guided-workflow/tests.md",
+    "assurance/evidence/guided-workflow/extracorporeal.png",
+    "assurance/evidence/guided-workflow/report.json",
+    "assurance/evidence/guided-workflow/home.png",
+    "assurance/evidence/guided-workflow/hydraulics.png"
   ],
   "owned_assets": {
     "assurance/evidence/m6/captures/hd.png": {
@@ -705,6 +717,21 @@
       "origin": "project-rendered-ui",
       "command": "build/gui/sim-console --headless --test-input --recorded assurance/evidence/m7/console-compose/rf932bb95946f35f9/data/trajectory.jsonl",
       "sha256": "341aa4110ef3f4a2995bec2ccedd2fff14cdab520a135d63992604775fcdf43e"
+    },
+    "assurance/evidence/guided-workflow/extracorporeal.png": {
+      "origin": "project-rendered-ui",
+      "command": "PYTHONPATH=tests DIALYSISLAB_GUIDED_CAPTURES=build/guided-evidence python3 -m unittest test_guided.GuidedUnitTests -v",
+      "sha256": "929e11a054661f359dc04c891a08f5e35eae1772878f5b4569f25ba69aaeedea"
+    },
+    "assurance/evidence/guided-workflow/home.png": {
+      "origin": "project-rendered-ui",
+      "command": "PYTHONPATH=tests DIALYSISLAB_GUIDED_CAPTURES=build/guided-evidence python3 -m unittest test_guided.GuidedUnitTests -v",
+      "sha256": "242fff940b0f9989082fc3aa268f1871a8136b780756cb51be94ea3723f1e416"
+    },
+    "assurance/evidence/guided-workflow/hydraulics.png": {
+      "origin": "project-rendered-ui",
+      "command": "PYTHONPATH=tests DIALYSISLAB_GUIDED_CAPTURES=build/guided-evidence python3 -m unittest test_guided.GuidedUnitTests -v",
+      "sha256": "8034afa075e0fd33bb1573575ebf2bd0ffc670981f942ff15464fec509e9ae38"
     }
   }
 }
