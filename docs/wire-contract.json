@@ -1,0 +1,3867 @@
+{
+  "schema_version": 1,
+  "scope": "Current guided/physical/dynamic fixed-field DL1 contracts. Composite, initialization and JSON contracts are defined in WIRE_PROTOCOL.md. No change to runtime parsers.",
+  "sources": [
+    "python/dialysislab/machine.py",
+    "python/dialysislab/physical.py",
+    "src/blood_physics.hpp",
+    "src/control.cpp",
+    "src/device_session.hpp",
+    "src/dynamics.hpp",
+    "src/machine.hpp",
+    "src/online.hpp",
+    "src/plant.cpp",
+    "src/protection.cpp",
+    "src/wire.hpp"
+  ],
+  "messages": [
+    {
+      "id": "physical-request",
+      "tag": "PHYSICAL9",
+      "endpoint": "admin/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "arterial_diameter_mm",
+          "type": "real",
+          "unit": "mm",
+          "bounds": [
+            0.5,
+            3
+          ]
+        },
+        {
+          "name": "arterial_length_mm",
+          "type": "real",
+          "unit": "mm",
+          "bounds": [
+            5,
+            100
+          ]
+        },
+        {
+          "name": "venous_diameter_mm",
+          "type": "real",
+          "unit": "mm",
+          "bounds": [
+            0.5,
+            3
+          ]
+        },
+        {
+          "name": "venous_length_mm",
+          "type": "real",
+          "unit": "mm",
+          "bounds": [
+            5,
+            100
+          ]
+        },
+        {
+          "name": "tube_diameter_mm",
+          "type": "real",
+          "unit": "mm",
+          "bounds": [
+            2,
+            8
+          ]
+        },
+        {
+          "name": "arterial_tube_mm",
+          "type": "real",
+          "unit": "mm",
+          "bounds": [
+            50,
+            3000
+          ]
+        },
+        {
+          "name": "venous_tube_mm",
+          "type": "real",
+          "unit": "mm",
+          "bounds": [
+            50,
+            3000
+          ]
+        },
+        {
+          "name": "arterial_chamber_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            1,
+            100
+          ]
+        },
+        {
+          "name": "venous_chamber_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            1,
+            100
+          ]
+        },
+        {
+          "name": "filter_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            1,
+            250
+          ]
+        },
+        {
+          "name": "filter_R",
+          "type": "real",
+          "unit": "mmHg min/mL",
+          "bounds": [
+            0.01,
+            2
+          ]
+        },
+        {
+          "name": "kuf_mL_min_mmHg",
+          "type": "real",
+          "unit": "mL/min/mmHg",
+          "bounds": [
+            0.01,
+            2
+          ]
+        },
+        {
+          "name": "max_filter_hct",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0.4,
+            0.7
+          ]
+        },
+        {
+          "name": "max_plasma_filtration_fraction",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0.05,
+            0.6
+          ]
+        },
+        {
+          "name": "dialysate_min_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -500,
+            0
+          ]
+        },
+        {
+          "name": "dialysate_max_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            500
+          ]
+        },
+        {
+          "name": "dialysate_R",
+          "type": "real",
+          "unit": "mmHg min/mL",
+          "bounds": [
+            0.001,
+            1
+          ]
+        },
+        {
+          "name": "access_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            100
+          ]
+        },
+        {
+          "name": "pump_head_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            100,
+            600
+          ]
+        },
+        {
+          "name": "initial_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0.1,
+            0.6
+          ]
+        },
+        {
+          "name": "protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            1,
+            15
+          ]
+        },
+        {
+          "name": "temperature_C",
+          "type": "real",
+          "unit": "degC",
+          "bounds": [
+            30,
+            42
+          ]
+        }
+      ],
+      "condition": "Administrator only, configured circuit/online fluid, before first PREPARE and before MACHINE5; once per fresh process. Initial Hct < maximum filter Hct; replaces legacy graph geometry.",
+      "reply": "OK"
+    },
+    {
+      "id": "fluid-request",
+      "tag": "FLUID9",
+      "endpoint": "admin/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "acid_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            20000
+          ]
+        },
+        {
+          "name": "bicarbonate_g",
+          "type": "real",
+          "unit": "g",
+          "bounds": [
+            0,
+            2000
+          ]
+        },
+        {
+          "name": "acid_installed",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "bicarbonate_installed",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "acid_fraction",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.1
+          ]
+        },
+        {
+          "name": "bicarbonate_fraction",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.2
+          ]
+        },
+        {
+          "name": "bicarbonate_stock_mmol_L",
+          "type": "real",
+          "unit": "mmol/L",
+          "bounds": [
+            100,
+            1500
+          ]
+        },
+        {
+          "name": "dissolution_g_min",
+          "type": "real",
+          "unit": "g/min",
+          "bounds": [
+            0,
+            100
+          ]
+        },
+        {
+          "name": "heater_max_W",
+          "type": "real",
+          "unit": "W",
+          "bounds": [
+            0,
+            5000
+          ]
+        },
+        {
+          "name": "heater_capacity_J_K",
+          "type": "real",
+          "unit": "J/K",
+          "bounds": [
+            1,
+            10000
+          ]
+        },
+        {
+          "name": "heater_loss_W_K",
+          "type": "real",
+          "unit": "W/K",
+          "bounds": [
+            0,
+            100
+          ]
+        },
+        {
+          "name": "ambient_C",
+          "type": "real",
+          "unit": "degC",
+          "bounds": [
+            0,
+            50
+          ]
+        },
+        {
+          "name": "heater_gain_W_K",
+          "type": "real",
+          "unit": "W/K",
+          "bounds": [
+            0,
+            5000
+          ]
+        },
+        {
+          "name": "conductivity_factor",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0.1,
+            1
+          ]
+        },
+        {
+          "name": "temperature_coefficient",
+          "type": "real",
+          "unit": "1/K",
+          "bounds": [
+            0.001,
+            0.03
+          ]
+        },
+        {
+          "name": "acid_urea",
+          "type": "real",
+          "unit": "mmol/L",
+          "bounds": [
+            0,
+            10000
+          ]
+        },
+        {
+          "name": "acid_sodium",
+          "type": "real",
+          "unit": "mmol/L",
+          "bounds": [
+            0,
+            10000
+          ]
+        },
+        {
+          "name": "acid_potassium",
+          "type": "real",
+          "unit": "mmol/L",
+          "bounds": [
+            0,
+            10000
+          ]
+        },
+        {
+          "name": "acid_chloride",
+          "type": "real",
+          "unit": "mmol/L",
+          "bounds": [
+            0,
+            10000
+          ]
+        },
+        {
+          "name": "acid_bicarbonate",
+          "type": "real",
+          "unit": "mmol/L",
+          "bounds": [
+            0,
+            10000
+          ]
+        },
+        {
+          "name": "acid_calcium",
+          "type": "real",
+          "unit": "mmol/L",
+          "bounds": [
+            0,
+            10000
+          ]
+        }
+      ],
+      "condition": "Administrator only, configured circuit/online fluid, before first PREPARE and before MACHINE5; once per fresh process. Requires physical blood; acid_fraction + bicarbonate_fraction < 1.",
+      "reply": "OK"
+    },
+    {
+      "id": "dynamics-request",
+      "tag": "DYNAMICS10",
+      "endpoint": "admin/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "arterial_air_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            5,
+            100
+          ]
+        },
+        {
+          "name": "venous_air_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            5,
+            100
+          ]
+        },
+        {
+          "name": "level_gain_mL_s_mL",
+          "type": "real",
+          "unit": "1/s",
+          "bounds": [
+            0,
+            10
+          ]
+        },
+        {
+          "name": "gas_max_mL_s",
+          "type": "real",
+          "unit": "mL/s",
+          "bounds": [
+            0,
+            10
+          ]
+        },
+        {
+          "name": "dialysate_compliance_mL_mmHg",
+          "type": "real",
+          "unit": "mL/mmHg",
+          "bounds": [
+            0.01,
+            1
+          ]
+        },
+        {
+          "name": "pump_tau_s",
+          "type": "real",
+          "unit": "s",
+          "bounds": [
+            0.05,
+            5
+          ]
+        },
+        {
+          "name": "sensor_tau_s",
+          "type": "real",
+          "unit": "s",
+          "bounds": [
+            0.01,
+            5
+          ]
+        },
+        {
+          "name": "pressure_gain_mL_min_mmHg",
+          "type": "real",
+          "unit": "mL/min/mmHg",
+          "bounds": [
+            0.1,
+            20
+          ]
+        },
+        {
+          "name": "uf_pump_max_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            20,
+            200
+          ]
+        },
+        {
+          "name": "balance_chamber_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            5,
+            100
+          ]
+        },
+        {
+          "name": "dialysate_volume_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            50,
+            2000
+          ]
+        }
+      ],
+      "condition": "Administrator only, configured circuit/online fluid, before first PREPARE and before MACHINE5; once per fresh process. Requires physical blood; volume + compliance * minimum dialysate pressure > 1 mL.",
+      "reply": "OK"
+    },
+    {
+      "id": "blood-update",
+      "tag": "BLOOD9",
+      "endpoint": "admin/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "start_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0.01,
+            0.7
+          ]
+        },
+        {
+          "name": "protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0.1,
+            30
+          ]
+        },
+        {
+          "name": "temperature_C",
+          "type": "real",
+          "unit": "degC",
+          "bounds": [
+            30,
+            42
+          ]
+        },
+        {
+          "name": "circuit_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "circuit_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        }
+      ],
+      "condition": "Between ticks; sequence/time equal next expected; not halted; physical model enabled.",
+      "reply": "OK"
+    },
+    {
+      "id": "inventory-update",
+      "tag": "INVENTORY10",
+      "endpoint": "admin/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "start_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "segment_1_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "segment_1_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        },
+        {
+          "name": "segment_2_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "segment_2_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        },
+        {
+          "name": "segment_3_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "segment_3_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        },
+        {
+          "name": "segment_4_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "segment_4_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        },
+        {
+          "name": "segment_5_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "segment_5_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        },
+        {
+          "name": "segment_6_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "segment_6_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        },
+        {
+          "name": "segment_7_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "segment_7_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        },
+        {
+          "name": "segment_8_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "segment_8_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        },
+        {
+          "name": "segment_9_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "segment_9_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        },
+        {
+          "name": "segment_10_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "segment_10_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        },
+        {
+          "name": "segment_11_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "segment_11_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        },
+        {
+          "name": "segment_12_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            0.8
+          ]
+        },
+        {
+          "name": "segment_12_protein_g_dL",
+          "type": "real",
+          "unit": "g/dL",
+          "bounds": [
+            0,
+            40
+          ]
+        }
+      ],
+      "condition": "Same next-tick clock; dynamic model enabled; validate entire input before replacing retained properties.",
+      "reply": "OK"
+    },
+    {
+      "id": "machine-request",
+      "tag": "MACHINE5",
+      "endpoint": "admin/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "blood",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            500
+          ]
+        },
+        {
+          "name": "net_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            20
+          ]
+        },
+        {
+          "name": "replacement",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            120
+          ]
+        },
+        {
+          "name": "pressure_limit",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            1,
+            1000
+          ]
+        },
+        {
+          "name": "prime",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            10,
+            1000
+          ]
+        }
+      ],
+      "condition": "After ONLINE4, before arming; one-time. Blood + replacement <=500; HD replacement zero. Mode comes from ONLINE4.",
+      "reply": "OK"
+    },
+    {
+      "id": "guided-request",
+      "tag": "GUIDED8",
+      "endpoint": "admin/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "test_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            1,
+            600000
+          ]
+        },
+        {
+          "name": "treatment_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            1,
+            86400000
+          ]
+        },
+        {
+          "name": "disinfection_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            1,
+            3600000
+          ]
+        },
+        {
+          "name": "return_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            10,
+            1000
+          ]
+        }
+      ],
+      "condition": "After MACHINE5, before arming, once; sensor node is dialyzer inlet; enters self_test.",
+      "reply": "OK"
+    },
+    {
+      "id": "observation5",
+      "tag": "OBS5",
+      "endpoint": "control/protection plant replies",
+      "direction": "response",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            99999
+          ]
+        },
+        {
+          "name": "time_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "valid",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "blood_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            500
+          ]
+        },
+        {
+          "name": "pressure_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            1000
+          ]
+        },
+        {
+          "name": "uf_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            140
+          ]
+        },
+        {
+          "name": "temperature_C",
+          "type": "real",
+          "unit": "degC",
+          "bounds": [
+            0,
+            100
+          ]
+        },
+        {
+          "name": "conductivity_mS_cm",
+          "type": "real",
+          "unit": "mS/cm",
+          "bounds": [
+            0,
+            6250
+          ]
+        },
+        {
+          "name": "replacement_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            120
+          ]
+        },
+        {
+          "name": "filter_pressure_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            24000
+          ]
+        },
+        {
+          "name": "integrity",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "route",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            3
+          ]
+        },
+        {
+          "name": "downstream_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            1000
+          ]
+        },
+        {
+          "name": "air_signal",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "leak_signal",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "measured_uf_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "measured_substitution_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "supply_ready",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        }
+      ],
+      "condition": "Frozen role-specific observation; usable only with valid=1 and exact requested sequence/time.",
+      "reply": "none"
+    },
+    {
+      "id": "observation8",
+      "tag": "OBS8",
+      "endpoint": "control/protection plant replies",
+      "direction": "response",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            99999
+          ]
+        },
+        {
+          "name": "time_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "valid",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "blood_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            500
+          ]
+        },
+        {
+          "name": "pressure_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            1000
+          ]
+        },
+        {
+          "name": "uf_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            140
+          ]
+        },
+        {
+          "name": "temperature_C",
+          "type": "real",
+          "unit": "degC",
+          "bounds": [
+            0,
+            100
+          ]
+        },
+        {
+          "name": "conductivity_mS_cm",
+          "type": "real",
+          "unit": "mS/cm",
+          "bounds": [
+            0,
+            6250
+          ]
+        },
+        {
+          "name": "replacement_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            120
+          ]
+        },
+        {
+          "name": "filter_pressure_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            24000
+          ]
+        },
+        {
+          "name": "integrity",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "route",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            3
+          ]
+        },
+        {
+          "name": "downstream_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            1000
+          ]
+        },
+        {
+          "name": "air_signal",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "leak_signal",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "measured_uf_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "measured_substitution_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "supply_ready",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "dialysate_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            2000
+          ]
+        },
+        {
+          "name": "tmp_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000,
+            1000
+          ]
+        }
+      ],
+      "condition": "Guided observation; inherited sample validity rules.",
+      "reply": "none"
+    },
+    {
+      "id": "observation9",
+      "tag": "OBS9",
+      "endpoint": "control/protection plant replies",
+      "direction": "response",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            99999
+          ]
+        },
+        {
+          "name": "time_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "valid",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "blood_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            500
+          ]
+        },
+        {
+          "name": "pressure_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            1000
+          ]
+        },
+        {
+          "name": "uf_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            140
+          ]
+        },
+        {
+          "name": "temperature_C",
+          "type": "real",
+          "unit": "degC",
+          "bounds": [
+            0,
+            100
+          ]
+        },
+        {
+          "name": "conductivity_mS_cm",
+          "type": "real",
+          "unit": "mS/cm",
+          "bounds": [
+            0,
+            6250
+          ]
+        },
+        {
+          "name": "replacement_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            120
+          ]
+        },
+        {
+          "name": "filter_pressure_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            24000
+          ]
+        },
+        {
+          "name": "integrity",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "route",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            3
+          ]
+        },
+        {
+          "name": "downstream_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            1000
+          ]
+        },
+        {
+          "name": "air_signal",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "leak_signal",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "measured_uf_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "measured_substitution_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "supply_ready",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "dialysate_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            2000
+          ]
+        },
+        {
+          "name": "tmp_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000,
+            1000
+          ]
+        },
+        {
+          "name": "arterial_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000,
+            1000
+          ]
+        },
+        {
+          "name": "limitation",
+          "type": "atom",
+          "unit": "code",
+          "bounds": null
+        },
+        {
+          "name": "dialysate_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000,
+            1000
+          ]
+        },
+        {
+          "name": "heater_W",
+          "type": "real",
+          "unit": "W",
+          "bounds": [
+            0,
+            5000
+          ]
+        },
+        {
+          "name": "acid_remaining_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            20000
+          ]
+        },
+        {
+          "name": "bicarbonate_remaining_g",
+          "type": "real",
+          "unit": "g",
+          "bounds": [
+            0,
+            2000
+          ]
+        },
+        {
+          "name": "conductivity_raw_mS_cm",
+          "type": "real",
+          "unit": "mS/cm",
+          "bounds": [
+            0,
+            1000
+          ]
+        }
+      ],
+      "condition": "Physical observation. Listed bounds are C++ usable5 bounds; Python observation() applies a broader shared -1000..20000 bound to the final five numeric fields.",
+      "reply": "none"
+    },
+    {
+      "id": "observation10",
+      "tag": "OBS10",
+      "endpoint": "control/protection plant replies",
+      "direction": "response",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            99999
+          ]
+        },
+        {
+          "name": "time_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "valid",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "blood_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            500
+          ]
+        },
+        {
+          "name": "pressure_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            1000
+          ]
+        },
+        {
+          "name": "uf_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            140
+          ]
+        },
+        {
+          "name": "temperature_C",
+          "type": "real",
+          "unit": "degC",
+          "bounds": [
+            0,
+            100
+          ]
+        },
+        {
+          "name": "conductivity_mS_cm",
+          "type": "real",
+          "unit": "mS/cm",
+          "bounds": [
+            0,
+            6250
+          ]
+        },
+        {
+          "name": "replacement_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            120
+          ]
+        },
+        {
+          "name": "filter_pressure_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            24000
+          ]
+        },
+        {
+          "name": "integrity",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "route",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            3
+          ]
+        },
+        {
+          "name": "downstream_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            1000
+          ]
+        },
+        {
+          "name": "air_signal",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "leak_signal",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "measured_uf_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "measured_substitution_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "supply_ready",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "dialysate_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            2000
+          ]
+        },
+        {
+          "name": "tmp_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000,
+            1000
+          ]
+        },
+        {
+          "name": "arterial_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000,
+            1000
+          ]
+        },
+        {
+          "name": "limitation",
+          "type": "atom",
+          "unit": "code",
+          "bounds": null
+        },
+        {
+          "name": "dialysate_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000,
+            1000
+          ]
+        },
+        {
+          "name": "heater_W",
+          "type": "real",
+          "unit": "W",
+          "bounds": [
+            0,
+            5000
+          ]
+        },
+        {
+          "name": "acid_remaining_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            20000
+          ]
+        },
+        {
+          "name": "bicarbonate_remaining_g",
+          "type": "real",
+          "unit": "g",
+          "bounds": [
+            0,
+            2000
+          ]
+        },
+        {
+          "name": "conductivity_raw_mS_cm",
+          "type": "real",
+          "unit": "mS/cm",
+          "bounds": [
+            0,
+            1000
+          ]
+        },
+        {
+          "name": "arterial_level",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "venous_level",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "dialysate_drain_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            2000
+          ]
+        },
+        {
+          "name": "uf_pump_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            200
+          ]
+        },
+        {
+          "name": "balance_position_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            100
+          ]
+        },
+        {
+          "name": "bypass",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "balance_capacity_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            5,
+            100
+          ]
+        },
+        {
+          "name": "balance_phase",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        }
+      ],
+      "condition": "Dynamic observation. C++ bounds shown; Python applies shared 0..2000 bound to the final eight fields. Bypass/phase encoded as real-valued 0/1. This parser asymmetry is explicit, not an approval of arbitrary values.",
+      "reply": "none"
+    },
+    {
+      "id": "machine-state5",
+      "tag": "MACHINE5",
+      "endpoint": "META5 / VIEW5 / COMMITTED5",
+      "direction": "response",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            99999
+          ]
+        },
+        {
+          "name": "time_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "stage",
+          "type": "integer",
+          "unit": "enum",
+          "bounds": [
+            0,
+            9
+          ]
+        },
+        {
+          "name": "mode",
+          "type": "integer",
+          "unit": "enum",
+          "bounds": [
+            0,
+            2
+          ]
+        },
+        {
+          "name": "blood",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            500
+          ]
+        },
+        {
+          "name": "net_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            20
+          ]
+        },
+        {
+          "name": "replacement",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            120
+          ]
+        },
+        {
+          "name": "pressure_limit",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            1,
+            1000
+          ]
+        },
+        {
+          "name": "prime",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            10,
+            1000
+          ]
+        },
+        {
+          "name": "mask",
+          "type": "integer",
+          "unit": "bitmask",
+          "bounds": [
+            0,
+            8191
+          ]
+        },
+        {
+          "name": "acknowledged",
+          "type": "integer",
+          "unit": "bitmask",
+          "bounds": [
+            0,
+            8191
+          ]
+        },
+        {
+          "name": "silence_until",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100120000
+          ]
+        },
+        {
+          "name": "safe",
+          "type": "integer",
+          "unit": "count",
+          "bounds": [
+            0,
+            3
+          ]
+        },
+        {
+          "name": "ready",
+          "type": "integer",
+          "unit": "count",
+          "bounds": [
+            0,
+            3
+          ]
+        },
+        {
+          "name": "cycles",
+          "type": "integer",
+          "unit": "count",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "revision",
+          "type": "integer",
+          "unit": "revision",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "action",
+          "type": "atom",
+          "unit": "code",
+          "bounds": null
+        },
+        {
+          "name": "terminal",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "phase_flush",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "flush_in",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "flush_out",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "expected_net",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "measured_net",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "flush_in_tick",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "flush_out_tick",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            100000
+          ]
+        }
+      ],
+      "condition": "Legacy state. Listed integer maxima are parser bounds, not achievable values. Python imposes cycles/revision <=100000 and broadens some numeric bounds.",
+      "reply": "none"
+    },
+    {
+      "id": "machine-state8",
+      "tag": "MACHINE8",
+      "endpoint": "META5 / VIEW5 / COMMITTED5",
+      "direction": "response",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            99999
+          ]
+        },
+        {
+          "name": "time_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "stage",
+          "type": "integer",
+          "unit": "enum",
+          "bounds": [
+            0,
+            15
+          ]
+        },
+        {
+          "name": "mode",
+          "type": "integer",
+          "unit": "enum",
+          "bounds": [
+            0,
+            2
+          ]
+        },
+        {
+          "name": "blood",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            500
+          ]
+        },
+        {
+          "name": "net_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            20
+          ]
+        },
+        {
+          "name": "replacement",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            120
+          ]
+        },
+        {
+          "name": "pressure_limit",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            1,
+            1000
+          ]
+        },
+        {
+          "name": "prime",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            10,
+            1000
+          ]
+        },
+        {
+          "name": "mask",
+          "type": "integer",
+          "unit": "bitmask",
+          "bounds": [
+            0,
+            8191
+          ]
+        },
+        {
+          "name": "acknowledged",
+          "type": "integer",
+          "unit": "bitmask",
+          "bounds": [
+            0,
+            8191
+          ]
+        },
+        {
+          "name": "silence_until",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100120000
+          ]
+        },
+        {
+          "name": "safe",
+          "type": "integer",
+          "unit": "count",
+          "bounds": [
+            0,
+            3
+          ]
+        },
+        {
+          "name": "ready",
+          "type": "integer",
+          "unit": "count",
+          "bounds": [
+            0,
+            3
+          ]
+        },
+        {
+          "name": "cycles",
+          "type": "integer",
+          "unit": "count",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "revision",
+          "type": "integer",
+          "unit": "revision",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "action",
+          "type": "atom",
+          "unit": "code",
+          "bounds": null
+        },
+        {
+          "name": "terminal",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "phase_flush",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "flush_in",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "flush_out",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "expected_net",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "measured_net",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "flush_in_tick",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "flush_out_tick",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "phase_elapsed",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "treatment_elapsed",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "duration",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "test_duration",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "clean_duration",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "rinse_target",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            10,
+            1000
+          ]
+        },
+        {
+          "name": "rinse_volume",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "resume_stage",
+          "type": "integer",
+          "unit": "enum",
+          "bounds": [
+            0,
+            15
+          ]
+        },
+        {
+          "name": "patient_connected",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "return_in_tick",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "return_out_tick",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "tests_passed",
+          "type": "integer",
+          "unit": "bitmask",
+          "bounds": [
+            0,
+            127
+          ]
+        },
+        {
+          "name": "primed",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "tick_stage",
+          "type": "integer",
+          "unit": "enum",
+          "bounds": [
+            0,
+            15
+          ]
+        }
+      ],
+      "condition": "Guided state. Effective stage may differ from tick_stage, which names the integrated phase.",
+      "reply": "none"
+    },
+    {
+      "id": "physical-state",
+      "tag": "PHYSICS9",
+      "endpoint": "COMMITTED5 optional trailer",
+      "direction": "response",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "end_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "arterial_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "venous_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "prefilter_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "postfilter_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "dialysate_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "tmp_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "inlet_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "outlet_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "return_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "plasma_filtration_fraction",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "acid_remaining_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "bicarbonate_remaining_g",
+          "type": "real",
+          "unit": "g",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "heater_W",
+          "type": "real",
+          "unit": "W",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "conductivity_raw_mS_cm",
+          "type": "real",
+          "unit": "mS/cm",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "arterial_chamber_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "venous_chamber_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "filter_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "limitation",
+          "type": "atom",
+          "unit": "code",
+          "bounds": null
+        },
+        {
+          "name": "segment_1_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_1_viscosity",
+          "type": "real",
+          "unit": "mPa s",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_1_blood_pressure",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_1_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_1_oncotic",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_2_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_2_viscosity",
+          "type": "real",
+          "unit": "mPa s",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_2_blood_pressure",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_2_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_2_oncotic",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_3_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_3_viscosity",
+          "type": "real",
+          "unit": "mPa s",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_3_blood_pressure",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_3_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_3_oncotic",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_4_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_4_viscosity",
+          "type": "real",
+          "unit": "mPa s",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_4_blood_pressure",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_4_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_4_oncotic",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_5_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_5_viscosity",
+          "type": "real",
+          "unit": "mPa s",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_5_blood_pressure",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_5_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_5_oncotic",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_6_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_6_viscosity",
+          "type": "real",
+          "unit": "mPa s",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_6_blood_pressure",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_6_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_6_oncotic",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_7_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_7_viscosity",
+          "type": "real",
+          "unit": "mPa s",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_7_blood_pressure",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_7_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_7_oncotic",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_8_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_8_viscosity",
+          "type": "real",
+          "unit": "mPa s",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_8_blood_pressure",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_8_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_8_oncotic",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_9_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_9_viscosity",
+          "type": "real",
+          "unit": "mPa s",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_9_blood_pressure",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_9_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_9_oncotic",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_10_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_10_viscosity",
+          "type": "real",
+          "unit": "mPa s",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_10_blood_pressure",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_10_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_10_oncotic",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_11_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_11_viscosity",
+          "type": "real",
+          "unit": "mPa s",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_11_blood_pressure",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_11_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_11_oncotic",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_12_hematocrit",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_12_viscosity",
+          "type": "real",
+          "unit": "mPa s",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_12_blood_pressure",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_12_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        },
+        {
+          "name": "segment_12_oncotic",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000.0,
+            1000000.0
+          ]
+        }
+      ],
+      "condition": "Broad finite diagnostic decoder bounds are not physical validity limits. Per-record verifier checks conservation, pressure and filtration.",
+      "reply": "none"
+    },
+    {
+      "id": "dynamics-state",
+      "tag": "DYNAMICS10",
+      "endpoint": "PHYSICS9 optional trailer",
+      "direction": "response",
+      "fields": [
+        {
+          "name": "arterial_volume_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "venous_volume_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "arterial_level",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "venous_level",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "arterial_gas_mL_s",
+          "type": "real",
+          "unit": "mL/s",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "venous_gas_mL_s",
+          "type": "real",
+          "unit": "mL/s",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "feed_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "drain_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "uf_pump_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "sensed_dialysate_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "dialysate_storage_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "dialysate_residual_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "balance_position_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "balance_cycles",
+          "type": "real",
+          "unit": "count",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "bypass",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            -1000000000.0,
+            1000000000.0
+          ]
+        }
+      ],
+      "condition": "15 fields; distinct from the 11-field administrator request with the same tag. Parser validates finite diagnostics; physical verifier checks actual constraints.",
+      "reply": "none"
+    },
+    {
+      "id": "prescription",
+      "tag": "PRESCRIBE5",
+      "endpoint": "device/control.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "mode",
+          "type": "integer",
+          "unit": "enum",
+          "bounds": [
+            0,
+            2
+          ]
+        },
+        {
+          "name": "blood",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            500
+          ]
+        },
+        {
+          "name": "net_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            20
+          ]
+        },
+        {
+          "name": "replacement",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            120
+          ]
+        }
+      ],
+      "condition": "Sum <=500; HD replacement=0; HDF >=2. Server phase guards apply when intent is applied.",
+      "reply": "CONFIRM5 id"
+    },
+    {
+      "id": "request",
+      "tag": "REQUEST5",
+      "endpoint": "device/control.sock or device/protection.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "action",
+          "type": "atom",
+          "unit": "code",
+          "bounds": null
+        }
+      ],
+      "condition": "Control actions PRIME CONFIGURE START PAUSE RECOVER FINISH CLEAN COMPLETE CONNECT RETURN DISCONNECT RESUME. Protection allows RESET only.",
+      "reply": "CONFIRM5 id"
+    },
+    {
+      "id": "confirm",
+      "tag": "CONFIRM5",
+      "endpoint": "device producer endpoint",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "unit": "token",
+          "bounds": [
+            0,
+            100000000
+          ]
+        }
+      ],
+      "condition": "Exact pending ID; not queued or expired; one pending intent; 10 s wall expiration.",
+      "reply": "QUEUED5 id"
+    },
+    {
+      "id": "silence",
+      "tag": "SILENCE5",
+      "endpoint": "device/protection.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "duration",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            120000
+          ]
+        }
+      ],
+      "condition": "Annotates alarm until virtual deadline; does not release restrictions.",
+      "reply": "OK"
+    },
+    {
+      "id": "ack5",
+      "tag": "ACK5",
+      "endpoint": "device producer endpoint",
+      "direction": "request",
+      "fields": [],
+      "condition": "Protection only; acknowledge current mask.",
+      "reply": "OK"
+    },
+    {
+      "id": "stop5",
+      "tag": "STOP5",
+      "endpoint": "device producer endpoint",
+      "direction": "request",
+      "fields": [],
+      "condition": "Control only; immediate stop, cancels pending intent.",
+      "reply": "OK"
+    },
+    {
+      "id": "status5",
+      "tag": "STATUS5",
+      "endpoint": "device producer endpoint",
+      "direction": "request",
+      "fields": [],
+      "condition": "Both producers; current state plus own sample and intent.",
+      "reply": "VIEW5 MACHINE5|MACHINE8 OBS5|OBS8|OBS9|OBS10 INTENT5"
+    },
+    {
+      "id": "hello6",
+      "tag": "HELLO6",
+      "endpoint": "device producer endpoint",
+      "direction": "request",
+      "fields": [],
+      "condition": "Both producers; returns fresh process epoch.",
+      "reply": "SESSION6 epoch"
+    },
+    {
+      "id": "step5",
+      "tag": "STEP5",
+      "endpoint": "decision service",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            99999
+          ]
+        },
+        {
+          "name": "start_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        }
+      ],
+      "condition": "Exact current prepared sequence/time; role/state/single-decision guards apply. STEP5 belongs to service, not plant. RESET5 after protection decision; CHANGE5/RX5 before both decisions.",
+      "reply": "OK (control) / DECISION mask (protection)"
+    },
+    {
+      "id": "sense5",
+      "tag": "SENSE5",
+      "endpoint": "role/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "start_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        }
+      ],
+      "condition": "Exact current prepared sequence/time; role/state/single-decision guards apply. STEP5 belongs to service, not plant. RESET5 after protection decision; CHANGE5/RX5 before both decisions.",
+      "reply": "OBS5|OBS8|OBS9|OBS10"
+    },
+    {
+      "id": "commit5",
+      "tag": "COMMIT5",
+      "endpoint": "admin/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "start_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        }
+      ],
+      "condition": "Exact current prepared sequence/time; role/state/single-decision guards apply. STEP5 belongs to service, not plant. RESET5 after protection decision; CHANGE5/RX5 before both decisions.",
+      "reply": "COMMITTED5 STATE4 CIRCUIT3 ONLINE4 MACHINE5|MACHINE8 [PHYSICS9 [DYNAMICS10]]"
+    },
+    {
+      "id": "demand5",
+      "tag": "DEMAND5",
+      "endpoint": "control/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "start_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "blood",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            500
+          ]
+        },
+        {
+          "name": "gross_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            140
+          ]
+        },
+        {
+          "name": "replacement",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            120
+          ]
+        }
+      ],
+      "condition": "Exact current prepared sequence/time; role/state/single-decision guards apply. STEP5 belongs to service, not plant. RESET5 after protection decision; CHANGE5/RX5 before both decisions.",
+      "reply": "OK"
+    },
+    {
+      "id": "protect5",
+      "tag": "PROTECT5",
+      "endpoint": "protection/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "start_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "mask",
+          "type": "integer",
+          "unit": "bitmask",
+          "bounds": [
+            0,
+            8191
+          ]
+        },
+        {
+          "name": "valid",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        }
+      ],
+      "condition": "Exact current prepared sequence/time; role/state/single-decision guards apply. STEP5 belongs to service, not plant. RESET5 after protection decision; CHANGE5/RX5 before both decisions.",
+      "reply": "OK"
+    },
+    {
+      "id": "reset5",
+      "tag": "RESET5",
+      "endpoint": "protection/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "start_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        }
+      ],
+      "condition": "Exact current prepared sequence/time; role/state/single-decision guards apply. STEP5 belongs to service, not plant. RESET5 after protection decision; CHANGE5/RX5 before both decisions.",
+      "reply": "OK / REJECT reason"
+    },
+    {
+      "id": "change5",
+      "tag": "CHANGE5",
+      "endpoint": "control/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "start_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "action",
+          "type": "atom",
+          "unit": "code",
+          "bounds": null
+        }
+      ],
+      "condition": "Exact current prepared sequence/time; role/state/single-decision guards apply. STEP5 belongs to service, not plant. RESET5 after protection decision; CHANGE5/RX5 before both decisions.",
+      "reply": "OK / REJECT reason"
+    },
+    {
+      "id": "rx5",
+      "tag": "RX5",
+      "endpoint": "control/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            100000
+          ]
+        },
+        {
+          "name": "start_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "mode",
+          "type": "integer",
+          "unit": "enum",
+          "bounds": [
+            0,
+            2
+          ]
+        },
+        {
+          "name": "blood",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            500
+          ]
+        },
+        {
+          "name": "net_uf",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            20
+          ]
+        },
+        {
+          "name": "replacement",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            120
+          ]
+        }
+      ],
+      "condition": "Exact current prepared sequence/time; role/state/single-decision guards apply. STEP5 belongs to service, not plant. RESET5 after protection decision; CHANGE5/RX5 before both decisions.",
+      "reply": "OK / REJECT reason"
+    },
+    {
+      "id": "prepare",
+      "tag": "PREPARE",
+      "endpoint": "admin/plant.sock",
+      "direction": "request",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            99999
+          ]
+        },
+        {
+          "name": "start_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "dt_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            1,
+            1000
+          ]
+        },
+        {
+          "name": "resistance",
+          "type": "real",
+          "unit": "mmHg min/mL",
+          "bounds": [
+            0.01,
+            100
+          ]
+        },
+        {
+          "name": "control_fault",
+          "type": "atom",
+          "unit": "code",
+          "bounds": null
+        },
+        {
+          "name": "protection_fault",
+          "type": "atom",
+          "unit": "code",
+          "bounds": null
+        }
+      ],
+      "condition": "One tick in flight, contiguous sequence/time; fault enum none invalid missing stale future replay. Resistance pertains to legacy model.",
+      "reply": "OK"
+    }
+  ],
+  "source_sha256": {
+    "python/dialysislab/machine.py": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3",
+    "python/dialysislab/physical.py": "dc63bd0179156c9e6360436ad0a50aaea7255b4f5b098db7bf5d07b3b4524802",
+    "src/blood_physics.hpp": "a5ae40d3ef24ac42acffc8b0a984de60ad7d1063ea554f2e60ee1659c85c478b",
+    "src/control.cpp": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6",
+    "src/device_session.hpp": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd",
+    "src/dynamics.hpp": "f44dd6c7e6c2ddecd1cdfc466d28b26e60e70fb6869a184db85a1fbf94904993",
+    "src/machine.hpp": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22",
+    "src/online.hpp": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3",
+    "src/plant.cpp": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758",
+    "src/protection.cpp": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3",
+    "src/wire.hpp": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc"
+  }
+}

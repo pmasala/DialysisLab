@@ -12,6 +12,7 @@ one maintained technical baseline.
 | Order | Document | Question answered |
 | --- | --- | --- |
 | 1 | [Requirements](REQUIREMENTS.md) | What must the software do, for whom, under which constraints, and how is each requirement accepted? |
+| 1a | [Atomic obligations](ATOMIC_REQUIREMENTS.md) and [coverage matrix](testing/COVERAGE.md) | Which selected compound obligations have measurable decisions and concrete test allocations? |
 | 2 | [Architecture](ARCHITECTURE.md) | Which components own state, communicate, constrain outputs and retain evidence? |
 | 3 | [Treatment design](design/TREATMENT.md) | How do tests, preparation, priming, connection, therapy, return and disinfection work? |
 | 4 | [Fluid and transport design](design/MODELS.md) | Which physical quantities and equations are implemented, and where do they stop being credible? |
@@ -20,6 +21,11 @@ one maintained technical baseline.
 | 7 | [Master verification plan](testing/PLAN.md) | What must be tested, with which oracles, configuration and acceptance rules? |
 | 8 | [Executable test catalogue](testing/CATALOG.md) | Which registered tests and concrete test methods exist? |
 | 9 | [Documentation audit](../assurance/audits/DOCUMENTATION_AUDIT.md) | What was checked, what was repaired and what still blocks an approval? |
+
+Interface reference: [wire protocol](design/WIRE_PROTOCOL.md),
+[field order and units](design/WIRE_FIELDS.md), [patient JSON](design/JSON_FIELDS.md).
+Planned evidence collection: [measurement protocol](testing/MEASUREMENTS.md) and
+[boundary/approval protocol](testing/CLOSURE.md).
 
 The [document-control rules](DOCUMENT_CONTROL.md) explain precedence, change
 review and how to regenerate the requirements and test catalogues. The

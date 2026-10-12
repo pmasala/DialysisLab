@@ -102,3 +102,12 @@ Coverage reporting, independent model validation, complete guided boundary matri
 and representative-user acceptance are open audit items. No arbitrary coverage
 percentage is invented as an IEC requirement. A named reviewer must justify test
 adequacy and dispositions before acceptance.
+
+## Completing the current evidence package
+
+Use the [atomic allocation matrix](COVERAGE.md) to select concrete test methods,
+then apply the [closure protocol](CLOSURE.md) for missing state/boundary/security
+cases and the named-review record. Collect calibration data under the
+[measurement protocol](MEASUREMENTS.md), which separates fitting from independent
+validation and requires an accuracy budget before judging results. These protocols
+are prepared now; their prospective cases have no fabricated execution result.

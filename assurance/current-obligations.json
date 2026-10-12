@@ -1,0 +1,346 @@
+{
+  "schema_version": 1,
+  "scope": "Atomic clarifications of current implemented behavior. Existing parent requirements remain; thresholds are simulator acceptance proposals, not clinical limits.",
+  "obligations": [
+    {
+      "id": "SWF-01",
+      "parent": "UI-REQ-002",
+      "statement": "The guided machine shall complete initial checks before entering preparation.",
+      "acceptance": "All seven test bits, three safe samples, no alarm and configured test duration are required. Missing integrity retains self_test.",
+      "design": "docs/design/TREATMENT.md",
+      "test": "test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view",
+      "coverage": "Integrity negative case and nominal completion exist; six other individual check failures need explicit cases.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SWF-02",
+      "parent": "UI-REQ-002",
+      "statement": "Priming shall end on delivered flush volume.",
+      "acceptance": "Below prime_mL retain priming; at or above target with safe guard enter configuration and set primed. The crossing-tick transfer bounds overshoot.",
+      "design": "docs/design/TREATMENT.md",
+      "test": "test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SWF-03",
+      "parent": "M5-REQ-002",
+      "statement": "Isolated priming and cleaning shall not remove or return patient water.",
+      "acceptance": "Patient draw/return are zero during isolated flush; body and source/waste balances independently remain within 1e-6 mL/mmol.",
+      "design": "docs/design/TREATMENT.md",
+      "test": "test_guided.GuidedUnitTests.test_in_process_hydraulics_complete_cycle_and_patient_transactions",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SWF-04",
+      "parent": "UI-REQ-002",
+      "statement": "Starting treatment shall require priming and an explicit patient connection.",
+      "acceptance": "Reject START before CONNECT. CONNECT is accepted only from primed configuration; connected alone does not start flow.",
+      "design": "docs/design/TREATMENT.md",
+      "test": "test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SWF-05",
+      "parent": "UI-REQ-002",
+      "statement": "Treatment duration shall count delivered treatment time.",
+      "acceptance": "A pause does not consume treatment duration; automatic finished occurs at the configured endpoint and preserves accumulated time across resume.",
+      "design": "docs/design/TREATMENT.md",
+      "test": "test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SWF-06",
+      "parent": "UI-REQ-002",
+      "statement": "Blood return shall start only by confirmed request after treatment.",
+      "acceptance": "RETURN requires finished and patient_connected; completion on returned_mL >= return_target_mL enters disconnecting. UF/substitution are off during return.",
+      "design": "docs/design/TREATMENT.md",
+      "test": "test_guided.GuidedProcessTests.test_full_guided_cycle_preserves_water_solutes_and_stage_evidence",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SWF-07",
+      "parent": "UI-REQ-002",
+      "statement": "Disinfection shall require explicit disconnection and both endpoint conditions.",
+      "acceptance": "CLEAN is rejected until disconnected. Complete only when configured duration and flush target have both been reached.",
+      "design": "docs/design/TREATMENT.md",
+      "test": "test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SWF-08",
+      "parent": "M5-REQ-004",
+      "statement": "Alarm handling shall not restart circulation.",
+      "acceptance": "ACK/silence do not clear restrictions. Reset requires recovery with three safe observations; guided restart requires separate RESUME. Terminal stop cannot resume.",
+      "design": "docs/design/TREATMENT.md",
+      "test": "test_machine.MachineTests.test_reset_needs_three_safe_cycles_and_never_resumes_automatically",
+      "coverage": "Legacy reset test plus guided fixture; complete alarm-by-guided-phase matrix is a planned test obligation.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SUI-01",
+      "parent": "UI-REQ-002",
+      "statement": "The guided view shall display authoritative phase progress.",
+      "acceptance": "Priming/return use volume fractions, therapy delivered time, cleaning the lesser time/volume fraction. Manual/stale/blocked/zero-flow estimates do not display a running ETA.",
+      "design": "docs/design/INTERACTION.md",
+      "test": "test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SUI-02",
+      "parent": "UI-REQ-002",
+      "statement": "Only permitted treatment operations shall be presented.",
+      "acceptance": "CONNECT visible only in eligible connection state; blocked/stale views suppress mutations; STOP remains available across tabs. Server guards also reject forbidden requests.",
+      "design": "docs/design/INTERACTION.md",
+      "test": "test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SUI-03",
+      "parent": "UI-REQ-002",
+      "statement": "Blood and active substitution rates shall be editable during safe therapy.",
+      "acceptance": "Accept confirmed blood 0..500 and HDF substitution 2..120 mL/min with sum <=500. HD requires substitution zero. Reject mode/net-UF changes during therapy. Preserve treatment time.",
+      "design": "docs/design/INTERACTION.md",
+      "test": "test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SUI-04",
+      "parent": "M6-REQ-005",
+      "statement": "A confirmation shall not apply to a different process session.",
+      "acceptance": "Reject stale epoch and clear pending client state after session replacement; do not retry ambiguous critical requests automatically.",
+      "design": "docs/design/INTERACTION.md",
+      "test": "test_device_sessions.DeviceSessionTests.test_restart_reusing_intent_number_cannot_accept_old_confirmation",
+      "coverage": "Direct old-confirmation rejection after session replacement; independent acceptance pending.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SIF-01",
+      "parent": "M1-REQ-007",
+      "statement": "Any failed decision STEP shall prevent committing that tick.",
+      "acceptance": "Attempt both services; if either RPC fails, send no COMMIT/ADVANCE, request HALT, query stop separately and abort. Exercise lost replies after command acceptance.",
+      "design": "docs/design/INTERFACES.md",
+      "test": "test_machine.MachineTests.test_lost_step_each_role_stops_and_invalidates_pending_m5_decisions",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SIF-02",
+      "parent": "REQ-002",
+      "statement": "Plant arbitration shall enforce the union of active restrictions.",
+      "acceptance": "A conflicting positive demand cannot remove an active mask; simultaneous hazards restrict all affected outputs before the next integration.",
+      "design": "docs/design/INTERFACES.md",
+      "test": "test_machine.MachineTests.test_simultaneous_hazards_apply_before_commit_and_defeat_hostile_control",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SIF-03",
+      "parent": "REQ-004",
+      "statement": "Invalid protection observations shall constrain outputs before integration.",
+      "acceptance": "Sequence/time/validity must match the current frozen sample; invalid, missing, stale, future or replayed samples are unusable. No tick commits unrestricted outputs on an unusable protection sample.",
+      "design": "docs/design/INTERFACES.md",
+      "test": "test_machine.MachineTests.test_each_detector_observation_bound_and_specific_actuator_action",
+      "coverage": "Detector fixture exists; explicit five-corruption channel matrix is allocated in the parent protocol.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SIF-04",
+      "parent": "M1-REQ-007",
+      "statement": "Wall-clock liveness shall remain distinct from virtual pause.",
+      "acceptance": "Nominal lease 2000 ms; tested wall acceptance <=3 s. PING while paused does not increment virtual sequence or physiology.",
+      "design": "docs/design/INTERFACES.md",
+      "test": "test_machine.MachineTests.test_m5_wall_watchdog_terminal_state_and_observation_remain_separate",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SIF-05",
+      "parent": "M1-REQ-009",
+      "statement": "Failed-run evidence shall survive unsuccessful collection.",
+      "acceptance": "Keep original error identity, available diagnostics and partial records. If extraction fails, retain volumes and usable recovery instructions before any cleanup.",
+      "design": "docs/design/INTERFACES.md",
+      "test": "test_compose_collection.ComposeCollectionTests.test_failed_extraction_keeps_volume_and_recovery_commands",
+      "coverage": "Direct extraction failure/retention case; other collection phases covered by adjacent suite methods.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-01",
+      "parent": "REQ-003",
+      "statement": "Water accounting shall separate patient, circuit, gross UF and substitution.",
+      "acceptance": "For current physical HD/PRE/POST complete cycles, independent cumulative water residual <=1e-6 mL. Net meter is gross UF minus substitution, not patient weight.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_physical.PhysicalProcessTests.test_real_services_and_retained_evidence",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-02",
+      "parent": "DYN-REQ-001",
+      "statement": "Distributed transport shall conserve every tracked solute.",
+      "acceptance": "Six-species whole-system and dialysate-ledger residuals <=1e-6 mmol; local compartment sums agree with aggregate inventories.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_dynamics.DynamicsTests.test_distributed_transit_delay_conservation_and_atomic_rejection",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-03",
+      "parent": "PHY-REQ-001",
+      "statement": "Red cells and proteins shall remain explicitly accounted for.",
+      "acceptance": "Vascular + circuit + lost red cells/protein equal initial inventory to 1e-6 mL/g; local Hct and Cp must agree with inventories and volumes.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_physical.PhysicalTests.test_uf_hemoconcentration_refill_and_rbc_conservation",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-04",
+      "parent": "PHY-REQ-001",
+      "statement": "Needle geometry shall affect hydraulic resistance.",
+      "acceptance": "With viscosity and length fixed, resistance is proportional to diameter^-4; use internal diameter in mm and explicit SI conversions.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_physical.PhysicalTests.test_equations_and_limits",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-05",
+      "parent": "DYN-REQ-001",
+      "statement": "Chamber level changes shall arise from retained liquid/gas inventories.",
+      "acceptance": "Implicit liquid continuity and (760+P)*Vgas=gas_inventory hold; bounded gas actuation cannot directly reset liquid volume. Isolation freezes storage.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_dynamics.DynamicsTests.test_gas_pumps_balancing_and_independent_level_protection",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-06",
+      "parent": "DYN-REQ-001",
+      "statement": "Pump flow, access draw and patient return shall remain distinguishable.",
+      "acceptance": "Differences equal circuit storage change and membrane/substitution transfers, rather than being forced equal during transients.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_physical.PhysicalTests.test_in_process_physical_treatments",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-07",
+      "parent": "DYN-REQ-001",
+      "statement": "Dialysate balance shall include compliant storage and extra UF removal.",
+      "acceptance": "Storage change equals feed + membrane filtration - drain; independent recorded residual <=1e-5 mL. Valve changeover holds 30 ms, including smaller time steps.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_dynamics.DynamicsTests.test_gas_pumps_balancing_and_independent_level_protection",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-08",
+      "parent": "DYN-REQ-001",
+      "statement": "Nonconverged hydraulic steps shall not report nominal flow.",
+      "acceptance": "Forced solver-iteration exhaustion results in zero outputs and explicit hydraulic_solver limitation, not a successful nominal target.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_dynamics.DynamicsTests.test_gas_pumps_balancing_and_independent_level_protection",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-09",
+      "parent": "DYN-REQ-001",
+      "statement": "PRE and POST shall enter different retained blood compartments.",
+      "acceptance": "PRE enters filter segment 1; POST enters venous chamber. Concentration changes propagate through downstream cells rather than instantaneous whole-circuit mixing.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_dynamics.DynamicsTests.test_distributed_transit_delay_conservation_and_atomic_rejection",
+      "coverage": "Transit/atomic-rejection fixture exists; route allocation also relies on physical three-mode cycles.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-10",
+      "parent": "PHY-REQ-001",
+      "statement": "Prepared-fluid heating and supply shall respect finite resources.",
+      "acceptance": "Acid and bicarbonate decrement independently; bicarbonate dissolves at bounded rate; heater power remains 0..configured maximum and thermal balance includes storage and flow.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_physical.PhysicalTests.test_equations_and_limits",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-11",
+      "parent": "REQ-006",
+      "statement": "Observable preparation faults shall inhibit unsafe modeled fluid delivery.",
+      "acceptance": "Observed temperature outside 35..39 C, conductivity outside 12..16 mS/cm, integrity failure or other declared quality hazards constrain delivery before commit. Hidden contamination alone is not an invented observable.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_machine.MachineTests.test_quality_detectors_trip_in_their_first_unsafe_observation_cycle",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-12",
+      "parent": "DYN-REQ-001",
+      "statement": "Reference fitting shall keep a separate comparison point.",
+      "acceptance": "Fit only the 300 mL/min urea point, compare 400 mL/min at stated conditions; 5% relative holdout criterion is an engineering comparison. Report other coefficients as uncalibrated.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_dynamics.DynamicsTests.test_reference_holdout_and_discretization_are_reported",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SMOD-13",
+      "parent": "M3-REQ-001",
+      "statement": "Rejected patient transactions shall preserve the previous state.",
+      "acceptance": "Invalid or nonfinite prospective inventory, shape or ordering leaves the accepted patient snapshot unchanged.",
+      "design": "docs/design/MODELS.md",
+      "test": "test_dynamics.DynamicsTests.test_distributed_transit_delay_conservation_and_atomic_rejection",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SEXP-01",
+      "parent": "M7-REQ-003",
+      "statement": "Experiment pause shall maintain liveness without advancing virtual time.",
+      "acceptance": "Pause for more than 2 wall seconds leaves sequence/time unchanged; external device STOP aborts without requiring resume or another tick.",
+      "design": "docs/design/INTERACTION.md",
+      "test": "test_experiments.ExperimentTests.test_external_stop_while_paused_aborts_without_resume_or_another_tick",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SEXP-02",
+      "parent": "M7-REQ-004",
+      "statement": "Replay and export shall reject contradictory artifact identity.",
+      "acceptance": "Reject mismatched run/configuration/build/trajectory identity rather than comparing unrelated records; stream export and retain original failure.",
+      "design": "docs/design/INTERACTION.md",
+      "test": "test_experiments.ExperimentReviewTests.test_comparison_and_export_reject_every_contradictory_identity",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SQA-01",
+      "parent": "M8-REQ-006",
+      "statement": "Current documentation shall remain synchronized with controlled requirements.",
+      "acceptance": "A final requirement edit makes generated documentation checks fail until regeneration. Missing or duplicate IDs and broken local links fail the gate.",
+      "design": "docs/design/INTERFACES.md",
+      "test": "test_documentation.DocumentationTests.test_last_requirement_edit_invalidates_generated_candidate",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SQA-02",
+      "parent": "M8-REQ-006",
+      "statement": "Current acceptance shall not inherit a historical pass.",
+      "acceptance": "Generated current test catalogues omit historical evidence outcomes and require explicit applicability/approval records.",
+      "design": "docs/design/INTERFACES.md",
+      "test": "test_documentation.DocumentationTests.test_historical_pass_does_not_become_current_acceptance",
+      "coverage": "direct assertion or named fixture; current result acceptance pending",
+      "approval": "proposed; independent approval pending"
+    }
+  ]
+}

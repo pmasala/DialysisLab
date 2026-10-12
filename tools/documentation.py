@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 import re
 import sys
+import document_contracts
 from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,7 +51,9 @@ def render(root):
         '## Reading and acceptance rules', '',
         'Requirements are grouped by function. Existing IDs remain stable for traceability; an M',
         'prefix is not the reading order. Statements and acceptance text below are generated',
-        'from the maintained register without silently rewriting obligations. Some obligations',
+        'from the maintained register without silently rewriting obligations. The supplemental',
+        '[atomic requirements](ATOMIC_REQUIREMENTS.md) and [coverage matrix](testing/COVERAGE.md)',
+        'decompose selected compound obligations and name executable test methods. Some obligations',
         'remain too broad or need justified numerical criteria; the current audit identifies them.', '',
         '**Current verification decision:** implementation is recorded for these requirements,',
         'but requirement-level independent acceptance is not recorded. Historical test passes',
@@ -117,7 +120,9 @@ def render(root):
             lines += ['### ' + link(str(path.relative_to(root)), '../../'), '']
             lines += ['- `' + entry + '`' for entry in entries]
             lines.append('')
-    return {'docs/REQUIREMENTS.md': requirements_text, 'docs/testing/CATALOG.md': '\n'.join(lines)}
+    result = {'docs/REQUIREMENTS.md': requirements_text, 'docs/testing/CATALOG.md': '\n'.join(lines)}
+    result.update(document_contracts.render(root, ids))
+    return result
 
 
 def check(root):
@@ -153,7 +158,7 @@ def main():
             (ROOT / name).write_text(value)
     errors = check(ROOT)
     print(json.dumps(dict(structural_errors=errors,
-        scope='Generated-document drift and local file links only; no scientific or regulatory approval.'), indent=2))
+        scope='Document drift, local links and contract/test allocation structure; no scientific or regulatory approval.'), indent=2))
     return 1 if errors else 0
 
 

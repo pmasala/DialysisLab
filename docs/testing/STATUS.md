@@ -1,6 +1,6 @@
 # Current baseline: verification and acceptance
 
-Document ID SVR-01; revision 1; prepared 2026-10-12; approval pending.
+Document ID SVR-01; revision 2; prepared 2026-10-12; approval pending.
 This is the current evidence decision, not a history of development runs.
 
 ## Assessed implementation
@@ -36,3 +36,18 @@ A reviewer must identify each required case, executed artifact and result before
 changing a requirement's current acceptance. Historical records remain available in
 the [Project Log](../../project-log/README.md), outside this official result summary.
 A passing structural checklist cannot close any of the scientific or human decisions.
+
+## Documentation corrective verification scope
+
+The current [audit check report](../../assurance/audits/checks.json) records execution
+of the document/contract/CI/traceability/publication test subset and final structural
+checks. Contract tests include actual C++ MACHINE5/8 and OBS5/8/9/10 serialization,
+Python decoding and five Python configuration messages. A diagnostic test reproduces
+the known C++/Python level-bound discrepancy; its pass confirms DOC-13, not closure.
+
+The [atomic matrix](COVERAGE.md) allocates 34 selected obligations across 16 of the
+60 parent requirements and explicitly lists the other parents. It is a current
+coverage argument, not an automatic requirement acceptance record. The runtime source
+is unchanged by this corrective documentation revision. Full hosted verification
+of each new PR head remains a separate pipeline result; no prior head's pass is
+assigned to a later documentation/tool change.

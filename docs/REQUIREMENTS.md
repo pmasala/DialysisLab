@@ -22,7 +22,9 @@ dependencies prefer MIT, BSD, Apache-2.0 or zlib; exceptions need explicit revie
 
 Requirements are grouped by function. Existing IDs remain stable for traceability; an M
 prefix is not the reading order. Statements and acceptance text below are generated
-from the maintained register without silently rewriting obligations. Some obligations
+from the maintained register without silently rewriting obligations. The supplemental
+[atomic requirements](ATOMIC_REQUIREMENTS.md) and [coverage matrix](testing/COVERAGE.md)
+decompose selected compound obligations and name executable test methods. Some obligations
 remain too broad or need justified numerical criteria; the current audit identifies them.
 
 **Current verification decision:** implementation is recorded for these requirements,
@@ -55,7 +57,7 @@ Device UI access shall be restricted to permitted machine command and telemetry 
 
 **Trace:** needs NEED-001; risks HAZ-001; design DES-001; verification TEST-001.
 
-**Implementation locations:** [compose.experiments.yaml](../compose.experiments.yaml), [tools/verify_experiments_compose.py](../tools/verify_experiments_compose.py), [src/ui/client.hpp](../src/ui/client.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [compose.experiments.yaml](../compose.experiments.yaml), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/ui/client.hpp](../src/ui/client.hpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [tools/verify_experiments_compose.py](../tools/verify_experiments_compose.py).
 
 ### REQ-002
 
@@ -65,7 +67,7 @@ Control commands shall not override an active protective constraint at actuator 
 
 **Trace:** needs NEED-002; risks HAZ-002; design DES-002; verification TEST-002.
 
-**Implementation locations:** [src/plant.cpp](../src/plant.cpp), [src/machine.hpp](../src/machine.hpp), [tests/test_machine.py](../tests/test_machine.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/test_machine.py](../tests/test_machine.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
 
 ### REQ-003
 
@@ -75,7 +77,7 @@ Fluid accounting shall separately track gross membrane transfer, substitution, o
 
 **Trace:** needs NEED-003; risks HAZ-003; design DES-003; verification TEST-003.
 
-**Implementation locations:** [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [src/circuit.hpp](../src/circuit.hpp), [tools/verify_models.py](../tools/verify_models.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/testing/MEASUREMENTS.md](../docs/testing/MEASUREMENTS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [src/circuit.hpp](../src/circuit.hpp), [tools/verify_models.py](../tools/verify_models.py).
 
 ### REQ-004
 
@@ -85,7 +87,7 @@ Protection shall evaluate measurement validity and age and apply the approved ha
 
 **Trace:** needs NEED-004; risks HAZ-004; design DES-004; verification TEST-004.
 
-**Implementation locations:** [src/protection.cpp](../src/protection.cpp), [src/wire.hpp](../src/wire.hpp), [tests/test_rpc_abort.py](../tests/test_rpc_abort.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/protection.cpp](../src/protection.cpp), [src/wire.hpp](../src/wire.hpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/test_rpc_abort.py](../tests/test_rpc_abort.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
 
 ### REQ-005
 
@@ -95,7 +97,7 @@ Alarm acknowledgment or permitted silence shall not by itself clear an active ha
 
 **Trace:** needs NEED-005; risks HAZ-005; design DES-005; verification TEST-005.
 
-**Implementation locations:** [src/protection.cpp](../src/protection.cpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/protection.cpp](../src/protection.cpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
 
 ### REQ-006
 
@@ -105,7 +107,7 @@ Substitution delivery shall be conditioned on approved preparation and observabl
 
 **Trace:** needs NEED-006; risks HAZ-006; design DES-006; verification TEST-006.
 
-**Implementation locations:** [src/online.hpp](../src/online.hpp), [src/protection.cpp](../src/protection.cpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/testing/MEASUREMENTS.md](../docs/testing/MEASUREMENTS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [src/online.hpp](../src/online.hpp), [src/protection.cpp](../src/protection.cpp).
 
 ## Execution, failure handling and records
 
@@ -117,7 +119,7 @@ Build three C++17 services and deploy them with separate Python patient and runn
 
 **Trace:** needs M1-NEED-001; risks HAZ-001; design M1-DES-001; verification M1-TEST-001.
 
-**Implementation locations:** [src/wire.hpp](../src/wire.hpp), [CMakeLists.txt](../CMakeLists.txt), [compose.yaml](../compose.yaml), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [CMakeLists.txt](../CMakeLists.txt), [compose.yaml](../compose.yaml), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [src/wire.hpp](../src/wire.hpp).
 
 ### M1-REQ-002
 
@@ -127,7 +129,7 @@ Advance simulation solely through contiguous integer virtual ticks and reproduce
 
 **Trace:** needs M1-NEED-001; risks HAZ-004; design M1-DES-002; verification M1-TEST-002.
 
-**Implementation locations:** [python/dialysislab/runner.py](../python/dialysislab/runner.py), [src/plant.cpp](../src/plant.cpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [src/plant.cpp](../src/plant.cpp).
 
 ### M1-REQ-003
 
@@ -137,7 +139,7 @@ Conserve fluid in the limited HD model with separate patient and effluent accoun
 
 **Trace:** needs M1-NEED-001; risks HAZ-003; design M1-DES-003; verification M1-TEST-003.
 
-**Implementation locations:** [src/model.hpp](../src/model.hpp), [src/plant.cpp](../src/plant.cpp), [python/dialysislab/patient.py](../python/dialysislab/patient.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [python/dialysislab/patient.py](../python/dialysislab/patient.py), [src/model.hpp](../src/model.hpp), [src/plant.cpp](../src/plant.cpp).
 
 ### M1-REQ-004
 
@@ -147,7 +149,7 @@ Detect synthetic occlusion and send a protective command directly to plant arbit
 
 **Trace:** needs M1-NEED-001; risks HAZ-002; design M1-DES-004; verification M1-TEST-004.
 
-**Implementation locations:** [src/protection.cpp](../src/protection.cpp), [src/plant.cpp](../src/plant.cpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [src/plant.cpp](../src/plant.cpp), [src/protection.cpp](../src/protection.cpp).
 
 ### M1-REQ-005
 
@@ -157,7 +159,7 @@ Preserve an active protective latch against conflicting commands and subsequent 
 
 **Trace:** needs M1-NEED-001; risks HAZ-002; design M1-DES-005; verification M1-TEST-005.
 
-**Implementation locations:** [src/plant.cpp](../src/plant.cpp), [src/control.cpp](../src/control.cpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/control.cpp](../src/control.cpp), [src/plant.cpp](../src/plant.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
 
 ### M1-REQ-006
 
@@ -167,7 +169,7 @@ Validate separate modeled control/protection observations before using them.
 
 **Trace:** needs M1-NEED-001; risks HAZ-004; design M1-DES-006; verification M1-TEST-006.
 
-**Implementation locations:** [src/wire.hpp](../src/wire.hpp), [src/control.cpp](../src/control.cpp), [src/protection.cpp](../src/protection.cpp), [src/plant.cpp](../src/plant.cpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/control.cpp](../src/control.cpp), [src/plant.cpp](../src/plant.cpp), [src/protection.cpp](../src/protection.cpp), [src/wire.hpp](../src/wire.hpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
 
 ### M1-REQ-007
 
@@ -177,7 +179,7 @@ Handle missing processes and distinguish virtual pause from wall-clock liveness.
 
 **Trace:** needs M1-NEED-001; risks HAZ-002, HAZ-004; design M1-DES-007; verification M1-TEST-007.
 
-**Implementation locations:** [src/plant.cpp](../src/plant.cpp), [src/wire.hpp](../src/wire.hpp), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [src/plant.cpp](../src/plant.cpp), [src/wire.hpp](../src/wire.hpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
 
 ### M1-REQ-008
 
@@ -187,7 +189,7 @@ Stream and recover all supported 100000-tick trajectory records with bounded mem
 
 **Trace:** needs M1-NEED-001; risks HAZ-003, HAZ-004; design M1-DES-008; verification M1-TEST-008.
 
-**Implementation locations:** [python/dialysislab/trajectory.py](../python/dialysislab/trajectory.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [tools/recover_trajectory.py](../tools/recover_trajectory.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [python/dialysislab/trajectory.py](../python/dialysislab/trajectory.py), [tools/recover_trajectory.py](../tools/recover_trajectory.py).
 
 ### M1-REQ-009
 
@@ -197,7 +199,7 @@ Retain available Compose failure evidence and preserve original error identity.
 
 **Trace:** needs M1-NEED-001; risks HAZ-001; design M1-DES-009; verification M1-TEST-009.
 
-**Implementation locations:** [tools/verify_compose.py](../tools/verify_compose.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [tools/verify_compose.py](../tools/verify_compose.py).
 
 ## Hydraulics, patient and prepared fluids
 
@@ -209,7 +211,7 @@ Configurable compliant hydraulic network and measured sensors
 
 **Trace:** needs M2-NEED-001; risks HAZ-002, HAZ-004; design M2-DES-001; verification M2-TEST-001.
 
-**Implementation locations:** [src/circuit.hpp](../src/circuit.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [src/circuit.hpp](../src/circuit.hpp).
 
 ### M2-REQ-002
 
@@ -219,7 +221,7 @@ Conserve patient, circuit and effluent water
 
 **Trace:** needs M2-NEED-001; risks HAZ-003; design M2-DES-002; verification M2-TEST-002.
 
-**Implementation locations:** [src/circuit.hpp](../src/circuit.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [src/circuit.hpp](../src/circuit.hpp).
 
 ### M2-REQ-003
 
@@ -229,7 +231,7 @@ Synthetic dialyzer diffusion, convection and pressure-limited UF
 
 **Trace:** needs M2-NEED-001; risks HAZ-003; design M2-DES-003; verification M2-TEST-003.
 
-**Implementation locations:** [src/circuit.hpp](../src/circuit.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [src/circuit.hpp](../src/circuit.hpp).
 
 ### M2-REQ-004
 
@@ -239,7 +241,7 @@ Integrate extended circuit without losing independent protection or reproducibil
 
 **Trace:** needs M2-NEED-001; risks HAZ-001, HAZ-002, HAZ-004; design M2-DES-004; verification M2-TEST-004.
 
-**Implementation locations:** [python/dialysislab/circuit.py](../python/dialysislab/circuit.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [python/dialysislab/circuit.py](../python/dialysislab/circuit.py).
 
 ### M3-REQ-001
 
@@ -249,7 +251,7 @@ Conservative positive patient compartments and six solute inventories
 
 **Trace:** needs M3-NEED-001; risks HAZ-003, HAZ-004; design M3-DES-001; verification M3-TEST-001.
 
-**Implementation locations:** [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py).
 
 ### M3-REQ-002
 
@@ -259,7 +261,7 @@ Independent whole-system water and solute accounting
 
 **Trace:** needs M3-NEED-001; risks HAZ-003; design M3-DES-002; verification M3-TEST-002.
 
-**Implementation locations:** [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py).
 
 ### M3-REQ-003
 
@@ -269,7 +271,7 @@ Distinct gross UF, external fluxes, circuit storage, patient loss and water-only
 
 **Trace:** needs M3-NEED-001; risks HAZ-003; design M3-DES-003; verification M3-TEST-003.
 
-**Implementation locations:** [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py).
 
 ### M3-REQ-004
 
@@ -279,7 +281,7 @@ Couple real Python patient to atomic C++ circuit coefficients
 
 **Trace:** needs M3-NEED-001; risks HAZ-001, HAZ-003, HAZ-004; design M3-DES-004; verification M3-TEST-004.
 
-**Implementation locations:** [python/dialysislab/runner.py](../python/dialysislab/runner.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [python/dialysislab/runner.py](../python/dialysislab/runner.py).
 
 ### M4-REQ-001
 
@@ -289,7 +291,7 @@ Implement explicit HD/pre/post HDF water and solute delivery
 
 **Trace:** needs M4-NEED-001; risks HAZ-003; design M4-DES-001; verification M4-TEST-001.
 
-**Implementation locations:** [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py).
 
 ### M4-REQ-002
 
@@ -299,7 +301,7 @@ Model preparation reservoir, thermal and filter/delivery hydraulics
 
 **Trace:** needs M4-NEED-001; risks HAZ-003, HAZ-006; design M4-DES-002; verification M4-TEST-002.
 
-**Implementation locations:** [src/online.hpp](../src/online.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [src/online.hpp](../src/online.hpp).
 
 ### M4-REQ-003
 
@@ -309,7 +311,7 @@ Enforce observed quality protection at plant arbitration
 
 **Trace:** needs M4-NEED-001; risks HAZ-002, HAZ-004, HAZ-006; design M4-DES-003; verification M4-TEST-003.
 
-**Implementation locations:** [src/plant.cpp](../src/plant.cpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [src/plant.cpp](../src/plant.cpp).
 
 ### M4-REQ-004
 
@@ -319,7 +321,7 @@ Verify real treatment processes and deployment evidence
 
 **Trace:** needs M4-NEED-001; risks HAZ-001, HAZ-003, HAZ-004, HAZ-006; design M4-DES-004; verification M4-TEST-004.
 
-**Implementation locations:** [python/dialysislab/runner.py](../python/dialysislab/runner.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [python/dialysislab/runner.py](../python/dialysislab/runner.py).
 
 ### PHY-REQ-001
 
@@ -329,7 +331,7 @@ Couple patient hematocrit, needle/disposable geometry, local filtration and visc
 
 **Trace:** needs M7-NEED-001; risks HAZ-002, HAZ-003, HAZ-004, HAZ-006; design PHY-DES-001; verification PHY-TEST-001, PHY-TEST-002.
 
-**Implementation locations:** [src/blood_physics.hpp](../src/blood_physics.hpp), [src/circuit.hpp](../src/circuit.hpp), [src/online.hpp](../src/online.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [python/dialysislab/physical.py](../python/dialysislab/physical.py), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [tests/physical_model.cpp](../tests/physical_model.cpp), [tests/test_physical.py](../tests/test_physical.py), [tools/verify_models.py](../tools/verify_models.py), [docs/PHYSICAL_MODEL.md](../docs/PHYSICAL_MODEL.md), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/PHYSICAL_MODEL.md](../docs/PHYSICAL_MODEL.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/MEASUREMENTS.md](../docs/testing/MEASUREMENTS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [python/dialysislab/physical.py](../python/dialysislab/physical.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [src/blood_physics.hpp](../src/blood_physics.hpp), [src/circuit.hpp](../src/circuit.hpp), [src/machine.hpp](../src/machine.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [tests/physical_model.cpp](../tests/physical_model.cpp), [tests/test_physical.py](../tests/test_physical.py), [tools/verify_models.py](../tools/verify_models.py).
 
 ### DYN-REQ-001
 
@@ -339,7 +341,7 @@ Make chamber levels, dialysate control and blood/dialysate inventories evolve co
 
 **Trace:** needs M7-NEED-001; risks HAZ-002, HAZ-003, HAZ-004, HAZ-006; design DYN-DES-001; verification DYN-TEST-001, DYN-TEST-002, DYN-TEST-003.
 
-**Implementation locations:** [docs/DYNAMIC_MODEL.md](../docs/DYNAMIC_MODEL.md), [docs/GUIDED_TREATMENT.md](../docs/GUIDED_TREATMENT.md), [docs/PHYSICAL_MODEL.md](../docs/PHYSICAL_MODEL.md), [docs/UI_INSPECTION.md](../docs/UI_INSPECTION.md), [docs/images/physical-circuit.svg](../docs/images/physical-circuit.svg), [python/dialysislab/calibration.py](../python/dialysislab/calibration.py), [python/dialysislab/circuit.py](../python/dialysislab/circuit.py), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [python/dialysislab/distributed.py](../python/dialysislab/distributed.py), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [python/dialysislab/physical.py](../python/dialysislab/physical.py), [python/dialysislab/protocol.py](../python/dialysislab/protocol.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [python/dialysislab/trajectory.py](../python/dialysislab/trajectory.py), [references/dialyzer_benchmarks.json](../references/dialyzer_benchmarks.json), [scenarios/device_guided.json](../scenarios/device_guided.json), [scenarios/physical_hd.json](../scenarios/physical_hd.json), [scenarios/physical_hdf_post.json](../scenarios/physical_hdf_post.json), [scenarios/physical_hdf_pre.json](../scenarios/physical_hdf_pre.json), [src/blood_physics.hpp](../src/blood_physics.hpp), [src/circuit.hpp](../src/circuit.hpp), [src/console/telemetry.hpp](../src/console/telemetry.hpp), [src/dynamics.hpp](../src/dynamics.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/synoptic.hpp](../src/ui/synoptic.hpp), [tests/dynamic_model.cpp](../tests/dynamic_model.cpp), [tests/guided_view.cpp](../tests/guided_view.cpp), [tests/test_dynamics.py](../tests/test_dynamics.py), [tests/test_inspection.py](../tests/test_inspection.py), [tests/test_physical.py](../tests/test_physical.py), [tools/calibrate_models.py](../tools/calibrate_models.py), [tools/ci_verify.py](../tools/ci_verify.py), [tools/verify_models.py](../tools/verify_models.py), [tests/test_ci.py](../tests/test_ci.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/DYNAMIC_MODEL.md](../docs/DYNAMIC_MODEL.md), [docs/GUIDED_TREATMENT.md](../docs/GUIDED_TREATMENT.md), [docs/PHYSICAL_MODEL.md](../docs/PHYSICAL_MODEL.md), [docs/UI_INSPECTION.md](../docs/UI_INSPECTION.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/images/physical-circuit.svg](../docs/images/physical-circuit.svg), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/MEASUREMENTS.md](../docs/testing/MEASUREMENTS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [python/dialysislab/calibration.py](../python/dialysislab/calibration.py), [python/dialysislab/circuit.py](../python/dialysislab/circuit.py), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [python/dialysislab/distributed.py](../python/dialysislab/distributed.py), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [python/dialysislab/physical.py](../python/dialysislab/physical.py), [python/dialysislab/protocol.py](../python/dialysislab/protocol.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [python/dialysislab/trajectory.py](../python/dialysislab/trajectory.py), [references/dialyzer_benchmarks.json](../references/dialyzer_benchmarks.json), [scenarios/device_guided.json](../scenarios/device_guided.json), [scenarios/physical_hd.json](../scenarios/physical_hd.json), [scenarios/physical_hdf_post.json](../scenarios/physical_hdf_post.json), [scenarios/physical_hdf_pre.json](../scenarios/physical_hdf_pre.json), [src/blood_physics.hpp](../src/blood_physics.hpp), [src/circuit.hpp](../src/circuit.hpp), [src/console/telemetry.hpp](../src/console/telemetry.hpp), [src/dynamics.hpp](../src/dynamics.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/synoptic.hpp](../src/ui/synoptic.hpp), [tests/dynamic_model.cpp](../tests/dynamic_model.cpp), [tests/guided_view.cpp](../tests/guided_view.cpp), [tests/test_ci.py](../tests/test_ci.py), [tests/test_dynamics.py](../tests/test_dynamics.py), [tests/test_inspection.py](../tests/test_inspection.py), [tests/test_physical.py](../tests/test_physical.py), [tools/calibrate_models.py](../tools/calibrate_models.py), [tools/ci_verify.py](../tools/ci_verify.py), [tools/verify_models.py](../tools/verify_models.py).
 
 ## Treatment lifecycle and operator interface
 
@@ -351,7 +353,7 @@ Implement guarded authoritative lifecycle states
 
 **Trace:** needs M5-NEED-001; risks HAZ-002, HAZ-004, HAZ-005; design M5-DES-001; verification M5-TEST-001.
 
-**Implementation locations:** [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp).
 
 ### M5-REQ-002
 
@@ -361,7 +363,7 @@ Conserve external priming and cleaning transfers
 
 **Trace:** needs M5-NEED-001; risks HAZ-003, HAZ-006; design M5-DES-002; verification M5-TEST-002.
 
-**Implementation locations:** [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [python/dialysislab/patient.py](../python/dialysislab/patient.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [python/dialysislab/patient.py](../python/dialysislab/patient.py).
 
 ### M5-REQ-003
 
@@ -371,7 +373,7 @@ Enforce aggregate hazard-specific protective constraints
 
 **Trace:** needs M5-NEED-001; risks HAZ-002, HAZ-003, HAZ-004, HAZ-006; design M5-DES-003; verification M5-TEST-003.
 
-**Implementation locations:** [src/protection.cpp](../src/protection.cpp), [src/plant.cpp](../src/plant.cpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/plant.cpp](../src/plant.cpp), [src/protection.cpp](../src/protection.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
 
 ### M5-REQ-004
 
@@ -381,7 +383,7 @@ Separate alarm acknowledgment, silence, reset and restart
 
 **Trace:** needs M5-NEED-001; risks HAZ-002, HAZ-004, HAZ-005; design M5-DES-004; verification M5-TEST-004.
 
-**Implementation locations:** [src/machine.hpp](../src/machine.hpp), [src/protection.cpp](../src/protection.cpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/machine.hpp](../src/machine.hpp), [src/protection.cpp](../src/protection.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
 
 ### M5-REQ-005
 
@@ -391,7 +393,7 @@ Provide isolated device-facing authoritative interfaces
 
 **Trace:** needs M5-NEED-001; risks HAZ-001, HAZ-004, HAZ-005; design M5-DES-005; verification M5-TEST-005.
 
-**Implementation locations:** [src/control.cpp](../src/control.cpp), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [compose.yaml](../compose.yaml), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [compose.yaml](../compose.yaml), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [src/control.cpp](../src/control.cpp).
 
 ### M5-REQ-006
 
@@ -401,7 +403,7 @@ Verify integrated lifecycle and failure evidence
 
 **Trace:** needs M5-NEED-001; risks HAZ-001, HAZ-002, HAZ-003, HAZ-004, HAZ-005, HAZ-006; design M5-DES-006; verification M5-TEST-006.
 
-**Implementation locations:** [tests/test_machine.py](../tests/test_machine.py), [tools/verify_models.py](../tools/verify_models.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [tests/test_machine.py](../tests/test_machine.py), [tools/verify_models.py](../tools/verify_models.py).
 
 ### M6-REQ-001
 
@@ -411,7 +413,7 @@ Build the real LVGL device application
 
 **Trace:** needs M6-NEED-001; risks HAZ-004, HAZ-005; design M6-DES-001; verification M6-TEST-001.
 
-**Implementation locations:** [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/device_session.hpp](../src/device_session.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [src/device_session.hpp](../src/device_session.hpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp).
 
 ### M6-REQ-002
 
@@ -421,7 +423,7 @@ Validate and confirm simulated prescriptions
 
 **Trace:** needs M6-NEED-001; risks HAZ-002, HAZ-003, HAZ-005; design M6-DES-002; verification M6-TEST-002.
 
-**Implementation locations:** [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/device_session.hpp](../src/device_session.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [src/device_session.hpp](../src/device_session.hpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp).
 
 ### M6-REQ-003
 
@@ -431,7 +433,7 @@ Display measured authoritative telemetry and trends
 
 **Trace:** needs M6-NEED-001; risks HAZ-003, HAZ-004, HAZ-005; design M6-DES-003; verification M6-TEST-003.
 
-**Implementation locations:** [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/device_session.hpp](../src/device_session.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [src/device_session.hpp](../src/device_session.hpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp).
 
 ### M6-REQ-004
 
@@ -441,7 +443,7 @@ Present alarms without bypassing protection
 
 **Trace:** needs M6-NEED-001; risks HAZ-001, HAZ-002, HAZ-005; design M6-DES-004; verification M6-TEST-004.
 
-**Implementation locations:** [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/device_session.hpp](../src/device_session.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [src/device_session.hpp](../src/device_session.hpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp).
 
 ### M6-REQ-005
 
@@ -451,7 +453,7 @@ Make device reconnect and confirmation semantics explicit
 
 **Trace:** needs M6-NEED-001; risks HAZ-001, HAZ-004, HAZ-005; design M6-DES-005; verification M6-TEST-005.
 
-**Implementation locations:** [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/device_session.hpp](../src/device_session.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [src/device_session.hpp](../src/device_session.hpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp).
 
 ### M6-REQ-006
 
@@ -461,7 +463,7 @@ Verify actual UI integration and capture evidence
 
 **Trace:** needs M6-NEED-001; risks HAZ-001, HAZ-002, HAZ-003, HAZ-004, HAZ-005; design M6-DES-006; verification M6-TEST-006.
 
-**Implementation locations:** [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/device_session.hpp](../src/device_session.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [src/device_session.hpp](../src/device_session.hpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp).
 
 ### UI-REQ-001
 
@@ -471,7 +473,7 @@ Provide circuit visualization and bounded inspection without crossing device/exp
 
 **Trace:** needs M7-NEED-001; risks HAZ-001, HAZ-003, HAZ-004; design UI-DES-001; verification UI-TEST-001, UI-TEST-002.
 
-**Implementation locations:** [src/console/telemetry.hpp](../src/console/telemetry.hpp), [src/console/inspector.hpp](../src/console/inspector.hpp), [src/console/sim_console.cpp](../src/console/sim_console.cpp), [src/ui/synoptic.hpp](../src/ui/synoptic.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [tests/test_inspection.py](../tests/test_inspection.py), [docs/UI_INSPECTION.md](../docs/UI_INSPECTION.md), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/UI_INSPECTION.md](../docs/UI_INSPECTION.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [src/console/inspector.hpp](../src/console/inspector.hpp), [src/console/sim_console.cpp](../src/console/sim_console.cpp), [src/console/telemetry.hpp](../src/console/telemetry.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/synoptic.hpp](../src/ui/synoptic.hpp), [tests/test_inspection.py](../tests/test_inspection.py).
 
 ### UI-REQ-002
 
@@ -481,7 +483,7 @@ Guide the simulated treatment from initial checks through disinfection with stat
 
 **Trace:** needs M7-NEED-001; risks HAZ-001, HAZ-003, HAZ-004; design UI-DES-002; verification UI-TEST-003, UI-TEST-004.
 
-**Implementation locations:** [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [src/control.cpp](../src/control.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/synoptic.hpp](../src/ui/synoptic.hpp), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [tools/verify_models.py](../tools/verify_models.py), [tests/test_guided.py](../tests/test_guided.py), [tests/guided_view.cpp](../tests/guided_view.cpp), [tests/guided_plant.cpp](../tests/guided_plant.cpp), [scenarios/device_guided.json](../scenarios/device_guided.json), [docs/GUIDED_TREATMENT.md](../docs/GUIDED_TREATMENT.md), [tests/ui_regressions.py](../tests/ui_regressions.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/GUIDED_TREATMENT.md](../docs/GUIDED_TREATMENT.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [scenarios/device_guided.json](../scenarios/device_guided.json), [src/control.cpp](../src/control.cpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/synoptic.hpp](../src/ui/synoptic.hpp), [tests/guided_plant.cpp](../tests/guided_plant.cpp), [tests/guided_view.cpp](../tests/guided_view.cpp), [tests/test_guided.py](../tests/test_guided.py), [tests/ui_regressions.py](../tests/ui_regressions.py), [tools/verify_models.py](../tools/verify_models.py).
 
 ## Experiments and inspection
 
@@ -493,7 +495,7 @@ Run a separate real experiment console
 
 **Trace:** needs M7-NEED-001; risks HAZ-001, HAZ-003, HAZ-004; design M7-DES-001; verification M7-TEST-001.
 
-**Implementation locations:** [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/console/sim_console.cpp](../src/console/sim_console.cpp), [src/console/client.hpp](../src/console/client.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/console/client.hpp](../src/console/client.hpp), [src/console/sim_console.cpp](../src/console/sim_console.cpp).
 
 ### M7-REQ-002
 
@@ -503,7 +505,7 @@ Validate immutable complete experiment configurations
 
 **Trace:** needs M7-NEED-001; risks HAZ-001, HAZ-003, HAZ-004; design M7-DES-002; verification M7-TEST-002.
 
-**Implementation locations:** [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/console/sim_console.cpp](../src/console/sim_console.cpp), [src/console/client.hpp](../src/console/client.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/console/client.hpp](../src/console/client.hpp), [src/console/sim_console.cpp](../src/console/sim_console.cpp).
 
 ### M7-REQ-003
 
@@ -513,7 +515,7 @@ Pause resume and stop virtual experiments safely
 
 **Trace:** needs M7-NEED-001; risks HAZ-001, HAZ-003, HAZ-004; design M7-DES-003; verification M7-TEST-003.
 
-**Implementation locations:** [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/console/sim_console.cpp](../src/console/sim_console.cpp), [src/console/client.hpp](../src/console/client.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [docs/wire-contract.json](../docs/wire-contract.json), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/console/client.hpp](../src/console/client.hpp), [src/console/sim_console.cpp](../src/console/sim_console.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
 
 ### M7-REQ-004
 
@@ -523,7 +525,7 @@ Replay compare and export trustworthy results
 
 **Trace:** needs M7-NEED-001; risks HAZ-001, HAZ-003, HAZ-004; design M7-DES-004; verification M7-TEST-004.
 
-**Implementation locations:** [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/console/sim_console.cpp](../src/console/sim_console.cpp), [src/console/client.hpp](../src/console/client.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/console/client.hpp](../src/console/client.hpp), [src/console/sim_console.cpp](../src/console/sim_console.cpp).
 
 ### M7-REQ-005
 
@@ -533,7 +535,7 @@ Isolate administrative identity and interfaces
 
 **Trace:** needs M7-NEED-001; risks HAZ-001, HAZ-003, HAZ-004; design M7-DES-005; verification M7-TEST-005.
 
-**Implementation locations:** [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/console/sim_console.cpp](../src/console/sim_console.cpp), [src/console/client.hpp](../src/console/client.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/console/client.hpp](../src/console/client.hpp), [src/console/sim_console.cpp](../src/console/sim_console.cpp).
 
 ### M7-REQ-006
 
@@ -543,7 +545,7 @@ Preserve failure evidence and fresh lifecycle
 
 **Trace:** needs M7-NEED-001; risks HAZ-001, HAZ-003, HAZ-004; design M7-DES-006; verification M7-TEST-006.
 
-**Implementation locations:** [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/console/sim_console.cpp](../src/console/sim_console.cpp), [src/console/client.hpp](../src/console/client.hpp), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERACTION.md](../docs/design/INTERACTION.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/console/client.hpp](../src/console/client.hpp), [src/console/sim_console.cpp](../src/console/sim_console.cpp).
 
 ## Security, dependencies and integration
 
@@ -555,7 +557,7 @@ Isolate writable device producers
 
 **Trace:** needs M8-NEED-001; risks HAZ-001, HAZ-004, HAZ-005; design M8-DES-001; verification M8-TEST-001.
 
-**Implementation locations:** [src/control.cpp](../src/control.cpp), [src/protection.cpp](../src/protection.cpp), [compose.yaml](../compose.yaml), [compose.experiments.yaml](../compose.experiments.yaml), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [tools/verify_compose.py](../tools/verify_compose.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [compose.experiments.yaml](../compose.experiments.yaml), [compose.yaml](../compose.yaml), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/control.cpp](../src/control.cpp), [src/protection.cpp](../src/protection.cpp), [tools/verify_compose.py](../tools/verify_compose.py).
 
 ### M8-REQ-002
 
@@ -565,7 +567,7 @@ Clean up native children after owner death
 
 **Trace:** needs M8-NEED-001; risks HAZ-002, HAZ-003, HAZ-004; design M8-DES-002; verification M8-TEST-002.
 
-**Implementation locations:** [src/child_guard.cpp](../src/child_guard.cpp), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [tests/test_security.py](../tests/test_security.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [src/child_guard.cpp](../src/child_guard.cpp), [tests/test_security.py](../tests/test_security.py).
 
 ### M8-REQ-003
 
@@ -575,7 +577,7 @@ Bound and validate untrusted inputs
 
 **Trace:** needs M8-NEED-001; risks HAZ-001, HAZ-002, HAZ-003, HAZ-004, HAZ-005, HAZ-006; design M8-DES-003; verification M8-TEST-003.
 
-**Implementation locations:** [python/dialysislab/trajectory.py](../python/dialysislab/trajectory.py), [python/dialysislab/patient.py](../python/dialysislab/patient.py), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [src/plant.cpp](../src/plant.cpp), [tests/test_security.py](../tests/test_security.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [python/dialysislab/experiment_rpc.py](../python/dialysislab/experiment_rpc.py), [python/dialysislab/patient.py](../python/dialysislab/patient.py), [python/dialysislab/trajectory.py](../python/dialysislab/trajectory.py), [src/plant.cpp](../src/plant.cpp), [tests/test_security.py](../tests/test_security.py).
 
 ### M8-REQ-004
 
@@ -585,7 +587,7 @@ Inventory selected dependencies and artifacts
 
 **Trace:** needs M8-NEED-001; risks HAZ-001, HAZ-004; design M8-DES-004; verification M8-TEST-004.
 
-**Implementation locations:** [dependency_inventory.json](../dependency_inventory.json), [tools/dependency_report.py](../tools/dependency_report.py), [tools/platform_inventory.py](../tools/platform_inventory.py), [tests/test_dependencies.py](../tests/test_dependencies.py), [docs/dependencies/M8.md](../docs/dependencies/M8.md), [tools/image_application.py](../tools/image_application.py), [tools/build_identity.py](../tools/build_identity.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [dependency_inventory.json](../dependency_inventory.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/dependencies/M8.md](../docs/dependencies/M8.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [tests/test_dependencies.py](../tests/test_dependencies.py), [tools/build_identity.py](../tools/build_identity.py), [tools/dependency_report.py](../tools/dependency_report.py), [tools/image_application.py](../tools/image_application.py), [tools/platform_inventory.py](../tools/platform_inventory.py).
 
 ### M8-REQ-005
 
@@ -595,7 +597,7 @@ Execute and disposition available analyses
 
 **Trace:** needs M8-NEED-001; risks HAZ-001, HAZ-002, HAZ-003, HAZ-004, HAZ-005, HAZ-006; design M8-DES-005; verification M8-TEST-005.
 
-**Implementation locations:** [tools/security_scan.py](../tools/security_scan.py), [assurance/DEPENDENCY_FINDINGS.json](../assurance/DEPENDENCY_FINDINGS.json), [tests/test_dependencies.py](../tests/test_dependencies.py), [assurance/THREATS.json](../assurance/THREATS.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [assurance/DEPENDENCY_FINDINGS.json](../assurance/DEPENDENCY_FINDINGS.json), [assurance/THREATS.json](../assurance/THREATS.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [tests/test_dependencies.py](../tests/test_dependencies.py), [tools/security_scan.py](../tools/security_scan.py).
 
 ### M8-REQ-006
 
@@ -605,7 +607,7 @@ Continuously verify builds integration and publication
 
 **Trace:** needs M8-NEED-001; risks HAZ-001, HAZ-002, HAZ-003, HAZ-004, HAZ-005, HAZ-006; design M8-DES-006; verification M8-TEST-006.
 
-**Implementation locations:** [.github/workflows/verify.yaml](../.github/workflows/verify.yaml), [tools/ci_verify.py](../tools/ci_verify.py), [tools/check_publication.py](../tools/check_publication.py), [publication_manifest.json](../publication_manifest.json), [docs/dependencies/CI_NOTICES.md](../docs/dependencies/CI_NOTICES.md), [tools/ci_artifacts.py](../tools/ci_artifacts.py), [tests/test_ci.py](../tests/test_ci.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [tools/documentation.py](../tools/documentation.py), [tests/test_documentation.py](../tests/test_documentation.py), [docs/DOCUMENT_CONTROL.md](../docs/DOCUMENT_CONTROL.md).
+**Implementation locations:** [.github/workflows/verify.yaml](../.github/workflows/verify.yaml), [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/DOCUMENT_CONTROL.md](../docs/DOCUMENT_CONTROL.md), [docs/dependencies/CI_NOTICES.md](../docs/dependencies/CI_NOTICES.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [publication_manifest.json](../publication_manifest.json), [tests/test_ci.py](../tests/test_ci.py), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/test_documentation.py](../tests/test_documentation.py), [tools/check_publication.py](../tools/check_publication.py), [tools/ci_artifacts.py](../tools/ci_artifacts.py), [tools/ci_verify.py](../tools/ci_verify.py), [tools/document_contracts.py](../tools/document_contracts.py), [tools/documentation.py](../tools/documentation.py).
 
 ### M9-REQ-001
 
@@ -615,7 +617,7 @@ Integrate all treatment/patient/dialyzer combinations
 
 **Trace:** needs M9-NEED-001; risks HAZ-002, HAZ-003, HAZ-004, HAZ-006; design M9-DES-001; verification M9-TEST-001.
 
-**Implementation locations:** [tools/verify_integrated.py](../tools/verify_integrated.py), [tools/verify_models.py](../tools/verify_models.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [tools/verify_integrated.py](../tools/verify_integrated.py), [tools/verify_models.py](../tools/verify_models.py).
 
 ### M9-REQ-002
 
@@ -625,7 +627,7 @@ Verify sustained treatment and resource bounds
 
 **Trace:** needs M9-NEED-001; risks HAZ-003, HAZ-004; design M9-DES-002; verification M9-TEST-002.
 
-**Implementation locations:** [tools/verify_integrated.py](../tools/verify_integrated.py), [tests/test_integration.py](../tests/test_integration.py), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [tests/test_integration.py](../tests/test_integration.py), [tools/verify_integrated.py](../tools/verify_integrated.py).
 
 ### M9-REQ-003
 
@@ -635,7 +637,7 @@ Integrate simultaneous real device and experiment applications
 
 **Trace:** needs M9-NEED-001; risks HAZ-001, HAZ-002, HAZ-004, HAZ-005; design M9-DES-003; verification M9-TEST-003.
 
-**Implementation locations:** [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [tests/test_experiments.py](../tests/test_experiments.py), [tools/verify_experiments_compose.py](../tools/verify_experiments_compose.py), [compose.experiments-x11.yaml](../compose.experiments-x11.yaml), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [compose.experiments-x11.yaml](../compose.experiments-x11.yaml), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [python/dialysislab/experiments.py](../python/dialysislab/experiments.py), [tests/test_experiments.py](../tests/test_experiments.py), [tools/verify_experiments_compose.py](../tools/verify_experiments_compose.py).
 
 ### M9-REQ-004
 
@@ -645,7 +647,7 @@ Verify the reproducible source package
 
 **Trace:** needs M9-NEED-001; risks HAZ-001, HAZ-004; design M9-DES-004; verification M9-TEST-004.
 
-**Implementation locations:** [tools/verify_package.py](../tools/verify_package.py), [tools/package_release.py](../tools/package_release.py), [publication_manifest.json](../publication_manifest.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [publication_manifest.json](../publication_manifest.json), [tools/package_release.py](../tools/package_release.py), [tools/verify_package.py](../tools/verify_package.py).
 
 ### M9-REQ-005
 
@@ -655,7 +657,7 @@ Deliver complete supported technical evidence and operations
 
 **Trace:** needs M9-NEED-001; risks HAZ-001, HAZ-002, HAZ-003, HAZ-004, HAZ-005, HAZ-006; design M9-DES-005; verification M9-TEST-005.
 
-**Implementation locations:** [tools/ci_verify.py](../tools/ci_verify.py), [docs/QUICKSTART.md](../docs/QUICKSTART.md), [README.md](../README.md), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/SIMULATION.md](../docs/SIMULATION.md), [docs/README.md](../docs/README.md), [docs/DEVELOPMENT.md](../docs/DEVELOPMENT.md), [docs/diagrams/README.md](../docs/diagrams/README.md), [docs/diagrams/hydraulic-equivalent.svg](../docs/diagrams/hydraulic-equivalent.svg), [docs/diagrams/dialyzer-transport.svg](../docs/diagrams/dialyzer-transport.svg), [docs/diagrams/extracorporeal-reference.svg](../docs/diagrams/extracorporeal-reference.svg), [docs/diagrams/fluid-preparation.svg](../docs/diagrams/fluid-preparation.svg), [tools/render_hydraulic_diagrams.py](../tools/render_hydraulic_diagrams.py), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md).
+**Implementation locations:** [README.md](../README.md), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/DEVELOPMENT.md](../docs/DEVELOPMENT.md), [docs/QUICKSTART.md](../docs/QUICKSTART.md), [docs/README.md](../docs/README.md), [docs/SIMULATION.md](../docs/SIMULATION.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/diagrams/README.md](../docs/diagrams/README.md), [docs/diagrams/dialyzer-transport.svg](../docs/diagrams/dialyzer-transport.svg), [docs/diagrams/extracorporeal-reference.svg](../docs/diagrams/extracorporeal-reference.svg), [docs/diagrams/fluid-preparation.svg](../docs/diagrams/fluid-preparation.svg), [docs/diagrams/hydraulic-equivalent.svg](../docs/diagrams/hydraulic-equivalent.svg), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [tools/ci_verify.py](../tools/ci_verify.py), [tools/render_hydraulic_diagrams.py](../tools/render_hydraulic_diagrams.py).
 
 ## Change control
 

@@ -24,12 +24,15 @@ path string alone. Mount permissions and server role checks enforce the boundary
 | `trajectory.jsonl`, `manifest.json` | Runner / evidence readers | Persisted observations, truth and identity; never an actuation interface |
 
 DL1 uses ASCII tokens, a newline terminator and one request/reply per connection.
-Nonfinite, out-of-range, surplus, reordered or unknown fields are rejected. Core
+Parsers reject nonfinite values, surplus fields and values outside their local bounds.
+Positional numeric fields with overlapping bounds cannot necessarily detect reordering;
+producer/consumer conformance therefore needs explicit tests. Known decoder bound
+differences are recorded in the current protocol specification. Core
 frames have a 4096-byte bound and 500 ms exchange deadline. Distributed patient
 **responses** explicitly allow 32768 bytes; this does not enlarge plant/control
 requests. Trajectory lines also have a 32768-byte cap. DX1 has a separate bounded
 JSON framing and credential contract in [experiment_rpc.py](../../python/dialysislab/experiment_rpc.py)
-and [M7](../M7_EXPERIMENTS.md). Do not reuse DL1 assumptions for DX1.
+and [current wire protocol](WIRE_PROTOCOL.md). Do not reuse DL1 assumptions for DX1.
 
 ## Current protocol families and ownership
 
@@ -46,10 +49,13 @@ and [M7](../M7_EXPERIMENTS.md). Do not reuse DL1 assumptions for DX1.
 The number on a payload is not a single global software version. For example, a
 VIEW5 envelope can contain MACHINE8 and OBS10. The current implementation accepts those versioned combinations explicitly. Historical
 wire lists are retained through the Project Log for compatibility analysis only.
-The audit records
-that a complete machine-readable field/unit schema for every extension is still
-missing. Existing parsers and cross-language tests are implementation evidence,
-not a substitute for that approved specification.
+The controlled [wire protocol](WIRE_PROTOCOL.md), [fixed-field dictionary](WIRE_FIELDS.md)
+and [patient JSON dictionary](JSON_FIELDS.md) now specify current extensions. The
+fixed-field register covers 32 message forms and 394 ordered fields with units and
+bounds. Selected actual serializers are compared with that register in
+[test_document_contracts.py](../../tests/test_document_contracts.py). Source hashes
+force review when an inspected parser changes. Exhaustive boundary conformance and
+independent approval remain separate gates; known implementation discrepancies stay open.
 
 ## Ordered transaction and failure behavior
 

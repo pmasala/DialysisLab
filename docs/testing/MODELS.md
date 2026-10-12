@@ -40,3 +40,8 @@ calibration, repeatability, sampling time and uncertainty. Reserve independent d
 for validation. Patient refill and electrolyte dynamics require a separately approved
 patient-model validation protocol. No measurements have been invented to close this
 work, and the planned Excel import pipeline is not an existing verification tool.
+
+The controlled [measurement protocol](MEASUREMENTS.md) supplies per-model conditions,
+required channels, acquisition metadata, uncertainty and holdout rules.
+[CLOSE-NUM-01](CLOSURE.md) defines the global convergence campaign and its
+preapproved error-budget gate.

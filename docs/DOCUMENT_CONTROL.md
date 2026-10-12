@@ -77,3 +77,20 @@ checklists or manufacturer artwork. Link public sources, record edition and acce
 limitations, and retain licensed review material privately. Public metadata is not
 a substitute for the full normative text. English is the maintained repository
 language; a translation must identify its corresponding commit.
+
+## Supplemental contracts and allocations
+
+`assurance/current-obligations.json` controls selected atomic clarifications and
+concrete test allocations; it does not replace the 60 parent requirements.
+`docs/wire-contract.json` controls fixed-field wire order, units and bounds.
+Run `python3 tools/documentation.py --write` after editing either. The check rejects
+unknown parents, missing executable methods, duplicate fields, invalid bounds and
+stale generated documents. Wire source hashes must be refreshed only after reviewing
+the affected producer/consumer contract. They detect change; they do not prove
+semantic equivalence. Patient JSON and composite protocol prose remain reviewed
+manual specifications, so impact review must include them explicitly.
+
+The coverage matrix records existing tests and partial coverage. A passing witness
+for a known parser discrepancy confirms the finding; it does not close it. An
+independent acceptance decision needs an identified result and reviewer record under
+[closure protocol](testing/CLOSURE.md), never just a changed status flag.

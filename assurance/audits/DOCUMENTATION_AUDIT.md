@@ -1,6 +1,6 @@
 # Current documentation audit and corrective-action record
 
-Document ID AUD-DOC-01; revision 1; audit date 2026-10-12. Implementation assessed:
+Document ID AUD-DOC-01; revision 2; audit date 2026-10-12. Implementation assessed:
 `602e8dab8e65efdb0bc8db1051ce0006f0d3adfd`, tree
 `646c4bc3578d26a78203b42025cd93166b9ae93a`. Documentation candidate is identified by
 the Git revision containing this report and its [check report](checks.json).
@@ -51,15 +51,17 @@ counts from different checkers, not 400 independent nonconformities.
 | DOC-01 / major | Requirements were mainly embedded in JSON and historical M documents. A reviewer had no single functional reading order. | Documentation owner: standalone SRS containing every stable ID and acceptance, grouped by function; deterministic generation check. | Corrected in this candidate; independent acceptance pending |
 | DOC-02 / major | Old and current contracts appeared together without a current-baseline boundary; earlier outcomes could be mistaken for current verification. | Maintainer: separate Project Log; explicit official document register and current applicability decision, no inherited historical pass in catalogues. | Corrected in this candidate; historical bytes preserved |
 | DOC-03 / major | Architecture overview omitted a systematic component/interface/data/deployment allocation and current detailed phase guards. | Architecture owner: SAD plus four detailed designs, source-linked state endpoints, numerical conventions and failure seams. | Corrected for the inspected implementation; independent design review pending |
-| DOC-04 / major | REQ-003 uses “independently justified tolerances”; DYN-REQ-001 combines many behaviors; design records often contain only a sentence. Complete atomic coverage and justified operating limits are not approved. | Requirements/safety owners: decompose compound obligations, allocate measurable limits, map each to design and test without deleting parent obligations. | Open; generated readability is not semantic closure |
+| DOC-04 / major | REQ-003 uses “independently justified tolerances”; DYN-REQ-001 combines many behaviors; design records often contain only a sentence. Complete atomic coverage and justified operating limits are not approved. | Requirements/safety owners: decompose compound obligations, allocate measurable limits, map each to design and test without deleting parent obligations. | 34 atomic obligations covering 16 parents now specify acceptance and actual test methods. Remaining parents are explicitly listed; numerical accuracy budgets and independent semantic approval remain open |
 | DOC-05 / major | No requirement has a recorded independent reviewer. Formal safety classification, essential performance and quantitative risk acceptance are open in SAFETY_SECURITY and prerequisites. | Safety/quality owners: appoint competent reviewers, justify class/applicability, complete risk-control and residual-risk decisions. | Open; blocks approval claims |
-| DOC-06 / major | Historical 50 passed / 9 blocked / 6 planned test records do not by themselves establish current requirement acceptance; current full software run is broader but not a reviewed coverage argument. | Verification owner: approve current case-to-obligation coverage and identified execution/reuse decisions; close each missing case. | Partially corrected by current status and catalogue; coverage approval open |
-| DOC-07 / major | New guided/physical/distributed behavior lacks a complete approved boundary matrix, combined-fault rationale and global convergence/uncertainty envelope. Long legacy runs do not establish every maximum-size dynamic case. | Model/verification owners: execute prospective WF/MOD/FAIL gaps, predeclare error/resource criteria, review independence of oracles. | Open; protocols supplied, executions not invented |
-| DOC-08 / major | Public urea fit covers only selected clearance points; chamber/controller/rheology/electrolyte/refill parameters lack independent measurements. | Model owner: measurement protocol, identified data and rights, uncertainty/identifiability, independent validation envelope. | Open; scientific limits made explicit |
+| DOC-06 / major | Historical 50 passed / 9 blocked / 6 planned test records do not by themselves establish current requirement acceptance; current full software run is broader but not a reviewed coverage argument. | Verification owner: approve current case-to-obligation coverage and identified execution/reuse decisions; close each missing case. | Current case-to-obligation matrix now checks actual method existence and exposes partial coverage. Executed-result assessment and independent coverage approval remain open |
+| DOC-07 / major | New guided/physical/distributed behavior lacks a complete approved boundary matrix, combined-fault rationale and global convergence/uncertainty envelope. Long legacy runs do not establish every maximum-size dynamic case. | Model/verification owners: execute prospective WF/MOD/FAIL gaps, predeclare error/resource criteria, review independence of oracles. | Full 16-state action table and identified boundary/fault/convergence/resource procedures supplied in STP-CLOSE; missing campaigns remain unexecuted |
+| DOC-08 / major | Public urea fit covers only selected clearance points; chamber/controller/rheology/electrolyte/refill parameters lack independent measurements. | Model owner: measurement protocol, identified data and rights, uncertainty/identifiability, independent validation envelope. | STP-CAL now specifies per-model measurements, provenance, uncertainty, holdout and predeclared acceptance worksheet. Actual measurements and approved accuracy budgets remain open |
 | DOC-09 / major | Test and capture evidence is software-oriented; representative-user critical tasks, alarm performance and downstream physical/clinical evidence remain absent. | Usability/product owners: approved validation protocols and actual reviewed evidence for declared use. | Open; a simulator screen cannot close device obligations |
 | DOC-10 / major | Shared host/protocol/plant are common causes; threat/dependency registers retain open dispositions. Separation is not independence. | Security/safety owners: current inventories, adversarial coverage and accepted residual/common-cause risks. | Open; boundaries clarified, no acceptance inferred |
 | DOC-11 / minor | Experiment preset discovery selects only machine_*.json; default guided UI is not discoverable through that list. | UI/experiment owner: expose/validate intended guided presets and test real selection/launch without bypassing scheduled-mode authority. | Open functional issue; documented native route exists |
-| DOC-12 / major | Extended payloads are specified across parsers and prose; complete field-by-field current schema with units, constraints and version compatibility is not controlled in one specification. | Interface owner: generate/review a shared schema and compatibility tests against actual parsers. | Partially corrected by interface inventory; full schema still open |
+| DOC-12 / major | Extended payloads are specified across parsers and prose; complete field-by-field current schema with units, constraints and version compatibility is not controlled in one specification. | Interface owner: generate/review a shared schema and compatibility tests against actual parsers. | Current DL1/DX1 protocol and patient JSON specified; 32 fixed forms / 394 fields controlled, selected C++/Python witnesses executed. Exhaustive boundary/version validation and independent approval remain open |
+
+| DOC-13 / major | C++ rejects dynamic arterial_level=1.5 while Python accepts it; other extended decoder bounds also differ. Outer DYNAMICS10 permits initial dialysate volume up to 2000 mL while patient INIT accepts only 1000. | Interface/model owners: reconcile accepted domains at configuration and observation boundaries; add negative/end-to-end tests and rerun affected suites before closing. | Open implementation findings; parser mismatch reproduced by a dedicated witness, initialization mismatch confirmed by source inspection |
 
 Owner roles above are proposed assignments. The maintainer must allocate named
 responsible people and due dates; this assessment cannot invent those commitments.
@@ -81,7 +83,7 @@ catalogues, with approval status separate from implementation.
 
 1. Complete this document reorganization and run generation/link/publication/trace
    checks against the final candidate. Preserve the report and exact file hashes.
-2. Approve/decompose requirements and interface schemas, then close the coverage gaps
+2. Review the supplemental atomic requirements, wire/JSON specifications and allocations, then close the coverage gaps
    with predeclared tests. Assign named owners and justified acceptance criteria.
 3. Collect model measurements and human-use evidence; approve risk and dependency
    dispositions and exact normative baseline with authorized full-text access.
@@ -92,3 +94,25 @@ All current official documents are listed in [document-set.json](../../docs/docu
 Historical narrative belongs to [Project Log](../../project-log/README.md), which is
 not part of that set. The current [verification status](../../docs/testing/STATUS.md)
 contains explicit applicability, not a chronology of previous builds.
+
+## Technical corrections delivered in this revision
+
+The [atomic specification](../../docs/ATOMIC_REQUIREMENTS.md) and
+[coverage matrix](../../docs/testing/COVERAGE.md) add 34 individually stated
+obligations without deleting parent requirements. The matrix lists the parents
+not yet covered by that supplemental decomposition; no full atomic coverage is
+implied. It checks every cited executable method against the actual source AST.
+
+The [protocol specification](../../docs/design/WIRE_PROTOCOL.md) covers current
+framing, ordering, roles, composite responses, patient transactions and DX1
+operations; separate dictionaries supply ordered fixed fields and patient JSON.
+Actual C++ serialization is decoded by Python and compared with declared positions
+for MACHINE5/8 and OBS5/8/9/10. Actual Python configuration calls are checked for
+five current message forms. These are selected conformance witnesses, not exhaustive
+parser fuzzing. No runtime implementation was changed in this documentation revision.
+
+[STP-CLOSE](../../docs/testing/CLOSURE.md) supplies the complete guided phase-action
+table, named missing campaigns and independent-review record.
+[STP-CAL](../../docs/testing/MEASUREMENTS.md) supplies measurement conditions and
+acceptance preparation for ten model areas. Human approval and measurements remain
+open because they require real evidence, not because the procedures are unwritten.

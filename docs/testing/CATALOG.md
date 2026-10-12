@@ -737,6 +737,17 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 - `test_device_sessions.DeviceSessionTests.test_restart_reusing_intent_number_cannot_accept_old_confirmation`
 - `test_device_sessions.WallPacingTests.test_slow_wall_pacing_keeps_heartbeat_and_identical_virtual_records`
 
+### [tests/test_document_contracts.py](../../tests/test_document_contracts.py)
+
+- `test_document_contracts.ContractRegisterTests.test_missing_method_cannot_be_accepted_as_coverage`
+- `test_document_contracts.ContractRegisterTests.test_source_edit_requires_contract_review`
+- `test_document_contracts.ContractRegisterTests.test_unknown_parent_cannot_disappear_from_trace`
+- `test_document_contracts.ContractRegisterTests.test_bad_wire_bounds_and_duplicate_fields_are_rejected`
+- `test_document_contracts.ContractRegisterTests.test_unallocated_parent_and_partial_scope_remain_visible`
+- `test_document_contracts.WireWitnessTests.test_actual_cpp_serializers_match_documented_positions_and_python_decoders`
+- `test_document_contracts.WireWitnessTests.test_python_configuration_encoder_matches_documented_field_order`
+- `test_document_contracts.WireWitnessTests.test_documented_dynamic_parser_discrepancy_is_reproduced`
+
 ### [tests/test_documentation.py](../../tests/test_documentation.py)
 
 - `test_documentation.DocumentationTests.test_historical_pass_does_not_become_current_acceptance`

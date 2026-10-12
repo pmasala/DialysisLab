@@ -455,24 +455,48 @@
           "sha256": "3ff60fad917a605793b9b461b557ef53277202a286a5f7d840ce2d27063836f3"
         },
         {
-          "path": "tools/verify_experiments_compose.py",
-          "sha256": "d7913d3f16fea907278b10d0ee88ab2e087fc5ffd36b5ee4f0ea9c4b48bc581b"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/design/JSON_FIELDS.md",
+          "sha256": "9bef393da6ea2ff6a0a2a446c89717bb7d495e70bd92dddc33655255cf14ed97"
+        },
+        {
+          "path": "docs/design/WIRE_FIELDS.md",
+          "sha256": "addf4d5c9deb94749a03779bd97417b939a595f4178f3564b75f9789388c8722"
+        },
+        {
+          "path": "docs/design/WIRE_PROTOCOL.md",
+          "sha256": "afecc8ebccb3fde77bd9cedf889e8fc859016d23922641046a72fa8c842e1fb7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "docs/wire-contract.json",
+          "sha256": "56a3dad7f9079239e54f26af36ef07858f7803df3f4a4bfdad28318f0120d3a0"
         },
         {
           "path": "src/ui/client.hpp",
           "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+          "path": "tests/test_document_contracts.py",
+          "sha256": "912216550dcf1e3e66a765e1ae9d59c327ab8071558a0be8a51a4f159909f0d0"
         },
         {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "1a62aaa7088047993e08904a14a758eb0dd3112126144a96ad11da0351957aab"
         },
         {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+          "path": "tools/verify_experiments_compose.py",
+          "sha256": "d7913d3f16fea907278b10d0ee88ab2e087fc5ffd36b5ee4f0ea9c4b48bc581b"
         }
       ],
       "unresolved": [
@@ -500,28 +524,68 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/plant.cpp",
-          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
-        },
-        {
-          "path": "src/machine.hpp",
-          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
-        },
-        {
-          "path": "tests/test_machine.py",
-          "sha256": "3d40b6e0a4706ee9ee624bb4fe13e6c3be7ea1a83b28656be65133c24a944520"
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
         },
         {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
           "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/design/JSON_FIELDS.md",
+          "sha256": "9bef393da6ea2ff6a0a2a446c89717bb7d495e70bd92dddc33655255cf14ed97"
+        },
+        {
+          "path": "docs/design/WIRE_FIELDS.md",
+          "sha256": "addf4d5c9deb94749a03779bd97417b939a595f4178f3564b75f9789388c8722"
+        },
+        {
+          "path": "docs/design/WIRE_PROTOCOL.md",
+          "sha256": "afecc8ebccb3fde77bd9cedf889e8fc859016d23922641046a72fa8c842e1fb7"
+        },
+        {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
         },
         {
           "path": "docs/testing/FAILURES.md",
           "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "docs/wire-contract.json",
+          "sha256": "56a3dad7f9079239e54f26af36ef07858f7803df3f4a4bfdad28318f0120d3a0"
+        },
+        {
+          "path": "src/machine.hpp",
+          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
+        },
+        {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "912216550dcf1e3e66a765e1ae9d59c327ab8071558a0be8a51a4f159909f0d0"
+        },
+        {
+          "path": "tests/test_machine.py",
+          "sha256": "3d40b6e0a4706ee9ee624bb4fe13e6c3be7ea1a83b28656be65133c24a944520"
+        },
+        {
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "1a62aaa7088047993e08904a14a758eb0dd3112126144a96ad11da0351957aab"
         }
       ],
       "unresolved": [
@@ -549,6 +613,46 @@
       "reviewer": null,
       "implementation": [
         {
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "docs/testing/MEASUREMENTS.md",
+          "sha256": "94faac1606d0e9ba2ca1f0a054987deb4ffb976784f44cd2c5b9d36f76292e7b"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
           "path": "python/dialysislab/compartments.py",
           "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         },
@@ -559,26 +663,6 @@
         {
           "path": "tools/verify_models.py",
           "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
-        },
-        {
-          "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
-        },
-        {
-          "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -606,6 +690,50 @@
       "reviewer": null,
       "implementation": [
         {
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/design/JSON_FIELDS.md",
+          "sha256": "9bef393da6ea2ff6a0a2a446c89717bb7d495e70bd92dddc33655255cf14ed97"
+        },
+        {
+          "path": "docs/design/WIRE_FIELDS.md",
+          "sha256": "addf4d5c9deb94749a03779bd97417b939a595f4178f3564b75f9789388c8722"
+        },
+        {
+          "path": "docs/design/WIRE_PROTOCOL.md",
+          "sha256": "afecc8ebccb3fde77bd9cedf889e8fc859016d23922641046a72fa8c842e1fb7"
+        },
+        {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "docs/wire-contract.json",
+          "sha256": "56a3dad7f9079239e54f26af36ef07858f7803df3f4a4bfdad28318f0120d3a0"
+        },
+        {
           "path": "src/protection.cpp",
           "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
         },
@@ -614,20 +742,16 @@
           "sha256": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc"
         },
         {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "912216550dcf1e3e66a765e1ae9d59c327ab8071558a0be8a51a4f159909f0d0"
+        },
+        {
           "path": "tests/test_rpc_abort.py",
           "sha256": "37e8e325a307bd8de9dbdffe4fad867684b2283092df40871c1898592df9c32b"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "1a62aaa7088047993e08904a14a758eb0dd3112126144a96ad11da0351957aab"
         }
       ],
       "unresolved": [
@@ -655,6 +779,38 @@
       "reviewer": null,
       "implementation": [
         {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/M5_MACHINE.md",
+          "sha256": "9210e9abb2c3fe50c90316277e31dac991f6cf3ee8b7aeeebcc9d3b1be41c93f"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/design/JSON_FIELDS.md",
+          "sha256": "9bef393da6ea2ff6a0a2a446c89717bb7d495e70bd92dddc33655255cf14ed97"
+        },
+        {
+          "path": "docs/design/WIRE_FIELDS.md",
+          "sha256": "addf4d5c9deb94749a03779bd97417b939a595f4178f3564b75f9789388c8722"
+        },
+        {
+          "path": "docs/design/WIRE_PROTOCOL.md",
+          "sha256": "afecc8ebccb3fde77bd9cedf889e8fc859016d23922641046a72fa8c842e1fb7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "docs/wire-contract.json",
+          "sha256": "56a3dad7f9079239e54f26af36ef07858f7803df3f4a4bfdad28318f0120d3a0"
+        },
+        {
           "path": "src/protection.cpp",
           "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
         },
@@ -663,20 +819,12 @@
           "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         },
         {
-          "path": "docs/M5_MACHINE.md",
-          "sha256": "9210e9abb2c3fe50c90316277e31dac991f6cf3ee8b7aeeebcc9d3b1be41c93f"
+          "path": "tests/test_document_contracts.py",
+          "sha256": "912216550dcf1e3e66a765e1ae9d59c327ab8071558a0be8a51a4f159909f0d0"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "1a62aaa7088047993e08904a14a758eb0dd3112126144a96ad11da0351957aab"
         }
       ],
       "unresolved": [
@@ -704,36 +852,56 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/online.hpp",
-          "sha256": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3"
-        },
-        {
-          "path": "src/protection.cpp",
-          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
-        },
-        {
-          "path": "docs/M4_TREATMENT.md",
-          "sha256": "f0ed04ad83f121feca1c5de1f0f965300e23a50c1e093a0036de2ec8e605844f"
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
         },
         {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
         },
         {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+          "path": "docs/M4_TREATMENT.md",
+          "sha256": "f0ed04ad83f121feca1c5de1f0f965300e23a50c1e093a0036de2ec8e605844f"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
         },
         {
           "path": "docs/design/MODELS.md",
           "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
         },
         {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "docs/testing/MEASUREMENTS.md",
+          "sha256": "94faac1606d0e9ba2ca1f0a054987deb4ffb976784f44cd2c5b9d36f76292e7b"
+        },
+        {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3"
+        },
+        {
+          "path": "src/protection.cpp",
+          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
         }
       ],
       "unresolved": [
@@ -761,10 +929,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/wire.hpp",
-          "sha256": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc"
-        },
-        {
           "path": "CMakeLists.txt",
           "sha256": "32600e8a079ba963e7983597061d9ffb4bdf5f755d9fa49ca77de0a2a7167c38"
         },
@@ -778,11 +942,15 @@
         },
         {
           "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
         },
         {
           "path": "docs/testing/FAILURES.md",
           "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "src/wire.hpp",
+          "sha256": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc"
         }
       ],
       "unresolved": [
@@ -810,24 +978,24 @@
       "reviewer": null,
       "implementation": [
         {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
           "path": "python/dialysislab/runner.py",
           "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
         },
         {
           "path": "src/plant.cpp",
           "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -855,28 +1023,28 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/model.hpp",
-          "sha256": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
-          "path": "src/plant.cpp",
-          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         },
         {
           "path": "python/dialysislab/patient.py",
           "sha256": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+          "path": "src/model.hpp",
+          "sha256": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12"
         },
         {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+          "path": "src/plant.cpp",
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         }
       ],
       "unresolved": [
@@ -904,24 +1072,24 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/protection.cpp",
-          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         },
         {
           "path": "src/plant.cpp",
           "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+          "path": "src/protection.cpp",
+          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
         }
       ],
       "unresolved": [
@@ -949,24 +1117,48 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/plant.cpp",
-          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/design/JSON_FIELDS.md",
+          "sha256": "9bef393da6ea2ff6a0a2a446c89717bb7d495e70bd92dddc33655255cf14ed97"
+        },
+        {
+          "path": "docs/design/WIRE_FIELDS.md",
+          "sha256": "addf4d5c9deb94749a03779bd97417b939a595f4178f3564b75f9789388c8722"
+        },
+        {
+          "path": "docs/design/WIRE_PROTOCOL.md",
+          "sha256": "afecc8ebccb3fde77bd9cedf889e8fc859016d23922641046a72fa8c842e1fb7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "docs/wire-contract.json",
+          "sha256": "56a3dad7f9079239e54f26af36ef07858f7803df3f4a4bfdad28318f0120d3a0"
         },
         {
           "path": "src/control.cpp",
           "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+          "path": "src/plant.cpp",
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         },
         {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "path": "tests/test_document_contracts.py",
+          "sha256": "912216550dcf1e3e66a765e1ae9d59c327ab8071558a0be8a51a4f159909f0d0"
         },
         {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "1a62aaa7088047993e08904a14a758eb0dd3112126144a96ad11da0351957aab"
         }
       ],
       "unresolved": [
@@ -994,32 +1186,56 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/wire.hpp",
-          "sha256": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/design/JSON_FIELDS.md",
+          "sha256": "9bef393da6ea2ff6a0a2a446c89717bb7d495e70bd92dddc33655255cf14ed97"
+        },
+        {
+          "path": "docs/design/WIRE_FIELDS.md",
+          "sha256": "addf4d5c9deb94749a03779bd97417b939a595f4178f3564b75f9789388c8722"
+        },
+        {
+          "path": "docs/design/WIRE_PROTOCOL.md",
+          "sha256": "afecc8ebccb3fde77bd9cedf889e8fc859016d23922641046a72fa8c842e1fb7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "docs/wire-contract.json",
+          "sha256": "56a3dad7f9079239e54f26af36ef07858f7803df3f4a4bfdad28318f0120d3a0"
         },
         {
           "path": "src/control.cpp",
           "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
         },
         {
-          "path": "src/protection.cpp",
-          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
-        },
-        {
           "path": "src/plant.cpp",
           "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+          "path": "src/protection.cpp",
+          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
         },
         {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "path": "src/wire.hpp",
+          "sha256": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc"
         },
         {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+          "path": "tests/test_document_contracts.py",
+          "sha256": "912216550dcf1e3e66a765e1ae9d59c327ab8071558a0be8a51a4f159909f0d0"
+        },
+        {
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "1a62aaa7088047993e08904a14a758eb0dd3112126144a96ad11da0351957aab"
         }
       ],
       "unresolved": [
@@ -1048,6 +1264,54 @@
       "reviewer": null,
       "implementation": [
         {
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/design/JSON_FIELDS.md",
+          "sha256": "9bef393da6ea2ff6a0a2a446c89717bb7d495e70bd92dddc33655255cf14ed97"
+        },
+        {
+          "path": "docs/design/WIRE_FIELDS.md",
+          "sha256": "addf4d5c9deb94749a03779bd97417b939a595f4178f3564b75f9789388c8722"
+        },
+        {
+          "path": "docs/design/WIRE_PROTOCOL.md",
+          "sha256": "afecc8ebccb3fde77bd9cedf889e8fc859016d23922641046a72fa8c842e1fb7"
+        },
+        {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "docs/wire-contract.json",
+          "sha256": "56a3dad7f9079239e54f26af36ef07858f7803df3f4a4bfdad28318f0120d3a0"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
+        },
+        {
           "path": "src/plant.cpp",
           "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         },
@@ -1056,20 +1320,12 @@
           "sha256": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc"
         },
         {
-          "path": "python/dialysislab/runner.py",
-          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
+          "path": "tests/test_document_contracts.py",
+          "sha256": "912216550dcf1e3e66a765e1ae9d59c327ab8071558a0be8a51a4f159909f0d0"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "1a62aaa7088047993e08904a14a758eb0dd3112126144a96ad11da0351957aab"
         }
       ],
       "unresolved": [
@@ -1098,28 +1354,28 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/trajectory.py",
-          "sha256": "bec7e3ce0d42ffd88120fa7b3120dcb0ededeb9d1ac53c7208cb5ca3da2801ee"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         },
         {
           "path": "python/dialysislab/runner.py",
           "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
         },
         {
+          "path": "python/dialysislab/trajectory.py",
+          "sha256": "bec7e3ce0d42ffd88120fa7b3120dcb0ededeb9d1ac53c7208cb5ca3da2801ee"
+        },
+        {
           "path": "tools/recover_trajectory.py",
           "sha256": "11ac9e325e36e789fea0ba986aa135d88eece934a1db081f52fcbf77234fcff0"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -1146,20 +1402,36 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "tools/verify_compose.py",
-          "sha256": "65924a3fadd86786f76a498202137b75880f23ac42bdc26f0a33cc311d7e0cce"
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
         },
         {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
           "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
         },
         {
           "path": "docs/testing/FAILURES.md",
           "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "tools/verify_compose.py",
+          "sha256": "65924a3fadd86786f76a498202137b75880f23ac42bdc26f0a33cc311d7e0cce"
         }
       ],
       "unresolved": [
@@ -1187,10 +1459,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/circuit.hpp",
-          "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1200,7 +1468,11 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "src/circuit.hpp",
+          "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
         }
       ],
       "unresolved": [
@@ -1227,10 +1499,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/circuit.hpp",
-          "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1240,7 +1508,11 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "src/circuit.hpp",
+          "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
         }
       ],
       "unresolved": [
@@ -1267,10 +1539,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/circuit.hpp",
-          "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1280,7 +1548,11 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "src/circuit.hpp",
+          "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
         }
       ],
       "unresolved": [
@@ -1309,10 +1581,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/circuit.py",
-          "sha256": "6c7e9b2cfdddd606b531e27dd523ef4e0a09ca510f178f18c18a61675750be13"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1322,7 +1590,11 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "python/dialysislab/circuit.py",
+          "sha256": "6c7e9b2cfdddd606b531e27dd523ef4e0a09ca510f178f18c18a61675750be13"
         }
       ],
       "unresolved": [
@@ -1350,20 +1622,36 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/compartments.py",
-          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
         },
         {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
           "path": "docs/design/MODELS.md",
           "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
         },
         {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         }
       ],
       "unresolved": [
@@ -1390,10 +1678,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/compartments.py",
-          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1403,7 +1687,11 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         }
       ],
       "unresolved": [
@@ -1430,10 +1718,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/compartments.py",
-          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1443,7 +1727,11 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         }
       ],
       "unresolved": [
@@ -1472,10 +1760,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/runner.py",
-          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1485,7 +1769,11 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
         }
       ],
       "unresolved": [
@@ -1512,10 +1800,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/compartments.py",
-          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1525,7 +1809,11 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
         }
       ],
       "unresolved": [
@@ -1553,10 +1841,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/online.hpp",
-          "sha256": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1566,7 +1850,11 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3"
         }
       ],
       "unresolved": [
@@ -1595,10 +1883,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/plant.cpp",
-          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1608,7 +1892,11 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         }
       ],
       "unresolved": [
@@ -1638,10 +1926,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/runner.py",
-          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1651,7 +1935,11 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
         }
       ],
       "unresolved": [
@@ -1680,14 +1968,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/machine.hpp",
-          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
-        },
-        {
-          "path": "src/plant.cpp",
-          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1698,6 +1978,14 @@
         {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "src/machine.hpp",
+          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
         }
       ],
       "unresolved": [
@@ -1725,24 +2013,40 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/compartments.py",
-          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
-        },
-        {
-          "path": "python/dialysislab/patient.py",
-          "sha256": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a"
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
         },
         {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
           "path": "docs/design/TREATMENT.md",
           "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
         },
         {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
+        },
+        {
+          "path": "python/dialysislab/patient.py",
+          "sha256": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a"
         }
       ],
       "unresolved": [
@@ -1772,24 +2076,48 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/protection.cpp",
-          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
-        },
-        {
-          "path": "src/plant.cpp",
-          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/JSON_FIELDS.md",
+          "sha256": "9bef393da6ea2ff6a0a2a446c89717bb7d495e70bd92dddc33655255cf14ed97"
         },
         {
           "path": "docs/design/TREATMENT.md",
           "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
         },
         {
+          "path": "docs/design/WIRE_FIELDS.md",
+          "sha256": "addf4d5c9deb94749a03779bd97417b939a595f4178f3564b75f9789388c8722"
+        },
+        {
+          "path": "docs/design/WIRE_PROTOCOL.md",
+          "sha256": "afecc8ebccb3fde77bd9cedf889e8fc859016d23922641046a72fa8c842e1fb7"
+        },
+        {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "docs/wire-contract.json",
+          "sha256": "56a3dad7f9079239e54f26af36ef07858f7803df3f4a4bfdad28318f0120d3a0"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
+        },
+        {
+          "path": "src/protection.cpp",
+          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+        },
+        {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "912216550dcf1e3e66a765e1ae9d59c327ab8071558a0be8a51a4f159909f0d0"
+        },
+        {
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "1a62aaa7088047993e08904a14a758eb0dd3112126144a96ad11da0351957aab"
         }
       ],
       "unresolved": [
@@ -1818,6 +2146,50 @@
       "reviewer": null,
       "implementation": [
         {
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
+          "path": "docs/design/JSON_FIELDS.md",
+          "sha256": "9bef393da6ea2ff6a0a2a446c89717bb7d495e70bd92dddc33655255cf14ed97"
+        },
+        {
+          "path": "docs/design/TREATMENT.md",
+          "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
+        },
+        {
+          "path": "docs/design/WIRE_FIELDS.md",
+          "sha256": "addf4d5c9deb94749a03779bd97417b939a595f4178f3564b75f9789388c8722"
+        },
+        {
+          "path": "docs/design/WIRE_PROTOCOL.md",
+          "sha256": "afecc8ebccb3fde77bd9cedf889e8fc859016d23922641046a72fa8c842e1fb7"
+        },
+        {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "docs/wire-contract.json",
+          "sha256": "56a3dad7f9079239e54f26af36ef07858f7803df3f4a4bfdad28318f0120d3a0"
+        },
+        {
           "path": "src/machine.hpp",
           "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
         },
@@ -1826,16 +2198,12 @@
           "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+          "path": "tests/test_document_contracts.py",
+          "sha256": "912216550dcf1e3e66a765e1ae9d59c327ab8071558a0be8a51a4f159909f0d0"
         },
         {
-          "path": "docs/design/TREATMENT.md",
-          "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
-        },
-        {
-          "path": "docs/testing/WORKFLOW.md",
-          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "1a62aaa7088047993e08904a14a758eb0dd3112126144a96ad11da0351957aab"
         }
       ],
       "unresolved": [
@@ -1864,14 +2232,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/control.cpp",
-          "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
-        },
-        {
-          "path": "python/dialysislab/machine.py",
-          "sha256": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3"
-        },
-        {
           "path": "compose.yaml",
           "sha256": "36a87c560f43167b5ee328b0036b002e14dbd8217fbb98223f76e178af6b7f01"
         },
@@ -1886,6 +2246,14 @@
         {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "python/dialysislab/machine.py",
+          "sha256": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3"
+        },
+        {
+          "path": "src/control.cpp",
+          "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
         }
       ],
       "unresolved": [
@@ -1917,14 +2285,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "tests/test_machine.py",
-          "sha256": "3d40b6e0a4706ee9ee624bb4fe13e6c3be7ea1a83b28656be65133c24a944520"
-        },
-        {
-          "path": "tools/verify_models.py",
-          "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
@@ -1935,6 +2295,14 @@
         {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "tests/test_machine.py",
+          "sha256": "3d40b6e0a4706ee9ee624bb4fe13e6c3be7ea1a83b28656be65133c24a944520"
+        },
+        {
+          "path": "tools/verify_models.py",
+          "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
         }
       ],
       "unresolved": [
@@ -1962,24 +2330,12 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
-        },
-        {
-          "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
-        },
-        {
-          "path": "src/device_session.hpp",
-          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
           "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/design/INTERACTION.md",
@@ -1988,6 +2344,18 @@
         {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "src/device_session.hpp",
+          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         }
       ],
       "unresolved": [
@@ -2016,24 +2384,12 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
-        },
-        {
-          "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
-        },
-        {
-          "path": "src/device_session.hpp",
-          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
           "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/design/INTERACTION.md",
@@ -2042,6 +2398,18 @@
         {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "src/device_session.hpp",
+          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         }
       ],
       "unresolved": [
@@ -2070,24 +2438,12 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
-        },
-        {
-          "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
-        },
-        {
-          "path": "src/device_session.hpp",
-          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
           "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/design/INTERACTION.md",
@@ -2096,6 +2452,18 @@
         {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "src/device_session.hpp",
+          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         }
       ],
       "unresolved": [
@@ -2124,24 +2492,12 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
-        },
-        {
-          "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
-        },
-        {
-          "path": "src/device_session.hpp",
-          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
           "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/design/INTERACTION.md",
@@ -2150,6 +2506,18 @@
         {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "src/device_session.hpp",
+          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         }
       ],
       "unresolved": [
@@ -2178,32 +2546,48 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
-        },
-        {
-          "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
-        },
-        {
-          "path": "src/device_session.hpp",
-          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
-        },
-        {
-          "path": "docs/M6_DEVICE_UI.md",
-          "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
         },
         {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
+          "path": "docs/M6_DEVICE_UI.md",
+          "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
+        },
+        {
           "path": "docs/design/INTERACTION.md",
           "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
         },
         {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "src/device_session.hpp",
+          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         }
       ],
       "unresolved": [
@@ -2234,24 +2618,12 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
-        },
-        {
-          "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
-        },
-        {
-          "path": "src/device_session.hpp",
-          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
           "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/design/INTERACTION.md",
@@ -2260,6 +2632,18 @@
         {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "src/device_session.hpp",
+          "sha256": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         }
       ],
       "unresolved": [
@@ -2288,32 +2672,12 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/experiments.py",
-          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
-        },
-        {
-          "path": "python/dialysislab/experiment_rpc.py",
-          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
-        },
-        {
-          "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
-        },
-        {
-          "path": "src/console/sim_console.cpp",
-          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
-        },
-        {
-          "path": "src/console/client.hpp",
-          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
           "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/design/INTERACTION.md",
@@ -2322,6 +2686,26 @@
         {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        },
+        {
+          "path": "src/console/client.hpp",
+          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         }
       ],
       "unresolved": [
@@ -2350,32 +2734,12 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/experiments.py",
-          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
-        },
-        {
-          "path": "python/dialysislab/experiment_rpc.py",
-          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
-        },
-        {
-          "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
-        },
-        {
-          "path": "src/console/sim_console.cpp",
-          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
-        },
-        {
-          "path": "src/console/client.hpp",
-          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
           "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/design/INTERACTION.md",
@@ -2384,6 +2748,26 @@
         {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        },
+        {
+          "path": "src/console/client.hpp",
+          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         }
       ],
       "unresolved": [
@@ -2412,40 +2796,80 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/experiments.py",
-          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
-        },
-        {
-          "path": "python/dialysislab/experiment_rpc.py",
-          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
-        },
-        {
-          "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
-        },
-        {
-          "path": "src/console/sim_console.cpp",
-          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
-        },
-        {
-          "path": "src/console/client.hpp",
-          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
-        },
-        {
-          "path": "docs/M7_EXPERIMENTS.md",
-          "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
         },
         {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
+          "path": "docs/M7_EXPERIMENTS.md",
+          "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
+        },
+        {
           "path": "docs/design/INTERACTION.md",
           "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
         },
         {
+          "path": "docs/design/JSON_FIELDS.md",
+          "sha256": "9bef393da6ea2ff6a0a2a446c89717bb7d495e70bd92dddc33655255cf14ed97"
+        },
+        {
+          "path": "docs/design/WIRE_FIELDS.md",
+          "sha256": "addf4d5c9deb94749a03779bd97417b939a595f4178f3564b75f9789388c8722"
+        },
+        {
+          "path": "docs/design/WIRE_PROTOCOL.md",
+          "sha256": "afecc8ebccb3fde77bd9cedf889e8fc859016d23922641046a72fa8c842e1fb7"
+        },
+        {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "docs/wire-contract.json",
+          "sha256": "56a3dad7f9079239e54f26af36ef07858f7803df3f4a4bfdad28318f0120d3a0"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        },
+        {
+          "path": "src/console/client.hpp",
+          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
+        },
+        {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "912216550dcf1e3e66a765e1ae9d59c327ab8071558a0be8a51a4f159909f0d0"
+        },
+        {
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "1a62aaa7088047993e08904a14a758eb0dd3112126144a96ad11da0351957aab"
         }
       ],
       "unresolved": [
@@ -2474,40 +2898,56 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/experiments.py",
-          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
-        },
-        {
-          "path": "python/dialysislab/experiment_rpc.py",
-          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
-        },
-        {
-          "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
-        },
-        {
-          "path": "src/console/sim_console.cpp",
-          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
-        },
-        {
-          "path": "src/console/client.hpp",
-          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
-        },
-        {
-          "path": "docs/M7_EXPERIMENTS.md",
-          "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
         },
         {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
+          "path": "docs/M7_EXPERIMENTS.md",
+          "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
+        },
+        {
           "path": "docs/design/INTERACTION.md",
           "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
         },
         {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        },
+        {
+          "path": "src/console/client.hpp",
+          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         }
       ],
       "unresolved": [
@@ -2536,32 +2976,12 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/experiments.py",
-          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
-        },
-        {
-          "path": "python/dialysislab/experiment_rpc.py",
-          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
-        },
-        {
-          "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
-        },
-        {
-          "path": "src/console/sim_console.cpp",
-          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
-        },
-        {
-          "path": "src/console/client.hpp",
-          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
           "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/design/INTERACTION.md",
@@ -2570,6 +2990,26 @@
         {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        },
+        {
+          "path": "src/console/client.hpp",
+          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         }
       ],
       "unresolved": [
@@ -2598,32 +3038,12 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/experiments.py",
-          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
-        },
-        {
-          "path": "python/dialysislab/experiment_rpc.py",
-          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
-        },
-        {
-          "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
-        },
-        {
-          "path": "src/console/sim_console.cpp",
-          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
-        },
-        {
-          "path": "src/console/client.hpp",
-          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
           "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/design/INTERACTION.md",
@@ -2632,6 +3052,26 @@
         {
           "path": "docs/testing/WORKFLOW.md",
           "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+        },
+        {
+          "path": "python/dialysislab/experiments.py",
+          "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        },
+        {
+          "path": "src/console/client.hpp",
+          "sha256": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1"
+        },
+        {
+          "path": "src/console/sim_console.cpp",
+          "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         }
       ],
       "unresolved": [
@@ -2660,6 +3100,34 @@
       "reviewer": null,
       "implementation": [
         {
+          "path": "compose.experiments.yaml",
+          "sha256": "3ff60fad917a605793b9b461b557ef53277202a286a5f7d840ce2d27063836f3"
+        },
+        {
+          "path": "compose.yaml",
+          "sha256": "36a87c560f43167b5ee328b0036b002e14dbd8217fbb98223f76e178af6b7f01"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/M8_SECURITY_CI.md",
+          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        },
+        {
           "path": "src/control.cpp",
           "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
         },
@@ -2668,36 +3136,8 @@
           "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
         },
         {
-          "path": "compose.yaml",
-          "sha256": "36a87c560f43167b5ee328b0036b002e14dbd8217fbb98223f76e178af6b7f01"
-        },
-        {
-          "path": "compose.experiments.yaml",
-          "sha256": "3ff60fad917a605793b9b461b557ef53277202a286a5f7d840ce2d27063836f3"
-        },
-        {
-          "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
-        },
-        {
           "path": "tools/verify_compose.py",
           "sha256": "65924a3fadd86786f76a498202137b75880f23ac42bdc26f0a33cc311d7e0cce"
-        },
-        {
-          "path": "docs/M8_SECURITY_CI.md",
-          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -2726,36 +3166,36 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/child_guard.cpp",
-          "sha256": "34a3ea2d93648d7436acc773cb8f3a78e43fb38d01c33cd34e864789a2243c94"
-        },
-        {
-          "path": "python/dialysislab/runner.py",
-          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
-        },
-        {
-          "path": "python/dialysislab/role_supervisor.py",
-          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
-        },
-        {
-          "path": "tests/test_security.py",
-          "sha256": "d8b836758522b6f04f46e1184f86ab617d5408d64d9bfe435c5b03731bca03cf"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
           "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
           "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
         },
         {
           "path": "docs/testing/FAILURES.md",
           "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "python/dialysislab/role_supervisor.py",
+          "sha256": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
+        },
+        {
+          "path": "src/child_guard.cpp",
+          "sha256": "34a3ea2d93648d7436acc773cb8f3a78e43fb38d01c33cd34e864789a2243c94"
+        },
+        {
+          "path": "tests/test_security.py",
+          "sha256": "d8b836758522b6f04f46e1184f86ab617d5408d64d9bfe435c5b03731bca03cf"
         }
       ],
       "unresolved": [
@@ -2787,16 +3227,32 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "python/dialysislab/trajectory.py",
-          "sha256": "bec7e3ce0d42ffd88120fa7b3120dcb0ededeb9d1ac53c7208cb5ca3da2801ee"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/M8_SECURITY_CI.md",
+          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "python/dialysislab/experiment_rpc.py",
+          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
         },
         {
           "path": "python/dialysislab/patient.py",
           "sha256": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a"
         },
         {
-          "path": "python/dialysislab/experiment_rpc.py",
-          "sha256": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f"
+          "path": "python/dialysislab/trajectory.py",
+          "sha256": "bec7e3ce0d42ffd88120fa7b3120dcb0ededeb9d1ac53c7208cb5ca3da2801ee"
         },
         {
           "path": "src/plant.cpp",
@@ -2805,22 +3261,6 @@
         {
           "path": "tests/test_security.py",
           "sha256": "d8b836758522b6f04f46e1184f86ab617d5408d64d9bfe435c5b03731bca03cf"
-        },
-        {
-          "path": "docs/M8_SECURITY_CI.md",
-          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -2852,44 +3292,44 @@
           "sha256": "b550bec7643c86ad11ea6ea6dac3e62b7dc80578be6d6dfe217f88cadbf88cca"
         },
         {
-          "path": "tools/dependency_report.py",
-          "sha256": "6573cde99edf7e509b038e372bddc943da6b08609156de48995c7421192ea859"
-        },
-        {
-          "path": "tools/platform_inventory.py",
-          "sha256": "aa4728ee4f87798b89b84bf4241131756e1e2efef9d31c51406216b23967a999"
-        },
-        {
-          "path": "tests/test_dependencies.py",
-          "sha256": "4e51f3d26175c4323b95e0f1c76f3509e7a8d8188f546d8ee57f2ccb1cb4d128"
-        },
-        {
-          "path": "docs/dependencies/M8.md",
-          "sha256": "fee3906207a830c64455d4382d25ed93137bc70ed86e780723261a6490e8c1fc"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
           "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
         },
         {
-          "path": "tools/image_application.py",
-          "sha256": "f291b03e4060c1f43f9897dff60d28cdefcd286c069dc669649e03b78d0a9cbe"
+          "path": "docs/dependencies/M8.md",
+          "sha256": "fee3906207a830c64455d4382d25ed93137bc70ed86e780723261a6490e8c1fc"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "tests/test_dependencies.py",
+          "sha256": "4e51f3d26175c4323b95e0f1c76f3509e7a8d8188f546d8ee57f2ccb1cb4d128"
         },
         {
           "path": "tools/build_identity.py",
           "sha256": "dee260875614d97f7fd7ff6a9b30845079fd311e45b0570c713e46c5f199528b"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+          "path": "tools/dependency_report.py",
+          "sha256": "6573cde99edf7e509b038e372bddc943da6b08609156de48995c7421192ea859"
         },
         {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "path": "tools/image_application.py",
+          "sha256": "f291b03e4060c1f43f9897dff60d28cdefcd286c069dc669649e03b78d0a9cbe"
         },
         {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+          "path": "tools/platform_inventory.py",
+          "sha256": "aa4728ee4f87798b89b84bf4241131756e1e2efef9d31c51406216b23967a999"
         }
       ],
       "unresolved": [
@@ -2921,36 +3361,36 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "tools/security_scan.py",
-          "sha256": "a68e449a5bd7b044f56b7e1ac6379cf9956acfb9378a794d2c354ba9eee9c569"
-        },
-        {
           "path": "assurance/DEPENDENCY_FINDINGS.json",
           "sha256": "5cb228cb5593eb2044b5c53971182278ce7f58b0545b26fbcb9c6cfd98175819"
-        },
-        {
-          "path": "tests/test_dependencies.py",
-          "sha256": "4e51f3d26175c4323b95e0f1c76f3509e7a8d8188f546d8ee57f2ccb1cb4d128"
         },
         {
           "path": "assurance/THREATS.json",
           "sha256": "7e0973058c96c7e34d72117fd38683320c53768ec1991c2286a96c05b1a8fd63"
         },
         {
-          "path": "docs/M8_SECURITY_CI.md",
-          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
-        },
-        {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
+          "path": "docs/M8_SECURITY_CI.md",
+          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
+        },
+        {
           "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
         },
         {
           "path": "docs/testing/FAILURES.md",
           "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "tests/test_dependencies.py",
+          "sha256": "4e51f3d26175c4323b95e0f1c76f3509e7a8d8188f546d8ee57f2ccb1cb4d128"
+        },
+        {
+          "path": "tools/security_scan.py",
+          "sha256": "a68e449a5bd7b044f56b7e1ac6379cf9956acfb9378a794d2c354ba9eee9c569"
         }
       ],
       "unresolved": [
@@ -2986,56 +3426,80 @@
           "sha256": "9c1727c1435f9a83cbb842adbc4ed4f1ef5652a24c915ef1ad772848f882611c"
         },
         {
-          "path": "tools/ci_verify.py",
-          "sha256": "1c8f7f3d9bf0e49ef5673bf0668e0b3a59c9594ae80c4752ccde240f97581175"
-        },
-        {
-          "path": "tools/check_publication.py",
-          "sha256": "f5c3fb6b86b6de57dc72a36802efdf4f6f11f6632982c9e2e870c7efab67a4e4"
-        },
-        {
-          "path": "publication_manifest.json",
-          "sha256": "b6aa58861280d0d40317fa2de8c1dc7a1c6dea58f93199505df64b13c26423a6"
-        },
-        {
-          "path": "docs/dependencies/CI_NOTICES.md",
-          "sha256": "330aed1464064b51c4589a2bd3333db09a8765371247bd0535e23b56d23b01d6"
-        },
-        {
-          "path": "docs/M8_SECURITY_CI.md",
-          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
-        },
-        {
-          "path": "tools/ci_artifacts.py",
-          "sha256": "d8a0baa30573be9de9f94ce89317db13c89ade3011cb86ea50a9ac7e160a9f8f"
-        },
-        {
-          "path": "tests/test_ci.py",
-          "sha256": "04be4fde9608cf6e8d240d02cfcfe651e11fab68c5a070b9aa93275658d14c0d"
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
         },
         {
           "path": "docs/ARCHITECTURE.md",
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
+          "path": "docs/DOCUMENT_CONTROL.md",
+          "sha256": "e6d69d563d2e6501463fe5baa51b46f053e658c249c4e42fea2e0f5b27dfdf38"
+        },
+        {
+          "path": "docs/M8_SECURITY_CI.md",
+          "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
+        },
+        {
+          "path": "docs/dependencies/CI_NOTICES.md",
+          "sha256": "330aed1464064b51c4589a2bd3333db09a8765371247bd0535e23b56d23b01d6"
+        },
+        {
           "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
         },
         {
           "path": "docs/testing/FAILURES.md",
           "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         },
         {
-          "path": "tools/documentation.py",
-          "sha256": "33846bf103c72bc046ab7595847d202a1ee64042d784392d6410b97fa8fa3f99"
+          "path": "publication_manifest.json",
+          "sha256": "20a3e3b2265506b19b1365de1a957c6b7def532cc3c5320e214bcf4c4cb671df"
+        },
+        {
+          "path": "tests/test_ci.py",
+          "sha256": "04be4fde9608cf6e8d240d02cfcfe651e11fab68c5a070b9aa93275658d14c0d"
+        },
+        {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "912216550dcf1e3e66a765e1ae9d59c327ab8071558a0be8a51a4f159909f0d0"
         },
         {
           "path": "tests/test_documentation.py",
           "sha256": "a5888a26df9b7fc6eb73a16d7475bc0e55c1695933e4dc2761e9546805d73de7"
         },
         {
-          "path": "docs/DOCUMENT_CONTROL.md",
-          "sha256": "c636e089a45079ef73c3cf4334808109ec6189099e7ac1b4973ac720bc203d9b"
+          "path": "tools/check_publication.py",
+          "sha256": "f5c3fb6b86b6de57dc72a36802efdf4f6f11f6632982c9e2e870c7efab67a4e4"
+        },
+        {
+          "path": "tools/ci_artifacts.py",
+          "sha256": "d8a0baa30573be9de9f94ce89317db13c89ade3011cb86ea50a9ac7e160a9f8f"
+        },
+        {
+          "path": "tools/ci_verify.py",
+          "sha256": "1c8f7f3d9bf0e49ef5673bf0668e0b3a59c9594ae80c4752ccde240f97581175"
+        },
+        {
+          "path": "tools/document_contracts.py",
+          "sha256": "5a6a8026e614d3b9c25d4cb1cb60dfc8cc30391992b758f333fd3990c14d3ebf"
+        },
+        {
+          "path": "tools/documentation.py",
+          "sha256": "1d5fa4365d81725307c26e265634b5f2d83270e85c1ac84793b05bd35ce99119"
         }
       ],
       "unresolved": [
@@ -3065,28 +3529,28 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "tools/verify_integrated.py",
-          "sha256": "09b3928f7df1c9a7d81f51927a9c1a4020a84982bf7a6ae00b947845a2a5982e"
-        },
-        {
-          "path": "tools/verify_models.py",
-          "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/M9_INTEGRATION.md",
           "sha256": "c2912a6edb78e712aad38c40dc34ce6d852435a05aa331b67d3431089a484adf"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
           "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
         },
         {
           "path": "docs/testing/FAILURES.md",
           "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "tools/verify_integrated.py",
+          "sha256": "09b3928f7df1c9a7d81f51927a9c1a4020a84982bf7a6ae00b947845a2a5982e"
+        },
+        {
+          "path": "tools/verify_models.py",
+          "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
         }
       ],
       "unresolved": [
@@ -3114,24 +3578,24 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "tools/verify_integrated.py",
-          "sha256": "09b3928f7df1c9a7d81f51927a9c1a4020a84982bf7a6ae00b947845a2a5982e"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         },
         {
           "path": "tests/test_integration.py",
           "sha256": "6a866592c0a64f76c26ca5bdab644c28951e265c55d54318cf5836339a977c91"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+          "path": "tools/verify_integrated.py",
+          "sha256": "09b3928f7df1c9a7d81f51927a9c1a4020a84982bf7a6ae00b947845a2a5982e"
         }
       ],
       "unresolved": [
@@ -3161,6 +3625,22 @@
       "reviewer": null,
       "implementation": [
         {
+          "path": "compose.experiments-x11.yaml",
+          "sha256": "8c777fd61cc64d21a98d85df1a8b3e2f811705c617e77def3895a5043e73e7da"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
           "path": "python/dialysislab/experiments.py",
           "sha256": "3f2374cb9e2491d9e115283c82732336db1899db264b64c7fa8180fdef6a2ab8"
         },
@@ -3171,22 +3651,6 @@
         {
           "path": "tools/verify_experiments_compose.py",
           "sha256": "d7913d3f16fea907278b10d0ee88ab2e087fc5ffd36b5ee4f0ea9c4b48bc581b"
-        },
-        {
-          "path": "compose.experiments-x11.yaml",
-          "sha256": "8c777fd61cc64d21a98d85df1a8b3e2f811705c617e77def3895a5043e73e7da"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -3214,28 +3678,28 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "tools/verify_package.py",
-          "sha256": "3c96485b12eea48aa9819e41681178c0f9a45d451ca2cfd441a0d254a2591c8c"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "publication_manifest.json",
+          "sha256": "20a3e3b2265506b19b1365de1a957c6b7def532cc3c5320e214bcf4c4cb671df"
         },
         {
           "path": "tools/package_release.py",
           "sha256": "5e7a3ec6c86129467be162c7f4e169f6980c5d03871d53d03b9b947011a5f744"
         },
         {
-          "path": "publication_manifest.json",
-          "sha256": "b6aa58861280d0d40317fa2de8c1dc7a1c6dea58f93199505df64b13c26423a6"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
-        },
-        {
-          "path": "docs/testing/FAILURES.md",
-          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+          "path": "tools/verify_package.py",
+          "sha256": "3c96485b12eea48aa9819e41681178c0f9a45d451ca2cfd441a0d254a2591c8c"
         }
       ],
       "unresolved": [
@@ -3267,14 +3731,6 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "tools/ci_verify.py",
-          "sha256": "1c8f7f3d9bf0e49ef5673bf0668e0b3a59c9594ae80c4752ccde240f97581175"
-        },
-        {
-          "path": "docs/QUICKSTART.md",
-          "sha256": "fdb64471a6076285458e275497bd48b2b9c87cc60e07ad16fb6316cc4a9c72cc"
-        },
-        {
           "path": "README.md",
           "sha256": "2dfa4fa942af2753efa57b0e04fc43def8054f03409afff400bbd245723c0d7d"
         },
@@ -3283,24 +3739,28 @@
           "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
-          "path": "docs/SIMULATION.md",
-          "sha256": "ed1fb1f381d0343916be744e15b64ece1af27397d4e4afb59ee8a5a6ef157531"
-        },
-        {
-          "path": "docs/README.md",
-          "sha256": "048bf21e6a580b2025ad547677b531ea9f8b79ba02696b36ccd6d62750fead65"
-        },
-        {
           "path": "docs/DEVELOPMENT.md",
           "sha256": "6b39a3e9ef4add51d2862378aa70c058e0884bb37af329a90c2e1d63bf144d4c"
         },
         {
-          "path": "docs/diagrams/README.md",
-          "sha256": "7e436f80ebe0346fc17f0f42c855dc5923eaaa09838e0ae868805f16d3540f3d"
+          "path": "docs/QUICKSTART.md",
+          "sha256": "fdb64471a6076285458e275497bd48b2b9c87cc60e07ad16fb6316cc4a9c72cc"
         },
         {
-          "path": "docs/diagrams/hydraulic-equivalent.svg",
-          "sha256": "85de507b8548565951fa82587d7419da9ae1802f28d37991fb7444921ec16659"
+          "path": "docs/README.md",
+          "sha256": "269b8d953489305b05bf9c3a664a72a4c5c05eb9788f5a937a803103451350c8"
+        },
+        {
+          "path": "docs/SIMULATION.md",
+          "sha256": "ed1fb1f381d0343916be744e15b64ece1af27397d4e4afb59ee8a5a6ef157531"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "63332eaede13e9659cbf6b6e50ff7a25df08b8988c922cfa3b3196b102a53ed7"
+        },
+        {
+          "path": "docs/diagrams/README.md",
+          "sha256": "7e436f80ebe0346fc17f0f42c855dc5923eaaa09838e0ae868805f16d3540f3d"
         },
         {
           "path": "docs/diagrams/dialyzer-transport.svg",
@@ -3315,16 +3775,20 @@
           "sha256": "d13577a9014ae49dfc09ad7e3f88d262a42456d535f32b55fbc8f4199466b3af"
         },
         {
-          "path": "tools/render_hydraulic_diagrams.py",
-          "sha256": "634559d94a1d5efa3fe1b26aa31c74eed7407fb7f09ce74e6e1ef912be8a2203"
-        },
-        {
-          "path": "docs/design/INTERFACES.md",
-          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+          "path": "docs/diagrams/hydraulic-equivalent.svg",
+          "sha256": "85de507b8548565951fa82587d7419da9ae1802f28d37991fb7444921ec16659"
         },
         {
           "path": "docs/testing/FAILURES.md",
           "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "tools/ci_verify.py",
+          "sha256": "1c8f7f3d9bf0e49ef5673bf0668e0b3a59c9594ae80c4752ccde240f97581175"
+        },
+        {
+          "path": "tools/render_hydraulic_diagrams.py",
+          "sha256": "634559d94a1d5efa3fe1b26aa31c74eed7407fb7f09ce74e6e1ef912be8a2203"
         }
       ],
       "unresolved": [
@@ -3354,8 +3818,20 @@
       "reviewer": null,
       "implementation": [
         {
-          "path": "src/console/telemetry.hpp",
-          "sha256": "634998b179ef689fe9c99c01980bdb4a451b1c80305b627fe1e37cfcf772a857"
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/UI_INSPECTION.md",
+          "sha256": "806d89e79bdb254877693e269bd09ae0f531e53d0b10c389563565df07313601"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         },
         {
           "path": "src/console/inspector.hpp",
@@ -3366,32 +3842,20 @@
           "sha256": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22"
         },
         {
-          "path": "src/ui/synoptic.hpp",
-          "sha256": "1070a4f5546aa700039f93b5f1b3a07a4132ddec109e753d6cf8881d7fe46cf4"
+          "path": "src/console/telemetry.hpp",
+          "sha256": "634998b179ef689fe9c99c01980bdb4a451b1c80305b627fe1e37cfcf772a857"
         },
         {
           "path": "src/ui/device_ui.cpp",
           "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
         },
         {
+          "path": "src/ui/synoptic.hpp",
+          "sha256": "1070a4f5546aa700039f93b5f1b3a07a4132ddec109e753d6cf8881d7fe46cf4"
+        },
+        {
           "path": "tests/test_inspection.py",
           "sha256": "39a9375822a845a775bc6c1752a09063366dc7028647cfab4359b1f6390a557f"
-        },
-        {
-          "path": "docs/UI_INSPECTION.md",
-          "sha256": "806d89e79bdb254877693e269bd09ae0f531e53d0b10c389563565df07313601"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/INTERACTION.md",
-          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
-        },
-        {
-          "path": "docs/testing/WORKFLOW.md",
-          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -3421,16 +3885,64 @@
       "reviewer": null,
       "implementation": [
         {
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
+          "path": "docs/GUIDED_TREATMENT.md",
+          "sha256": "577fe6cae58ef02b42ace10d7b50f914d749da86905144457b23a59312e0c691"
+        },
+        {
+          "path": "docs/design/TREATMENT.md",
+          "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
+        },
+        {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+        },
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
+        },
+        {
+          "path": "python/dialysislab/machine.py",
+          "sha256": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
+        },
+        {
+          "path": "scenarios/device_guided.json",
+          "sha256": "277381ea309540e50b6ef594e4554cf6be31d0c6a296738d11245bb67feab81c"
+        },
+        {
+          "path": "src/control.cpp",
+          "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
+        },
+        {
           "path": "src/machine.hpp",
           "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
         },
         {
           "path": "src/plant.cpp",
           "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
-        },
-        {
-          "path": "src/control.cpp",
-          "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
         },
         {
           "path": "src/ui/client.hpp",
@@ -3449,56 +3961,24 @@
           "sha256": "1070a4f5546aa700039f93b5f1b3a07a4132ddec109e753d6cf8881d7fe46cf4"
         },
         {
-          "path": "python/dialysislab/machine.py",
-          "sha256": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3"
-        },
-        {
-          "path": "python/dialysislab/runner.py",
-          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
-        },
-        {
-          "path": "python/dialysislab/compartments.py",
-          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
-        },
-        {
-          "path": "tools/verify_models.py",
-          "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
-        },
-        {
-          "path": "tests/test_guided.py",
-          "sha256": "c2baa598a885b452a9104a64ebbda297b452144ad8ae62169952d8ba0a9a3989"
+          "path": "tests/guided_plant.cpp",
+          "sha256": "7939c43f0a13545921838fb84a4794d029d026d22d4e2d8e92a3cf0b0dd5754b"
         },
         {
           "path": "tests/guided_view.cpp",
           "sha256": "b12026437b481052f39754589f8a7b03a304f8350eeb6903627d57fd6d0ccfd2"
         },
         {
-          "path": "tests/guided_plant.cpp",
-          "sha256": "7939c43f0a13545921838fb84a4794d029d026d22d4e2d8e92a3cf0b0dd5754b"
-        },
-        {
-          "path": "scenarios/device_guided.json",
-          "sha256": "277381ea309540e50b6ef594e4554cf6be31d0c6a296738d11245bb67feab81c"
-        },
-        {
-          "path": "docs/GUIDED_TREATMENT.md",
-          "sha256": "577fe6cae58ef02b42ace10d7b50f914d749da86905144457b23a59312e0c691"
+          "path": "tests/test_guided.py",
+          "sha256": "c2baa598a885b452a9104a64ebbda297b452144ad8ae62169952d8ba0a9a3989"
         },
         {
           "path": "tests/ui_regressions.py",
           "sha256": "0d9e6e6dfb10fbbc88d411bf9566c0c4f710f531eba3881bb2a4af90df60a381"
         },
         {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/TREATMENT.md",
-          "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
-        },
-        {
-          "path": "docs/testing/WORKFLOW.md",
-          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
+          "path": "tools/verify_models.py",
+          "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
         }
       ],
       "unresolved": [
@@ -3530,6 +4010,58 @@
       "reviewer": null,
       "implementation": [
         {
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
+          "path": "docs/PHYSICAL_MODEL.md",
+          "sha256": "c72b9abe1bf687a9d2bbeb3b0ce6b8a69dd6861d68ed3761c928da18217aba93"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
+          "path": "docs/testing/MEASUREMENTS.md",
+          "sha256": "94faac1606d0e9ba2ca1f0a054987deb4ffb976784f44cd2c5b9d36f76292e7b"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+        },
+        {
+          "path": "python/dialysislab/compartments.py",
+          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
+        },
+        {
+          "path": "python/dialysislab/machine.py",
+          "sha256": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3"
+        },
+        {
+          "path": "python/dialysislab/physical.py",
+          "sha256": "dc63bd0179156c9e6360436ad0a50aaea7255b4f5b098db7bf5d07b3b4524802"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
+        },
+        {
           "path": "src/blood_physics.hpp",
           "sha256": "a5ae40d3ef24ac42acffc8b0a984de60ad7d1063ea554f2e60ee1659c85c478b"
         },
@@ -3538,12 +4070,12 @@
           "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
         },
         {
-          "path": "src/online.hpp",
-          "sha256": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3"
-        },
-        {
           "path": "src/machine.hpp",
           "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3"
         },
         {
           "path": "src/plant.cpp",
@@ -3558,22 +4090,6 @@
           "sha256": "429f6e1dd9799c6a04bfc6261305be810de504293194c4c7eec747485c481e18"
         },
         {
-          "path": "python/dialysislab/physical.py",
-          "sha256": "dc63bd0179156c9e6360436ad0a50aaea7255b4f5b098db7bf5d07b3b4524802"
-        },
-        {
-          "path": "python/dialysislab/compartments.py",
-          "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
-        },
-        {
-          "path": "python/dialysislab/machine.py",
-          "sha256": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3"
-        },
-        {
-          "path": "python/dialysislab/runner.py",
-          "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
-        },
-        {
           "path": "tests/physical_model.cpp",
           "sha256": "d2bf484455fb6469013c981333d5498fd75d1fe87825c805d266f5e978e8e118"
         },
@@ -3584,22 +4100,6 @@
         {
           "path": "tools/verify_models.py",
           "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
-        },
-        {
-          "path": "docs/PHYSICAL_MODEL.md",
-          "sha256": "c72b9abe1bf687a9d2bbeb3b0ce6b8a69dd6861d68ed3761c928da18217aba93"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
-        },
-        {
-          "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -3631,6 +4131,18 @@
       "reviewer": null,
       "implementation": [
         {
+          "path": "assurance/current-obligations.json",
+          "sha256": "8e67ec7b98514bf6ecb2a1b4184b0c7dcafcde52bb1f8441fffc59a2486b2076"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/ATOMIC_REQUIREMENTS.md",
+          "sha256": "3656fd00d7368776b12cc2e2600e9aadf10085ae777707be633538eb523a607b"
+        },
+        {
           "path": "docs/DYNAMIC_MODEL.md",
           "sha256": "558db2e3ef874f38af3fd0b7e82d4efdff75635ea0001d83c9a43446f6fa7c7e"
         },
@@ -3651,8 +4163,28 @@
           "sha256": "806d89e79bdb254877693e269bd09ae0f531e53d0b10c389563565df07313601"
         },
         {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
           "path": "docs/images/physical-circuit.svg",
           "sha256": "dc48e04e15fbdea3c410ee4858f7a55bda69da7c2848a670eb7ac46cba985c68"
+        },
+        {
+          "path": "docs/testing/CLOSURE.md",
+          "sha256": "0e9feb1f21a6ba64164c72b2b340ddd693b41fe23e80c1425be9ec42aeb915f5"
+        },
+        {
+          "path": "docs/testing/COVERAGE.md",
+          "sha256": "a75310117a17dd60e9abd6cdd2133f2c9579462cb138856294befcd0be4f5a11"
+        },
+        {
+          "path": "docs/testing/MEASUREMENTS.md",
+          "sha256": "94faac1606d0e9ba2ca1f0a054987deb4ffb976784f44cd2c5b9d36f76292e7b"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
         },
         {
           "path": "python/dialysislab/calibration.py",
@@ -3759,6 +4291,10 @@
           "sha256": "b12026437b481052f39754589f8a7b03a304f8350eeb6903627d57fd6d0ccfd2"
         },
         {
+          "path": "tests/test_ci.py",
+          "sha256": "04be4fde9608cf6e8d240d02cfcfe651e11fab68c5a070b9aa93275658d14c0d"
+        },
+        {
           "path": "tests/test_dynamics.py",
           "sha256": "b5ac8f1ef084c3a3431bd206f2ed11175021a50297660fd1881aab3b2ee23412"
         },
@@ -3781,22 +4317,6 @@
         {
           "path": "tools/verify_models.py",
           "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
-        },
-        {
-          "path": "tests/test_ci.py",
-          "sha256": "04be4fde9608cf6e8d240d02cfcfe651e11fab68c5a070b9aa93275658d14c0d"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
-        },
-        {
-          "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
-        },
-        {
-          "path": "docs/testing/MODELS.md",
-          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [

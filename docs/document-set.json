@@ -4,21 +4,32 @@
   "official_documents": [
     "assurance/audits/DOCUMENTATION_AUDIT.md",
     "docs/ARCHITECTURE.md",
+    "docs/ATOMIC_REQUIREMENTS.md",
     "docs/DOCUMENT_CONTROL.md",
     "docs/GLOSSARY.md",
     "docs/README.md",
     "docs/REQUIREMENTS.md",
     "docs/design/INTERACTION.md",
     "docs/design/INTERFACES.md",
+    "docs/design/JSON_FIELDS.md",
     "docs/design/MODELS.md",
     "docs/design/TREATMENT.md",
+    "docs/design/WIRE_FIELDS.md",
+    "docs/design/WIRE_PROTOCOL.md",
     "docs/testing/CATALOG.md",
+    "docs/testing/CLOSURE.md",
+    "docs/testing/COVERAGE.md",
     "docs/testing/FAILURES.md",
+    "docs/testing/MEASUREMENTS.md",
     "docs/testing/MODELS.md",
     "docs/testing/PLAN.md",
     "docs/testing/STATUS.md",
     "docs/testing/WORKFLOW.md"
   ],
   "project_log": "project-log/README.md",
-  "history_policy": "Historical records are excluded from the official reading set. Reuse requires explicit current-baseline applicability assessment."
+  "history_policy": "Historical records are excluded from the official reading set. Reuse requires explicit current-baseline applicability assessment.",
+  "contract_sources": [
+    "assurance/current-obligations.json",
+    "docs/wire-contract.json"
+  ]
 }
