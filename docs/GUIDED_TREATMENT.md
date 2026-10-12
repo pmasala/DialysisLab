@@ -100,16 +100,20 @@ The disinfection phase models isolation, circulation, elapsed time and completio
 interlocks; it does not predict microbial kill, chemical residuals or validated
 thermal exposure. Its completion is not evidence of sterile equipment.
 
-The arterial and venous labels refer to the modeled inlet/outlet nodes of the
-dialyzer. Guided scenarios require the pressure sensor at the inlet node. TMP is
-`(P_in + P_out) / 2`, consistent with the current model's zero dialysate-pressure
-reference. Separate negative pre-pump access pressure and a pressurized dialysate
-compartment are not introduced by this UI change.
+The default scenario uses the [physical model](PHYSICAL_MODEL.md): negative
+pre-pump arterial pressure, venous pressure, a pressurized dialysate side and
+segmented filtration. TMP includes the dialysate pressure. Older scenarios without
+`physical` use their configured resistance network and a zero dialysate reference.
 
-Saline return uses an external input with sodium/chloride 154 mmol/L and zero
-other modeled solutes. The existing compartment equations account for that input,
-patient return and retained circuit storage. The return-volume target is not a
-measurement of recovered red-cell mass; the model has no red-cell transport.
+Saline return uses sodium/chloride 154 mmol/L and zero other tracked solutes.
+The patient tracks water, solutes, red-cell volume and protein mass when the
+physical profile is enabled. Remaining circuit cells and cells sent to waste are
+retained explicitly; the return-volume target is not a guarantee of full recovery.
+
+`OBS9` adds the pre-pump pressure, flow-limitation status, dialysate pressure,
+heater power, remaining supplies and raw conductivity. The physical guided UI
+provides eighteen selectable trends. Patient hematocrit remains external to the
+device UI and cannot be prescribed there.
 
 Versioned `MACHINE8` and `OBS8` frames add phase timing, patient connection,
 return transfers, initial-check status, observed dialysate flow and TMP. Legacy

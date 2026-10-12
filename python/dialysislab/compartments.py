@@ -13,7 +13,11 @@ CONCENTRATION_CEILING = 1000 + 1e-9
 
 
 def validate(config):
-    keys(config, FIELDS)
+    keys(config, FIELDS + (' hemodynamics' if 'hemodynamics' in config else ''))
+    if 'hemodynamics' in config:
+        h=config['hemodynamics'];keys(h,'initial_hematocrit vascular_mL protein_g_dL temperature_C refill_mL_min')
+        for k,lo,hi in [('initial_hematocrit',.1,.6),('vascular_mL',1000,10000),('protein_g_dL',1,15),('temperature_C',30,42),('refill_mL_min',0,2000)]:number(h[k],lo,hi)
+
     if config['provenance'] != 'synthetic' or config['id'] not in ('synthetic-baseline', 'synthetic-overload', 'synthetic-imbalance', 'synthetic-custom'):
         raise ValueError('patient identity/provenance')
     if not isinstance(config['volume_mL'], list) or len(config['volume_mL']) != 2:
@@ -21,6 +25,7 @@ def validate(config):
     for value in config['volume_mL']: number(value, 100, 100000)
     if not 1000 <= sum(config['volume_mL']) <= 100000:
         raise ValueError('total body volume')
+    if 'hemodynamics' in config and h['vascular_mL']*(1-h['initial_hematocrit'])>=config['volume_mL'][0]:raise ValueError('vascular plasma exceeds extracellular water')
     concentrations = config['concentration_mmol_L']
     if not isinstance(concentrations, list) or len(concentrations) != 2:
         raise ValueError('two concentration vectors required')
@@ -55,6 +60,16 @@ def validate_scenario(config, validate_circuit):
 
 
 def validate_snapshot(state, online=False, lifecycle=False):
+    if 'hemodynamics' in state:
+        h=state['hemodynamics']
+        keys(h,'hematocrit vascular_mL circuit_rbc_mL vascular_rbc_mL lost_rbc_mL rbc_residual_mL protein_g_dL temperature_C refill_mL circuit_hematocrit circuit_protein_g_dL protein_residual_g vascular_protein_g circuit_protein_g lost_protein_g')
+        number(h['hematocrit'],0,.7);number(h['vascular_mL'],1,20000)
+        for k in ('circuit_rbc_mL','vascular_rbc_mL','lost_rbc_mL'):number(h[k],0,20000)
+        for k in ('vascular_protein_g','circuit_protein_g','lost_protein_g'):number(h[k],0,5000)
+        number(h['circuit_hematocrit'],0,.8);number(h['circuit_protein_g_dL'],0,40);number(h['protein_residual_g'],-1e-6,1e-6)
+        number(h['rbc_residual_mL'],-1e-6,1e-6);number(h['protein_g_dL'],0,30);number(h['temperature_C'],30,42);number(h['refill_mL'],-10000,10000)
+        validate_snapshot({k:v for k,v in state.items() if k!='hemodynamics'},online,lifecycle)
+        return state
     if lifecycle:
         names = ('flush_in_mL', 'flush_out_mL', 'flush_input_mmol', 'flush_output_mmol')
         for name in names[:2]: number(state.get(name), 0, 1e9)
@@ -137,11 +152,29 @@ class Compartments:
         self.next_sequence = self.time_ms = self.sequence = 0
         self.mass_residual = [0.0] * 6
         self.body_transfer = Sum()
+        if 'hemodynamics' in config:
+            h=config['hemodynamics'];self.vascular=h['vascular_mL'];self.initial_vascular=self.vascular
+            self.cells=[self.vascular*h['initial_hematocrit'],0.0];self.initial_cells=sum(self.cells);self.lost_cells=0.0
+            self.proteins=[(self.vascular-self.cells[0])*h['protein_g_dL']/100,0.0]
+            self.initial_proteins=sum(self.proteins);self.lost_proteins=0.0
+            self.refill_total=0.0
+            self.initial_extravascular=self.initial_body-(self.vascular-self.cells[0])
 
     def snapshot(self):
         body = math.fsum(self.volume[:2])
         bicarbonate = self.concentration[0][4]
-        return dict(**({name + '_mL': self.water[name].value for name in ('flush_in', 'flush_out')} if self.lifecycle else {}),
+        hemo={}
+        if 'hemodynamics' in self.config:
+            hemo['hemodynamics']=dict(hematocrit=self.cells[0]/self.vascular,vascular_mL=self.vascular,
+                circuit_hematocrit=self.cells[1]/self.volume[2],
+                circuit_protein_g_dL=self.proteins[1]/(self.volume[2]-self.cells[1])*100,
+                vascular_protein_g=self.proteins[0],circuit_protein_g=self.proteins[1],lost_protein_g=self.lost_proteins,
+                protein_residual_g=sum(self.proteins)+self.lost_proteins-self.initial_proteins,
+                circuit_rbc_mL=self.cells[1],vascular_rbc_mL=self.cells[0],lost_rbc_mL=self.lost_cells,
+                rbc_residual_mL=sum(self.cells)+self.lost_cells-self.initial_cells,
+                protein_g_dL=self.proteins[0]/(self.vascular-self.cells[0])*100,
+                temperature_C=self.config['hemodynamics']['temperature_C'],refill_mL=self.refill_total)
+        return dict(**hemo,**({name + '_mL': self.water[name].value for name in ('flush_in', 'flush_out')} if self.lifecycle else {}),
                     **(dict(substitution_mL=self.water['sub'].value) if self.online else {}),
                     sequence=self.sequence, time_ms=self.time_ms,
                     volume_mL=list(self.volume), mass_mmol=copy.deepcopy(self.mass),
@@ -267,6 +300,25 @@ class Compartments:
         proposed.sequence = self.next_sequence
         proposed.next_sequence += 1
         proposed.time_ms += request['dt_ms']
+        if 'hemodynamics' in self.config:
+            # Vascular volume has its own tissue-refilling dynamics. The solute
+            # extracellular pool above is not treated as a blood volume.
+            change=body-sum(self.volume[:2]);h=self.config['hemodynamics']
+            v=self.vascular+change
+            tissue=body-(v-self.cells[0])
+            k=h['refill_mL_min']*dt
+            refill=k*(tissue/self.initial_extravascular-v/self.initial_vascular)/(1+k*(1/self.initial_extravascular+1/self.initial_vascular))
+            v+=refill
+            if v<=self.cells[0] or v>20000:raise ProtocolError('vascular volume domain')
+            # Implicit two-volume advection conserves RBC/protein through saline
+            # priming, patient circulation and rinseback; neither crosses the membrane.
+            a=1+draw/v;b=-returned/circuit_volume;c=-draw/v;d=1+(returned+flush_out)/circuit_volume
+            determinant=a*d-b*c
+            def retained(amount):return [(amount[0]*d-b*amount[1])/determinant,(a*amount[1]-c*amount[0])/determinant]
+            proposed.cells=retained(self.cells);proposed.proteins=retained(self.proteins)
+            proposed.lost_proteins=self.lost_proteins+flush_out*proposed.proteins[1]/circuit_volume
+            proposed.lost_cells=self.lost_cells+flush_out*proposed.cells[1]/circuit_volume
+            proposed.vascular=v;proposed.refill_total=self.refill_total+refill
         snapshot = validate_snapshot(proposed.snapshot(), self.online, self.lifecycle)
         self.__dict__.update(proposed.__dict__)
         return snapshot

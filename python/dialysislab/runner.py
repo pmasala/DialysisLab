@@ -252,6 +252,9 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
             workflow_request = machine.request(runtime, event, scheduled) if event else None
             if coupled and patient_snapshot is not None:
                 circuit.transport(admin, config, patient_snapshot['concentration_mmol_L'][2])
+                if 'physical' in config:
+                    from .physical import update_blood
+                    update_blood(admin,patient_snapshot)
             for fault in config['faults']:
                 if fault['tick'] == n:
                     if lifecycle and fault['target'].startswith('device:'):

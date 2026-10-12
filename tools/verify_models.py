@@ -46,6 +46,9 @@ def verify(directory, expected_config, expected_sources):
                         for i in range(6)]
     first_latch_ms = None
     for record in read_records(directory / 'trajectory.jsonl'):
+        if 'physical' in config:
+            from dialysislab.physical import verify_record
+            verify_record(record,config)
         storage = record.get('circuit', {}).get('stored_mL', 0)
         error = abs(config['patient_volume_mL'] - record['patient_volume_mL'] - storage - record['removed_total_mL'])
         if patient_config:

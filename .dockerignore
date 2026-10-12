@@ -81,3 +81,8 @@
 !docs/dependencies/ROBOTO_NOTICE.md
 !src/ui/guided.hpp
 !scenarios/device_guided.json
+!src/blood_physics.hpp
+!python/dialysislab/physical.py
+!scenarios/physical_hd.json
+!scenarios/physical_hdf_pre.json
+!scenarios/physical_hdf_post.json

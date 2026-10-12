@@ -8,7 +8,7 @@
 namespace device_synoptic {
 struct Stroke {std::array<lv_point_precise_t,2> points;lv_obj_t* object;};
 struct View {
-    lv_obj_t *root,*blood_label,*pressure_label,*fluid_label,*state_label;
+    lv_obj_t *root,*blood_label,*pressure_label,*fluid_label,*state_label,*physical_label=nullptr;
     std::vector<std::unique_ptr<Stroke>> strokes;
     Stroke *blood_rotor,*sub_rotor;
     static constexpr uint32_t blood=0xf2697d,water=0x42c2e2,sub=0xb495fa;
@@ -36,6 +36,7 @@ struct View {
         if(kind){
             lv_obj_set_pos(root,0,0);lv_obj_set_size(root,1034,250);lv_obj_set_pos(state_label,10,220);lv_obj_update_layout(root);
             for(uint32_t i=0;i<fluid_end;++i){auto* child=lv_obj_get_child(root,i);bool blood_item=i<blood_end;lv_obj_set_hidden(child,kind==1?!blood_item:blood_item);if(kind==2 && !blood_item)lv_obj_set_y(child,lv_obj_get_y(child)-145);}
+            physical_label=label(670,135,345,"");
             label(670,35,340,kind==1?"EXTRACORPOREAL CIRCUIT\nBlood pump, dialyzer and return\nMeasured values from device service":"HYDRAULIC CIRCUIT\nDialysate tank, serial filters\nand substitution pump");
         }
     }

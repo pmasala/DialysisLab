@@ -210,7 +210,7 @@ struct App {
         if(guided_active){
             const char* tabs[]={"HOME","BLOOD_TAB","FLUID_TAB","TRENDS_TAB","RX_TAB"};
             for(int i=0;i<5;++i)if(id==tabs[i]){guided->switch_page(i);return;}
-            if(id=="GUIDED_TREND"){guided->metric=(guided->metric+1)%12;return;}
+            if(id=="GUIDED_TREND"){guided->metric=(guided->metric+1)%(selected && selected->view.observation.physical?18:12);return;}
             if(id!="CONFIRM" && id!="CANCEL" && id!="STOP" && (!selected || !guided_live() || !action_allowed(id))){local_feedback="Operation unavailable in this phase";return;}
         }
         if(id=="CIRCUIT"){circuit_view=!circuit_view;switch_view();return;}

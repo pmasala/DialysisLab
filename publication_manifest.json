@@ -394,6 +394,7 @@
     "assurance/evidence/m9/targeted/m9-review-security.json",
     "assurance/evidence/m9/targeted/m9-review-targeted.json",
     "assurance/evidence/m9/targeted/storage-regressions.json",
+    "assurance/evidence/physical-model/report.json",
     "assurance/evidence/ui-inspection/README.md",
     "assurance/evidence/ui-inspection/inspector.png",
     "assurance/evidence/ui-inspection/live.png",
@@ -434,6 +435,7 @@
     "docs/M8_SECURITY_CI.md",
     "docs/M9_INTEGRATION.md",
     "docs/MILESTONES.md",
+    "docs/PHYSICAL_MODEL.md",
     "docs/QUICKSTART.md",
     "docs/README.md",
     "docs/SIMULATION.md",
@@ -454,6 +456,7 @@
     "docs/diagrams/extracorporeal-reference.svg",
     "docs/diagrams/fluid-preparation.svg",
     "docs/diagrams/hydraulic-equivalent.svg",
+    "docs/images/physical-circuit.svg",
     "docs/templates/DEPENDENCY_EXCEPTION.md",
     "docs/templates/LIFECYCLE_INCREMENT.md",
     "docs/templates/MODEL_DATA_ASSESSMENT.md",
@@ -466,6 +469,7 @@
     "python/dialysislab/experiments.py",
     "python/dialysislab/machine.py",
     "python/dialysislab/patient.py",
+    "python/dialysislab/physical.py",
     "python/dialysislab/protocol.py",
     "python/dialysislab/role_supervisor.py",
     "python/dialysislab/runner.py",
@@ -496,6 +500,9 @@
     "scenarios/patient_imbalance.json",
     "scenarios/patient_large.json",
     "scenarios/patient_overload.json",
+    "scenarios/physical_hd.json",
+    "scenarios/physical_hdf_post.json",
+    "scenarios/physical_hdf_pre.json",
     "scenarios/treatment_100000.json",
     "scenarios/treatment_contaminant.json",
     "scenarios/treatment_filter1.json",
@@ -509,6 +516,7 @@
     "scenarios/treatment_route.json",
     "scenarios/treatment_supply.json",
     "scenarios/treatment_temperature.json",
+    "src/blood_physics.hpp",
     "src/child_guard.cpp",
     "src/circuit.hpp",
     "src/console/client.hpp",
@@ -534,6 +542,7 @@
     "tests/guided_plant.cpp",
     "tests/guided_view.cpp",
     "tests/patient_memory_probe.py",
+    "tests/physical_model.cpp",
     "tests/test_ci.py",
     "tests/test_circuit.py",
     "tests/test_compartments.py",
@@ -547,6 +556,7 @@
     "tests/test_integration.py",
     "tests/test_m1.py",
     "tests/test_machine.py",
+    "tests/test_physical.py",
     "tests/test_publication.py",
     "tests/test_rpc_abort.py",
     "tests/test_security.py",
@@ -733,6 +743,12 @@
       "origin": "project-rendered-ui",
       "command": "PYTHONPATH=tests DIALYSISLAB_GUIDED_CAPTURES=build/guided-evidence python3 -m unittest test_guided.GuidedUnitTests -v",
       "sha256": "8034afa075e0fd33bb1573575ebf2bd0ffc670981f942ff15464fec509e9ae38"
+    },
+    "docs/images/physical-circuit.svg": {
+      "origin": "project-authored-diagram",
+      "sha256": "290e46d0bd478934f8e556cb3b81305b47433fa793b619b395ecf8a5ec958cde",
+      "command": "Project-authored passive SVG; Python ElementTree flattening of groups and explicit path arrowheads.",
+      "rights": "Original MIT DialysisLab diagram; no manufacturer or standards artwork."
     }
   }
 }

@@ -5,10 +5,14 @@
 #include <cmath>
 #include <stdexcept>
 #include <vector>
+#include "blood_physics.hpp"
 
 namespace dl {
 struct CircuitEdge { int a, b; double resistance; int kind; bool closed; };
 struct Circuit {
+    BloodPhysics physical;
+    int replacement_route=0;
+    double replacement_request=0,net_request=0;
     static constexpr std::size_t solutes = 6;
     std::vector<double> compliance, pressure, flow;
     std::vector<CircuitEdge> edges;
@@ -78,7 +82,22 @@ struct Circuit {
         diffusion.fill(0); convection.fill(0); clearances.fill(0);
     }
     void advance(double demand, double uf_demand, double minutes, bool blocked) {
-        if (blocked) { isolate(); return; }
+        if (blocked) { isolate(); if(physical.enabled)physical.advance(0,0,0,0,0,true); return; }
+        if(physical.enabled) {
+            physical.advance(demand,replacement_request,net_request,replacement_route,dialysate,false);
+            pump=physical.qb;uf=physical.uf;sub_flow=replacement_route==1?physical.sub:0;
+            returned=pump+sub_flow-uf;stored=delta=0;
+            pressure[1]=physical.pre_pressure;pressure[2]=physical.post_pressure;pressure[3]=physical.arterial_pressure;
+            flow[0]=(pump+sub_flow+returned)/2;flow[1]=returned;flow[2]=-pump;
+            draw_tick=pump*minutes;return_tick=returned*minutes;uf_tick=uf*minutes;
+            for(std::size_t i=0;i<solutes;++i){
+                double plasma=pump*(1-physical.hct)+sub_flow;
+                clearances[i]=koa[i]>0 && plasma>0 && dialysate>0 ? 1/(1/koa[i]+1/plasma+1/dialysate):0;
+                diffusion[i]=clearances[i]*(blood_c[i]-dialysate_c[i])/1000;
+                convection[i]=uf*sieving[i]*blood_c[i]/1000;
+            }
+            return;
+        }
         const auto& dialyzer = edges[dialyzer_edge];
         uf = dialyzer.closed ? 0 : std::min({uf_demand, demand,
               kuf * std::max(0.0, (pressure[dialyzer.a] + pressure[dialyzer.b]) / 2)});
