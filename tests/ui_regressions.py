@@ -166,8 +166,10 @@ class DeviceUiTests(unittest.TestCase):
                 ui.click('PRIME',f);ui.until(lambda s:s.get('stage')=='PRIMING',f)
                 for _ in range(90):f.step()
                 ui.until(lambda s:s.get('stage')=='CONFIGURATION',f)
-                f.step('PRESCRIBE',[mode,300,5,60])
-                ui.until(lambda s:s.get('mode')==mode,f)
+                applied=f.step('PRESCRIBE',[mode,300,5,60])['machine']
+                # Mode 2 is already selected initially: wait for the new revision,
+                # not a value that can be true in the pre-prescription snapshot.
+                ui.until(lambda s:s.get('mode')==mode and s.get('revision')==applied['revision'],f)
                 ui.click('CONNECT',f);ui.until(lambda s:s.get('stage')=='CONNECTED',f)
                 ui.click('START',f);ui.until(lambda s:s.get('stage')=='TREATMENT',f)
                 ui.send('CLICK RX_TAB');ui.until(lambda s:s.get('page')==4,f,stepping=False)

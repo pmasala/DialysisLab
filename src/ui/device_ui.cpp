@@ -371,7 +371,7 @@ struct App {
             <<",\"command\":"<<json(snapshot.command)<<",\"result\":"<<json(snapshot.result)<<",\"feedback\":"<<json(local_feedback);
         if(selected) {
             const auto& v=selected->view;
-            std::cout<<",\"stage\":"<<json(stages[v.machine.stage])<<",\"sequence\":"<<v.machine.sequence<<",\"sensor_sequence\":"<<v.observation.q.blood.n
+            std::cout<<",\"revision\":"<<v.machine.revision<<",\"stage\":"<<json(stages[v.machine.stage])<<",\"sequence\":"<<v.machine.sequence<<",\"sensor_sequence\":"<<v.observation.q.blood.n
                 <<",\"sensor_time_ms\":"<<v.observation.q.blood.t<<",\"blood_mL_min\":"<<v.observation.q.blood.blood<<",\"uf_mL_min\":"<<v.observation.q.blood.uf
                 <<",\"prescribed_blood_mL_min\":"<<v.machine.blood<<",\"mode\":"<<v.machine.mode<<",\"acknowledged_mask\":"<<v.machine.acknowledged<<",\"silence_until_ms\":"<<v.machine.silence_until;
         }

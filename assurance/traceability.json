@@ -594,7 +594,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
+          "sha256": "d354629915354361150562891c6fdf6ef50e773119f48db379f151163b44aeca"
         },
         {
           "path": "docs/M5_MACHINE.md",
@@ -1541,7 +1541,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
+          "sha256": "d354629915354361150562891c6fdf6ef50e773119f48db379f151163b44aeca"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1583,7 +1583,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
+          "sha256": "d354629915354361150562891c6fdf6ef50e773119f48db379f151163b44aeca"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1625,7 +1625,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
+          "sha256": "d354629915354361150562891c6fdf6ef50e773119f48db379f151163b44aeca"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1667,7 +1667,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
+          "sha256": "d354629915354361150562891c6fdf6ef50e773119f48db379f151163b44aeca"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1709,7 +1709,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
+          "sha256": "d354629915354361150562891c6fdf6ef50e773119f48db379f151163b44aeca"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1753,7 +1753,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
+          "sha256": "d354629915354361150562891c6fdf6ef50e773119f48db379f151163b44aeca"
         },
         {
           "path": "src/ui/client.hpp",
@@ -2665,7 +2665,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
+          "sha256": "d354629915354361150562891c6fdf6ef50e773119f48db379f151163b44aeca"
         },
         {
           "path": "tests/test_inspection.py",
@@ -2720,7 +2720,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
+          "sha256": "d354629915354361150562891c6fdf6ef50e773119f48db379f151163b44aeca"
         },
         {
           "path": "src/ui/guided.hpp",
@@ -2768,7 +2768,7 @@
         },
         {
           "path": "tests/ui_regressions.py",
-          "sha256": "bdfb7f13bb42d1e6b0b5853720f03f34c3056facfa769769db2a869aea39880e"
+          "sha256": "0d9e6e6dfb10fbbc88d411bf9566c0c4f710f531eba3881bb2a4af90df60a381"
         }
       ],
       "unresolved": [
