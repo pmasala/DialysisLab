@@ -75,22 +75,37 @@
       "license": "MIT",
       "version": "bundled with pinned parent",
       "notices": "docs/dependencies/GUI_NOTICES.md"
+    },
+    {
+      "name": "Roboto Medium",
+      "parent": "Dear ImGui",
+      "license": "Apache-2.0",
+      "version": "bundled with pinned ImGui 1.92.9b",
+      "notices": "docs/dependencies/ROBOTO_NOTICE.md",
+      "consumers": [
+        "device-ui",
+        "sim-console"
+      ],
+      "sha256": "8559132c89ad51d8a2ba5b171887a44a7ba93776e205f553573de228e64b45f8"
     }
   ],
   "project_assets": [
     {
-      "name": "DialysisLab original bitmap font",
+      "name": "Roboto Medium LVGL bitmap",
       "path": "src/ui/font.cpp",
-      "license": "MIT"
+      "license": "Apache-2.0",
+      "notices": "docs/dependencies/ROBOTO_NOTICE.md"
     }
   ],
   "ci_tools": [],
   "reviewed_files": {
     "gui_dependencies.json": "886a77186e6f77bacf9cb68d00e2c85aa78eddff313bdc4f3afef9e507f72595",
-    "docs/dependencies/GUI_NOTICES.md": "59fe4615ec111813ba2ef5469c4313543ae79193feb51a673c7d56537df52c96",
-    "cmake/Gui.cmake": "1ccc4955b1ad60d935e0c346194cc7ab4c1ca154250cf96dd8589832d605613b",
+    "docs/dependencies/GUI_NOTICES.md": "9af7bf72de2122a1718adc84878179e614c6c924e2e01768c584325479314932",
+    "cmake/Gui.cmake": "f6375c5145c230b40a48e6a1174fb4d86b27cc6463ed229ae0f8d762315383ec",
     "src/ui/lv_conf.h": "1620e7f40eb9cd5dbb33decae117b9a41a6e78349fe23a3c807731cb65215305",
-    ".github/workflows/verify.yaml": "9c1727c1435f9a83cbb842adbc4ed4f1ef5652a24c915ef1ad772848f882611c"
+    ".github/workflows/verify.yaml": "9c1727c1435f9a83cbb842adbc4ed4f1ef5652a24c915ef1ad772848f882611c",
+    "docs/dependencies/ROBOTO_NOTICE.md": "5c9efe7763d5748f388a75def2760b3382050c89d3b123ad96773c964fb4d21b",
+    "src/ui/font.cpp": "0d14490c5ed81d597e58884697a1104205fdb726fe20bc4429c856b390e94d33"
   },
   "scope": "Selected application profile and CI tool declarations; installed platform/package licenses are inventoried separately, with unresolved coverage explicit.",
   "ci_execution": {

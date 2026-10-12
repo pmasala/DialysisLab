@@ -55,7 +55,9 @@ class DependencyTests(unittest.TestCase):
             for name,old,new in [('gui_dependencies.json','9.6.0','9.6.1'),
                 ('.github/workflows/verify.yaml','git init .','git init .\n      - uses: unreviewed/action@main'),
                 ('Dockerfile',original['container_profile']['base'],'python:latest'),
-                ('docs/dependencies/GUI_NOTICES.md','MIT','unreviewed')]:
+                ('docs/dependencies/GUI_NOTICES.md','MIT','unreviewed'),
+                ('docs/dependencies/ROBOTO_NOTICE.md','Apache','unreviewed'),
+                ('src/ui/font.cpp','Roboto','unreviewed')]:
                 with self.subTest(path=name):
                     path=root/name;before=path.read_text();self.assertIn(old,before)
                     path.write_text(before.replace(old,new))
@@ -78,6 +80,22 @@ class DependencyTests(unittest.TestCase):
             self.assertTrue(all(reference in indexed for reference in relation['dependsOn']))
         core=[d for d in a['dependencies'] if d['ref'] in ('binary:control','binary:protection','binary:plant')]
         self.assertTrue(all(not d['dependsOn'] for d in core))
+
+    def test_roboto_license_and_dependencies_follow_each_gui_binary(self):
+        inventory=check(ROOT);identity=build_identity(BUILD)
+        for binary in ('device-ui','sim-console'):
+            with self.subTest(binary=binary):
+                bom=application_bom(inventory,identity,binary_hashes={binary:'a'*64},runtime_hashes={})
+                indexed={c['bom-ref']:c for c in bom['components']}
+                self.assertEqual(indexed['Roboto Medium']['licenses'],[{'expression':'Apache-2.0'}])
+                self.assertEqual(indexed['Roboto Medium']['hashes'][0]['content'],
+                                 '8559132c89ad51d8a2ba5b171887a44a7ba93776e205f553573de228e64b45f8')
+                self.assertIn('Apache-2.0',indexed['binary:'+binary]['licenses'][0]['expression'])
+                links={d['ref']:d['dependsOn'] for d in bom['dependencies']}
+                self.assertIn('Roboto Medium',links['binary:'+binary])
+                self.assertTrue(all(ref in indexed for refs in links.values() for ref in refs))
+                if binary=='device-ui':
+                    self.assertEqual(indexed['Roboto Medium LVGL bitmap']['licenses'],[{'expression':'Apache-2.0'}])
 
     def test_advisory_pagination_preserves_all_findings(self):
         item=dict(component='synthetic',scopes=['test'],query={'commit':'a'*40})

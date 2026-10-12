@@ -153,10 +153,14 @@ struct App {
         for(int i=0;i<4;++i){if(i)ImGui::SameLine();const char* ids[]={"TAB_LIVE","TAB_TRENDS","TAB_INSPECT","TAB_ADMIN"};const char* names[]={"Live circuits","Trends","Inspector","Configuration / history"};if(button(ids[i],names[i]))page=i;}
         if(offline){ImGui::SameLine();if(button("REPLAY_PAUSE",replay_paused?"Continue recording":"Hold recording"))replay_paused=!replay_paused;}
         if(page!=3)dashboard.draw(page,status.connected);
+        const float panel_height=ImGui::GetContentRegionAvail().y;
         if(page==3 && ImGui::BeginTable("panels",2,ImGuiTableFlags_Resizable)){
             ImGui::TableSetupColumn("Draft and history");ImGui::TableSetupColumn("Authorised internal truth (not device measurements)");ImGui::TableHeadersRow();
             ImGui::TableNextColumn();
-            if(ImGui::InputTextMultiline("##configuration",config.data(),config.size(),ImVec2(-1,420),ImGuiInputTextFlags_AllowTabInput))changed_config=true;
+            // Reserve space for the history controls when the setup panel is open.
+            // Fixed editor/truth heights previously pushed Replay below the viewport.
+            const float editor_height=std::max(120.0f,panel_height-2*ImGui::GetTextLineHeightWithSpacing()-3*ImGui::GetFrameHeightWithSpacing()-140.0f);
+            if(ImGui::InputTextMultiline("##configuration",config.data(),config.size(),ImVec2(-1,editor_height),ImGuiInputTextFlags_AllowTabInput))changed_config=true;
             mark("configuration");
             ImGui::TextUnformatted(changed_config?"Unsaved changes: validate before starting":"Draft saved / use Read draft to inspect");
             ImGui::SetNextItemWidth(210);ImGui::InputText("Run A",left.data(),left.size());mark("left");
@@ -168,9 +172,9 @@ struct App {
             if(button("COMPARE","Compare A/B"))send("COMPARE","{\"left\":"+experiment::quote(left.data())+",\"right\":"+experiment::quote(right.data())+"}");
         ImGui::SameLine();
             if(button("EXPORT","Export A"))send("EXPORT",selected_args());
-            ImGui::BeginChild("inventory",ImVec2(0,120),ImGuiChildFlags_Borders);ImGui::TextUnformatted(history.c_str());ImGui::EndChild();
+            ImGui::BeginChild("inventory",ImVec2(0,100),ImGuiChildFlags_Borders);ImGui::TextUnformatted(history.c_str());ImGui::EndChild();
             ImGui::TableNextColumn();
-            ImGui::BeginChild("truth",ImVec2(0,660),ImGuiChildFlags_Borders,ImGuiWindowFlags_HorizontalScrollbar);
+            ImGui::BeginChild("truth",ImVec2(0,std::max(120.0f,panel_height-40.0f)),ImGuiChildFlags_Borders,ImGuiWindowFlags_HorizontalScrollbar);
             ImGui::TextUnformatted(truth.c_str());ImGui::EndChild();
             ImGui::EndTable();
         }

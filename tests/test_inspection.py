@@ -7,6 +7,8 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
+BINARY = Path(os.environ.get('DIALYSISLAB_GUI_BUILD_DIR',
+                            os.environ.get('DIALYSISLAB_BUILD_DIR', ROOT/'build/gui')))/'sim-console'
 
 
 class InspectionTests(unittest.TestCase):
@@ -52,7 +54,7 @@ int main(){
         import queue
         import threading
         import time
-        binary = Path(os.environ.get('DIALYSISLAB_GUI_BUILD_DIR', ROOT/'build/gui'))/'sim-console'
+        binary = BINARY
         if not binary.exists():
             self.skipTest('GUI build unavailable')
         trajectory = next((ROOT/'assurance/evidence/m7').rglob('trajectory.jsonl'))
@@ -96,3 +98,36 @@ int main(){
                 send('QUIT');process.wait(timeout=5);thread.join(timeout=2)
                 process.stdin.close();process.stdout.close()
             self.assertEqual(process.returncode,0)
+
+    def test_history_controls_fit_and_receive_pointer_clicks_with_setup_open(self):
+        from console_regressions import Console
+        from test_experiments import wait_for
+        import time
+        if not BINARY.exists():
+            self.skipTest('GUI build unavailable')
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)
+            ui = Console(path/'absent-api', path/'captures', command=[
+                str(BINARY), '--headless', '--test-input', '--api-dir', str(path/'absent-api'),
+                '--capture-dir', str(path/'captures')])
+            try:
+                time.sleep(.5)
+                ui.send('CLICK TAB_ADMIN');time.sleep(.2)
+                wait_for(ui.snapshot, lambda s: s['page']==3)
+                for setup_open in (True, False):
+                    with self.subTest(setup_open=setup_open):
+                        ui.send('CLICK SETUP');time.sleep(.2)
+                        state = wait_for(ui.snapshot, lambda s: ('LOAD' in s['widgets'])==setup_open)
+                        self.assertEqual('LOAD' in state['widgets'], setup_open)
+                        for name in ('configuration', 'left', 'right', 'RUNS', 'REPLAY', 'COMPARE', 'EXPORT'):
+                            x, y, width, height = state['widgets'][name]
+                            self.assertGreaterEqual(x, 0, name)
+                            self.assertGreaterEqual(y, 0, name)
+                            self.assertLessEqual(x+width, 1440, name)
+                            self.assertLessEqual(y+height, 960, name)
+                        for name in ('REPLAY', 'COMPARE', 'EXPORT'):
+                            ui.click(name)
+                            wait_for(ui.snapshot, lambda s: s['last_action']==name, timeout=3)
+                ui.capture('history-controls')
+            finally:
+                ui.close()

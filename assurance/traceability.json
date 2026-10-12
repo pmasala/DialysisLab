@@ -1802,7 +1802,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
+          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
         },
         {
           "path": "src/console/client.hpp",
@@ -1852,7 +1852,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
+          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
         },
         {
           "path": "src/console/client.hpp",
@@ -1902,7 +1902,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
+          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
         },
         {
           "path": "src/console/client.hpp",
@@ -1952,7 +1952,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
+          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
         },
         {
           "path": "src/console/client.hpp",
@@ -2002,7 +2002,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
+          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
         },
         {
           "path": "src/console/client.hpp",
@@ -2052,7 +2052,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
+          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
         },
         {
           "path": "src/console/client.hpp",
@@ -2242,11 +2242,11 @@
       "implementation": [
         {
           "path": "dependency_inventory.json",
-          "sha256": "df0f3819ff4e6862abb13aba3872c74c7e6c96c83a02b08177c59c39ea7f8c2d"
+          "sha256": "b550bec7643c86ad11ea6ea6dac3e62b7dc80578be6d6dfe217f88cadbf88cca"
         },
         {
           "path": "tools/dependency_report.py",
-          "sha256": "aa2625302572be89991a1b20dea1c89c677c133899f0eb0c813ff829261d9b58"
+          "sha256": "6573cde99edf7e509b038e372bddc943da6b08609156de48995c7421192ea859"
         },
         {
           "path": "tools/platform_inventory.py",
@@ -2254,7 +2254,7 @@
         },
         {
           "path": "tests/test_dependencies.py",
-          "sha256": "9e388f5e3fa6e1f2f865a1bbb35122e3f5e3e295b2290cf83cf7c1a9a640acae"
+          "sha256": "4e51f3d26175c4323b95e0f1c76f3509e7a8d8188f546d8ee57f2ccb1cb4d128"
         },
         {
           "path": "docs/dependencies/M8.md",
@@ -2311,7 +2311,7 @@
         },
         {
           "path": "tests/test_dependencies.py",
-          "sha256": "9e388f5e3fa6e1f2f865a1bbb35122e3f5e3e295b2290cf83cf7c1a9a640acae"
+          "sha256": "4e51f3d26175c4323b95e0f1c76f3509e7a8d8188f546d8ee57f2ccb1cb4d128"
         },
         {
           "path": "assurance/THREATS.json",
@@ -2652,7 +2652,7 @@
         },
         {
           "path": "src/console/sim_console.cpp",
-          "sha256": "06fbc3efad9fce3a3bd0db078b7ab5b361378894c37334af23a3f7201d60160d"
+          "sha256": "20ef44ec1f4e8e304a6faa73cbf7b7af8d82210b5f174255404b6b838691572a"
         },
         {
           "path": "src/ui/synoptic.hpp",
@@ -2664,7 +2664,7 @@
         },
         {
           "path": "tests/test_inspection.py",
-          "sha256": "235697d0d97f06d04f490de807ee65b85a421ddc44e555529bf3d213f75de1c3"
+          "sha256": "e3c9cd401956c3e7fa094315b3b57c12d55c8f8e01dc16d822e44ac5f2b4e821"
         },
         {
           "path": "docs/UI_INSPECTION.md",
