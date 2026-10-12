@@ -461,6 +461,18 @@
         {
           "path": "src/ui/client.hpp",
           "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -498,6 +510,18 @@
         {
           "path": "tests/test_machine.py",
           "sha256": "3d40b6e0a4706ee9ee624bb4fe13e6c3be7ea1a83b28656be65133c24a944520"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -535,6 +559,26 @@
         {
           "path": "tools/verify_models.py",
           "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -572,6 +616,18 @@
         {
           "path": "tests/test_rpc_abort.py",
           "sha256": "37e8e325a307bd8de9dbdffe4fad867684b2283092df40871c1898592df9c32b"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -609,6 +665,18 @@
         {
           "path": "docs/M5_MACHINE.md",
           "sha256": "9210e9abb2c3fe50c90316277e31dac991f6cf3ee8b7aeeebcc9d3b1be41c93f"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -646,6 +714,26 @@
         {
           "path": "docs/M4_TREATMENT.md",
           "sha256": "f0ed04ad83f121feca1c5de1f0f965300e23a50c1e093a0036de2ec8e605844f"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -683,6 +771,18 @@
         {
           "path": "compose.yaml",
           "sha256": "36a87c560f43167b5ee328b0036b002e14dbd8217fbb98223f76e178af6b7f01"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -716,6 +816,18 @@
         {
           "path": "src/plant.cpp",
           "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -753,6 +865,18 @@
         {
           "path": "python/dialysislab/patient.py",
           "sha256": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -786,6 +910,18 @@
         {
           "path": "src/plant.cpp",
           "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -819,6 +955,18 @@
         {
           "path": "src/control.cpp",
           "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -860,6 +1008,18 @@
         {
           "path": "src/plant.cpp",
           "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -898,6 +1058,18 @@
         {
           "path": "python/dialysislab/runner.py",
           "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -936,6 +1108,18 @@
         {
           "path": "tools/recover_trajectory.py",
           "sha256": "11ac9e325e36e789fea0ba986aa135d88eece934a1db081f52fcbf77234fcff0"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -964,6 +1148,18 @@
         {
           "path": "tools/verify_compose.py",
           "sha256": "65924a3fadd86786f76a498202137b75880f23ac42bdc26f0a33cc311d7e0cce"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -993,6 +1189,18 @@
         {
           "path": "src/circuit.hpp",
           "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -1021,6 +1229,18 @@
         {
           "path": "src/circuit.hpp",
           "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -1049,6 +1269,18 @@
         {
           "path": "src/circuit.hpp",
           "sha256": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -1079,6 +1311,18 @@
         {
           "path": "python/dialysislab/circuit.py",
           "sha256": "6c7e9b2cfdddd606b531e27dd523ef4e0a09ca510f178f18c18a61675750be13"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -1108,6 +1352,18 @@
         {
           "path": "python/dialysislab/compartments.py",
           "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -1136,6 +1392,18 @@
         {
           "path": "python/dialysislab/compartments.py",
           "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -1164,6 +1432,18 @@
         {
           "path": "python/dialysislab/compartments.py",
           "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -1194,6 +1474,18 @@
         {
           "path": "python/dialysislab/runner.py",
           "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -1222,6 +1514,18 @@
         {
           "path": "python/dialysislab/compartments.py",
           "sha256": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -1251,6 +1555,18 @@
         {
           "path": "src/online.hpp",
           "sha256": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -1281,6 +1597,18 @@
         {
           "path": "src/plant.cpp",
           "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -1312,6 +1640,18 @@
         {
           "path": "python/dialysislab/runner.py",
           "sha256": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -1346,6 +1686,18 @@
         {
           "path": "src/plant.cpp",
           "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/TREATMENT.md",
+          "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1379,6 +1731,18 @@
         {
           "path": "python/dialysislab/patient.py",
           "sha256": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/TREATMENT.md",
+          "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1414,6 +1778,18 @@
         {
           "path": "src/plant.cpp",
           "sha256": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/TREATMENT.md",
+          "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1448,6 +1824,18 @@
         {
           "path": "src/protection.cpp",
           "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/TREATMENT.md",
+          "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1486,6 +1874,18 @@
         {
           "path": "compose.yaml",
           "sha256": "36a87c560f43167b5ee328b0036b002e14dbd8217fbb98223f76e178af6b7f01"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/TREATMENT.md",
+          "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1523,6 +1923,18 @@
         {
           "path": "tools/verify_models.py",
           "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/TREATMENT.md",
+          "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1564,6 +1976,18 @@
         {
           "path": "docs/M6_DEVICE_UI.md",
           "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1606,6 +2030,18 @@
         {
           "path": "docs/M6_DEVICE_UI.md",
           "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1648,6 +2084,18 @@
         {
           "path": "docs/M6_DEVICE_UI.md",
           "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1690,6 +2138,18 @@
         {
           "path": "docs/M6_DEVICE_UI.md",
           "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1732,6 +2192,18 @@
         {
           "path": "docs/M6_DEVICE_UI.md",
           "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1776,6 +2248,18 @@
         {
           "path": "docs/M6_DEVICE_UI.md",
           "sha256": "329c0c96b3c7611236dc74fd229bd24e03ce8e6205fc04e11fa141e64a6a8171"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1826,6 +2310,18 @@
         {
           "path": "docs/M7_EXPERIMENTS.md",
           "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1876,6 +2372,18 @@
         {
           "path": "docs/M7_EXPERIMENTS.md",
           "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1926,6 +2434,18 @@
         {
           "path": "docs/M7_EXPERIMENTS.md",
           "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -1976,6 +2496,18 @@
         {
           "path": "docs/M7_EXPERIMENTS.md",
           "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -2026,6 +2558,18 @@
         {
           "path": "docs/M7_EXPERIMENTS.md",
           "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -2076,6 +2620,18 @@
         {
           "path": "docs/M7_EXPERIMENTS.md",
           "sha256": "aaf06b306d168e3a8d5c53a121086f635da26c84221191d625ac6b3d31c885cc"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -2130,6 +2686,18 @@
         {
           "path": "docs/M8_SECURITY_CI.md",
           "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -2176,6 +2744,18 @@
         {
           "path": "docs/M8_SECURITY_CI.md",
           "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -2229,6 +2809,18 @@
         {
           "path": "docs/M8_SECURITY_CI.md",
           "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -2286,6 +2878,18 @@
         {
           "path": "tools/build_identity.py",
           "sha256": "dee260875614d97f7fd7ff6a9b30845079fd311e45b0570c713e46c5f199528b"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -2335,6 +2939,18 @@
         {
           "path": "docs/M8_SECURITY_CI.md",
           "sha256": "f03d73f88fd961ec6d982bc8d5b82326a4840577e5ea770fd930e30087274709"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -2371,7 +2987,7 @@
         },
         {
           "path": "tools/ci_verify.py",
-          "sha256": "e530965ec1afb14c9c8041173bc64d954563402ade06332d7900b06fc977aad0"
+          "sha256": "1c8f7f3d9bf0e49ef5673bf0668e0b3a59c9594ae80c4752ccde240f97581175"
         },
         {
           "path": "tools/check_publication.py",
@@ -2379,7 +2995,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "872b95a108b55c85edcf4bf94c7b1f7c1aaa7e4717822817a71e8cae9ef7c95a"
+          "sha256": "b6aa58861280d0d40317fa2de8c1dc7a1c6dea58f93199505df64b13c26423a6"
         },
         {
           "path": "docs/dependencies/CI_NOTICES.md",
@@ -2396,6 +3012,30 @@
         {
           "path": "tests/test_ci.py",
           "sha256": "04be4fde9608cf6e8d240d02cfcfe651e11fab68c5a070b9aa93275658d14c0d"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
+        },
+        {
+          "path": "tools/documentation.py",
+          "sha256": "33846bf103c72bc046ab7595847d202a1ee64042d784392d6410b97fa8fa3f99"
+        },
+        {
+          "path": "tests/test_documentation.py",
+          "sha256": "a5888a26df9b7fc6eb73a16d7475bc0e55c1695933e4dc2761e9546805d73de7"
+        },
+        {
+          "path": "docs/DOCUMENT_CONTROL.md",
+          "sha256": "c636e089a45079ef73c3cf4334808109ec6189099e7ac1b4973ac720bc203d9b"
         }
       ],
       "unresolved": [
@@ -2435,6 +3075,18 @@
         {
           "path": "docs/M9_INTEGRATION.md",
           "sha256": "c2912a6edb78e712aad38c40dc34ce6d852435a05aa331b67d3431089a484adf"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -2468,6 +3120,18 @@
         {
           "path": "tests/test_integration.py",
           "sha256": "6a866592c0a64f76c26ca5bdab644c28951e265c55d54318cf5836339a977c91"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -2511,6 +3175,18 @@
         {
           "path": "compose.experiments-x11.yaml",
           "sha256": "8c777fd61cc64d21a98d85df1a8b3e2f811705c617e77def3895a5043e73e7da"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -2547,7 +3223,19 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "872b95a108b55c85edcf4bf94c7b1f7c1aaa7e4717822817a71e8cae9ef7c95a"
+          "sha256": "b6aa58861280d0d40317fa2de8c1dc7a1c6dea58f93199505df64b13c26423a6"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -2580,7 +3268,7 @@
       "implementation": [
         {
           "path": "tools/ci_verify.py",
-          "sha256": "e530965ec1afb14c9c8041173bc64d954563402ade06332d7900b06fc977aad0"
+          "sha256": "1c8f7f3d9bf0e49ef5673bf0668e0b3a59c9594ae80c4752ccde240f97581175"
         },
         {
           "path": "docs/QUICKSTART.md",
@@ -2588,11 +3276,11 @@
         },
         {
           "path": "README.md",
-          "sha256": "91994442891bc1ad7c0b69dcbbcdbd78de832d26ed19e7f629a3cdc9662bb594"
+          "sha256": "2dfa4fa942af2753efa57b0e04fc43def8054f03409afff400bbd245723c0d7d"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "5b67d1cb3aa8ea04751b0fabfcfd6ec50fecd24952b2a0ed5b79bb04fd3657d6"
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
         },
         {
           "path": "docs/SIMULATION.md",
@@ -2600,7 +3288,7 @@
         },
         {
           "path": "docs/README.md",
-          "sha256": "a509377168da45ee076bbfac1e96ce92eaedb5e2db3b4a5330c012309ca0d2f4"
+          "sha256": "048bf21e6a580b2025ad547677b531ea9f8b79ba02696b36ccd6d62750fead65"
         },
         {
           "path": "docs/DEVELOPMENT.md",
@@ -2629,6 +3317,14 @@
         {
           "path": "tools/render_hydraulic_diagrams.py",
           "sha256": "634559d94a1d5efa3fe1b26aa31c74eed7407fb7f09ce74e6e1ef912be8a2203"
+        },
+        {
+          "path": "docs/design/INTERFACES.md",
+          "sha256": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0"
+        },
+        {
+          "path": "docs/testing/FAILURES.md",
+          "sha256": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8"
         }
       ],
       "unresolved": [
@@ -2684,6 +3380,18 @@
         {
           "path": "docs/UI_INSPECTION.md",
           "sha256": "806d89e79bdb254877693e269bd09ae0f531e53d0b10c389563565df07313601"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/INTERACTION.md",
+          "sha256": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -2779,6 +3487,18 @@
         {
           "path": "tests/ui_regressions.py",
           "sha256": "0d9e6e6dfb10fbbc88d411bf9566c0c4f710f531eba3881bb2a4af90df60a381"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/TREATMENT.md",
+          "sha256": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823"
+        },
+        {
+          "path": "docs/testing/WORKFLOW.md",
+          "sha256": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb"
         }
       ],
       "unresolved": [
@@ -2868,6 +3588,18 @@
         {
           "path": "docs/PHYSICAL_MODEL.md",
           "sha256": "c72b9abe1bf687a9d2bbeb3b0ce6b8a69dd6861d68ed3761c928da18217aba93"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [
@@ -3044,7 +3776,7 @@
         },
         {
           "path": "tools/ci_verify.py",
-          "sha256": "e530965ec1afb14c9c8041173bc64d954563402ade06332d7900b06fc977aad0"
+          "sha256": "1c8f7f3d9bf0e49ef5673bf0668e0b3a59c9594ae80c4752ccde240f97581175"
         },
         {
           "path": "tools/verify_models.py",
@@ -3053,6 +3785,18 @@
         {
           "path": "tests/test_ci.py",
           "sha256": "04be4fde9608cf6e8d240d02cfcfe651e11fab68c5a070b9aa93275658d14c0d"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+        },
+        {
+          "path": "docs/testing/MODELS.md",
+          "sha256": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5"
         }
       ],
       "unresolved": [

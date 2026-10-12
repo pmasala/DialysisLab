@@ -1,84 +1,116 @@
-# Software architecture
+# Architecture: responsibility, boundaries and execution
 
-DialysisLab separates the simulated equipment, the patient and the software that
-operates the machine. If you want to understand the fluid paths first, read
-[How the simulation works](SIMULATION.md).
+Document ID SAD-01; revision 1; status: review candidate. Read
+[Requirements](REQUIREMENTS.md) first, then [Treatment design](design/TREATMENT.md).
+This describes the implementation integrated in main at `602e8da` and its supported
+legacy variants. It is a software architecture, not an electrical safety design.
 
-## What runs where
+## Purpose and context
 
-| Component | Language | Responsibility |
+An operator uses the device screen to run a simulated treatment. A researcher uses
+the external console to choose the patient, equipment, faults and simulation speed.
+The software never connects to real equipment. A generic machine is modeled rather
+than a manufacturer's mechanical design. The plant owns the authoritative simulated
+machine state; control proposes outputs and protection imposes restrictions.
+
+## Logical components and code ownership
+
+| Component | Responsibility and owned state | Implementation |
 | --- | --- | --- |
-| Plant | C++ | Simulated circuit, pumps, dialyzer and sensor observations |
-| Control | C++ | Machine workflow and requested operating settings |
-| Protection | C++ | Evaluate modeled hazards and constrain plant outputs |
-| Device UI | C++ / LVGL | Operator screens, commands and alarms |
-| Patient | Python | Body water, solutes and exchange with the circuit |
-| Runner / experiment broker | Python | Configure and advance experiments; save results |
-| Experiment console | C++ / Dear ImGui | Separate patient, scenario and experiment controls |
+| Plant process | Frozen observations, pending decisions, actuator arbitration, authoritative phase, alarms and physical circuit | [plant.cpp](../src/plant.cpp), [machine.hpp](../src/machine.hpp) |
+| Hydraulic and blood model | Needles, pressures, segment filtration, liquid/gas chambers, pumps and balancing dynamics | [circuit.hpp](../src/circuit.hpp), [blood_physics.hpp](../src/blood_physics.hpp), [dynamics.hpp](../src/dynamics.hpp) |
+| Fluid preparation | Mixing, concentrate stocks, heater, conductivity, quality and substitution barriers | [online.hpp](../src/online.hpp) |
+| Control process | Validated operator intents and requested blood/gross-UF/substitution outputs | [control.cpp](../src/control.cpp) |
+| Protection process | Independent observation evaluation and direct restriction submission; reset intent | [protection.cpp](../src/protection.cpp), hazard rules in `machine.hpp` |
+| Patient service | Body/circuit water, six species, red cells and proteins; atomic transaction acceptance | [patient.py](../python/dialysislab/patient.py), [compartments.py](../python/dialysislab/compartments.py), [distributed.py](../python/dialysislab/distributed.py) |
+| Runner | Configuration, single virtual clock, ordered exchanges, run termination and records | [runner.py](../python/dialysislab/runner.py), [physical.py](../python/dialysislab/physical.py), [trajectory.py](../python/dialysislab/trajectory.py) |
+| Device application | LVGL rendering, phase-aware controls, confirmed requests, telemetry and alarms | [device_ui.cpp](../src/ui/device_ui.cpp), [guided.hpp](../src/ui/guided.hpp), [client.hpp](../src/ui/client.hpp) |
+| Experiment service | Immutable run configuration, credentials, runs, pause, replay, compare and export | [experiments.py](../python/dialysislab/experiments.py), [experiment_rpc.py](../python/dialysislab/experiment_rpc.py) |
+| External console | Dear ImGui scenario editor, experiment commands and privileged model inspection | [console sources](../src/console), [telemetry.hpp](../src/console/telemetry.hpp) |
+| Supervisors and lifecycle helpers | Start fresh services, manage runtime paths and cleanup after owner death | [role_supervisor.py](../python/dialysislab/role_supervisor.py), [child_guard.cpp](../src/child_guard.cpp) |
+| Verification and evidence tools | Independent balances, process/container/UI tests, source and dependency identities | [tools](../tools), [tests](../tests), [test plan](testing/PLAN.md) |
 
-The core can run as separate local processes. Compose deployments separate services
-into containers. Communication uses local Unix sockets; these are simulation
-interfaces, not connections to real equipment.
+The source filenames above are checked by the documentation gate. Shared headers
+mean that control, protection and plant do not have independently developed software
+implementations. The consequence for common-cause failure is an explicit risk.
+
+## Runtime view: one committed step
 
 ```mermaid
-flowchart TD
-    Console["Experiment console"] --> Broker["Experiment broker / runner"]
-    UI["Device UI"] -->|"Operator requests"| Control["Control"]
-    Control -->|"Requested outputs"| Plant["Simulated plant"]
-    Protection["Protection"] -->|"Output restrictions"| Plant
-    Plant -->|"Sensor observations"| Control
-    Plant -->|"Sensor observations"| Protection
-    Broker -->|"Simulation steps and configuration"| Plant
-    Broker --> Patient["Python patient"]
-    Patient <-->|"Water and solute exchange through runner"| Plant
+sequenceDiagram
+    participant R as Runner
+    participant P as Plant
+    participant C as Control
+    participant S as Protection
+    participant B as Patient
+    R->>P: Prepare and freeze observations
+    R->>C: Step
+    C->>P: Read own sample and submit demand
+    R->>S: Step
+    S->>P: Read own sample and submit restriction
+    R->>P: Commit only after both successful replies
+    P-->>R: Atomic equipment transaction
+    R->>B: Advance conserved inventories
+    B-->>R: Accepted patient state
+    Note over R,B: Persist complete record after patient acceptance
 ```
 
-This diagram shows responsibilities and information flow, not every socket or reply.
-The runner coordinates control and protection steps as well as plant and patient
-updates. The [interface reference](M1_INTERFACES.md) defines the exact message order.
+Only one tick is in flight. The runner tries both decision services even if one
+fails, so the surviving protection path can still act. Any failed STEP reply,
+including a reply lost after acceptance, prevents COMMIT. HALT cancels pending
+plant decisions. Patient failure after an equipment commit cannot roll the plant
+back: the run aborts and records the incomplete transaction rather than claiming
+cross-process atomicity. [Interface design](design/INTERFACES.md) explains this seam.
 
-## Who can change what
+## Deployment and trust view
 
-The device UI sends machine requests through control. It cannot set raw actuator
-outputs, change patient parameters, inject faults or control simulation time.
-The external experiment tools own those experiment functions.
+[Single-run Compose](../compose.yaml) separates plant, control, protection,
+patient and runner, with an optional device UI. [Experiment Compose](../compose.experiments.yaml)
+uses role supervisors and the scenario broker to create fresh runs; the console
+and device UI are optional separate containers. Both use local socket volumes and
+no exposed network listener. Native execution uses separate processes on one host.
 
-Protection supplies constraints directly to the plant. A control request cannot
-cancel a protective restriction. Some hazards stop blood flow; others stop fluid
-removal, substitution or exchange while allowing blood flow to continue. The
-[machine reference](M5_MACHINE.md) specifies each response and its reset conditions.
+| Boundary | Permitted authority | Important limit |
+| --- | --- | --- |
+| Device → control/protection | Requests, confirmation, STOP, alarm handling and observed state | No patient/configuration/fault administration |
+| Control → plant | Own observation and actuator demand | Cannot clear protection through a demand |
+| Protection → plant | Own observation, restrictions and guarded reset | Shares host, protocol code and simulated sensors with the system |
+| Runner → plant/patient/services | Configuration, clock and run coordination | Trusted experiment administrator; not a safety-independent controller |
+| Console → broker | Authenticated local experiment operations | Privileged access to simulation truth |
+| Host → all containers | Kernel, storage, scheduling and display | Shared failure domain; no hardware independence claim |
 
-Control and protection receive separate modeled sensor channels. Hidden model state
-is available to experiment administration, not to the operator as an extra sensor.
-The plant owns the authoritative machine state and arbitrates requested outputs.
+Device producer volumes have separate writable ownership; clients mount them
+read-only. Immutable aliases preserve `device/control.sock` and
+`device/protection.sock`. The broker has no Docker socket. The native same-user
+profile cannot provide the same mount-based isolation. X11 and the host account
+are trusted. Concrete paths and protocol families are in the interface design.
 
-## Time, failure and results
+## Data and physical views
 
-The runner advances a virtual clock in configured steps. Pausing an experiment
-pauses that clock; wall-clock liveness checks continue. A communication failure
-must not silently advance treatment as though a reply had arrived. The execution
-contracts specify stopping behaviour and distinguish a requested stop from an
-acknowledged or observed one.
+The [hydraulic drawing](images/physical-circuit.svg) describes physical fluid paths;
+software sequence diagrams do not substitute for that schematic. Preparation and
+filtration are C++; the Python patient retains transported inventories. Local Hct
+and protein from the previous accepted patient step feed the next hydraulic solve.
+This one-step coupling must be included in convergence studies.
 
-Each run has a configuration, seed, trajectory and manifest. The trajectory records
-the changing state; the manifest records the outcome and hashes needed to identify
-its artifacts. A failed run is useful evidence too, so collection must happen before
-its container volumes are removed.
+A run contains an immutable configuration, ordered trajectory and a manifest.
+Measurements, hidden model state, requested commands and effective outputs have
+different meanings and timestamps. A recorded file is not a command channel.
+Streaming output bounds memory and incremental hashes identify exact persisted
+bytes. Failure collection precedes removal of container volumes.
 
-## Deployment boundaries
+## Variants and quality attributes
 
-The experiment Compose deployment uses fixed service supervisors to start fresh
-roles for each run. It does not mount the Docker socket into the experiment broker.
-The device and experiment clients have distinct endpoints and permissions.
+| Concern | Implemented decision | Verification / residual limit |
+| --- | --- | --- |
+| Model variants | Legacy M1–M5; optional `guided`, `physical`, `physical.dynamics` | Scenario flags, not UI version alone, select behavior |
+| Determinism | Integer clock, one in-flight tick, fixed seed and ordered transactions | Same-build replay; cross-build comparison uses declared tolerances |
+| Failure containment | Direct protection arbitration, terminal HALT, wall watchdog | Virtual reaction budgets differ from wall-clock liveness; no hard real-time claim |
+| Resource bounds | 100000 ticks, streamed records, bounded frames and UI history | Long dynamic-record configurations need their own measured RSS evidence |
+| Maintainability | Versioned parsers and preserved historical evidence | Shared headers and broad aggregate requirements complicate impact analysis |
+| Security | Bounded parsers, local capabilities, broker credential and identified dependencies | Platform advisories and common-host risks require explicit disposition |
+| Portability | C++17/Python 3.9+, Linux/WSL2, SDL display backend | Exact graphical/platform combination must be verified, not inferred from headless tests |
 
-Containers provide useful software separation, but share a host kernel and other
-common dependencies. Separate processes do not prove independent hardware protection
-or medical-device safety. The [security reference](M8_SECURITY_CI.md) describes
-implemented controls and remaining findings.
-
-## Further reading
-
-- [Running guide](QUICKSTART.md): native and Docker commands, graphical sessions and recovery.
-- [Experiment reference](M7_EXPERIMENTS.md): run lifecycle, replay, export and client permissions.
-- [Development checks](DEVELOPMENT.md): verification and source packaging.
-- [Decision history](DECISIONS.md): why earlier architectural choices were made.
+Architecture approval requires a named reviewer, assessed software safety class,
+component failure analysis and accepted risk controls. These are not supplied by a
+container diagram or a passing CI run; the audit records the outstanding decisions.

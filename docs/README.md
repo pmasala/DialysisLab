@@ -1,45 +1,52 @@
-# Documentation guide
+# Read DialysisLab from requirements to evidence
 
-Start with the question you want to answer. You do not need to read the milestone
-specifications to run an experiment or understand the models.
+DialysisLab is a software laboratory: a simulated patient and fluid circuit are
+operated by separate control and protection services. The machine interface is
+for treatment operations; a second application is for experiments. This guide
+explains the current implementation without requiring its development history.
 
-| I want to… | Read this |
-| --- | --- |
-| Run a simulation or open the interfaces | [Running guide](QUICKSTART.md) |
-| Inspect animated circuits, trends and patient state | [Visual inspection](UI_INSPECTION.md) |
-| Understand the blood circuit, fluid preparation and dialyzer | [How the simulation works](SIMULATION.md) |
-| Understand the separate software components | [Architecture](ARCHITECTURE.md) |
-| Build, test or package changes | [Development checks](DEVELOPMENT.md) |
-| See what has been verified and what remains open | [Evidence status](../assurance/STATUS.md) |
+To run it first, use [Quickstart](QUICKSTART.md). To assess or change it, read in
+this order. The documents are written in English so that the public project has
+one maintained technical baseline.
 
-## Technical references
+| Order | Document | Question answered |
+| --- | --- | --- |
+| 1 | [Requirements](REQUIREMENTS.md) | What must the software do, for whom, under which constraints, and how is each requirement accepted? |
+| 2 | [Architecture](ARCHITECTURE.md) | Which components own state, communicate, constrain outputs and retain evidence? |
+| 3 | [Treatment design](design/TREATMENT.md) | How do tests, preparation, priming, connection, therapy, return and disinfection work? |
+| 4 | [Fluid and transport design](design/MODELS.md) | Which physical quantities and equations are implemented, and where do they stop being credible? |
+| 5 | [Interfaces and failure design](design/INTERFACES.md) | What crosses each boundary, in which order, and what happens when an exchange fails? |
+| 6 | [UI and experiment design](design/INTERACTION.md) | How do commands, confirmations, observations and experiment controls differ? |
+| 7 | [Master verification plan](testing/PLAN.md) | What must be tested, with which oracles, configuration and acceptance rules? |
+| 8 | [Executable test catalogue](testing/CATALOG.md) | Which registered tests and concrete test methods exist? |
+| 9 | [Documentation audit](../assurance/audits/DOCUMENTATION_AUDIT.md) | What was checked, what was repaired and what still blocks an approval? |
 
-These documents contain equations, protocol fields and acceptance criteria.
-Their M1–M9 prefixes identify the development milestone that introduced them;
-they are not a reading order.
+The [document-control rules](DOCUMENT_CONTROL.md) explain precedence, change
+review and how to regenerate the requirements and test catalogues. The
+[glossary](GLOSSARY.md) defines terms and units used along this route.
 
-| Topic | Reference |
-| --- | --- |
-| Simulation clock, messages, failed calls and recording | [Execution contracts](M1_INTERFACES.md) |
-| Hydraulic network and dialyzer equations | [Hydraulic model](M2_MODEL_INTERFACES.md) |
-| Patient water and solute balances | [Patient model](M3_PATIENT.md) |
-| HD, HDF and substitution-fluid preparation | [Treatment model](M4_TREATMENT.md) |
-| Machine states, alarms and protective actions | [Machine behaviour](M5_MACHINE.md) |
-| Machine screens and operator commands | [Device interface](M6_DEVICE_UI.md) |
-| Patient configuration, faults, replay and export | [Experiment tools](M7_EXPERIMENTS.md) |
-| Security controls, dependencies and CI | [Security and verification](M8_SECURITY_CI.md) |
-| Integrated scenarios and acceptance checks | [Integration protocol](M9_INTEGRATION.md) |
+## Evidence is a separate layer
 
-## Requirements, risks and standards
+A requirement describes an obligation. A design explains its implementation. A
+test plan states how to challenge it. A test report records an execution. None of
+these substitutes for the next. A link to a test does not mean that it passed on
+the current commit or that its scope covers the entire requirement.
 
-The [assurance plan](../assurance/ASSURANCE_PLAN.md) explains the development
-records. The [traceability register](../assurance/traceability.json) links
-requirements, risks and verification evidence. The
-[standards guide](../assurance/standards/README.md) explains the checklist and
-its limitations. Licensed standards themselves are not distributed here.
+The [current verification status](testing/STATUS.md) names the assessed baseline
+and the evidence applicable to it. The [standards register](../assurance/standards/README.md)
+contains open applicability obligations, not a conformity declaration.
 
-For project history, use [decisions](DECISIONS.md), [milestones](MILESTONES.md)
-and [review records](../assurance/REVIEWS.md). Historical evidence describes the
-revision at which it was collected; it is not automatically evidence for a later change.
+## Supporting guides and separate history
 
-- [Guided treatment](GUIDED_TREATMENT.md): follow the phase sequence and understand progress indicators.
+[Quickstart](QUICKSTART.md), [guided operation](GUIDED_TREATMENT.md),
+[physical models](PHYSICAL_MODEL.md), [dynamic models](DYNAMIC_MODEL.md) and
+[inspection](UI_INSPECTION.md) support users. The official controlled reading set
+is enumerated in [document-set.json](document-set.json).
+
+The [Project Log](../project-log/README.md) is separate and **not part of the official
+project documentation**. It indexes milestones, earlier reviews and historical
+executions for investigation. You do not need it to read the current specification.
+
+Build instructions remain in [Development](DEVELOPMENT.md), dependency decisions
+in [the dependency policy](../DEPENDENCY_POLICY.md), and security response in
+[SECURITY.md](../SECURITY.md).

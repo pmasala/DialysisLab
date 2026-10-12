@@ -130,6 +130,7 @@ def main():
         save();print(name+': '+entry['status'],flush=True)
         return entry['status']=='PASS'
     save()
+    step('documentation',['python3','tools/documentation.py','--check'])
     trace=step('traceability',['python3','tools/check_traceability.py','assurance/traceability.json'])
     standards=step('standards',['python3','tools/check_standards.py'])
     publication=step('publication',['python3','tools/check_publication.py'])

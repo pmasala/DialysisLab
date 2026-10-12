@@ -49,3 +49,7 @@ PRs should explain the change, link relevant issues or requirement IDs, report v
 ## Dependencies & Publication
 
 Follow `DEPENDENCY_POLICY.md` when adding dependencies. Review content and redistribution rights before changing the publication allowlist. Keep licensed standards, extracts, screenshots, and private analysis outside the repository, as required by `assurance/standards/PUBLICATION_POLICY.md`.
+
+## Current documentation and integration
+
+All pull requests target `main`. The official reading set is `docs/document-set.json`: requirements, architecture, detailed design, test plans and current evidence applicability. Historical milestone narratives and runs belong to the separate `project-log/README.md` index, outside the official set. Preserve their bytes/hashes; never inherit their passed status without a current-baseline assessment. After the final edit, run `python3 tools/documentation.py --check`, traceability and publication checks on exactly what will be published.

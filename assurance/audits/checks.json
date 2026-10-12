@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "executed_at": "2026-10-12T21:16:18.315807+00:00",
+  "implementation_baseline": "602e8dab8e65efdb0bc8db1051ce0006f0d3adfd",
+  "scope": "Documentation and affected verification-tool checks only; no new runtime/clinical or normative approval.",
+  "steps": [
+    {
+      "command": [
+        "python3",
+        "tools/documentation.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output_sha256": "c64a43d78bea91d101246f5ec368b09711eb6cc8f0a3b333fb7c5f427e521219",
+      "summary": {
+        "structural_errors": 0,
+        "scope": "Generated-document drift and local file links only; no scientific or regulatory approval."
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/check_traceability.py",
+        "assurance/traceability.json"
+      ],
+      "exit_code": 0,
+      "output_sha256": "0a0d3c2f89e2930d12ea821135c0f45cb5c4ed82bef1514efac1b0534fcb2e49",
+      "summary": {
+        "structural_errors": 0,
+        "release_gaps": 204,
+        "counts": {
+          "needs": 15,
+          "hazards": 6,
+          "designs": 60,
+          "requirements": 60,
+          "tests": 65,
+          "prerequisites": 9
+        },
+        "recorded_release_gate_passed": false,
+        "scope": "Structural and recorded-evidence checks only; not standards conformity."
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/check_standards.py"
+      ],
+      "exit_code": 0,
+      "output_sha256": "c7204808d6f76bf4cb14de04c4e9462a311b65d65d870551f82c7001c725bec7",
+      "summary": {
+        "structural_errors": 0,
+        "open_checklist_entries": 184,
+        "open_gaps": 12,
+        "scope": "Draft data integrity only. Not clause completeness, evidence adequacy or conformity."
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/check_publication.py"
+      ],
+      "exit_code": 0,
+      "output_sha256": "84739e67a01531e622c0837d1f2c4dca747a0fb8163ba273cfda47dea74b74d9",
+      "summary": {
+        "reviewed_public_files": 622,
+        "docker_context_files": 89,
+        "scope": "Allowlist/format checks; not a substitute for content/rights review."
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_documentation.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output_sha256": "ae5c6013693fe2b9d65e9240791d46a03d6c51570c5bb51bd74060ac60ebf737",
+      "output": "test_historical_pass_does_not_become_current_acceptance (test_documentation.DocumentationTests.test_historical_pass_does_not_become_current_acceptance) ... ok\ntest_last_requirement_edit_invalidates_generated_candidate (test_documentation.DocumentationTests.test_last_requirement_edit_invalidates_generated_candidate) ... ok\ntest_missing_and_outside_root_links_are_rejected (test_documentation.DocumentationTests.test_missing_and_outside_root_links_are_rejected) ... ok\ntest_unallocated_or_duplicate_requirements_cannot_disappear (test_documentation.DocumentationTests.test_unallocated_or_duplicate_requirements_cannot_disappear) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.006s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_ci.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output_sha256": "c33c147ba1462c1e74c166c05a8c354c65e840a75a1837757934496c17287432",
+      "output": "test_corruption_order_truncation_and_path_escape_are_rejected (test_ci.CITests.test_corruption_order_truncation_and_path_escape_are_rejected) ... ok\ntest_exact_byte_retention_includes_every_sbom_and_platform_file (test_ci.CITests.test_exact_byte_retention_includes_every_sbom_and_platform_file) ... ok\ntest_only_valid_outstanding_release_obligations_are_exempt (test_ci.CITests.test_only_valid_outstanding_release_obligations_are_exempt) ... ok\ntest_release_checker_crash_and_timeout_fail_actual_orchestration (test_ci.CITests.test_release_checker_crash_and_timeout_fail_actual_orchestration) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.045s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_traceability.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output_sha256": "90db3fa27fd85294a1e08fd3aa8e1ba695d66f16cee4e75d56f095709d971aaf",
+      "output": "test_broken_bidirectional_link (test_traceability.TraceChecks.test_broken_bidirectional_link) ... ok\ntest_complete_synthetic_graph (test_traceability.TraceChecks.test_complete_synthetic_graph) ... ok\ntest_draft_cannot_pass_release (test_traceability.TraceChecks.test_draft_cannot_pass_release) ... ok\ntest_duplicate_id (test_traceability.TraceChecks.test_duplicate_id) ... ok\ntest_open_prerequisite (test_traceability.TraceChecks.test_open_prerequisite) ... ok\ntest_orphan_hazard (test_traceability.TraceChecks.test_orphan_hazard) ... ok\ntest_outside_root_artifact (test_traceability.TraceChecks.test_outside_root_artifact) ... ok\ntest_pass_without_evidence_is_error (test_traceability.TraceChecks.test_pass_without_evidence_is_error) ... ok\ntest_planned_test_is_not_pass (test_traceability.TraceChecks.test_planned_test_is_not_pass) ... ok\ntest_tampered_evidence (test_traceability.TraceChecks.test_tampered_evidence) ... ok\ntest_unknown_reference (test_traceability.TraceChecks.test_unknown_reference) ... ok\ntest_wrong_baseline (test_traceability.TraceChecks.test_wrong_baseline) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.006s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_publication.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output_sha256": "635744f309f2d016e5e78eaf5df797a3c8901b1e5006fd6a85dbc1f1e546543d",
+      "output": "test_only_registered_encoder_profile_with_matching_digest_is_allowed (test_publication.OwnedCaptureChecks.test_only_registered_encoder_profile_with_matching_digest_is_allowed) ... ok\ntest_passive_diagram_and_ownership (test_publication.OwnedDiagramChecks.test_passive_diagram_and_ownership) ... ok\ntest_registered_svg_is_packaged_and_restricted_hash_still_rejected (test_publication.OwnedDiagramChecks.test_registered_svg_is_packaged_and_restricted_hash_still_rejected) ... ok\ntest_reject_active_external_or_unexpected_content (test_publication.OwnedDiagramChecks.test_reject_active_external_or_unexpected_content) ... ok\ntest_actual_context_is_explicit_reviewed_subset (test_publication.PublicationChecks.test_actual_context_is_explicit_reviewed_subset) ... ok\ntest_context_rejects_broad_inclusion (test_publication.PublicationChecks.test_context_rejects_broad_inclusion) ... ok\ntest_paths_symlinks_and_duplicates (test_publication.PublicationChecks.test_paths_symlinks_and_duplicates) ... ok\ntest_reject_binary_source_and_restricted_format (test_publication.PublicationChecks.test_reject_binary_source_and_restricted_format) ... ok\ntest_source_and_build_formats (test_publication.PublicationChecks.test_source_and_build_formats) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.014s\n\nOK\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tools/package_release.py",
+        "--output",
+        "/tmp/DialysisLab-documentation-audit.zip"
+      ],
+      "exit_code": 0,
+      "output_sha256": "5da66ed45b7ada879c1ad4dabb63e4159978ebc1cf127de6ee4852e54f5379c6",
+      "output": "Packaged 622 reviewed source/owned-asset files. Licensed sources excluded; no release approval implied.\n"
+    }
+  ],
+  "candidate_file_sha256": {
+    "AGENTS.md": "3edf7a5924c18e53ef0700ece7cd15351772f2a16e63f943034e3c8959c8cb3a",
+    "README.md": "2dfa4fa942af2753efa57b0e04fc43def8054f03409afff400bbd245723c0d7d",
+    "assurance/audits/DOCUMENTATION_AUDIT.md": "62060d4ae10f20f1bf0665df6e9f9c02336c15d1a9ecddaa221a62768083a1aa",
+    "assurance/traceability.json": "5e47b9121953e942deb0d54c7e6fb577d67a6379e80b2f1923dbc714190ca539",
+    "docs/ARCHITECTURE.md": "784dbef181e214f4002069b9bda2834e7da51df9ed428e16c318baa154964df7",
+    "docs/DOCUMENT_CONTROL.md": "c636e089a45079ef73c3cf4334808109ec6189099e7ac1b4973ac720bc203d9b",
+    "docs/GLOSSARY.md": "6a904193efcaadf573903ad6ea0dca3e6c192916c16c8ef08038c004ea32d6e6",
+    "docs/README.md": "048bf21e6a580b2025ad547677b531ea9f8b79ba02696b36ccd6d62750fead65",
+    "docs/REQUIREMENTS.md": "51e1cc5f82dc5ae9134559ae1fb782beb2e82c197a01f2e45001d4031a1ef977",
+    "docs/design/INTERACTION.md": "3543e603da02f5c156e6d60279a29e1128a403bcdceb2e30582426b87ec47a58",
+    "docs/design/INTERFACES.md": "a2c29b88e45b0ca6f2ecc8784e735d513cbef7704a83e791cc4963a06bcf57c0",
+    "docs/design/MODELS.md": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e",
+    "docs/design/TREATMENT.md": "007ef4224aa962a5fa4af989e65bbd103d4daa2c583fcf139c4c537ef1ade823",
+    "docs/document-set.json": "51438f7f33c62f5360e3c44c8d4ca7a312d6314d1cb3c0f626ed2d5786cb3a87",
+    "docs/testing/CATALOG.md": "ca61a1aad588993c3699626ca7dad16327a821bc5fc1f6b92edda1cfe2fe8597",
+    "docs/testing/FAILURES.md": "d8ed347dc9e37b337d1eb195eb8c0ceef126291230f09161f8972da8f0810ff8",
+    "docs/testing/MODELS.md": "64b8a2bcde5ce581b5b6645160ca135d17f15f02410bdec11fb31897945e2ac5",
+    "docs/testing/PLAN.md": "8ab81ae597a63054de680d128339cd047ecbacd2ca1bdf95ea5e879b17cf91c7",
+    "docs/testing/STATUS.md": "b04cddd51bdfe056cabc63ad2dfc04ca710d2565f7b831053f2f430e7ec8b74d",
+    "docs/testing/WORKFLOW.md": "1af4ea9badb6b83939a28a59f9ac3c1223dea45410e41f56fad339a4c65122cb",
+    "project-log/README.md": "9b16a24be1e7d88899457abc415e7848ad5190dd165e9473f333405238d12aec",
+    "publication_manifest.json": "b6aa58861280d0d40317fa2de8c1dc7a1c6dea58f93199505df64b13c26423a6",
+    "tests/test_documentation.py": "a5888a26df9b7fc6eb73a16d7475bc0e55c1695933e4dc2761e9546805d73de7",
+    "tools/ci_verify.py": "1c8f7f3d9bf0e49ef5673bf0668e0b3a59c9594ae80c4752ccde240f97581175",
+    "tools/documentation.py": "33846bf103c72bc046ab7595847d202a1ee64042d784392d6410b97fa8fa3f99"
+  },
+  "successful": true
+}

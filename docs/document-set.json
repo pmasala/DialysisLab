@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "602e8dab8e65efdb0bc8db1051ce0006f0d3adfd",
+  "official_documents": [
+    "assurance/audits/DOCUMENTATION_AUDIT.md",
+    "docs/ARCHITECTURE.md",
+    "docs/DOCUMENT_CONTROL.md",
+    "docs/GLOSSARY.md",
+    "docs/README.md",
+    "docs/REQUIREMENTS.md",
+    "docs/design/INTERACTION.md",
+    "docs/design/INTERFACES.md",
+    "docs/design/MODELS.md",
+    "docs/design/TREATMENT.md",
+    "docs/testing/CATALOG.md",
+    "docs/testing/FAILURES.md",
+    "docs/testing/MODELS.md",
+    "docs/testing/PLAN.md",
+    "docs/testing/STATUS.md",
+    "docs/testing/WORKFLOW.md"
+  ],
+  "project_log": "project-log/README.md",
+  "history_policy": "Historical records are excluded from the official reading set. Reuse requires explicit current-baseline applicability assessment."
+}
