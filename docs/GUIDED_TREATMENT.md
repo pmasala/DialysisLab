@@ -51,8 +51,26 @@ A compact line drawing locates the infusion relative to the dialyzer.
 
 **Extracorporeal** and **Hydraulics** contain the detailed circuit views and moving
 pump indicators. **Trends** cycles through twelve observed quantities, including
-TMP, conductivity, flows and fluid meters. **Prescription** is editable before
-treatment or during a treatment pause. Patient configuration is never edited here.
+TMP, conductivity, flows and fluid meters. **Prescription** lets you change blood-pump flow and the active substitution
+flow while treatment continues. Enter the new values, select **Review prescription**,
+and **Confirm**. The effective prescription changes only after the services accept
+it; measured flows follow the simulated pump and fluid dynamics. Cancellation leaves
+the current rates unchanged. Treatment progress is not reset.
+
+Blood-pump speed is expressed as flow in **mL/min**, not RPM. In HDF PRE the
+substitution field controls pre-infusion; in HDF POST it controls post-infusion.
+The inactive route stays off; simultaneous pre/post infusion is not modeled.
+HD has no substitution. Current simulator bounds are blood 0–500 mL/min,
+HDF substitution 2–120 mL/min, and blood + substitution at most 500 mL/min.
+These are software bounds, not clinical recommendations.
+
+Changing modality or net UF requires a treatment pause (or prescription before
+starting). Live flow editing is disabled on stale/disconnected views or active
+protection. Confirmation never clears alarms or resumes stopped treatment.
+Restarting blood flow from 10 mL/min or less uses the existing two-cycle pump
+and supply-response grace; pressure, air, leak and fluid-quality checks remain
+active. Patient configuration is
+never edited here.
 
 The net UF meter is compared with the prescribed volume goal. It is **not patient
 weight loss**: refill, external intake and returned saline can make these differ.

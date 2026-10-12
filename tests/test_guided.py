@@ -76,7 +76,7 @@ class GuidedUnitTests(unittest.TestCase):
             subprocess.run(['g++','-std=c++17','-O1','-Wall','-Wextra','-Werror',str(ROOT/'tests/guided_plant.cpp'),'-o',str(binary)],check=True,capture_output=True,timeout=90)
             for mode,sub in [('HD',0),('HDF_PRE',60),('HDF_POST',60)]:
                 with self.subTest(mode=mode):
-                    c=configuration();c['guided'].update(test_ms=1000,treatment_ms=2000,disinfection_ms=1000,return_mL=20);c['treatment'].update(mode=mode,replacement_mL_min=sub)
+                    c=configuration();c['guided'].update(test_ms=1000,treatment_ms=6000,disinfection_ms=1000,return_mL=20);c['treatment'].update(mode=mode,replacement_mL_min=sub)
                     process=subprocess.Popen([str(binary)],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
                     def call(role,*fields):
                         process.stdin.write(str(role)+' DL1 '+' '.join(str(x) for x in fields)+'\n');process.stdin.flush()
@@ -87,12 +87,24 @@ class GuidedUnitTests(unittest.TestCase):
                         with patch.object(circuit,'rpc',side_effect=call),patch.object(treatment,'rpc',side_effect=call),patch.object(machine,'rpc',side_effect=call):
                             circuit.configure(0,c);treatment.configure(0,c);machine.configure(0,c)
                         patient=Compartments(c['patient'],online=True,lifecycle=True);stages=set();saw_return=False
-                        actions={4:'PRIME',30:'CONNECT',31:'START',40:'RETURN',70:'DISCONNECT',71:'CLEAN'}
+                        actions={4:'PRIME',30:'CONNECT',31:'START',46:'RETURN',70:'DISCONNECT',71:'CLEAN'}
                         for n in range(125):
                             expect(call(0,'PREPARE',n,n*500,500,.5,'none','none'),'OK',1)
                             if n in actions:expect(call(1,'CHANGE5',n,n*500,actions[n]),'OK',1)
+                            if n==33:
+                                self.assertEqual(call(1,'RX5',n,n*500,{'HD':0,'HDF_PRE':1,'HDF_POST':2}[mode],200,6,30 if sub else 0),['REJECT','prescription_state'])
+                            if n in (32,34,36):
+                                blood={32:200,34:0,36:250}[n];replacement=(40 if n==36 else 30) if sub else 0
+                                mode_id={'HD':0,'HDF_PRE':1,'HDF_POST':2}[mode]
+                                expect(call(1,'RX5',n,n*500,mode_id,blood,5,replacement),'OK',1)
                             expect(call(3,n,n*500),'OK',1)
                             r=machine.committed(call(0,'COMMIT5',n,n*500));m=r['machine'];g=m['guided'];h=r['circuit'];o=r['online'];stages.add(m['stage'])
+                            if 32<=n<=41:
+                                self.assertEqual(m['stage'],'TREATMENT')
+                                self.assertEqual(g['treatment_elapsed_ms'],(n-30)*500)
+                            if n in (32,34,36):
+                                self.assertEqual(m['blood_prescribed_mL_min'],blood)
+                                self.assertEqual(m['replacement_prescribed_mL_min'],replacement)
                             rinse=bool(g['return_in_tick_mL'] or g['return_out_tick_mL']);saw_return |= rinse
                             q=dict(sequence=n,time_ms=n*500,dt_ms=500,draw_mL=h['draw_tick_mL']-m['flush_in_tick_mL'],return_mL=h['return_tick_mL']-m['flush_out_tick_mL'],uf_mL=h['uf_tick_mL'],stored_mL=h['stored_mL'],clearance_mL_min=h['clearance_mL_min'],sieving=c['circuit']['profile']['sieving'],dialysate_mmol_L=o['concentration_mmol_L'],pre_mL=o['pre_tick_mL'],post_mL=o['post_tick_mL'],substitution_mmol_L=o['concentration_mmol_L'],flush_in_mL=m['flush_in_tick_mL'],flush_out_mL=m['flush_out_tick_mL'],flush_mmol_L=[0,154,0,154,0,0] if rinse else o['concentration_mmol_L'],rinseback=rinse)
                             patient.advance(q)

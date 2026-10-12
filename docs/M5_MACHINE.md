@@ -31,7 +31,9 @@ use the configured prime volume as a **synthetic flushed-volume criterion**, plu
 valid quality observations. This is one modeled mixing-volume exchange, not proof
 of removing all air/solute or achieving disinfection. A short demonstration may
 choose a smaller, explicitly configured synthetic circuit prime. Prescription
-changes are permitted only in CONFIGURATION/PAUSED. FINISHED disconnects the body;
+changes are permitted in CONFIGURATION/PAUSED. The live-flow extension also permits
+blood and active substitution rate edits during safe TREATMENT, with mode and net
+UF locked; see [guided treatment](GUIDED_TREATMENT.md). FINISHED disconnects the body;
 CLEANED leaves outputs stopped. Illegal domain transitions return rejection without
 corrupting state; malformed plant frames retain terminal protocol-failure policy.
 

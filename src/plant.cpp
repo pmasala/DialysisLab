@@ -141,12 +141,8 @@ public:
             if (op=="CHANGE5") { auto action=r.take(); r.end(); reject=machine.transition(action); }
             else {
                 int mode=static_cast<int>(r.integer(2)); double blood=r.real(0,500), uf=r.real(0,20), sub=r.real(0,120); r.end();
-                if (!machine.rx_allowed()) reject="prescription_state";
-                else if (blood+sub>500 || (mode==0 && sub!=0) || (mode!=0 && sub<2)) reject="prescription_range";
-                else {
-                    machine.mode=online.mode=online.route=mode; machine.blood=blood; machine.net_uf=uf; machine.replacement=sub;
-                    machine.action="PRESCRIBE"; ++machine.revision; reject="none";
-                }
+                reject=machine.prescribe(mode,blood,uf,sub);
+                if(reject=="none")online.mode=online.route=machine.mode;
             }
             enforce_machine(); return reject=="none"?"DL1 OK":dl::msg("REJECT",reject);
         }

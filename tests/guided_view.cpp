@@ -5,6 +5,27 @@
 #include <fstream>
 using namespace dl;
 static MachineObservation observation(){MachineObservation o;o.extended=true;o.q.blood={0,0,1,200,180,5};o.q.temperature=37;o.q.conductivity=14;o.q.integrity=1;o.q.route=0;o.downstream=30;o.dialysate_flow=500;o.tmp=105;return o;}
+static void check_live_rates(){
+    for(int mode=0;mode<3;++mode){
+        Machine m;m.guided=true;m.stage=treatment;m.safe=3;m.mode=mode;m.replacement=mode?60:0;
+        m.treatment_elapsed=1234;m.phase_elapsed=4321;m.cycles=20;
+        assert(guided_ui::allowed(m,"PRESCRIBE") && !guided_ui::allowed(m,"MODE"));
+        assert(m.prescribe(mode,200,5,mode?30:0)=="none");
+        assert(m.stage==treatment && m.treatment_elapsed==1234 && m.phase_elapsed==4321 && m.cycles==20);
+        const auto before=m.encode();
+        assert(m.prescribe((mode+1)%3,200,5,30)=="prescription_state");assert(m.encode()==before);
+        assert(m.prescribe(mode,200,6,mode?30:0)=="prescription_state");assert(m.encode()==before);
+        assert(m.prescribe(mode,501,5,mode?30:0)=="prescription_range");assert(m.encode()==before);
+        assert(m.prescribe(mode,200,5,mode?1:2)=="prescription_range");assert(m.encode()==before);
+        if(mode){assert(m.prescribe(mode,450,5,100)=="prescription_range");assert(m.encode()==before);}
+        assert(m.prescribe(mode,0,5,mode?30:0)=="none");
+        assert(m.prescribe(mode,250,5,mode?40:0)=="none" && m.cycles==0);
+        auto o=observation();o.q.blood.blood=0;
+        assert(!(hazards5(o,m,true)&flow_alarm));m.cycles=2;assert(hazards5(o,m,true)&flow_alarm);
+        m.mask=air_alarm;auto blocked=m.encode();assert(m.prescribe(mode,200,5,mode?30:0)=="prescription_state");assert(m.encode()==blocked);
+        m.mask=0;m.terminal=true;assert(!m.rx_allowed());
+    }
+}
 static void check_machine(){
     Machine m;m.guided=true;m.stage=self_test;m.test_duration=1000;m.duration=2000;m.clean_duration=1000;m.rinse_target=20;
     auto o=observation();m.safe=3;
@@ -37,7 +58,7 @@ static void check_machine(){
     auto view=ui::parse_view(frame,std::string(32,'a'));assert(view.machine.stage==cleaned && view.observation.tmp==105);
 }
 int main(int argc,char** argv){
-    check_machine();lv_init();constexpr int w=1100,h=890;std::vector<uint32_t> pixels(w*h);auto* d=lv_display_create(w,h);
+    check_machine();check_live_rates();lv_init();constexpr int w=1100,h=890;std::vector<uint32_t> pixels(w*h);auto* d=lv_display_create(w,h);
     lv_display_set_color_format(d,LV_COLOR_FORMAT_ARGB8888);lv_display_set_buffers(d,pixels.data(),nullptr,pixels.size()*4,LV_DISPLAY_RENDER_MODE_FULL);
     lv_display_set_flush_cb(d,[](lv_display_t* display,const lv_area_t*,uint8_t*){lv_display_flush_ready(display);});
     {
@@ -53,6 +74,13 @@ int main(int argc,char** argv){
         ui.update(v,true,"LIVE",air_alarm);assert(lv_obj_is_hidden(ui.widgets.at("CONNECT")));
         ui.update(v,false,"STALE",0);assert(lv_obj_is_hidden(ui.widgets.at("CONNECT")));
         v.machine.stage=treatment;v.machine.mode=2;v.machine.phase_elapsed=v.machine.treatment_elapsed=3600000;v.observation.q.replacement=60;
+        ui.update(v,true,"LIVE",0);
+        for(const char* id:{"blood","sub","PRESCRIBE"})assert(!lv_obj_has_state(ui.widgets.at(id),LV_STATE_DISABLED));
+        for(const char* id:{"MODE","uf"})assert(lv_obj_has_state(ui.widgets.at(id),LV_STATE_DISABLED));
+        assert(std::string(lv_label_get_text(ui.sub_title))=="Post-infusion mL/min");
+        ui.update(v,true,"LIVE",air_alarm);assert(lv_obj_has_state(ui.widgets.at("PRESCRIBE"),LV_STATE_DISABLED));
+        ui.update(v,false,"STALE",0);assert(lv_obj_has_state(ui.widgets.at("blood"),LV_STATE_DISABLED));
+        v.machine.mode=0;ui.update(v,true,"LIVE",0);assert(lv_obj_has_state(ui.widgets.at("sub"),LV_STATE_DISABLED));v.machine.mode=2;
         if(argc>1){std::filesystem::create_directories(argv[1]);for(int page=0;page<5;++page){ui.switch_page(page);ui.update(v,true,"SYNTHETIC RENDER TEST",0);lv_tick_inc(20);lv_timer_handler();lv_refr_now(d);std::ofstream out(std::string(argv[1])+"/guided-"+std::to_string(page)+".ppm",std::ios::binary);out<<"P6\n"<<w<<' '<<h<<"\n255\n";for(auto p:pixels){char b[]={static_cast<char>(p>>16),static_cast<char>(p>>8),static_cast<char>(p)};out.write(b,3);}}}
     }
     lv_deinit();std::cout<<"guided transitions, interlocks, protocol, timing and actual LVGL rendering passed\n";

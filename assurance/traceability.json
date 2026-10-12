@@ -479,11 +479,11 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "ca55e3dd129a004571aa791339935e850beadd34b444e2735b2b57b760a1ff38"
+          "sha256": "28e3b94e6bd061941f2b77529b4716eca90064846bd73a1ad65152f366fc8ac7"
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "ec8c98d1ed87b4baf39ccd2ac8f8089113607e29f5eedf55e002b4b721d80e18"
+          "sha256": "53c6ba31f5c0858d01f4c8113de656ed312e5802d79a5d7bfce98fe188dc0561"
         },
         {
           "path": "tests/test_machine.py",
@@ -594,11 +594,11 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "2aacca3094d2c70a77ff3cbf9f10f4b1d6b2fa0c890eb907f57964c3fc5618f8"
+          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
         },
         {
           "path": "docs/M5_MACHINE.md",
-          "sha256": "02f80b9a90fade2c7f11b5d8596c04f42b47ddd5382be4769bc3fb980cffa7b2"
+          "sha256": "9210e9abb2c3fe50c90316277e31dac991f6cf3ee8b7aeeebcc9d3b1be41c93f"
         }
       ],
       "unresolved": [
@@ -705,7 +705,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "ca55e3dd129a004571aa791339935e850beadd34b444e2735b2b57b760a1ff38"
+          "sha256": "28e3b94e6bd061941f2b77529b4716eca90064846bd73a1ad65152f366fc8ac7"
         }
       ],
       "unresolved": [
@@ -738,7 +738,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "ca55e3dd129a004571aa791339935e850beadd34b444e2735b2b57b760a1ff38"
+          "sha256": "28e3b94e6bd061941f2b77529b4716eca90064846bd73a1ad65152f366fc8ac7"
         },
         {
           "path": "python/dialysislab/patient.py",
@@ -775,7 +775,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "ca55e3dd129a004571aa791339935e850beadd34b444e2735b2b57b760a1ff38"
+          "sha256": "28e3b94e6bd061941f2b77529b4716eca90064846bd73a1ad65152f366fc8ac7"
         }
       ],
       "unresolved": [
@@ -804,7 +804,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "ca55e3dd129a004571aa791339935e850beadd34b444e2735b2b57b760a1ff38"
+          "sha256": "28e3b94e6bd061941f2b77529b4716eca90064846bd73a1ad65152f366fc8ac7"
         },
         {
           "path": "src/control.cpp",
@@ -849,7 +849,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "ca55e3dd129a004571aa791339935e850beadd34b444e2735b2b57b760a1ff38"
+          "sha256": "28e3b94e6bd061941f2b77529b4716eca90064846bd73a1ad65152f366fc8ac7"
         }
       ],
       "unresolved": [
@@ -879,7 +879,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "ca55e3dd129a004571aa791339935e850beadd34b444e2735b2b57b760a1ff38"
+          "sha256": "28e3b94e6bd061941f2b77529b4716eca90064846bd73a1ad65152f366fc8ac7"
         },
         {
           "path": "src/wire.hpp",
@@ -1270,7 +1270,7 @@
       "implementation": [
         {
           "path": "src/plant.cpp",
-          "sha256": "ca55e3dd129a004571aa791339935e850beadd34b444e2735b2b57b760a1ff38"
+          "sha256": "28e3b94e6bd061941f2b77529b4716eca90064846bd73a1ad65152f366fc8ac7"
         }
       ],
       "unresolved": [
@@ -1331,11 +1331,11 @@
       "implementation": [
         {
           "path": "src/machine.hpp",
-          "sha256": "ec8c98d1ed87b4baf39ccd2ac8f8089113607e29f5eedf55e002b4b721d80e18"
+          "sha256": "53c6ba31f5c0858d01f4c8113de656ed312e5802d79a5d7bfce98fe188dc0561"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "ca55e3dd129a004571aa791339935e850beadd34b444e2735b2b57b760a1ff38"
+          "sha256": "28e3b94e6bd061941f2b77529b4716eca90064846bd73a1ad65152f366fc8ac7"
         }
       ],
       "unresolved": [
@@ -1403,7 +1403,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "ca55e3dd129a004571aa791339935e850beadd34b444e2735b2b57b760a1ff38"
+          "sha256": "28e3b94e6bd061941f2b77529b4716eca90064846bd73a1ad65152f366fc8ac7"
         }
       ],
       "unresolved": [
@@ -1433,7 +1433,7 @@
       "implementation": [
         {
           "path": "src/machine.hpp",
-          "sha256": "ec8c98d1ed87b4baf39ccd2ac8f8089113607e29f5eedf55e002b4b721d80e18"
+          "sha256": "53c6ba31f5c0858d01f4c8113de656ed312e5802d79a5d7bfce98fe188dc0561"
         },
         {
           "path": "src/protection.cpp",
@@ -1541,7 +1541,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "2aacca3094d2c70a77ff3cbf9f10f4b1d6b2fa0c890eb907f57964c3fc5618f8"
+          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1583,7 +1583,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "2aacca3094d2c70a77ff3cbf9f10f4b1d6b2fa0c890eb907f57964c3fc5618f8"
+          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1625,7 +1625,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "2aacca3094d2c70a77ff3cbf9f10f4b1d6b2fa0c890eb907f57964c3fc5618f8"
+          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1667,7 +1667,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "2aacca3094d2c70a77ff3cbf9f10f4b1d6b2fa0c890eb907f57964c3fc5618f8"
+          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1709,7 +1709,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "2aacca3094d2c70a77ff3cbf9f10f4b1d6b2fa0c890eb907f57964c3fc5618f8"
+          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
         },
         {
           "path": "src/ui/client.hpp",
@@ -1753,7 +1753,7 @@
       "implementation": [
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "2aacca3094d2c70a77ff3cbf9f10f4b1d6b2fa0c890eb907f57964c3fc5618f8"
+          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
         },
         {
           "path": "src/ui/client.hpp",
@@ -2210,7 +2210,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "ca55e3dd129a004571aa791339935e850beadd34b444e2735b2b57b760a1ff38"
+          "sha256": "28e3b94e6bd061941f2b77529b4716eca90064846bd73a1ad65152f366fc8ac7"
         },
         {
           "path": "tests/test_security.py",
@@ -2369,7 +2369,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "680762355ed6f4edb0ea6f6dc4237857c2bba8a0e665034c88ee3827473fbeda"
+          "sha256": "dae08e8b8276656a363f13ee2d7a3f618789841f0ed7174f8bb8496a2c0c39ae"
         },
         {
           "path": "docs/dependencies/CI_NOTICES.md",
@@ -2537,7 +2537,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "680762355ed6f4edb0ea6f6dc4237857c2bba8a0e665034c88ee3827473fbeda"
+          "sha256": "dae08e8b8276656a363f13ee2d7a3f618789841f0ed7174f8bb8496a2c0c39ae"
         }
       ],
       "unresolved": [
@@ -2665,7 +2665,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "2aacca3094d2c70a77ff3cbf9f10f4b1d6b2fa0c890eb907f57964c3fc5618f8"
+          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
         },
         {
           "path": "tests/test_inspection.py",
@@ -2683,7 +2683,7 @@
     {
       "id": "UI-REQ-002",
       "statement": "Guide the simulated treatment from initial checks through disinfection with state-dependent actions and truthful progress",
-      "acceptance": "Explicit patient connection and disconnection, automatic bounded-phase completion, no automatic recovery restart, isolated flush/return water and solute conservation, dedicated circuit tabs and unavailable ETA during waits/stale data.",
+      "acceptance": "Explicit patient connection and disconnection, automatic bounded-phase completion, no automatic recovery restart, isolated flush/return water and solute conservation, dedicated circuit tabs and unavailable ETA during waits/stale data. During treatment, confirmed edits change blood and active HDF substitution flow without pausing or resetting progress; mode and net UF remain locked. Range violations, unsafe states and stale confirmations cannot release protection.",
       "needs": [
         "M7-NEED-001"
       ],
@@ -2704,11 +2704,11 @@
       "implementation": [
         {
           "path": "src/machine.hpp",
-          "sha256": "ec8c98d1ed87b4baf39ccd2ac8f8089113607e29f5eedf55e002b4b721d80e18"
+          "sha256": "53c6ba31f5c0858d01f4c8113de656ed312e5802d79a5d7bfce98fe188dc0561"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "ca55e3dd129a004571aa791339935e850beadd34b444e2735b2b57b760a1ff38"
+          "sha256": "28e3b94e6bd061941f2b77529b4716eca90064846bd73a1ad65152f366fc8ac7"
         },
         {
           "path": "src/control.cpp",
@@ -2720,11 +2720,11 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "2aacca3094d2c70a77ff3cbf9f10f4b1d6b2fa0c890eb907f57964c3fc5618f8"
+          "sha256": "b6cce1d5dc53d18b790e7ab9edc858088b6b7b9034895b07bb2cd187dffd6ee4"
         },
         {
           "path": "src/ui/guided.hpp",
-          "sha256": "3624bb4e99614cc9bcf56570d929ba823853318518f85d9bc387ab256ba913bf"
+          "sha256": "bd8fbaea558fe223f7910c9206f5b9bfe2aa1d212d567660398581491708022c"
         },
         {
           "path": "src/ui/synoptic.hpp",
@@ -2748,11 +2748,11 @@
         },
         {
           "path": "tests/test_guided.py",
-          "sha256": "9bf811351d63ba7c93e9f37cbd199d96d91b54ba0d54cabab4ae5815d0b02a81"
+          "sha256": "dfc0251b8a19ac30c9f5c22ce264109f8760316f7a7923f4debe5911b7eba675"
         },
         {
           "path": "tests/guided_view.cpp",
-          "sha256": "ca5bbf690101ceb7f24f63bda425280d078650ed52e5dd6b1edf40c34a8b88fc"
+          "sha256": "4b2e522677585a08b43796d490defbc0c588516c07806c30f499b23987860b1c"
         },
         {
           "path": "tests/guided_plant.cpp",
@@ -2764,15 +2764,16 @@
         },
         {
           "path": "docs/GUIDED_TREATMENT.md",
-          "sha256": "27bf54755acd0c82db9158ede733f5c7265acf012babf54c96f0f550de822b01"
+          "sha256": "e8ff4eb9f5764092fd2d4af992ad6756a6b6137404856a33bead7fee2a9d46a1"
         },
         {
           "path": "tests/ui_regressions.py",
-          "sha256": "c392b25c85fc7a3fbce9d257a84046e1b47bc674c74ce4b8a3216ebdfba9bc4d"
+          "sha256": "bdfb7f13bb42d1e6b0b5853720f03f34c3056facfa769769db2a869aea39880e"
         }
       ],
       "unresolved": [
-        "Hosted process and Compose acceptance pending; independent usability review pending. Disinfection efficacy and red-cell transport are not modeled."
+        "Hosted process and Compose acceptance pending; independent usability review pending. Disinfection efficacy and red-cell transport are not modeled.",
+        "Live-flow local evidence: assurance/evidence/live-flows/report.json. Hosted confirmation/cancellation regression and independent review pending for this revision."
       ]
     }
   ],
@@ -5366,7 +5367,7 @@
       "requirements": [
         "UI-REQ-002"
       ],
-      "procedure": "Run GuidedProcessTests and existing native/Compose device and experiment acceptance on a socket-capable Linux/WSL2 host.",
+      "procedure": "Run GuidedProcessTests and existing native/Compose device and experiment acceptance on a socket-capable Linux/WSL2 host. Include test_guided_live_blood_and_active_infusion_edits in tests/ui_regressions.py for both HDF routes.",
       "expected": "Complete HD, HDF pre/post guided cycles retain correct state and patient balances across real RPC boundaries; existing sessions, confirmation and STOP regressions pass.",
       "result": "blocked",
       "evidence": null
