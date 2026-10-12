@@ -28,13 +28,13 @@ int main(){
     }
     telemetry::History h;
     for(int i=0;i<100000;++i)h.accept("epoch","run",i,i*.1,v);
-    assert(h.samples.size()==600);assert(h.samples.front().sequence==99400);
-    h.accept("epoch","run",99999,99999*.1,v);assert(h.samples.size()==600);
+    assert(h.samples.size()==telemetry::History::capacity);assert(h.samples.front().sequence==100000-telemetry::History::capacity);
+    h.accept("epoch","run",99999,99999*.1,v);assert(h.samples.size()==telemetry::History::capacity);
     h.interrupt();h.accept("epoch","run",100000,10000,v);assert(h.samples.back().gap);
     h.accept("epoch","new-run",0,0,v);assert(h.samples.size()==1);
     h.accept("new-epoch","new-run",1,.1,v);assert(h.samples.size()==1);
     h.accept("new-epoch","new-run",0,0,v);assert(h.samples.size()==1);
-    telemetry::Values large;for(int i=0;i<513;++i)large.numbers["truth."+std::to_string(i)]=i;
+    telemetry::Values large;for(int i=0;i<static_cast<int>(telemetry::History::max_metrics)+1;++i)large.numbers["truth."+std::to_string(i)]=i;
     bool rejected=false;try{h.accept("new-epoch","new-run",1,.1,large);}catch(...){rejected=true;}assert(rejected);
     assert(telemetry::unit("truth.online.conductivity_mS_cm")=="mS/cm");
     assert(telemetry::unit("truth.patient.concentration_mmol_L[0][2]")=="mmol/L");

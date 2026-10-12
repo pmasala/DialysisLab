@@ -125,7 +125,7 @@ unaltered historical evidence; they are not input to the new streaming reader.
 
 Each UTF-8 JSONL line is one complete record with the existing physical, patient
 and observation fields, sorted keys, compact separators and a terminating LF.
-`sequence` starts at zero and must be contiguous. A record is capped at 16384 bytes.
+`sequence` starts at zero and must be contiguous. A record is capped at 32768 bytes.
 The writer holds one record at a time, writes without Python output buffering, and
 incrementally hashes only bytes successfully written, including each LF. The final
 manifest records completed ticks, byte count, exact SHA-256 and peak process RSS.

@@ -94,9 +94,10 @@ def request(runtime, event, scheduled=False):
 
 
 def observation(response):
-    physical=response[0]=='OBS9'
-    extended=response[0] in ('OBS8','OBS9')
-    expect(response,'OBS9' if physical else 'OBS8' if extended else 'OBS5',28 if physical else 21 if extended else 19)
+    dynamic=response[0]=='OBS10'
+    physical=response[0] in ('OBS9','OBS10')
+    extended=response[0] in ('OBS8','OBS9','OBS10')
+    expect(response,'OBS10' if dynamic else 'OBS9' if physical else 'OBS8' if extended else 'OBS5',36 if dynamic else 28 if physical else 21 if extended else 19)
     result = treatment.observation(['OBS4', *response[1:13]])
     for name, value, high in zip(('downstream_mmHg', 'air_signal', 'leak_signal', 'measured_uf_mL', 'measured_substitution_mL'),
                                response[13:18], (1000, 1, 1, 1e9, 1e9)):
@@ -106,6 +107,7 @@ def observation(response):
     if physical:
         result.update(arterial_mmHg=real(response[21],-1000,1000),limitation=response[22])
         result.update({name:real(value,-1000,20000) for name,value in zip(('dialysate_mmHg','heater_W','acid_remaining_mL','bicarbonate_remaining_g','conductivity_raw_mS_cm'),response[23:28])})
+    if dynamic:result.update({name:real(value,0,2000) for name,value in zip(('arterial_level','venous_level','dialysate_drain_mL_min','uf_pump_mL_min','balance_position_mL','bypass','balance_capacity_mL','balance_phase'),response[28:36])})
     return result
 
 
@@ -154,7 +156,7 @@ def view(response):
     if len(response)<2:raise ProtocolError('device view size')
     m_end=41 if response[1]=='MACHINE8' else 27
     if len(response)<=m_end:raise ProtocolError('device view size')
-    o_end=m_end+(28 if response[m_end]=='OBS9' else 21 if response[m_end]=='OBS8' else 19)
+    o_end=m_end+(36 if response[m_end]=='OBS10' else 28 if response[m_end]=='OBS9' else 21 if response[m_end]=='OBS8' else 19)
     if len(response)!=o_end+4:raise ProtocolError('device view size')
     result=dict(machine=metadata(response[1:m_end]),observation=observation(response[m_end:o_end]))
     expect(response[o_end:],'INTENT5',4)

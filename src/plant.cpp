@@ -89,6 +89,12 @@ public:
             online.bicarbonate_remaining,online.heater_power,online.conductivity_raw(),p.arterial_chamber,p.venous_chamber,
             p.filter_volume,p.limit);
         for(int i=0;i<p.segments;++i)result+=dl::msg(p.local_hct[i],p.viscosity[i],p.pressure[i],p.filtration[i],p.oncotic[i]).substr(3);
+        if(circuit.dynamics.enabled){
+            const auto& d=circuit.dynamics;
+            result+=" DYNAMICS10"+dl::msg(d.arterial.volume,d.venous.volume,d.arterial.level(),d.venous.level(),
+                d.arterial.gas_rate,d.venous.gas_rate,d.feed,d.drain,d.uf_pump,d.sensed_pd,d.stored_dialysate,
+                d.water_residual,d.balance_position,d.balance_count,d.bypass?1:0).substr(3);
+        }
         return result;
     }
     std::string online_state() const {
@@ -110,7 +116,7 @@ public:
             p.arterial={r.real(.5,3),r.real(5,100)};p.venous={r.real(.5,3),r.real(5,100)};
             p.tube_diameter=r.real(2,8);p.arterial_length=r.real(50,3000);p.venous_length=r.real(50,3000);
             p.arterial_chamber=r.real(1,100);p.venous_chamber=r.real(1,100);
-            p.filter_volume=r.real(1,250);p.filter_resistance=r.real(.01,2);p.kuf=r.real(.01,1);
+            p.filter_volume=r.real(1,250);p.filter_resistance=r.real(.01,2);p.kuf=r.real(.01,2);
             p.max_hct=r.real(.4,.7);p.max_fraction=r.real(.05,.6);p.pd_min=r.real(-500,0);p.pd_max=r.real(0,500);
             p.qd_resistance=r.real(.001,1);p.access_pressure=r.real(0,100);p.pump_head=r.real(100,600);
             p.hct=r.real(.1,.6);p.protein=r.real(1,15);p.temperature=r.real(30,42);r.end();dl::require(p.hct<p.max_hct);
@@ -130,6 +136,24 @@ public:
             for(auto& x:o.acid){x=r.real(0,10000);}r.end();dl::require(o.acid_fraction+o.bicarbonate_fraction<1);o.physical=true;
             for(std::size_t i=0;i<6;++i)o.concentration[i]=o.acid_fraction*o.acid[i]+((i==1 || i==4)?o.bicarbonate_fraction*o.bicarbonate_stock:0);
             online=o;return "DL1 OK";
+        }
+        if(role==0 && op=="DYNAMICS10") {
+            dl::require(circuit.physical.enabled && !armed && !machine_set && !circuit.dynamics.enabled);
+            dl::FluidDynamics d;
+            d.arterial.air=r.real(5,100);d.venous.air=r.real(5,100);
+            d.arterial.level_gain=d.venous.level_gain=r.real(0,10);
+            d.arterial.gas_capacity=d.venous.gas_capacity=r.real(0,10);
+            d.compliance=r.real(.01,1);d.pump_tau=r.real(.05,5);d.sensor_tau=r.real(.01,5);
+            d.pressure_gain=r.real(.1,20);d.uf_capacity=r.real(20,200);d.balance_capacity=r.real(5,100);double volume=r.real(50,2000);r.end();
+            dl::require(volume+d.compliance*circuit.physical.pd_min>1);
+            d.enabled=true;d.initialize(circuit.physical);circuit.dynamics=d;circuit.physical.distributed_inventory=true;return "DL1 OK";
+        }
+        if(role==0 && op=="INVENTORY10") {
+            dl::require(circuit.dynamics.enabled && !prepared && !halted);
+            auto seq=r.integer(100000),time=r.integer();dl::require(seq==next_n && time==next_t);
+            auto p=circuit.physical;
+            for(int i=0;i<p.segments;++i){p.retained_hct[i]=r.real(0,.8);p.retained_protein[i]=r.real(0,40);}
+            r.end();p.distributed_inventory=true;circuit.physical=p;return "DL1 OK";
         }
         if(role==0 && op=="BLOOD9") {
             dl::require(circuit.physical.enabled && !prepared && !halted);
@@ -273,7 +297,7 @@ public:
             dl::require(!transport_set || patient_coupled == (op == "TRANSPORT3"));
             auto c = circuit;
             c.dialysate = r.real(0, 1000);
-            for (auto& x : c.koa) x = r.real(0, 2000);
+            for (auto& x : c.koa) x = r.real(0, 3000);
             for (auto& x : c.sieving) x = r.real(0, 1);
             // Coupled end-state roundoff allowance; initial configuration stays
             // strictly <=1000 and patient mass conservation is not relaxed.
@@ -332,6 +356,12 @@ public:
                     device_samples[i].dialysate_flow=machine.fluid_blocked()?0:circuit.dialysate;
                     device_samples[i].tmp=circuit.physical.enabled?circuit.physical.tmp:(circuit.pressure[circuit.edges[circuit.dialyzer_edge].a]+circuit.pressure[circuit.edges[circuit.dialyzer_edge].b])/2;
                     device_samples[i].physical=circuit.physical.enabled;
+                    if(circuit.dynamics.enabled){
+                        auto& o=device_samples[i];const auto& d=circuit.dynamics;o.dynamic=true;
+                        o.arterial_level=d.arterial.level();o.venous_level=d.venous.level();o.dialysate_drain=d.drain;
+                        o.uf_pump=d.uf_pump;o.balance_position=d.balance_position;o.bypass=d.bypass?1:0;o.balance_capacity=d.balance_capacity;o.balance_phase=static_cast<long long>(d.balance_count)%2;
+                        o.dialysate_flow=d.feed;
+                    }
                     device_samples[i].arterial=circuit.physical.arterial_pressure;
                     device_samples[i].limitation=circuit.physical.limit;
                     device_samples[i].dialysate_pressure=circuit.physical.dialysate_pressure;

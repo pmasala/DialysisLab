@@ -65,17 +65,23 @@ class PhysicalTests(unittest.TestCase):
                     process=subprocess.Popen([str(binary)],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
                     def call(role,*fields):
                         process.stdin.write(str(role)+' DL1 '+' '.join(str(x) for x in fields)+'\n');process.stdin.flush()
-                        line=process.stdout.readline().strip().split()
+                        raw=process.stdout.readline();self.assertLessEqual(len(raw.encode()),4096)
+                        line=raw.strip().split()
                         self.assertTrue(line and line[0]=='DL1',line);self.assertNotIn('DRIVER_ERROR',line)
                         return line[1:]
                     try:
                         with patch.object(circuit,'rpc',side_effect=call),patch.object(treatment,'rpc',side_effect=call),patch.object(machine,'rpc',side_effect=call),patch.object(physical,'rpc',side_effect=call):
                             circuit.configure(0,c);treatment.configure(0,c);machine.configure(0,c)
-                            patient=Compartments(c['patient'],online=True,lifecycle=True)
+                            patient=Compartments(physical.patient_configuration(c),online=True,lifecycle=True)
                             state='SELF_TEST';stages=set();observed=[];snapshot=None
+                            import os
+                            capture=os.environ.get('DIALYSISLAB_PHYSICAL_CAPTURE')
+                            records=[] if capture else None
                             for n in range(500):
                                 if snapshot:physical.update_blood(0,snapshot)
                                 expect(call(0,'PREPARE',n,n*500,500,.5,'none','none'),'OK',1)
+                                # Parse the actual device observation frame as the Python workflow client does.
+                                view=machine.view([*call(1,'VIEW5'),'INTENT5','0','none','none']);self.assertIn('arterial_level',view['observation'])
                                 action={'PREPARATION':'PRIME','CONFIGURATION':'CONNECT','CONNECTED':'START','FINISHED':'RETURN','DISCONNECTING':'DISCONNECT','DISCONNECTED':'CLEAN'}.get(state)
                                 if action:expect(call(1,'CHANGE5',n,n*500,action),'OK',1)
                                 expect(call(3,n,n*500),'OK',1)
@@ -83,10 +89,17 @@ class PhysicalTests(unittest.TestCase):
                                 self.assertEqual(m['alarm_mask'],0,(n,m,r['physical']))
                                 rinse=bool(g['return_in_tick_mL'] or g['return_out_tick_mL'])
                                 q=dict(sequence=n,time_ms=n*500,dt_ms=500,draw_mL=h['draw_tick_mL']-m['flush_in_tick_mL'],return_mL=h['return_tick_mL']-m['flush_out_tick_mL'],uf_mL=h['uf_tick_mL'],stored_mL=h['stored_mL'],clearance_mL_min=h['clearance_mL_min'],sieving=c['circuit']['profile']['sieving'],dialysate_mmol_L=o['concentration_mmol_L'],pre_mL=o['pre_tick_mL'],post_mL=o['post_tick_mL'],substitution_mmol_L=o['concentration_mmol_L'],flush_in_mL=m['flush_in_tick_mL'],flush_out_mL=m['flush_out_tick_mL'],flush_mmol_L=[0,154,0,154,0,0] if rinse else o['concentration_mmol_L'],rinseback=rinse)
+                                physical.attach_transaction(q,r,c)
                                 snapshot=patient.advance(q)
                                 r['patient']=snapshot;physical.verify_record(r,c)
+                                r.update(patient_volume_mL=sum(snapshot['volume_mL'][:2]),patient_removed_mL=snapshot['net_patient_loss_mL'])
+                                if records is not None:records.append(copy.deepcopy(r))
                                 if g['integrated_stage']=='TREATMENT':observed.append((r,snapshot))
                                 if state=='CLEANED':break
+                            if records is not None:
+                                folder=Path(capture)/mode;folder.mkdir(parents=True,exist_ok=True)
+                                (folder/'trajectory.jsonl').write_text(''.join(json.dumps(x,sort_keys=True,separators=(',',':'))+'\n' for x in records))
+                                c['ticks']=len(records);(folder/'configuration.json').write_text(json.dumps(c))
                             self.assertEqual(state,'CLEANED',stages);self.assertEqual(len(observed),120)
                             for r,p in observed:
                                 self.assertAlmostEqual(r['physical']['plasma_filtration_fraction'],r['uf_mL_min']/(r['blood_mL_min']*(1-r['physical']['inlet_hematocrit'])+(r['online']['replacement_mL_min'] if mode=='HDF_PRE' else 0)),places=7)

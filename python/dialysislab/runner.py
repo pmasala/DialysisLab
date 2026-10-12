@@ -229,7 +229,8 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
             machine.configure(admin, config)
         if coupled:
             from .compartments import validate_snapshot
-            expect(rpc(patient, 'INIT5' if lifecycle else 'INIT4' if online else 'INIT3', canonical(config['patient'])), 'OK', 1)
+            from .physical import patient_configuration
+            expect(rpc(patient, 'INIT5' if lifecycle else 'INIT4' if online else 'INIT3', canonical(patient_configuration(config))), 'OK', 1)
         else:
             expect(rpc(patient, 'INIT', config['patient_volume_mL']), 'OK', 1)
         wall_start = time.monotonic()
@@ -328,7 +329,10 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
                         transaction['rinseback']=rinse
                         if rinse:transaction['flush_mmol_L']=[0,154,0,154,0,0]
                     physical['workflow_request'] = workflow_request
-                reply = expect(rpc(patient, 'ADVANCE5' if lifecycle else 'ADVANCE4' if online else 'ADVANCE3', canonical(transaction)), 'PATIENT5' if lifecycle else 'PATIENT4' if online else 'PATIENT3', 2)
+                if 'physical' in config:
+                    from .physical import attach_transaction
+                    attach_transaction(transaction,physical,config)
+                reply = expect(rpc(patient, 'ADVANCE5' if lifecycle else 'ADVANCE4' if online else 'ADVANCE3', canonical(transaction), **(dict(response_limit=32768) if "distributed" in transaction else {})), 'PATIENT5' if lifecycle else 'PATIENT4' if online else 'PATIENT3', 2)
                 patient_snapshot = validate_snapshot(strict_json(reply[1]), online, lifecycle)
                 physical['patient'] = patient_snapshot
                 volume = ['VOLUME', str(patient_snapshot['sequence']), str(patient_snapshot['time_ms']),

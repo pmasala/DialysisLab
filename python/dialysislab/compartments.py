@@ -13,7 +13,11 @@ CONCENTRATION_CEILING = 1000 + 1e-9
 
 
 def validate(config):
-    keys(config, FIELDS + (' hemodynamics' if 'hemodynamics' in config else ''))
+    keys(config, FIELDS + (' hemodynamics' if 'hemodynamics' in config else '') + (' extracorporeal' if 'extracorporeal' in config else ''))
+    if 'extracorporeal' in config:
+        from .distributed import validate_config
+        validate_config(config['extracorporeal'])
+        if 'hemodynamics' not in config or abs(sum(config['extracorporeal']['volumes_mL'])-config['prime_mL'])>1e-7:raise ValueError('distributed initial inventory')
     if 'hemodynamics' in config:
         h=config['hemodynamics'];keys(h,'initial_hematocrit vascular_mL protein_g_dL temperature_C refill_mL_min')
         for k,lo,hi in [('initial_hematocrit',.1,.6),('vascular_mL',1000,10000),('protein_g_dL',1,15),('temperature_C',30,42),('refill_mL_min',0,2000)]:number(h[k],lo,hi)
@@ -60,6 +64,19 @@ def validate_scenario(config, validate_circuit):
 
 
 def validate_snapshot(state, online=False, lifecycle=False):
+    if 'distributed' in state:
+        d=state['distributed'];keys(d,'compartments dialysate_concentration_mmol_L dialysate_volume_mL dialysate_input_mmol dialysate_output_mmol dialysate_transfer_mmol dialysate_residual_mmol')
+        number(d['dialysate_volume_mL'],1,2000)
+        for k in ('dialysate_input_mmol','dialysate_output_mmol','dialysate_transfer_mmol'):vector(d[k],-1e9,1e9)
+        vector(d['dialysate_residual_mmol'],-1e-6,1e-6)
+        if len(d['compartments'])!=16 or len(d['dialysate_concentration_mmol_L'])!=12:raise ProtocolError('distributed snapshot size')
+        for c in d['compartments']:
+            keys(c,'name volume_mL concentration_mmol_L rbc_mL protein_g hematocrit protein_g_dL')
+            number(c['volume_mL'],.001,1000);number(c['rbc_mL'],0,c['volume_mL']*.8);number(c['protein_g'],0,5000)
+            number(c['hematocrit'],0,.8);number(c['protein_g_dL'],0,40);vector(c['concentration_mmol_L'],0,CONCENTRATION_CEILING)
+        for row in d['dialysate_concentration_mmol_L']:vector(row,0,CONCENTRATION_CEILING)
+        validate_snapshot({k:v for k,v in state.items() if k!='distributed'},online,lifecycle)
+        return state
     if 'hemodynamics' in state:
         h=state['hemodynamics']
         keys(h,'hematocrit vascular_mL circuit_rbc_mL vascular_rbc_mL lost_rbc_mL rbc_residual_mL protein_g_dL temperature_C refill_mL circuit_hematocrit circuit_protein_g_dL protein_residual_g vascular_protein_g circuit_protein_g lost_protein_g')
@@ -160,6 +177,10 @@ class Compartments:
             self.refill_total=0.0
             self.initial_extravascular=self.initial_body-(self.vascular-self.cells[0])
 
+        if 'extracorporeal' in config:
+            from .distributed import initialize
+            self.network=initialize(self)
+
     def snapshot(self):
         body = math.fsum(self.volume[:2])
         bicarbonate = self.concentration[0][4]
@@ -174,6 +195,9 @@ class Compartments:
                 rbc_residual_mL=sum(self.cells)+self.lost_cells-self.initial_cells,
                 protein_g_dL=self.proteins[0]/(self.vascular-self.cells[0])*100,
                 temperature_C=self.config['hemodynamics']['temperature_C'],refill_mL=self.refill_total)
+        if hasattr(self,'network'):
+            from .distributed import snapshot
+            hemo['distributed']=snapshot(self.network)
         return dict(**hemo,**({name + '_mL': self.water[name].value for name in ('flush_in', 'flush_out')} if self.lifecycle else {}),
                     **(dict(substitution_mL=self.water['sub'].value) if self.online else {}),
                     sequence=self.sequence, time_ms=self.time_ms,
@@ -191,6 +215,7 @@ class Compartments:
         keys(request, 'sequence time_ms dt_ms draw_mL return_mL uf_mL stored_mL clearance_mL_min sieving dialysate_mmol_L'
              + (' pre_mL post_mL substitution_mmol_L' if self.online else '')
              + (' flush_in_mL flush_out_mL flush_mmol_L' if self.lifecycle else '')
+             + (' distributed' if hasattr(self,'network') else '')
              + (' rinseback' if self.lifecycle and 'rinseback' in request else ''))
         for key in ('sequence', 'time_ms', 'dt_ms'):
             if type(request[key]) is not int: raise ProtocolError('clock type')
@@ -198,8 +223,8 @@ class Compartments:
                 or not 1 <= request['dt_ms'] <= 1000 or self.next_sequence >= 100000):
             raise ProtocolError('patient tick order')
         dt = request['dt_ms'] / 60000
-        for key, high in [('draw_mL', 500 * dt), ('return_mL', 100000), ('uf_mL', (140 if self.online else 20) * dt), ('stored_mL', 96000)]:
-            number(request[key], 0, high)
+        for key, high in [('draw_mL', (1000 if hasattr(self,'network') else 500) * dt), ('return_mL', 100000), ('uf_mL', (140 if self.online else 20) * dt), ('stored_mL', 96000)]:
+            number(request[key], -self.config['prime_mL']+1 if key=='stored_mL' and 'hemodynamics' in self.config else 0, high)
         vector(request['clearance_mL_min'], 0, 2000)
         vector(request['sieving'], 0, 1)
         vector(request['dialysate_mmol_L'], 0, CONCENTRATION_CEILING if self.online else 1000)
@@ -207,7 +232,7 @@ class Compartments:
         flush_in = flush_out = 0
         flush_c = [0] * 6
         if self.lifecycle:
-            flush_in = number(request['flush_in_mL'], 0, 500 * dt)
+            flush_in = number(request['flush_in_mL'], 0, (1000 if hasattr(self,'network') else 500) * dt)
             flush_out = number(request['flush_out_mL'], 0, 100000)
             flush_c = request['flush_mmol_L']; vector(flush_c, 0, CONCENTRATION_CEILING)
             rinseback=request.get('rinseback',False)
@@ -262,41 +287,55 @@ class Compartments:
         concentrations = [[0.0] * 6 for _ in range(3)]
         masses = [[0.0] * 6 for _ in range(3)]
         residuals = []
-        for i in range(6):
-            exchange = self.config['exchange_mL_min'][i] * dt
-            reverse = exchange / self.config['partition'][i]
-            ei, ie = max(-refill, 0), max(refill, 0)
-            kd = request['clearance_mL_min'][i] * dt
-            conv = uf * request['sieving'][i]
-            external = incoming * self.config['external_mmol_L'][i] + self.config['generation_mmol_min'][i] * dt * 1000
-            matrix = [[ve + draw + outgoing + exchange + ei, -reverse - ie, -returned],
-                      [-exchange - ei, vi + reverse + ie, 0],
-                      [-draw, 0, circuit_volume + returned + flush_out + kd + conv]]
-            rhs = [self.mass[0][i] * 1000 + external + post * replacement_c[i], self.mass[1][i] * 1000,
-                   self.mass[2][i] * 1000 + kd * request['dialysate_mmol_L'][i] + pre * replacement_c[i] + flush_in * flush_c[i]]
-            result = solve(matrix, rhs)
-            for j in range(3):
-                concentrations[j][i] = result[j]
-                masses[j][i] = result[j] * volumes[j] / 1000
-            for name, value in [('input', external / 1000), ('output', outgoing * result[0] / 1000),
-                                ('diffusive', kd * (result[2] - request['dialysate_mmol_L'][i]) / 1000),
-                                ('convective', conv * result[2] / 1000)]:
-                solute[name][i].add(value)
-            if self.online: solute['substitution'][i].add((pre + post) * replacement_c[i] / 1000)
-            if self.lifecycle:
-                solute['flush_input'][i].add(flush_in * flush_c[i] / 1000)
-                solute['flush_output'][i].add(flush_out * result[2] / 1000)
-            residual = math.fsum([*(row[i] for row in masses), solute['diffusive'][i].value,
-                                  solute['convective'][i].value, solute['output'][i].value,
-                                  -solute['input'][i].value, -solute['substitution'][i].value if self.online else 0, -self.initial_mass[i],
-                                  solute['flush_output'][i].value - solute['flush_input'][i].value if self.lifecycle else 0])
-            if abs(residual) > 1e-6: raise ProtocolError('patient mass conservation residual')
-            residuals.append(residual)
+        network=None
+        if hasattr(self,'network'):
+            from .distributed import solute_balance
+            concentrations,masses,flux,network=solute_balance(self,request,volumes,refill,dt,incoming,outgoing)
+            for i in range(6):
+                for name,value in flux[i].items():solute[name][i].add(value)
+                residual=math.fsum([*(row[i] for row in masses),solute['diffusive'][i].value,
+                    solute['convective'][i].value,solute['output'][i].value,-solute['input'][i].value,
+                    -solute['substitution'][i].value,-self.initial_mass[i],
+                    solute['flush_output'][i].value-solute['flush_input'][i].value])
+                if abs(residual)>1e-6:raise ProtocolError('distributed whole-system solute residual')
+                residuals.append(residual)
+        else:
+            for i in range(6):
+                exchange = self.config['exchange_mL_min'][i] * dt
+                reverse = exchange / self.config['partition'][i]
+                ei, ie = max(-refill, 0), max(refill, 0)
+                kd = request['clearance_mL_min'][i] * dt
+                conv = uf * request['sieving'][i]
+                external = incoming * self.config['external_mmol_L'][i] + self.config['generation_mmol_min'][i] * dt * 1000
+                matrix = [[ve + draw + outgoing + exchange + ei, -reverse - ie, -returned],
+                          [-exchange - ei, vi + reverse + ie, 0],
+                          [-draw, 0, circuit_volume + returned + flush_out + kd + conv]]
+                rhs = [self.mass[0][i] * 1000 + external + post * replacement_c[i], self.mass[1][i] * 1000,
+                       self.mass[2][i] * 1000 + kd * request['dialysate_mmol_L'][i] + pre * replacement_c[i] + flush_in * flush_c[i]]
+                result = solve(matrix, rhs)
+                for j in range(3):
+                    concentrations[j][i] = result[j]
+                    masses[j][i] = result[j] * volumes[j] / 1000
+                for name, value in [('input', external / 1000), ('output', outgoing * result[0] / 1000),
+                                    ('diffusive', kd * (result[2] - request['dialysate_mmol_L'][i]) / 1000),
+                                    ('convective', conv * result[2] / 1000)]:
+                    solute[name][i].add(value)
+                if self.online: solute['substitution'][i].add((pre + post) * replacement_c[i] / 1000)
+                if self.lifecycle:
+                    solute['flush_input'][i].add(flush_in * flush_c[i] / 1000)
+                    solute['flush_output'][i].add(flush_out * result[2] / 1000)
+                residual = math.fsum([*(row[i] for row in masses), solute['diffusive'][i].value,
+                                      solute['convective'][i].value, solute['output'][i].value,
+                                      -solute['input'][i].value, -solute['substitution'][i].value if self.online else 0, -self.initial_mass[i],
+                                      solute['flush_output'][i].value - solute['flush_input'][i].value if self.lifecycle else 0])
+                if abs(residual) > 1e-6: raise ProtocolError('patient mass conservation residual')
+                residuals.append(residual)
         # Validate the complete prospective response before mutating accepted state.
         proposed = copy.copy(self)
         proposed.volume, proposed.concentration, proposed.mass = volumes, concentrations, masses
         proposed.water, proposed.solute, proposed.mass_residual = water, solute, residuals
         proposed.body_transfer = body_transfer
+        if network is not None:proposed.network=network
         proposed.sequence = self.next_sequence
         proposed.next_sequence += 1
         proposed.time_ms += request['dt_ms']
@@ -318,6 +357,11 @@ class Compartments:
             proposed.cells=retained(self.cells);proposed.proteins=retained(self.proteins)
             proposed.lost_proteins=self.lost_proteins+flush_out*proposed.proteins[1]/circuit_volume
             proposed.lost_cells=self.lost_cells+flush_out*proposed.cells[1]/circuit_volume
+            if network is not None:
+                from .distributed import retained
+                cells,proteins=retained(self,request,v,network)
+                proposed.cells= cells[0];proposed.lost_cells=self.lost_cells+cells[1]
+                proposed.proteins=proteins[0];proposed.lost_proteins=self.lost_proteins+proteins[1]
             proposed.vascular=v;proposed.refill_total=self.refill_total+refill
         snapshot = validate_snapshot(proposed.snapshot(), self.online, self.lifecycle)
         self.__dict__.update(proposed.__dict__)

@@ -6,6 +6,9 @@
 #include <string>
 #include <stdexcept>
 namespace dl {
+struct HydraulicConvergenceError : std::runtime_error {
+    HydraulicConvergenceError():std::runtime_error("segment filtration did not converge"){}
+};
 struct Needle {
     double diameter=1.3, length=25;
     double resistance(double viscosity) const {
@@ -15,6 +18,7 @@ struct Needle {
 };
 struct BloodPhysics {
     static constexpr int segments=12;
+    int solver_iteration_limit=400;
     bool enabled=false;
     Needle arterial{}, venous{};
     double hct=.35, protein=7, temperature=37, access_pressure=10;
@@ -25,6 +29,9 @@ struct BloodPhysics {
     double pd_min=-350,pd_max=350,qd_resistance=.08,pump_head=600;
     double qb=0,sub=0,uf=0,arterial_pressure=0,venous_pressure=0,pre_pressure=0,post_pressure=0;
     double dialysate_pressure=0,tmp=0,out_hct=0,return_hct=0,fraction=0;
+    bool chamber_boundaries=false,distributed_inventory=false;
+    std::array<double,segments> retained_hct{},retained_protein{};
+    double chamber_pa=0,chamber_pv=0;
     std::string limit="none";
     std::array<double,segments> local_hct{},viscosity{},pressure{},filtration{},oncotic{};
     static double mu(double h,double t,double proteins) {
@@ -47,16 +54,18 @@ struct BloodPhysics {
         Needle at{tube_diameter,arterial_length},vt{tube_diameter,venous_length};
         arterial_pressure=access_pressure-qb*(arterial.resistance(mu(hct,temperature,protein))+at.resistance(mu(hct,temperature,protein)));
         venous_pressure=access_pressure+returning*(venous.resistance(mu(return_hct,temperature,retprotein))+vt.resistance(mu(return_hct,temperature,retprotein)));
+        if(chamber_boundaries){arterial_pressure=chamber_pa;venous_pressure=chamber_pv;}
         post_pressure=venous_pressure;filtration.fill(uf/segments);
         // Solve a common dialysate-pressure offset and segment flux distribution.
         // Forward filtration only; backfiltration is outside this reduced model.
-        for(int iteration=0;iteration<80;++iteration) {
+        bool converged=false;double relaxation=.5,previous_error=1e100;
+        for(int iteration=0;iteration<solver_iteration_limit;++iteration) {
             std::array<double,segments> flows{},drive{};double q=inlet;
             for(int i=0;i<segments;++i){flows[i]=q-filtration[i]/2;q-=filtration[i];}
             double pb=post_pressure;
             for(int i=segments-1;i>=0;--i){
-                local_hct[i]=cells/flows[i];
-                double cp=proteins/std::max(flows[i]-cells,1e-9);
+                local_hct[i]=distributed_inventory?retained_hct[i]:cells/flows[i];
+                double cp=distributed_inventory?retained_protein[i]:proteins/std::max(flows[i]-cells,1e-9);
                 viscosity[i]=mu(local_hct[i],temperature,cp);oncotic[i]=pi(cp);
                 double dp=filter_resistance/segments*viscosity[i]/3.5*flows[i];
                 pressure[i]=pb+dp/2;pb+=dp;
@@ -67,15 +76,23 @@ struct BloodPhysics {
             double high=*std::max_element(drive.begin(),drive.end())+1;
             for(int k=0;k<45;++k){double mid=(low+high)/2,sum=0;for(double d:drive)sum+=std::max(0.0,kuf/segments*(d-mid));if(sum>uf)low=mid;else high=mid;}
             dialysate_pressure=(low+high)/2;
-            double error=0;
-            for(int i=0;i<segments;++i){double next=std::max(0.0,kuf/segments*(drive[i]-dialysate_pressure));error=std::max(error,std::abs(next-filtration[i]));filtration[i]=.5*(next+filtration[i]);}
-            if(error<1e-8)break;
+            double error=0;std::array<double,segments> next{};
+            for(int i=0;i<segments;++i){next[i]=std::max(0.0,kuf/segments*(drive[i]-dialysate_pressure));error=std::max(error,std::abs(next[i]-filtration[i]));}
+            if(error>previous_error*.95)relaxation=std::max(.05,relaxation*.5);
+            for(int i=0;i<segments;++i)filtration[i]+=relaxation*(next[i]-filtration[i]);
+            previous_error=error;
+            if(error<1e-8){converged=true;break;}
         }
+        if(!converged)throw HydraulicConvergenceError();
         tmp=(pre_pressure+post_pressure)/2-dialysate_pressure;
         fraction=uf/std::max(qb*(1-hct)+pre,1e-9);
         return pre_pressure-arterial_pressure;
     }
     void advance(double demand,double replacement,double net,int route,double qd,bool blocked) {
+        try{advance_impl(demand,replacement,net,route,qd,blocked);}
+        catch(const HydraulicConvergenceError&){advance_impl(0,0,0,route,0,true);limit="hydraulic_solver";}
+    }
+    void advance_impl(double demand,double replacement,double net,int route,double qd,bool blocked) {
         limit="none";
         if(blocked || demand<=0){qb=sub=uf=0;arterial_pressure=venous_pressure=pre_pressure=post_pressure=access_pressure;tmp=dialysate_pressure=fraction=0;out_hct=return_hct=inlet_hct=hct;filtration.fill(0);local_hct.fill(0);viscosity.fill(0);pressure.fill(access_pressure);oncotic.fill(0);return;}
         if(hct>=max_hct){advance(0,0,0,route,qd,true);limit="inlet_hematocrit";return;}

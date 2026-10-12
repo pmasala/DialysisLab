@@ -1,6 +1,7 @@
 #pragma once
 #include <lvgl/lvgl.h>
 #include <array>
+#include <algorithm>
 #include <cmath>
 #include <memory>
 #include <vector>
@@ -11,6 +12,8 @@ struct View {
     lv_obj_t *root,*blood_label,*pressure_label,*fluid_label,*state_label,*physical_label=nullptr;
     std::vector<std::unique_ptr<Stroke>> strokes;
     Stroke *blood_rotor,*sub_rotor;
+    lv_obj_t *arterial_fill=nullptr,*venous_fill=nullptr,*balance_text=nullptr,*balance_fill=nullptr;
+    std::vector<lv_obj_t*> level_symbols,balance_symbols;
     static constexpr uint32_t blood=0xf2697d,water=0x42c2e2,sub=0xb495fa;
     lv_obj_t* label(int x,int y,int width,const char* text){auto* l=lv_label_create(root);lv_obj_set_pos(l,x,y);lv_obj_set_width(l,width);lv_obj_set_style_text_color(l,lv_color_hex(0xeaf1f8),0);lv_label_set_text(l,text);return l;}
     Stroke* line(int x,int y,int a,int b,uint32_t color){
@@ -39,6 +42,42 @@ struct View {
             physical_label=label(670,135,345,"");
             label(670,35,340,kind==1?"EXTRACORPOREAL CIRCUIT\nBlood pump, dialyzer and return\nMeasured values from device service":"HYDRAULIC CIRCUIT\nDialysate tank, serial filters\nand substitution pump");
         }
+    }
+    lv_obj_t* fill(int x,int y,int width,int height,uint32_t color){
+        auto* o=lv_obj_create(root);lv_obj_set_pos(o,x,y);lv_obj_set_size(o,width,height);
+        lv_obj_set_style_bg_color(o,lv_color_hex(color),0);lv_obj_set_style_border_width(o,0,0);
+        lv_obj_set_style_radius(o,0,0);lv_obj_set_scrollable(o,false);return o;
+    }
+    void levels(bool active,double a,double v){
+        if(active && !arterial_fill){
+            auto start=lv_obj_get_child_count(root);
+            box(95,48,32,56,blood);box(495,103,32,56,blood);
+            arterial_fill=fill(98,77,26,24,blood);venous_fill=fill(498,132,26,24,blood);
+            label(70,168,160,"Arterial chamber");label(458,168,170,"Venous chamber");
+            for(uint32_t i=start;i<lv_obj_get_child_count(root);++i)level_symbols.push_back(lv_obj_get_child(root,i));
+        }
+        if(!arterial_fill)return;
+        for(auto* o:level_symbols)lv_obj_set_hidden(o,!active);
+        lv_obj_set_hidden(arterial_fill,!active);lv_obj_set_hidden(venous_fill,!active);
+        int ah=static_cast<int>(48*std::clamp(a,0.0,1.0)),vh=static_cast<int>(48*std::clamp(v,0.0,1.0));
+        lv_obj_set_height(arterial_fill,ah);lv_obj_set_y(arterial_fill,101-ah);
+        lv_obj_set_height(venous_fill,vh);lv_obj_set_y(venous_fill,156-vh);
+    }
+    void balance(bool active,double displacement,double bypass,double uf,double valve){
+        if(active && !balance_text){
+            auto start=lv_obj_get_child_count(root);
+            box(140,195,200,34,water);balance_fill=fill(143,198,4,28,water);
+            balance_text=label(355,195,300,"");label(140,171,450,"Duplex balancing unit / valve position");
+            for(uint32_t i=start;i<lv_obj_get_child_count(root);++i)balance_symbols.push_back(lv_obj_get_child(root,i));
+        }
+        if(!balance_text)return;
+        for(auto* o:balance_symbols)lv_obj_set_hidden(o,!active);
+        lv_obj_set_hidden(state_label,active);
+        lv_obj_set_hidden(balance_text,!active);lv_obj_set_hidden(balance_fill,!active);
+        // Numerical displacement is authoritative; the glyph indicates alternating valves.
+        lv_obj_set_x(balance_fill,valve<.5?143:240);
+        char text[160];std::snprintf(text,sizeof(text),"%.2f mL | UF pump %.1f mL/min\n%s",displacement,uf,bypass>0?"Membrane isolated":"Dialyzer connected");
+        lv_label_set_text(balance_text,text);
     }
     static void rotor(Stroke* s,int x,int y,double phase){
         auto dx=static_cast<lv_value_precise_t>(std::cos(phase)*14),dy=static_cast<lv_value_precise_t>(std::sin(phase)*14);

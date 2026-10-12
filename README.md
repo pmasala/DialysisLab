@@ -7,7 +7,7 @@ the machine. It connects only to simulated equipment and patients.
 You can run haemodialysis (HD) or haemodiafiltration (HDF), choose a patient and
 dialyzer, change treatment settings, inject faults and inspect the results.
 HDF supports both predilution and postdilution, including acid/bicarbonate preparation, a power-limited heater and segmented
-blood-flow physics. Initial hematocrit and needle geometry are configured in the scenario.
+blood-flow physics, dynamic chamber levels and countercurrent solute transport. Initial hematocrit and needle geometry are configured in the scenario.
 
 There are two separate graphical applications:
 
@@ -39,7 +39,8 @@ For a graphical session or Docker deployment, follow the
 
 ## Understand and explore
 
-- [Physical model](docs/PHYSICAL_MODEL.md): configurable needles, hematocrit, viscosity, filter limits, concentrates and heater.
+- [Physical model](docs/PHYSICAL_MODEL.md): what is simulated and how the fluid paths work.
+- [Dynamic circuits and reference checks](docs/DYNAMIC_MODEL.md): chamber levels, transport, dialysate control and calibration.
 - [How the simulation works](docs/SIMULATION.md): fluid-path diagrams, pressures, dialyzer exchange and patient weight.
 - [Guided treatment](docs/GUIDED_TREATMENT.md): initial checks, priming, connection, treatment, blood return and disinfection.
 - [Visual inspection](docs/UI_INSPECTION.md): animated circuits, selectable trends and recorded-data inspection.

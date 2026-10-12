@@ -152,6 +152,7 @@ def main():
     images=step('docker-build',['docker','compose','--profile','device-ui','build'])
     step('integrated-models',['python3','tools/verify_integrated.py','--build-dir',output/'native','--output',output/'integrated-models'],requires=native,json_report='integrated-models/integration.json')
     step('compose',['python3','tools/verify_compose.py','--output',output/'compose'],requires=images,json_report='compose/compose-results.json')
+    step('dynamic-compose',['python3','tools/verify_models.py','--compose','--scenarios','physical_hd','physical_hdf_pre','physical_hdf_post','--build-dir',output/'native','--output',output/'dynamic-compose'],requires=images and native,json_report='dynamic-compose/models.json')
     step('experiments',['python3','tools/verify_experiments_compose.py','--with-device','--output',output/'experiments'],requires=images,json_report='experiments/report.json')
     step('device-compose',['python3','tools/verify_ui_compose.py','--output',output/'device-compose'],requires=images,json_report='device-compose/report.json')
     step('dependencies',['python3','tools/dependency_report.py','--build-dir',output/'native','--output',output/'dependencies','--images','dialysislab-m1:local','dialysislab-ui:local'],requires=native and images,json_report='dependencies/report.json',extra_reports=dependency_reports(2))

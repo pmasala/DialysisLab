@@ -48,7 +48,7 @@ struct View {
     std::function<void(const std::string&)> callback;
     lv_chart_series_t* series;
     int page=0,metric=0;
-    std::deque<std::array<double,19>> history;
+    std::deque<std::array<double,25>> history;
     long long last_sequence=-1;
     std::string latest_stage;
     static lv_obj_t* label(lv_obj_t* parent,int x,int y,int w,const std::string& text){auto* o=lv_label_create(parent);lv_obj_set_pos(o,x,y);lv_obj_set_width(o,w);lv_label_set_text(o,text.c_str());return o;}
@@ -112,7 +112,7 @@ struct View {
         int milestone=m.stage==dl::self_test?0:(m.stage==dl::preparation||m.stage==dl::priming)?1:(m.stage==dl::configuration||m.stage==dl::connected)?2:(m.stage==dl::treatment||m.stage==dl::paused)?3:(m.stage==dl::finished||m.stage==dl::returning)?4:m.stage==dl::disconnecting?5:(m.stage==dl::disconnected||m.stage==dl::cleaning)?6:m.stage==dl::cleaned?7:-1;
         for(int i=0;i<8;++i)lv_obj_set_style_text_color(milestones[i],lv_color_hex(i==milestone?0x65d8f2:i<milestone?0x8bd2a4:0x8d9ca9),0);
         auto val=[&](double x){return v.valid?fixed(x):std::string("--");};
-        text(fluid,"DIALYSATE  /  "+std::string(m.fluid_blocked()?"BYPASS / ISOLATED":"TO DIALYZER")+"\n"+val(o.dialysate_flow)+" mL/min   "+val(q.temperature)+" C   "+val(q.conductivity)+" mS/cm");
+        text(fluid,"DIALYSATE  /  "+std::string((m.fluid_blocked() || (o.dynamic && o.bypass))?"BYPASS / ISOLATED":"TO DIALYZER")+"\n"+val(o.dialysate_flow)+" mL/min   "+val(q.temperature)+" C   "+val(q.conductivity)+" mS/cm");
         text(blood,"BLOOD FLOW\n"+val(q.blood.blood)+" mL/min  |  "+(m.patient_connected?"Patient connected":"Patient isolated"));
         lv_bar_set_value(widgets.at("dial_flow"),v.valid?static_cast<int>(o.dialysate_flow):0,LV_ANIM_OFF);lv_bar_set_value(widgets.at("blood_flow"),v.valid?static_cast<int>(q.blood.blood):0,LV_ANIM_OFF);
         text(values,"ARTERIAL  "+val(o.physical?o.arterial:q.blood.pressure)+" mmHg        VENOUS  "+val(o.downstream)+" mmHg        DIALYZER TMP  "+val(o.tmp)+" mmHg");
@@ -127,7 +127,9 @@ struct View {
         blood_circuit->update(live,m.time,q.blood.blood,q.blood.uf,q.blood.pressure,q.temperature,q.conductivity,q.replacement,status);
         fluid_circuit->update(live,m.time,q.blood.blood,q.blood.uf,q.blood.pressure,q.temperature,q.conductivity,q.replacement,status);
         text(fluid_circuit->physical_label,o.physical?"Acid "+val(o.acid_remaining)+" mL | Bicarb "+val(o.bicarbonate_remaining)+" g\nHeater "+val(o.heater_power)+" W\nDialysate P "+val(o.dialysate_pressure)+" mmHg":"");
-        text(blood_circuit->physical_label,o.physical?"Arterial "+val(o.arterial)+" mmHg\nPre-filter "+val(q.blood.pressure)+" mmHg\nVenous "+val(o.downstream)+" mmHg":"");
+        blood_circuit->levels(o.dynamic,o.arterial_level,o.venous_level);
+        fluid_circuit->balance(o.dynamic,o.balance_position,o.bypass,o.uf_pump,o.balance_phase);
+        text(blood_circuit->physical_label,o.physical?"Arterial "+val(o.arterial)+" mmHg\nPre-filter "+val(q.blood.pressure)+" mmHg\nVenous "+val(o.downstream)+" mmHg"+(o.dynamic?"\nChamber levels "+val(o.arterial_level*100)+" / "+val(o.venous_level*100)+" %":""):"");
         auto eligible=m;eligible.mask|=combined_mask;
         int column=0;
         for(const char* id:{"PRIME","CONNECT","START","PAUSE","FINISH","RETURN","DISCONNECT","CLEAN","RECOVER","RESET","RESUME","STOP","ACK","SILENCE"}){
@@ -145,8 +147,8 @@ struct View {
         const char* names[]={"pressure","flow","air","blood leak","measurement","temperature","composition","filter","integrity","route","supply","balance","communication"};
         for(int i=0;i<13;++i)if(combined_mask&(1<<i))alarms+=std::string(names[i])+"; ";
         text(alarm,alarms);lv_obj_set_style_text_color(alarm,lv_color_hex(combined_mask?0xff8793:0x8bd2a4),0);
-        if(live && v.observation.q.blood.n!=last_sequence){if(v.observation.q.blood.n<last_sequence)history.clear();last_sequence=v.observation.q.blood.n;history.push_back({static_cast<double>(q.blood.t),o.physical?o.arterial:q.blood.pressure,o.downstream,o.tmp,q.blood.blood,o.dialysate_flow,q.blood.uf,q.replacement,q.temperature,q.conductivity,q.filter_pressure,o.uf_total,o.uf_total-o.sub_total,q.blood.pressure,o.dialysate_pressure,o.heater_power,o.acid_remaining,o.bicarbonate_remaining,o.raw_conductivity});if(history.size()>120)history.pop_front();}
-        if(!history.empty()){double lo=1e9,hi=-1e9;for(const auto& s:history){lo=std::min(lo,s[metric+1]);hi=std::max(hi,s[metric+1]);}lv_chart_set_all_values(chart,series,LV_CHART_POINT_NONE);lv_chart_set_axis_range(chart,LV_CHART_AXIS_PRIMARY_Y,static_cast<int32_t>(lo*100)-100,static_cast<int32_t>(hi*100)+100);lv_chart_set_axis_range(chart,LV_CHART_AXIS_PRIMARY_X,static_cast<int32_t>(history.front()[0]),static_cast<int32_t>(std::max(history.front()[0]+1,history.back()[0])));for(const auto& s:history)lv_chart_set_next_value2(chart,series,static_cast<int32_t>(s[0]),static_cast<int32_t>(s[metric+1]*100));const char* names[]={"Arterial mmHg","Venous mmHg","TMP mmHg","Blood mL/min","Dialysate mL/min","Gross UF mL/min","Substitution mL/min","Temperature C","Conductivity mS/cm","Filter pressure mmHg","UF meter mL","Net meter mL","Pre-filter mmHg","Dialysate mmHg","Heater W","Acid remaining mL","Bicarbonate remaining g","Raw conductivity mS/cm"};text(trend_label,std::string(names[metric])+"  "+fixed(lo)+".."+fixed(hi)+" | virtual time ms");}
+        if(live && v.observation.q.blood.n!=last_sequence){if(v.observation.q.blood.n<last_sequence)history.clear();last_sequence=v.observation.q.blood.n;history.push_back({static_cast<double>(q.blood.t),o.physical?o.arterial:q.blood.pressure,o.downstream,o.tmp,q.blood.blood,o.dialysate_flow,q.blood.uf,q.replacement,q.temperature,q.conductivity,q.filter_pressure,o.uf_total,o.uf_total-o.sub_total,q.blood.pressure,o.dialysate_pressure,o.heater_power,o.acid_remaining,o.bicarbonate_remaining,o.raw_conductivity,o.arterial_level*100,o.venous_level*100,o.dialysate_drain,o.uf_pump,o.balance_position,o.bypass});if(history.size()>120)history.pop_front();}
+        if(!history.empty()){double lo=1e9,hi=-1e9;for(const auto& s:history){lo=std::min(lo,s[metric+1]);hi=std::max(hi,s[metric+1]);}lv_chart_set_all_values(chart,series,LV_CHART_POINT_NONE);lv_chart_set_axis_range(chart,LV_CHART_AXIS_PRIMARY_Y,static_cast<int32_t>(lo*100)-100,static_cast<int32_t>(hi*100)+100);lv_chart_set_axis_range(chart,LV_CHART_AXIS_PRIMARY_X,static_cast<int32_t>(history.front()[0]),static_cast<int32_t>(std::max(history.front()[0]+1,history.back()[0])));for(const auto& s:history)lv_chart_set_next_value2(chart,series,static_cast<int32_t>(s[0]),static_cast<int32_t>(s[metric+1]*100));const char* names[]={"Arterial mmHg","Venous mmHg","TMP mmHg","Blood mL/min","Dialysate mL/min","Gross UF mL/min","Substitution mL/min","Temperature C","Conductivity mS/cm","Filter pressure mmHg","UF meter mL","Net meter mL","Pre-filter mmHg","Dialysate mmHg","Heater W","Acid remaining mL","Bicarbonate remaining g","Raw conductivity mS/cm","Arterial level %","Venous level %","Dialysate drain mL/min","UF pump mL/min","Balance displacement mL","Membrane bypass"};text(trend_label,std::string(names[metric])+"  "+fixed(lo)+".."+fixed(hi)+" | virtual time ms");}
     }
 };
 }

@@ -45,10 +45,18 @@ def verify(directory, expected_config, expected_sources):
                                  for j in range(2)) + patient_config['prime_mL'] * patient_config['concentration_mmol_L'][0][i] / 1000
                         for i in range(6)]
     first_latch_ms = None
+    previous_record = None
     for record in read_records(directory / 'trajectory.jsonl'):
         if 'physical' in config:
             from dialysislab.physical import verify_record
             verify_record(record,config)
+            if 'dynamics' in record['physical'] and record['blood_mL_min']:
+                prior=previous_record['patient']['distributed']['compartments'][2:14] if previous_record else None
+                for j,segment in enumerate(record['physical']['segments']):
+                    h=prior[j]['hematocrit'] if prior else 0;cp=prior[j]['protein_g_dL'] if prior else 0
+                    mu=1.2*math.exp(-.025*(config['patient']['hemodynamics']['temperature_C']-37)+.04*(cp-7))/(1-h)**2.5
+                    pi=2.1*cp+.16*cp*cp+.009*cp**3
+                    if abs(segment['hematocrit']-h)>1e-8 or abs(segment['viscosity_mPa_s']-mu)>1e-8 or abs(segment['oncotic_mmHg']-pi)>1e-8:raise ValueError('local inventory hydraulic coupling')
         storage = record.get('circuit', {}).get('stored_mL', 0)
         error = abs(config['patient_volume_mL'] - record['patient_volume_mL'] - storage - record['removed_total_mL'])
         if patient_config:
@@ -127,7 +135,7 @@ def verify(directory, expected_config, expected_sources):
                 for i in range(6):
                     flush_c=[0,154,0,154,0,0] if guided and stage=='RETURNING' else dialysate
                     flush_input_mass[i] += fin * flush_c[i] / 1000
-                    flush_output_mass[i] += fout * p['concentration_mmol_L'][2][i] / 1000
+                    flush_output_mass[i] += fout * (p['distributed']['compartments'][-1]['concentration_mmol_L'][i] if 'distributed' in p else p['concentration_mmol_L'][2][i]) / 1000
                     if abs(flush_input_mass[i] - p['flush_input_mmol'][i]) > 1e-6 or abs(flush_output_mass[i] - p['flush_output_mmol'][i]) > 1e-6:
                         raise ValueError('flush solute ledger mismatch')
                 if stage != 'TREATMENT' and (volume or record['uf_mL_min'] or any(c['clearance_mL_min'])):
@@ -147,8 +155,19 @@ def verify(directory, expected_config, expected_sources):
                         - math.fsum(p['volume_mL']) - record['removed_total_mL'])
             for i in range(6):
                 concentration = p['concentration_mmol_L'][2][i]
-                integrated_diffusion[i] += c['clearance_mL_min'][i] * config['dt_ms'] / 60000 * (concentration - dialysate[i]) / 1000
-                integrated_convection[i] += c['uf_tick_mL'] * config['circuit']['profile']['sieving'][i] * concentration / 1000
+                if 'distributed' in p:
+                    d=p['distributed'];active=not record['physical']['dynamics']['bypass']
+                    for j in range(12):
+                        cb=d['compartments'][j+2]['concentration_mmol_L'][i];cd=d['dialysate_concentration_mmol_L'][j][i]
+                        k=config['circuit']['profile']['koa_mL_min'][i]/12 if active else 0
+                        integrated_diffusion[i]+=k*config['dt_ms']/60000*(cb-cd)/1000
+                        integrated_convection[i]+=record['physical']['segments'][j]['uf_mL_min']*config['dt_ms']/60000*config['circuit']['profile']['sieving'][i]*cb/1000
+                    inventory=sum(row[i] for row in d['dialysate_concentration_mmol_L'])*d['dialysate_volume_mL']/12000
+                    initial_dialysate=config['physical']['dynamics']['dialysate_volume_mL']*config['transport']['dialysate_mmol_L'][i]/1000
+                    if abs(inventory-initial_dialysate-d['dialysate_input_mmol'][i]+d['dialysate_output_mmol'][i]-integrated_diffusion[i]-integrated_convection[i])>1e-6:raise ValueError('independent dialysate solute conservation')
+                else:
+                    integrated_diffusion[i] += c['clearance_mL_min'][i] * config['dt_ms'] / 60000 * (concentration - dialysate[i]) / 1000
+                    integrated_convection[i] += c['uf_tick_mL'] * config['circuit']['profile']['sieving'][i] * concentration / 1000
                 inputs = incoming * patient_config['external_mmol_L'][i] / 1000 + elapsed * patient_config['generation_mmol_min'][i]
                 residual = abs(math.fsum(row[i] for row in p['mass_mmol']) + integrated_diffusion[i] + integrated_convection[i]
                                + p['output_mmol'][i] - inputs - replacement_mass[i] - initial_mass[i] + flush_output_mass[i] - flush_input_mass[i])
@@ -162,6 +181,7 @@ def verify(directory, expected_config, expected_sources):
         if not math.isfinite(error) or error > 1e-6:
             raise ValueError('water conservation: ' + str(error))
         maximum_error = max(maximum_error, error)
+        previous_record = record
     return dict(manifest=manifest, scan=summary, maximum_water_error_mL=maximum_error,
                 expected_water_error_mL=1e-6, first_latch_ms=first_latch_ms, first_quality_ms=first_quality_ms,
                 maximum_mass_error_mmol=maximum_mass_error if patient_config else None,
