@@ -156,6 +156,45 @@ class DeviceUiTests(unittest.TestCase):
             ui.until(lambda s:s.get('stage')=='CLEANED',f)
             ui.snapshot('guided-complete')
 
+    def test_guided_live_blood_and_active_infusion_edits(self):
+        for mode in (1,2):
+            with self.subTest(mode=mode),LocalCluster(BUILD) as cluster:
+                f=DeviceFixture(cluster)
+                self.assertEqual(rpc(f.admin,'GUIDED8',500,100000,500,10),['OK'])
+                ui=self.launch(cluster,'guided-live-flows-'+str(mode));self.ready(ui,f)
+                ui.until(lambda s:s.get('stage')=='PREPARATION',f)
+                ui.click('PRIME',f);ui.until(lambda s:s.get('stage')=='PRIMING',f)
+                for _ in range(90):f.step()
+                ui.until(lambda s:s.get('stage')=='CONFIGURATION',f)
+                applied=f.step('PRESCRIBE',[mode,300,5,60])['machine']
+                # Mode 2 is already selected initially: wait for the new revision,
+                # not a value that can be true in the pre-prescription snapshot.
+                ui.until(lambda s:s.get('mode')==mode and s.get('revision')==applied['revision'],f)
+                ui.click('CONNECT',f);ui.until(lambda s:s.get('stage')=='CONNECTED',f)
+                ui.click('START',f);ui.until(lambda s:s.get('stage')=='TREATMENT',f)
+                ui.send('CLICK RX_TAB');ui.until(lambda s:s.get('page')==4,f,stepping=False)
+                ui.send('SET blood 250');ui.send('SET sub 40')
+                ui.click('PRESCRIBE',f,confirm=False);ui.send('CLICK CANCEL')
+                ui.until(lambda s:not s['pending'],f,stepping=False)
+                before=f.view()['machine']
+                self.assertEqual(before['blood_prescribed_mL_min'],300)
+                self.assertEqual(before['replacement_prescribed_mL_min'],60)
+                ui.click('PRESCRIBE',f)
+                ui.until(lambda s:s.get('prescribed_blood_mL_min')==250,f)
+                after=f.view()['machine']
+                self.assertEqual(after['stage'],'TREATMENT')
+                self.assertEqual(after['replacement_prescribed_mL_min'],40)
+                self.assertEqual(after['net_uf_prescribed_mL_min'],5)
+                self.assertEqual(after['mode'],'HDF_PRE' if mode==1 else 'HDF_POST')
+                self.assertGreater(after['guided']['treatment_elapsed_ms'],before['guided']['treatment_elapsed_ms'])
+                self.assertEqual(after['alarm_mask'],0)
+                ui.send('CLICK MODE');self.assertEqual(ui.snapshot()['selected_mode'],mode)
+                ui.send('SET blood 500');ui.send('CLICK PRESCRIBE')
+                rejected=ui.until(lambda s:'Invalid prescription' in s['feedback'],f,stepping=False)
+                self.assertFalse(rejected['pending'])
+                self.assertEqual(f.view()['machine']['blood_prescribed_mL_min'],250)
+                ui.snapshot('live-flows-confirmed')
+
     def test_real_widgets_prescription_confirm_and_treatment_all_modes(self):
         for mode in range(3):
             with self.subTest(mode=mode), LocalCluster(BUILD) as cluster:

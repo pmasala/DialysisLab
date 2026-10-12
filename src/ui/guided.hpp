@@ -13,7 +13,8 @@ inline const char* stage_name(int stage) {
 inline bool allowed(const dl::Machine& m,const std::string& action){
     if(action=="STOP")return true;
     if(action=="ACK" || action=="SILENCE")return m.mask!=0;
-    if(action=="PRESCRIBE" || action=="MODE")return m.rx_allowed();
+    if(action=="PRESCRIBE")return m.rx_allowed();
+    if(action=="MODE")return m.full_rx_allowed();
     auto copy=m;return (action=="RESET"?copy.reset():copy.transition(action))=="none";
 }
 inline std::string fixed(double x,int precision=1){std::ostringstream s;s<<std::fixed<<std::setprecision(precision)<<x;return s.str();}
@@ -38,7 +39,7 @@ inline Progress progress(const dl::Machine& m,const dl::MachineObservation& o,bo
 }
 struct View {
     lv_obj_t *root,*phase,*phase_detail,*progress_bar,*time_label,*values,*infusion,*fluid,*blood,*uf,*alarm,*intent,*feedback,*prescription,*next_step;
-    lv_obj_t *pre_feed,*post_feed;
+    lv_obj_t *pre_feed,*post_feed,*sub_title;
     std::vector<std::unique_ptr<device_synoptic::Stroke>> infusion_lines;
     lv_obj_t *home,*blood_page,*fluid_page,*trends_page,*rx_page,*chart,*trend_label;
     std::array<lv_obj_t*,8> milestones{};
@@ -88,9 +89,9 @@ struct View {
         rx_page=panel(root,20,282,1060,280);prescription=label(rx_page,12,8,1000,"");
         button(rx_page,"MODE","Mode",12,72,170);
         const char* names[]={"blood","uf","sub"};const char* titles[]={"Blood mL/min","Net UF mL/min","Substitution mL/min"};
-        for(int i=0;i<3;++i){label(rx_page,220+i*265,60,250,titles[i]);auto* field=lv_textarea_create(rx_page);lv_obj_set_pos(field,220+i*265,92);lv_obj_set_size(field,230,45);lv_textarea_set_one_line(field,true);lv_textarea_set_max_length(field,12);lv_textarea_set_accepted_chars(field,"0123456789.-");widgets[names[i]]=field;}
+        for(int i=0;i<3;++i){auto* title=label(rx_page,220+i*265,60,250,titles[i]);if(i==2)sub_title=title;auto* field=lv_textarea_create(rx_page);lv_obj_set_pos(field,220+i*265,92);lv_obj_set_size(field,230,45);lv_textarea_set_one_line(field,true);lv_textarea_set_max_length(field,12);lv_textarea_set_accepted_chars(field,"0123456789.-");widgets[names[i]]=field;}
         button(rx_page,"PRESCRIBE","Review prescription",12,173,250);
-        label(rx_page,285,182,730,"Editing is available only before treatment or during a treatment pause.");
+        label(rx_page,285,182,730,"Blood and active infusion flow can change during therapy.\nMode and net UF require a treatment pause.");
         alarm=label(root,22,581,1040,"");next_step=label(root,22,625,1040,"");intent=label(root,22,687,1040,"");feedback=label(root,22,842,1040,"");
         const char* actions[]={"PRIME","CONNECT","START","PAUSE","FINISH","RETURN","DISCONNECT","CLEAN","RECOVER","RESET","RESUME","STOP","ACK","SILENCE"};
         const char* labels[]={"Start priming","Patient connected","Start treatment","Pause","End treatment","Return blood","Disconnected","Start disinfection","Recovery checks","Reset protection","Resume phase","STOP","Acknowledge","Silence"};
@@ -104,7 +105,7 @@ struct View {
     void switch_page(int next){page=next;std::array<lv_obj_t*,5> pages{{home,blood_page,fluid_page,trends_page,rx_page}};for(int i=0;i<5;++i)lv_obj_set_hidden(pages[i],i!=page);}
     void update(const dl::ui::View& v,bool live,const std::string& status,int combined_mask){
         const auto& m=v.machine;const auto& o=v.observation;const auto& q=o.q;auto p=progress(m,o,live);
-        const char* instructions[]={"Dialysate preparation is running. Confirm Start priming when ready.","Priming fills the isolated circuit. Connection becomes available after the required volume.","Complete the simulated connection checks, then confirm Patient connected.","Monitor treatment. Pause or end treatment when required.","Treatment time is held. Review prescription or confirm Start treatment to continue.","Outputs stopped. Review the cause and request recovery checks.","Wait for safe observations, then explicitly reset protection.","Confirm Return blood to begin saline-driven restitution.","Patient is isolated. The simulated disinfection cycle is running.","Cycle complete. Launch a new session from the external simulation console.","Checking sensors, fluid quality, detectors, supply and blood pump response.","Review the prescription, then explicitly confirm Start treatment.","Saline enters the circuit; return flow is delivered to the patient model.","Return complete. Confirm patient disconnection before disinfection.","Patient disconnected. Confirm Start disinfection.","Protection reset. Confirm Resume phase; treatment never resumes automatically."};
+        const char* instructions[]={"Dialysate preparation is running. Confirm Start priming when ready.","Priming fills the isolated circuit. Connection becomes available after the required volume.","Complete the simulated connection checks, then confirm Patient connected.","Adjust blood / infusion flow in Prescription, or pause / end treatment.","Treatment time is held. Review prescription or confirm Start treatment to continue.","Outputs stopped. Review the cause and request recovery checks.","Wait for safe observations, then explicitly reset protection.","Confirm Return blood to begin saline-driven restitution.","Patient is isolated. The simulated disinfection cycle is running.","Cycle complete. Launch a new session from the external simulation console.","Checking sensors, fluid quality, detectors, supply and blood pump response.","Review the prescription, then explicitly confirm Start treatment.","Saline enters the circuit; return flow is delivered to the patient model.","Return complete. Confirm patient disconnection before disinfection.","Patient disconnected. Confirm Start disinfection.","Protection reset. Confirm Resume phase; treatment never resumes automatically."};
         text(next_step,combined_mask?"Protection active. Stop and inspect the alarm; recovery requires safe observations.":instructions[m.stage]);
         latest_stage=stage_name(m.stage);text(phase,latest_stage+"   |   "+status);lv_bar_set_value(progress_bar,static_cast<int>(p.percent*10),LV_ANIM_OFF);
         text(phase_detail,fixed(p.percent)+"%  |  "+p.detail);text(time_label,"Phase elapsed "+clock(m.phase_elapsed)+"     Remaining "+(p.remaining<0?"-- (waiting / held)":clock(p.remaining)));
@@ -127,7 +128,13 @@ struct View {
             bool visible=std::string(id)=="STOP" || (live && allowed(eligible,id));auto* obj=widgets.at(id);lv_obj_set_hidden(obj,!visible);
             if(visible){lv_obj_set_pos(obj,20+column*190,775);++column;}
         }
-        bool edit=live && m.rx_allowed();for(const char* id:{"MODE","PRESCRIBE","blood","uf","sub"}){if(edit)lv_obj_remove_state(widgets.at(id),LV_STATE_DISABLED);else lv_obj_add_state(widgets.at(id),LV_STATE_DISABLED);}
+        text(sub_title,m.stage==dl::treatment?(m.mode==1?"Pre-infusion mL/min":m.mode==2?"Post-infusion mL/min":"Substitution (HD: off)"):"Substitution mL/min");
+        for(const char* id:{"MODE","PRESCRIBE","blood","uf","sub"}){
+            bool edit=live && eligible.rx_allowed();
+            if(std::string(id)=="MODE" || std::string(id)=="uf")edit=live && eligible.full_rx_allowed();
+            if(std::string(id)=="sub" && m.stage==dl::treatment && m.mode==0)edit=false;
+            if(edit)lv_obj_remove_state(widgets.at(id),LV_STATE_DISABLED);else lv_obj_add_state(widgets.at(id),LV_STATE_DISABLED);
+        }
         std::string alarms=combined_mask?"PROTECTION ACTIVE: ":"No active protective constraints";
         const char* names[]={"pressure","flow","air","blood leak","measurement","temperature","composition","filter","integrity","route","supply","balance","communication"};
         for(int i=0;i<13;++i)if(combined_mask&(1<<i))alarms+=std::string(names[i])+"; ";

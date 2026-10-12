@@ -237,7 +237,12 @@ struct App {
         if(id=="PRESCRIBE") {
             try {
                 auto value=[&](const char* name,double high){dl::Tokens r(std::string("DL1 ")+lv_textarea_get_text(widgets.at(name)));double n=r.real(0,high);r.end();return n;};
-                double blood=value("blood",500),uf=value("uf",20),sub=value("sub",120);
+                dl::require(selected!=nullptr);
+                const bool running=selected->view.machine.stage==dl::treatment;
+                const auto& machine=selected->view.machine;
+                if(running)selected_mode=machine.mode;
+                double blood=value("blood",500),uf=running?machine.net_uf:value("uf",20);
+                double sub=running && machine.mode==0?0:value("sub",120);
                 dl::require(blood+sub<=500 && (selected_mode?sub>=2:sub==0));
                 const auto blood_text=exact(blood),uf_text=exact(uf),sub_text=exact(sub);
                 job.values=std::to_string(selected_mode)+" "+blood_text+" "+uf_text+" "+sub_text;
@@ -280,6 +285,12 @@ struct App {
             if(!initialized_fields) {
                 lv_textarea_set_text(widgets.at("blood"),exact(m.blood).c_str());lv_textarea_set_text(widgets.at("uf"),exact(m.net_uf).c_str());lv_textarea_set_text(widgets.at("sub"),exact(m.replacement).c_str());
                 selected_mode=m.mode;lv_label_set_text(lv_obj_get_child(widgets.at("MODE"),0),(std::string("Mode: ")+modes[selected_mode]).c_str());initialized_fields=true;
+            }
+            if(m.stage==dl::treatment){
+                selected_mode=m.mode;
+                lv_label_set_text(lv_obj_get_child(widgets.at("MODE"),0),(std::string("Mode: ")+modes[selected_mode]).c_str());
+                lv_textarea_set_text(widgets.at("uf"),exact(m.net_uf).c_str());
+                if(m.mode==0)lv_textarea_set_text(widgets.at("sub"),"0");
             }
             const std::string suffix=display_status=="LIVE"?"":" ["+display_status+"]";
             if(v.valid) {
@@ -360,7 +371,7 @@ struct App {
             <<",\"command\":"<<json(snapshot.command)<<",\"result\":"<<json(snapshot.result)<<",\"feedback\":"<<json(local_feedback);
         if(selected) {
             const auto& v=selected->view;
-            std::cout<<",\"stage\":"<<json(stages[v.machine.stage])<<",\"sequence\":"<<v.machine.sequence<<",\"sensor_sequence\":"<<v.observation.q.blood.n
+            std::cout<<",\"revision\":"<<v.machine.revision<<",\"stage\":"<<json(stages[v.machine.stage])<<",\"sequence\":"<<v.machine.sequence<<",\"sensor_sequence\":"<<v.observation.q.blood.n
                 <<",\"sensor_time_ms\":"<<v.observation.q.blood.t<<",\"blood_mL_min\":"<<v.observation.q.blood.blood<<",\"uf_mL_min\":"<<v.observation.q.blood.uf
                 <<",\"prescribed_blood_mL_min\":"<<v.machine.blood<<",\"mode\":"<<v.machine.mode<<",\"acknowledged_mask\":"<<v.machine.acknowledged<<",\"silence_until_ms\":"<<v.machine.silence_until;
         }

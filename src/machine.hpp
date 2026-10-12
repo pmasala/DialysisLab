@@ -62,7 +62,19 @@ struct Machine {
         if (stage == preparation) ready = safe;
     }
     void enter(int next,const std::string& why) {stage=next;phase_elapsed=0;cycles=0;action=why;++revision;}
-    bool rx_allowed() const {return !terminal && (stage==configuration || stage==paused || (guided && stage==connected));}
+    bool full_rx_allowed() const {return !terminal && (stage==configuration || stage==paused || (guided && stage==connected));}
+    bool rx_allowed() const {return full_rx_allowed() || (!terminal && stage==treatment && !mask && safe>=3);}
+    std::string prescribe(int next_mode,double next_blood,double next_uf,double next_sub) {
+        if(!rx_allowed() || (stage==treatment && (next_mode!=mode || next_uf!=net_uf)))return "prescription_state";
+        if(next_mode<0 || next_mode>2 || !std::isfinite(next_blood) || !std::isfinite(next_uf) || !std::isfinite(next_sub) ||
+           next_blood<0 || next_blood>500 || next_uf<0 || next_uf>20 || next_sub<0 || next_sub>120 ||
+           next_blood+next_sub>500 || (next_mode==0 && next_sub!=0) || (next_mode!=0 && next_sub<2))return "prescription_range";
+        // Restarting a deliberately stopped/low-flow pump needs the same response
+        // grace as START. Do not reset alarms, treatment time or normal rate edits.
+        if(stage==treatment && blood<=10 && next_blood>10)cycles=0;
+        mode=next_mode;blood=next_blood;net_uf=next_uf;replacement=next_sub;
+        action="PRESCRIBE";++revision;return "none";
+    }
     std::string guided_transition(const std::string& command) {
         if(terminal)return "terminal";
         if(command=="STOP") {
