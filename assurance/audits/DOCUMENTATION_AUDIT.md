@@ -1,6 +1,6 @@
 # Current documentation audit and corrective-action record
 
-Document ID AUD-DOC-01; revision 4; audit date 2026-10-13. Implementation assessed: the corrective candidate identified by source hashes in
+Document ID AUD-DOC-01; revision 5; audit date 2026-10-13. Implementation assessed: the corrective candidate identified by source hashes in
 [checks.json](checks.json) and [flow-refinement.json](flow-refinement.json). Earlier
 resource and refinement records retain their explicit previous-source identities. It changes runtime code relative to main
 `602e8dab8e65efdb0bc8db1051ce0006f0d3adfd`; earlier CI is not reused as a pass for
@@ -135,3 +135,12 @@ analysis capabilities; unresolved scientific accuracy and measurement evidence;
 representative-user validation; and responsible/independent decisions. None is
 closed by changing a status flag. The [current status](../../docs/testing/STATUS.md)
 and exact check report identify the technical evidence actually delivered.
+
+## CI gate amendment
+
+[STP-CI](../../docs/testing/CI.md) separates the ten-minute complete PR lifecycle
+from manual 100000-step endurance. Progress diagnostics retain the last reported
+accepted tick without modifying trajectory bytes. Local scheduled pipe verification
+and collection/timeout tests are recorded in [ci-regressions.json](ci-regressions.json).
+This improves feedback and diagnosis; it does not close the previous long-run
+timeout, current container acceptance or the scientific/independent findings.

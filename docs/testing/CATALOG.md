@@ -693,6 +693,13 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 - `test_ci.CITests.test_exact_byte_retention_includes_every_sbom_and_platform_file`
 - `test_ci.CITests.test_corruption_order_truncation_and_path_escape_are_rejected`
 
+### [tests/test_ci_lifecycle.py](../../tests/test_ci_lifecycle.py)
+
+- `test_ci_lifecycle.ShortLifecycleTests.test_exact_scheduled_ten_minute_cycle_repeats_with_progress_enabled`
+- `test_ci_lifecycle.ShortLifecycleTests.test_progress_is_atomic_diagnostic_and_retained_on_failure`
+- `test_ci_lifecycle.ShortLifecycleTests.test_live_command_preserves_failure_and_timeout_output`
+- `test_ci_lifecycle.HostedRunnerProgressTests.test_real_runner_progress_and_aborted_prefix`
+
 ### [tests/test_circuit.py](../../tests/test_circuit.py)
 
 - `test_circuit.CircuitTests.test_rc_solution_and_step_halving`

@@ -35,3 +35,10 @@ baseline and an explicit reuse/re-execution decision.
 source selection and 86 passing local tests. Its hashes identify that source,
 not the later signed dialysate-advection implementation. The current applicability
 decision is in [verification status](../docs/testing/STATUS.md).
+
+## Flow correction 2332ee6
+
+[Preserved checks](audits/2332ee6-checks.json) identify the signed-advection correction,
+40 selected regression passes and the numerical refinement campaign before the CI
+policy/diagnostic change. Its workflow 38361819029 passed `verify`; the long Compose
+job timed out. See current [CI policy](../docs/testing/CI.md).

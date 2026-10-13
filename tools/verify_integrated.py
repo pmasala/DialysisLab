@@ -42,6 +42,15 @@ def configurations(group):
         config['workflow']=[dict(tick=tick,action=action,values=[]) for tick,action in
             ((4,'PRIME'),(90,'CONFIGURE'),(94,'START'),(99990,'FINISH'),(99994,'CLEAN'))]
         yield 'integrated_hdf_100000',config
+    elif group=='dynamic-short':
+        config=load('physical_hdf_post')
+        # Preserve the scheduled preparation/return margins, extending only therapy.
+        extra=(600000-config['guided']['treatment_ms'])//config['dt_ms']
+        config['guided']['treatment_ms']=600000
+        config['ticks']+=extra
+        for event in config['workflow']:
+            if event['action'] in ('RETURN','DISCONNECT','CLEAN'):event['tick']+=extra
+        yield 'integrated_dynamic_hdf_10min',config
     elif group=='dynamic-long':
         config=load('physical_hdf_post');config.update(ticks=100000,dt_ms=500)
         config['guided']['treatment_ms']=86400000
@@ -96,7 +105,7 @@ def archive_trajectory(path,expected_sha256):
 
 
 def acceptance(directory,config,group,name):
-    treatment_ticks=0;stages=set();first_alarm=None;first_expected=None;first_quality=None;recovered=False
+    integrated_treatment_ms=0;treatment_ticks=0;stages=set();stage_order=[];treatment_elapsed_ms=0;last_stage=None;first_alarm=None;first_expected=None;first_quality=None;recovered=False
     expected_mask={'machine_air':4,'machine_balance':2048,'machine_invalid':16,'machine_leak':8,
                    'machine_pressure':1,'machine_quality':256,'machine_recovery':4,'machine_stall':2}.get(name)
     for record in read_records(directory/'trajectory.jsonl'):
@@ -106,11 +115,21 @@ def acceptance(directory,config,group,name):
         machine=record.get('machine')
         if machine:
             stages.add(machine['stage'])
+            last_stage=machine['stage']
+            if not stage_order or stage_order[-1]!=last_stage:stage_order.append(last_stage)
+            treatment_elapsed_ms=machine.get('guided',{}).get('treatment_elapsed_ms',0)
             treatment_ticks+=machine['stage']=='TREATMENT'
+            if machine.get('guided',{}).get('integrated_stage')=='TREATMENT':integrated_treatment_ms+=config['dt_ms']
             if machine['alarm_mask'] and first_alarm is None:first_alarm=record['time_ms']
             if expected_mask and machine['alarm_mask']&expected_mask and first_expected is None:first_expected=record['time_ms']
             if name=='machine_recovery' and record['sequence']>=150 and machine['stage']=='TREATMENT' and not machine['alarm_mask']:recovered=True
-    if group in ('matrix','long','dynamic-long'):
+    if group=='dynamic-short':
+        required=['SELF_TEST','PREPARATION','PRIMING','CONFIGURATION','CONNECTED','TREATMENT',
+                  'FINISHED','RETURNING','DISCONNECTING','DISCONNECTED','CLEANING','CLEANED']
+        if stage_order!=required:raise ValueError('short dynamic lifecycle order incomplete')
+        if treatment_elapsed_ms!=600000 or integrated_treatment_ms!=600000:raise ValueError('short dynamic therapy duration differs from ten minutes')
+        if last_stage!='CLEANED':raise ValueError('short dynamic final state is not CLEANED')
+    if group in ('matrix','long','dynamic-long','dynamic-short'):
         if first_alarm is not None:raise ValueError('unexpected alarm in nominal integrated run')
         if treatment_ticks<(99001 if group in ('long','dynamic-long') else 100):raise ValueError('insufficient actual treatment')
         if group=='matrix' and 'CLEANED' not in stages:raise ValueError('lifecycle did not reach CLEANED')
@@ -122,18 +141,21 @@ def acceptance(directory,config,group,name):
         if name.startswith('treatment_') and name!='treatment_contaminant':
             if first_quality is None or not event<=first_quality<=event+10000+config['dt_ms']:raise ValueError('online fault missed predeclared bound')
         if name=='treatment_contaminant' and first_quality is not None:raise ValueError('hidden contamination invented an observable detector')
-    return dict(treatment_ticks=treatment_ticks,stages=sorted(stages),first_alarm_ms=first_alarm,
+    return dict(integrated_treatment_ms=integrated_treatment_ms,treatment_ticks=treatment_ticks,treatment_elapsed_ms=treatment_elapsed_ms,stage_order=stage_order,stages=sorted(stages),first_alarm_ms=first_alarm,
                 expected_mask=expected_mask,first_expected_alarm_ms=first_expected,first_quality_ms=first_quality,recovered=recovered)
 
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--group',choices=('matrix','faults','long','dynamic-long'),default='matrix')
+    parser.add_argument('--group',choices=('matrix','faults','long','dynamic-long','dynamic-short'),default='matrix')
     parser.add_argument('--build-dir',type=Path,default=ROOT/'build/gui')
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--compose',action='store_true')
+    parser.add_argument('--compose-timeout',type=int,help='Wall-clock seconds per Compose repetition; default 2400 for endurance, 900 otherwise')
     parser.add_argument('--archive',action='store_true',help='Losslessly compress verified trajectories and retain recovery records')
-    args=parser.parse_args();args.output=args.output.resolve();args.output.mkdir(parents=True,exist_ok=False)
+    args=parser.parse_args()
+    if args.compose_timeout is not None and not 1<=args.compose_timeout<=86400:parser.error('compose timeout must be 1..86400 seconds')
+    args.output=args.output.resolve();args.output.mkdir(parents=True,exist_ok=False)
     report=dict(schema_version=1,executed_at=datetime.now(timezone.utc).isoformat(),command=sys.argv,
                 build=build_identity(args.build_dir),group=args.group,compose=args.compose,successful=False,cases=[])
     expected=report['build']['source_sha256']
@@ -149,22 +171,22 @@ def main():
                 if args.compose:
                     override=args.output/(name+'-compose.json')
                     override.write_text(json.dumps({'services':{'runner':{
-                        'command':['python3','-m','dialysislab.runner','--config','/scenario.json','--output','/results/run','--build-dir','/opt/bin'],
+                        'command':['python3','-m','dialysislab.runner','--config','/scenario.json','--output','/results/run','--build-dir','/opt/bin','--progress-every','100'],
                         'volumes':[{'type':'bind','source':str(configuration),'target':'/scenario.json','read_only':True}]}}},indent=2)+'\n')
-                    collection=collect_case(name,repeat,args.output,compose_files=[ROOT/'compose.yaml',override],timeout=2400 if args.group=='dynamic-long' else 900)
+                    collection=collect_case(name,repeat,args.output,compose_files=[ROOT/'compose.yaml',override],timeout=args.compose_timeout or (2400 if args.group=='dynamic-long' else 900),live=True)
                     if collection['compose_exit_code'] or collection['collection_errors'] or collection['cleanup_errors']:raise ComposeRunFailure(collection)
                     directory=Path(collection['directory'])/'results/run'
                 else:
                     directory=args.output/(name+'-'+str(repeat))
                     with LocalCluster(args.build_dir) as cluster:
-                        simulate(config,cluster.runtime,args.build_dir,directory)
+                        simulate(config,cluster.runtime,args.build_dir,directory,progress_every=100)
                         observed=stop_plant(cluster.runtime/'admin/plant.sock',online=True)
                         if not observed['acknowledged'] or not observed['outputs_zero_observed']:raise ValueError('final plant stop unconfirmed')
                 case=verify(directory,config,expected)
                 criteria=acceptance(directory,config,args.group,name)
                 if args.group=='long':
                     if case['scan']['last']['removed_total_mL']<=100000:raise ValueError('gross UF stress boundary not exercised')
-                if args.group in ('long','dynamic-long') and case['manifest']['memory']['peak_rss_bytes']>64*1024**2:raise ValueError('runner RSS exceeds 64MiB acceptance')
+                if args.group in ('long','dynamic-long','dynamic-short') and case['manifest']['memory']['peak_rss_bytes']>64*1024**2:raise ValueError('runner RSS exceeds 64MiB acceptance')
                 if collection:
                     for service in collection['services']:
                         if service['oom_killed'] or service['memory_limit_bytes']!=128*1024**2:raise ValueError('container resource acceptance')

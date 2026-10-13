@@ -7,11 +7,13 @@ from ci_artifacts import emit
 
 
 def retain(root, stream=None):
-    names=['integration.json','integrated_dynamic_hdf_100000.json']
-    for repetition in (1,2):
-        folder='integrated_dynamic_hdf_100000-'+str(repetition)+'/'
-        names += [folder+name for name in ('collection.json','compose.log','services.log','RECOVERY.txt',
-            'results/run/manifest.json','results/run/trajectory-storage.json')]
+    names=['integration.json']
+    for scenario in ('integrated_dynamic_hdf_100000','integrated_dynamic_hdf_10min'):
+        names.append(scenario+'.json')
+        for repetition in (1,2):
+            folder=scenario+'-'+str(repetition)+'/'
+            names += [folder+name for name in ('collection.json','compose.log','services.log','RECOVERY.txt',
+                'results/run/manifest.json','results/run/progress.json','results/run/trajectory-storage.json')]
     found=[]
     for name in names:
         path=root/name

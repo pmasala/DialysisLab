@@ -18,6 +18,7 @@
     "docs/design/WIRE_FIELDS.md",
     "docs/design/WIRE_PROTOCOL.md",
     "docs/testing/CATALOG.md",
+    "docs/testing/CI.md",
     "docs/testing/CLOSURE.md",
     "docs/testing/COVERAGE.md",
     "docs/testing/FAILURES.md",

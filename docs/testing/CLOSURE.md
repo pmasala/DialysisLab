@@ -82,13 +82,15 @@ increase parser bounds or container limits solely to pass a test.
 - The native 100000-tick resource campaign identifies the preceding `fda5058`
   implementation and streaming writer. The changed solute model requires renewed
   resource evidence. This native run is not a cgroup or service-isolation test. The separate
-  `dynamic-resources` CI job repeats the current model twice under Compose, requires
+  manual `dynamic-endurance` job repeats the long model twice under Compose, requires
   identical trajectory hashes and RSS<=64 MiB within the 128 MiB container limit,
   checks OOM state, and retains reports/manifests even after failure. Its result must
   be inspected before accepting the Compose portion of CLOSE-RES-01. On `fda5058`,
   hosted run 38353153658 passed `verify` but `dynamic-resources` timed out after
   2400 seconds; retained diagnostics show no OOM flag and no final runner manifest.
-  This is an incomplete run, not a resource acceptance pass.
+  This is an incomplete run, not a resource acceptance pass. The PR's
+  `dynamic-resources` job now checks a complete ten-minute therapy cycle twice;
+  [STP-CI](CI.md) keeps that gate distinct from endurance acceptance.
 - Guided preset catalogue/load validation executes locally. The real broker-to-service
   launch test is included in full CI; local Unix sockets are prohibited here.
 
