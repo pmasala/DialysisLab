@@ -34,6 +34,14 @@ There are **73 open dependency advisory IDs** in the recorded M8 scan; this is n
 a clean-image or complete third-party license-clearance claim.
 
 
+## Short PR verification and manual endurance
+
+PRs run a complete HDF POST lifecycle with ten simulated therapy minutes twice.
+The 100000-step campaign is separate and manually enabled through `run_long` in
+GitHub Actions. The [CI protocol](testing/CI.md) gives commands, budgets, acceptance
+criteria and interpretation of progress diagnostics. Short-run success does not
+establish long-run stability.
+
 ## Reproducible source package
 
 ```bash

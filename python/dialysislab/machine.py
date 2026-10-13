@@ -99,6 +99,7 @@ def observation(response):
     extended=response[0] in ('OBS8','OBS9','OBS10')
     expect(response,'OBS10' if dynamic else 'OBS9' if physical else 'OBS8' if extended else 'OBS5',36 if dynamic else 28 if physical else 21 if extended else 19)
     result = treatment.observation(['OBS4', *response[1:13]])
+    result['sequence'] = integer(response[1], 99999)
     for name, value, high in zip(('downstream_mmHg', 'air_signal', 'leak_signal', 'measured_uf_mL', 'measured_substitution_mL'),
                                response[13:18], (1000, 1, 1, 1e9, 1e9)):
         result[name] = real(value, 0, high)
@@ -106,8 +107,15 @@ def observation(response):
     if extended:result.update(dialysate_mL_min=real(response[19],0,2000),tmp_mmHg=real(response[20],-1000,1000))
     if physical:
         result.update(arterial_mmHg=real(response[21],-1000,1000),limitation=response[22])
-        result.update({name:real(value,-1000,20000) for name,value in zip(('dialysate_mmHg','heater_W','acid_remaining_mL','bicarbonate_remaining_g','conductivity_raw_mS_cm'),response[23:28])})
-    if dynamic:result.update({name:real(value,0,2000) for name,value in zip(('arterial_level','venous_level','dialysate_drain_mL_min','uf_pump_mL_min','balance_position_mL','bypass','balance_capacity_mL','balance_phase'),response[28:36])})
+        for name, value, low, high in zip(
+            ('dialysate_mmHg','heater_W','acid_remaining_mL','bicarbonate_remaining_g','conductivity_raw_mS_cm'),
+            response[23:28], (-1000,0,0,0,0), (1000,5000,20000,2000,1000)):
+            result[name] = real(value, low, high)
+    if dynamic:
+        for name, value, low, high in zip(
+            ('arterial_level','venous_level','dialysate_drain_mL_min','uf_pump_mL_min','balance_position_mL','bypass','balance_capacity_mL','balance_phase'),
+            response[28:36], (0,0,0,0,0,0,5,0), (1,1,2000,200,100,1,100,1)):
+            result[name] = real(value, low, high)
     return result
 
 
@@ -116,16 +124,16 @@ def metadata(response):
     expect(response,'MACHINE8' if guided else 'MACHINE5',40 if guided else 26)
     result = dict(sequence=integer(response[1], 99999), time_ms=integer(response[2]),
                   stage=(GUIDED_STAGES if guided else STAGES)[integer(response[3],15 if guided else 9)], mode=treatment.MODES[integer(response[4], 2)])
-    for name, value, high in zip(('blood_prescribed_mL_min', 'net_uf_prescribed_mL_min', 'replacement_prescribed_mL_min',
-                                  'pressure_limit_mmHg', 'prime_mL'), response[5:10], (500, 20, 120, 1000, 1000)):
-        result[name] = real(value, 0, high)
+    for name, value, low, high in zip(('blood_prescribed_mL_min', 'net_uf_prescribed_mL_min', 'replacement_prescribed_mL_min',
+                                  'pressure_limit_mmHg', 'prime_mL'), response[5:10], (0,0,0,1,10), (500, 20, 120, 1000, 1000)):
+        result[name] = real(value, low, high)
     for name, value, high in zip(('alarm_mask', 'acknowledged_mask', 'silence_until_ms', 'safe_cycles', 'ready_cycles',
-                                 'treatment_cycles', 'revision'), response[10:17], (8191, 8191, 100120000, 3, 3, 100000, 100000)):
+                                 'treatment_cycles', 'revision'), response[10:17], (8191, 8191, 100120000, 3, 3, 100000000, 100000000)):
         result[name] = integer(value, high)
     result.update(action=response[17], terminal=bool(integer(response[18], 1)))
     for name, value in zip(('phase_flush_mL', 'flush_in_mL', 'flush_out_mL', 'expected_net_mL', 'measured_net_mL',
                            'flush_in_tick_mL', 'flush_out_tick_mL'), response[19:26]):
-        result[name] = real(value, -1e9 if 'net' in name else 0, 1e9)
+        result[name] = real(value, -1e9 if 'net' in name else 0, 100000 if 'tick' in name else 1e9)
     if guided:
         names=('phase_elapsed_ms','treatment_elapsed_ms','duration_ms','test_duration_ms','disinfection_duration_ms')
         result['guided']={name:integer(value) for name,value in zip(names,response[26:31])}

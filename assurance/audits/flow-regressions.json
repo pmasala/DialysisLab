@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "executed_at": "2026-10-13T07:07:06.673209+00:00",
+  "selection": [
+    "test_flow_refinement",
+    "test_dynamics",
+    "test_physical.PhysicalTests",
+    "test_compartments.CompartmentNumerics",
+    "test_audit_closure",
+    "test_document_contracts",
+    "test_documentation"
+  ],
+  "command": "PYTHONPATH=python:tools:tests python3 -m unittest -v test_flow_refinement test_dynamics test_physical.PhysicalTests test_compartments.CompartmentNumerics test_audit_closure test_document_contracts test_documentation",
+  "source_sha256": {
+    "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+    "python/dialysislab/calibration.py": "cf120a8bc7c6aefb63e819bfe54ddecbeb4155c36b17e9d38b311b11545fe369",
+    "python/dialysislab/circuit.py": "6c7e9b2cfdddd606b531e27dd523ef4e0a09ca510f178f18c18a61675750be13",
+    "python/dialysislab/compartments.py": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75",
+    "python/dialysislab/distributed.py": "43d74201c654bd375c35e79e81298c5fada2e15562768c821e59a2bfba52f7d1",
+    "python/dialysislab/experiment_rpc.py": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f",
+    "python/dialysislab/experiments.py": "2c0288343722650b24f6728507346b0f4bb50e3c0c64fd45038487bc751fa290",
+    "python/dialysislab/machine.py": "d5ce9e2882d18bc6137d92881718139b1d04b1adff566ac16f6ddc1744a6ca37",
+    "python/dialysislab/patient.py": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a",
+    "python/dialysislab/physical.py": "49a3340d22e129a88a75d1643c087d49c06684f11badafd539c5fdac30b23fcf",
+    "python/dialysislab/protocol.py": "80cc249e00a98d3f7dbb3533b48c01e487cb36bbc5800b77cee940dcdf5d8cad",
+    "python/dialysislab/role_supervisor.py": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8",
+    "python/dialysislab/runner.py": "9adc66ce11eeee158956421b3f51ea604403c71baca1e3380351c602c904b0c8",
+    "python/dialysislab/trajectory.py": "bec7e3ce0d42ffd88120fa7b3120dcb0ededeb9d1ac53c7208cb5ca3da2801ee",
+    "python/dialysislab/treatment.py": "4d6712cd02ac9004c4fc74885f26f15fd88e8df24d2fb7a18d85051e2612d79d",
+    "src/blood_physics.hpp": "a5ae40d3ef24ac42acffc8b0a984de60ad7d1063ea554f2e60ee1659c85c478b",
+    "src/child_guard.cpp": "34a3ea2d93648d7436acc773cb8f3a78e43fb38d01c33cd34e864789a2243c94",
+    "src/circuit.hpp": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b",
+    "src/console/client.hpp": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1",
+    "src/console/inspector.hpp": "6adc0c2a49d836af550dc0525e0a9adef82a7d543e85a81a6ce2a69997ebc751",
+    "src/console/sim_console.cpp": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22",
+    "src/console/telemetry.hpp": "634998b179ef689fe9c99c01980bdb4a451b1c80305b627fe1e37cfcf772a857",
+    "src/control.cpp": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6",
+    "src/device_session.hpp": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd",
+    "src/dynamics.hpp": "f44dd6c7e6c2ddecd1cdfc466d28b26e60e70fb6869a184db85a1fbf94904993",
+    "src/machine.hpp": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22",
+    "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+    "src/online.hpp": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3",
+    "src/plant.cpp": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178",
+    "src/protection.cpp": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3",
+    "src/ui/client.hpp": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410",
+    "src/ui/device_ui.cpp": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e",
+    "src/ui/font.cpp": "0d14490c5ed81d597e58884697a1104205fdb726fe20bc4429c856b390e94d33",
+    "src/ui/guided.hpp": "429f6e1dd9799c6a04bfc6261305be810de504293194c4c7eec747485c481e18",
+    "src/ui/synoptic.hpp": "1070a4f5546aa700039f93b5f1b3a07a4132ddec109e753d6cf8881d7fe46cf4",
+    "src/wire.hpp": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc",
+    "tests/audit_fixture.py": "09359955559b41e10b619d9151f0b9d81c9a6efb6d29d62b23522d4d8f4a0d4c",
+    "tests/audit_machine.cpp": "a6bc32a730f2abd4bf0f413c28eda5782dedd5efa82396b94986ae87ba65b39d",
+    "tests/console_regressions.py": "d66eb0e2747577ab6450087c7a940964ba2fc8c5442ac3eb2cc6864e394b06cd",
+    "tests/demo_regressions.py": "16bf3fab0759b2ddcf24f1d8c7b6ea25f700520ffd5994d2865b42723911c694",
+    "tests/dynamic_model.cpp": "9fb5eb72715995debc1999a822e7ef369d3c5bd691d0fa03005dee14bdb94a37",
+    "tests/flow_valves.cpp": "4ee3123fa9da6454b0d77dd2b146982ecc068dde69e23454c7a6681539d7cf59",
+    "tests/guided_plant.cpp": "4c88d221d2177a63990b088f003c5b893c54b443babee5235dc8d0f6da058284",
+    "tests/guided_view.cpp": "b12026437b481052f39754589f8a7b03a304f8350eeb6903627d57fd6d0ccfd2",
+    "tests/patient_memory_probe.py": "cc07e30725f40d6bb78fa9a2d0c8cb938c43e735f67fc65a71ea40be9dc6072e",
+    "tests/physical_model.cpp": "d2bf484455fb6469013c981333d5498fd75d1fe87825c805d266f5e978e8e118",
+    "tests/test_audit_closure.py": "234a206967dacc59e57bef4d33dd0bb14c6ae32b76e77b4a5271ecfff3e36236",
+    "tests/test_ci.py": "04be4fde9608cf6e8d240d02cfcfe651e11fab68c5a070b9aa93275658d14c0d",
+    "tests/test_circuit.py": "71180ab1c91e8b29da1e8792c84051ac51ad08a38a8c558d36ec4ca6e81d719b",
+    "tests/test_compartments.py": "82fca1aa17a28e1e5c7b9af87173c9bede83d832e21c734a327e9bf4af282069",
+    "tests/test_compose_collection.py": "29e4b034810a4a9f5c1c67fe83d47884a257d39d5a89c659c4401875d67ffd41",
+    "tests/test_dependencies.py": "4e51f3d26175c4323b95e0f1c76f3509e7a8d8188f546d8ee57f2ccb1cb4d128",
+    "tests/test_device_sessions.py": "267273ec019c959bc57810ee4654775c7b1afd7e450078da489031371d6b23e2",
+    "tests/test_document_contracts.py": "846deaa674d2ea246d9cfca8aad297d68833f17243206de7c97161b169991fec",
+    "tests/test_documentation.py": "a5888a26df9b7fc6eb73a16d7475bc0e55c1695933e4dc2761e9546805d73de7",
+    "tests/test_dynamics.py": "b5ac8f1ef084c3a3431bd206f2ed11175021a50297660fd1881aab3b2ee23412",
+    "tests/test_experiments.py": "e674386d3266548ac8b307e9f6712779f2386dd158830b26423c70fd9252b489",
+    "tests/test_flow_refinement.py": "12cd52a8ed91590895b998ec33c9deae7d06ddfa9b0e636eaba1df03c3f5dfed",
+    "tests/test_gui_dependencies.py": "888df89af0fef72c6d1538b79ddf9ed2312e623e5869ebac5820d826be971f56",
+    "tests/test_guided.py": "c2baa598a885b452a9104a64ebbda297b452144ad8ae62169952d8ba0a9a3989",
+    "tests/test_inspection.py": "39a9375822a845a775bc6c1752a09063366dc7028647cfab4359b1f6390a557f",
+    "tests/test_integration.py": "6a866592c0a64f76c26ca5bdab644c28951e265c55d54318cf5836339a977c91",
+    "tests/test_m1.py": "5ba9db3624aabb029675648e028d1de1f43a3123074765791df9f42035ddbe35",
+    "tests/test_machine.py": "3d40b6e0a4706ee9ee624bb4fe13e6c3be7ea1a83b28656be65133c24a944520",
+    "tests/test_physical.py": "b409789a9870c49b5bfefb384ffd4472e8c8f0332f620d080585f5390c22117e",
+    "tests/test_publication.py": "bbcbf2b1b38986813b2171e0d5e69eb515e044e8bf66a802b481c0e0356f91a4",
+    "tests/test_rpc_abort.py": "37e8e325a307bd8de9dbdffe4fad867684b2283092df40871c1898592df9c32b",
+    "tests/test_security.py": "d8b836758522b6f04f46e1184f86ab617d5408d64d9bfe435c5b03731bca03cf",
+    "tests/test_traceability.py": "b51e3ab211592525bb035c52e7642120b9ad054739b9cbc6f881fa85b620019f",
+    "tests/test_trajectory.py": "6edecdc8651abcbfe98e482428e433b934c7adab908a3fc05312f798e52e7da6",
+    "tests/test_treatment.py": "7a7400fc17ffe3d306a2ef62b92eec617e13bc43d352784c63a1ed5b0028e32f",
+    "tests/trajectory_memory_probe.py": "a62932896b4ed0e7f8d99dc6b0264ee17fa87e83f3951bbc3a311881804dd5a8",
+    "tests/ui_regressions.py": "0d9e6e6dfb10fbbc88d411bf9566c0c4f710f531eba3881bb2a4af90df60a381",
+    "tests/wire_contract_witness.cpp": "203a9de5097d2c42a91a4bbbb00f3b603ff992c01fc71fc8c9a9f12369af20e6",
+    "tools/flow_refinement.py": "0291f2fc788c9be2d4a5d6b0326be9c7f3e6851197fa2585b81a80121b27a23e",
+    "tools/verify_m1.py": "d40bda7805ab89b86c9c2f32e7212dafdc1621e164e10a0e222f194b08ca6f8f"
+  },
+  "scope": "Actual focused numerical, patient, coupled plant, protocol and documentation regressions. No IPC/container, clinical or independent acceptance claim.",
+  "tests_run": 40,
+  "successful": true,
+  "cases": [
+    {
+      "test": "test_flow_refinement.FaceAdvectionTests.test_both_directions_match_closed_two_cell_mass_solution",
+      "result": "passed"
+    },
+    {
+      "test": "test_flow_refinement.FaceAdvectionTests.test_external_flow_reversal_remains_rejected_atomically",
+      "result": "passed"
+    },
+    {
+      "test": "test_flow_refinement.FaceAdvectionTests.test_random_internal_reversals_conserve_mass_and_preserve_bounds",
+      "result": "passed"
+    },
+    {
+      "test": "test_flow_refinement.FlowRefinementTests.test_fine_step_coupled_hd_and_hdf_accept_internal_reversals",
+      "result": "passed"
+    },
+    {
+      "test": "test_flow_refinement.FlowRefinementTests.test_valve_volume_and_event_times_match_analytic_pulse_train",
+      "result": "passed"
+    },
+    {
+      "test": "test_dynamics.DynamicsTests.test_distributed_transit_delay_conservation_and_atomic_rejection",
+      "result": "passed"
+    },
+    {
+      "test": "test_dynamics.DynamicsTests.test_gas_pumps_balancing_and_independent_level_protection",
+      "result": "passed"
+    },
+    {
+      "test": "test_dynamics.DynamicsTests.test_reference_holdout_and_discretization_are_reported",
+      "result": "passed"
+    },
+    {
+      "test": "test_physical.PhysicalTests.test_equations_and_limits",
+      "result": "passed"
+    },
+    {
+      "test": "test_physical.PhysicalTests.test_in_process_physical_treatments",
+      "result": "passed"
+    },
+    {
+      "test": "test_physical.PhysicalTests.test_initial_hematocrit_and_geometry_are_configuration_only",
+      "result": "passed"
+    },
+    {
+      "test": "test_physical.PhysicalTests.test_uf_hemoconcentration_refill_and_rbc_conservation",
+      "result": "passed"
+    },
+    {
+      "test": "test_compartments.CompartmentNumerics.test_100000_steps_rss_and_mass_ledger",
+      "result": "passed"
+    },
+    {
+      "test": "test_compartments.CompartmentNumerics.test_concentration_ceiling_roundoff_retains_mass_without_clipping",
+      "result": "passed"
+    },
+    {
+      "test": "test_compartments.CompartmentNumerics.test_equilibrium_zero_mass_and_acid_base_indicator",
+      "result": "passed"
+    },
+    {
+      "test": "test_compartments.CompartmentNumerics.test_external_inputs_generation_outputs_and_weight",
+      "result": "passed"
+    },
+    {
+      "test": "test_compartments.CompartmentNumerics.test_random_transfers_conserve_each_species_without_negative_mass",
+      "result": "passed"
+    },
+    {
+      "test": "test_compartments.CompartmentNumerics.test_rejected_transaction_is_atomic_and_inputs_are_bounded",
+      "result": "passed"
+    },
+    {
+      "test": "test_compartments.CompartmentNumerics.test_subnormal_bicarbonate_and_prospective_response_atomicity",
+      "result": "passed"
+    },
+    {
+      "test": "test_compartments.CompartmentNumerics.test_two_compartment_analytic_transient_and_convergence",
+      "result": "passed"
+    },
+    {
+      "test": "test_audit_closure.AuditClosureTests.test_all_single_and_pair_hazards_defeat_hostile_control_in_active_phases",
+      "result": "passed"
+    },
+    {
+      "test": "test_audit_closure.AuditClosureTests.test_complete_guided_state_guard_endpoint_and_hazard_mask_matrices",
+      "result": "passed"
+    },
+    {
+      "test": "test_audit_closure.AuditClosureTests.test_dynamic_initial_volume_bounds_match_actual_plant_and_patient",
+      "result": "passed"
+    },
+    {
+      "test": "test_audit_closure.AuditClosureTests.test_each_freshness_fault_per_role_on_current_guided_model",
+      "result": "passed"
+    },
+    {
+      "test": "test_audit_closure.GuidedPresetTests.test_catalog_default_and_loading_validate_complete_scheduled_guided_profiles",
+      "result": "passed"
+    },
+    {
+      "test": "test_audit_closure.GuidedPresetTests.test_distributed_long_fixture_is_valid_and_has_no_early_return",
+      "result": "passed"
+    },
+    {
+      "test": "test_audit_closure.GuidedPresetTests.test_dynamic_resource_retention_keeps_failed_run_evidence",
+      "result": "passed"
+    },
+    {
+      "test": "test_document_contracts.ContractRegisterTests.test_bad_wire_bounds_and_duplicate_fields_are_rejected",
+      "result": "passed"
+    },
+    {
+      "test": "test_document_contracts.ContractRegisterTests.test_missing_method_cannot_be_accepted_as_coverage",
+      "result": "passed"
+    },
+    {
+      "test": "test_document_contracts.ContractRegisterTests.test_source_edit_requires_contract_review",
+      "result": "passed"
+    },
+    {
+      "test": "test_document_contracts.ContractRegisterTests.test_unallocated_parent_and_partial_scope_remain_visible",
+      "result": "passed"
+    },
+    {
+      "test": "test_document_contracts.ContractRegisterTests.test_unknown_parent_cannot_disappear_from_trace",
+      "result": "passed"
+    },
+    {
+      "test": "test_document_contracts.WireWitnessTests.test_actual_cpp_serializers_match_documented_positions_and_python_decoders",
+      "result": "passed"
+    },
+    {
+      "test": "test_document_contracts.WireWitnessTests.test_all_current_configuration_fields_reject_outside_bounds_in_actual_plant",
+      "result": "passed"
+    },
+    {
+      "test": "test_document_contracts.WireWitnessTests.test_cpp_python_reject_every_documented_numeric_boundary_violation",
+      "result": "passed"
+    },
+    {
+      "test": "test_document_contracts.WireWitnessTests.test_python_configuration_encoder_matches_documented_field_order",
+      "result": "passed"
+    },
+    {
+      "test": "test_documentation.DocumentationTests.test_historical_pass_does_not_become_current_acceptance",
+      "result": "passed"
+    },
+    {
+      "test": "test_documentation.DocumentationTests.test_last_requirement_edit_invalidates_generated_candidate",
+      "result": "passed"
+    },
+    {
+      "test": "test_documentation.DocumentationTests.test_missing_and_outside_root_links_are_rejected",
+      "result": "passed"
+    },
+    {
+      "test": "test_documentation.DocumentationTests.test_unallocated_or_duplicate_requirements_cannot_disappear",
+      "result": "passed"
+    }
+  ],
+  "output": "test_both_directions_match_closed_two_cell_mass_solution (test_flow_refinement.FaceAdvectionTests.test_both_directions_match_closed_two_cell_mass_solution) ... ok\ntest_external_flow_reversal_remains_rejected_atomically (test_flow_refinement.FaceAdvectionTests.test_external_flow_reversal_remains_rejected_atomically) ... ok\ntest_random_internal_reversals_conserve_mass_and_preserve_bounds (test_flow_refinement.FaceAdvectionTests.test_random_internal_reversals_conserve_mass_and_preserve_bounds) ... ok\ntest_fine_step_coupled_hd_and_hdf_accept_internal_reversals (test_flow_refinement.FlowRefinementTests.test_fine_step_coupled_hd_and_hdf_accept_internal_reversals) ... ok\ntest_valve_volume_and_event_times_match_analytic_pulse_train (test_flow_refinement.FlowRefinementTests.test_valve_volume_and_event_times_match_analytic_pulse_train) ... ok\ntest_distributed_transit_delay_conservation_and_atomic_rejection (test_dynamics.DynamicsTests.test_distributed_transit_delay_conservation_and_atomic_rejection) ... ok\ntest_gas_pumps_balancing_and_independent_level_protection (test_dynamics.DynamicsTests.test_gas_pumps_balancing_and_independent_level_protection) ... ok\ntest_reference_holdout_and_discretization_are_reported (test_dynamics.DynamicsTests.test_reference_holdout_and_discretization_are_reported) ... ok\ntest_equations_and_limits (test_physical.PhysicalTests.test_equations_and_limits) ... ok\ntest_in_process_physical_treatments (test_physical.PhysicalTests.test_in_process_physical_treatments) ... ok\ntest_initial_hematocrit_and_geometry_are_configuration_only (test_physical.PhysicalTests.test_initial_hematocrit_and_geometry_are_configuration_only) ... ok\ntest_uf_hemoconcentration_refill_and_rbc_conservation (test_physical.PhysicalTests.test_uf_hemoconcentration_refill_and_rbc_conservation) ... ok\ntest_100000_steps_rss_and_mass_ledger (test_compartments.CompartmentNumerics.test_100000_steps_rss_and_mass_ledger) ... ok\ntest_concentration_ceiling_roundoff_retains_mass_without_clipping (test_compartments.CompartmentNumerics.test_concentration_ceiling_roundoff_retains_mass_without_clipping) ... ok\ntest_equilibrium_zero_mass_and_acid_base_indicator (test_compartments.CompartmentNumerics.test_equilibrium_zero_mass_and_acid_base_indicator) ... ok\ntest_external_inputs_generation_outputs_and_weight (test_compartments.CompartmentNumerics.test_external_inputs_generation_outputs_and_weight) ... ok\ntest_random_transfers_conserve_each_species_without_negative_mass (test_compartments.CompartmentNumerics.test_random_transfers_conserve_each_species_without_negative_mass) ... ok\ntest_rejected_transaction_is_atomic_and_inputs_are_bounded (test_compartments.CompartmentNumerics.test_rejected_transaction_is_atomic_and_inputs_are_bounded) ... ok\ntest_subnormal_bicarbonate_and_prospective_response_atomicity (test_compartments.CompartmentNumerics.test_subnormal_bicarbonate_and_prospective_response_atomicity) ... ok\ntest_two_compartment_analytic_transient_and_convergence (test_compartments.CompartmentNumerics.test_two_compartment_analytic_transient_and_convergence) ... ok\ntest_all_single_and_pair_hazards_defeat_hostile_control_in_active_phases (test_audit_closure.AuditClosureTests.test_all_single_and_pair_hazards_defeat_hostile_control_in_active_phases) ... ok\ntest_complete_guided_state_guard_endpoint_and_hazard_mask_matrices (test_audit_closure.AuditClosureTests.test_complete_guided_state_guard_endpoint_and_hazard_mask_matrices) ... ok\ntest_dynamic_initial_volume_bounds_match_actual_plant_and_patient (test_audit_closure.AuditClosureTests.test_dynamic_initial_volume_bounds_match_actual_plant_and_patient) ... ok\ntest_each_freshness_fault_per_role_on_current_guided_model (test_audit_closure.AuditClosureTests.test_each_freshness_fault_per_role_on_current_guided_model) ... ok\ntest_catalog_default_and_loading_validate_complete_scheduled_guided_profiles (test_audit_closure.GuidedPresetTests.test_catalog_default_and_loading_validate_complete_scheduled_guided_profiles) ... ok\ntest_distributed_long_fixture_is_valid_and_has_no_early_return (test_audit_closure.GuidedPresetTests.test_distributed_long_fixture_is_valid_and_has_no_early_return) ... ok\ntest_dynamic_resource_retention_keeps_failed_run_evidence (test_audit_closure.GuidedPresetTests.test_dynamic_resource_retention_keeps_failed_run_evidence) ... ok\ntest_bad_wire_bounds_and_duplicate_fields_are_rejected (test_document_contracts.ContractRegisterTests.test_bad_wire_bounds_and_duplicate_fields_are_rejected) ... ok\ntest_missing_method_cannot_be_accepted_as_coverage (test_document_contracts.ContractRegisterTests.test_missing_method_cannot_be_accepted_as_coverage) ... ok\ntest_source_edit_requires_contract_review (test_document_contracts.ContractRegisterTests.test_source_edit_requires_contract_review) ... ok\ntest_unallocated_parent_and_partial_scope_remain_visible (test_document_contracts.ContractRegisterTests.test_unallocated_parent_and_partial_scope_remain_visible) ... ok\ntest_unknown_parent_cannot_disappear_from_trace (test_document_contracts.ContractRegisterTests.test_unknown_parent_cannot_disappear_from_trace) ... ok\ntest_actual_cpp_serializers_match_documented_positions_and_python_decoders (test_document_contracts.WireWitnessTests.test_actual_cpp_serializers_match_documented_positions_and_python_decoders) ... ok\ntest_all_current_configuration_fields_reject_outside_bounds_in_actual_plant (test_document_contracts.WireWitnessTests.test_all_current_configuration_fields_reject_outside_bounds_in_actual_plant) ... ok\ntest_cpp_python_reject_every_documented_numeric_boundary_violation (test_document_contracts.WireWitnessTests.test_cpp_python_reject_every_documented_numeric_boundary_violation) ... ok\ntest_python_configuration_encoder_matches_documented_field_order (test_document_contracts.WireWitnessTests.test_python_configuration_encoder_matches_documented_field_order) ... ok\ntest_historical_pass_does_not_become_current_acceptance (test_documentation.DocumentationTests.test_historical_pass_does_not_become_current_acceptance) ... ok\ntest_last_requirement_edit_invalidates_generated_candidate (test_documentation.DocumentationTests.test_last_requirement_edit_invalidates_generated_candidate) ... ok\ntest_missing_and_outside_root_links_are_rejected (test_documentation.DocumentationTests.test_missing_and_outside_root_links_are_rejected) ... ok\ntest_unallocated_or_duplicate_requirements_cannot_disappear (test_documentation.DocumentationTests.test_unallocated_or_duplicate_requirements_cannot_disappear) ... ok\n\n----------------------------------------------------------------------\nRan 40 tests in 63.761s\n\nOK\n"
+}

@@ -20,6 +20,21 @@ BUILD=Path(os.environ.get('DIALYSISLAB_BUILD_DIR',ROOT/'build/gui'))
 
 
 class DependencyTests(unittest.TestCase):
+    def test_check_only_needs_no_build_and_still_rejects_unreviewed_workflow(self):
+        import dependency_report
+        original=json.loads((ROOT/'dependency_inventory.json').read_text())
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary)
+            for name in set(original['reviewed_files'])|{'dependency_inventory.json','Dockerfile'}:
+                target=root/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,target)
+            with patch.object(dependency_report,'ROOT',root),patch.object(sys,'argv',['dependency_report.py','--check-only']),patch.object(dependency_report,'build_identity',side_effect=AssertionError('build not permitted')),patch.object(dependency_report.subprocess,'check_output',side_effect=AssertionError('external command not permitted')),patch('sys.stdout',io.StringIO()) as stream:
+                dependency_report.main()
+                self.assertTrue(json.loads(stream.getvalue())['successful'])
+                workflow=root/'.github/workflows/verify.yaml'
+                workflow.write_text(workflow.read_text()+'\n# unreviewed change\n')
+                with self.assertRaisesRegex(ValueError,'reviewed dependency file changed: .github/workflows/verify.yaml'):
+                    dependency_report.main()
+
     def test_container_sbom_uses_actual_image_binary_and_runtime_identities(self):
         inventory=check(ROOT);identity=build_identity(BUILD);expected=identity['source_sha256']
         actual=dict(schema_version=1,build=identity,binary_sha256={name:hashlib.sha256(name.encode()).hexdigest() for name in BINARY_NAMES},

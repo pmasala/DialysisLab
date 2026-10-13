@@ -67,6 +67,18 @@ def topology(patient, request):
     return v,f,flows
 
 
+def advect_face(matrix, left, right, volume):
+    """Implicit donor-cell transfer; positive volume travels right to left.
+
+    The same signed face volume must enter both adjacent cell equations. Internal
+    flow reversal during a valve hold is permitted; external ports stay one-way.
+    """
+    donor, receiver = (right, left) if volume >= 0 else (left, right)
+    amount = abs(volume)
+    matrix[donor][donor] += amount
+    matrix[receiver][donor] -= amount
+
+
 def solute_balance(patient,request,volumes,refill,dt,incoming,outgoing):
     v,f,flows=topology(patient,request);cfg=patient.config['extracorporeal'];old=patient.network
     network=copy.deepcopy(old);network['volumes']=list(v)
@@ -92,18 +104,22 @@ def solute_balance(patient,request,volumes,refill,dt,incoming,outgoing):
             if i==0:rhs[row]+=request.get('flush_in_mL',0)*request.get('flush_mmol_L',[0]*6)[s]
             if i in (2,14):rhs[row]+=request['pre_mL' if i==2 else 'post_mL']*request['substitution_mmol_L'][s]
         diffusion=0;convection=0
-        # Dialysate flows in the opposite direction. UF enters its local cell;
-        # advective drainage grows toward the dialysate outlet (segment zero).
+        # Nominal countercurrent direction is toward segment zero. A valve hold
+        # and compliant storage can reverse an INTERNAL face; use its actual
+        # donor concentration instead of rejecting a conservative transaction.
         for j in range(12):
             br=j+4;dr=j+18;k=cfg['koa_mL_min'][s]*dt/12 if d['membrane_open'] else 0
             conv=f[j]*request['sieving'][s]
             a[br][br]+=k+conv;a[br][dr]-=k
-            qout=qd+sum(f[j:])-(12-j)*(dv-old_dv);qin=qd+sum(f[j+1:])-(11-j)*(dv-old_dv)
-            if qout < -1e-8 or qin < -1e-8:raise ProtocolError('reverse dialysate flow')
-            a[dr][dr]=dv+qout+k;a[dr][br]=-k-conv
+            a[dr][dr]=dv+k;a[dr][br]=-k-conv
             rhs[dr]=old_dv*old['dialysate'][j][s]
-            if j<11:a[dr][dr+1]=-qin
-            else:rhs[dr]+=qd*request['dialysate_mmol_L'][s]
+        for face in range(1,12):
+            transferred=qd+math.fsum(f[face:])-(12-face)*(dv-old_dv)
+            advect_face(a,17+face,18+face,transferred)
+        # Port volumes are validated nonnegative; their consistency with storage
+        # and filtration is checked above. Neither port is silently reversed.
+        a[18][18]+=d['dialysate_drain_mL_min']*dt
+        rhs[29]+=qd*request['dialysate_mmol_L'][s]
         result=solve(a,rhs)
         if any(x>1000+1e-9 for x in result):raise ProtocolError('distributed concentration ceiling')
         for i in range(16):network['concentration'][i][s]=result[i+2]

@@ -144,7 +144,7 @@ public:
             d.arterial.level_gain=d.venous.level_gain=r.real(0,10);
             d.arterial.gas_capacity=d.venous.gas_capacity=r.real(0,10);
             d.compliance=r.real(.01,1);d.pump_tau=r.real(.05,5);d.sensor_tau=r.real(.01,5);
-            d.pressure_gain=r.real(.1,20);d.uf_capacity=r.real(20,200);d.balance_capacity=r.real(5,100);double volume=r.real(50,2000);r.end();
+            d.pressure_gain=r.real(.1,20);d.uf_capacity=r.real(20,200);d.balance_capacity=r.real(5,100);double volume=r.real(50,1000);r.end();
             dl::require(volume+d.compliance*circuit.physical.pd_min>1);
             d.enabled=true;d.initialize(circuit.physical);circuit.dynamics=d;circuit.physical.distributed_inventory=true;return "DL1 OK";
         }

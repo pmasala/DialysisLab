@@ -2,11 +2,16 @@
 #define main dialysislab_plant_process_main
 #include "../src/plant.cpp"
 #undef main
+#include <map>
 int main(){
-    Plant plant;std::string line;
+    Plant plant;std::map<int,Plant> checkpoints;std::string line;
     while(std::getline(std::cin,line)){
         try{std::istringstream input(line);int role;input>>role;std::string frame;std::getline(input,frame);
-            if(role==3){
+            if(role==4 || role==5){
+                dl::Tokens key(frame);int id=static_cast<int>(key.integer());key.end();
+                if(role==4)checkpoints.insert_or_assign(id,plant);else plant=checkpoints.at(id);
+                std::cout<<"DL1 OK"<<std::endl;
+            }else if(role==3){
                 dl::Tokens tick(frame);auto n=tick.integer(),t=tick.integer();tick.end();
                 dl::Tokens meta("DL1 META5");auto m=dl::machine_metadata(plant.handle(1,meta));
                 dl::MachineObservation o;dl::Tokens sense(dl::msg("SENSE5",n,t));bool valid=dl::usable5(plant.handle(1,sense),n,t,o);

@@ -179,9 +179,45 @@ def stop_plant(admin, online=False):
     return result
 
 
+class ProgressReporter:
+    """Diagnostic sidecar only; wall-clock observations never enter the trajectory."""
+    def __init__(self, directory, config, every):
+        self.path = Path(directory) / 'progress.json'
+        self.config = config
+        self.every = every
+        self.started = time.monotonic()
+        self.last_stage = None
+        self.record = None
+
+    def update(self, completed, record=None, outcome='running', force=False):
+        if record is not None:
+            self.record = record
+        machine = (self.record or {}).get('machine', {})
+        stage = machine.get('stage', 'initializing')
+        if not force and completed % self.every and stage == self.last_stage:
+            return
+        elapsed = max(0.0, time.monotonic() - self.started)
+        guided = machine.get('guided', {})
+        report = dict(outcome=outcome, completed_ticks=completed, total_ticks=self.config['ticks'],
+                      simulation_time_ms=completed*self.config['dt_ms'], stage=stage,
+                      treatment_elapsed_ms=guided.get('treatment_elapsed_ms'),
+                      treatment_duration_ms=guided.get('duration_ms'),
+                      progress_percent=100*completed/self.config['ticks'], wall_elapsed_s=elapsed,
+                      ticks_per_wall_second=completed/elapsed if elapsed else 0,
+                      updated_at=datetime.now(timezone.utc).isoformat(),
+                      scope='Last reported completed tick; diagnostic only, not a final acceptance manifest')
+        temporary = self.path.with_suffix('.json.tmp')
+        temporary.write_text(json.dumps(report, allow_nan=False)+'\n')
+        temporary.replace(self.path)
+        print('DIALYSISLAB_PROGRESS '+json.dumps(report, allow_nan=False), flush=True)
+        self.last_stage = stage
+
+
 def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_speed=0, wait_check=None,
-             after_record=None, scheduled=False, external_pacing_speed=None):
+             after_record=None, scheduled=False, external_pacing_speed=None, progress_every=0):
     validate(config)
+    if type(progress_every) is not int or not 0 <= progress_every <= 100000:
+        raise ValueError('progress interval must be 0..100000 ticks')
     if not isinstance(wall_speed, (int, float)) or not math.isfinite(wall_speed) or not 0 <= wall_speed <= 1000:
         raise ValueError('wall speed must be finite in [0,1000]; zero means unpaced')
     if external_pacing_speed is not None:
@@ -201,6 +237,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
     writer = TrajectoryWriter(output)
     records = writer.trajectory
     writer.write_manifest(manifest)
+    progress = ProgressReporter(writer.directory, config, progress_every) if progress_every else None
     admin = runtime / 'admin/plant.sock'
     patient = runtime / 'patient/service.sock'
     resistance = config['resistance_mmHg_min_mL']
@@ -213,6 +250,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
     lifecycle = config['schema_version'] >= 5
     patient_snapshot = None
     try:
+        if progress: progress.update(0, force=True)
         wait_ready(runtime)
         if scheduled:
             if not lifecycle: raise ValueError('scheduled experiment requires schema 5')
@@ -349,6 +387,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
                                 protection_decision=decision)
             writer.append(record)
             pending_plant_state = None
+            if progress: progress.update(len(records), record)
             if after_record: after_record(record)
             if physical['reason'] in ('liveness', 'protocol', 'control_missing', 'protection_missing'):
                 raise RuntimeError('unexpected plant failure: ' + physical['reason'])
@@ -377,6 +416,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
             pass
     try:
         writer.write_manifest(manifest)
+        if progress: progress.update(len(records), outcome=manifest['outcome'], force=True)
     except OSError:
         stop_plant(admin, online)
         raise
@@ -403,6 +443,7 @@ def main():
     parser.add_argument('--runtime-dir', default='/run/dialysis', type=Path)
     parser.add_argument('--local', action='store_true', help='Launch four separate native service processes')
     parser.add_argument('--wall-speed', type=float, default=0, help='Optional virtual/wall speed; 0 is unpaced batch')
+    parser.add_argument('--progress-every', type=int, default=0, help='Report every N completed ticks and phase changes; 0 disables diagnostics')
     args = parser.parse_args()
     with args.config.open('rb') as stream:
         config = validate(strict_json(stream.read(1024 * 1024 + 1)))
@@ -410,9 +451,9 @@ def main():
         parser.error('output already exists; choose a new directory')
     if args.local:
         with LocalCluster(args.build_dir) as cluster:
-            _, manifest = simulate(config, cluster.runtime, args.build_dir, args.output, wall_speed=args.wall_speed)
+            _, manifest = simulate(config, cluster.runtime, args.build_dir, args.output, wall_speed=args.wall_speed, progress_every=args.progress_every)
     else:
-        _, manifest = simulate(config, args.runtime_dir, args.build_dir, args.output, wall_speed=args.wall_speed)
+        _, manifest = simulate(config, args.runtime_dir, args.build_dir, args.output, wall_speed=args.wall_speed, progress_every=args.progress_every)
         # Compose stops remaining services when this process exits. Keep their
         # processes alive until then so --exit-code-from runner sees our result.
         try:

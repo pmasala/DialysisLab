@@ -44,13 +44,14 @@ For a graphical session or Docker deployment, follow the
 - [How the simulation works](docs/SIMULATION.md): fluid-path diagrams, pressures, dialyzer exchange and patient weight.
 - [Guided treatment](docs/GUIDED_TREATMENT.md): initial checks, priming, connection, treatment, blood return and disinfection.
 - [Visual inspection](docs/UI_INSPECTION.md): animated circuits, selectable trends and recorded-data inspection.
+- [Requirements](docs/REQUIREMENTS.md): scope, obligations and acceptance criteria.
 - [Software architecture](docs/ARCHITECTURE.md): what each process does and how they communicate.
 - [Documentation guide](docs/README.md): operating instructions, technical references and development checks.
 
 The models and alarm settings are synthetic and have not been clinically validated.
 This is a simulation and development template, not software for treating patients.
 The repository includes requirements, risk records and tests; it does not establish
-medical-device compliance. See the [evidence and remaining work](assurance/STATUS.md).
+medical-device compliance. See the [current verification and remaining work](docs/testing/STATUS.md).
 
 [MIT licensed](LICENSE). Third-party dependencies retain their own licences;
 see the [dependency policy](DEPENDENCY_POLICY.md).

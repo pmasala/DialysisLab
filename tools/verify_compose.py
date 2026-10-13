@@ -10,6 +10,8 @@ from pathlib import Path
 import subprocess
 import sys
 import shlex
+import tempfile
+import time
 import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,7 +50,54 @@ class ComposeRunFailure(RuntimeError):
                          + '; resources retained: ' + str(report['resources_retained']))
 
 
-def collect_case(scenario, index, output, *, project=None, compose_files=None, timeout=120):
+def live_command(args, env=None, timeout=120):
+    """Stream diagnostic output without pipe backpressure; retain it on timeout."""
+    with tempfile.TemporaryFile() as log:
+        try:
+            process = subprocess.Popen(args, cwd=ROOT, env=env, stdout=log, stderr=subprocess.STDOUT)
+        except OSError as exc:
+            raise CommandFailure(args, 127, str(exc)) from exc
+        deadline = time.monotonic()+timeout
+        offset = 0
+        timed_out = False
+        try:
+            while True:
+                if process.poll() is None and time.monotonic() >= deadline:
+                    timed_out = True
+                    process.kill()
+                    process.wait()
+                    break
+                # pread does not change the offset shared with the child's stdout.
+                chunk = os.pread(log.fileno(), 65536, offset)
+                if chunk:
+                    offset += len(chunk)
+                    print(chunk.decode(errors='replace'), end='', flush=True)
+                    continue
+                if process.poll() is not None:
+                    break
+                if time.monotonic() >= deadline:
+                    timed_out = True
+                    process.kill()
+                    process.wait()
+                    break
+                try:
+                    process.wait(timeout=min(1, max(.001, deadline-time.monotonic())))
+                except subprocess.TimeoutExpired:
+                    pass
+        finally:
+            if process.poll() is None:
+                process.kill()
+                process.wait()
+        log.seek(0)
+        output = log.read().decode(errors='replace')
+        if timed_out:
+            raise CommandFailure(args, 124, output+'\nVerification timeout')
+        if process.returncode:
+            raise CommandFailure(args, process.returncode, output)
+        return output
+
+
+def collect_case(scenario, index, output, *, project=None, compose_files=None, timeout=120, live=False):
     """Always retain diagnostics; never delete result volumes after failed extraction."""
     project = project or 'dl-m1-verify-' + uuid.uuid4().hex[:12]
     prefix = ['docker', 'compose', '-p', project]
@@ -64,7 +113,7 @@ def collect_case(scenario, index, output, *, project=None, compose_files=None, t
     report['up_command'] = up
     try:
         try:
-            log = command(up, env, timeout=timeout)
+            log = (live_command if live else command)(up, env, timeout=timeout)
             report['compose_exit_code'] = 0
         except CommandFailure as exc:
             report['compose_exit_code'] = exc.returncode

@@ -3,6 +3,8 @@ import copy
 import hashlib
 import io
 import json
+import os
+import shutil
 from pathlib import Path
 import sys
 import subprocess
@@ -18,6 +20,57 @@ import ci_verify
 
 
 class CITests(unittest.TestCase):
+    def test_actual_stale_workflow_stops_ci_and_retains_diagnostic(self):
+        inventory=json.loads((ROOT/'dependency_inventory.json').read_text())
+        files=set(inventory['reviewed_files'])|{'dependency_inventory.json','Dockerfile',
+            'tools/ci_verify.py','tools/ci_artifacts.py','tools/dependency_report.py','tools/build_identity.py'}
+        files.update(str(p.relative_to(ROOT)) for p in (ROOT/'python/dialysislab').glob('*.py'))
+        with tempfile.TemporaryDirectory(dir=ROOT/'build') as tmp:
+            root=Path(tmp)
+            for name in files:
+                target=root/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,target)
+            workflow=root/'.github/workflows/verify.yaml'
+            workflow.write_text(workflow.read_text()+'\n# deliberate unreviewed edit\n')
+            output=root/'build/ci'
+            result=subprocess.run([sys.executable,str(root/'tools/ci_verify.py'),'--output',str(output)],
+                                  cwd=root,text=True,capture_output=True,timeout=15)
+            self.assertEqual(result.returncode,1,result.stderr)
+            report=json.loads((output/'ci-report.json').read_text())
+            self.assertEqual([(s['name'],s['status']) for s in report['steps']],[('dependency-preflight','FAIL')])
+            self.assertFalse(report['successful'])
+            self.assertIn('reviewed dependency file changed: .github/workflows/verify.yaml',
+                          (output/'dependency-preflight.log').read_text())
+            self.assertFalse((root/'build/gui-deps').exists())
+            retained=subprocess.run([sys.executable,str(root/'tools/ci_verify.py'),'--output',str(output),'--report-only'],
+                                    cwd=root,text=True,capture_output=True,timeout=15,
+                                    env={k:v for k,v in os.environ.items() if k!='GITHUB_STEP_SUMMARY'})
+            self.assertEqual(retained.returncode,0,retained.stderr)
+            headers=recover(io.StringIO(retained.stdout),root/'recovered')
+            self.assertEqual({h['name'] for h in headers},{'ci-report.json','commands/dependency-preflight.log'})
+
+    def test_failed_dependency_preflight_stops_before_download_build_and_tests(self):
+        for failure in ('mismatch','timeout','launch'):
+            with self.subTest(failure=failure),tempfile.TemporaryDirectory(dir=ROOT/'build') as tmp:
+                output=Path(tmp)/'ci'
+                def run(command,**kwargs):
+                    self.assertEqual(command,['python3','tools/dependency_report.py','--check-only'])
+                    if failure=='timeout':raise subprocess.TimeoutExpired(command,60)
+                    if failure=='launch':raise OSError('injected launch failure')
+                    kwargs['stdout'].write('reviewed dependency file changed: .github/workflows/verify.yaml\n')
+                    return subprocess.CompletedProcess(command,1)
+                with patch.object(sys,'argv',['ci_verify.py','--output',str(output)]),patch('ci_verify.subprocess.check_output',return_value='a'*40),patch('ci_verify.subprocess.run',side_effect=run) as calls,patch('sys.stdout',io.StringIO()):
+                    with self.assertRaises(SystemExit) as raised:ci_verify.main()
+                self.assertEqual(raised.exception.code,1)
+                self.assertEqual(calls.call_count,1)
+                report=json.loads((output/'ci-report.json').read_text())
+                self.assertFalse(report['successful'])
+                self.assertEqual(report['release_gate'],'NOT_RUN')
+                self.assertIn('finished_at',report)
+                self.assertEqual([(s['name'],s['status']) for s in report['steps']],[('dependency-preflight','FAIL')])
+                stream=io.StringIO();retain(output,report,stream)
+                headers=recover(io.StringIO(stream.getvalue()),Path(tmp)/'recovered')
+                self.assertEqual({h['name'] for h in headers},{'ci-report.json','commands/dependency-preflight.log'})
+
     def test_release_checker_crash_and_timeout_fail_actual_orchestration(self):
         for failure in ('crash','timeout','malformed'):
             with self.subTest(failure=failure),tempfile.TemporaryDirectory(dir=ROOT/'build') as tmp:

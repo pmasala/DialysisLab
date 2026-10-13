@@ -19,7 +19,7 @@ def validate(config):
     p=config['physical'];keys(p,'blood fluid'+(' dynamics' if 'dynamics' in p else ''))
     if 'dynamics' in p:
         keys(p['dynamics'],DYNAMIC_FIELDS)
-        for k,bounds in zip(DYNAMIC_FIELDS.split(),[(5,100),(5,100),(0,10),(0,10),(.01,1),(.05,5),(.01,5),(.1,20),(20,200),(5,100),(50,2000)]):number(p['dynamics'][k],*bounds)
+        for k,bounds in zip(DYNAMIC_FIELDS.split(),[(5,100),(5,100),(0,10),(0,10),(.01,1),(.05,5),(.01,5),(.1,20),(20,200),(5,100),(50,1000)]):number(p['dynamics'][k],*bounds)
     b=p['blood'];keys(b,BLOOD_FIELDS)
     ranges=[(.5,3),(5,100),(.5,3),(5,100),(2,8),(50,3000),(50,3000),(1,100),(1,100),
             (1,250),(.01,2),(.01,2),(.4,.7),(.05,.6),(-500,0),(0,500),(.001,1),(0,100),(100,600)]

@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "executed_at": "2026-10-13T09:16:47.314299+00:00",
+  "change_base": "602e8dab8e65efdb0bc8db1051ce0006f0d3adfd",
+  "previous_candidate": "c3cf4fba3d55564da2fa9962674cdcf09fed98a9",
+  "scope": "Correct reviewed workflow identity and add build-free, fail-fast dependency validation. Runtime and numerical code unchanged. Local dependency/CI and structural verification; full current-head hosted result remains separate.",
+  "steps": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "tools/dependency_report.py",
+        "--check-only"
+      ],
+      "exit_code": 0,
+      "output_sha256": "21d4504a159ca16abf5263edcd4630be6441cd8a0f2adabe07f97e4f8eec0507",
+      "summary": {
+        "successful": true,
+        "reviewed_files": 7,
+        "ci_tools": 0,
+        "scope": "Source dependency metadata only; no built-image or SBOM acceptance"
+      }
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "tools/documentation.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output_sha256": "ef5e83d5af1099c6ff35cc390067821f4d18aa8b7f6443b6e236ec3e63d83cca",
+      "summary": {
+        "structural_errors": 0,
+        "scope": "Document drift, local links and contract/test allocation structure; no scientific or regulatory approval."
+      }
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "tools/check_traceability.py",
+        "assurance/traceability.json"
+      ],
+      "exit_code": 0,
+      "output_sha256": "0a0d3c2f89e2930d12ea821135c0f45cb5c4ed82bef1514efac1b0534fcb2e49",
+      "summary": {
+        "structural_errors": 0,
+        "release_gaps": 204,
+        "counts": {
+          "needs": 15,
+          "hazards": 6,
+          "designs": 60,
+          "requirements": 60,
+          "tests": 65,
+          "prerequisites": 9
+        },
+        "recorded_release_gate_passed": false,
+        "scope": "Structural and recorded-evidence checks only; not standards conformity."
+      }
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "tools/check_standards.py"
+      ],
+      "exit_code": 0,
+      "output_sha256": "c7204808d6f76bf4cb14de04c4e9462a311b65d65d870551f82c7001c725bec7",
+      "summary": {
+        "structural_errors": 0,
+        "open_checklist_entries": 184,
+        "open_gaps": 12,
+        "scope": "Draft data integrity only. Not clause completeness, evidence adequacy or conformity."
+      }
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "tools/check_publication.py"
+      ],
+      "exit_code": 0,
+      "output_sha256": "737b614cdab837be81414213757edd79a83547f250ecaa45f0e0df9ab98a4608",
+      "summary": {
+        "reviewed_public_files": 664,
+        "docker_context_files": 89,
+        "scope": "Allowlist/format checks; not a substitute for content/rights review."
+      }
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "summary": ""
+    }
+  ],
+  "local_regressions": {
+    "report": "assurance/audits/dependency-regressions.json",
+    "sha256": "5f91bcf55fb315aa18ebc6b92526cf528a5485aa00547212719895acffdd0076",
+    "tests_run": 22,
+    "successful": true
+  },
+  "workflow_review": {
+    "path": ".github/workflows/verify.yaml",
+    "sha256": "89b67f35f39cd43a261405dd4cd81deb0e18f63df1cb7e1a0ca80249b1cd72a6",
+    "scope": "Short PR scenario and optional manual endurance with bounded selectable wall budgets. No added actions, credentials, permissions, libraries or container pins. Only the corresponding reviewed inventory hash changes; mismatch rejection is retained.",
+    "kind": "Author engineering assessment, not independent approval"
+  },
+  "previous_hosted_failure": {
+    "run_id": 38369789862,
+    "head": "c3cf4fba3d55564da2fa9962674cdcf09fed98a9",
+    "report": "project-log/audits/c3cf4fb-ci-report.json",
+    "dependency_error": "project-log/audits/c3cf4fb-dependency-failure.md",
+    "native_tests": {
+      "run": 208,
+      "passed": 204,
+      "dependency_errors": 4
+    },
+    "sanitizer_tests": {
+      "run": 208,
+      "passed": 204,
+      "dependency_errors": 4
+    },
+    "dynamic_resources": "passed two full ten-minute Compose lifecycles",
+    "general_verify": "failed dependency hash check; other model/UI/process integration steps passed"
+  },
+  "historical_records": {
+    "evidence_files_unchanged": 385,
+    "trace_test_records_unchanged": 65,
+    "previous_checks": "project-log/audits/c3cf4fb-checks.json",
+    "previous_checks_sha256": "a6471a56cc74b228e7ef6948f15b455a94f999faaf6eaff88e82daf9ccff85d5"
+  },
+  "environment": {
+    "unix_socket": "Blocked locally by EPERM",
+    "docker": "unavailable",
+    "local_build": "Actual core binaries via g++ -std=c++17 -O2; current local application SBOM embeds identities. No new GUI/image build claim."
+  },
+  "candidate_file_sha256": {
+    "AGENTS.md": "b060d60afb6ddd67840cd3478f2b6288340fa97651ecad3d592c5fbaa13a37bb",
+    "assurance/audits/dependency-regressions.json": "5f91bcf55fb315aa18ebc6b92526cf528a5485aa00547212719895acffdd0076",
+    "assurance/traceability.json": "5fe8d7faf6732d4a8cdfbf8f56d6ae743a6a3520e821967101174792b89eec35",
+    "dependency_inventory.json": "58e79b9063cb489f3b84958130a931df23a819580d5ab82af972994534b0d320",
+    "docs/testing/CATALOG.md": "ffb2d625ab8e96fcc8d9d6983b40f6894049d5b2321d774fe0f838f78bf10a76",
+    "docs/testing/CI.md": "7ceb780c28b71942341221977a7203727af3f0652ffdb57ae647c8a34f4f687d",
+    "docs/testing/STATUS.md": "c653577cc9ad2d3ef7f5b1ff24f4ea2d84f216c9b4141f24dfb145a639b61ee5",
+    "project-log/README.md": "98568dd594a3c165a2ab124d67a1e11b4a425e65d8685acb041c8e483a6d917c",
+    "project-log/audits/c3cf4fb-checks.json": "a6471a56cc74b228e7ef6948f15b455a94f999faaf6eaff88e82daf9ccff85d5",
+    "project-log/audits/c3cf4fb-ci-report.json": "67615b2146fea55f0020327857002addb608a30694c620c180ab30e2c1d32972",
+    "project-log/audits/c3cf4fb-dependency-failure.md": "c9104e46fa65ea4d09ef79621e4a9b8252ba87387b35ec277bedeba15c9c27b6",
+    "publication_manifest.json": "99775f2d277f6563a3527eda64f8a26566c7070240d4ade89ad046d68b0861a3",
+    "tests/test_ci.py": "883100fdc6b402b515f0f7fe14786046a7450543d1cbb0aa33b7b7e36f9888ae",
+    "tests/test_dependencies.py": "5fb93006d7fc6ab4fee2acb7b5dc29e432e84ea8a90118909d15989540b95be1",
+    "tools/ci_verify.py": "ef0059bf2a4336d87f9885762c2ef9abe13b8c1f2bf227b33cbde3c9891f7418",
+    "tools/dependency_report.py": "c4ff7b8deef14181a141ab7424ae74ca04a3964203dae431d04b7a980b466064"
+  },
+  "hash_scope": "Changed/new candidate files except this self-referential check report. Regression report separately identifies tested sources and local core build. Git identifies the complete candidate.",
+  "successful": true
+}

@@ -130,6 +130,11 @@ def main():
         save();print(name+': '+entry['status'],flush=True)
         return entry['status']=='PASS'
     save()
+    if not step('dependency-preflight',['python3','tools/dependency_report.py','--check-only'],timeout=60):
+        report['finished_at']=datetime.now(timezone.utc).isoformat()
+        save()
+        raise SystemExit(1)
+    step('documentation',['python3','tools/documentation.py','--check'])
     trace=step('traceability',['python3','tools/check_traceability.py','assurance/traceability.json'])
     standards=step('standards',['python3','tools/check_standards.py'])
     publication=step('publication',['python3','tools/check_publication.py'])
