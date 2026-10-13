@@ -174,13 +174,17 @@ STATUS includes current job completion/result. Active configuration never change
 because DRAFT changes. Artifact paths are not arbitrary client file paths. Token,
 ID, revision, state and configured-size checks belong to the broker boundary.
 
-## Compatibility findings requiring disposition
+## Current compatibility decision
 
-The field dictionary documents actual bounds, including differences between C++
-and Python observation decoders. Those differences do not change the producer's
-values but weaken a single uniform malformed-input contract. Also, DYNAMICS10 and
-outer physical validation allow dialysate volume up to 2000 mL while expanded patient
-initialization allows only 1000: the runnable intersection is 50..1000 mL, subject
-to storage limits. Values above that can pass the outer layer then fail patient INIT.
-These are tracked implementation discrepancies, not hidden by widening the document.
-They require a reviewed runtime change and regression before a uniform-contract claim.
+Current MACHINE5/8 and OBS5/8/9/10 numeric domains agree between the C++ and Python
+decoders. Actual parser tests exercise inclusive endpoints, just-outside values,
+nonfinite numbers, and missing/surplus fields. Configuration rejection tests use the
+actual plant for PHYSICAL9, FLUID9, DYNAMICS10, MACHINE5 and GUIDED8. The controlled
+field dictionary specifies each tested position; these tests do not constitute
+exhaustive fuzzing of every legacy message or semantic combination.
+
+The initial dynamic dialysate inventory is now 50..1000 mL at both outer
+configuration and plant initialization. The patient initializer accepts that whole
+range. Runtime inventory has a different permitted domain because compliance and
+flow change stored volume after initialization. Rejecting configurations above
+1000 mL prevents late failure during patient INIT; it does not raise a model limit.

@@ -53,7 +53,7 @@ def render(root):
         'prefix is not the reading order. Statements and acceptance text below are generated',
         'from the maintained register without silently rewriting obligations. The supplemental',
         '[atomic requirements](ATOMIC_REQUIREMENTS.md) and [coverage matrix](testing/COVERAGE.md)',
-        'decompose selected compound obligations and name executable test methods. Some obligations',
+        'allocate all 60 parent requirements to detailed obligations and executable test methods. Some obligations',
         'remain too broad or need justified numerical criteria; the current audit identifies them.', '',
         '**Current verification decision:** implementation is recorded for these requirements,',
         'but requirement-level independent acceptance is not recorded. Historical test passes',

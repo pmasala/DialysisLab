@@ -14,10 +14,13 @@ from appearing as medical-device operations. It does not establish usability app
 
 The device application selects its guided screen when metadata carries the guided
 state. Recompiling alone does not activate it: use `scenarios/device_guided.json`.
-The external console currently starts from `machine_hd` and its preset list filters
-`machine_*.json`. Guided/physical presets are therefore not exposed by that list;
-the documented native guided launcher is the direct route. This discoverability
-problem is an open audit finding, not a claim that the console already supports it.
+The external console starts from `physical_hd`. Its preset list includes the
+scheduled `physical_hd`, `physical_hdf_pre` and `physical_hdf_post` profiles, together
+with supported legacy machine presets. Each physical profile has a complete guided
+workflow and dynamic patient/plant configuration. `device_guided` is deliberately
+absent from this scheduled list: it is the interactive operator route and has no
+automatic workflow. Loading a preset replaces only the draft; START freezes a new
+run. Active experiments cannot be changed by later draft edits.
 
 ## Device information hierarchy
 

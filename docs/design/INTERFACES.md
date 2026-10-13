@@ -106,3 +106,6 @@ are in [M8](../M8_SECURITY_CI.md), [threat register](../../assurance/THREATS.jso
 Verification: [failure/deployment protocol](../testing/FAILURES.md). Unsafe output
 arbitration, malformed messages, role spoofing, stale frames, lost replies and
 artifact recovery must be exercised on actual processes/containers where stated.
+
+Current protective thresholds, failure sequences, trust assumptions and dependency
+dispositions are specified in [protective and security design](SAFETY_SECURITY.md).

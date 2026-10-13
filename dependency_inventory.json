@@ -103,7 +103,7 @@
     "docs/dependencies/GUI_NOTICES.md": "9af7bf72de2122a1718adc84878179e614c6c924e2e01768c584325479314932",
     "cmake/Gui.cmake": "f6375c5145c230b40a48e6a1174fb4d86b27cc6463ed229ae0f8d762315383ec",
     "src/ui/lv_conf.h": "1620e7f40eb9cd5dbb33decae117b9a41a6e78349fe23a3c807731cb65215305",
-    ".github/workflows/verify.yaml": "9c1727c1435f9a83cbb842adbc4ed4f1ef5652a24c915ef1ad772848f882611c",
+    ".github/workflows/verify.yaml": "8ae52e851b41ac0a826220ba6b71720906ce3a27ec9029450ced89de28b8b579",
     "docs/dependencies/ROBOTO_NOTICE.md": "5c9efe7763d5748f388a75def2760b3382050c89d3b123ad96773c964fb4d21b",
     "src/ui/font.cpp": "0d14490c5ed81d597e58884697a1104205fdb726fe20bc4429c856b390e94d33"
   },

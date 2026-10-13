@@ -1,53 +1,72 @@
 # Current baseline: verification and acceptance
 
-Document ID SVR-01; revision 2; prepared 2026-10-12; approval pending.
-This is the current evidence decision, not a history of development runs.
+Document ID SVR-01; revision 3; prepared 2026-10-12; approval pending.
+This is an applicability decision for the current corrective candidate, not a history
+of development. Source identities and exact executed cases are in the
+[audit check report](../../assurance/audits/checks.json). Git identifies its published
+commit. Main `602e8dab8e65efdb0bc8db1051ce0006f0d3adfd` is the change base.
 
-## Assessed implementation
+## What changed and which evidence applies
 
-- Source baseline: `602e8dab8e65efdb0bc8db1051ce0006f0d3adfd` (main integration).
-- Source tree: `646c4bc3578d26a78203b42025cd93166b9ae93a`.
-- Scope: simulation-only HD/HDF PRE/POST, guided UI and dynamic physical model.
-- Documentation revision: the Git commit containing this document; documentation
-  checks for this candidate are recorded in the current audit report.
+This candidate changes Python observation/metadata bounds, initial dynamic dialysate
+inventory validation in Python and C++, and experiment preset discovery/defaults.
+The current dynamic maximum-size campaign and its CI job are new. Earlier successful
+CI on main is therefore insufficient for this candidate; a new hosted run is required.
+The local evidence below covers actual source calculations through pipes and native
+rendering. It does not claim Unix-socket transport or container isolation.
 
-## Evidence applicability decision
-
-Hosted software verification run
-[38269172854](https://github.com/pmasala/DialysisLab/actions/runs/38269172854)
-completed successfully on a tree identical to the integrated implementation above.
-The tree identity was checked during integration. Its software execution evidence
-is applicable to that unchanged implementation; this is an explicit reuse decision,
-not an automatic inheritance from an older milestone. Requirement-level completeness,
-independent risk approval and scientific validation are not established by that run.
-No claim is made here that this documentation candidate has already passed hosted CI.
-
-| Decision area | Current status | Required closure |
+| Decision area | Current evidence and limitation | Remaining closure |
 | --- | --- | --- |
-| Existing software regression pipeline | Applicable successful execution for identified implementation tree | Assess impact and rerun on subsequent changes |
-| Current documentation structure | Candidate under the checks recorded in the audit | Maintainer and independent technical review |
-| Requirement acceptance | Not independently approved for any of the 60 registered requirements | Review each acceptance obligation, coverage and result |
-| Model calibration/validation | Partial conditional urea fit only | Independent measurements, uncertainty and approved operating envelope |
-| Human usability and alarm performance | Not approved | Representative-user tasks and applicable alarm assessment |
-| Security/dependency residual risks | Open dispositions | Current inventory/advisory assessment and responsible acceptance |
-| Normative/reference release | Blocked | Full-text applicability, safety classification, risk decisions and named approvals |
+| Core and GUI compilation | Native Release configuration/build succeeded | Hosted clean build and remaining platform gates |
+| Requirements and design allocation | 99 detailed obligations across all 60 parent IDs; AST-checked test links | Independent semantic/coverage acceptance; partial scopes remain visible |
+| State, endpoint and protection logic | Actual C++ matrix and actual coupled plant/patient fault tests executed | Wider process fault campaigns and independent oracle review |
+| Wire consistency | Six actual C++/Python output families checked at/outside numeric bounds and malformed lengths; five plant configuration families checked for invalid fields | Legacy and composite semantic tests retain separate scopes; no exhaustive fuzzing claim |
+| Guided preset usability | Default/catalogue/load validate physical HD/PRE/POST with complete scheduled workflows | Actual service launch test included in hosted suite; human validation separate |
+| Numerical refinement | Nine actual coupled runs at 400/200/100 ms; conservation checked | Feed/drain pointwise refinement is nonmonotonic; approved accuracy budgets, wider transients and independent measurements absent |
+| Maximum-size resource use | Two 100000-tick native runs; identical 1547821782-byte trajectories; peak RSS 18.74/18.82 MiB | Separate dynamic-resources CI job tests actual Compose limits, two identical runs, OOM state and evidence retention |
+| Security/dependencies | Current threat/common-cause design; fresh native inventory of 31 application components | Docker/cppcheck unavailable locally; current image/advisory execution and responsible residual-risk disposition |
+| Requirement acceptance | No independent acceptance recorded | Named competent reviewers and evidence decisions |
+| Calibration and usability | Written measurement/holdout and critical-task procedures | Actual measurements, representative-user evidence and approved operating envelope |
+| Normative/reference release | Blocked | Full-text applicability, classification, essential performance/risk decisions and independent approvals |
 
-A reviewer must identify each required case, executed artifact and result before
-changing a requirement's current acceptance. Historical records remain available in
-the [Project Log](../../project-log/README.md), outside this official result summary.
-A passing structural checklist cannot close any of the scientific or human decisions.
+The [case results](../../assurance/audits/regressions.json) record 86 passed tests,
+with no failures or skips in the declared local selection. The
+[current result allocation](../../assurance/audits/obligation-results.json) maps
+those methods to individual obligations and explicitly labels methods not executed
+locally. Shared methods and supporting cases do not count as full parent acceptance.
+The [native build](../../assurance/audits/native-build.json) and
+[application SBOM](../../assurance/audits/native-application.cdx.json) identify the
+built binaries/modules and selected dependencies. The
+[static-analysis report](../../assurance/audits/static-analysis.json) records BLOCKED
+because cppcheck is absent; it contains no clean-scan claim.
 
-## Documentation corrective verification scope
+The [current native resource report](../../assurance/audits/resource-native.json)
+records 99935 treatment ticks, 100000 retained records and no unexpected alarm.
+The [repeat comparison](../../assurance/audits/resource-comparison.json) preserves
+the exact configuration and distinguishes the earlier retention wrapper from the
+final harness; actual trajectory bytes match. This is native repeatability evidence,
+not independent clean-build reproducibility or a container-memory measurement.
 
-The current [audit check report](../../assurance/audits/checks.json) records execution
-of the document/contract/CI/traceability/publication test subset and final structural
-checks. Contract tests include actual C++ MACHINE5/8 and OBS5/8/9/10 serialization,
-Python decoding and five Python configuration messages. A diagnostic test reproduces
-the known C++/Python level-bound discrepancy; its pass confirms DOC-13, not closure.
+## Reproduction and evidence boundaries
 
-The [atomic matrix](COVERAGE.md) allocates 34 selected obligations across 16 of the
-60 parent requirements and explicitly lists the other parents. It is a current
-coverage argument, not an automatic requirement acceptance record. The runtime source
-is unchanged by this corrective documentation revision. Full hosted verification
-of each new PR head remains a separate pipeline result; no prior head's pass is
-assigned to a later documentation/tool change.
+- `tests/test_audit_closure.py` executes state/mask/freshness/volume tests and checks
+  guided preset configuration plus failed-resource-report retention.
+- `tests/test_document_contracts.py` checks the controlled register and actual wire
+  implementations. These are conformance witnesses; no test pass establishes clinical
+  or regulatory adequacy of a numeric threshold.
+- `python3 tools/audit_campaign.py --mode convergence --output build/refinement.json`
+  regenerates the [refinement report](../../assurance/audits/convergence.json).
+- `python3 tools/audit_campaign.py --mode resource --ticks 100000 --output build/resource.json`
+  retains every record, configuration and result; failed runs preserve the written
+  prefix and a failed report. Output directories must be fresh to avoid overwriting
+  earlier evidence. The report records runtime and harness hashes at execution start.
+- `tools/verify_integrated.py --group dynamic-long --compose` runs the separate
+  current-model maximum-size container campaign. Hosted CI collects its diagnostic
+  report/manifests even on failure. Its completion cannot be inferred from a native pass.
+
+Full Unix-socket process tests are blocked locally by EPERM; Docker and cppcheck
+are absent. These are environment limitations, not successful tests or reasons to
+weaken protection. Current CI must be inspected on the exact published head before
+changing this decision. Historical results stay in the separate
+[Project Log](../../project-log/README.md); their recorded bytes and test statuses
+are preserved, without inheriting their passes here.

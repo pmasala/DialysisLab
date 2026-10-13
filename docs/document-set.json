@@ -13,6 +13,7 @@
     "docs/design/INTERFACES.md",
     "docs/design/JSON_FIELDS.md",
     "docs/design/MODELS.md",
+    "docs/design/SAFETY_SECURITY.md",
     "docs/design/TREATMENT.md",
     "docs/design/WIRE_FIELDS.md",
     "docs/design/WIRE_PROTOCOL.md",
@@ -31,5 +32,6 @@
   "contract_sources": [
     "assurance/current-obligations.json",
     "docs/wire-contract.json"
-  ]
+  ],
+  "baseline_scope": "baseline_commit is the main change base. Current corrective implementation/document hashes are in assurance/audits/checks.json; the containing Git commit identifies the complete candidate."
 }

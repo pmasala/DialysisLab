@@ -12,11 +12,12 @@ one maintained technical baseline.
 | Order | Document | Question answered |
 | --- | --- | --- |
 | 1 | [Requirements](REQUIREMENTS.md) | What must the software do, for whom, under which constraints, and how is each requirement accepted? |
-| 1a | [Atomic obligations](ATOMIC_REQUIREMENTS.md) and [coverage matrix](testing/COVERAGE.md) | Which selected compound obligations have measurable decisions and concrete test allocations? |
+| 1a | [Atomic obligations](ATOMIC_REQUIREMENTS.md) and [coverage matrix](testing/COVERAGE.md) | How are all 60 parent requirements allocated to measurable decisions and concrete tests? |
 | 2 | [Architecture](ARCHITECTURE.md) | Which components own state, communicate, constrain outputs and retain evidence? |
 | 3 | [Treatment design](design/TREATMENT.md) | How do tests, preparation, priming, connection, therapy, return and disinfection work? |
 | 4 | [Fluid and transport design](design/MODELS.md) | Which physical quantities and equations are implemented, and where do they stop being credible? |
 | 5 | [Interfaces and failure design](design/INTERFACES.md) | What crosses each boundary, in which order, and what happens when an exchange fails? |
+| 5a | [Protective behavior and security](design/SAFETY_SECURITY.md) | Which failures are detected, which outputs are restricted, and which common causes remain? |
 | 6 | [UI and experiment design](design/INTERACTION.md) | How do commands, confirmations, observations and experiment controls differ? |
 | 7 | [Master verification plan](testing/PLAN.md) | What must be tested, with which oracles, configuration and acceptance rules? |
 | 8 | [Executable test catalogue](testing/CATALOG.md) | Which registered tests and concrete test methods exist? |

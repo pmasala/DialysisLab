@@ -131,12 +131,50 @@ class WireWitnessTests(unittest.TestCase):
                 if ident=='physical-request':
                     for key,value in config['physical']['blood'].items():self.assertEqual(fields[key],value)
 
-    def test_documented_dynamic_parser_discrepancy_is_reproduced(self):
-        # Diagnostic witness for DOC-13; passing this test does NOT approve the mismatch.
-        tokens=self.frames[-1].split()
-        fields=self.schema['observation10']['fields']
-        pos=next(i for i,f in enumerate(fields) if f['name']=='arterial_level')+2
-        tokens[pos]='1.5'
-        cpp=subprocess.check_output([str(self.binary),'parse'],input=' '.join(tokens)+'\n',text=True,timeout=10)
-        self.assertEqual(cpp.strip(),'rejected')
-        self.assertEqual(machine.observation(tokens[1:])['arterial_level'],1.5)
+    def test_cpp_python_reject_every_documented_numeric_boundary_violation(self):
+        from dialysislab.protocol import ProtocolError
+        ids = ['machine-state5','machine-state8','observation5','observation8','observation9','observation10']
+        for ident, frame in zip(ids, self.frames):
+            decoder = machine.metadata if ident.startswith('machine') else machine.observation
+            for index, field in enumerate(self.schema[ident]['fields']):
+                if field['bounds'] is None: continue
+                low, high = field['bounds']
+                for value, accepted in [(low,True),(high,True),(low-1,False),(high+1,False),('nan',False),('inf',False)]:
+                    with self.subTest(message=ident,field=field['name'],value=value):
+                        tokens=frame.split();tokens[index+2]=str(int(value) if field['type']=='integer' and isinstance(value,(int,float)) else value)
+                        cpp=subprocess.check_output([str(self.binary),'parse'],input=' '.join(tokens)+'\n',text=True,timeout=10).strip()
+                        self.assertEqual(cpp,'accepted' if accepted else 'rejected')
+                        if accepted:decoder(tokens[1:])
+                        else:
+                            with self.assertRaises((ProtocolError,ValueError)):decoder(tokens[1:])
+            for tokens in [frame.split()[:-1],frame.split()+['extra']]:
+                with self.subTest(message=ident,malformed_length=len(tokens)):
+                    self.assertEqual(subprocess.check_output([str(self.binary),'parse'],input=' '.join(tokens)+'\n',text=True,timeout=10).strip(),'rejected')
+                    with self.assertRaises((ProtocolError,ValueError)):decoder(tokens[1:])
+
+    def test_all_current_configuration_fields_reject_outside_bounds_in_actual_plant(self):
+        # Replay a fresh legal configuration prefix for each malformed request.
+        from dialysislab import circuit,treatment
+        from unittest.mock import patch
+        from audit_fixture import compile_driver
+        binary=compile_driver(self.tmp.name)
+        config=json.loads((ROOT/'scenarios/device_guided.json').read_text());calls=[]
+        def rpc(endpoint,*args):calls.append(list(args));return ['OK']
+        with patch.object(circuit,'rpc',side_effect=rpc),patch.object(treatment,'rpc',side_effect=rpc),patch.object(physical,'rpc',side_effect=rpc),patch.object(machine,'rpc',side_effect=rpc):
+            circuit.configure(0,config);treatment.configure(0,config);machine.configure(0,config)
+        ids=['physical-request','fluid-request','dynamics-request','machine-request','guided-request']
+        for ident in ids:
+            spec=self.schema[ident];index=next(i for i,c in enumerate(calls) if c[0]==spec['tag'])
+            nominal=calls[index]
+            variants=[nominal[:-1],nominal+['extra']]
+            for position,field in enumerate(spec['fields'],1):
+                if field['bounds'] is None:continue
+                low,high=field['bounds']
+                for value in (low-1,high+1,'nan','inf'):
+                    changed=list(nominal);changed[position]=value;variants.append(changed)
+            for variant in variants:
+                with self.subTest(message=ident,payload=variant):
+                    frames=['0 DL1 '+' '.join(map(str,row)) for row in calls[:index]+[variant]]
+                    result=subprocess.run([str(binary)],input='\n'.join(frames)+'\n',capture_output=True,text=True,timeout=5)
+                    self.assertEqual(result.returncode,1,result.stdout)
+                    self.assertEqual(result.stdout.splitlines()[-1],'DL1 DRIVER_ERROR protocol')

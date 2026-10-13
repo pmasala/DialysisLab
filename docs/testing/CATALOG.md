@@ -676,6 +676,16 @@ Run from repository root after building the required profile. `PYTHONPATH=python
 makes the listed module/class/method selectable with `python3 -m unittest -v`.
 Inspect each fixture for process, display and Docker prerequisites; report skipped cases.
 
+### [tests/test_audit_closure.py](../../tests/test_audit_closure.py)
+
+- `test_audit_closure.AuditClosureTests.test_complete_guided_state_guard_endpoint_and_hazard_mask_matrices`
+- `test_audit_closure.AuditClosureTests.test_dynamic_initial_volume_bounds_match_actual_plant_and_patient`
+- `test_audit_closure.AuditClosureTests.test_all_single_and_pair_hazards_defeat_hostile_control_in_active_phases`
+- `test_audit_closure.AuditClosureTests.test_each_freshness_fault_per_role_on_current_guided_model`
+- `test_audit_closure.GuidedPresetTests.test_catalog_default_and_loading_validate_complete_scheduled_guided_profiles`
+- `test_audit_closure.GuidedPresetTests.test_distributed_long_fixture_is_valid_and_has_no_early_return`
+- `test_audit_closure.GuidedPresetTests.test_dynamic_resource_retention_keeps_failed_run_evidence`
+
 ### [tests/test_ci.py](../../tests/test_ci.py)
 
 - `test_ci.CITests.test_release_checker_crash_and_timeout_fail_actual_orchestration`
@@ -746,7 +756,8 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 - `test_document_contracts.ContractRegisterTests.test_unallocated_parent_and_partial_scope_remain_visible`
 - `test_document_contracts.WireWitnessTests.test_actual_cpp_serializers_match_documented_positions_and_python_decoders`
 - `test_document_contracts.WireWitnessTests.test_python_configuration_encoder_matches_documented_field_order`
-- `test_document_contracts.WireWitnessTests.test_documented_dynamic_parser_discrepancy_is_reproduced`
+- `test_document_contracts.WireWitnessTests.test_cpp_python_reject_every_documented_numeric_boundary_violation`
+- `test_document_contracts.WireWitnessTests.test_all_current_configuration_fields_reject_outside_bounds_in_actual_plant`
 
 ### [tests/test_documentation.py](../../tests/test_documentation.py)
 
@@ -763,6 +774,7 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 
 ### [tests/test_experiments.py](../../tests/test_experiments.py)
 
+- `test_experiments.ExperimentTests.test_discovered_guided_presets_launch_real_scheduled_services`
 - `test_experiments.ExperimentTests.test_pause_liveness_immutable_configuration_exact_replay_compare_export`
 - `test_experiments.ExperimentTests.test_external_stop_while_paused_aborts_without_resume_or_another_tick`
 - `test_experiments.ExperimentTests.test_broker_stop_retains_partial_manifest_and_fresh_run_succeeds`

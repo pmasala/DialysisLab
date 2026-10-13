@@ -57,6 +57,22 @@ class Fixture:
 
 
 class ExperimentTests(unittest.TestCase):
+    def test_discovered_guided_presets_launch_real_scheduled_services(self):
+        from dialysislab.trajectory import read_records
+        with Fixture() as f:
+            self.assertIn('guided',f.call('DRAFT'))
+            for preset in ('physical_hd','physical_hdf_pre','physical_hdf_post'):
+                with self.subTest(preset=preset):
+                    self.assertIn(preset,f.call('PRESETS'))
+                    f.call('LOAD',dict(name=preset,revision=f.call('STATUS')['revision']))
+                    run=f.start()
+                    status=wait_for(lambda:f.call('STATUS'),lambda s:s['state'] not in ('starting','running','paused','pause_requested','stopping'),timeout=60)
+                    self.assertEqual(status['state'],'completed',status)
+                    stages=set()
+                    for record in read_records(f.root/'runs'/run/'data/trajectory.jsonl'):
+                        stages.add(record['machine']['stage'])
+                    self.assertTrue({'SELF_TEST','PRIMING','CONNECTED','TREATMENT','RETURNING','DISCONNECTED','CLEANED'}<=stages,stages)
+
     def test_pause_liveness_immutable_configuration_exact_replay_compare_export(self):
         with Fixture() as f:
             config=f.configure(ticks=70,workflow=[e for e in json.loads((ROOT/'scenarios/machine_hd.json').read_text())['workflow'] if e['tick']<70])

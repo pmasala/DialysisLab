@@ -24,7 +24,7 @@ Requirements are grouped by function. Existing IDs remain stable for traceabilit
 prefix is not the reading order. Statements and acceptance text below are generated
 from the maintained register without silently rewriting obligations. The supplemental
 [atomic requirements](ATOMIC_REQUIREMENTS.md) and [coverage matrix](testing/COVERAGE.md)
-decompose selected compound obligations and name executable test methods. Some obligations
+allocate all 60 parent requirements to detailed obligations and executable test methods. Some obligations
 remain too broad or need justified numerical criteria; the current audit identifies them.
 
 **Current verification decision:** implementation is recorded for these requirements,
@@ -67,7 +67,7 @@ Control commands shall not override an active protective constraint at actuator 
 
 **Trace:** needs NEED-002; risks HAZ-002; design DES-002; verification TEST-002.
 
-**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/test_machine.py](../tests/test_machine.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/SAFETY_SECURITY.md](../docs/design/SAFETY_SECURITY.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/test_machine.py](../tests/test_machine.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
 
 ### REQ-003
 
@@ -87,7 +87,7 @@ Protection shall evaluate measurement validity and age and apply the approved ha
 
 **Trace:** needs NEED-004; risks HAZ-004; design DES-004; verification TEST-004.
 
-**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/protection.cpp](../src/protection.cpp), [src/wire.hpp](../src/wire.hpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/test_rpc_abort.py](../tests/test_rpc_abort.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/SAFETY_SECURITY.md](../docs/design/SAFETY_SECURITY.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/protection.cpp](../src/protection.cpp), [src/wire.hpp](../src/wire.hpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/test_rpc_abort.py](../tests/test_rpc_abort.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
 
 ### REQ-005
 
@@ -373,7 +373,7 @@ Enforce aggregate hazard-specific protective constraints
 
 **Trace:** needs M5-NEED-001; risks HAZ-002, HAZ-003, HAZ-004, HAZ-006; design M5-DES-003; verification M5-TEST-003.
 
-**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/plant.cpp](../src/plant.cpp), [src/protection.cpp](../src/protection.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/SAFETY_SECURITY.md](../docs/design/SAFETY_SECURITY.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/plant.cpp](../src/plant.cpp), [src/protection.cpp](../src/protection.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
 
 ### M5-REQ-004
 
@@ -587,7 +587,7 @@ Inventory selected dependencies and artifacts
 
 **Trace:** needs M8-NEED-001; risks HAZ-001, HAZ-004; design M8-DES-004; verification M8-TEST-004.
 
-**Implementation locations:** [dependency_inventory.json](../dependency_inventory.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/dependencies/M8.md](../docs/dependencies/M8.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [tests/test_dependencies.py](../tests/test_dependencies.py), [tools/build_identity.py](../tools/build_identity.py), [tools/dependency_report.py](../tools/dependency_report.py), [tools/image_application.py](../tools/image_application.py), [tools/platform_inventory.py](../tools/platform_inventory.py).
+**Implementation locations:** [dependency_inventory.json](../dependency_inventory.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/dependencies/M8.md](../docs/dependencies/M8.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/SAFETY_SECURITY.md](../docs/design/SAFETY_SECURITY.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [tests/test_dependencies.py](../tests/test_dependencies.py), [tools/build_identity.py](../tools/build_identity.py), [tools/dependency_report.py](../tools/dependency_report.py), [tools/image_application.py](../tools/image_application.py), [tools/platform_inventory.py](../tools/platform_inventory.py).
 
 ### M8-REQ-005
 

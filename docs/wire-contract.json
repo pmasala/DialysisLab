@@ -524,7 +524,7 @@
           "unit": "mL",
           "bounds": [
             50,
-            2000
+            1000
           ]
         }
       ],
@@ -1558,7 +1558,7 @@
           ]
         }
       ],
-      "condition": "Physical observation. Listed bounds are C++ usable5 bounds; Python observation() applies a broader shared -1000..20000 bound to the final five numeric fields.",
+      "condition": "Physical observation. Numeric domains agree between actual C++ and Python decoders; validity and exact requested clock are additional consumer checks.",
       "reply": "none"
     },
     {
@@ -1880,7 +1880,7 @@
           ]
         }
       ],
-      "condition": "Dynamic observation. C++ bounds shown; Python applies shared 0..2000 bound to the final eight fields. Bypass/phase encoded as real-valued 0/1. This parser asymmetry is explicit, not an approval of arbitrary values.",
+      "condition": "Dynamic observation. Numeric domains agree between actual C++ and Python decoders. Bypass/phase are bounded real-valued indications in 0..1.",
       "reply": "none"
     },
     {
@@ -2112,7 +2112,7 @@
           ]
         }
       ],
-      "condition": "Legacy state. Listed integer maxima are parser bounds, not achievable values. Python imposes cycles/revision <=100000 and broadens some numeric bounds.",
+      "condition": "Legacy state. Integer maxima are parser bounds, not achievable values. C++ and Python metadata decoders use the same numeric domains.",
       "reply": "none"
     },
     {
@@ -3852,15 +3852,15 @@
     }
   ],
   "source_sha256": {
-    "python/dialysislab/machine.py": "bb82deeb6bbc6070d074cec8118a8c5abb6d515c483bad2b9712079c9541dba3",
-    "python/dialysislab/physical.py": "dc63bd0179156c9e6360436ad0a50aaea7255b4f5b098db7bf5d07b3b4524802",
+    "python/dialysislab/machine.py": "d5ce9e2882d18bc6137d92881718139b1d04b1adff566ac16f6ddc1744a6ca37",
+    "python/dialysislab/physical.py": "49a3340d22e129a88a75d1643c087d49c06684f11badafd539c5fdac30b23fcf",
     "src/blood_physics.hpp": "a5ae40d3ef24ac42acffc8b0a984de60ad7d1063ea554f2e60ee1659c85c478b",
     "src/control.cpp": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6",
     "src/device_session.hpp": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd",
     "src/dynamics.hpp": "f44dd6c7e6c2ddecd1cdfc466d28b26e60e70fb6869a184db85a1fbf94904993",
     "src/machine.hpp": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22",
     "src/online.hpp": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3",
-    "src/plant.cpp": "6664e1d0f6ea4f4c6f5a5498fd82448049269c59a1854a599df1759364321758",
+    "src/plant.cpp": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178",
     "src/protection.cpp": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3",
     "src/wire.hpp": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc"
   }

@@ -41,8 +41,10 @@ For each of 16 rows try every phase action
 `PRIME CONNECT START PAUSE FINISH RETURN DISCONNECT CLEAN RESUME RECOVER STOP`,
 and legacy `CONFIGURE COMPLETE`. Unlisted phase actions must reject with no state
 mutation. Test terminal state separately. The oracle must be this reviewed table,
-not another call to the implementation's transition function. Existing guided tests
-sample this matrix; the full generated cross-product is still a planned campaign.
+not another call to the implementation's transition function. `tests/audit_machine.cpp` now exercises 832 phase/action/guard cases, 45 endpoint
+cases, seven failing self-test bits and 64 reset cases. Execution identity is in the
+[current check report](../../assurance/audits/checks.json). This is a unit-level
+contract check; it does not substitute for an operator or real IPC acceptance run.
 
 ## Prospective cases with closure criteria
 
@@ -52,8 +54,8 @@ sample this matrix; the full generated cross-product is still a planned campaign
 | CLOSE-WF-02 / SWF-02/05/06/07 | For priming/therapy/return/cleaning set counters just below/equal/above target; repeat safety guard false/true; for cleaning cross time complete/incomplete with volume complete/incomplete | Transition only under both phase and safety conditions; target overshoot <= actual crossing-tick transfer/time; no patient draw during isolated flush |
 | CLOSE-WF-03 / SWF-08 | Run complete state/action matrix above, including saved recovery stages and terminal shutdown | Accepted/rejected set matches table; rejection preserves state; recovery alone never restarts outputs |
 | CLOSE-FAULT-01 / SIF-02/03 | For active guided phases inject each observable hazard alone; then all hazard pairs where one blocks blood and another only prepared fluid; inject stale/missing/future/replay/invalid samples independently for each service | Effective restrictions are the union; no automatic restart; immutable before/after evidence and expected per-phase outputs. Hidden contamination is assessed separately from sensor observability |
-| CLOSE-WIRE-01 / DOC-12/13 | Exercise below/at/above every documented numeric bound and one missing/surplus field per message. Compare C++ and Python where both decode that message | Common accepted domain and rejection effects agree, or approved compatibility exception identifies exact difference. Current selected serializer witnesses are not this exhaustive campaign |
-| CLOSE-NUM-01 / MOD-10 | Freeze HD/PRE/POST configurations with flow/concentration/UF steps and chamber transients; repeat dt=500/250/125 ms, then refine further if error is unresolved | Compare aligned times, peak/settling pressure, levels, local concentrations and integrated transfer. Numerical error fits the output budget approved under STP-CAL; mass conservation alone is insufficient |
+| CLOSE-WIRE-01 / DOC-12/13 | Exercise below/at/above every documented numeric bound and one missing/surplus field per message. Compare C++ and Python where both decode that message | Common accepted domain and rejection effects agree, or approved compatibility exception identifies exact difference. Numeric boundary witnesses now cover MACHINE5/8 and OBS5/8/9/10; five current configuration forms have actual-plant negative tests. Other message families and semantic combinations retain their existing separate tests |
+| CLOSE-NUM-01 / MOD-10 | Freeze HD/PRE/POST configurations with flow/concentration/UF steps and chamber transients; repeat dt=400/200/100 ms on aligned treatment timestamps, then refine further if error is unresolved | Compare aligned times, peak/settling pressure, levels, local concentrations and integrated transfer. Numerical error fits the output budget approved under STP-CAL; mass conservation alone is insufficient |
 | CLOSE-RES-01 / FAIL resource scope | Execute 100000-tick current distributed configuration under actual Compose runner memory limit with telemetry/artifact capture | No OOM; completed/aborted artifacts readable with valid hashes; report peak RSS and disk usage. Long runs of a legacy configuration cannot close distributed resource scope |
 | CLOSE-UI-01 / DOC-09 | Representative intended simulator users explain phase/remaining time, prime, connect, edit allowed flows, react to stale data/alarm, return, disconnect and recover | Record task success, assistance, errors and unintended actions. Preapprove critical-task/error definitions and population/sample rationale; every critical error gets disposition before validation acceptance |
 | CLOSE-SEC-01 / DOC-10 | Map each entry point to role/session/input/resource tests; review shared host, parser, plant, sensors and writable artifacts as common causes | Each threat has prevention/detection/recovery evidence or explicit residual-risk disposition; container separation alone does not close independence |
@@ -62,6 +64,28 @@ Numerical/resource campaigns must record actual failures, timeout and collection
 results. If maximum-size runs exceed the supported clock envelope, the acceptance
 specification must first reconcile duration, ticks and step size; do not quietly
 increase parser bounds or container limits solely to pass a test.
+
+## Current execution and residual scope
+
+- State/action, endpoint, reset and mask arbitration matrices execute in the actual
+  C++ implementation. All 8192 alarm masks are checked in each of 16 states.
+- The actual coupled plant/patient additionally executes 455 single/pair-mask cases
+  in five active phases, and ten role-specific freshness faults. Injected masks
+  establish arbitration; they do not prove every physical detector's sensitivity.
+- [Numerical refinement](../../assurance/audits/convergence.json) records nine runs
+  (HD/PRE/POST, three step sizes), conservation and aligned output differences.
+  Instantaneous feed/drain differences are not monotonic with refinement. Therefore
+  this is measured partial evidence, not closure of global numerical accuracy.
+  The implemented campaign steps blood/substitution; independent concentration/UF
+  steps and output accuracy budgets remain part of the wider model protocol.
+- The native 100000-tick resource campaign exercises the current distributed model
+  and streaming writer. It is not a cgroup or service-isolation test. The separate
+  `dynamic-resources` CI job repeats the current model twice under Compose, requires
+  identical trajectory hashes and RSS<=64 MiB within the 128 MiB container limit,
+  checks OOM state, and retains reports/manifests even after failure. Its result must
+  be inspected before accepting the Compose portion of CLOSE-RES-01.
+- Guided preset catalogue/load validation executes locally. The real broker-to-service
+  launch test is included in full CI; local Unix sockets are prohibited here.
 
 ## Independent technical review package
 

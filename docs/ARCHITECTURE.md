@@ -2,7 +2,7 @@
 
 Document ID SAD-01; revision 1; status: review candidate. Read
 [Requirements](REQUIREMENTS.md) first, then [Treatment design](design/TREATMENT.md).
-This describes the implementation integrated in main at `602e8da` and its supported
+This describes the current corrective candidate based on main `602e8da` and its supported
 legacy variants. It is a software architecture, not an electrical safety design.
 
 ## Purpose and context
@@ -114,3 +114,6 @@ bytes. Failure collection precedes removal of container volumes.
 Architecture approval requires a named reviewer, assessed software safety class,
 component failure analysis and accepted risk controls. These are not supplied by a
 container diagram or a passing CI run; the audit records the outstanding decisions.
+
+Current protective thresholds, failure sequences, trust assumptions and dependency
+dispositions are specified in [protective and security design](design/SAFETY_SECURITY.md).

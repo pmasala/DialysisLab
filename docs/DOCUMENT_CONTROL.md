@@ -8,9 +8,10 @@ Owner role: project maintainer. Independent approval: not recorded.
 The Git commit identifies a document revision and its associated implementation.
 Use `git rev-parse HEAD` and record the tree, scenario hash, compiler and image
 identities with an execution. A branch name alone is mutable and is not a baseline.
-The audit in this change assesses implementation baseline
-`602e8dab8e65efdb0bc8db1051ce0006f0d3adfd`; its findings and closure checks identify
-this documentation candidate separately. No signature or human approval is implied.
+The audit assesses this corrective candidate against main
+`602e8dab8e65efdb0bc8db1051ce0006f0d3adfd` as the change base. Its current runtime,
+document and test hashes are recorded in the audit reports. No earlier CI pass is
+assigned to changed code. No signature or human approval is implied.
 
 All future pull requests target **main**. Development branches are temporary work
 areas. A merged branch is not an approved product release.
@@ -36,7 +37,7 @@ for its named version. The new current-design chapters identify which extensions
 supersede older assumptions. New protocols are prospective; they cannot be used to
 retroactively declare an older run successful.
 
-Generate the two catalogue documents with:
+Generate the requirements, catalogue, atomic allocations and wire dictionary with:
 
 ```bash
 python3 tools/documentation.py --write
@@ -47,7 +48,8 @@ The checker detects stale generated catalogues and broken local file links in th
 current reading set. It does not assess scientific truth, normative completeness,
 external website availability or reviewer competence. The requirements retain
 existing broad statements verbatim so that editorial changes cannot silently
-change obligations. Fine-grained decomposition and risk approval remain audit work.
+change obligations. The detailed allocation covers every parent ID; semantic completeness and risk
+approval remain review decisions.
 
 ## Review and publication sequence
 

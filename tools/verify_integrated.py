@@ -42,6 +42,12 @@ def configurations(group):
         config['workflow']=[dict(tick=tick,action=action,values=[]) for tick,action in
             ((4,'PRIME'),(90,'CONFIGURE'),(94,'START'),(99990,'FINISH'),(99994,'CLEAN'))]
         yield 'integrated_hdf_100000',config
+    elif group=='dynamic-long':
+        config=load('physical_hdf_post');config.update(ticks=100000,dt_ms=500)
+        config['guided']['treatment_ms']=86400000
+        config['physical']['fluid'].update(acid_mL=20000,bicarbonate_g=2000)
+        config['workflow']=[e for e in config['workflow'] if e['action'] in ('PRIME','CONNECT','START')]
+        yield 'integrated_dynamic_hdf_100000',config
     elif group=='faults':
         for name in ('machine_air','machine_balance','machine_invalid','machine_leak','machine_pressure',
                      'machine_quality','machine_recovery','machine_stall','treatment_contaminant','treatment_filter1',
@@ -104,9 +110,9 @@ def acceptance(directory,config,group,name):
             if machine['alarm_mask'] and first_alarm is None:first_alarm=record['time_ms']
             if expected_mask and machine['alarm_mask']&expected_mask and first_expected is None:first_expected=record['time_ms']
             if name=='machine_recovery' and record['sequence']>=150 and machine['stage']=='TREATMENT' and not machine['alarm_mask']:recovered=True
-    if group in ('matrix','long'):
+    if group in ('matrix','long','dynamic-long'):
         if first_alarm is not None:raise ValueError('unexpected alarm in nominal integrated run')
-        if treatment_ticks<(99001 if group=='long' else 100):raise ValueError('insufficient actual treatment')
+        if treatment_ticks<(99001 if group in ('long','dynamic-long') else 100):raise ValueError('insufficient actual treatment')
         if group=='matrix' and 'CLEANED' not in stages:raise ValueError('lifecycle did not reach CLEANED')
     if group=='faults':
         event=config['faults'][0]['tick']*config['dt_ms']
@@ -122,7 +128,7 @@ def acceptance(directory,config,group,name):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--group',choices=('matrix','faults','long'),default='matrix')
+    parser.add_argument('--group',choices=('matrix','faults','long','dynamic-long'),default='matrix')
     parser.add_argument('--build-dir',type=Path,default=ROOT/'build/gui')
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--compose',action='store_true')
@@ -136,15 +142,16 @@ def main():
             validate(config);configuration=args.output/(name+'.json');write_configuration(configuration,config,args.compose)
             hashes=[]
             for repeat in (1,2):
-                if args.group=='long' and shutil.disk_usage(args.output).free<2048*1024**2:
-                    raise OSError('less than 2048MiB free for long trajectory and extraction; preserve prior artifacts')
+                required_disk_mib=5120 if args.group=='dynamic-long' else 2048
+                if args.group in ('long','dynamic-long') and shutil.disk_usage(args.output).free<required_disk_mib*1024**2:
+                    raise OSError('less than '+str(required_disk_mib)+'MiB free for long trajectory and extraction; preserve prior artifacts')
                 observed=None;collection=None
                 if args.compose:
                     override=args.output/(name+'-compose.json')
                     override.write_text(json.dumps({'services':{'runner':{
                         'command':['python3','-m','dialysislab.runner','--config','/scenario.json','--output','/results/run','--build-dir','/opt/bin'],
                         'volumes':[{'type':'bind','source':str(configuration),'target':'/scenario.json','read_only':True}]}}},indent=2)+'\n')
-                    collection=collect_case(name,repeat,args.output,compose_files=[ROOT/'compose.yaml',override],timeout=900)
+                    collection=collect_case(name,repeat,args.output,compose_files=[ROOT/'compose.yaml',override],timeout=2400 if args.group=='dynamic-long' else 900)
                     if collection['compose_exit_code'] or collection['collection_errors'] or collection['cleanup_errors']:raise ComposeRunFailure(collection)
                     directory=Path(collection['directory'])/'results/run'
                 else:
@@ -157,7 +164,7 @@ def main():
                 criteria=acceptance(directory,config,args.group,name)
                 if args.group=='long':
                     if case['scan']['last']['removed_total_mL']<=100000:raise ValueError('gross UF stress boundary not exercised')
-                    if case['manifest']['memory']['peak_rss_bytes']>64*1024**2:raise ValueError('runner RSS exceeds 64MiB acceptance')
+                if args.group in ('long','dynamic-long') and case['manifest']['memory']['peak_rss_bytes']>64*1024**2:raise ValueError('runner RSS exceeds 64MiB acceptance')
                 if collection:
                     for service in collection['services']:
                         if service['oom_killed'] or service['memory_limit_bytes']!=128*1024**2:raise ValueError('container resource acceptance')

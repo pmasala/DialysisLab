@@ -3,7 +3,8 @@
 int main(int argc, char**) {
     if (argc > 1) {
         std::string frame; std::getline(std::cin, frame);
-        try { dl::MachineObservation o; dl::usable5(frame,37,12345,o); std::cout << "accepted\n"; }
+        try { if(frame.find("DL1 MACHINE")==0) dl::machine_metadata(frame);
+              else { dl::MachineObservation o; dl::usable5(frame,37,12345,o); } std::cout << "accepted\n"; }
         catch (const std::exception&) { std::cout << "rejected\n"; }
         return 0;
     }

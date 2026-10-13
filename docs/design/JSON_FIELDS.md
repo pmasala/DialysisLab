@@ -46,7 +46,7 @@ Optional `extracorporeal` requires hemodynamics and contains exactly:
 | --- | --- | --- |
 | volumes_mL | R[16], mL | .001..1000 each; sum equals prime_mL within 1e-7 mL |
 | koa_mL_min | R[6], mL/min | 0..3000; total dialyzer coefficient, divided over 12 segments |
-| dialysate_volume_mL | R, mL | 1..1000 at initialization; discrepancy with outer 50..2000 configuration is recorded in the audit |
+| dialysate_volume_mL | R, mL | 1..1000 at patient initialization; outer dynamic configuration and plant require the supported intersection 50..1000 |
 | dialysate_mmol_L | R[6], mmol/L | 0..1000 |
 
 ## ADVANCE5: distributed extension

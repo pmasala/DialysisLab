@@ -73,7 +73,7 @@ class Broker:
         self.run_id, self.state, self.latest, self.received_at = '-', 'idle', None, None
         self.requested_pause, self.requested_stop = False, False
         self.worker, self.current_runtime, self.events = None, None, 0
-        self.draft = configuration(bounded_json(ROOT / 'scenarios/machine_hd.json'))
+        self.draft = configuration(bounded_json(ROOT / 'scenarios/physical_hd.json'))
         self.epoch = secrets.token_hex(16)
         # Exact opaque decimal: 128-bit incarnation and bounded 32-bit counter.
         self.revision = (int(self.epoch, 16) << 32) + 1
@@ -387,7 +387,11 @@ class Broker:
             if op == 'STATUS': keys(args, ''); return self.status()
             if op == 'PRESETS':
                 keys(args, '')
-                return [p.stem for p in sorted((ROOT / 'scenarios').glob('machine_*.json')) if '100000' not in p.stem]
+                # Scheduled experiments require a complete workflow; the interactive
+                # device_guided profile intentionally waits for device commands.
+                paths = [*(ROOT / 'scenarios').glob('physical_*.json'),
+                         *(ROOT / 'scenarios').glob('machine_*.json')]
+                return sorted(p.stem for p in paths if '100000' not in p.stem)
             if op == 'DRAFT': keys(args, ''); return self.draft
             if op == 'LOAD':
                 keys(args, 'name revision')

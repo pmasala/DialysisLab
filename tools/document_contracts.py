@@ -40,8 +40,8 @@ def render(root, parents):
     seen = set()
     lines = ['# Atomic acceptance obligations', '',
         'Document ID SRS-02; proposed technical baseline, independent approval pending.', '',
-        'Read [parent requirements](REQUIREMENTS.md) first. These obligations clarify selected',
-        'compound requirements without replacing or reducing any parent obligation. They are',
+        'Read [parent requirements](REQUIREMENTS.md) first. These obligations clarify all 60 registered parent requirements and their',
+        'testable decisions without replacing or reducing any parent obligation. They are',
         'generated from [the controlled register](../assurance/current-obligations.json).',
         'Limits characterize the simulator implementation; they are not clinical thresholds.',
         'A test allocation is a coverage argument to review, not a recorded execution result.', '',
@@ -80,7 +80,8 @@ def render(root, parents):
     matrix += ['', '## Parent obligations outside this supplemental decomposition', '',
         'These parents remain in the SRS and existing catalogue; they are not considered',
         'atomically covered merely because another requirement has a test allocation.', '',
-        ', '.join(sorted(set(parents) - allocated)) + '.', '']
+        (', '.join(sorted(set(parents) - allocated)) + '.') if set(parents) - allocated else
+        'None. All 60 parents have at least one allocation. This structural completeness does not establish semantic completeness or full execution coverage.', '']
     spec = json.loads((root / sources[1]).read_text())
     if set(spec.get('source_sha256', {})) != set(spec['sources']):
         raise ValueError('wire source review hashes must cover all sources')

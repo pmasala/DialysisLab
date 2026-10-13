@@ -94,7 +94,7 @@ This inventory does not claim every legacy protocol version is fully specified.
 | 8 | `pressure_gain_mL_min_mmHg` | real | mL/min/mmHg | 0.1 … 20 |
 | 9 | `uf_pump_max_mL_min` | real | mL/min | 20 … 200 |
 | 10 | `balance_chamber_mL` | real | mL | 5 … 100 |
-| 11 | `dialysate_volume_mL` | real | mL | 50 … 2000 |
+| 11 | `dialysate_volume_mL` | real | mL | 50 … 1000 |
 
 ## blood-update — BLOOD9
 
@@ -246,7 +246,7 @@ This inventory does not claim every legacy protocol version is fully specified.
 
 **Endpoint:** `control/protection plant replies`; response; 27 fields.
 
-**Conditions:** Physical observation. Listed bounds are C++ usable5 bounds; Python observation() applies a broader shared -1000..20000 bound to the final five numeric fields.
+**Conditions:** Physical observation. Numeric domains agree between actual C++ and Python decoders; validity and exact requested clock are additional consumer checks.
 
 **Response / interpretation:** none
 
@@ -284,7 +284,7 @@ This inventory does not claim every legacy protocol version is fully specified.
 
 **Endpoint:** `control/protection plant replies`; response; 35 fields.
 
-**Conditions:** Dynamic observation. C++ bounds shown; Python applies shared 0..2000 bound to the final eight fields. Bypass/phase encoded as real-valued 0/1. This parser asymmetry is explicit, not an approval of arbitrary values.
+**Conditions:** Dynamic observation. Numeric domains agree between actual C++ and Python decoders. Bypass/phase are bounded real-valued indications in 0..1.
 
 **Response / interpretation:** none
 
@@ -330,7 +330,7 @@ This inventory does not claim every legacy protocol version is fully specified.
 
 **Endpoint:** `META5 / VIEW5 / COMMITTED5`; response; 25 fields.
 
-**Conditions:** Legacy state. Listed integer maxima are parser bounds, not achievable values. Python imposes cycles/revision <=100000 and broadens some numeric bounds.
+**Conditions:** Legacy state. Integer maxima are parser bounds, not achievable values. C++ and Python metadata decoders use the same numeric domains.
 
 **Response / interpretation:** none
 

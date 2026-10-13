@@ -31,3 +31,28 @@ jobs:
       - name: Preserve identified reports in job logs and summary
         if: always()
         run: python3 tools/ci_verify.py --output build/ci --report-only
+  dynamic-resources:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - name: Fetch the exact public event revision with system Git
+        env:
+          GIT_TERMINAL_PROMPT: "0"
+          GIT_LFS_SKIP_SMUDGE: "1"
+        run: |
+          set -eu
+          git init .
+          git remote add origin "https://github.com/$GITHUB_REPOSITORY.git"
+          git -c protocol.file.allow=never fetch --no-tags --depth=1 origin "$GITHUB_SHA"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA"
+          git -c filter.lfs.smudge= -c filter.lfs.required=false checkout --detach "$GITHUB_SHA"
+      - name: Build the current core and isolated services
+        run: |
+          cmake -S . -B build/dynamic-native -DCMAKE_BUILD_TYPE=Release
+          cmake --build build/dynamic-native --parallel 3
+          docker compose build
+      - name: Measure two complete distributed HDF container runs
+        run: python3 tools/verify_integrated.py --group dynamic-long --compose --build-dir build/dynamic-native --output build/dynamic-resources --archive
+      - name: Retain distributed resource evidence even on failure
+        if: always()
+        run: python3 tools/retain_dynamic_resources.py --root build/dynamic-resources

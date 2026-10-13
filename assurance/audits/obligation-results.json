@@ -1,0 +1,800 @@
+{
+  "schema_version": 1,
+  "scope": "Current local method results mapped to allocations. A passed supporting method does not close a parent or replace additional campaigns.",
+  "regression_report": "assurance/audits/regressions.json",
+  "regression_sha256": "e917c0556766db45eac7f9a5dcff28a92811fb5a5df4489fe0eeddf1ab7c0784",
+  "obligations": [
+    {
+      "obligation": "SWF-01",
+      "parent": "UI-REQ-002",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_complete_guided_state_guard_endpoint_and_hazard_mask_matrices",
+      "local_case_result": "passed",
+      "coverage_limitation": "Complete guided phase/action/guard, endpoint and reset unit matrices now executable; independent approval remains pending.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SWF-02",
+      "parent": "UI-REQ-002",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_complete_guided_state_guard_endpoint_and_hazard_mask_matrices",
+      "local_case_result": "passed",
+      "coverage_limitation": "Complete guided phase/action/guard, endpoint and reset unit matrices now executable; independent approval remains pending.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SWF-03",
+      "parent": "M5-REQ-002",
+      "allocated_case": "test_guided.GuidedUnitTests.test_in_process_hydraulics_complete_cycle_and_patient_transactions",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SWF-04",
+      "parent": "UI-REQ-002",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_complete_guided_state_guard_endpoint_and_hazard_mask_matrices",
+      "local_case_result": "passed",
+      "coverage_limitation": "Complete guided phase/action/guard, endpoint and reset unit matrices now executable; independent approval remains pending.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SWF-05",
+      "parent": "UI-REQ-002",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_complete_guided_state_guard_endpoint_and_hazard_mask_matrices",
+      "local_case_result": "passed",
+      "coverage_limitation": "Complete guided phase/action/guard, endpoint and reset unit matrices now executable; independent approval remains pending.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SWF-06",
+      "parent": "UI-REQ-002",
+      "allocated_case": "test_guided.GuidedProcessTests.test_full_guided_cycle_preserves_water_solutes_and_stage_evidence",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SWF-07",
+      "parent": "UI-REQ-002",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_complete_guided_state_guard_endpoint_and_hazard_mask_matrices",
+      "local_case_result": "passed",
+      "coverage_limitation": "Complete guided phase/action/guard, endpoint and reset unit matrices now executable; independent approval remains pending.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SWF-08",
+      "parent": "M5-REQ-004",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_complete_guided_state_guard_endpoint_and_hazard_mask_matrices",
+      "local_case_result": "passed",
+      "coverage_limitation": "Complete guided phase/action/guard, endpoint and reset unit matrices now executable; independent approval remains pending.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SUI-01",
+      "parent": "UI-REQ-002",
+      "allocated_case": "test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SUI-02",
+      "parent": "UI-REQ-002",
+      "allocated_case": "test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SUI-03",
+      "parent": "UI-REQ-002",
+      "allocated_case": "test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SUI-04",
+      "parent": "M6-REQ-005",
+      "allocated_case": "test_device_sessions.DeviceSessionTests.test_restart_reusing_intent_number_cannot_accept_old_confirmation",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Direct old-confirmation rejection after session replacement; independent acceptance pending.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SIF-01",
+      "parent": "M1-REQ-007",
+      "allocated_case": "test_machine.MachineTests.test_lost_step_each_role_stops_and_invalidates_pending_m5_decisions",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SIF-02",
+      "parent": "REQ-002",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_all_single_and_pair_hazards_defeat_hostile_control_in_active_phases",
+      "local_case_result": "passed",
+      "coverage_limitation": "Actual plant/patient pipe campaign covers every single and pair mask in five active phases. IPC/deployment independence remains a separate gate.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SIF-03",
+      "parent": "REQ-004",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_each_freshness_fault_per_role_on_current_guided_model",
+      "local_case_result": "passed",
+      "coverage_limitation": "All five freshness faults on both roles exercised on the current guided plant. Wall-clock service loss remains separately tested.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SIF-04",
+      "parent": "M1-REQ-007",
+      "allocated_case": "test_machine.MachineTests.test_m5_wall_watchdog_terminal_state_and_observation_remain_separate",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SIF-05",
+      "parent": "M1-REQ-009",
+      "allocated_case": "test_compose_collection.ComposeCollectionTests.test_failed_extraction_keeps_volume_and_recovery_commands",
+      "local_case_result": "passed",
+      "coverage_limitation": "Direct extraction failure/retention case; other collection phases covered by adjacent suite methods.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-01",
+      "parent": "REQ-003",
+      "allocated_case": "test_physical.PhysicalProcessTests.test_real_services_and_retained_evidence",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-02",
+      "parent": "DYN-REQ-001",
+      "allocated_case": "test_dynamics.DynamicsTests.test_distributed_transit_delay_conservation_and_atomic_rejection",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-03",
+      "parent": "PHY-REQ-001",
+      "allocated_case": "test_physical.PhysicalTests.test_uf_hemoconcentration_refill_and_rbc_conservation",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-04",
+      "parent": "PHY-REQ-001",
+      "allocated_case": "test_physical.PhysicalTests.test_equations_and_limits",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-05",
+      "parent": "DYN-REQ-001",
+      "allocated_case": "test_dynamics.DynamicsTests.test_gas_pumps_balancing_and_independent_level_protection",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-06",
+      "parent": "DYN-REQ-001",
+      "allocated_case": "test_physical.PhysicalTests.test_in_process_physical_treatments",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-07",
+      "parent": "DYN-REQ-001",
+      "allocated_case": "test_dynamics.DynamicsTests.test_gas_pumps_balancing_and_independent_level_protection",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-08",
+      "parent": "DYN-REQ-001",
+      "allocated_case": "test_dynamics.DynamicsTests.test_gas_pumps_balancing_and_independent_level_protection",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-09",
+      "parent": "DYN-REQ-001",
+      "allocated_case": "test_dynamics.DynamicsTests.test_distributed_transit_delay_conservation_and_atomic_rejection",
+      "local_case_result": "passed",
+      "coverage_limitation": "Transit/atomic-rejection fixture exists; route allocation also relies on physical three-mode cycles.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-10",
+      "parent": "PHY-REQ-001",
+      "allocated_case": "test_physical.PhysicalTests.test_equations_and_limits",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-11",
+      "parent": "REQ-006",
+      "allocated_case": "test_machine.MachineTests.test_quality_detectors_trip_in_their_first_unsafe_observation_cycle",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-12",
+      "parent": "DYN-REQ-001",
+      "allocated_case": "test_dynamics.DynamicsTests.test_reference_holdout_and_discretization_are_reported",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SMOD-13",
+      "parent": "M3-REQ-001",
+      "allocated_case": "test_dynamics.DynamicsTests.test_distributed_transit_delay_conservation_and_atomic_rejection",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SEXP-01",
+      "parent": "M7-REQ-003",
+      "allocated_case": "test_experiments.ExperimentTests.test_external_stop_while_paused_aborts_without_resume_or_another_tick",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SEXP-02",
+      "parent": "M7-REQ-004",
+      "allocated_case": "test_experiments.ExperimentReviewTests.test_comparison_and_export_reject_every_contradictory_identity",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SQA-01",
+      "parent": "M8-REQ-006",
+      "allocated_case": "test_documentation.DocumentationTests.test_last_requirement_edit_invalidates_generated_candidate",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SQA-02",
+      "parent": "M8-REQ-006",
+      "allocated_case": "test_documentation.DocumentationTests.test_historical_pass_does_not_become_current_acceptance",
+      "local_case_result": "passed",
+      "coverage_limitation": "direct assertion or named fixture; current result acceptance pending",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SACC-01",
+      "parent": "REQ-001",
+      "allocated_case": "test_device_sessions.DeviceSessionTests.test_device_roles_and_old_sessions_do_not_mutate_plant",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_ui_compose.py. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SALM-01",
+      "parent": "REQ-005",
+      "allocated_case": "test_machine.MachineTests.test_ack_silence_expiration_new_alarm_and_override_never_reset",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SALM-02",
+      "parent": "REQ-005",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_complete_guided_state_guard_endpoint_and_hazard_mask_matrices",
+      "local_case_result": "passed",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SBUILD-01",
+      "parent": "M1-REQ-001",
+      "allocated_case": "test_m1.M1Processes.test_nominal_conservation_and_build_identity",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_compose.py on a Docker-capable host. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SBUILD-02",
+      "parent": "M1-REQ-001",
+      "allocated_case": "test_publication.PublicationChecks.test_actual_context_is_explicit_reviewed_subset",
+      "local_case_result": "passed",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_compose.py on a Docker-capable host. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SREP-01",
+      "parent": "M1-REQ-002",
+      "allocated_case": "test_m1.M1Processes.test_same_seed_exact_replay",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_reproducibility.py. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SREP-02",
+      "parent": "M1-REQ-002",
+      "allocated_case": "test_m1.M1Processes.test_nominal_conservation_and_build_identity",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_reproducibility.py. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SLEG-01",
+      "parent": "M1-REQ-003",
+      "allocated_case": "test_m1.M1Processes.test_zero_and_partial_flow_independent_balance",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SLEG-02",
+      "parent": "M1-REQ-003",
+      "allocated_case": "test_m1.M1Configuration.test_patient_sequence_and_conservation_long_run",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SPROT-01",
+      "parent": "M1-REQ-004",
+      "allocated_case": "test_m1.M1Processes.test_occlusion_bound_and_persistent_conflicting_commands",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SPROT-02",
+      "parent": "M1-REQ-004",
+      "allocated_case": "test_m1.M1Processes.test_protection_acts_when_control_is_killed",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SPROT-03",
+      "parent": "M1-REQ-005",
+      "allocated_case": "test_m1.M1Processes.test_occlusion_bound_and_persistent_conflicting_commands",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SPROT-04",
+      "parent": "M1-REQ-005",
+      "allocated_case": "test_m1.M1Processes.test_role_authority_and_duplicate_tick_rejection",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SOBS-01",
+      "parent": "M1-REQ-006",
+      "allocated_case": "test_m1.M1Processes.test_measurement_invalidity_bound",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SOBS-02",
+      "parent": "M1-REQ-006",
+      "allocated_case": "test_m1.M1Processes.test_control_sensor_fault_is_separate",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SREC-01",
+      "parent": "M1-REQ-008",
+      "allocated_case": "test_trajectory.TrajectoryTests.test_100000_records_rss_order_repeatability_and_hash",
+      "local_case_result": "passed",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_m1_review.py for two actual Compose runs. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SREC-02",
+      "parent": "M1-REQ-008",
+      "allocated_case": "test_trajectory.TrajectoryTests.test_killed_real_runner_retains_complete_written_prefix",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_m1_review.py for two actual Compose runs. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SHYD-01",
+      "parent": "M2-REQ-001",
+      "allocated_case": "test_circuit.CircuitTests.test_rc_solution_and_step_halving",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SHYD-02",
+      "parent": "M2-REQ-001",
+      "allocated_case": "test_circuit.CircuitTests.test_branch_resistance_clamps_and_steady_flow",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SHYD-03",
+      "parent": "M2-REQ-002",
+      "allocated_case": "test_circuit.CircuitTests.test_water_balance_independent_decimal_ledger",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SSOL-01",
+      "parent": "M2-REQ-003",
+      "allocated_case": "test_circuit.CircuitTests.test_transport_oracle_profiles_equilibrium_and_no_flow",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SCOUP-01",
+      "parent": "M2-REQ-004",
+      "allocated_case": "test_circuit.CircuitTests.test_lost_step_reply_preserves_circuit_storage_and_cancels_tick",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_models.py --compose. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SBODY-01",
+      "parent": "M3-REQ-002",
+      "allocated_case": "test_compartments.CompartmentNumerics.test_two_compartment_analytic_transient_and_convergence",
+      "local_case_result": "passed",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SBODY-02",
+      "parent": "M3-REQ-002",
+      "allocated_case": "test_compartments.CompartmentNumerics.test_100000_steps_rss_and_mass_ledger",
+      "local_case_result": "passed",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SBODY-03",
+      "parent": "M3-REQ-003",
+      "allocated_case": "test_compartments.CompartmentNumerics.test_external_inputs_generation_outputs_and_weight",
+      "local_case_result": "passed",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SBODY-04",
+      "parent": "M3-REQ-003",
+      "allocated_case": "test_compartments.CoupledProcesses.test_synthetic_scenarios_mass_water_and_profile_effect",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SCOUP-02",
+      "parent": "M3-REQ-004",
+      "allocated_case": "test_compartments.CoupledProcesses.test_repeatability_and_real_patient_failure",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_models.py --compose. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SHDF-01",
+      "parent": "M4-REQ-001",
+      "allocated_case": "test_treatment.TreatmentTests.test_modes_independent_gross_net_water_and_solutes",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SPREP-01",
+      "parent": "M4-REQ-002",
+      "allocated_case": "test_treatment.TreatmentTests.test_reservoir_analytic_mixing_temperature_and_filter_hydraulics",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SPREP-02",
+      "parent": "M4-REQ-002",
+      "allocated_case": "test_treatment.TreatmentTests.test_reservoir_first_order_convergence",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SQUAL-01",
+      "parent": "M4-REQ-003",
+      "allocated_case": "test_treatment.TreatmentTests.test_quality_latch_cannot_be_overridden_by_conflicting_control",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SQUAL-02",
+      "parent": "M4-REQ-003",
+      "allocated_case": "test_treatment.TreatmentTests.test_hidden_contamination_is_not_a_protective_sensor",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SCOUP-03",
+      "parent": "M4-REQ-004",
+      "allocated_case": "test_treatment.TreatmentTests.test_reproducibility_and_configuration_rejection",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_models.py --compose. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SPHASE-01",
+      "parent": "M5-REQ-001",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_complete_guided_state_guard_endpoint_and_hazard_mask_matrices",
+      "local_case_result": "passed",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SPROT-05",
+      "parent": "M5-REQ-003",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_all_single_and_pair_hazards_defeat_hostile_control_in_active_phases",
+      "local_case_result": "passed",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SPROT-06",
+      "parent": "M5-REQ-003",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_each_freshness_fault_per_role_on_current_guided_model",
+      "local_case_result": "passed",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SDEV-01",
+      "parent": "M5-REQ-005",
+      "allocated_case": "test_machine.MachineTests.test_device_authority_confirmation_prescription_and_stop",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_ui_compose.py for mount denial. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SCOUP-04",
+      "parent": "M5-REQ-006",
+      "allocated_case": "test_machine.MachineTests.test_hd_pre_post_lifecycle_flush_and_independent_balances",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_models.py --compose. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SLVGL-01",
+      "parent": "M6-REQ-001",
+      "allocated_case": "test_guided.GuidedUnitTests.test_guided_machine_protocol_and_actual_lvgl_view",
+      "local_case_result": "passed",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_device_ui.py and tools/verify_ui_compose.py. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SLVGL-02",
+      "parent": "M6-REQ-002",
+      "allocated_case": "test_machine.MachineTests.test_device_authority_confirmation_prescription_and_stop",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_device_ui.py for real widget paths. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SLVGL-03",
+      "parent": "M6-REQ-003",
+      "allocated_case": "test_inspection.InspectionTests.test_nested_values_bounds_missing_samples_and_session_resets",
+      "local_case_result": "passed",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SLVGL-04",
+      "parent": "M6-REQ-004",
+      "allocated_case": "test_machine.MachineTests.test_ack_silence_expiration_new_alarm_and_override_never_reset",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_ui_compose.py. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SLVGL-05",
+      "parent": "M6-REQ-006",
+      "allocated_case": "test_inspection.InspectionTests.test_history_controls_fit_and_receive_pointer_clicks_with_setup_open",
+      "local_case_result": "passed",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_device_ui.py and tools/verify_ui_compose.py. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SCON-01",
+      "parent": "M7-REQ-001",
+      "allocated_case": "test_inspection.InspectionTests.test_recorded_console_is_read_only_and_hold_freezes_samples",
+      "local_case_result": "passed",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_console.py and tools/verify_experiments_compose.py. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SCON-02",
+      "parent": "M7-REQ-002",
+      "allocated_case": "test_experiments.ExperimentTests.test_pause_liveness_immutable_configuration_exact_replay_compare_export",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SCON-03",
+      "parent": "M7-REQ-002",
+      "allocated_case": "test_experiments.ExperimentTests.test_discovered_guided_presets_launch_real_scheduled_services",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SCON-04",
+      "parent": "M7-REQ-005",
+      "allocated_case": "test_experiments.ExperimentTests.test_authentication_limits_paths_and_compare_reject_tampering",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SCON-05",
+      "parent": "M7-REQ-006",
+      "allocated_case": "test_experiments.ExperimentTests.test_failed_service_keeps_fault_manifest_and_restart_never_resumes",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_experiments_compose.py. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SSEC-01",
+      "parent": "M8-REQ-001",
+      "allocated_case": "test_device_sessions.DeviceSessionTests.test_device_roles_and_old_sessions_do_not_mutate_plant",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_ui_compose.py. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SSEC-02",
+      "parent": "M8-REQ-002",
+      "allocated_case": "test_security.SecurityTests.test_killed_broker_terminates_actual_children_preserves_unknown_stop",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SSEC-03",
+      "parent": "M8-REQ-003",
+      "allocated_case": "test_security.SecurityTests.test_strict_json_rejects_ambiguous_and_unbounded_inputs",
+      "local_case_result": "passed",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SSEC-04",
+      "parent": "M8-REQ-003",
+      "allocated_case": "test_security.SecurityTests.test_broker_four_slow_clients_are_bounded_and_recover",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SSUP-01",
+      "parent": "M8-REQ-004",
+      "allocated_case": "test_dependencies.DependencyTests.test_inventory_rejects_changed_pins_notices_and_ci_actions",
+      "local_case_result": "passed",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/dependency_report.py with actual images. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SSUP-02",
+      "parent": "M8-REQ-004",
+      "allocated_case": "test_dependencies.DependencyTests.test_container_sbom_uses_actual_image_binary_and_runtime_identities",
+      "local_case_result": "passed",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/dependency_report.py with actual images. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SSUP-03",
+      "parent": "M8-REQ-005",
+      "allocated_case": "test_dependencies.DependencyTests.test_advisory_errors_and_repeated_pages_are_blocked",
+      "local_case_result": "passed",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/security_scan.py --advisories with fresh actual inventory. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SSUP-04",
+      "parent": "M8-REQ-005",
+      "allocated_case": "test_dependencies.DependencyTests.test_advisory_pagination_preserves_all_findings",
+      "local_case_result": "passed",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/security_scan.py --advisories with fresh actual inventory. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SINT-01",
+      "parent": "M9-REQ-001",
+      "allocated_case": "test_integration.IntegrationTests.test_sustained_fixture_reaches_deliverable_gross_uf_without_alarm",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_integrated.py; this fixture is not the 72-run campaign. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SINT-02",
+      "parent": "M9-REQ-002",
+      "allocated_case": "test_integration.IntegrationTests.test_sustained_fixture_reaches_deliverable_gross_uf_without_alarm",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_integrated.py and tools/audit_campaign.py --mode resource. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SINT-03",
+      "parent": "M9-REQ-002",
+      "allocated_case": "test_dynamics.DynamicsTests.test_distributed_transit_delay_conservation_and_atomic_rejection",
+      "local_case_result": "passed",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_integrated.py and tools/audit_campaign.py --mode resource. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SINT-04",
+      "parent": "M9-REQ-003",
+      "allocated_case": "test_experiments.ExperimentTests.test_external_stop_while_paused_aborts_without_resume_or_another_tick",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_console.py and tools/verify_experiments_compose.py; WSLg assessed separately. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SINT-05",
+      "parent": "M9-REQ-004",
+      "allocated_case": "test_integration.IntegrationTests.test_package_without_git_retains_actual_failed_packaging_evidence",
+      "local_case_result": "not executed in local selection",
+      "coverage_limitation": "Named method covers a supporting case; full parent acceptance additionally requires tools/verify_package.py. No deployment pass inferred from a unit fixture.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SINT-06",
+      "parent": "M9-REQ-005",
+      "allocated_case": "test_ci.CITests.test_exact_byte_retention_includes_every_sbom_and_platform_file",
+      "local_case_result": "passed",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SVIS-01",
+      "parent": "UI-REQ-001",
+      "allocated_case": "test_inspection.InspectionTests.test_recorded_console_is_read_only_and_hold_freezes_samples",
+      "local_case_result": "passed",
+      "coverage_limitation": "Executable case allocated; execution and reviewed semantic acceptance are recorded separately.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SWIRE-01",
+      "parent": "M5-REQ-005",
+      "allocated_case": "test_document_contracts.WireWitnessTests.test_cpp_python_reject_every_documented_numeric_boundary_violation",
+      "local_case_result": "passed",
+      "coverage_limitation": "Field-by-field numeric and arity campaign; physical plausibility and clock matching remain semantic checks.",
+      "acceptance": "independent acceptance not recorded"
+    },
+    {
+      "obligation": "SWIRE-02",
+      "parent": "DYN-REQ-001",
+      "allocated_case": "test_audit_closure.AuditClosureTests.test_dynamic_initial_volume_bounds_match_actual_plant_and_patient",
+      "local_case_result": "passed",
+      "coverage_limitation": "Real C++ initialization and Python patient; no upper-domain expansion implied.",
+      "acceptance": "independent acceptance not recorded"
+    }
+  ]
+}
