@@ -28,3 +28,10 @@ The current documentation audit sampled historical records to assess provenance;
 that does not make the archive part of the official present-tense narrative or
 accept all prior results against current code. Current verification must name a
 baseline and an explicit reuse/re-execution decision.
+
+## Prior corrective baseline fda5058
+
+[Exact check report](audits/fda5058-checks.json) records the previous corrective
+source selection and 86 passing local tests. Its hashes identify that source,
+not the later signed dialysate-advection implementation. The current applicability
+decision is in [verification status](../docs/testing/STATUS.md).

@@ -72,18 +72,23 @@ increase parser bounds or container limits solely to pass a test.
 - The actual coupled plant/patient additionally executes 455 single/pair-mask cases
   in five active phases, and ten role-specific freshness faults. Injected masks
   establish arbitration; they do not prove every physical detector's sensitivity.
-- [Numerical refinement](../../assurance/audits/convergence.json) records nine runs
-  (HD/PRE/POST, three step sizes), conservation and aligned output differences.
-  Instantaneous feed/drain differences are not monotonic with refinement. Therefore
-  this is measured partial evidence, not closure of global numerical accuracy.
-  The implemented campaign steps blood/substitution; independent concentration/UF
-  steps and output accuracy budgets remain part of the wider model protocol.
-- The native 100000-tick resource campaign exercises the current distributed model
-  and streaming writer. It is not a cgroup or service-isolation test. The separate
+- [Flow refinement](FLOW_REFINEMENT.md) executes 24 analytic valve cases and 30
+  coupled runs down to 25 ms. Identical-checkpoint comparisons converge for common
+  400 ms flow averages and cumulative volume. Raw per-tick averages have unequal
+  windows; fresh-workflow runs also start from unequal states and are not uniformly
+  monotonic. A real internal reverse-advection defect is corrected and regression
+  tested. Global numerical accuracy, concentration/UF steps and approved output
+  budgets remain open; this is partial model verification.
+- The native 100000-tick resource campaign identifies the preceding `fda5058`
+  implementation and streaming writer. The changed solute model requires renewed
+  resource evidence. This native run is not a cgroup or service-isolation test. The separate
   `dynamic-resources` CI job repeats the current model twice under Compose, requires
   identical trajectory hashes and RSS<=64 MiB within the 128 MiB container limit,
   checks OOM state, and retains reports/manifests even after failure. Its result must
-  be inspected before accepting the Compose portion of CLOSE-RES-01.
+  be inspected before accepting the Compose portion of CLOSE-RES-01. On `fda5058`,
+  hosted run 38353153658 passed `verify` but `dynamic-resources` timed out after
+  2400 seconds; retained diagnostics show no OOM flag and no final runner manifest.
+  This is an incomplete run, not a resource acceptance pass.
 - Guided preset catalogue/load validation executes locally. The real broker-to-service
   launch test is included in full CI; local Unix sockets are prohibited here.
 

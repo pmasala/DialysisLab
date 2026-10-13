@@ -557,7 +557,7 @@
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -634,11 +634,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -654,7 +654,7 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "python/dialysislab/compartments.py",
@@ -727,7 +727,7 @@
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -881,11 +881,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -901,7 +901,7 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "src/online.hpp",
@@ -1301,7 +1301,7 @@
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -1427,7 +1427,7 @@
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -1472,11 +1472,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "src/circuit.hpp",
@@ -1512,11 +1512,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "src/circuit.hpp",
@@ -1552,11 +1552,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "src/circuit.hpp",
@@ -1594,11 +1594,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "python/dialysislab/circuit.py",
@@ -1643,11 +1643,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -1655,7 +1655,7 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "python/dialysislab/compartments.py",
@@ -1691,11 +1691,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "python/dialysislab/compartments.py",
@@ -1731,11 +1731,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "python/dialysislab/compartments.py",
@@ -1773,11 +1773,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "python/dialysislab/runner.py",
@@ -1813,11 +1813,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "python/dialysislab/compartments.py",
@@ -1854,11 +1854,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "src/online.hpp",
@@ -1896,11 +1896,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "src/plant.cpp",
@@ -1939,11 +1939,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "python/dialysislab/runner.py",
@@ -2038,7 +2038,7 @@
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -2187,7 +2187,7 @@
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -2579,7 +2579,7 @@
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -2841,7 +2841,7 @@
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -2931,7 +2931,7 @@
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -3471,7 +3471,7 @@
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -3483,7 +3483,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "84484f6b8d7feef8dc8b135383cd43d18c54ce5703711afdc244132befc3fcbb"
+          "sha256": "7c52b24fdce2ea2f4562dea66e970806ceef424d37ae6b796670e69c357f80c1"
         },
         {
           "path": "tests/test_ci.py",
@@ -3707,7 +3707,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "84484f6b8d7feef8dc8b135383cd43d18c54ce5703711afdc244132befc3fcbb"
+          "sha256": "7c52b24fdce2ea2f4562dea66e970806ceef424d37ae6b796670e69c357f80c1"
         },
         {
           "path": "tools/package_release.py",
@@ -3922,7 +3922,7 @@
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -4043,11 +4043,11 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -4059,7 +4059,7 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "python/dialysislab/compartments.py",
@@ -4180,7 +4180,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "0725b761b8684d085e29e7d8316e06ae7cccc042edf1d3777d9445979e34e23e"
+          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
         },
         {
           "path": "docs/images/physical-circuit.svg",
@@ -4188,7 +4188,7 @@
         },
         {
           "path": "docs/testing/CLOSURE.md",
-          "sha256": "369e5290bb9f4a6d642f0ab072f7323137fcd57d453ccd06f27afd030b9ee02d"
+          "sha256": "d5d4ead9881a1818876e14bd252ed51896981fcfa144a91ddffd03717a44d25c"
         },
         {
           "path": "docs/testing/COVERAGE.md",
@@ -4200,7 +4200,7 @@
         },
         {
           "path": "docs/testing/MODELS.md",
-          "sha256": "f8ea0cf5350f35c19a50bc874fa5e195481b2d35c5b34d90aaef63a4c27c4951"
+          "sha256": "29aa7ca693cba9259114e4baac2b6338de0fb1c02741e361d450e0f5ca2f8afd"
         },
         {
           "path": "python/dialysislab/calibration.py",
@@ -4216,7 +4216,7 @@
         },
         {
           "path": "python/dialysislab/distributed.py",
-          "sha256": "ec592f0edc8c73e182dbf9cfb5610eeee84e586f87cdce24ba1a8e9b929b9b37"
+          "sha256": "43d74201c654bd375c35e79e81298c5fada2e15562768c821e59a2bfba52f7d1"
         },
         {
           "path": "python/dialysislab/machine.py",
@@ -4333,6 +4333,22 @@
         {
           "path": "tools/verify_models.py",
           "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
+        },
+        {
+          "path": "docs/testing/FLOW_REFINEMENT.md",
+          "sha256": "bebf4afc25ecc87121b24f4c6cbf87031344653d89cf0a279c636a775cbb3123"
+        },
+        {
+          "path": "tests/test_flow_refinement.py",
+          "sha256": "12cd52a8ed91590895b998ec33c9deae7d06ddfa9b0e636eaba1df03c3f5dfed"
+        },
+        {
+          "path": "tests/flow_valves.cpp",
+          "sha256": "4ee3123fa9da6454b0d77dd2b146982ecc068dde69e23454c7a6681539d7cf59"
+        },
+        {
+          "path": "tools/flow_refinement.py",
+          "sha256": "0291f2fc788c9be2d4a5d6b0326be9c7f3e6851197fa2585b81a80121b27a23e"
         }
       ],
       "unresolved": [

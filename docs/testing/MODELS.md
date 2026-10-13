@@ -2,7 +2,7 @@
 
 Document ID STP-MOD; revision 1; proposed protocol. Requirements: REQ-003/006,
 M2-REQ-001…004, M3-REQ-001…004, M4-REQ-001…004, PHY-REQ-001, DYN-REQ-001.
-Apply [master evidence rules](PLAN.md); no new execution is claimed here.
+Apply [master evidence rules](PLAN.md). The executed [flow refinement protocol](FLOW_REFINEMENT.md) distinguishes common-window comparisons, initial-state effects and internal transport reversal.
 
 ## Setup and oracles
 

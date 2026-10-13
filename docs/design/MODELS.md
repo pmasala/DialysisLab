@@ -92,7 +92,18 @@ meter error are not represented merely by showing animated valves.
 
 The distributed blood compartments are arterial tube, arterial chamber, twelve
 filter segments, venous chamber and venous tube. PRE enters the first filter segment;
-POST enters the venous chamber. Twelve dialysate cells flow countercurrently.
+POST enters the venous chamber. Twelve dialysate cells normally flow countercurrently.
+During a balancing-valve hold, local filtration and compliant storage can temporarily
+reverse flow between two dialysate cells. The implicit transport uses the concentration
+of the actual donor cell on each face; the same transferred mass leaves that cell and
+enters its neighbour. External feed and drain remain nonnegative. This is internal
+fluid redistribution, not membrane backfiltration or reverse flow into the supply.
+See the [flow verification protocol](../testing/FLOW_REFINEMENT.md).
+
+Recorded `feed_mL_min` and `drain_mL_min` are transferred volume divided by the
+current tick duration. They are interval averages, not instantaneous samples. A
+30 ms valve closure affects a 25 ms average differently from a 400 ms average;
+compare integrated volumes or averages over identical observation windows.
 The Python solve retains red-cell volume, protein mass and six solute inventories.
 Red cells/proteins do not cross the membrane. Solutes cross by local diffusion and
 sieved convection. Concentration times volume, with the unit conversion, gives mass.

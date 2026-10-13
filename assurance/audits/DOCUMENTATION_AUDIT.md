@@ -1,8 +1,8 @@
 # Current documentation audit and corrective-action record
 
-Document ID AUD-DOC-01; revision 3; audit date 2026-10-12. Implementation assessed: the corrective candidate identified by source hashes in
-[checks.json](checks.json), [convergence.json](convergence.json) and the native
-resource report. It changes runtime code relative to main
+Document ID AUD-DOC-01; revision 4; audit date 2026-10-13. Implementation assessed: the corrective candidate identified by source hashes in
+[checks.json](checks.json) and [flow-refinement.json](flow-refinement.json). Earlier
+resource and refinement records retain their explicit previous-source identities. It changes runtime code relative to main
 `602e8dab8e65efdb0bc8db1051ce0006f0d3adfd`; earlier CI is not reused as a pass for
 these changes. Git identifies the complete published candidate.
 
@@ -55,7 +55,7 @@ counts from different checkers, not 400 independent nonconformities.
 | DOC-04 / major | REQ-003 uses “independently justified tolerances”; DYN-REQ-001 combines many behaviors; design records often contain only a sentence. Complete atomic coverage and justified operating limits are not approved. | Requirements/safety owners: decompose compound obligations, allocate measurable limits, map each to design and test without deleting parent obligations. | 99 detailed acceptance obligations now allocate all 60 parents to design and actual executable methods. Remaining coverage limitations are explicit. Scientific accuracy budgets and independent semantic approval remain open |
 | DOC-05 / major | No requirement has a recorded independent reviewer. Formal safety classification, essential performance and quantitative risk acceptance are open in SAFETY_SECURITY and prerequisites. | Safety/quality owners: appoint competent reviewers, justify class/applicability, complete risk-control and residual-risk decisions. | Open; blocks approval claims |
 | DOC-06 / major | Historical 50 passed / 9 blocked / 6 planned test records do not by themselves establish current requirement acceptance; current full software run is broader but not a reviewed coverage argument. | Verification owner: approve current case-to-obligation coverage and identified execution/reuse decisions; close each missing case. | Current allocation matrix covers all parent IDs and checks method existence. Actual case results are recorded separately in checks.json; unexecuted IPC/Compose cases and partial acceptance scopes remain explicit |
-| DOC-07 / major | New guided/physical/distributed behavior lacks a complete approved boundary matrix, combined-fault rationale and global convergence/uncertainty envelope. Long legacy runs do not establish every maximum-size dynamic case. | Model/verification owners: execute prospective WF/MOD/FAIL gaps, predeclare error/resource criteria, review independence of oracles. | Executed state/action, endpoint, all-mask, actual coupled single/pair-mask and freshness campaigns; measured three-mode step refinement and a 100000-tick native run. Global accuracy remains unresolved, including nonmonotonic instantaneous feed/drain refinement. Separate current-model Compose job added; execution pending |
+| DOC-07 / major | New guided/physical/distributed behavior lacks a complete approved boundary matrix, combined-fault rationale and global convergence/uncertainty envelope. Long legacy runs do not establish every maximum-size dynamic case. | Model/verification owners: execute prospective WF/MOD/FAIL gaps, predeclare error/resource criteria, review independence of oracles. | Executed state/action, endpoint, all-mask, actual coupled single/pair-mask and freshness campaigns; measured three-mode step refinement and a 100000-tick native run. Common-window/checkpoint flow refinement now decreases; internal reverse-advection defect corrected. Global accuracy remains open. Preceding-source Compose job timed out; current-head resource acceptance pending |
 | DOC-08 / major | Public urea fit covers only selected clearance points; chamber/controller/rheology/electrolyte/refill parameters lack independent measurements. | Model owner: measurement protocol, identified data and rights, uncertainty/identifiability, independent validation envelope. | STP-CAL now specifies per-model measurements, provenance, uncertainty, holdout and predeclared acceptance worksheet. Actual measurements and approved accuracy budgets remain open |
 | DOC-09 / major | Test and capture evidence is software-oriented; representative-user critical tasks, alarm performance and downstream physical/clinical evidence remain absent. | Usability/product owners: approved validation protocols and actual reviewed evidence for declared use. | Open; a simulator screen cannot close device obligations |
 | DOC-10 / major | Shared host/protocol/plant are common causes; threat/dependency registers retain open dispositions. Separation is not independence. | Security/safety owners: current inventories, adversarial coverage and accepted residual/common-cause risks. | Current protective/security design records controls, event sequences, detector limits and seven trust/common-cause boundaries. Fresh native dependency inventory generated; local static/image scan blocked by absent tools. Formal risk and dependency acceptance remain external |
@@ -115,12 +115,14 @@ actual coupled plant/patient also receives 455 single/pair-mask challenges in fi
 active phases and ten role-specific freshness faults. Injecting a mask proves
 arbitration, not that every physical hazard is observable by a real sensor.
 
-Nine numerical runs compare HD/PRE/POST at 400/200/100 ms with aligned samples and
-blood/substitution steps. Pressure, level and concentration differences generally
-decrease; instantaneous feed/drain differences do not. This observed limitation
-keeps global numerical-accuracy acceptance open. A 100000-tick actual-model native
-run passes conservation and bounded-memory checks; Compose isolation, cgroup peak
-memory and real service transport require the separate hosted campaign.
+The [flow investigation](../../docs/testing/FLOW_REFINEMENT.md) distinguishes
+unequal averaging windows and initial states from numerical error. Thirty coupled
+runs at 400/200/100/50/25 ms and 24 independent analytic valve cases support the
+corrected signed internal advection. Identical-checkpoint common-window differences
+decrease; independently prepared workflows are not uniformly monotonic. Global
+numerical-accuracy acceptance remains open. Previous 100000-tick native evidence
+identifies `fda5058`; its hosted `verify` passed but the separate resource job timed
+out. The changed model needs current-head process/resource evidence.
 
 The [protective/security design](../../docs/design/SAFETY_SECURITY.md) supplies the
 current engineering failure and trust-boundary analysis. [STP-CAL](../../docs/testing/MEASUREMENTS.md)

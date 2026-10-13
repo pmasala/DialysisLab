@@ -796,6 +796,14 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 - `test_experiments.ExperimentReviewTests.test_restarted_inventory_selects_latest_creation_times_not_random_ids`
 - `test_experiments.ExperimentReviewTests.test_unauthenticated_header_does_not_disclose_experiment_state`
 
+### [tests/test_flow_refinement.py](../../tests/test_flow_refinement.py)
+
+- `test_flow_refinement.FaceAdvectionTests.test_both_directions_match_closed_two_cell_mass_solution`
+- `test_flow_refinement.FaceAdvectionTests.test_random_internal_reversals_conserve_mass_and_preserve_bounds`
+- `test_flow_refinement.FaceAdvectionTests.test_external_flow_reversal_remains_rejected_atomically`
+- `test_flow_refinement.FlowRefinementTests.test_valve_volume_and_event_times_match_analytic_pulse_train`
+- `test_flow_refinement.FlowRefinementTests.test_fine_step_coupled_hd_and_hdf_accept_internal_reversals`
+
 ### [tests/test_gui_dependencies.py](../../tests/test_gui_dependencies.py)
 
 - `test_gui_dependencies.GuiDependencyTests.test_verified_archive_does_not_authorize_modified_extracted_sources`
