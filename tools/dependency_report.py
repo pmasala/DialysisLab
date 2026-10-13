@@ -131,10 +131,18 @@ def application_bom(data,identity,build_dir=None,binary_hashes=None,runtime_hash
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--build-dir',type=Path,required=True)
-    parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--check-only',action='store_true',help='Validate reviewed source/CI dependency metadata without a build, Docker or network')
+    parser.add_argument('--build-dir',type=Path)
+    parser.add_argument('--output',type=Path)
     parser.add_argument('--images',nargs='*',default=[])
-    args=parser.parse_args();args.output.mkdir(parents=True,exist_ok=False)
+    args=parser.parse_args()
+    if args.check_only:
+        data=check(ROOT)
+        print(json.dumps(dict(successful=True,reviewed_files=len(data['reviewed_files']),
+                              ci_tools=len(data['ci_tools']),scope='Source dependency metadata only; no built-image or SBOM acceptance')))
+        return
+    if args.build_dir is None or args.output is None:parser.error('--build-dir and --output are required for SBOM generation')
+    args.output.mkdir(parents=True,exist_ok=False)
     data=check(ROOT);identity=build_identity(args.build_dir);expected=source_hashes(ROOT)
     if identity['source_sha256']!=expected:raise ValueError('native build inputs are stale; reconfigure/rebuild')
     def write(name,value):

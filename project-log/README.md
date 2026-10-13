@@ -42,3 +42,14 @@ decision is in [verification status](../docs/testing/STATUS.md).
 40 selected regression passes and the numerical refinement campaign before the CI
 policy/diagnostic change. Its workflow 38361819029 passed `verify`; the long Compose
 job timed out. See current [CI policy](../docs/testing/CI.md).
+
+## CI dependency mismatch on c3cf4fb
+
+Run 38369789862 passed the short Compose lifecycle but failed general verification.
+The unchanged-byte [CI report](audits/c3cf4fb-ci-report.json) and
+[error log](audits/c3cf4fb-dependency-failure.md) identify the reviewed workflow hash
+mismatch. Each 208-test native/sanitizer suite had four dependency errors and 204
+passes. The correction's workflow review found only the previously requested short
+PR gate, explicit manual endurance and bounded wall budgets: no new action, token,
+permission, application library or container base. Only that reviewed hash was
+updated. Fail-fast validation was added without bypassing the existing checker.

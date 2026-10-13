@@ -688,6 +688,8 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 
 ### [tests/test_ci.py](../../tests/test_ci.py)
 
+- `test_ci.CITests.test_actual_stale_workflow_stops_ci_and_retains_diagnostic`
+- `test_ci.CITests.test_failed_dependency_preflight_stops_before_download_build_and_tests`
 - `test_ci.CITests.test_release_checker_crash_and_timeout_fail_actual_orchestration`
 - `test_ci.CITests.test_only_valid_outstanding_release_obligations_are_exempt`
 - `test_ci.CITests.test_exact_byte_retention_includes_every_sbom_and_platform_file`
@@ -741,6 +743,7 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 
 ### [tests/test_dependencies.py](../../tests/test_dependencies.py)
 
+- `test_dependencies.DependencyTests.test_check_only_needs_no_build_and_still_rejects_unreviewed_workflow`
 - `test_dependencies.DependencyTests.test_container_sbom_uses_actual_image_binary_and_runtime_identities`
 - `test_dependencies.DependencyTests.test_inventory_rejects_changed_pins_notices_and_ci_actions`
 - `test_dependencies.DependencyTests.test_sbom_reproducible_and_actual_binary_hashes`

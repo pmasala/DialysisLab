@@ -1,16 +1,31 @@
 # Current baseline: verification and acceptance
 
-Document ID SVR-01; revision 5; prepared 2026-10-13; approval pending.
+Document ID SVR-01; revision 6; prepared 2026-10-13; approval pending.
 This is the current applicability decision. Exact source identities and executed
 checks are in [checks.json](../../assurance/audits/checks.json); the containing Git
 commit identifies the complete candidate. Main `602e8dab8e65efdb0bc8db1051ce0006f0d3adfd`
 is the change base. Earlier execution records are not automatically current passes.
 
+## Current dependency correction
+
+The `c3cf4fb` general CI failed because its updated workflow hash was missing from
+`dependency_inventory.json`. Four dependency tests failed in each of the native
+and sanitizer suites; their other 204 tests passed, including the new real-service
+progress/abort test. The [original CI report](../../project-log/audits/c3cf4fb-ci-report.json)
+and [dependency error](../../project-log/audits/c3cf4fb-dependency-failure.md) are retained.
+The short Compose job and the general job's model/UI/process integration steps passed.
+
+The current correction records the reviewed workflow identity and adds a build-free
+check at the start of CI. No application equations, runtime behavior, dependency
+versions, container pins or mismatch-rejection rules change. Current local regression,
+native core SBOM and structural results are in the audit check report. Full hosted
+acceptance still belongs to the exact current head's Actions run.
+
 ## Current CI policy
 
 The [CI protocol](CI.md) defines the new PR gate: two complete HDF POST cycles with
 ten minutes of simulated therapy, plus retained phase/count/throughput diagnostics.
-The 100000-step campaign remains a manual `dynamic-endurance` job. The current
+The 100000-step campaign remains a manual `dynamic-endurance` job. The preceding
 [CI regression report](../../assurance/audits/ci-regressions.json) identifies local
 execution; actual current-head Compose acceptance must be inspected in Actions.
 The earlier `2332ee6` hosted run 38361819029 passed `verify` and timed out in the

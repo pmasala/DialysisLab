@@ -1,8 +1,21 @@
 # CI: short lifecycle and separate endurance campaign
 
-Document ID STP-CI; revision 1; engineering verification, approval pending.
+Document ID STP-CI; revision 2; engineering verification, approval pending.
 The PR gate gives quick feedback on complete behavior. Endurance remains a separate
 obligation: passing a short run does not close [CLOSE-RES-01](CLOSURE.md).
+
+## Source dependency check before expensive work
+
+Run `python3 tools/dependency_report.py --check-only` before publishing. It checks
+reviewed-file hashes, dependency/license metadata, action declarations and container
+pins without a build, Docker or network. A changed reviewed file requires assessing
+its actual impact and updating only its corresponding hash; automatic hash refresh
+is not an acceptable review.
+
+The general CI executes this same check first with a 60-second limit. A mismatch,
+checker failure or timeout ends that job before downloads/builds/tests and preserves
+its failed report and diagnostic log. It does not replace the later SBOM/image
+checks, which still require actual built binaries and containers.
 
 ## On every pull request and push
 

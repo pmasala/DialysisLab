@@ -1,10 +1,25 @@
 {
   "schema_version": 1,
-  "executed_at": "2026-10-13T08:29:39.221987+00:00",
+  "executed_at": "2026-10-13T09:16:47.314299+00:00",
   "change_base": "602e8dab8e65efdb0bc8db1051ce0006f0d3adfd",
-  "previous_candidate": "2332ee6f8dbf8eb1f4384c619f19b5a71dd4ad08",
-  "scope": "Short PR lifecycle gate, opt-in manual endurance, progress sidecar and streamed Compose diagnostics. Local actual pipe model runs and helper/structural checks; current hosted IPC/Compose execution pending. Short success does not close endurance or independent acceptance.",
+  "previous_candidate": "c3cf4fba3d55564da2fa9962674cdcf09fed98a9",
+  "scope": "Correct reviewed workflow identity and add build-free, fail-fast dependency validation. Runtime and numerical code unchanged. Local dependency/CI and structural verification; full current-head hosted result remains separate.",
   "steps": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "tools/dependency_report.py",
+        "--check-only"
+      ],
+      "exit_code": 0,
+      "output_sha256": "21d4504a159ca16abf5263edcd4630be6441cd8a0f2adabe07f97e4f8eec0507",
+      "summary": {
+        "successful": true,
+        "reviewed_files": 7,
+        "ci_tools": 0,
+        "scope": "Source dependency metadata only; no built-image or SBOM acceptance"
+      }
+    },
     {
       "command": [
         "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
@@ -61,9 +76,9 @@
         "tools/check_publication.py"
       ],
       "exit_code": 0,
-      "output_sha256": "5677fd0b0a6c8920bd0cd3af64622edf8ad37c2ad1309eff95c33342ea69a4cf",
+      "output_sha256": "737b614cdab837be81414213757edd79a83547f250ecaa45f0e0df9ab98a4608",
       "summary": {
-        "reviewed_public_files": 660,
+        "reviewed_public_files": 664,
         "docker_context_files": 89,
         "scope": "Allowlist/format checks; not a substitute for content/rights review."
       }
@@ -80,92 +95,64 @@
     }
   ],
   "local_regressions": {
-    "report": "assurance/audits/ci-regressions.json",
-    "sha256": "4afb965dd205ca7786fc0682a8e0dfc981dce248636b93a8926e1a72b712ce6e",
-    "tests_run": 26,
+    "report": "assurance/audits/dependency-regressions.json",
+    "sha256": "5f91bcf55fb315aa18ebc6b92526cf528a5485aa00547212719895acffdd0076",
+    "tests_run": 22,
     "successful": true
   },
-  "scheduled_lifecycle": {
-    "scope": "Actual plant/patient pipe harness, no RPC/container claim",
-    "ticks_per_run": 1440,
-    "repetitions": 2,
-    "trajectory_sha256": "eb93ada7fb071080ef2d6cca71d789f8ad2807cf065721eed41d93d16e835452",
-    "acceptance": {
-      "integrated_treatment_ms": 600000,
-      "treatment_ticks": 1199,
-      "treatment_elapsed_ms": 600000,
-      "stage_order": [
-        "SELF_TEST",
-        "PREPARATION",
-        "PRIMING",
-        "CONFIGURATION",
-        "CONNECTED",
-        "TREATMENT",
-        "FINISHED",
-        "RETURNING",
-        "DISCONNECTING",
-        "DISCONNECTED",
-        "CLEANING",
-        "CLEANED"
-      ],
-      "stages": [
-        "CLEANED",
-        "CLEANING",
-        "CONFIGURATION",
-        "CONNECTED",
-        "DISCONNECTED",
-        "DISCONNECTING",
-        "FINISHED",
-        "PREPARATION",
-        "PRIMING",
-        "RETURNING",
-        "SELF_TEST",
-        "TREATMENT"
-      ],
-      "first_alarm_ms": null,
-      "expected_mask": null,
-      "first_expected_alarm_ms": null,
-      "first_quality_ms": null,
-      "recovered": false
-    }
+  "workflow_review": {
+    "path": ".github/workflows/verify.yaml",
+    "sha256": "89b67f35f39cd43a261405dd4cd81deb0e18f63df1cb7e1a0ca80249b1cd72a6",
+    "scope": "Short PR scenario and optional manual endurance with bounded selectable wall budgets. No added actions, credentials, permissions, libraries or container pins. Only the corresponding reviewed inventory hash changes; mismatch rejection is retained.",
+    "kind": "Author engineering assessment, not independent approval"
   },
-  "hosted_only_test": "test_ci_lifecycle.HostedRunnerProgressTests.test_real_runner_progress_and_aborted_prefix; allocated to full CI, not executed locally",
-  "review": {
-    "kind": "Author engineering review, not independent approval",
-    "scope": "Phase/duration guards, unmodified long fixture, log timeout, atomic sidecar and source/evidence applicability",
-    "disposition": "Continuous log output cannot bypass the wall deadline; short lifecycle and endurance remain separate decisions."
+  "previous_hosted_failure": {
+    "run_id": 38369789862,
+    "head": "c3cf4fba3d55564da2fa9962674cdcf09fed98a9",
+    "report": "project-log/audits/c3cf4fb-ci-report.json",
+    "dependency_error": "project-log/audits/c3cf4fb-dependency-failure.md",
+    "native_tests": {
+      "run": 208,
+      "passed": 204,
+      "dependency_errors": 4
+    },
+    "sanitizer_tests": {
+      "run": 208,
+      "passed": 204,
+      "dependency_errors": 4
+    },
+    "dynamic_resources": "passed two full ten-minute Compose lifecycles",
+    "general_verify": "failed dependency hash check; other model/UI/process integration steps passed"
   },
   "historical_records": {
     "evidence_files_unchanged": 385,
     "trace_test_records_unchanged": 65,
-    "previous_checks": "project-log/audits/2332ee6-checks.json",
-    "previous_checks_sha256": "0957bd2334a74e737237e4d82962b5cd703ac2a22e95871527287766e503c4eb"
+    "previous_checks": "project-log/audits/c3cf4fb-checks.json",
+    "previous_checks_sha256": "a6471a56cc74b228e7ef6948f15b455a94f999faaf6eaff88e82daf9ccff85d5"
   },
   "environment": {
     "unix_socket": "Blocked locally by EPERM",
     "docker": "unavailable",
-    "local_harness": "actual C++ plant and Python patient through pipes"
+    "local_build": "Actual core binaries via g++ -std=c++17 -O2; current local application SBOM embeds identities. No new GUI/image build claim."
   },
   "candidate_file_sha256": {
-    ".github/workflows/verify.yaml": "89b67f35f39cd43a261405dd4cd81deb0e18f63df1cb7e1a0ca80249b1cd72a6",
-    "assurance/audits/DOCUMENTATION_AUDIT.md": "e3b671fced6752a7a7958185a55b366f9b7d5b122b62f66c10528137d5d1d50c",
-    "assurance/audits/ci-regressions.json": "4afb965dd205ca7786fc0682a8e0dfc981dce248636b93a8926e1a72b712ce6e",
-    "assurance/traceability.json": "80004df9aeb27f690c7ca923c86b4757ee58fc408fe877ccfe8a29993ddadced",
-    "docs/DEVELOPMENT.md": "5269d33dcd888b9548ad6ef717bc130ff661dad8ea7fc4346d1ce196ebbfc712",
-    "docs/document-set.json": "b193d79eea347a16692ab3984c43c646526b73696e15690cb33da08d1fc4bf3a",
-    "docs/testing/CATALOG.md": "604564ab8f80340f3bb04779dcea37ed785866e437f7af1a327140aaafcdd3e1",
-    "docs/testing/CI.md": "2ab7ac98c36c7b8255a36daa5921579c928ea3f31b4a879897c1caf338981213",
-    "docs/testing/CLOSURE.md": "016e3bfba813f885f4e67e08aedcde18a8eb5d1d0decef791d890e723036bc40",
-    "docs/testing/STATUS.md": "c5b7ab25849f0edaceffc573a2a17b229bc515a202b460ad4e7fcf61528c1dcc",
-    "project-log/README.md": "57a302a7a66538d615ac240c6845b510c0c0013ea37ac5d980e573ef76f29c68",
-    "project-log/audits/2332ee6-checks.json": "0957bd2334a74e737237e4d82962b5cd703ac2a22e95871527287766e503c4eb",
-    "publication_manifest.json": "ab118eceb19255f15c68961a28171a4ab62621557aa9ee1b4deb7a1a6592d12e",
-    "python/dialysislab/runner.py": "923a1ba0b38e2f420be6df30e481fcb47f5b5d71c4cee01d1cab6bd75714bee1",
-    "tests/test_ci_lifecycle.py": "3a6f718533112df324478b1d1b7cf96a30640f4fd1d618771ea371a5feb46cf5",
-    "tools/retain_dynamic_resources.py": "b6a4ed878ed5352ed85ab1347bb3445b7dece248a666e76b2f3b734097ddc9d6",
-    "tools/verify_compose.py": "c9449f28a98ce9863f38e58ff49f5823a807f5e0a64688e40337bd4ce8202ee4",
-    "tools/verify_integrated.py": "7333e9bddca3121862bc57db92eaf728ccd42415839caf8ebb60f95941c74dbe"
+    "AGENTS.md": "b060d60afb6ddd67840cd3478f2b6288340fa97651ecad3d592c5fbaa13a37bb",
+    "assurance/audits/dependency-regressions.json": "5f91bcf55fb315aa18ebc6b92526cf528a5485aa00547212719895acffdd0076",
+    "assurance/traceability.json": "5fe8d7faf6732d4a8cdfbf8f56d6ae743a6a3520e821967101174792b89eec35",
+    "dependency_inventory.json": "58e79b9063cb489f3b84958130a931df23a819580d5ab82af972994534b0d320",
+    "docs/testing/CATALOG.md": "ffb2d625ab8e96fcc8d9d6983b40f6894049d5b2321d774fe0f838f78bf10a76",
+    "docs/testing/CI.md": "7ceb780c28b71942341221977a7203727af3f0652ffdb57ae647c8a34f4f687d",
+    "docs/testing/STATUS.md": "c653577cc9ad2d3ef7f5b1ff24f4ea2d84f216c9b4141f24dfb145a639b61ee5",
+    "project-log/README.md": "98568dd594a3c165a2ab124d67a1e11b4a425e65d8685acb041c8e483a6d917c",
+    "project-log/audits/c3cf4fb-checks.json": "a6471a56cc74b228e7ef6948f15b455a94f999faaf6eaff88e82daf9ccff85d5",
+    "project-log/audits/c3cf4fb-ci-report.json": "67615b2146fea55f0020327857002addb608a30694c620c180ab30e2c1d32972",
+    "project-log/audits/c3cf4fb-dependency-failure.md": "c9104e46fa65ea4d09ef79621e4a9b8252ba87387b35ec277bedeba15c9c27b6",
+    "publication_manifest.json": "99775f2d277f6563a3527eda64f8a26566c7070240d4ade89ad046d68b0861a3",
+    "tests/test_ci.py": "883100fdc6b402b515f0f7fe14786046a7450543d1cbb0aa33b7b7e36f9888ae",
+    "tests/test_dependencies.py": "5fb93006d7fc6ab4fee2acb7b5dc29e432e84ea8a90118909d15989540b95be1",
+    "tools/ci_verify.py": "ef0059bf2a4336d87f9885762c2ef9abe13b8c1f2bf227b33cbde3c9891f7418",
+    "tools/dependency_report.py": "c4ff7b8deef14181a141ab7424ae74ca04a3964203dae431d04b7a980b466064"
   },
-  "hash_scope": "Changed/new candidate files except this self-referential check report. Runtime/test identities also retained in ci-regressions.json. Git identifies the complete candidate.",
+  "hash_scope": "Changed/new candidate files except this self-referential check report. Regression report separately identifies tested sources and local core build. Git identifies the complete candidate.",
   "successful": true
 }
