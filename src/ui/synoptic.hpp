@@ -14,15 +14,16 @@ struct View {
     Stroke *blood_rotor,*sub_rotor;
     lv_obj_t *arterial_fill=nullptr,*venous_fill=nullptr,*balance_text=nullptr,*balance_fill=nullptr;
     std::vector<lv_obj_t*> level_symbols,balance_symbols;
+    bool light=false;
     static constexpr uint32_t blood=0xf2697d,water=0x42c2e2,sub=0xb495fa;
-    lv_obj_t* label(int x,int y,int width,const char* text){auto* l=lv_label_create(root);lv_obj_set_pos(l,x,y);lv_obj_set_width(l,width);lv_obj_set_style_text_color(l,lv_color_hex(0xeaf1f8),0);lv_label_set_text(l,text);return l;}
+    lv_obj_t* label(int x,int y,int width,const char* text){auto* l=lv_label_create(root);lv_obj_set_pos(l,x,y);lv_obj_set_width(l,width);lv_obj_set_style_text_color(l,lv_color_hex(light?0x142d4e:0xeaf1f8),0);lv_label_set_text(l,text);return l;}
     Stroke* line(int x,int y,int a,int b,uint32_t color){
         auto s=std::make_unique<Stroke>();s->points={{{static_cast<lv_value_precise_t>(x),static_cast<lv_value_precise_t>(y)},{static_cast<lv_value_precise_t>(a),static_cast<lv_value_precise_t>(b)}}};
-        s->object=lv_line_create(root);lv_line_set_points_mutable(s->object,s->points.data(),2);lv_obj_set_style_line_color(s->object,lv_color_hex(color),0);lv_obj_set_style_line_width(s->object,3,0);auto* result=s.get();strokes.push_back(std::move(s));return result;
+        s->object=lv_line_create(root);lv_line_set_points_mutable(s->object,s->points.data(),2);lv_obj_set_style_line_color(s->object,lv_color_hex(light?(color==blood?0xb4425d:color==water?0x087f8c:color==sub?0x7356a6:color):color),0);lv_obj_set_style_line_width(s->object,3,0);auto* result=s.get();strokes.push_back(std::move(s));return result;
     }
-    void box(int x,int y,int w,int h,uint32_t color,bool circle=false){auto* o=lv_obj_create(root);lv_obj_set_pos(o,x,y);lv_obj_set_size(o,w,h);lv_obj_set_scrollable(o,false);lv_obj_set_style_bg_color(o,lv_color_hex(0x142536),0);lv_obj_set_style_border_color(o,lv_color_hex(color),0);lv_obj_set_style_border_width(o,2,0);lv_obj_set_style_radius(o,circle?LV_RADIUS_CIRCLE:3,0);}
-    View(lv_obj_t* screen,int kind=0){
-        root=lv_obj_create(screen);lv_obj_set_pos(root,30,126);lv_obj_set_size(root,635,338);lv_obj_set_scrollable(root,false);lv_obj_set_style_pad_all(root,0,0);lv_obj_set_style_text_color(root,lv_color_hex(0xeaf1f8),0);lv_obj_set_style_border_width(root,0,0);lv_obj_set_style_bg_color(root,lv_color_hex(0x142536),0);
+    void box(int x,int y,int w,int h,uint32_t color,bool circle=false){auto* o=lv_obj_create(root);lv_obj_set_pos(o,x,y);lv_obj_set_size(o,w,h);lv_obj_set_scrollable(o,false);lv_obj_set_style_bg_color(o,lv_color_hex(light?0xffffff:0x142536),0);lv_obj_set_style_border_color(o,lv_color_hex(light?(color==blood?0xb4425d:color==water?0x087f8c:color==sub?0x7356a6:color):color),0);lv_obj_set_style_border_width(o,2,0);lv_obj_set_style_radius(o,circle?LV_RADIUS_CIRCLE:3,0);}
+    View(lv_obj_t* screen,int kind=0):light(kind!=0){
+        root=lv_obj_create(screen);lv_obj_set_pos(root,30,126);lv_obj_set_size(root,635,338);lv_obj_set_scrollable(root,false);lv_obj_set_style_pad_all(root,0,0);lv_obj_set_style_text_color(root,lv_color_hex(light?0x142d4e:0xeaf1f8),0);lv_obj_set_style_border_width(root,0,0);lv_obj_set_style_bg_color(root,lv_color_hex(light?0xffffff:0x142536),0);
         blood_label=label(10,5,600,"Blood -- mL/min | UF -- mL/min");
         line(40,75,575,75,blood);line(575,75,575,130,blood);line(575,130,40,130,blood);line(40,130,40,75,blood);
         box(20,64,45,45,blood);label(8,142,110,"Patient");
@@ -45,7 +46,7 @@ struct View {
     }
     lv_obj_t* fill(int x,int y,int width,int height,uint32_t color){
         auto* o=lv_obj_create(root);lv_obj_set_pos(o,x,y);lv_obj_set_size(o,width,height);
-        lv_obj_set_style_bg_color(o,lv_color_hex(color),0);lv_obj_set_style_border_width(o,0,0);
+        lv_obj_set_style_bg_color(o,lv_color_hex(light?(color==blood?0xb4425d:color==water?0x087f8c:color==sub?0x7356a6:color):color),0);lv_obj_set_style_border_width(o,0,0);
         lv_obj_set_style_radius(o,0,0);lv_obj_set_scrollable(o,false);return o;
     }
     void levels(bool active,double a,double v){

@@ -104,8 +104,8 @@
     "cmake/Gui.cmake": "f6375c5145c230b40a48e6a1174fb4d86b27cc6463ed229ae0f8d762315383ec",
     "src/ui/lv_conf.h": "1620e7f40eb9cd5dbb33decae117b9a41a6e78349fe23a3c807731cb65215305",
     ".github/workflows/verify.yaml": "89b67f35f39cd43a261405dd4cd81deb0e18f63df1cb7e1a0ca80249b1cd72a6",
-    "docs/dependencies/ROBOTO_NOTICE.md": "5c9efe7763d5748f388a75def2760b3382050c89d3b123ad96773c964fb4d21b",
-    "src/ui/font.cpp": "0d14490c5ed81d597e58884697a1104205fdb726fe20bc4429c856b390e94d33"
+    "docs/dependencies/ROBOTO_NOTICE.md": "0e43e757aeabfc5f789f6c9cc92e2bfbe95ad8be82eb14d94e6abb28385022df",
+    "src/ui/font.cpp": "048efe01bd191d04427479b9b9e207a1546b215f2ff2954e4604a35d7791a2e2"
   },
   "scope": "Selected application profile and CI tool declarations; installed platform/package licenses are inventoried separately, with unresolved coverage explicit.",
   "ci_execution": {

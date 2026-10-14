@@ -824,7 +824,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
+          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
         },
         {
           "path": "tests/test_document_contracts.py",
@@ -2351,7 +2351,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2367,7 +2367,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
+          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
         }
       ],
       "unresolved": [
@@ -2405,7 +2405,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2421,7 +2421,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
+          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
         }
       ],
       "unresolved": [
@@ -2459,7 +2459,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2475,7 +2475,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
+          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
         }
       ],
       "unresolved": [
@@ -2513,7 +2513,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2529,7 +2529,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
+          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
         }
       ],
       "unresolved": [
@@ -2575,7 +2575,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -2599,7 +2599,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
+          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
         }
       ],
       "unresolved": [
@@ -2639,7 +2639,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2655,7 +2655,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
+          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
         }
       ],
       "unresolved": [
@@ -2693,7 +2693,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2755,7 +2755,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2825,7 +2825,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
@@ -2927,7 +2927,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -2997,7 +2997,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -3059,7 +3059,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -3301,7 +3301,7 @@
       "implementation": [
         {
           "path": "dependency_inventory.json",
-          "sha256": "58e79b9063cb489f3b84958130a931df23a819580d5ab82af972994534b0d320"
+          "sha256": "f5a45612d1906ea02244da2333d4721804c09c2c933aa947d8904bb92002667a"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -3483,11 +3483,11 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "99775f2d277f6563a3527eda64f8a26566c7070240d4ade89ad046d68b0861a3"
+          "sha256": "d2227d854318d2327ccb067ad44c0df45b166b9d5a28d942a110bae4c66bdca0"
         },
         {
           "path": "tests/test_ci.py",
-          "sha256": "883100fdc6b402b515f0f7fe14786046a7450543d1cbb0aa33b7b7e36f9888ae"
+          "sha256": "52ee3fc38a15a155da462fe860ccae683caac467b3984d5c0c038671e9c56b38"
         },
         {
           "path": "tests/test_document_contracts.py",
@@ -3507,7 +3507,7 @@
         },
         {
           "path": "tools/ci_verify.py",
-          "sha256": "ef0059bf2a4336d87f9885762c2ef9abe13b8c1f2bf227b33cbde3c9891f7418"
+          "sha256": "db45222b31c5f4432325d31bb590521adbc517c63f392a5d3d08c173a66c340d"
         },
         {
           "path": "tools/document_contracts.py",
@@ -3707,7 +3707,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "99775f2d277f6563a3527eda64f8a26566c7070240d4ade89ad046d68b0861a3"
+          "sha256": "d2227d854318d2327ccb067ad44c0df45b166b9d5a28d942a110bae4c66bdca0"
         },
         {
           "path": "tools/package_release.py",
@@ -3800,7 +3800,7 @@
         },
         {
           "path": "tools/ci_verify.py",
-          "sha256": "ef0059bf2a4336d87f9885762c2ef9abe13b8c1f2bf227b33cbde3c9891f7418"
+          "sha256": "db45222b31c5f4432325d31bb590521adbc517c63f392a5d3d08c173a66c340d"
         },
         {
           "path": "tools/render_hydraulic_diagrams.py",
@@ -3843,7 +3843,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "0d00d3a6784e9772c8ba46ddf6cb803313e15d1de6c28482830fb2c47c08c600"
+          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -3863,11 +3863,11 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
+          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
         },
         {
           "path": "src/ui/synoptic.hpp",
-          "sha256": "1070a4f5546aa700039f93b5f1b3a07a4132ddec109e753d6cf8881d7fe46cf4"
+          "sha256": "3672976a677694542387fabe86155d37097ebffaf1b923b6b0207db44899a5a3"
         },
         {
           "path": "tests/test_inspection.py",
@@ -3966,15 +3966,15 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
+          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
         },
         {
           "path": "src/ui/guided.hpp",
-          "sha256": "429f6e1dd9799c6a04bfc6261305be810de504293194c4c7eec747485c481e18"
+          "sha256": "6bdddd66b8bdd87b6e5fe984fc89fdcb002abaede3bd1bc7a0f463d336490d86"
         },
         {
           "path": "src/ui/synoptic.hpp",
-          "sha256": "1070a4f5546aa700039f93b5f1b3a07a4132ddec109e753d6cf8881d7fe46cf4"
+          "sha256": "3672976a677694542387fabe86155d37097ebffaf1b923b6b0207db44899a5a3"
         },
         {
           "path": "tests/guided_plant.cpp",
@@ -3982,7 +3982,7 @@
         },
         {
           "path": "tests/guided_view.cpp",
-          "sha256": "b12026437b481052f39754589f8a7b03a304f8350eeb6903627d57fd6d0ccfd2"
+          "sha256": "754b97fb6c1b4562e48d0c6c22e325dc05d20b90f875c44aa5b660c4155095f8"
         },
         {
           "path": "tests/test_guided.py",
@@ -4103,7 +4103,7 @@
         },
         {
           "path": "src/ui/guided.hpp",
-          "sha256": "429f6e1dd9799c6a04bfc6261305be810de504293194c4c7eec747485c481e18"
+          "sha256": "6bdddd66b8bdd87b6e5fe984fc89fdcb002abaede3bd1bc7a0f463d336490d86"
         },
         {
           "path": "tests/physical_model.cpp",
@@ -4288,15 +4288,15 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6c1e330f4f99bc5507404440ceefca242dbb448169490d6d90de4f27d690c40e"
+          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
         },
         {
           "path": "src/ui/guided.hpp",
-          "sha256": "429f6e1dd9799c6a04bfc6261305be810de504293194c4c7eec747485c481e18"
+          "sha256": "6bdddd66b8bdd87b6e5fe984fc89fdcb002abaede3bd1bc7a0f463d336490d86"
         },
         {
           "path": "src/ui/synoptic.hpp",
-          "sha256": "1070a4f5546aa700039f93b5f1b3a07a4132ddec109e753d6cf8881d7fe46cf4"
+          "sha256": "3672976a677694542387fabe86155d37097ebffaf1b923b6b0207db44899a5a3"
         },
         {
           "path": "tests/dynamic_model.cpp",
@@ -4304,11 +4304,11 @@
         },
         {
           "path": "tests/guided_view.cpp",
-          "sha256": "b12026437b481052f39754589f8a7b03a304f8350eeb6903627d57fd6d0ccfd2"
+          "sha256": "754b97fb6c1b4562e48d0c6c22e325dc05d20b90f875c44aa5b660c4155095f8"
         },
         {
           "path": "tests/test_ci.py",
-          "sha256": "883100fdc6b402b515f0f7fe14786046a7450543d1cbb0aa33b7b7e36f9888ae"
+          "sha256": "52ee3fc38a15a155da462fe860ccae683caac467b3984d5c0c038671e9c56b38"
         },
         {
           "path": "tests/test_dynamics.py",
@@ -4328,7 +4328,7 @@
         },
         {
           "path": "tools/ci_verify.py",
-          "sha256": "ef0059bf2a4336d87f9885762c2ef9abe13b8c1f2bf227b33cbde3c9891f7418"
+          "sha256": "db45222b31c5f4432325d31bb590521adbc517c63f392a5d3d08c173a66c340d"
         },
         {
           "path": "tools/verify_models.py",
