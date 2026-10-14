@@ -158,7 +158,7 @@ struct App {
     }
     lv_obj_t* button(const std::string& id,const std::string& text,int x,int y,int w,lv_obj_t* parent=nullptr) {
         auto* b=lv_button_create(parent?parent:legacy_root);lv_obj_set_pos(b,x,y);lv_obj_set_size(b,w,34);
-        lv_obj_set_style_bg_color(b,lv_color_hex(0x276492),0);lv_obj_set_style_radius(b,5,0);
+        lv_obj_set_style_bg_color(b,lv_color_hex(0x087f8c),0);lv_obj_set_style_text_color(b,lv_color_hex(0xffffff),0);lv_obj_set_style_radius(b,5,0);
         auto* title=lv_label_create(b);lv_label_set_text(title,text.c_str());lv_obj_center(title);
         widgets[id]=b;identifiers[b]=id;
         lv_obj_add_event_cb(b,[](lv_event_t* e){
@@ -252,7 +252,7 @@ struct App {
         if(id=="STOP" || id=="ACK") {dismiss();local_feedback=client.submit(job)?"Request sent; verify observed state":"Request not sent: busy";return;}
         dismiss();local_feedback="Review the exact request before confirming";pending=job;pending_generation=snapshot.generation;pending_revision=selected?selected->view.machine.revision:-1;pending_mask=mask;
         dialog=lv_obj_create(lv_screen_active());lv_obj_set_pos(dialog,160,260);lv_obj_set_size(dialog,780,245);
-        lv_obj_set_style_bg_color(dialog,lv_color_hex(0x263e54),0);lv_obj_set_style_text_color(dialog,lv_color_hex(0xeaf1f8),0);lv_obj_set_scrollable(dialog,false);
+        lv_obj_set_style_bg_color(dialog,lv_color_hex(0xffffff),0);lv_obj_set_style_text_color(dialog,lv_color_hex(0x142d4e),0);lv_obj_set_scrollable(dialog,false);
         label(dialog,12,8,720,"CONFIRM SIMULATED DEVICE REQUEST");label(dialog,12,46,720,detail);
         label(dialog,12,113,720,"The services validate and apply this request.\nConfirmation does not release protection.");
         button("CONFIRM","Confirm",12,172,220,dialog);button("CANCEL","Cancel",250,172,220,dialog);

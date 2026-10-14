@@ -12,8 +12,8 @@ ImGui `docs/FONTS.md` also identifies this file as Apache-2.0.
 Dependency review: Apache-2.0 is a preferred licence under the project policy;
 no licence exception or additional application library is introduced.
 The console embeds the unmodified TTF at build time from the verified archive.
-`src/ui/font.cpp` is a modified, ASCII-only 18-pixel grayscale rasterization for
-LVGL; the rasterization preserves attribution and is not the original font file.
+`src/ui/font.cpp` is a modified, ASCII-only 18-pixel grayscale rasterization plus
+a 32-pixel numeric register (digits, decimal point and minus sign) for LVGL; the rasterization preserves attribution and is not the original font file.
 It replaces the previous project-owned geometric font. Historical screenshots
 retain their original font attribution. No font file is loaded from the network
 at application runtime.

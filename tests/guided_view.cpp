@@ -72,6 +72,20 @@ int main(int argc,char** argv){
             assert(lv_obj_is_hidden(ui.blood_page) && lv_obj_is_hidden(ui.fluid_page));
             assert(!lv_obj_is_hidden(ui.widgets.at("STOP")));
         }
+        // Registers distinguish observed flow, prescribed flow and calculated volume.
+        v.machine.blood=250;v.observation.q.blood.blood=180;v.observation.uf_total=800;v.observation.sub_total=300;
+        ui.update(v,true,"LIVE",0);
+        assert(std::string(lv_label_get_text(ui.tiles[0].value))=="180.0");
+        assert(std::string(lv_label_get_text(ui.tiles[0].reference)).find("250.0")!=std::string::npos);
+        assert(std::string(lv_label_get_text(ui.tiles[2].value))=="500");
+        assert(std::string(lv_label_get_text(ui.tiles[2].origin))=="CALCULATED");
+        ui.update(v,false,"STALE",0);
+        for(const auto& t:ui.tiles){assert(std::string(lv_label_get_text(t.value))=="--");assert(std::string(lv_label_get_text(t.origin))=="STALE / HELD");}
+        v.valid=false;ui.update(v,false,"INVALID",0);
+        assert(std::string(lv_label_get_text(ui.tiles[0].origin))=="UNAVAILABLE");v.valid=true;
+        lv_obj_update_layout(lv_screen_active());
+        for(const auto& t:ui.tiles){lv_area_t card;lv_obj_get_coords(t.root,&card);
+            for(auto* item:{t.value,t.reference,t.origin}){lv_area_t a;lv_obj_get_coords(item,&a);assert(a.x1>=card.x1 && a.y1>=card.y1 && a.x2<=card.x2 && a.y2<=card.y2);}}
         v.machine.stage=configuration;ui.update(v,true,"SYNTHETIC RENDER TEST",0);assert(!lv_obj_is_hidden(ui.widgets.at("CONNECT")));assert(lv_obj_is_hidden(ui.widgets.at("CLEAN")));
         lv_obj_send_event(ui.widgets.at("CONNECT"),LV_EVENT_CLICKED,nullptr);assert(clicked=="CONNECT");clicked.clear();lv_obj_send_event(ui.widgets.at("CLEAN"),LV_EVENT_CLICKED,nullptr);assert(clicked.empty());
         ui.update(v,true,"LIVE",air_alarm);assert(lv_obj_is_hidden(ui.widgets.at("CONNECT")));
@@ -85,7 +99,11 @@ int main(int argc,char** argv){
         ui.update(v,false,"STALE",0);assert(lv_obj_has_state(ui.widgets.at("blood"),LV_STATE_DISABLED));
         v.machine.mode=0;ui.update(v,true,"LIVE",0);assert(lv_obj_has_state(ui.widgets.at("sub"),LV_STATE_DISABLED));v.machine.mode=2;
         v.observation.dynamic=true;v.observation.arterial_level=.48;v.observation.venous_level=.53;v.observation.dialysate_drain=505;v.observation.uf_pump=5;v.observation.balance_position=12;
+        v.machine.replacement=60;
         v.observation.physical=true;v.observation.arterial=-80;v.observation.dialysate_pressure=-40;v.observation.heater_power=600;v.observation.acid_remaining=4500;v.observation.bicarbonate_remaining=500;
+        ui.update(v,true,"LIVE",8191);lv_obj_update_layout(lv_screen_active());
+        lv_area_t alarms,next,intent,stop;lv_obj_get_coords(ui.alarm,&alarms);lv_obj_get_coords(ui.next_step,&next);lv_obj_get_coords(ui.intent,&intent);lv_obj_get_coords(ui.widgets.at("STOP"),&stop);
+        assert(alarms.y2<next.y1 && next.y2<intent.y1 && stop.x1>=890);
         if(argc>1){std::filesystem::create_directories(argv[1]);for(int page=0;page<5;++page){ui.switch_page(page);ui.update(v,true,"SYNTHETIC RENDER TEST",0);lv_tick_inc(20);lv_timer_handler();lv_refr_now(d);std::ofstream out(std::string(argv[1])+"/guided-"+std::to_string(page)+".ppm",std::ios::binary);out<<"P6\n"<<w<<' '<<h<<"\n255\n";for(auto p:pixels){char b[]={static_cast<char>(p>>16),static_cast<char>(p>>8),static_cast<char>(p)};out.write(b,3);}}}
     }
     lv_deinit();std::cout<<"guided transitions, interlocks, protocol, timing and actual LVGL rendering passed\n";

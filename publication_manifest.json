@@ -490,6 +490,7 @@
     "docs/diagrams/hydraulic-equivalent.svg",
     "docs/document-set.json",
     "docs/images/physical-circuit.svg",
+    "docs/images/trama-atlantico.png",
     "docs/templates/DEPENDENCY_EXCEPTION.md",
     "docs/templates/LIFECYCLE_INCREMENT.md",
     "docs/templates/MODEL_DATA_ASSESSMENT.md",
@@ -821,6 +822,13 @@
       "sha256": "dc48e04e15fbdea3c410ee4858f7a55bda69da7c2848a670eb7ac46cba985c68",
       "command": "Project-authored passive SVG; Python ElementTree flattening of groups and explicit path arrowheads.",
       "rights": "Original MIT DialysisLab diagram; no manufacturer or standards artwork."
+    },
+    "docs/images/trama-atlantico.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "046e77ea9b082c63e7945d8f937ce238d965ce07da1a2f71384396a73ac3f9eb",
+      "source_artifact": "build/trama-captures/guided-0.ppm",
+      "command": "PYTHONPATH=tests DIALYSISLAB_GUIDED_CAPTURES=build/trama-captures python3 -m unittest test_guided.GuidedUnitTests -v; python3 tools/capture_png.py build/trama-captures/guided-0.ppm docs/images/trama-atlantico.png",
+      "rights": "Original DialysisLab LVGL framebuffer with synthetic test data and Apache-2.0 Roboto; attribution retained in docs/dependencies/ROBOTO_NOTICE.md. No manufacturer artwork."
     }
   }
 }

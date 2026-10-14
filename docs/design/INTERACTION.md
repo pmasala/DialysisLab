@@ -42,6 +42,54 @@ movement. The net UF meter is not patient weight. Patient composition and initia
 hematocrit remain outside the device UI. Missing/invalid/stale observations require
 a visible unavailable/held indication, not fabricated current zero values.
 
+## Trama / Atlantico visual system
+
+The guided LVGL screen uses an original two-register tile: the left register
+contains an observed simulated value and unit; the pale right register names its
+reference. Blood flow uses the effective prescription, dialysate flow its route,
+and the calculated net UF meter its prescription-derived volume goal. Pressure
+tiles identify the source instead of inventing clinical limits. In non-physical
+models the arterial tile explicitly identifies its pre-filter source. The net
+meter is gross UF minus substitution, not body-weight loss.
+
+Six tiles expose blood/dialysate flow, net UF, arterial/venous pressure and TMP.
+The persistent home strip adds PRE/POST infusion with effective prescription,
+temperature, conductivity and patient connection. Current, stale/held and unavailable
+values have textual labels. Stale or invalid tile values and prescription
+references are suppressed; the chart retains historical observations. The separate
+circuit views retain diagnostic observations with the channel status and held
+animation, and are not substitutes for the current-value registers.
+
+| Token | Color | Role |
+| --- | --- | --- |
+| Ink | `#142D4E` | Masthead, primary text and numerals |
+| Accent | `#087F8C` | Actions, selected tab, progress |
+| Ice | `#EFF6F8` | Screen background |
+| Surface | `#FFFFFF` | Tiles and confirmation |
+| Reference | `#E0F1F4` | Reference register and inactive tabs |
+| Muted | `#496476` | Units, source and neutral status |
+| Border | `#C9DCE3` | Tile boundaries |
+| Protection | `#A6233C` | Alarm text and STOP |
+
+Roboto Medium remains the existing Apache-2.0 font. Numeric registers add a
+32-pixel digit raster from the same verified source; labels retain 18 pixels.
+No new runtime font or dependency is introduced. Selected tabs have a border as
+well as a color change. Circuit path colors identify fluids; they do not encode
+alarm priority. The theme does not change phase eligibility, prescription
+confirmation, protection authority or the independent experiment console.
+![Trama guided home with synthetic renderer data](../images/trama-atlantico.png)
+
+The image above comes from the actual LVGL synthetic renderer fixture, not live
+services. Candidate verification: GUI build and four guided unit/in-process tests
+passed, including all-phase eligibility, observed/prescribed registers, stale and
+invalid values, alarm layout and five-tab rendering. Thirty-one dependency,
+publication and documentation tests passed. Process UI regressions could not
+complete in the editing environment because Unix sockets return `EPERM`; rerun
+`PYTHONPATH=tests python3 -m unittest ui_regressions -v` on a supported host.
+
+Historical screenshots remain evidence of their original revision, not of this
+visual system. Current renderer and process tests are required for each candidate.
+
 ## Command lifecycle
 
 1. The operator selects an action or edits values. The application shows intent.
