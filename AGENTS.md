@@ -56,3 +56,14 @@ Follow `DEPENDENCY_POLICY.md` when adding dependencies. Review content and redis
 All pull requests target `main`. The official reading set is `docs/document-set.json`: requirements, architecture, detailed design, test plans and current evidence applicability. Historical milestone narratives and runs belong to the separate `project-log/README.md` index, outside the official set. Preserve their bytes/hashes; never inherit their passed status without a current-baseline assessment. After the final edit, run `python3 tools/documentation.py --check`, traceability and publication checks on exactly what will be published.
 
 Also run `python3 tools/dependency_report.py --check-only` before publishing. Changes to files listed in `dependency_inventory.json` require reviewing the actual dependency/license/CI impact and updating only the corresponding reviewed hashes. Do not refresh hashes automatically or weaken mismatch rejection.
+
+## Project memory: final candidate checks
+
+Read `project-log/PROCESS_MEMORY.md` before publishing. PR #11 failed because a late
+screenshot addition changed `publication_manifest.json` after its trace hashes were
+recorded. A pass on an earlier working tree is not a pass on the published commit.
+Finish all allowlist/provenance edits first; review changed implementation artifacts
+and update only their current trace hashes (never historical evidence). Run all
+structural gates after the last edit on the staged candidate, record `git write-tree`,
+and verify the committed/published tree equals it. Any intervening edit invalidates
+that check. Do not report a full pass while one required gate fails.

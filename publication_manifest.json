@@ -507,6 +507,7 @@
     "docs/testing/WORKFLOW.md",
     "docs/wire-contract.json",
     "gui_dependencies.json",
+    "project-log/PROCESS_MEMORY.md",
     "project-log/README.md",
     "project-log/audits/2332ee6-checks.json",
     "project-log/audits/c3cf4fb-checks.json",

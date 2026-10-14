@@ -3483,11 +3483,11 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "2c315b2e62e61bbe1060eb4981a8e0a3c33a175c71ed53f44d4a55b821c8836b"
+          "sha256": "d2227d854318d2327ccb067ad44c0df45b166b9d5a28d942a110bae4c66bdca0"
         },
         {
           "path": "tests/test_ci.py",
-          "sha256": "883100fdc6b402b515f0f7fe14786046a7450543d1cbb0aa33b7b7e36f9888ae"
+          "sha256": "52ee3fc38a15a155da462fe860ccae683caac467b3984d5c0c038671e9c56b38"
         },
         {
           "path": "tests/test_document_contracts.py",
@@ -3507,7 +3507,7 @@
         },
         {
           "path": "tools/ci_verify.py",
-          "sha256": "ef0059bf2a4336d87f9885762c2ef9abe13b8c1f2bf227b33cbde3c9891f7418"
+          "sha256": "db45222b31c5f4432325d31bb590521adbc517c63f392a5d3d08c173a66c340d"
         },
         {
           "path": "tools/document_contracts.py",
@@ -3707,7 +3707,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "2c315b2e62e61bbe1060eb4981a8e0a3c33a175c71ed53f44d4a55b821c8836b"
+          "sha256": "d2227d854318d2327ccb067ad44c0df45b166b9d5a28d942a110bae4c66bdca0"
         },
         {
           "path": "tools/package_release.py",
@@ -3800,7 +3800,7 @@
         },
         {
           "path": "tools/ci_verify.py",
-          "sha256": "ef0059bf2a4336d87f9885762c2ef9abe13b8c1f2bf227b33cbde3c9891f7418"
+          "sha256": "db45222b31c5f4432325d31bb590521adbc517c63f392a5d3d08c173a66c340d"
         },
         {
           "path": "tools/render_hydraulic_diagrams.py",
@@ -4308,7 +4308,7 @@
         },
         {
           "path": "tests/test_ci.py",
-          "sha256": "883100fdc6b402b515f0f7fe14786046a7450543d1cbb0aa33b7b7e36f9888ae"
+          "sha256": "52ee3fc38a15a155da462fe860ccae683caac467b3984d5c0c038671e9c56b38"
         },
         {
           "path": "tests/test_dynamics.py",
@@ -4328,7 +4328,7 @@
         },
         {
           "path": "tools/ci_verify.py",
-          "sha256": "ef0059bf2a4336d87f9885762c2ef9abe13b8c1f2bf227b33cbde3c9891f7418"
+          "sha256": "db45222b31c5f4432325d31bb590521adbc517c63f392a5d3d08c173a66c340d"
         },
         {
           "path": "tools/verify_models.py",

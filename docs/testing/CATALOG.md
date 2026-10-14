@@ -688,6 +688,7 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 
 ### [tests/test_ci.py](../../tests/test_ci.py)
 
+- `test_ci.CITests.test_actual_manifest_drift_stops_before_build`
 - `test_ci.CITests.test_actual_stale_workflow_stops_ci_and_retains_diagnostic`
 - `test_ci.CITests.test_failed_dependency_preflight_stops_before_download_build_and_tests`
 - `test_ci.CITests.test_release_checker_crash_and_timeout_fail_actual_orchestration`

@@ -17,6 +17,16 @@ checker failure or timeout ends that job before downloads/builds/tests and prese
 its failed report and diagnostic log. It does not replace the later SBOM/image
 checks, which still require actual built binaries and containers.
 
+After the dependency check, documentation, traceability, standards structure and
+publication checks all run to collect their diagnostics. Any failure stops before
+downloads or builds. Outstanding release approvals remain separately reported as
+blocked; a broken implementation hash is a structural failure, not an approval gap.
+Before publishing, finish manifest/provenance edits, review the changed artifacts,
+update only affected implementation hashes and rerun these gates on the final staged
+tree. Record its `git write-tree` identity and compare it with the published tree.
+The regression `CITests.test_actual_manifest_drift_stops_before_build` exercises the
+real trace checker against a changed manifest and verifies retained diagnostics.
+
 ## On every pull request and push
 
 The `verify` job retains the existing build, software and fault tests. The

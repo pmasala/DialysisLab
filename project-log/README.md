@@ -8,6 +8,9 @@ Start current work at [the official documentation](../docs/README.md). Only evid
 explicitly assessed against the current baseline belongs in its verification status.
 A historical pass, a branch name or an old screenshot does not transfer approval.
 
+[Project process memory](PROCESS_MEMORY.md) records corrective lessons and the
+publication checks required after the PR #11 manifest/traceability failure.
+
 ## Historical archive locations
 
 Historical files retain their paths and bytes to preserve existing evidence hashes,

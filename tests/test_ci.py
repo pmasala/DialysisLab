@@ -20,6 +20,45 @@ import ci_verify
 
 
 class CITests(unittest.TestCase):
+    def test_actual_manifest_drift_stops_before_build(self):
+        graph=json.loads((ROOT/'assurance/traceability.json').read_text())
+        files={'publication_manifest.json','assurance/traceability.json'}
+        for group in ('requirements','tests','prerequisites'):
+            for item in graph[group]:
+                files.update(a['path'] for a in item.get('implementation',[]))
+                if item.get('evidence'):files.add(item['evidence']['path'])
+        real_run=subprocess.run
+        with tempfile.TemporaryDirectory(dir=ROOT/'build') as tmp:
+            root=Path(tmp)
+            for name in files:
+                target=root/name;target.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copyfile(ROOT/name,target)
+            manifest=root/'publication_manifest.json'
+            manifest.write_text(manifest.read_text()+'\n')
+            output=root/'ci'
+            def run(command,**kwargs):
+                if 'tools/check_traceability.py' in command:
+                    return real_run([sys.executable,str(ROOT/'tools/check_traceability.py'),
+                                     str(root/'assurance/traceability.json'),'--root',str(root)],**kwargs)
+                self.assertIn(command[1],('tools/dependency_report.py','tools/documentation.py',
+                                        'tools/check_standards.py','tools/check_publication.py'))
+                return subprocess.CompletedProcess(command,0)
+            with patch.object(sys,'argv',['ci_verify.py','--output',str(output)]),patch('ci_verify.subprocess.check_output',return_value='a'*40),patch('ci_verify.subprocess.run',side_effect=run) as calls,patch('sys.stdout',io.StringIO()):
+                with self.assertRaises(SystemExit) as raised:ci_verify.main()
+            self.assertEqual(raised.exception.code,1)
+            self.assertEqual(calls.call_count,5)
+            report=json.loads((output/'ci-report.json').read_text())
+            self.assertFalse(report['successful'])
+            self.assertEqual(report['release_gate'],'NOT_RUN')
+            diagnostic=json.loads((output/'traceability.log').read_text())
+            self.assertEqual(diagnostic['structural_errors'],[
+                'M8-REQ-006: artifact hash mismatch: publication_manifest.json',
+                'M9-REQ-004: artifact hash mismatch: publication_manifest.json'])
+            stream=io.StringIO();retain(output,report,stream)
+            recover(io.StringIO(stream.getvalue()),root/'recovered')
+            self.assertEqual((root/'recovered/commands/traceability.log').read_bytes(),
+                             (output/'traceability.log').read_bytes())
+
     def test_actual_stale_workflow_stops_ci_and_retains_diagnostic(self):
         inventory=json.loads((ROOT/'dependency_inventory.json').read_text())
         files=set(inventory['reviewed_files'])|{'dependency_inventory.json','Dockerfile',

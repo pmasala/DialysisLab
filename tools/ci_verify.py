@@ -134,10 +134,16 @@ def main():
         report['finished_at']=datetime.now(timezone.utc).isoformat()
         save()
         raise SystemExit(1)
-    step('documentation',['python3','tools/documentation.py','--check'])
+    documentation=step('documentation',['python3','tools/documentation.py','--check'])
     trace=step('traceability',['python3','tools/check_traceability.py','assurance/traceability.json'])
     standards=step('standards',['python3','tools/check_standards.py'])
     publication=step('publication',['python3','tools/check_publication.py'])
+    # These are inexpensive source checks, not deferrable release approvals.
+    # Retain all four diagnostics, then stop before network/build work on failure.
+    if not all((documentation,trace,standards,publication)):
+        report['finished_at']=datetime.now(timezone.utc).isoformat()
+        save()
+        raise SystemExit(1)
     step('release-traceability',['python3','tools/check_traceability.py','assurance/traceability.json','--release'],requires=trace,release=True)
     step('release-standards',['python3','tools/check_standards.py','--release'],requires=standards,release=True)
     fetched=step('fetch-gui',['python3','tools/fetch_gui.py','--cache','build/gui-deps'])
