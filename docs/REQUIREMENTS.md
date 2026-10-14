@@ -24,7 +24,7 @@ Requirements are grouped by function. Existing IDs remain stable for traceabilit
 prefix is not the reading order. Statements and acceptance text below are generated
 from the maintained register without silently rewriting obligations. The supplemental
 [atomic requirements](ATOMIC_REQUIREMENTS.md) and [coverage matrix](testing/COVERAGE.md)
-allocate all 60 parent requirements to detailed obligations and executable test methods. Some obligations
+allocate implemented parent requirements to detailed obligations and executable test methods; deferred work is explicit. Some obligations
 remain too broad or need justified numerical criteria; the current audit identifies them.
 
 **Current verification decision:** implementation is recorded for these requirements,
@@ -342,6 +342,176 @@ Make chamber levels, dialysate control and blood/dialysate inventories evolve co
 **Trace:** needs M7-NEED-001; risks HAZ-002, HAZ-003, HAZ-004, HAZ-006; design DYN-DES-001; verification DYN-TEST-001, DYN-TEST-002, DYN-TEST-003.
 
 **Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/DYNAMIC_MODEL.md](../docs/DYNAMIC_MODEL.md), [docs/GUIDED_TREATMENT.md](../docs/GUIDED_TREATMENT.md), [docs/PHYSICAL_MODEL.md](../docs/PHYSICAL_MODEL.md), [docs/UI_INSPECTION.md](../docs/UI_INSPECTION.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/images/physical-circuit.svg](../docs/images/physical-circuit.svg), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/MEASUREMENTS.md](../docs/testing/MEASUREMENTS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [python/dialysislab/calibration.py](../python/dialysislab/calibration.py), [python/dialysislab/circuit.py](../python/dialysislab/circuit.py), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [python/dialysislab/distributed.py](../python/dialysislab/distributed.py), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [python/dialysislab/physical.py](../python/dialysislab/physical.py), [python/dialysislab/protocol.py](../python/dialysislab/protocol.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [python/dialysislab/trajectory.py](../python/dialysislab/trajectory.py), [references/dialyzer_benchmarks.json](../references/dialyzer_benchmarks.json), [scenarios/device_guided.json](../scenarios/device_guided.json), [scenarios/physical_hd.json](../scenarios/physical_hd.json), [scenarios/physical_hdf_post.json](../scenarios/physical_hdf_post.json), [scenarios/physical_hdf_pre.json](../scenarios/physical_hdf_pre.json), [src/blood_physics.hpp](../src/blood_physics.hpp), [src/circuit.hpp](../src/circuit.hpp), [src/console/telemetry.hpp](../src/console/telemetry.hpp), [src/dynamics.hpp](../src/dynamics.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/synoptic.hpp](../src/ui/synoptic.hpp), [tests/dynamic_model.cpp](../tests/dynamic_model.cpp), [tests/guided_view.cpp](../tests/guided_view.cpp), [tests/test_ci.py](../tests/test_ci.py), [tests/test_dynamics.py](../tests/test_dynamics.py), [tests/test_inspection.py](../tests/test_inspection.py), [tests/test_physical.py](../tests/test_physical.py), [tools/calibrate_models.py](../tools/calibrate_models.py), [tools/ci_verify.py](../tools/ci_verify.py), [tools/verify_models.py](../tools/verify_models.py), [docs/testing/FLOW_REFINEMENT.md](../docs/testing/FLOW_REFINEMENT.md), [tests/test_flow_refinement.py](../tests/test_flow_refinement.py), [tests/flow_valves.cpp](../tests/flow_valves.cpp), [tools/flow_refinement.py](../tools/flow_refinement.py).
+
+### MIX-REQ-001
+
+Each source line shall retain its configured internal volume and initial air, water or concentrate occupancy up to the mixing junction.
+
+**Acceptance:** Exercise dry, wetted and residual-liquid starts; downstream arrival follows displaced volume and conserves inventories. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-001; verification MIX-TEST-001.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-002
+
+Acid and bicarbonate shall have distinct metering pumps with command and actual transfer represented separately.
+
+**Acceptance:** Exercise zero command, pressure load, air aspiration and actuator saturation; actual liquid delivery follows the declared pump law, not commanded displacement alone. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-001; verification MIX-TEST-002.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-003
+
+The cartridge shall separately account for liquid volume, gas inventory, solid bicarbonate and dissolved bicarbonate.
+
+**Acceptance:** Fill and withdraw from known initial inventories; storage changes match all boundary transfers and inventories remain nonnegative. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-002; verification MIX-TEST-003.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-004
+
+Cartridge pressure shall respond to gas compression, liquid transfer and declared vent paths.
+
+**Acceptance:** Block vent, restrict inlet and increase withdrawal; pressure follows the declared law and limit violations inhibit the conflicting actuator before the allocated deadline. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-002, MIX-DES-005; verification MIX-TEST-004.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-005
+
+Dissolution shall depend on the declared saturation relation, available solid and finite dissolution kinetics.
+
+**Acceptance:** At adequate residence time approach saturation; under dissolution-limited withdrawal remain below saturation despite remaining solid. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-002; verification MIX-TEST-005.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-006
+
+Solid exhaustion shall not erase remaining dissolved bicarbonate.
+
+**Acceptance:** Exhaust solid and continue water throughput; dissolved inventory washes out conservatively rather than disappearing or remaining indefinitely constant. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-002; verification MIX-TEST-006.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-007
+
+Acid concentration shall be a configurable source property, distinct from remaining bag volume.
+
+**Acceptance:** Apply nominal, diluted and exhausted-source cases; concentration and delivered mass change consistently, including configured air ingress after depletion. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-001; verification MIX-TEST-007.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-008
+
+Downstream mixing shall conserve species and liquid storage and represent declared transport delays.
+
+**Acceptance:** Compare a well-mixed tank with its analytic step response and transport with volume/flow delay; verify independent inventory residuals. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-003; verification MIX-TEST-008.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-009
+
+Control shall use simulated sensor outputs with timestamps, temperature compensation, latency and validity rather than hidden source inventory.
+
+**Acceptance:** Inject delayed, stale, invalid and air-exposed measurements; invalid signals cannot authorize readiness. Changing hidden inventory alone cannot directly change a control decision with identical sensor history. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-004; verification MIX-TEST-009.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-010
+
+Each metering command shall combine declared feedforward with bounded PI correction and defined anti-windup/invalid-measurement behavior.
+
+**Acceptance:** Apply flow/concentration steps, saturation and invalidity; commands remain bounded, integrator behavior matches the specified policy and recovery meets prospective response criteria. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-004; verification MIX-TEST-010.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-011
+
+Composition qualification shall include intermediate observations and ratio checks rather than final conductivity alone.
+
+**Acceptance:** Construct compensating acid/bicarbonate errors with similar final conductivity; documented intermediate checks detect the observable cases and remaining detection gaps are reported. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-004; verification MIX-TEST-011.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-012
+
+Acid and bicarbonate startup sequences shall progress independently with observable guards and bounded failure timeouts.
+
+**Acceptance:** Hold each prerequisite false in turn; reject premature dosing qualification and enter the declared failure response on timeout. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-005; verification MIX-TEST-012.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-013
+
+The preparation supervisor shall divert unqualified fluid to waste and prevent its delivery to the dialyzer/substitution paths.
+
+**Acceptance:** Challenge every startup phase, each invalid guard and loss of qualification; verify actual routed volumes, not just displayed state. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-005; verification MIX-TEST-013.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-014
+
+Readiness shall require valid liquid-presence evidence, acceptable pressure/composition and continuous stability for a configured dwell interval.
+
+**Acceptance:** Test just below/at/above the dwell boundary and an intervening invalid sample; interruptions reset qualification and a single valid sample cannot authorize delivery. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-005; verification MIX-TEST-014.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-015
+
+The model shall provide separate boundary ledgers for source supply, stored liquid/species, gas exchange, waste and usable output.
+
+**Acceptance:** Independently reconstruct balances across startup, zero flow, partial steps and exhaustion; refinements of timestep and transport discretization satisfy predeclared error budgets. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-001, MIX-DES-002, MIX-DES-003; verification MIX-TEST-015.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-016
+
+Preparation evidence shall identify requirements, implementation revision, parameters, test oracle and execution outcome.
+
+**Acceptance:** Reproduce a fixed scenario and verify complete trace in both directions; changed source/configuration invalidates prior applicability. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-001, MIX-DES-002, MIX-DES-003, MIX-DES-004, MIX-DES-005; verification MIX-TEST-016.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md), [src/preparation.hpp](../src/preparation.hpp), [src/online.hpp](../src/online.hpp), [src/plant.cpp](../src/plant.cpp), [tests/test_preparation.py](../tests/test_preparation.py), [tests/preparation_model.cpp](../tests/preparation_model.cpp).
+
+### MIX-REQ-017
+
+A later replacement procedure shall address isolation, pressure relief, reconnection, re-priming and requalification.
+
+**Acceptance:** Deferred protocol; blocked pending replacement design. No replacement implementation or successful test is claimed. Prospective numerical criteria: docs/testing/PREPARATION.md.
+
+**Trace:** needs NEED-006; risks HAZ-002, HAZ-004, HAZ-006; design MIX-DES-005; verification MIX-TEST-017.
+
+**Implementation locations:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md), [docs/testing/PREPARATION.md](../docs/testing/PREPARATION.md).
 
 ## Treatment lifecycle and operator interface
 

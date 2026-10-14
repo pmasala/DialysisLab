@@ -54,7 +54,13 @@ def validate(config, validate_treatment):
         target = fault['target']
         if not isinstance(target, str) or (fault['tick'], target) in seen: raise ValueError('duplicate/invalid fault')
         seen.add((fault['tick'], target))
-        if target.startswith('device:'):
+        if target.startswith('preparation:'):
+            if 'preparation' not in config.get('physical',{}):raise ValueError('preparation fault requires preparation model')
+            name=target[len('preparation:'):]
+            if name not in ('acid_scale','vent_blocked','inlet_blocked','sensor_invalid','sensor_stale'):raise ValueError('preparation fault name')
+            number(fault['value'],0,1)
+            if name!='acid_scale':index(fault['value'],0,1)
+        elif target.startswith('device:'):
             name = target[7:]
             if name not in FAULT_RANGES: raise ValueError('device fault name')
             number(fault['value'], *FAULT_RANGES[name])
@@ -94,10 +100,11 @@ def request(runtime, event, scheduled=False):
 
 
 def observation(response):
-    dynamic=response[0]=='OBS10'
-    physical=response[0] in ('OBS9','OBS10')
-    extended=response[0] in ('OBS8','OBS9','OBS10')
-    expect(response,'OBS10' if dynamic else 'OBS9' if physical else 'OBS8' if extended else 'OBS5',36 if dynamic else 28 if physical else 21 if extended else 19)
+    preparation=response[0]=='OBS11'
+    dynamic=response[0] in ('OBS10','OBS11')
+    physical=response[0] in ('OBS9','OBS10','OBS11')
+    extended=response[0] in ('OBS8','OBS9','OBS10','OBS11')
+    expect(response,'OBS11' if preparation else 'OBS10' if dynamic else 'OBS9' if physical else 'OBS8' if extended else 'OBS5',38 if preparation else 36 if dynamic else 28 if physical else 21 if extended else 19)
     result = treatment.observation(['OBS4', *response[1:13]])
     result['sequence'] = integer(response[1], 99999)
     for name, value, high in zip(('downstream_mmHg', 'air_signal', 'leak_signal', 'measured_uf_mL', 'measured_substitution_mL'),
@@ -116,6 +123,7 @@ def observation(response):
             ('arterial_level','venous_level','dialysate_drain_mL_min','uf_pump_mL_min','balance_position_mL','bypass','balance_capacity_mL','balance_phase'),
             response[28:36], (0,0,0,0,0,0,5,0), (1,1,2000,200,100,1,100,1)):
             result[name] = real(value, low, high)
+    if preparation:result.update(preparation_ready=bool(integer(response[36],1)),preparation_fault=bool(integer(response[37],1)))
     return result
 
 
@@ -164,7 +172,7 @@ def view(response):
     if len(response)<2:raise ProtocolError('device view size')
     m_end=41 if response[1]=='MACHINE8' else 27
     if len(response)<=m_end:raise ProtocolError('device view size')
-    o_end=m_end+(36 if response[m_end]=='OBS10' else 28 if response[m_end]=='OBS9' else 21 if response[m_end]=='OBS8' else 19)
+    o_end=m_end+(38 if response[m_end]=='OBS11' else 36 if response[m_end]=='OBS10' else 28 if response[m_end]=='OBS9' else 21 if response[m_end]=='OBS8' else 19)
     if len(response)!=o_end+4:raise ProtocolError('device view size')
     result=dict(machine=metadata(response[1:m_end]),observation=observation(response[m_end:o_end]))
     expect(response[o_end:],'INTENT5',4)

@@ -117,3 +117,12 @@ container diagram or a passing CI run; the audit records the outstanding decisio
 
 Current protective thresholds, failure sequences, trust assumptions and dependency
 dispositions are specified in [protective and security design](design/SAFETY_SECURITY.md).
+
+## Optional cold-start concentrate preparation
+
+The `Preparation` component inside the online-fluid model retains source lines,
+cartridge gas/liquid/solid/dissolved inventories and two mixed volumes. Its sensor
+frames feed two PI dose trims and an availability supervisor; true source inventories
+remain inspector-only data. Plant retains final delivery authority after every
+internal step. [Detailed design](design/PREPARATION.md) describes this opt-in profile,
+OBS11 integration, cold-start treatment guards and its verification boundary.

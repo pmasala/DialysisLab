@@ -334,6 +334,176 @@ rendered here. A method name proves that a test exists, not that it ran or fully
 
 **Current acceptance:** not independently approved; no historical result inherited.
 
+#### MIX-TEST-001
+
+**Requirements:** MIX-REQ-001.
+
+**Procedure:** test_preparation.PreparationTests.test_line_air_water_and_concentrate_displacement; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Exercise dry, wetted and residual-liquid starts; downstream arrival follows displaced volume and conserves inventories.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-002
+
+**Requirements:** MIX-REQ-002.
+
+**Procedure:** test_preparation.PreparationTests.test_distinct_pump_displacement_pressure_and_air_efficiency; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Exercise zero command, pressure load, air aspiration and actuator saturation; actual liquid delivery follows the declared pump law, not commanded displacement alone.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-003
+
+**Requirements:** MIX-REQ-003.
+
+**Procedure:** test_preparation.PreparationTests.test_cartridge_liquid_gas_and_solute_storage; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Fill and withdraw from known initial inventories; storage changes match all boundary transfers and inventories remain nonnegative.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-004
+
+**Requirements:** MIX-REQ-004.
+
+**Procedure:** test_preparation.PreparationTests.test_pressure_stop_and_bounded_startup_failures; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Block vent, restrict inlet and increase withdrawal; pressure follows the declared law and limit violations inhibit the conflicting actuator before the allocated deadline.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-005
+
+**Requirements:** MIX-REQ-005.
+
+**Procedure:** test_preparation.PreparationTests.test_saturation_and_finite_dissolution_with_solid_remaining; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** At adequate residence time approach saturation; under dissolution-limited withdrawal remain below saturation despite remaining solid.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-006
+
+**Requirements:** MIX-REQ-006.
+
+**Procedure:** test_preparation.PreparationTests.test_solid_exhaustion_preserves_dissolved_washout; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Exhaust solid and continue water throughput; dissolved inventory washes out conservatively rather than disappearing or remaining indefinitely constant.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-007
+
+**Requirements:** MIX-REQ-007.
+
+**Procedure:** test_preparation.PreparationTests.test_acid_concentration_step_and_bag_depletion; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Apply nominal, diluted and exhausted-source cases; concentration and delivered mass change consistently, including configured air ingress after depletion.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-008
+
+**Requirements:** MIX-REQ-008.
+
+**Procedure:** test_preparation.PreparationTests.test_mixed_tank_matches_independent_exponential; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Compare a well-mixed tank with its analytic step response and transport with volume/flow delay; verify independent inventory residuals.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-009
+
+**Requirements:** MIX-REQ-009.
+
+**Procedure:** test_preparation.PreparationTests.test_delayed_stale_invalid_sensors_and_control_input_boundary; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Inject delayed, stale, invalid and air-exposed measurements; invalid signals cannot authorize readiness. Changing hidden inventory alone cannot directly change a control decision with identical sensor history.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-010
+
+**Requirements:** MIX-REQ-010.
+
+**Procedure:** test_preparation.PreparationTests.test_pi_saturation_antiwindup_and_invalid_freeze; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Apply flow/concentration steps, saturation and invalidity; commands remain bounded, integrator behavior matches the specified policy and recovery meets prospective response criteria.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-011
+
+**Requirements:** MIX-REQ-011.
+
+**Procedure:** test_preparation.PreparationTests.test_compensating_errors_and_continuous_dwell; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Construct compensating acid/bicarbonate errors with similar final conductivity; documented intermediate checks detect the observable cases and remaining detection gaps are reported.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-012
+
+**Requirements:** MIX-REQ-012.
+
+**Procedure:** test_preparation.PreparationTests.test_pressure_stop_and_bounded_startup_failures; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Hold each prerequisite false in turn; reject premature dosing qualification and enter the declared failure response on timeout.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-013
+
+**Requirements:** MIX-REQ-013.
+
+**Procedure:** test_preparation.PreparationTests.test_final_authority_blocks_unqualified_fluid_despite_forged_permits; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Challenge every startup phase, each invalid guard and loss of qualification; verify actual routed volumes, not just displayed state.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-014
+
+**Requirements:** MIX-REQ-014.
+
+**Procedure:** test_preparation.PreparationTests.test_compensating_errors_and_continuous_dwell; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Test just below/at/above the dwell boundary and an intervening invalid sample; interruptions reset qualification and a single valid sample cannot authorize delivery.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-015
+
+**Requirements:** MIX-REQ-015.
+
+**Procedure:** test_preparation.PreparationTests.test_time_refinement_against_predeclared_budget; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Independently reconstruct balances across startup, zero flow, partial steps and exhaustion; refinements of timestep and transport discretization satisfy predeclared error budgets.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-016
+
+**Requirements:** MIX-REQ-016.
+
+**Procedure:** test_preparation.PreparationTests.test_evidence_identity_changes_with_source_and_configuration; full campaign: python3 tools/verify_preparation.py --output <new-report.json>
+
+**Expected:** Reproduce a fixed scenario and verify complete trace in both directions; changed source/configuration invalidates prior applicability.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### MIX-TEST-017
+
+**Requirements:** MIX-REQ-017.
+
+**Procedure:** Deferred replacement protocol MIX-TEST-017; no executable method or execution claim.
+
+**Expected:** Deferred protocol; blocked pending replacement design. No replacement implementation or successful test is claimed.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
 ### Treatment lifecycle and operator interface
 
 #### M5-TEST-001
@@ -893,6 +1063,27 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 - `test_physical.PhysicalTests.test_uf_hemoconcentration_refill_and_rbc_conservation`
 - `test_physical.PhysicalTests.test_in_process_physical_treatments`
 - `test_physical.PhysicalProcessTests.test_real_services_and_retained_evidence`
+
+### [tests/test_preparation.py](../../tests/test_preparation.py)
+
+- `test_preparation.PreparationTests.test_line_air_water_and_concentrate_displacement`
+- `test_preparation.PreparationTests.test_distinct_pump_displacement_pressure_and_air_efficiency`
+- `test_preparation.PreparationTests.test_cartridge_liquid_gas_and_solute_storage`
+- `test_preparation.PreparationTests.test_saturation_and_finite_dissolution_with_solid_remaining`
+- `test_preparation.PreparationTests.test_solid_exhaustion_preserves_dissolved_washout`
+- `test_preparation.PreparationTests.test_mixed_tank_matches_independent_exponential`
+- `test_preparation.PreparationTests.test_startup_all_occupancies_and_independent_balances`
+- `test_preparation.PreparationTests.test_acid_concentration_step_and_bag_depletion`
+- `test_preparation.PreparationTests.test_delayed_stale_invalid_sensors_and_control_input_boundary`
+- `test_preparation.PreparationTests.test_pi_saturation_antiwindup_and_invalid_freeze`
+- `test_preparation.PreparationTests.test_compensating_errors_and_continuous_dwell`
+- `test_preparation.PreparationTests.test_pressure_stop_and_bounded_startup_failures`
+- `test_preparation.PreparationTests.test_time_refinement_against_predeclared_budget`
+- `test_preparation.PreparationTests.test_eight_hours_depletion_and_boundary_balances`
+- `test_preparation.PreparationTests.test_actual_hd_pre_post_startup_and_complete_patient_cycles`
+- `test_preparation.PreparationTests.test_final_authority_blocks_unqualified_fluid_despite_forged_permits`
+- `test_preparation.PreparationTests.test_configuration_and_wire_reject_malformed_inputs`
+- `test_preparation.PreparationTests.test_evidence_identity_changes_with_source_and_configuration`
 
 ### [tests/test_publication.py](../../tests/test_publication.py)
 

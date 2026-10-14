@@ -89,3 +89,7 @@
 !src/dynamics.hpp
 !python/dialysislab/distributed.py
 !python/dialysislab/calibration.py
+!src/preparation.hpp
+!scenarios/preparation_hd.json
+!scenarios/preparation_hdf_pre.json
+!scenarios/preparation_hdf_post.json

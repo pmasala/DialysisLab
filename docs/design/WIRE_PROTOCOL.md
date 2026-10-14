@@ -188,3 +188,13 @@ configuration and plant initialization. The patient initializer accepts that who
 range. Runtime inventory has a different permitted domain because compliance and
 flow change stored volume after initialization. Rejecting configurations above
 1000 mL prevents late failure during patient INIT; it does not raise a model limit.
+
+## Cold-start preparation extension
+
+`PREPARATION11` configures the optional preparation model after DYNAMICS10 and
+before MACHINE5/arming. `PREPFAULT11` injects explicit source/sensor faults outside
+a prepared tick. Both are admin-only. OBS11 extends OBS10 with two boolean fields;
+legacy observations retain their lengths. PREPARATION11 state appends 31 fields after
+DYNAMICS10 in PHYSICS9, parsed by the Python physical-state decoder.
+The [field dictionary](WIRE_FIELDS.md) fixes positions and bounds; the
+[preparation design](PREPARATION.md) defines authority and startup semantics.

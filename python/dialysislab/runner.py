@@ -296,7 +296,9 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
                     update_blood(admin,patient_snapshot)
             for fault in config['faults']:
                 if fault['tick'] == n:
-                    if lifecycle and fault['target'].startswith('device:'):
+                    if lifecycle and fault['target'].startswith('preparation:'):
+                        expect(rpc(admin,'PREPFAULT11',fault['target'][len('preparation:'):],fault['value']),'OK',1)
+                    elif lifecycle and fault['target'].startswith('device:'):
                         expect(rpc(admin, 'FAULT5', fault['target'][7:], fault['value']), 'OK', 1)
                     elif online and fault['target'].startswith('online:'):
                         expect(rpc(admin, 'FAULT4', fault['target'][7:], fault['value']), 'OK', 1)

@@ -1,12 +1,38 @@
 # Current baseline: verification and acceptance
 
-Document ID SVR-01; revision 6; prepared 2026-10-13; approval pending.
-This is the current applicability decision. Exact source identities and executed
-checks are in [checks.json](../../assurance/audits/checks.json); the containing Git
-commit identifies the complete candidate. Main `602e8dab8e65efdb0bc8db1051ce0006f0d3adfd`
-is the change base. Earlier execution records are not automatically current passes.
+Document ID SVR-01; revision 7; prepared 2026-10-14; approval pending.
+The first concentrate-preparation increment is an implemented review candidate.
+MIX-REQ-001–016 are allocated to production code and executable tests; replacement
+MIX-REQ-017 remains deferred. Use the [preparation protocol](PREPARATION.md) and
+[source-bound report](../../assurance/evidence/preparation/report.json).
+The report records its Git base, dirty-worktree state and exact verification-input
+hashes independently of the
+compatibility register's historical M8 baseline string. Run its `--check` applicability
+gate after changes; successful historical records are never inherited.
 
-## Current dependency correction
+The local campaign includes analytic component references, three production
+Plant/patient cycles over pipes, a forged-permit delivery challenge, eight simulated
+hours through depletion, sensor faults, control recovery and timestep refinement.
+Actual methods, numeric outputs and pass/fail status are recorded in that report.
+Hosted native/sanitized service and container acceptance still requires the exact
+published head's CI. No local socket/container pass or independent approval is claimed.
+
+Initial implementation failures are retained in the [development log](../../project-log/audits/preparation-development.json):
+a startup flow-response counter ran while delivery was inhibited; double boundary
+totals accumulated over the fixed eight-hour tolerance; and a component assertion
+mistook a partially qualified output interval for output before qualification.
+The source fixes preserve the original numerical budgets. An incorrectly named
+regression class was a test-invocation error; the correctly named suite was rerun.
+
+PR #11's separate CI correction is recorded in [process memory](../../project-log/PROCESS_MEMORY.md).
+It fixes two publication-manifest implementation hashes and stops expensive CI work
+on structural errors. It does not reset evidence or waive independent release obligations.
+
+The earlier [checks.json](../../assurance/audits/checks.json) and sections below
+remain preceding-candidate evidence, not blanket verification of this extension.
+
+## Preceding dependency correction
+
 
 The `c3cf4fb` general CI failed because its updated workflow hash was missing from
 `dependency_inventory.json`. Four dependency tests failed in each of the native
@@ -15,7 +41,7 @@ progress/abort test. The [original CI report](../../project-log/audits/c3cf4fb-c
 and [dependency error](../../project-log/audits/c3cf4fb-dependency-failure.md) are retained.
 The short Compose job and the general job's model/UI/process integration steps passed.
 
-The current correction records the reviewed workflow identity and adds a build-free
+That correction records the reviewed workflow identity and adds a build-free
 check at the start of CI. No application equations, runtime behavior, dependency
 versions, container pins or mismatch-rejection rules change. Current local regression,
 native core SBOM and structural results are in the audit check report. Full hosted
@@ -32,7 +58,7 @@ The earlier `2332ee6` hosted run 38361819029 passed `verify` and timed out in th
 100000-step resource job, with no reported OOM and no final manifest.
 The shorter gate does not retroactively close that timeout or endurance acceptance.
 
-## Numerical correction and supporting evidence
+## Preceding numerical correction and supporting evidence
 
 The latest correction allows conservative reverse transport between internal
 dialysate cells during valve closure. External feed/drain validation remains
@@ -46,7 +72,7 @@ criteria, measured results and unresolved scope.
 | Internal dialysate transport | Before-source HD failure reproduced at 25 ms; corrected HD/PRE/POST complete; analytic and seeded conservative-transfer regressions | Wider physical envelope and independent scientific review |
 | Numerical flow refinement | 24 analytic valve cases; 30 coupled runs; identical-checkpoint common-window and volume differences decrease down to 25 ms | Fresh workflows not uniformly monotonic; global error budgets, concentration/UF steps and mesh/coupling study |
 | Local regression selection | 40 tests passed on the preceding solver correction; exact methods and source hashes in [flow regressions](../../assurance/audits/flow-regressions.json) | Real IPC, clean hosted build and full hosted suite on the published head |
-| Requirements/design | 99 obligations across 60 parent IDs; structure, document links and implementation hashes checked | Independent semantic/coverage acceptance |
+| Requirements/design | 115 executable obligations across 77 parent IDs (MIX-REQ-017 deferred); structure, links and implementation hashes checked | Independent semantic/coverage acceptance |
 | Resource use | Previous-source native results retained; previous hosted resource job timed out | Complete current-model 100000-tick Compose runs with bounded RSS, final artifacts and repeat hashes |
 | Calibration/usability | Measurement, uncertainty, holdout and critical-task procedures written | Actual measurements, representative-user evidence and approved operating envelope |
 | Normative/security release | Engineering design and dependency inventory available | Full-text applicability, current image/advisory/static checks, classification, essential-performance/risk decisions and independent approvals |

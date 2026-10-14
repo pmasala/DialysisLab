@@ -12,11 +12,20 @@ BLOOD_FIELDS = ('arterial_diameter_mm arterial_length_mm venous_diameter_mm veno
 FLUID_FIELDS = ('acid_mL bicarbonate_g acid_installed bicarbonate_installed acid_fraction bicarbonate_fraction '
                 'bicarbonate_stock_mmol_L dissolution_g_min heater_max_W heater_capacity_J_K heater_loss_W_K '
                 'ambient_C heater_gain_W_K conductivity_factor temperature_coefficient')
+PREPARATION_FIELDS='acid_line_mL bicarbonate_line_mL cartridge_mL cartridge_target_mL fill_mL_min step_s sensor_latency_s dwell_s initial_line_occupancy'
+PREPARATION_RANGES=[(.1,50),(.1,50),(20,500),(10,450),(0,1000),(.005,.05),(0,.4),(.5,30),(0,2)]
 
 def validate(config):
     if 'guided' not in config:raise ValueError('physical model requires guided lifecycle')
     if any(f['target'].startswith('edge:') or f['target']=='resistance' for f in config['faults']):raise ValueError('use physical geometry; legacy edge faults are not supported')
-    p=config['physical'];keys(p,'blood fluid'+(' dynamics' if 'dynamics' in p else ''))
+    p=config['physical'];keys(p,'blood fluid'+(' dynamics' if 'dynamics' in p else '')+(' preparation' if 'preparation' in p else ''))
+    if 'preparation' in p:
+        if 'dynamics' not in p:raise ValueError('preparation requires dynamic physical model')
+        q=p['preparation'];keys(q,PREPARATION_FIELDS)
+        for k,bounds in zip(PREPARATION_FIELDS.split(),PREPARATION_RANGES):number(q[k],*bounds)
+        if type(q['initial_line_occupancy']) is not int:raise ValueError('line occupancy code')
+        if q['cartridge_target_mL']>q['cartridge_mL']-10:raise ValueError('cartridge headspace')
+        if p['fluid']['acid_fraction']<=0 or p['fluid']['bicarbonate_fraction']<=0 or not any(p['fluid']['acid_mmol_L'][1:]):raise ValueError('preparation nominal concentration')
     if 'dynamics' in p:
         keys(p['dynamics'],DYNAMIC_FIELDS)
         for k,bounds in zip(DYNAMIC_FIELDS.split(),[(5,100),(5,100),(0,10),(0,10),(.01,1),(.05,5),(.01,5),(.1,20),(20,200),(5,100),(50,1000)]):number(p['dynamics'][k],*bounds)
@@ -48,6 +57,7 @@ def configure(admin,config):
     fields=[int(p['fluid'][k]) if type(p['fluid'][k]) is bool else p['fluid'][k] for k in FLUID_FIELDS.split()]
     expect(rpc(admin,'FLUID9',*fields,*p['fluid']['acid_mmol_L']),'OK',1)
     if 'dynamics' in p:expect(rpc(admin,'DYNAMICS10',*[p['dynamics'][k] for k in DYNAMIC_FIELDS.split()]),'OK',1)
+    if 'preparation' in p:expect(rpc(admin,'PREPARATION11',*[p['preparation'][k] for k in PREPARATION_FIELDS.split()]),'OK',1)
 
 def update_blood(admin,snapshot):
     h=snapshot['hemodynamics']
@@ -61,6 +71,10 @@ DIAGNOSTICS=('arterial_mmHg venous_mmHg prefilter_mmHg postfilter_mmHg dialysate
              'acid_remaining_mL bicarbonate_remaining_g heater_W conductivity_raw_mS_cm '
              'arterial_chamber_mL venous_chamber_mL filter_mL')
 def state(response):
+    preparation=None
+    if 'PREPARATION11' in response:
+        end=response.index('PREPARATION11');preparation=response[end+1:];response=response[:end]
+        if len(preparation)!=31:raise ProtocolError('preparation state schema')
     dynamic=None
     if 'DYNAMICS10' in response:
         end=response.index('DYNAMICS10');dynamic=response[end+1:];response=response[:end]
@@ -74,6 +88,10 @@ def state(response):
     if dynamic is not None:
         names='arterial_volume_mL venous_volume_mL arterial_level venous_level arterial_gas_mL_s venous_gas_mL_s feed_mL_min drain_mL_min uf_pump_mL_min sensed_dialysate_mmHg dialysate_storage_mL dialysate_residual_mL balance_position_mL balance_cycles bypass'
         result['dynamics']=dict(zip(names.split(),[real(x,-1e9,1e9) for x in dynamic]))
+    if preparation is not None:
+        names='stage acid_state bicarbonate_state ready fault reason cartridge_liquid_mL cartridge_gas_atm_mL solid_g dissolved_mmol pressure_mmHg acid_line_liquid_mL bicarbonate_line_liquid_mL acid_command_mL_min acid_actual_mL_min bicarbonate_command_mL_min bicarbonate_actual_mL_min stable_s sensor_time_s source_mL waste_mL qualified_mL water_residual_mL cartridge_gas_residual_mL line_gas_residual_mL'
+        result['preparation']={k:(v if k=='reason' else real(v,-1e9,1e9)) for k,v in zip(names.split(),preparation[:25])}
+        result['preparation']['mass_residual_mmol']=[real(v,-1e9,1e9) for v in preparation[25:]]
     return result
 
 

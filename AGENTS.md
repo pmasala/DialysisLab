@@ -51,7 +51,27 @@ PRs should explain the change, link relevant issues or requirement IDs, report v
 
 Follow `DEPENDENCY_POLICY.md` when adding dependencies. Review content and redistribution rights before changing the publication allowlist. Keep licensed standards, extracts, screenshots, and private analysis outside the repository, as required by `assurance/standards/PUBLICATION_POLICY.md`.
 
-## Current documentation and integration
+## Audit-oriented educational development
+
+The maintainer requires every behavioral request, including requests made in conversation,
+to be captured as an identified, verifiable requirement before implementation. Maintain
+bidirectional links from need and relevant hazard to requirement, design, source location,
+test procedure, and version-bound execution evidence. Record rationale, units, model
+assumptions, acceptance criteria and change impact in readable English. Explain the
+engineering decisions so learners can follow the medical-device development lifecycle.
+Keep specified, implemented, executed, passed and independently reviewed states distinct.
+Planned tests have no execution evidence; existing passes never cover new behavior by default.
+Capture unresolved thresholds/tolerances as open decisions before execution; do not choose
+acceptance thresholds after seeing results. Preserve failures and blocked checks. A change
+is not complete until its affected documentation, trace links and verification are current.
+This is a simulated educational reference developed with audit discipline, not a certified
+device or a claim that certification is assured. Independent review remains explicit.
+For the requested concentrate preparation extension, follow
+`docs/design/DIALYSATE_PREPARATION_CHANGE.md` and `docs/design/PREPARATION.md`.
+The first increment is implemented; replacement remains deferred. Run
+`tools/verify_preparation.py` and preserve input-bound evidence before claiming a new pass.
+
+## Current documentation and integration checks
 
 All pull requests target `main`. The official reading set is `docs/document-set.json`: requirements, architecture, detailed design, test plans and current evidence applicability. Historical milestone narratives and runs belong to the separate `project-log/README.md` index, outside the official set. Preserve their bytes/hashes; never inherit their passed status without a current-baseline assessment. After the final edit, run `python3 tools/documentation.py --check`, traceability and publication checks on exactly what will be published.
 

@@ -2,7 +2,7 @@
 
 Document ID SRS-02; proposed technical baseline, independent approval pending.
 
-Read [parent requirements](REQUIREMENTS.md) first. These obligations clarify all 60 registered parent requirements and their
+Read [parent requirements](REQUIREMENTS.md) first. These obligations clarify registered parent requirements and their
 testable decisions without replacing or reducing any parent obligation. They are
 generated from [the controlled register](../assurance/current-obligations.json).
 Limits characterize the simulator implementation; they are not clinical thresholds.
@@ -1197,3 +1197,195 @@ Accepted initial dialysate volume shall be usable by plant and patient initializ
 **Design:** [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md).
 
 **Existing test:** `test_audit_closure.AuditClosureTests.test_dynamic_initial_volume_bounds_match_actual_plant_and_patient`.
+
+## MIX-OBL-001 — MIX-REQ-001
+
+Each source line shall retain its configured internal volume and initial air, water or concentrate occupancy up to the mixing junction.
+
+**Acceptance:** Exercise dry, wetted and residual-liquid starts; downstream arrival follows displaced volume and conserves inventories. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_line_air_water_and_concentrate_displacement`.
+
+## MIX-OBL-002 — MIX-REQ-002
+
+Acid and bicarbonate shall have distinct metering pumps with command and actual transfer represented separately.
+
+**Acceptance:** Exercise zero command, pressure load, air aspiration and actuator saturation; actual liquid delivery follows the declared pump law, not commanded displacement alone. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_distinct_pump_displacement_pressure_and_air_efficiency`.
+
+## MIX-OBL-003 — MIX-REQ-003
+
+The cartridge shall separately account for liquid volume, gas inventory, solid bicarbonate and dissolved bicarbonate.
+
+**Acceptance:** Fill and withdraw from known initial inventories; storage changes match all boundary transfers and inventories remain nonnegative. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_cartridge_liquid_gas_and_solute_storage`.
+
+## MIX-OBL-004 — MIX-REQ-004
+
+Cartridge pressure shall respond to gas compression, liquid transfer and declared vent paths.
+
+**Acceptance:** Block vent, restrict inlet and increase withdrawal; pressure follows the declared law and limit violations inhibit the conflicting actuator before the allocated deadline. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_pressure_stop_and_bounded_startup_failures`.
+
+## MIX-OBL-005 — MIX-REQ-005
+
+Dissolution shall depend on the declared saturation relation, available solid and finite dissolution kinetics.
+
+**Acceptance:** At adequate residence time approach saturation; under dissolution-limited withdrawal remain below saturation despite remaining solid. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_saturation_and_finite_dissolution_with_solid_remaining`.
+
+## MIX-OBL-006 — MIX-REQ-006
+
+Solid exhaustion shall not erase remaining dissolved bicarbonate.
+
+**Acceptance:** Exhaust solid and continue water throughput; dissolved inventory washes out conservatively rather than disappearing or remaining indefinitely constant. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_solid_exhaustion_preserves_dissolved_washout`.
+
+## MIX-OBL-007 — MIX-REQ-007
+
+Acid concentration shall be a configurable source property, distinct from remaining bag volume.
+
+**Acceptance:** Apply nominal, diluted and exhausted-source cases; concentration and delivered mass change consistently, including configured air ingress after depletion. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_acid_concentration_step_and_bag_depletion`.
+
+## MIX-OBL-008 — MIX-REQ-008
+
+Downstream mixing shall conserve species and liquid storage and represent declared transport delays.
+
+**Acceptance:** Compare a well-mixed tank with its analytic step response and transport with volume/flow delay; verify independent inventory residuals. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_mixed_tank_matches_independent_exponential`.
+
+## MIX-OBL-009 — MIX-REQ-009
+
+Control shall use simulated sensor outputs with timestamps, temperature compensation, latency and validity rather than hidden source inventory.
+
+**Acceptance:** Inject delayed, stale, invalid and air-exposed measurements; invalid signals cannot authorize readiness. Changing hidden inventory alone cannot directly change a control decision with identical sensor history. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_delayed_stale_invalid_sensors_and_control_input_boundary`.
+
+## MIX-OBL-010 — MIX-REQ-010
+
+Each metering command shall combine declared feedforward with bounded PI correction and defined anti-windup/invalid-measurement behavior.
+
+**Acceptance:** Apply flow/concentration steps, saturation and invalidity; commands remain bounded, integrator behavior matches the specified policy and recovery meets prospective response criteria. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_pi_saturation_antiwindup_and_invalid_freeze`.
+
+## MIX-OBL-011 — MIX-REQ-011
+
+Composition qualification shall include intermediate observations and ratio checks rather than final conductivity alone.
+
+**Acceptance:** Construct compensating acid/bicarbonate errors with similar final conductivity; documented intermediate checks detect the observable cases and remaining detection gaps are reported. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_compensating_errors_and_continuous_dwell`.
+
+## MIX-OBL-012 — MIX-REQ-012
+
+Acid and bicarbonate startup sequences shall progress independently with observable guards and bounded failure timeouts.
+
+**Acceptance:** Hold each prerequisite false in turn; reject premature dosing qualification and enter the declared failure response on timeout. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_pressure_stop_and_bounded_startup_failures`.
+
+## MIX-OBL-013 — MIX-REQ-013
+
+The preparation supervisor shall divert unqualified fluid to waste and prevent its delivery to the dialyzer/substitution paths.
+
+**Acceptance:** Challenge every startup phase, each invalid guard and loss of qualification; verify actual routed volumes, not just displayed state. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_final_authority_blocks_unqualified_fluid_despite_forged_permits`.
+
+## MIX-OBL-014 — MIX-REQ-014
+
+Readiness shall require valid liquid-presence evidence, acceptable pressure/composition and continuous stability for a configured dwell interval.
+
+**Acceptance:** Test just below/at/above the dwell boundary and an intervening invalid sample; interruptions reset qualification and a single valid sample cannot authorize delivery. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_compensating_errors_and_continuous_dwell`.
+
+## MIX-OBL-015 — MIX-REQ-015
+
+The model shall provide separate boundary ledgers for source supply, stored liquid/species, gas exchange, waste and usable output.
+
+**Acceptance:** Independently reconstruct balances across startup, zero flow, partial steps and exhaustion; refinements of timestep and transport discretization satisfy predeclared error budgets. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_time_refinement_against_predeclared_budget`.
+
+## MIX-OBL-016 — MIX-REQ-016
+
+Preparation evidence shall identify requirements, implementation revision, parameters, test oracle and execution outcome.
+
+**Acceptance:** Reproduce a fixed scenario and verify complete trace in both directions; changed source/configuration invalidates prior applicability. Bounds fixed in STP-MIX-01.
+
+**Coverage:** Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.
+
+**Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
+
+**Existing test:** `test_preparation.PreparationTests.test_evidence_identity_changes_with_source_and_configuration`.
