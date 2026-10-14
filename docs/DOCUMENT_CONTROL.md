@@ -53,6 +53,17 @@ approval remain review decisions.
 
 ## Review and publication sequence
 
+Every behavioral request, including a conversation request, must be captured before
+implementation as an identified requirement with rationale and prospective acceptance.
+Maintain need/risk → requirement → design → source → test → execution links in both
+directions. An audit-oriented educational example must explain decisions and limitations,
+not only contain passing tests. Keep specification, implementation, execution, pass and
+independent acceptance distinct. Record open numerical decisions before testing; preserve
+failed and blocked outcomes. This process is not a claim of certification eligibility.
+
+Current prospective change: [concentrate preparation](design/DIALYSATE_PREPARATION_CHANGE.md).
+Its draft requirements and planned tests are not part of the implemented coverage claim.
+
 1. Identify the affected requirement, risk control, interface, model assumption
    and test. Review changes against the declared simulator scope.
 2. Update the design and protocol before execution where new acceptance is needed.
@@ -83,7 +94,8 @@ language; a translation must identify its corresponding commit.
 ## Supplemental contracts and allocations
 
 `assurance/current-obligations.json` controls selected atomic clarifications and
-concrete test allocations; it does not replace the 60 parent requirements.
+concrete test allocations; it does not replace the parent requirements. The MIX increment adds 17 stable IDs,
+with replacement explicitly deferred.
 `docs/wire-contract.json` controls fixed-field wire order, units and bounds.
 Run `python3 tools/documentation.py --write` after editing either. The check rejects
 unknown parents, missing executable methods, duplicate fields, invalid bounds and

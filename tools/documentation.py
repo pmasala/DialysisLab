@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 GROUPS = [
     ('System boundaries and protective principles', ['REQ-']),
     ('Execution, failure handling and records', ['M1-REQ-']),
-    ('Hydraulics, patient and prepared fluids', ['M2-REQ-', 'M3-REQ-', 'M4-REQ-', 'PHY-REQ-', 'DYN-REQ-']),
+    ('Hydraulics, patient and prepared fluids', ['M2-REQ-', 'M3-REQ-', 'M4-REQ-', 'PHY-REQ-', 'DYN-REQ-', 'MIX-REQ-']),
     ('Treatment lifecycle and operator interface', ['M5-REQ-', 'M6-REQ-', 'UI-REQ-']),
     ('Experiments and inspection', ['M7-REQ-']),
     ('Security, dependencies and integration', ['M8-REQ-', 'M9-REQ-']),
@@ -53,7 +53,7 @@ def render(root):
         'prefix is not the reading order. Statements and acceptance text below are generated',
         'from the maintained register without silently rewriting obligations. The supplemental',
         '[atomic requirements](ATOMIC_REQUIREMENTS.md) and [coverage matrix](testing/COVERAGE.md)',
-        'allocate all 60 parent requirements to detailed obligations and executable test methods. Some obligations',
+        'allocate implemented parent requirements to detailed obligations and executable test methods; deferred work is explicit. Some obligations',
         'remain too broad or need justified numerical criteria; the current audit identifies them.', '',
         '**Current verification decision:** implementation is recorded for these requirements,',
         'but requirement-level independent acceptance is not recorded. Historical test passes',
@@ -144,6 +144,11 @@ def check(root):
             resolved = (path.parent / target).resolve()
             if not resolved.is_relative_to(root.resolve()) or not resolved.exists():
                 errors.append(name + ': broken or outside-root local link: ' + target)
+    preparation = root / 'assurance/evidence/preparation/report.json'
+    if preparation.exists():
+        from verify_preparation import applicable
+        if not applicable(json.loads(preparation.read_text()), root):
+            errors.append('preparation execution is not applicable to current verification inputs; rerun verify_preparation.py')
     return errors
 
 

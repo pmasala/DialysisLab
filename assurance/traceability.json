@@ -428,6 +428,31 @@
       "id": "DYN-DES-001",
       "description": "Dynamic gas/liquid chambers, lagged actuators, duplex balancing with changeover hold, compliant dialysate inventory and pressure feedback, sixteen blood and twelve countercurrent dialysate transport volumes. Detailed model and boundaries in docs/DYNAMIC_MODEL.md.",
       "status": "implemented"
+    },
+    {
+      "id": "MIX-DES-001",
+      "description": "SDD-MIX-01 D1; docs/design/PREPARATION.md and src/preparation.hpp",
+      "status": "implemented"
+    },
+    {
+      "id": "MIX-DES-002",
+      "description": "SDD-MIX-01 D2; docs/design/PREPARATION.md and src/preparation.hpp",
+      "status": "implemented"
+    },
+    {
+      "id": "MIX-DES-003",
+      "description": "SDD-MIX-01 D3; docs/design/PREPARATION.md and src/preparation.hpp",
+      "status": "implemented"
+    },
+    {
+      "id": "MIX-DES-004",
+      "description": "SDD-MIX-01 D4; docs/design/PREPARATION.md and src/preparation.hpp",
+      "status": "implemented"
+    },
+    {
+      "id": "MIX-DES-005",
+      "description": "SDD-MIX-01 D5; docs/design/PREPARATION.md and src/preparation.hpp",
+      "status": "implemented"
     }
   ],
   "requirements": [
@@ -456,7 +481,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -464,15 +489,15 @@
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
-          "sha256": "91f5e5322722e683be3bba9632f10b586872bc862cc876b8b5b779ddaa6dbe86"
+          "sha256": "8eea3b6bb5db617857b3c2e04023a410c9b896a794492e532f85619706d6685b"
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "4d5d4eb1b9863867bfcf8e5dead84312d5f4a2dd9ecf6cd2708f87cba390e509"
+          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "bf6840fefc689ad4d8049177fda10f0123d677ee9b570f0f6d4aa23d5e0d7dc2"
+          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -480,19 +505,19 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "6455ff2ac81a22ac09e9800a0419612d07965ffae4373e14437a3f8f911a023b"
+          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "846deaa674d2ea246d9cfca8aad297d68833f17243206de7c97161b169991fec"
+          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "203a9de5097d2c42a91a4bbbb00f3b603ff992c01fc71fc8c9a9f12369af20e6"
+          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
         },
         {
           "path": "tools/verify_experiments_compose.py",
@@ -525,15 +550,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -541,7 +566,7 @@
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
-          "sha256": "91f5e5322722e683be3bba9632f10b586872bc862cc876b8b5b779ddaa6dbe86"
+          "sha256": "8eea3b6bb5db617857b3c2e04023a410c9b896a794492e532f85619706d6685b"
         },
         {
           "path": "docs/design/SAFETY_SECURITY.md",
@@ -549,11 +574,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "4d5d4eb1b9863867bfcf8e5dead84312d5f4a2dd9ecf6cd2708f87cba390e509"
+          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "bf6840fefc689ad4d8049177fda10f0123d677ee9b570f0f6d4aa23d5e0d7dc2"
+          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -561,7 +586,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -569,19 +594,19 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "6455ff2ac81a22ac09e9800a0419612d07965ffae4373e14437a3f8f911a023b"
+          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
+          "sha256": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "846deaa674d2ea246d9cfca8aad297d68833f17243206de7c97161b169991fec"
+          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
         },
         {
           "path": "tests/test_machine.py",
@@ -589,7 +614,7 @@
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "203a9de5097d2c42a91a4bbbb00f3b603ff992c01fc71fc8c9a9f12369af20e6"
+          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
         }
       ],
       "unresolved": [
@@ -618,15 +643,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -642,7 +667,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -695,15 +720,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -711,7 +736,7 @@
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
-          "sha256": "91f5e5322722e683be3bba9632f10b586872bc862cc876b8b5b779ddaa6dbe86"
+          "sha256": "8eea3b6bb5db617857b3c2e04023a410c9b896a794492e532f85619706d6685b"
         },
         {
           "path": "docs/design/SAFETY_SECURITY.md",
@@ -719,11 +744,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "4d5d4eb1b9863867bfcf8e5dead84312d5f4a2dd9ecf6cd2708f87cba390e509"
+          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "bf6840fefc689ad4d8049177fda10f0123d677ee9b570f0f6d4aa23d5e0d7dc2"
+          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -731,7 +756,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -739,7 +764,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "6455ff2ac81a22ac09e9800a0419612d07965ffae4373e14437a3f8f911a023b"
+          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
         },
         {
           "path": "src/protection.cpp",
@@ -751,7 +776,7 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "846deaa674d2ea246d9cfca8aad297d68833f17243206de7c97161b169991fec"
+          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
         },
         {
           "path": "tests/test_rpc_abort.py",
@@ -759,7 +784,7 @@
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "203a9de5097d2c42a91a4bbbb00f3b603ff992c01fc71fc8c9a9f12369af20e6"
+          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
         }
       ],
       "unresolved": [
@@ -788,7 +813,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M5_MACHINE.md",
@@ -800,15 +825,15 @@
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
-          "sha256": "91f5e5322722e683be3bba9632f10b586872bc862cc876b8b5b779ddaa6dbe86"
+          "sha256": "8eea3b6bb5db617857b3c2e04023a410c9b896a794492e532f85619706d6685b"
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "4d5d4eb1b9863867bfcf8e5dead84312d5f4a2dd9ecf6cd2708f87cba390e509"
+          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "bf6840fefc689ad4d8049177fda10f0123d677ee9b570f0f6d4aa23d5e0d7dc2"
+          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -816,7 +841,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "6455ff2ac81a22ac09e9800a0419612d07965ffae4373e14437a3f8f911a023b"
+          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
         },
         {
           "path": "src/protection.cpp",
@@ -828,11 +853,11 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "846deaa674d2ea246d9cfca8aad297d68833f17243206de7c97161b169991fec"
+          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "203a9de5097d2c42a91a4bbbb00f3b603ff992c01fc71fc8c9a9f12369af20e6"
+          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
         }
       ],
       "unresolved": [
@@ -861,15 +886,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/M4_TREATMENT.md",
@@ -889,7 +914,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -905,7 +930,7 @@
         },
         {
           "path": "src/online.hpp",
-          "sha256": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3"
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
         },
         {
           "path": "src/protection.cpp",
@@ -946,7 +971,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -987,7 +1012,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -999,11 +1024,11 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "923a1ba0b38e2f420be6df30e481fcb47f5b5d71c4cee01d1cab6bd75714bee1"
+          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         }
       ],
       "unresolved": [
@@ -1032,7 +1057,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1052,7 +1077,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         }
       ],
       "unresolved": [
@@ -1081,7 +1106,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1093,7 +1118,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         },
         {
           "path": "src/protection.cpp",
@@ -1126,7 +1151,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1134,15 +1159,15 @@
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
-          "sha256": "91f5e5322722e683be3bba9632f10b586872bc862cc876b8b5b779ddaa6dbe86"
+          "sha256": "8eea3b6bb5db617857b3c2e04023a410c9b896a794492e532f85619706d6685b"
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "4d5d4eb1b9863867bfcf8e5dead84312d5f4a2dd9ecf6cd2708f87cba390e509"
+          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "bf6840fefc689ad4d8049177fda10f0123d677ee9b570f0f6d4aa23d5e0d7dc2"
+          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -1150,7 +1175,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "6455ff2ac81a22ac09e9800a0419612d07965ffae4373e14437a3f8f911a023b"
+          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
         },
         {
           "path": "src/control.cpp",
@@ -1158,15 +1183,15 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "846deaa674d2ea246d9cfca8aad297d68833f17243206de7c97161b169991fec"
+          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "203a9de5097d2c42a91a4bbbb00f3b603ff992c01fc71fc8c9a9f12369af20e6"
+          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
         }
       ],
       "unresolved": [
@@ -1195,7 +1220,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1203,15 +1228,15 @@
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
-          "sha256": "91f5e5322722e683be3bba9632f10b586872bc862cc876b8b5b779ddaa6dbe86"
+          "sha256": "8eea3b6bb5db617857b3c2e04023a410c9b896a794492e532f85619706d6685b"
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "4d5d4eb1b9863867bfcf8e5dead84312d5f4a2dd9ecf6cd2708f87cba390e509"
+          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "bf6840fefc689ad4d8049177fda10f0123d677ee9b570f0f6d4aa23d5e0d7dc2"
+          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -1219,7 +1244,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "6455ff2ac81a22ac09e9800a0419612d07965ffae4373e14437a3f8f911a023b"
+          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
         },
         {
           "path": "src/control.cpp",
@@ -1227,7 +1252,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         },
         {
           "path": "src/protection.cpp",
@@ -1239,11 +1264,11 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "846deaa674d2ea246d9cfca8aad297d68833f17243206de7c97161b169991fec"
+          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "203a9de5097d2c42a91a4bbbb00f3b603ff992c01fc71fc8c9a9f12369af20e6"
+          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
         }
       ],
       "unresolved": [
@@ -1273,15 +1298,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1289,15 +1314,15 @@
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
-          "sha256": "91f5e5322722e683be3bba9632f10b586872bc862cc876b8b5b779ddaa6dbe86"
+          "sha256": "8eea3b6bb5db617857b3c2e04023a410c9b896a794492e532f85619706d6685b"
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "4d5d4eb1b9863867bfcf8e5dead84312d5f4a2dd9ecf6cd2708f87cba390e509"
+          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "bf6840fefc689ad4d8049177fda10f0123d677ee9b570f0f6d4aa23d5e0d7dc2"
+          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -1305,7 +1330,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -1313,15 +1338,15 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "6455ff2ac81a22ac09e9800a0419612d07965ffae4373e14437a3f8f911a023b"
+          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "923a1ba0b38e2f420be6df30e481fcb47f5b5d71c4cee01d1cab6bd75714bee1"
+          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         },
         {
           "path": "src/wire.hpp",
@@ -1329,11 +1354,11 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "846deaa674d2ea246d9cfca8aad297d68833f17243206de7c97161b169991fec"
+          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "203a9de5097d2c42a91a4bbbb00f3b603ff992c01fc71fc8c9a9f12369af20e6"
+          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
         }
       ],
       "unresolved": [
@@ -1363,7 +1388,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1375,7 +1400,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "923a1ba0b38e2f420be6df30e481fcb47f5b5d71c4cee01d1cab6bd75714bee1"
+          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
         },
         {
           "path": "python/dialysislab/trajectory.py",
@@ -1411,15 +1436,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1431,7 +1456,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -1468,7 +1493,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1508,7 +1533,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1548,7 +1573,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1590,7 +1615,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1631,15 +1656,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1651,7 +1676,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1687,7 +1712,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1727,7 +1752,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1769,7 +1794,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1781,7 +1806,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "923a1ba0b38e2f420be6df30e481fcb47f5b5d71c4cee01d1cab6bd75714bee1"
+          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
         }
       ],
       "unresolved": [
@@ -1809,7 +1834,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1850,7 +1875,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1862,7 +1887,7 @@
         },
         {
           "path": "src/online.hpp",
-          "sha256": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3"
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
         }
       ],
       "unresolved": [
@@ -1892,7 +1917,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1904,7 +1929,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         }
       ],
       "unresolved": [
@@ -1935,7 +1960,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1947,7 +1972,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "923a1ba0b38e2f420be6df30e481fcb47f5b5d71c4cee01d1cab6bd75714bee1"
+          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
         }
       ],
       "unresolved": [
@@ -1977,7 +2002,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/TREATMENT.md",
@@ -1989,11 +2014,11 @@
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
+          "sha256": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         }
       ],
       "unresolved": [
@@ -2022,15 +2047,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/design/TREATMENT.md",
@@ -2042,7 +2067,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2085,11 +2110,11 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
-          "sha256": "91f5e5322722e683be3bba9632f10b586872bc862cc876b8b5b779ddaa6dbe86"
+          "sha256": "8eea3b6bb5db617857b3c2e04023a410c9b896a794492e532f85619706d6685b"
         },
         {
           "path": "docs/design/SAFETY_SECURITY.md",
@@ -2101,11 +2126,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "4d5d4eb1b9863867bfcf8e5dead84312d5f4a2dd9ecf6cd2708f87cba390e509"
+          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "bf6840fefc689ad4d8049177fda10f0123d677ee9b570f0f6d4aa23d5e0d7dc2"
+          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2113,11 +2138,11 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "6455ff2ac81a22ac09e9800a0419612d07965ffae4373e14437a3f8f911a023b"
+          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         },
         {
           "path": "src/protection.cpp",
@@ -2125,11 +2150,11 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "846deaa674d2ea246d9cfca8aad297d68833f17243206de7c97161b169991fec"
+          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "203a9de5097d2c42a91a4bbbb00f3b603ff992c01fc71fc8c9a9f12369af20e6"
+          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
         }
       ],
       "unresolved": [
@@ -2159,19 +2184,19 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
-          "sha256": "91f5e5322722e683be3bba9632f10b586872bc862cc876b8b5b779ddaa6dbe86"
+          "sha256": "8eea3b6bb5db617857b3c2e04023a410c9b896a794492e532f85619706d6685b"
         },
         {
           "path": "docs/design/TREATMENT.md",
@@ -2179,11 +2204,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "4d5d4eb1b9863867bfcf8e5dead84312d5f4a2dd9ecf6cd2708f87cba390e509"
+          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "bf6840fefc689ad4d8049177fda10f0123d677ee9b570f0f6d4aa23d5e0d7dc2"
+          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -2191,7 +2216,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2199,11 +2224,11 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "6455ff2ac81a22ac09e9800a0419612d07965ffae4373e14437a3f8f911a023b"
+          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
+          "sha256": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025"
         },
         {
           "path": "src/protection.cpp",
@@ -2211,11 +2236,11 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "846deaa674d2ea246d9cfca8aad297d68833f17243206de7c97161b169991fec"
+          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "203a9de5097d2c42a91a4bbbb00f3b603ff992c01fc71fc8c9a9f12369af20e6"
+          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
         }
       ],
       "unresolved": [
@@ -2249,7 +2274,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/TREATMENT.md",
@@ -2261,7 +2286,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "d5ce9e2882d18bc6137d92881718139b1d04b1adff566ac16f6ddc1744a6ca37"
+          "sha256": "62511592aacb7029dcc6962c14a67d0302a41c2668bb2cfffa0f88c63d1a8824"
         },
         {
           "path": "src/control.cpp",
@@ -2298,7 +2323,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/TREATMENT.md",
@@ -2343,7 +2368,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2363,7 +2388,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -2397,7 +2422,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2417,7 +2442,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -2451,7 +2476,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2471,7 +2496,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -2505,7 +2530,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2525,7 +2550,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -2559,15 +2584,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2583,7 +2608,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2595,7 +2620,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -2631,7 +2656,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2651,7 +2676,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -2685,7 +2710,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -2747,7 +2772,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -2809,15 +2834,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -2829,15 +2854,15 @@
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
-          "sha256": "91f5e5322722e683be3bba9632f10b586872bc862cc876b8b5b779ddaa6dbe86"
+          "sha256": "8eea3b6bb5db617857b3c2e04023a410c9b896a794492e532f85619706d6685b"
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "4d5d4eb1b9863867bfcf8e5dead84312d5f4a2dd9ecf6cd2708f87cba390e509"
+          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "bf6840fefc689ad4d8049177fda10f0123d677ee9b570f0f6d4aa23d5e0d7dc2"
+          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -2845,7 +2870,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2853,7 +2878,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "6455ff2ac81a22ac09e9800a0419612d07965ffae4373e14437a3f8f911a023b"
+          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -2877,11 +2902,11 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "846deaa674d2ea246d9cfca8aad297d68833f17243206de7c97161b169991fec"
+          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "203a9de5097d2c42a91a4bbbb00f3b603ff992c01fc71fc8c9a9f12369af20e6"
+          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
         }
       ],
       "unresolved": [
@@ -2911,15 +2936,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -2935,7 +2960,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2989,7 +3014,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -3051,7 +3076,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -3121,7 +3146,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -3179,7 +3204,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -3199,7 +3224,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "923a1ba0b38e2f420be6df30e481fcb47f5b5d71c4cee01d1cab6bd75714bee1"
+          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
         },
         {
           "path": "src/child_guard.cpp",
@@ -3240,7 +3265,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -3268,7 +3293,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         },
         {
           "path": "tests/test_security.py",
@@ -3305,7 +3330,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -3386,7 +3411,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -3443,19 +3468,19 @@
         },
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/DOCUMENT_CONTROL.md",
-          "sha256": "558d0f5176d74ad57d0357829ed87af90b1abefa2d41100f81452bb4f68be36b"
+          "sha256": "fd17b7eed436e09f854938ae58329846fea7db30479e277c67c0e9bea00474bd"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -3475,7 +3500,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -3483,7 +3508,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "d2227d854318d2327ccb067ad44c0df45b166b9d5a28d942a110bae4c66bdca0"
+          "sha256": "95b3645460483bcbaaefb96a4f009dbd41a5bd3248a0a1392173119decccd2c8"
         },
         {
           "path": "tests/test_ci.py",
@@ -3491,7 +3516,7 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "846deaa674d2ea246d9cfca8aad297d68833f17243206de7c97161b169991fec"
+          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
         },
         {
           "path": "tests/test_documentation.py",
@@ -3511,11 +3536,11 @@
         },
         {
           "path": "tools/document_contracts.py",
-          "sha256": "72ea0e452f5c1a170decb83dda2a89ccc69b7128a13b230faf1c40149c0f1b4c"
+          "sha256": "9133661a3912b584d4b527d227016fcf7ef5c2c5725b8ac23af63fff34e80686"
         },
         {
           "path": "tools/documentation.py",
-          "sha256": "d8107d2821e2d47666fc0778e60f0e9312eb4c6e16e4f5730dd4ab9218b72758"
+          "sha256": "069883f7fdcba23277dff8ae8f840faa00067a16732feece3574d0756c0abc8a"
         }
       ],
       "unresolved": [
@@ -3546,7 +3571,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/M9_INTEGRATION.md",
@@ -3595,7 +3620,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -3646,7 +3671,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -3695,7 +3720,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -3707,7 +3732,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "d2227d854318d2327ccb067ad44c0df45b166b9d5a28d942a110bae4c66bdca0"
+          "sha256": "95b3645460483bcbaaefb96a4f009dbd41a5bd3248a0a1392173119decccd2c8"
         },
         {
           "path": "tools/package_release.py",
@@ -3752,7 +3777,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/DEVELOPMENT.md",
@@ -3764,7 +3789,7 @@
         },
         {
           "path": "docs/README.md",
-          "sha256": "a16442f2953e4f76649f0087487e9fadea891abdda9a812a54c3a56e74ee4ab7"
+          "sha256": "9b9f9ba9ce53286ce8eb5918e4b826c8515f48d4a1b49f316138390ca6076542"
         },
         {
           "path": "docs/SIMULATION.md",
@@ -3835,7 +3860,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/UI_INSPECTION.md",
@@ -3902,15 +3927,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/GUIDED_TREATMENT.md",
@@ -3926,7 +3951,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -3938,11 +3963,11 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "d5ce9e2882d18bc6137d92881718139b1d04b1adff566ac16f6ddc1744a6ca37"
+          "sha256": "62511592aacb7029dcc6962c14a67d0302a41c2668bb2cfffa0f88c63d1a8824"
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "923a1ba0b38e2f420be6df30e481fcb47f5b5d71c4cee01d1cab6bd75714bee1"
+          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
         },
         {
           "path": "scenarios/device_guided.json",
@@ -3954,15 +3979,15 @@
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
+          "sha256": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -4027,15 +4052,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/PHYSICAL_MODEL.md",
@@ -4051,7 +4076,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/MEASUREMENTS.md",
@@ -4067,15 +4092,15 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "d5ce9e2882d18bc6137d92881718139b1d04b1adff566ac16f6ddc1744a6ca37"
+          "sha256": "62511592aacb7029dcc6962c14a67d0302a41c2668bb2cfffa0f88c63d1a8824"
         },
         {
           "path": "python/dialysislab/physical.py",
-          "sha256": "49a3340d22e129a88a75d1643c087d49c06684f11badafd539c5fdac30b23fcf"
+          "sha256": "195851661259ef9227b2dbe228adbe6e38ebdc5bdbebac7ebaf49e31879d9637"
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "923a1ba0b38e2f420be6df30e481fcb47f5b5d71c4cee01d1cab6bd75714bee1"
+          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
         },
         {
           "path": "src/blood_physics.hpp",
@@ -4087,19 +4112,19 @@
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
+          "sha256": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025"
         },
         {
           "path": "src/online.hpp",
-          "sha256": "d18d5e4d480e20f4897832a8a016bab64473388bea3c100c72fca6e8af3e5fa3"
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
         },
         {
           "path": "src/ui/guided.hpp",
@@ -4148,15 +4173,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "2713a4a51698852b6a04be053b783d1e6255e06c8e3480177ccd43e6318ca936"
+          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "d083cecc33708115d0f5be6336bbaea44a74bfa060174776d554407148615740"
+          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "9b8a90817acdbc8368015d82a63fdefda1e7a5f106c5f2bfe4978125726ffc5b"
+          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
         },
         {
           "path": "docs/DYNAMIC_MODEL.md",
@@ -4192,7 +4217,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "f15bae1806c4ba0788c3ff2b80bebbffa9acc57bdffea7e12cfe58eddda507eb"
+          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
         },
         {
           "path": "docs/testing/MEASUREMENTS.md",
@@ -4220,11 +4245,11 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "d5ce9e2882d18bc6137d92881718139b1d04b1adff566ac16f6ddc1744a6ca37"
+          "sha256": "62511592aacb7029dcc6962c14a67d0302a41c2668bb2cfffa0f88c63d1a8824"
         },
         {
           "path": "python/dialysislab/physical.py",
-          "sha256": "49a3340d22e129a88a75d1643c087d49c06684f11badafd539c5fdac30b23fcf"
+          "sha256": "195851661259ef9227b2dbe228adbe6e38ebdc5bdbebac7ebaf49e31879d9637"
         },
         {
           "path": "python/dialysislab/protocol.py",
@@ -4232,7 +4257,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "923a1ba0b38e2f420be6df30e481fcb47f5b5d71c4cee01d1cab6bd75714bee1"
+          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
         },
         {
           "path": "python/dialysislab/trajectory.py",
@@ -4276,15 +4301,15 @@
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "062a1dbc8b5ce6516050a3877a44beadbd6d8118a619f8ed1b688b6513da7e22"
+          "sha256": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "74b5b938776b6b951d86f28ae8af267378a07baa17fb7aa5e488689919be7178"
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "13bf85a4dfc2dbd77bf245317b20c2f748aa37630eb29188b8a8bf6502efe410"
+          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -4354,6 +4379,911 @@
       "unresolved": [
         "Independent safety/clinical/usability review and physical calibration data remain required.",
         "Full process, sanitizer and Docker execution is a hosted CI gate; local evidence is explicitly in-process."
+      ]
+    },
+    {
+      "id": "MIX-REQ-001",
+      "statement": "Each source line shall retain its configured internal volume and initial air, water or concentrate occupancy up to the mixing junction.",
+      "acceptance": "Exercise dry, wetted and residual-liquid starts; downstream arrival follows displaced volume and conserves inventories. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-001"
+      ],
+      "tests": [
+        "MIX-TEST-001"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-002",
+      "statement": "Acid and bicarbonate shall have distinct metering pumps with command and actual transfer represented separately.",
+      "acceptance": "Exercise zero command, pressure load, air aspiration and actuator saturation; actual liquid delivery follows the declared pump law, not commanded displacement alone. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-001"
+      ],
+      "tests": [
+        "MIX-TEST-002"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-003",
+      "statement": "The cartridge shall separately account for liquid volume, gas inventory, solid bicarbonate and dissolved bicarbonate.",
+      "acceptance": "Fill and withdraw from known initial inventories; storage changes match all boundary transfers and inventories remain nonnegative. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-002"
+      ],
+      "tests": [
+        "MIX-TEST-003"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-004",
+      "statement": "Cartridge pressure shall respond to gas compression, liquid transfer and declared vent paths.",
+      "acceptance": "Block vent, restrict inlet and increase withdrawal; pressure follows the declared law and limit violations inhibit the conflicting actuator before the allocated deadline. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-002",
+        "MIX-DES-005"
+      ],
+      "tests": [
+        "MIX-TEST-004"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-005",
+      "statement": "Dissolution shall depend on the declared saturation relation, available solid and finite dissolution kinetics.",
+      "acceptance": "At adequate residence time approach saturation; under dissolution-limited withdrawal remain below saturation despite remaining solid. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-002"
+      ],
+      "tests": [
+        "MIX-TEST-005"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-006",
+      "statement": "Solid exhaustion shall not erase remaining dissolved bicarbonate.",
+      "acceptance": "Exhaust solid and continue water throughput; dissolved inventory washes out conservatively rather than disappearing or remaining indefinitely constant. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-002"
+      ],
+      "tests": [
+        "MIX-TEST-006"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-007",
+      "statement": "Acid concentration shall be a configurable source property, distinct from remaining bag volume.",
+      "acceptance": "Apply nominal, diluted and exhausted-source cases; concentration and delivered mass change consistently, including configured air ingress after depletion. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-001"
+      ],
+      "tests": [
+        "MIX-TEST-007"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-008",
+      "statement": "Downstream mixing shall conserve species and liquid storage and represent declared transport delays.",
+      "acceptance": "Compare a well-mixed tank with its analytic step response and transport with volume/flow delay; verify independent inventory residuals. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-003"
+      ],
+      "tests": [
+        "MIX-TEST-008"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-009",
+      "statement": "Control shall use simulated sensor outputs with timestamps, temperature compensation, latency and validity rather than hidden source inventory.",
+      "acceptance": "Inject delayed, stale, invalid and air-exposed measurements; invalid signals cannot authorize readiness. Changing hidden inventory alone cannot directly change a control decision with identical sensor history. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-004"
+      ],
+      "tests": [
+        "MIX-TEST-009"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-010",
+      "statement": "Each metering command shall combine declared feedforward with bounded PI correction and defined anti-windup/invalid-measurement behavior.",
+      "acceptance": "Apply flow/concentration steps, saturation and invalidity; commands remain bounded, integrator behavior matches the specified policy and recovery meets prospective response criteria. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-004"
+      ],
+      "tests": [
+        "MIX-TEST-010"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-011",
+      "statement": "Composition qualification shall include intermediate observations and ratio checks rather than final conductivity alone.",
+      "acceptance": "Construct compensating acid/bicarbonate errors with similar final conductivity; documented intermediate checks detect the observable cases and remaining detection gaps are reported. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-004"
+      ],
+      "tests": [
+        "MIX-TEST-011"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-012",
+      "statement": "Acid and bicarbonate startup sequences shall progress independently with observable guards and bounded failure timeouts.",
+      "acceptance": "Hold each prerequisite false in turn; reject premature dosing qualification and enter the declared failure response on timeout. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-005"
+      ],
+      "tests": [
+        "MIX-TEST-012"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-013",
+      "statement": "The preparation supervisor shall divert unqualified fluid to waste and prevent its delivery to the dialyzer/substitution paths.",
+      "acceptance": "Challenge every startup phase, each invalid guard and loss of qualification; verify actual routed volumes, not just displayed state. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-005"
+      ],
+      "tests": [
+        "MIX-TEST-013"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-014",
+      "statement": "Readiness shall require valid liquid-presence evidence, acceptable pressure/composition and continuous stability for a configured dwell interval.",
+      "acceptance": "Test just below/at/above the dwell boundary and an intervening invalid sample; interruptions reset qualification and a single valid sample cannot authorize delivery. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-005"
+      ],
+      "tests": [
+        "MIX-TEST-014"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-015",
+      "statement": "The model shall provide separate boundary ledgers for source supply, stored liquid/species, gas exchange, waste and usable output.",
+      "acceptance": "Independently reconstruct balances across startup, zero flow, partial steps and exhaustion; refinements of timestep and transport discretization satisfy predeclared error budgets. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-001",
+        "MIX-DES-002",
+        "MIX-DES-003"
+      ],
+      "tests": [
+        "MIX-TEST-015"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-016",
+      "statement": "Preparation evidence shall identify requirements, implementation revision, parameters, test oracle and execution outcome.",
+      "acceptance": "Reproduce a fixed scenario and verify complete trace in both directions; changed source/configuration invalidates prior applicability. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-001",
+        "MIX-DES-002",
+        "MIX-DES-003",
+        "MIX-DES-004",
+        "MIX-DES-005"
+      ],
+      "tests": [
+        "MIX-TEST-016"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        },
+        {
+          "path": "src/preparation.hpp",
+          "sha256": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83"
+        },
+        {
+          "path": "src/online.hpp",
+          "sha256": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+        },
+        {
+          "path": "tests/test_preparation.py",
+          "sha256": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197"
+        },
+        {
+          "path": "tests/preparation_model.cpp",
+          "sha256": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85"
+        }
+      ],
+      "unresolved": [
+        "Independent review and empirical parameter/detection-coverage calibration pending."
+      ]
+    },
+    {
+      "id": "MIX-REQ-017",
+      "statement": "A later replacement procedure shall address isolation, pressure relief, reconnection, re-priming and requalification.",
+      "acceptance": "Deferred protocol; blocked pending replacement design. No replacement implementation or successful test is claimed. Prospective numerical criteria: docs/testing/PREPARATION.md.",
+      "needs": [
+        "NEED-006"
+      ],
+      "hazards": [
+        "HAZ-002",
+        "HAZ-004",
+        "HAZ-006"
+      ],
+      "designs": [
+        "MIX-DES-005"
+      ],
+      "tests": [
+        "MIX-TEST-017"
+      ],
+      "status": "draft",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/PREPARATION.md",
+          "sha256": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140"
+        },
+        {
+          "path": "docs/testing/PREPARATION.md",
+          "sha256": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709"
+        }
+      ],
+      "unresolved": [
+        "Replacement procedure deferred; isolation, relief, reconnection and requalification not implemented."
       ]
     }
   ],
@@ -7034,6 +7964,319 @@
       "expected": "Bounded real RPC and containers preserve lifecycle constraints and all physical/distributed ledgers.",
       "result": "blocked",
       "evidence": null
+    },
+    {
+      "id": "MIX-TEST-001",
+      "requirements": [
+        "MIX-REQ-001"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_line_air_water_and_concentrate_displacement; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Exercise dry, wetted and residual-liquid starts; downstream arrival follows displaced volume and conserves inventories.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-002",
+      "requirements": [
+        "MIX-REQ-002"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_distinct_pump_displacement_pressure_and_air_efficiency; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Exercise zero command, pressure load, air aspiration and actuator saturation; actual liquid delivery follows the declared pump law, not commanded displacement alone.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-003",
+      "requirements": [
+        "MIX-REQ-003"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_cartridge_liquid_gas_and_solute_storage; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Fill and withdraw from known initial inventories; storage changes match all boundary transfers and inventories remain nonnegative.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-004",
+      "requirements": [
+        "MIX-REQ-004"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_pressure_stop_and_bounded_startup_failures; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Block vent, restrict inlet and increase withdrawal; pressure follows the declared law and limit violations inhibit the conflicting actuator before the allocated deadline.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-005",
+      "requirements": [
+        "MIX-REQ-005"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_saturation_and_finite_dissolution_with_solid_remaining; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "At adequate residence time approach saturation; under dissolution-limited withdrawal remain below saturation despite remaining solid.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-006",
+      "requirements": [
+        "MIX-REQ-006"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_solid_exhaustion_preserves_dissolved_washout; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Exhaust solid and continue water throughput; dissolved inventory washes out conservatively rather than disappearing or remaining indefinitely constant.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-007",
+      "requirements": [
+        "MIX-REQ-007"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_acid_concentration_step_and_bag_depletion; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Apply nominal, diluted and exhausted-source cases; concentration and delivered mass change consistently, including configured air ingress after depletion.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-008",
+      "requirements": [
+        "MIX-REQ-008"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_mixed_tank_matches_independent_exponential; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Compare a well-mixed tank with its analytic step response and transport with volume/flow delay; verify independent inventory residuals.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-009",
+      "requirements": [
+        "MIX-REQ-009"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_delayed_stale_invalid_sensors_and_control_input_boundary; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Inject delayed, stale, invalid and air-exposed measurements; invalid signals cannot authorize readiness. Changing hidden inventory alone cannot directly change a control decision with identical sensor history.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-010",
+      "requirements": [
+        "MIX-REQ-010"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_pi_saturation_antiwindup_and_invalid_freeze; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Apply flow/concentration steps, saturation and invalidity; commands remain bounded, integrator behavior matches the specified policy and recovery meets prospective response criteria.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-011",
+      "requirements": [
+        "MIX-REQ-011"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_compensating_errors_and_continuous_dwell; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Construct compensating acid/bicarbonate errors with similar final conductivity; documented intermediate checks detect the observable cases and remaining detection gaps are reported.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-012",
+      "requirements": [
+        "MIX-REQ-012"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_pressure_stop_and_bounded_startup_failures; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Hold each prerequisite false in turn; reject premature dosing qualification and enter the declared failure response on timeout.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-013",
+      "requirements": [
+        "MIX-REQ-013"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_final_authority_blocks_unqualified_fluid_despite_forged_permits; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Challenge every startup phase, each invalid guard and loss of qualification; verify actual routed volumes, not just displayed state.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-014",
+      "requirements": [
+        "MIX-REQ-014"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_compensating_errors_and_continuous_dwell; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Test just below/at/above the dwell boundary and an intervening invalid sample; interruptions reset qualification and a single valid sample cannot authorize delivery.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-015",
+      "requirements": [
+        "MIX-REQ-015"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_time_refinement_against_predeclared_budget; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Independently reconstruct balances across startup, zero flow, partial steps and exhaustion; refinements of timestep and transport discretization satisfy predeclared error budgets.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-016",
+      "requirements": [
+        "MIX-REQ-016"
+      ],
+      "procedure": "test_preparation.PreparationTests.test_evidence_identity_changes_with_source_and_configuration; full campaign: python3 tools/verify_preparation.py --output <new-report.json>",
+      "expected": "Reproduce a fixed scenario and verify complete trace in both directions; changed source/configuration invalidates prior applicability.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/preparation/report.json",
+        "sha256": "d4a7e57d95b78748f69f5d8cb33d7ade5c064c7a731acd342bd332059baab4f6",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "preparation-4c1eea992a964401",
+        "executed_at": "2026-10-14T20:20:28.399962+00:00",
+        "reviewer": "Automated execution only; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+        "verification_input_sha256": "4c1eea992a964401c45be570fb172f50f285342f6e95026c62b9a9a6060d1af4"
+      }
+    },
+    {
+      "id": "MIX-TEST-017",
+      "requirements": [
+        "MIX-REQ-017"
+      ],
+      "procedure": "Deferred replacement protocol MIX-TEST-017; no executable method or execution claim.",
+      "expected": "Deferred protocol; blocked pending replacement design. No replacement implementation or successful test is claimed.",
+      "result": "planned"
     }
   ],
   "prerequisites": [
@@ -7101,5 +8344,5 @@
       "evidence": null
     }
   ],
-  "baseline_note": "The existing M8 assurance anchor is retained to preserve historical evidence identity under schema1. It is not the current software revision: each new M9 proof identifies its actual935692a runtime and4e50564 verification/package/CI inputs. No historical test has been relabeled as executed on newer source."
+  "baseline_note": "The existing M8 assurance anchor is retained to preserve historical evidence identity under schema1. It is not the current software revision: each new M9 proof identifies its actual935692a runtime and4e50564 verification/package/CI inputs. No historical test has been relabeled as executed on newer source. MIX execution is separately source-hash-bound in assurance/evidence/preparation/report.json; the schema-1 baseline string is a compatibility anchor, not its source revision."
 }

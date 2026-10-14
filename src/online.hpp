@@ -3,15 +3,17 @@
 #include <array>
 #include <algorithm>
 #include <cmath>
+#include "preparation.hpp"
 namespace dl {
 struct Online {
+    Preparation preparation;
     int mode = 0, route = 0;
     bool physical=false,acid_installed=true,bicarbonate_installed=true;
     double acid_remaining=5000,bicarbonate_remaining=550,acid_fraction=1.0/45,bicarbonate_fraction=.034;
     double bicarbonate_stock=1000,dissolution=3,heater_max=1500,heater_capacity=100,heater_loss=2,ambient=22,heater_gain=100;
     double conductivity_factor=.8,temperature_coefficient=.02,heater_power=0;
     std::array<double,6> acid{};
-    bool supplies_ready() const {return supply && (!physical || (acid_installed && bicarbonate_installed && acid_remaining>0 && bicarbonate_remaining>0));}
+    bool supplies_ready() const {return supply && (preparation.enabled?preparation.ready&&!preparation.fault:!physical || (acid_installed && bicarbonate_installed && acid_remaining>0 && bicarbonate_remaining>0));}
     double conductivity_raw() const {
         const std::array<double,6> mobility{0,50.1,73.5,76.3,44.5,119};
         double value=0;for(std::size_t i=1;i<6;++i)value+=mobility[i]*concentration[i]/1000;
@@ -20,6 +22,12 @@ struct Online {
     void advance_physical(double dialysate,double dt) {
         mixing_flow=supply?dialysate+demand:0;
         double volume_in=mixing_flow*dt;
+        if(preparation.enabled){
+            preparation.water=supply;preparation.acid_connected=acid_installed;preparation.bicarbonate_connected=bicarbonate_installed;
+            preparation.advance(dialysate+demand,dt*60,true,temperature);
+            concentration=preparation.final_tank.concentration();
+            acid_remaining=preparation.acid_remaining;bicarbonate_remaining=preparation.cartridge.solid;
+        }else{
         double acid_in=acid_installed?std::min(acid_remaining,volume_in*acid_fraction*ratio/.04):0;
         double bicarbonate_wanted=volume_in*bicarbonate_fraction*bicarbonate_stock*.0000840066;
         double bicarbonate_used=bicarbonate_installed?std::min({bicarbonate_remaining,bicarbonate_wanted,dissolution*dt}):0;
@@ -30,6 +38,7 @@ struct Online {
             double incoming=acid_in*acid[i];
             if(i==1 || i==4)incoming+=bicarbonate_used/.0000840066;
             concentration[i]=(volume*concentration[i]+incoming)/(volume+volume_in);
+        }
         }
         contaminant=(volume*contaminant+volume_in*source_contaminant)/(volume+volume_in);
         double seconds=dt*60,flow_heat=mixing_flow*4.18/60,capacity=volume*4.18+heater_capacity;

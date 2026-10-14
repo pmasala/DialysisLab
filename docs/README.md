@@ -12,7 +12,7 @@ one maintained technical baseline.
 | Order | Document | Question answered |
 | --- | --- | --- |
 | 1 | [Requirements](REQUIREMENTS.md) | What must the software do, for whom, under which constraints, and how is each requirement accepted? |
-| 1a | [Atomic obligations](ATOMIC_REQUIREMENTS.md) and [coverage matrix](testing/COVERAGE.md) | How are all 60 parent requirements allocated to measurable decisions and concrete tests? |
+| 1a | [Atomic obligations](ATOMIC_REQUIREMENTS.md) and [coverage matrix](testing/COVERAGE.md) | How are implemented requirements allocated to measurable decisions and tests, with deferred work explicit? |
 | 2 | [Architecture](ARCHITECTURE.md) | Which components own state, communicate, constrain outputs and retain evidence? |
 | 3 | [Treatment design](design/TREATMENT.md) | How do tests, preparation, priming, connection, therapy, return and disinfection work? |
 | 4 | [Fluid and transport design](design/MODELS.md) | Which physical quantities and equations are implemented, and where do they stop being credible? |
@@ -27,6 +27,9 @@ Interface reference: [wire protocol](design/WIRE_PROTOCOL.md),
 [field order and units](design/WIRE_FIELDS.md), [patient JSON](design/JSON_FIELDS.md).
 Planned evidence collection: [measurement protocol](testing/MEASUREMENTS.md) and
 [boundary/approval protocol](testing/CLOSURE.md).
+
+Prospective requirement change: [concentrate preparation, pumps and startup](design/DIALYSATE_PREPARATION_CHANGE.md).
+This proposal records requested behavior, proposed states and planned tests; it is not implemented evidence.
 
 The [document-control rules](DOCUMENT_CONTROL.md) explain precedence, change
 review and how to regenerate the requirements and test catalogues. The
@@ -57,3 +60,6 @@ executions for investigation. You do not need it to read the current specificati
 Build instructions remain in [Development](DEVELOPMENT.md), dependency decisions
 in [the dependency policy](../DEPENDENCY_POLICY.md), and security response in
 [SECURITY.md](../SECURITY.md).
+
+Cold-start concentrate preparation: [requirements](design/DIALYSATE_PREPARATION_CHANGE.md) →
+[design](design/PREPARATION.md) → [verification protocol](testing/PREPARATION.md).

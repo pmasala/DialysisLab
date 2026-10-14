@@ -90,7 +90,7 @@ class WireWitnessTests(unittest.TestCase):
         return dict(zip([f['name'] for f in contract['fields']], tokens[1:]))
 
     def test_actual_cpp_serializers_match_documented_positions_and_python_decoders(self):
-        ids = ['machine-state5','machine-state8','observation5','observation8','observation9','observation10']
+        ids = ['machine-state5','machine-state8','observation5','observation8','observation9','observation10','observation11']
         for ident, frame in zip(ids, self.frames):
             with self.subTest(contract=ident):
                 tokens = frame.split()[1:]
@@ -110,30 +110,31 @@ class WireWitnessTests(unittest.TestCase):
                     for key,value in dict(blood_mL_min=311,pressure_mmHg=212,downstream_mmHg=92,air_signal=.1,leak_signal=.2).items():
                         self.assertAlmostEqual(float(fields[key]),value)
                         self.assertAlmostEqual(decoded[key],value)
-                    if ident == 'observation10':
+                    if ident in ('observation10','observation11'):
                         for key,value in dict(arterial_level=.41,venous_level=.62,dialysate_drain_mL_min=502,
                             uf_pump_mL_min=68,balance_position_mL=17,bypass=1,balance_capacity_mL=31,balance_phase=.75).items():
                             self.assertAlmostEqual(float(fields[key]),value)
                             self.assertAlmostEqual(decoded[key],value)
 
     def test_python_configuration_encoder_matches_documented_field_order(self):
-        config=json.loads((ROOT/'scenarios/device_guided.json').read_text()); calls=[]
+        config=json.loads((ROOT/'scenarios/preparation_hd.json').read_text()); calls=[]
         def rpc(endpoint,*args): calls.append(list(args)); return ['OK']
         with patch.object(physical,'rpc',side_effect=rpc),patch.object(machine,'rpc',side_effect=rpc):
             machine.configure('admin',config)
-        ids=['physical-request','fluid-request','dynamics-request','machine-request','guided-request']
+        ids=['physical-request','fluid-request','dynamics-request','preparation-request','machine-request','guided-request']
         self.assertEqual(len(calls),len(ids))
         for ident,values in zip(ids,calls):
             with self.subTest(contract=ident):
                 fields=self.declared(ident,values)
                 if ident=='dynamics-request':self.assertEqual(fields,config['physical']['dynamics'])
+                if ident=='preparation-request':self.assertEqual(fields,config['physical']['preparation'])
                 if ident=='guided-request':self.assertEqual(fields,config['guided'])
                 if ident=='physical-request':
                     for key,value in config['physical']['blood'].items():self.assertEqual(fields[key],value)
 
     def test_cpp_python_reject_every_documented_numeric_boundary_violation(self):
         from dialysislab.protocol import ProtocolError
-        ids = ['machine-state5','machine-state8','observation5','observation8','observation9','observation10']
+        ids = ['machine-state5','machine-state8','observation5','observation8','observation9','observation10','observation11']
         for ident, frame in zip(ids, self.frames):
             decoder = machine.metadata if ident.startswith('machine') else machine.observation
             for index, field in enumerate(self.schema[ident]['fields']):
@@ -158,11 +159,11 @@ class WireWitnessTests(unittest.TestCase):
         from unittest.mock import patch
         from audit_fixture import compile_driver
         binary=compile_driver(self.tmp.name)
-        config=json.loads((ROOT/'scenarios/device_guided.json').read_text());calls=[]
+        config=json.loads((ROOT/'scenarios/preparation_hd.json').read_text());calls=[]
         def rpc(endpoint,*args):calls.append(list(args));return ['OK']
         with patch.object(circuit,'rpc',side_effect=rpc),patch.object(treatment,'rpc',side_effect=rpc),patch.object(physical,'rpc',side_effect=rpc),patch.object(machine,'rpc',side_effect=rpc):
             circuit.configure(0,config);treatment.configure(0,config);machine.configure(0,config)
-        ids=['physical-request','fluid-request','dynamics-request','machine-request','guided-request']
+        ids=['physical-request','fluid-request','dynamics-request','preparation-request','machine-request','guided-request']
         for ident in ids:
             spec=self.schema[ident];index=next(i for i,c in enumerate(calls) if c[0]==spec['tag'])
             nominal=calls[index]

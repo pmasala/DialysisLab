@@ -754,3 +754,126 @@ This inventory does not claim every legacy protocol version is fully specified.
 | 4 | `resistance` | real | mmHg min/mL | 0.01 … 100 |
 | 5 | `control_fault` | atom | code | — |
 | 6 | `protection_fault` | atom | code | — |
+
+## preparation-request — PREPARATION11
+
+**Endpoint:** `admin/plant.sock`; request; 9 fields.
+
+**Conditions:** Configured physical+dynamic model, before MACHINE5/arming; target <= capacity-10; nonzero nominal source contributions.
+
+**Response / interpretation:** OK; atomically initializes dry cartridge and water-filled tanks.
+
+| Position | Field | Type | Unit | Inclusive bounds |
+| --- | --- | --- | --- | --- |
+| 1 | `acid_line_mL` | real | mL | 0.1 … 50 |
+| 2 | `bicarbonate_line_mL` | real | mL | 0.1 … 50 |
+| 3 | `cartridge_mL` | real | mL | 20 … 500 |
+| 4 | `cartridge_target_mL` | real | mL | 10 … 450 |
+| 5 | `fill_mL_min` | real | mL/min | 0 … 1000 |
+| 6 | `step_s` | real | s | 0.005 … 0.05 |
+| 7 | `sensor_latency_s` | real | s | 0 … 0.4 |
+| 8 | `dwell_s` | real | s | 0.5 … 30 |
+| 9 | `initial_line_occupancy` | integer | code | 0 … 2 |
+
+## preparation-fault — PREPFAULT11
+
+**Endpoint:** `admin/plant.sock`; request; 2 fields.
+
+**Conditions:** Admin only, preparation enabled, outside a prepared transaction. Names: acid_scale, vent_blocked, inlet_blocked, sensor_invalid, sensor_stale; flags must be integers 0/1.
+
+**Response / interpretation:** OK; source truth/sensor fault only, no replacement/reset.
+
+| Position | Field | Type | Unit | Inclusive bounds |
+| --- | --- | --- | --- | --- |
+| 1 | `name` | atom | atom | — |
+| 2 | `value` | real | fraction/flag | 0 … 1 |
+
+## observation11 — OBS11
+
+**Endpoint:** `control/protection plant replies`; response; 37 fields.
+
+**Conditions:** Preparation enabled; OBS10 physical/dynamic fields followed by qualification and latched fault.
+
+**Response / interpretation:** none
+
+| Position | Field | Type | Unit | Inclusive bounds |
+| --- | --- | --- | --- | --- |
+| 1 | `sequence` | integer | tick | 0 … 99999 |
+| 2 | `time_ms` | integer | ms | 0 … 100000000 |
+| 3 | `valid` | integer | 1 | 0 … 1 |
+| 4 | `blood_mL_min` | real | mL/min | 0 … 500 |
+| 5 | `pressure_mmHg` | real | mmHg | 0 … 1000 |
+| 6 | `uf_mL_min` | real | mL/min | 0 … 140 |
+| 7 | `temperature_C` | real | degC | 0 … 100 |
+| 8 | `conductivity_mS_cm` | real | mS/cm | 0 … 6250 |
+| 9 | `replacement_mL_min` | real | mL/min | 0 … 120 |
+| 10 | `filter_pressure_mmHg` | real | mmHg | 0 … 24000 |
+| 11 | `integrity` | integer | 1 | 0 … 1 |
+| 12 | `route` | integer | 1 | 0 … 3 |
+| 13 | `downstream_mmHg` | real | mmHg | 0 … 1000 |
+| 14 | `air_signal` | real | 1 | 0 … 1 |
+| 15 | `leak_signal` | real | 1 | 0 … 1 |
+| 16 | `measured_uf_mL` | real | mL | 0 … 1000000000.0 |
+| 17 | `measured_substitution_mL` | real | mL | 0 … 1000000000.0 |
+| 18 | `supply_ready` | integer | 1 | 0 … 1 |
+| 19 | `dialysate_mL_min` | real | mL/min | 0 … 2000 |
+| 20 | `tmp_mmHg` | real | mmHg | -1000 … 1000 |
+| 21 | `arterial_mmHg` | real | mmHg | -1000 … 1000 |
+| 22 | `limitation` | atom | code | — |
+| 23 | `dialysate_mmHg` | real | mmHg | -1000 … 1000 |
+| 24 | `heater_W` | real | W | 0 … 5000 |
+| 25 | `acid_remaining_mL` | real | mL | 0 … 20000 |
+| 26 | `bicarbonate_remaining_g` | real | g | 0 … 2000 |
+| 27 | `conductivity_raw_mS_cm` | real | mS/cm | 0 … 1000 |
+| 28 | `arterial_level` | real | 1 | 0 … 1 |
+| 29 | `venous_level` | real | 1 | 0 … 1 |
+| 30 | `dialysate_drain_mL_min` | real | mL/min | 0 … 2000 |
+| 31 | `uf_pump_mL_min` | real | mL/min | 0 … 200 |
+| 32 | `balance_position_mL` | real | mL | 0 … 100 |
+| 33 | `bypass` | real | 1 | 0 … 1 |
+| 34 | `balance_capacity_mL` | real | mL | 5 … 100 |
+| 35 | `balance_phase` | real | 1 | 0 … 1 |
+| 36 | `preparation_ready` | integer | flag | 0 … 1 |
+| 37 | `preparation_fault` | integer | flag | 0 … 1 |
+
+## preparation-state — PREPARATION11
+
+**Endpoint:** `plant observations/committed physical state`; response; 31 fields.
+
+**Conditions:** Appended after PHYSICS9/DYNAMICS10 only when preparation enabled; inspector truth, not a controller input.
+
+**Response / interpretation:** Retained source/mixer ledgers and state; qualified volume is a preparation-manifold output, not patient delivery.
+
+| Position | Field | Type | Unit | Inclusive bounds |
+| --- | --- | --- | --- | --- |
+| 1 | `stage` | real | code | -1000000000.0 … 1000000000.0 |
+| 2 | `acid_state` | real | code | -1000000000.0 … 1000000000.0 |
+| 3 | `bicarbonate_state` | real | code | -1000000000.0 … 1000000000.0 |
+| 4 | `ready` | real | code | -1000000000.0 … 1000000000.0 |
+| 5 | `fault` | real | code | -1000000000.0 … 1000000000.0 |
+| 6 | `reason` | atom | atom | — |
+| 7 | `cartridge_liquid_mL` | real | mL | -1000000000.0 … 1000000000.0 |
+| 8 | `cartridge_gas_atm_mL` | real | mL | -1000000000.0 … 1000000000.0 |
+| 9 | `solid_g` | real | g | -1000000000.0 … 1000000000.0 |
+| 10 | `dissolved_mmol` | real | mmol | -1000000000.0 … 1000000000.0 |
+| 11 | `pressure_mmHg` | real | mmHg | -1000000000.0 … 1000000000.0 |
+| 12 | `acid_line_liquid_mL` | real | mL | -1000000000.0 … 1000000000.0 |
+| 13 | `bicarbonate_line_liquid_mL` | real | mL | -1000000000.0 … 1000000000.0 |
+| 14 | `acid_command_mL_min` | real | mL/min | -1000000000.0 … 1000000000.0 |
+| 15 | `acid_actual_mL_min` | real | mL/min | -1000000000.0 … 1000000000.0 |
+| 16 | `bicarbonate_command_mL_min` | real | mL/min | -1000000000.0 … 1000000000.0 |
+| 17 | `bicarbonate_actual_mL_min` | real | mL/min | -1000000000.0 … 1000000000.0 |
+| 18 | `stable_s` | real | s | -1000000000.0 … 1000000000.0 |
+| 19 | `sensor_time_s` | real | s | -1000000000.0 … 1000000000.0 |
+| 20 | `source_mL` | real | mL | -1000000000.0 … 1000000000.0 |
+| 21 | `waste_mL` | real | mL | -1000000000.0 … 1000000000.0 |
+| 22 | `qualified_mL` | real | mL | -1000000000.0 … 1000000000.0 |
+| 23 | `water_residual_mL` | real | mL | -1000000000.0 … 1000000000.0 |
+| 24 | `cartridge_gas_residual_mL` | real | mL | -1000000000.0 … 1000000000.0 |
+| 25 | `line_gas_residual_mL` | real | mL | -1000000000.0 … 1000000000.0 |
+| 26 | `mass_residual_0` | real | mmol | -1000000000.0 … 1000000000.0 |
+| 27 | `mass_residual_1` | real | mmol | -1000000000.0 … 1000000000.0 |
+| 28 | `mass_residual_2` | real | mmol | -1000000000.0 … 1000000000.0 |
+| 29 | `mass_residual_3` | real | mmol | -1000000000.0 … 1000000000.0 |
+| 30 | `mass_residual_4` | real | mmol | -1000000000.0 … 1000000000.0 |
+| 31 | `mass_residual_5` | real | mmol | -1000000000.0 … 1000000000.0 |

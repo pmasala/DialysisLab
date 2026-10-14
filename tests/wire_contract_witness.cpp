@@ -28,4 +28,5 @@ int main(int argc, char**) {
     o.balance_position=17; o.bypass=1; o.balance_capacity=31; o.balance_phase=.75;
     std::cout << o.encode() << '\n'; o.extended=true; std::cout << o.encode() << '\n';
     o.physical=true; std::cout << o.encode() << '\n'; o.dynamic=true; std::cout << o.encode() << '\n';
+    o.preparation=true;o.preparation_ready=true;o.preparation_fault=false;std::cout << o.encode() << '\n';
 }

@@ -95,6 +95,15 @@ public:
                 d.arterial.gas_rate,d.venous.gas_rate,d.feed,d.drain,d.uf_pump,d.sensed_pd,d.stored_dialysate,
                 d.water_residual,d.balance_position,d.balance_count,d.bypass?1:0).substr(3);
         }
+        if(online.preparation.enabled){
+            const auto& p=online.preparation;
+            result+=" PREPARATION11"+dl::msg(p.stage,p.acid_state,p.bicarbonate_state,p.ready?1:0,p.fault?1:0,p.fault_reason,
+                p.cartridge.liquid,p.cartridge.gas,p.cartridge.solid,p.cartridge.dissolved,p.cartridge.pressure(),
+                p.acid_line.inventory().liquid,p.bicarbonate_line.inventory().liquid,p.acid_pump.command,p.acid_pump.actual,
+                p.bicarbonate_pump.command,p.bicarbonate_pump.actual,p.control.stable,p.sensors.observed.time,
+                p.source_liquid,p.waste,p.usable,p.liquid_residual(),p.cartridge.gas_residual(),p.line_gas_residual()).substr(3);
+            for(double x:p.mass_residual())result+=dl::msg(x).substr(3);
+        }
         return result;
     }
     std::string online_state() const {
@@ -154,6 +163,32 @@ public:
             auto p=circuit.physical;
             for(int i=0;i<p.segments;++i){p.retained_hct[i]=r.real(0,.8);p.retained_protein[i]=r.real(0,40);}
             r.end();p.distributed_inventory=true;circuit.physical=p;return "DL1 OK";
+        }
+        if(role==0 && op=="PREPARATION11") {
+            dl::require(online.physical && circuit.dynamics.enabled && !armed && !machine_set && !online.preparation.enabled);
+            dl::Preparation p;
+            p.acid_line.capacity=r.real(.1,50);p.bicarbonate_line.capacity=r.real(.1,50);
+            p.cartridge.capacity=r.real(20,500);p.cartridge.target=r.real(10,450);p.fill_capacity=r.real(0,1000);
+            p.step=r.real(.005,.05);p.sensors.latency=r.real(0,.4);p.dwell=r.real(.5,30);int occupancy=static_cast<int>(r.integer(2));r.end();
+            dl::require(p.cartridge.target<=p.cartridge.capacity-10 && online.acid_fraction>0 && online.bicarbonate_fraction>0 && dl::prep_conductivity(online.acid)>0);
+            p.acid_remaining=online.acid_remaining;p.cartridge.solid=online.bicarbonate_remaining;
+            p.cartridge.saturation25=online.bicarbonate_stock;p.cartridge.dissolution_cap=online.dissolution;
+            p.acid_fraction=online.acid_fraction;p.bicarbonate_fraction=online.bicarbonate_fraction;p.acid_stock=online.acid;
+            p.factor=online.conductivity_factor;p.temperature_coefficient=online.temperature_coefficient;p.final_tank.volume=online.volume;
+            p.initialize(occupancy);online.preparation=p;online.concentration.fill(0);return "DL1 OK";
+        }
+        if(role==0 && op=="PREPFAULT11") {
+            dl::require(online.preparation.enabled && !prepared && !halted);
+            auto name=r.take();double value=r.real(0,1);r.end();auto& p=online.preparation;
+            if(name=="acid_scale")p.acid_scale=value;
+            else {dl::require(value==0 || value==1);
+                if(name=="vent_blocked")p.vent_blocked=value!=0;
+                else if(name=="inlet_blocked")p.inlet_blocked=value!=0;
+                else if(name=="sensor_invalid")p.sensors.invalid=value!=0;
+                else if(name=="sensor_stale")p.sensors.stale=value!=0;
+                else throw std::runtime_error("preparation fault name");
+            }
+            return "DL1 OK";
         }
         if(role==0 && op=="BLOOD9") {
             dl::require(circuit.physical.enabled && !prepared && !halted);
@@ -367,6 +402,7 @@ public:
                     device_samples[i].dialysate_pressure=circuit.physical.dialysate_pressure;
                     device_samples[i].heater_power=online.heater_power;device_samples[i].acid_remaining=online.acid_remaining;
                     device_samples[i].bicarbonate_remaining=online.bicarbonate_remaining;device_samples[i].raw_conductivity=online.conductivity_raw();
+                    if(online.preparation.enabled){auto& o=device_samples[i];o.preparation=true;o.preparation_ready=online.preparation.ready;o.preparation_fault=online.preparation.fault;}
                 }
             }
             if (machine_set) { machine.sequence=n; machine.time=t; }
@@ -430,13 +466,25 @@ public:
                     if (machine.fluid_blocked()) online.demand=0;
                 }
                 if (online_set) {
-                    online.advance_tank(circuit.dialysate, minutes);
+                    // Prepare the prescribed replacement capacity during startup too;
+                    // switching delivery on must not create an artificial mixing-flow step.
+                    const double preparation_flow=online.preparation.enabled && machine_set?
+                        circuit.dialysate+machine.replacement-online.demand:circuit.dialysate;
+                    online.advance_tank(preparation_flow, minutes);
+                    if(online.preparation.enabled && !online.preparation.tick_ready){
+                        circuit.dialysate=0;online.stop_delivery();
+                        // Final authority: even forged control/protection permits cannot feed unqualified fluid.
+                        if(machine_set && (machine.flushing() || machine.stage==dl::treatment)){
+                            if(machine.flushing()){isolate=true;pump_demand=0;machine.cycles=0;}
+                            if(machine.stage==dl::treatment || online.preparation.fault)machine.protect(dl::supply_alarm,true);
+                        }
+                    }
                     circuit.sub_node = online.route == 1 ? circuit.edges[circuit.dialyzer_edge].a : 0;
                     circuit.sub_head = online.head;
                     circuit.sub_command = online.hydraulic_command(isolate || (machine_set && machine.fluid_blocked()));
                     circuit.dialysate_c = online.concentration;
                     if (online.quality_latched) circuit.dialysate = 0;
-                    requested_uf = online.quality_latched ? 0 : uf_demand + online.demand;
+                    requested_uf = online.quality_latched || (online.preparation.enabled&&!online.preparation.tick_ready) ? 0 : uf_demand + online.demand;
                     if (machine_set) {
                         requested_uf=machine.fluid_blocked()?0:uf_demand;
                         if (machine.fluid_blocked()) circuit.dialysate=0;
@@ -469,7 +517,7 @@ public:
                     machine.flush_out_tick=machine.flushing()?circuit.return_tick:0;
                     machine.flush_in+=machine.flush_in_tick; machine.flush_out+=machine.flush_out_tick;
                     machine.phase_flush+=machine.flush_out_tick;
-                    if(machine.guided && machine.pumping() && machine.stage!=dl::treatment)++machine.cycles;
+                    if(machine.guided && machine.pumping() && machine.stage!=dl::treatment && !(online.preparation.enabled&&!online.preparation.tick_ready))++machine.cycles;
                     if (machine.stage==dl::treatment) { ++machine.cycles; if (!machine.fluid_blocked()) machine.expected_net+=machine.net_uf*minutes; }
                 }
             }

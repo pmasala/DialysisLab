@@ -136,3 +136,14 @@ cannot replace the 12 local membrane concentrations in the distributed solve.
 Read [measurement protocol](../testing/MEASUREMENTS.md) before interpreting fitted
 values. For any change to keys, bounds or order, review both producer and consumer,
 update this dictionary, add negative cases and rerun the applicable interface tests.
+
+## Optional physical.preparation
+
+Requires `physical.dynamics` and nonzero nominal acid/bicarbonate contributions.
+`acid_line_mL` and `bicarbonate_line_mL` are 0.1–50; `cartridge_mL` is 20–500;
+`cartridge_target_mL` is 10–450 and at most capacity minus 10; `fill_mL_min` is
+0–1000; `step_s` is 0.005–0.05; `sensor_latency_s` is 0–0.4; `dwell_s` is 0.5–30;
+`initial_line_occupancy` is integer 0 (air), 1 (water) or 2 (nominal concentrate).
+No extra keys are accepted. Fault targets `preparation:acid_scale` accept 0–1;
+`preparation:vent_blocked`, `inlet_blocked`, `sensor_invalid` and `sensor_stale`
+accept integer 0/1 with that same prefix. No replacement procedure is implied.
