@@ -3,6 +3,20 @@
 #include "../src/plant.cpp"
 #undef main
 #include <map>
+#ifdef DIALYSISLAB_NUMERICAL_STIMULI
+namespace {
+struct NumericalStimulus {
+    static void apply(Plant& plant,const std::string& frame){
+        dl::Tokens values(frame);auto kind=values.take();
+        dl::require(!plant.prepared && !plant.halted);
+        if(kind=="UF"){double x=values.real(0,20);values.end();plant.machine.net_uf=x;}
+        else if(kind=="ACID"){double u=values.real(0,10000),k=values.real(0,10000);values.end();plant.online.acid[0]=u;plant.online.acid[2]=k;}
+        else if(kind=="PUMP_TAU"){double x=values.real(.05,5);values.end();plant.circuit.dynamics.pump_tau=x;}
+        else throw std::runtime_error("unknown numerical stimulus");
+    }
+};
+}
+#endif
 int main(){
     Plant plant;std::map<int,Plant> checkpoints;std::string line;
     while(std::getline(std::cin,line)){
@@ -11,7 +25,16 @@ int main(){
                 dl::Tokens key(frame);int id=static_cast<int>(key.integer());key.end();
                 if(role==4)checkpoints.insert_or_assign(id,plant);else plant=checkpoints.at(id);
                 std::cout<<"DL1 OK"<<std::endl;
-            }else if(role==3){
+            }
+#ifdef DIALYSISLAB_NUMERICAL_STIMULI
+            else if(role==6){
+                // Numerical bench only: boundary/parameter changes before PREPARE.
+                // Never compiled into production services or the ordinary harness.
+                NumericalStimulus::apply(plant,frame);
+                std::cout<<"DL1 OK"<<std::endl;
+            }
+#endif
+            else if(role==3){
                 dl::Tokens tick(frame);auto n=tick.integer(),t=tick.integer();tick.end();
                 dl::Tokens meta("DL1 META5");auto m=dl::machine_metadata(plant.handle(1,meta));
                 dl::MachineObservation o;dl::Tokens sense(dl::msg("SENSE5",n,t));bool valid=dl::usable5(plant.handle(1,sense),n,t,o);

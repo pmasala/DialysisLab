@@ -6,6 +6,9 @@
 
 namespace {
 class Plant {
+#ifdef DIALYSISLAB_NUMERICAL_STIMULI
+    friend struct NumericalStimulus;
+#endif
     long long next_n = 0, next_t = 0, n = 0, t = 0, dt = 0, end_t = 0;
     bool prepared = false, demand_seen = false, decision_seen = false;
     bool armed = false, latched = false, halted = false;
