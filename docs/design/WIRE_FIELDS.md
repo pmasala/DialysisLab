@@ -877,3 +877,56 @@ This inventory does not claim every legacy protocol version is fully specified.
 | 29 | `mass_residual_3` | real | mmol | -1000000000.0 … 1000000000.0 |
 | 30 | `mass_residual_4` | real | mmol | -1000000000.0 … 1000000000.0 |
 | 31 | `mass_residual_5` | real | mmol | -1000000000.0 … 1000000000.0 |
+
+## observation12 — OBS12
+
+**Endpoint:** `control/protection plant replies`; response; 42 fields.
+
+**Conditions:** Guided model with preparation enabled; OBS11 prefix plus modeled drive and sensed liquid telemetry. Previous versions remain accepted.
+
+**Response / interpretation:** Drive is model mL/min equivalent, not RPM. Liquid flows are delayed/filtered outlet observations and are unavailable unless concentrate_valid is 1. Freshness uses the existing preparation 0.5 s guard. This observation adds no actuator authority.
+
+| Position | Field | Type | Unit | Inclusive bounds |
+| --- | --- | --- | --- | --- |
+| 1 | `sequence` | integer | tick | 0 … 99999 |
+| 2 | `time_ms` | integer | ms | 0 … 100000000 |
+| 3 | `valid` | integer | 1 | 0 … 1 |
+| 4 | `blood_mL_min` | real | mL/min | 0 … 500 |
+| 5 | `pressure_mmHg` | real | mmHg | 0 … 1000 |
+| 6 | `uf_mL_min` | real | mL/min | 0 … 140 |
+| 7 | `temperature_C` | real | degC | 0 … 100 |
+| 8 | `conductivity_mS_cm` | real | mS/cm | 0 … 6250 |
+| 9 | `replacement_mL_min` | real | mL/min | 0 … 120 |
+| 10 | `filter_pressure_mmHg` | real | mmHg | 0 … 24000 |
+| 11 | `integrity` | integer | 1 | 0 … 1 |
+| 12 | `route` | integer | 1 | 0 … 3 |
+| 13 | `downstream_mmHg` | real | mmHg | 0 … 1000 |
+| 14 | `air_signal` | real | 1 | 0 … 1 |
+| 15 | `leak_signal` | real | 1 | 0 … 1 |
+| 16 | `measured_uf_mL` | real | mL | 0 … 1000000000.0 |
+| 17 | `measured_substitution_mL` | real | mL | 0 … 1000000000.0 |
+| 18 | `supply_ready` | integer | 1 | 0 … 1 |
+| 19 | `dialysate_mL_min` | real | mL/min | 0 … 2000 |
+| 20 | `tmp_mmHg` | real | mmHg | -1000 … 1000 |
+| 21 | `arterial_mmHg` | real | mmHg | -1000 … 1000 |
+| 22 | `limitation` | atom | code | — |
+| 23 | `dialysate_mmHg` | real | mmHg | -1000 … 1000 |
+| 24 | `heater_W` | real | W | 0 … 5000 |
+| 25 | `acid_remaining_mL` | real | mL | 0 … 20000 |
+| 26 | `bicarbonate_remaining_g` | real | g | 0 … 2000 |
+| 27 | `conductivity_raw_mS_cm` | real | mS/cm | 0 … 1000 |
+| 28 | `arterial_level` | real | 1 | 0 … 1 |
+| 29 | `venous_level` | real | 1 | 0 … 1 |
+| 30 | `dialysate_drain_mL_min` | real | mL/min | 0 … 2000 |
+| 31 | `uf_pump_mL_min` | real | mL/min | 0 … 200 |
+| 32 | `balance_position_mL` | real | mL | 0 … 100 |
+| 33 | `bypass` | real | 1 | 0 … 1 |
+| 34 | `balance_capacity_mL` | real | mL | 5 … 100 |
+| 35 | `balance_phase` | real | 1 | 0 … 1 |
+| 36 | `preparation_ready` | integer | flag | 0 … 1 |
+| 37 | `preparation_fault` | integer | flag | 0 … 1 |
+| 38 | `acid_drive_mL_min` | real | mL/min | 0 … 60 |
+| 39 | `bicarbonate_drive_mL_min` | real | mL/min | 0 … 60 |
+| 40 | `acid_liquid_mL_min` | real | mL/min | 0 … 60 |
+| 41 | `bicarbonate_liquid_mL_min` | real | mL/min | 0 … 60 |
+| 42 | `concentrate_valid` | integer | 1 | 0 … 1 |

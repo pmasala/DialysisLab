@@ -34,6 +34,9 @@ std::string number(double value,int precision=1) {
     std::ostringstream s; s<<std::fixed<<std::setprecision(precision)<<value; return s.str();
 }
 struct App {
+    int width=1100,height=890;
+    std::optional<SDL_FingerID> touch;
+    flow_ui::Epochs ui_epochs;
     dl::ui::Client client;
     lv_obj_t* legacy_root=nullptr;
     std::unique_ptr<guided_ui::View> guided;
@@ -49,6 +52,7 @@ struct App {
     dl::ui::Snapshot snapshot;
     std::vector<uint32_t> framebuffer=std::vector<uint32_t>(width*height);
     lv_display_t* display=nullptr;
+    lv_indev_t* input_device=nullptr;
     SDL_Window* window=nullptr;
     SDL_Renderer* renderer=nullptr;
     SDL_Texture* texture=nullptr;
@@ -77,8 +81,9 @@ struct App {
         lv_display_set_flush_cb(display,[](lv_display_t* d,const lv_area_t*,uint8_t*) {lv_display_flush_ready(d);});
         if(!headless) {
             if(SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER)!=0) throw std::runtime_error(SDL_GetError());
-            window=SDL_CreateWindow("DialysisLab | SIMULATION",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,width,height,0);
+            window=SDL_CreateWindow("DialysisLab | SIMULATION",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,width,height,SDL_WINDOW_RESIZABLE);
             if(!window) throw std::runtime_error(SDL_GetError());
+            SDL_SetWindowMinimumSize(window,800,890);SDL_SetWindowMaximumSize(window,2560,1600);
             renderer=SDL_CreateRenderer(window,-1,SDL_RENDERER_SOFTWARE);
             if(!renderer) throw std::runtime_error(SDL_GetError());
             texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,width,height);
@@ -90,7 +95,7 @@ struct App {
             <<"\",\"sdl_compile\":\""<<SDL_MAJOR_VERSION<<'.'<<SDL_MINOR_VERSION<<'.'<<SDL_PATCHLEVEL
             <<"\",\"sdl_runtime\":\""<<static_cast<int>(runtime_version.major)<<'.'<<static_cast<int>(runtime_version.minor)<<'.'<<static_cast<int>(runtime_version.patch)
             <<"\",\"backend\":"<<json(headless?"headless":SDL_GetCurrentVideoDriver())<<"}"<<std::endl;
-        auto* pointer=lv_indev_create(); lv_indev_set_type(pointer,LV_INDEV_TYPE_POINTER);
+        auto* pointer=lv_indev_create();input_device=pointer; lv_indev_set_type(pointer,LV_INDEV_TYPE_POINTER);
         lv_indev_set_user_data(pointer,this);
         lv_indev_set_read_cb(pointer,[](lv_indev_t* d,lv_indev_data_t* out) {
             auto* a=static_cast<App*>(lv_indev_get_user_data(d));
@@ -157,9 +162,9 @@ struct App {
         lv_obj_set_scrollable(p,false);lv_obj_set_style_bg_color(p,lv_color_hex(0x1b2c3c),0);lv_obj_set_style_border_width(p,0,0);
     }
     lv_obj_t* button(const std::string& id,const std::string& text,int x,int y,int w,lv_obj_t* parent=nullptr) {
-        auto* b=lv_button_create(parent?parent:legacy_root);lv_obj_set_pos(b,x,y);lv_obj_set_size(b,w,34);
+        auto* b=lv_button_create(parent?parent:legacy_root);lv_obj_set_pos(b,x,y);lv_obj_set_size(b,w,parent?52:34);
         lv_obj_set_style_bg_color(b,lv_color_hex(0x087f8c),0);lv_obj_set_style_text_color(b,lv_color_hex(0xffffff),0);lv_obj_set_style_radius(b,5,0);
-        auto* title=lv_label_create(b);lv_label_set_text(title,text.c_str());lv_obj_center(title);
+        auto* title=lv_label_create(b);lv_label_set_text(title,text.c_str());lv_obj_center(title);if(parent)vector_ui::add_icon(b,id);
         widgets[id]=b;identifiers[b]=id;
         lv_obj_add_event_cb(b,[](lv_event_t* e){
             auto* a=static_cast<App*>(lv_event_get_user_data(e));
@@ -251,10 +256,10 @@ struct App {
         }
         if(id=="STOP" || id=="ACK") {dismiss();local_feedback=client.submit(job)?"Request sent; verify observed state":"Request not sent: busy";return;}
         dismiss();local_feedback="Review the exact request before confirming";pending=job;pending_generation=snapshot.generation;pending_revision=selected?selected->view.machine.revision:-1;pending_mask=mask;
-        dialog=lv_obj_create(lv_screen_active());lv_obj_set_pos(dialog,160,260);lv_obj_set_size(dialog,780,245);
+        dialog=lv_obj_create(lv_screen_active());lv_obj_set_pos(dialog,(width-std::min(780,width-40))/2,260);lv_obj_set_size(dialog,std::min(780,width-40),270);
         lv_obj_set_style_bg_color(dialog,lv_color_hex(0xffffff),0);lv_obj_set_style_text_color(dialog,lv_color_hex(0x142d4e),0);lv_obj_set_scrollable(dialog,false);
-        label(dialog,12,8,720,"CONFIRM SIMULATED DEVICE REQUEST");label(dialog,12,46,720,detail);
-        label(dialog,12,113,720,"The services validate and apply this request.\nConfirmation does not release protection.");
+        label(dialog,12,8,std::min(720,width-96),"CONFIRM SIMULATED DEVICE REQUEST");label(dialog,12,46,std::min(720,width-96),detail);
+        label(dialog,12,113,std::min(720,width-96),"The services validate and apply this request.\nConfirmation does not release protection.");
         button("CONFIRM","Confirm",12,172,220,dialog);button("CANCEL","Cancel",250,172,220,dialog);
     }
     void update() {
@@ -276,6 +281,7 @@ struct App {
             if(pending) local_feedback="Connection/session changed; confirmation cancelled";
             dismiss();trend.clear();all_trends.clear();last_sequence=-1;lv_chart_set_all_values(chart,pressure_series,LV_CHART_POINT_NONE);seen_generation=snapshot.generation;
         }
+        if(ui_epochs.changed(snapshot))guided->reset_session();
         if(pending && selected && (selected->view.machine.revision!=pending_revision || mask!=pending_mask)) {dismiss();local_feedback="Machine state changed; confirmation cancelled";}
         std::string c0=dl::ui::freshness(snapshot.channels[0],now),c1=dl::ui::freshness(snapshot.channels[1],now);
         lv_label_set_text(connection,("Control: "+c0+" | Protect: "+c1+" | "+(selected?stages[selected->view.machine.stage]:"unavailable")).c_str());
@@ -328,7 +334,7 @@ struct App {
             guided->update(selected->view,live,live?"LIVE":c0+" / "+c1,mask);
             guided_ui::View::text(guided->intent,pending?"Review the operation in the confirmation dialog.":snapshot.result=="none"?"":"Last operation: "+snapshot.command+" / "+snapshot.result+". Check the phase above for completion.");
             guided_ui::View::text(guided->feedback,local_feedback);
-        }
+        }else if(!selected){guided->update(dl::ui::View{},false,"DISCONNECTED",mask);}
     }
     void pointer(int x,int y,bool pressed) {
         if(pointer_events.size()>=128) {
@@ -338,14 +344,28 @@ struct App {
         }
         pointer_events.push_back({x,y,pressed});
     }
+    void resize(int w,int h) {
+        w=std::clamp(w,800,2560);h=std::clamp(h,890,1600);
+        if(w==width && h==height)return;
+        lv_indev_reset(input_device,nullptr);physical_pressed=false;touch.reset();pointer_events.clear();mouse_pressed=false;pointer(mouse_x,mouse_y,false);
+        lv_refr_now(display);width=w;height=h;framebuffer.resize(static_cast<size_t>(w)*h);
+        lv_display_set_resolution(display,w,h);lv_display_set_buffers(display,framebuffer.data(),nullptr,framebuffer.size()*4,LV_DISPLAY_RENDER_MODE_FULL);
+        guided->resize(w,h);
+        if(dialog){lv_obj_set_pos(dialog,(w-lv_obj_get_width(dialog))/2,260);}
+        if(window){SDL_DestroyTexture(texture);texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,w,h);if(!texture)throw std::runtime_error(SDL_GetError());}
+    }
     void events() {
         SDL_Event e;
         while(window && SDL_PollEvent(&e)) {
             if(e.type==SDL_QUIT) running=false;
-            if(e.type==SDL_MOUSEMOTION) pointer(e.motion.x,e.motion.y,physical_pressed);
-            if(e.type==SDL_MOUSEBUTTONDOWN && e.button.button==SDL_BUTTON_LEFT) {physical_pressed=true;pointer(e.button.x,e.button.y,true);}
-            if(e.type==SDL_MOUSEBUTTONUP && e.button.button==SDL_BUTTON_LEFT) {physical_pressed=false;pointer(e.button.x,e.button.y,false);}
-            if(e.type==SDL_WINDOWEVENT && e.window.event==SDL_WINDOWEVENT_FOCUS_LOST) {physical_pressed=false;pointer(mouse_x,mouse_y,false);}
+            if(e.type==SDL_WINDOWEVENT && e.window.event==SDL_WINDOWEVENT_SIZE_CHANGED)resize(e.window.data1,e.window.data2);
+            if(e.type==SDL_FINGERDOWN && !touch){touch=e.tfinger.fingerId;pointer(static_cast<int>(e.tfinger.x*width),static_cast<int>(e.tfinger.y*height),true);}
+            if((e.type==SDL_FINGERMOTION || e.type==SDL_FINGERUP) && touch && *touch==e.tfinger.fingerId){pointer(static_cast<int>(e.tfinger.x*width),static_cast<int>(e.tfinger.y*height),e.type!=SDL_FINGERUP);if(e.type==SDL_FINGERUP)touch.reset();}
+            if(e.type==SDL_MOUSEMOTION && e.motion.which!=SDL_TOUCH_MOUSEID) pointer(e.motion.x,e.motion.y,physical_pressed);
+            if(e.type==SDL_MOUSEBUTTONDOWN && e.button.which!=SDL_TOUCH_MOUSEID && e.button.button==SDL_BUTTON_LEFT) {physical_pressed=true;pointer(e.button.x,e.button.y,true);}
+            if(e.type==SDL_MOUSEBUTTONUP && e.button.which!=SDL_TOUCH_MOUSEID && e.button.button==SDL_BUTTON_LEFT) {physical_pressed=false;pointer(e.button.x,e.button.y,false);}
+            if(e.type==SDL_WINDOWEVENT && e.window.event==SDL_WINDOWEVENT_FOCUS_LOST) {lv_indev_reset(input_device,nullptr);physical_pressed=false;touch.reset();pointer_events.clear();mouse_pressed=false;pointer(mouse_x,mouse_y,false);}
+            if(e.type==SDL_MOUSEWHEEL && guided_active && !dialog && guided->page==0)lv_obj_scroll_by(guided->home,0,e.wheel.y*60,LV_ANIM_OFF);
             if(e.type==SDL_TEXTINPUT && focus && !dialog) lv_textarea_add_text(focus,e.text.text);
             if(e.type==SDL_KEYDOWN && focus && !dialog && e.key.keysym.sym==SDLK_BACKSPACE) lv_textarea_delete_char(focus);
             if(e.type==SDL_KEYDOWN && e.key.keysym.sym==SDLK_ESCAPE) dismiss();

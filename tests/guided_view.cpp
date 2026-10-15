@@ -103,7 +103,7 @@ int main(int argc,char** argv){
         v.observation.physical=true;v.observation.arterial=-80;v.observation.dialysate_pressure=-40;v.observation.heater_power=600;v.observation.acid_remaining=4500;v.observation.bicarbonate_remaining=500;
         ui.update(v,true,"LIVE",8191);lv_obj_update_layout(lv_screen_active());
         lv_area_t alarms,next,intent,stop;lv_obj_get_coords(ui.alarm,&alarms);lv_obj_get_coords(ui.next_step,&next);lv_obj_get_coords(ui.intent,&intent);lv_obj_get_coords(ui.widgets.at("STOP"),&stop);
-        assert(alarms.y2<next.y1 && next.y2<intent.y1 && stop.x1>=890);
+        assert(alarms.y2<next.y1 && next.y2<intent.y1 && stop.x2>=w-22 && stop.y2<h);
         if(argc>1){std::filesystem::create_directories(argv[1]);for(int page=0;page<5;++page){ui.switch_page(page);ui.update(v,true,"SYNTHETIC RENDER TEST",0);lv_tick_inc(20);lv_timer_handler();lv_refr_now(d);std::ofstream out(std::string(argv[1])+"/guided-"+std::to_string(page)+".ppm",std::ios::binary);out<<"P6\n"<<w<<' '<<h<<"\n255\n";for(auto p:pixels){char b[]={static_cast<char>(p>>16),static_cast<char>(p>>8),static_cast<char>(p)};out.write(b,3);}}}
     }
     lv_deinit();std::cout<<"guided transitions, interlocks, protocol, timing and actual LVGL rendering passed\n";

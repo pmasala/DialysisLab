@@ -18,7 +18,7 @@ GROUPS = [
     ('System boundaries and protective principles', ['REQ-']),
     ('Execution, failure handling and records', ['M1-REQ-']),
     ('Hydraulics, patient and prepared fluids', ['M2-REQ-', 'M3-REQ-', 'M4-REQ-', 'PHY-REQ-', 'DYN-REQ-', 'MIX-REQ-']),
-    ('Treatment lifecycle and operator interface', ['M5-REQ-', 'M6-REQ-', 'UI-REQ-']),
+    ('Treatment lifecycle and operator interface', ['M5-REQ-', 'M6-REQ-', 'UI-REQ-', 'SYN-REQ-']),
     ('Experiments and inspection', ['M7-REQ-']),
     ('Security, dependencies and integration', ['M8-REQ-', 'M9-REQ-']),
 ]
@@ -144,8 +144,12 @@ def check(root):
             resolved = (path.parent / target).resolve()
             if not resolved.is_relative_to(root.resolve()) or not resolved.exists():
                 errors.append(name + ': broken or outside-root local link: ' + target)
-    preparation = root / 'assurance/evidence/preparation/report.json'
-    if preparation.exists():
+    preparation = root / register.get('current_preparation_evidence', 'assurance/evidence/preparation/report.json')
+    if not preparation.resolve().is_relative_to(root.resolve()):
+        errors.append('preparation evidence outside project root')
+    elif 'current_preparation_evidence' in register and not preparation.is_file():
+        errors.append('missing current preparation evidence')
+    elif preparation.exists():
         from verify_preparation import applicable
         if not applicable(json.loads(preparation.read_text()), root):
             errors.append('preparation execution is not applicable to current verification inputs; rerun verify_preparation.py')

@@ -29,4 +29,5 @@ int main(int argc, char**) {
     std::cout << o.encode() << '\n'; o.extended=true; std::cout << o.encode() << '\n';
     o.physical=true; std::cout << o.encode() << '\n'; o.dynamic=true; std::cout << o.encode() << '\n';
     o.preparation=true;o.preparation_ready=true;o.preparation_fault=false;std::cout << o.encode() << '\n';
+    o.activity=true;o.acid_drive=12;o.bicarbonate_drive=18;o.acid_liquid=0;o.bicarbonate_liquid=17;o.concentrate_valid=true;std::cout << o.encode() << '\n';
 }

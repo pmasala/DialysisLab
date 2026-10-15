@@ -198,3 +198,10 @@ legacy observations retain their lengths. PREPARATION11 state appends 31 fields 
 DYNAMICS10 in PHYSICS9, parsed by the Python physical-state decoder.
 The [field dictionary](WIRE_FIELDS.md) fixes positions and bounds; the
 [preparation design](PREPARATION.md) defines authority and startup semantics.
+
+## Concentrate activity observation
+
+OBS12 preserves OBS11 and adds modeled concentrate drives, sensed liquid outlet
+flows and their freshness flag. [The field dictionary](WIRE_FIELDS.md) fixes bounds
+and order. Prior observation versions remain accepted; new fields are unavailable
+when absent. This adds presentation telemetry, not command authority.

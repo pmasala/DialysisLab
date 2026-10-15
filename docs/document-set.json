@@ -9,6 +9,7 @@
     "docs/GLOSSARY.md",
     "docs/README.md",
     "docs/REQUIREMENTS.md",
+    "docs/design/ANIMATED_SYNOPTIC.md",
     "docs/design/DIALYSATE_PREPARATION_CHANGE.md",
     "docs/design/INTERACTION.md",
     "docs/design/INTERFACES.md",
@@ -30,6 +31,7 @@
     "docs/testing/PLAN.md",
     "docs/testing/PREPARATION.md",
     "docs/testing/STATUS.md",
+    "docs/testing/SYNOPTIC.md",
     "docs/testing/WORKFLOW.md"
   ],
   "project_log": "project-log/README.md",
@@ -38,5 +40,6 @@
     "assurance/current-obligations.json",
     "docs/wire-contract.json"
   ],
-  "baseline_scope": "baseline_commit is the main change base. Current corrective implementation/document hashes are in assurance/audits/checks.json; the containing Git commit identifies the complete candidate."
+  "baseline_scope": "baseline_commit is the main change base. Current corrective implementation/document hashes are in assurance/audits/checks.json; the containing Git commit identifies the complete candidate.",
+  "current_preparation_evidence": "assurance/evidence/animated-synoptic/preparation.json"
 }

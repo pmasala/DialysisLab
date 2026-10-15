@@ -18,13 +18,15 @@ struct MachineObservation {
     bool physical=false;double arterial=0,dialysate_pressure=0,heater_power=0,acid_remaining=0,bicarbonate_remaining=0,raw_conductivity=0;std::string limitation="none";
     bool dynamic=false;double arterial_level=0,venous_level=0,dialysate_drain=0,uf_pump=0,balance_position=0,bypass=0,balance_capacity=30,balance_phase=0;
     bool preparation=false,preparation_ready=false,preparation_fault=false;
+    bool activity=false,concentrate_valid=false;
+    double acid_drive=0,bicarbonate_drive=0,acid_liquid=0,bicarbonate_liquid=0;
     std::string encode() const {
-        return std::string(preparation ? "DL1 OBS11 " : dynamic ? "DL1 OBS10 " : physical ? "DL1 OBS9 " : extended ? "DL1 OBS8 " : "DL1 OBS5 ") + q.encode().substr(9) + msg(downstream, air, leak, uf_total, sub_total, supply_ready).substr(3)
-            + (extended ? msg(dialysate_flow,tmp).substr(3) : "") + (physical?msg(arterial,limitation,dialysate_pressure,heater_power,acid_remaining,bicarbonate_remaining,raw_conductivity).substr(3):"")+(dynamic?msg(arterial_level,venous_level,dialysate_drain,uf_pump,balance_position,bypass,balance_capacity,balance_phase).substr(3):"")+(preparation?msg(preparation_ready?1:0,preparation_fault?1:0).substr(3):"");
+        return std::string(activity ? "DL1 OBS12 " : preparation ? "DL1 OBS11 " : dynamic ? "DL1 OBS10 " : physical ? "DL1 OBS9 " : extended ? "DL1 OBS8 " : "DL1 OBS5 ") + q.encode().substr(9) + msg(downstream, air, leak, uf_total, sub_total, supply_ready).substr(3)
+            + (extended ? msg(dialysate_flow,tmp).substr(3) : "") + (physical?msg(arterial,limitation,dialysate_pressure,heater_power,acid_remaining,bicarbonate_remaining,raw_conductivity).substr(3):"")+(dynamic?msg(arterial_level,venous_level,dialysate_drain,uf_pump,balance_position,bypass,balance_capacity,balance_phase).substr(3):"")+(preparation?msg(preparation_ready?1:0,preparation_fault?1:0).substr(3):"")+(activity?msg(acid_drive,bicarbonate_drive,acid_liquid,bicarbonate_liquid,concentrate_valid?1:0).substr(3):"");
     }
 };
 inline bool usable5(const std::string& frame, long long n, long long t, MachineObservation& o) {
-    Tokens r(frame); auto tag=r.take(); require(tag=="OBS5" || tag=="OBS8" || tag=="OBS9" || tag=="OBS10" || tag=="OBS11");o.preparation=tag=="OBS11";o.dynamic=tag=="OBS10" || o.preparation;o.extended=tag!="OBS5";o.physical=tag=="OBS9" || o.dynamic;
+    Tokens r(frame); auto tag=r.take(); require(tag=="OBS5" || tag=="OBS8" || tag=="OBS9" || tag=="OBS10" || tag=="OBS11" || tag=="OBS12");o=MachineObservation{};o.activity=tag=="OBS12";o.preparation=tag=="OBS11" || o.activity;o.dynamic=tag=="OBS10" || o.preparation;o.extended=tag!="OBS5";o.physical=tag=="OBS9" || o.dynamic;
     std::string quality = "DL1 OBS4";
     for (int i = 0; i < 12; ++i) quality += " " + r.take();
     bool valid = usable4(quality, n, t, o.q);
@@ -35,6 +37,7 @@ inline bool usable5(const std::string& frame, long long n, long long t, MachineO
     if(o.physical){o.arterial=r.real(-1000,1000);o.limitation=r.take();o.dialysate_pressure=r.real(-1000,1000);o.heater_power=r.real(0,5000);o.acid_remaining=r.real(0,20000);o.bicarbonate_remaining=r.real(0,2000);o.raw_conductivity=r.real(0,1000);}
     if(o.dynamic){o.arterial_level=r.real(0,1);o.venous_level=r.real(0,1);o.dialysate_drain=r.real(0,2000);o.uf_pump=r.real(0,200);o.balance_position=r.real(0,100);o.bypass=r.real(0,1);o.balance_capacity=r.real(5,100);o.balance_phase=r.real(0,1);}
     if(o.preparation){o.preparation_ready=r.integer(1)!=0;o.preparation_fault=r.integer(1)!=0;}
+    if(o.activity){o.acid_drive=r.real(0,60);o.bicarbonate_drive=r.real(0,60);o.acid_liquid=r.real(0,60);o.bicarbonate_liquid=r.real(0,60);o.concentrate_valid=r.integer(1)!=0;}
     r.end(); return valid;
 }
 struct Machine {

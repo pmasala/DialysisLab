@@ -1151,6 +1151,86 @@
       "test": "test_preparation.PreparationTests.test_evidence_identity_changes_with_source_and_configuration",
       "coverage": "Implemented synthetic candidate. Full preparation suite also covers three real Plant/patient cycles, all occupancy starts and eight-hour depletion. Empirical/independent acceptance remains open.",
       "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SYN-OBL-001",
+      "parent": "SYN-REQ-001",
+      "statement": "Treatment home shall show a large central circuit with an external dialyzer, roller pumps, chamber levels, containers, directional connectors and explicit HD / HDF PRE / HDF POST routing. Render each mode and assert active branches.",
+      "acceptance": "Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.",
+      "design": "docs/design/ANIMATED_SYNOPTIC.md",
+      "test": "test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale",
+      "coverage": "Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SYN-OBL-002",
+      "parent": "SYN-REQ-002",
+      "statement": "Motion shall use current valid observed/model telemetry, never prescribed flow. Zero flow freezes phase; stale/invalid telemetry freezes motion and displays its status, without portraying unknown as zero. Changing flow preserves phase. Unit checks exercise zero, restart, rate changes and loss/recovery of freshness.",
+      "acceptance": "Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.",
+      "design": "docs/design/ANIMATED_SYNOPTIC.md",
+      "test": "test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory",
+      "coverage": "Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SYN-OBL-003",
+      "parent": "SYN-REQ-003",
+      "statement": "Pump activity and fluid passage shall be distinguished. Concentrate drive and delivered liquid require separate versioned observations; older observations show unavailable fields. No mechanical RPM shall be claimed. Test C++/Python round trips and a dry-line fixture.",
+      "acceptance": "Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.",
+      "design": "docs/design/ANIMATED_SYNOPTIC.md",
+      "test": "test_document_contracts.WireWitnessTests.test_concentrate_drive_is_distinct_from_dry_liquid_and_legacy_is_absent",
+      "coverage": "Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SYN-OBL-004",
+      "parent": "SYN-REQ-004",
+      "statement": "Dialysate traversal, bypass and unknown route shall be distinguished with labels and valve/path geometry. Motion in a bypass shall not imply membrane traversal. Test bypass with positive feed and zero/unknown feed.",
+      "acceptance": "Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.",
+      "design": "docs/design/ANIMATED_SYNOPTIC.md",
+      "test": "test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale",
+      "coverage": "Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SYN-OBL-005",
+      "parent": "SYN-REQ-005",
+      "statement": "Phase progress, phase/session time, net UF and substitution totals versus explicitly labelled current-prescription goals shall remain visible on home. Totals come from authoritative meters and survive pause/resume; no UI integration or invented target history. Test paused totals, HD, changed prescriptions and unavailable observations.",
+      "acceptance": "Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.",
+      "design": "docs/design/ANIMATED_SYNOPTIC.md",
+      "test": "test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale",
+      "coverage": "Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SYN-OBL-006",
+      "parent": "SYN-REQ-006",
+      "statement": "Filled icons shall accompany text on navigation and actions. Guided controls shall have at least 48 logical pixels height; STOP shall remain visible outside scrollable content. Reflow shall support 800x890, 1100x890 and 1440x1000 without scaling hit targets. Test bounds, non-overlap and real LVGL rendering.",
+      "acceptance": "Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.",
+      "design": "docs/design/ANIMATED_SYNOPTIC.md",
+      "test": "test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale",
+      "coverage": "Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SYN-OBL-007",
+      "parent": "SYN-REQ-007",
+      "statement": "Chamber fractions shall use measured fractions. Container bars shall be explicitly relative to first observed session inventory, with absolute quantities/units; missing baselines and unavailable telemetry shall not show fabricated capacity. Session changes reset presentation history. Test inventory depletion, stale data and reset.",
+      "acceptance": "Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.",
+      "design": "docs/design/ANIMATED_SYNOPTIC.md",
+      "test": "test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory",
+      "coverage": "Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "SYN-OBL-008",
+      "parent": "SYN-REQ-008",
+      "statement": "A reduced-motion toggle shall freeze decorative motion without hiding numerical values, route, status or progress. Motion limits shall be visible and documented. Verify freeze and continued value updates.",
+      "acceptance": "Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.",
+      "design": "docs/design/ANIMATED_SYNOPTIC.md",
+      "test": "test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale",
+      "coverage": "Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.",
+      "approval": "proposed; independent approval pending"
     }
   ]
 }

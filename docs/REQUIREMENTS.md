@@ -655,6 +655,86 @@ Guide the simulated treatment from initial checks through disinfection with stat
 
 **Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/GUIDED_TREATMENT.md](../docs/GUIDED_TREATMENT.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [scenarios/device_guided.json](../scenarios/device_guided.json), [src/control.cpp](../src/control.cpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/synoptic.hpp](../src/ui/synoptic.hpp), [tests/guided_plant.cpp](../tests/guided_plant.cpp), [tests/guided_view.cpp](../tests/guided_view.cpp), [tests/test_guided.py](../tests/test_guided.py), [tests/ui_regressions.py](../tests/ui_regressions.py), [tools/verify_models.py](../tools/verify_models.py).
 
+### SYN-REQ-001
+
+Treatment home shall show a large central circuit with an external dialyzer, roller pumps, chamber levels, containers, directional connectors and explicit HD / HDF PRE / HDF POST routing. Render each mode and assert active branches.
+
+**Acceptance:** Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.
+
+**Trace:** needs SYN-NEED-001; risks HAZ-004, HAZ-005; design SYN-DES-001; verification SYN-TEST-001.
+
+**Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [src/ui/flow_motion.hpp](../src/ui/flow_motion.hpp), [src/ui/vector.hpp](../src/ui/vector.hpp), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [tests/synoptic_motion.cpp](../tests/synoptic_motion.cpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/test_synoptic.py](../tests/test_synoptic.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tools/verify_synoptic.py](../tools/verify_synoptic.py).
+
+### SYN-REQ-002
+
+Motion shall use current valid observed/model telemetry, never prescribed flow. Zero flow freezes phase; stale/invalid telemetry freezes motion and displays its status, without portraying unknown as zero. Changing flow preserves phase. Unit checks exercise zero, restart, rate changes and loss/recovery of freshness.
+
+**Acceptance:** Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.
+
+**Trace:** needs SYN-NEED-001; risks HAZ-004, HAZ-005; design SYN-DES-001; verification SYN-TEST-002.
+
+**Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [src/ui/flow_motion.hpp](../src/ui/flow_motion.hpp), [src/ui/vector.hpp](../src/ui/vector.hpp), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [tests/synoptic_motion.cpp](../tests/synoptic_motion.cpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/test_synoptic.py](../tests/test_synoptic.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tools/verify_synoptic.py](../tools/verify_synoptic.py).
+
+### SYN-REQ-003
+
+Pump activity and fluid passage shall be distinguished. Concentrate drive and delivered liquid require separate versioned observations; older observations show unavailable fields. No mechanical RPM shall be claimed. Test C++/Python round trips and a dry-line fixture.
+
+**Acceptance:** Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.
+
+**Trace:** needs SYN-NEED-001; risks HAZ-004, HAZ-005; design SYN-DES-001; verification SYN-TEST-003.
+
+**Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [src/ui/flow_motion.hpp](../src/ui/flow_motion.hpp), [src/ui/vector.hpp](../src/ui/vector.hpp), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [tests/synoptic_motion.cpp](../tests/synoptic_motion.cpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/test_synoptic.py](../tests/test_synoptic.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tools/verify_synoptic.py](../tools/verify_synoptic.py).
+
+### SYN-REQ-004
+
+Dialysate traversal, bypass and unknown route shall be distinguished with labels and valve/path geometry. Motion in a bypass shall not imply membrane traversal. Test bypass with positive feed and zero/unknown feed.
+
+**Acceptance:** Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.
+
+**Trace:** needs SYN-NEED-001; risks HAZ-004, HAZ-005; design SYN-DES-001; verification SYN-TEST-004.
+
+**Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [src/ui/flow_motion.hpp](../src/ui/flow_motion.hpp), [src/ui/vector.hpp](../src/ui/vector.hpp), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [tests/synoptic_motion.cpp](../tests/synoptic_motion.cpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/test_synoptic.py](../tests/test_synoptic.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tools/verify_synoptic.py](../tools/verify_synoptic.py).
+
+### SYN-REQ-005
+
+Phase progress, phase/session time, net UF and substitution totals versus explicitly labelled current-prescription goals shall remain visible on home. Totals come from authoritative meters and survive pause/resume; no UI integration or invented target history. Test paused totals, HD, changed prescriptions and unavailable observations.
+
+**Acceptance:** Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.
+
+**Trace:** needs SYN-NEED-001; risks HAZ-004, HAZ-005; design SYN-DES-001; verification SYN-TEST-005.
+
+**Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [src/ui/flow_motion.hpp](../src/ui/flow_motion.hpp), [src/ui/vector.hpp](../src/ui/vector.hpp), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [tests/synoptic_motion.cpp](../tests/synoptic_motion.cpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/test_synoptic.py](../tests/test_synoptic.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tools/verify_synoptic.py](../tools/verify_synoptic.py).
+
+### SYN-REQ-006
+
+Filled icons shall accompany text on navigation and actions. Guided controls shall have at least 48 logical pixels height; STOP shall remain visible outside scrollable content. Reflow shall support 800x890, 1100x890 and 1440x1000 without scaling hit targets. Test bounds, non-overlap and real LVGL rendering.
+
+**Acceptance:** Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.
+
+**Trace:** needs SYN-NEED-001; risks HAZ-004, HAZ-005; design SYN-DES-001; verification SYN-TEST-006.
+
+**Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [src/ui/flow_motion.hpp](../src/ui/flow_motion.hpp), [src/ui/vector.hpp](../src/ui/vector.hpp), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [tests/synoptic_motion.cpp](../tests/synoptic_motion.cpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/test_synoptic.py](../tests/test_synoptic.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tools/verify_synoptic.py](../tools/verify_synoptic.py), [tests/synoptic_app.cpp](../tests/synoptic_app.cpp).
+
+### SYN-REQ-007
+
+Chamber fractions shall use measured fractions. Container bars shall be explicitly relative to first observed session inventory, with absolute quantities/units; missing baselines and unavailable telemetry shall not show fabricated capacity. Session changes reset presentation history. Test inventory depletion, stale data and reset.
+
+**Acceptance:** Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.
+
+**Trace:** needs SYN-NEED-001; risks HAZ-004, HAZ-005; design SYN-DES-001; verification SYN-TEST-007.
+
+**Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [src/ui/flow_motion.hpp](../src/ui/flow_motion.hpp), [src/ui/vector.hpp](../src/ui/vector.hpp), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [tests/synoptic_motion.cpp](../tests/synoptic_motion.cpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/test_synoptic.py](../tests/test_synoptic.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tools/verify_synoptic.py](../tools/verify_synoptic.py).
+
+### SYN-REQ-008
+
+A reduced-motion toggle shall freeze decorative motion without hiding numerical values, route, status or progress. Motion limits shall be visible and documented. Verify freeze and continued value updates.
+
+**Acceptance:** Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.
+
+**Trace:** needs SYN-NEED-001; risks HAZ-004, HAZ-005; design SYN-DES-001; verification SYN-TEST-008.
+
+**Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [src/ui/flow_motion.hpp](../src/ui/flow_motion.hpp), [src/ui/vector.hpp](../src/ui/vector.hpp), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [tests/synoptic_motion.cpp](../tests/synoptic_motion.cpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/test_synoptic.py](../tests/test_synoptic.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tools/verify_synoptic.py](../tools/verify_synoptic.py).
+
 ## Experiments and inspection
 
 ### M7-REQ-001

@@ -90,7 +90,7 @@ class WireWitnessTests(unittest.TestCase):
         return dict(zip([f['name'] for f in contract['fields']], tokens[1:]))
 
     def test_actual_cpp_serializers_match_documented_positions_and_python_decoders(self):
-        ids = ['machine-state5','machine-state8','observation5','observation8','observation9','observation10','observation11']
+        ids = ['machine-state5','machine-state8','observation5','observation8','observation9','observation10','observation11','observation12']
         for ident, frame in zip(ids, self.frames):
             with self.subTest(contract=ident):
                 tokens = frame.split()[1:]
@@ -110,11 +110,22 @@ class WireWitnessTests(unittest.TestCase):
                     for key,value in dict(blood_mL_min=311,pressure_mmHg=212,downstream_mmHg=92,air_signal=.1,leak_signal=.2).items():
                         self.assertAlmostEqual(float(fields[key]),value)
                         self.assertAlmostEqual(decoded[key],value)
-                    if ident in ('observation10','observation11'):
+                    if ident in ('observation10','observation11','observation12'):
                         for key,value in dict(arterial_level=.41,venous_level=.62,dialysate_drain_mL_min=502,
                             uf_pump_mL_min=68,balance_position_mL=17,bypass=1,balance_capacity_mL=31,balance_phase=.75).items():
                             self.assertAlmostEqual(float(fields[key]),value)
                             self.assertAlmostEqual(decoded[key],value)
+
+    def test_concentrate_drive_is_distinct_from_dry_liquid_and_legacy_is_absent(self):
+        self.assertEqual(len(self.frames),8)
+        current=machine.observation(self.frames[-1].split()[1:])
+        self.assertEqual(current['acid_drive_mL_min'],12)
+        self.assertEqual(current['acid_liquid_mL_min'],0)
+        self.assertEqual(current['bicarbonate_drive_mL_min'],18)
+        self.assertEqual(current['bicarbonate_liquid_mL_min'],17)
+        self.assertTrue(current['concentrate_valid'])
+        for frame in self.frames[2:-1]:
+            self.assertNotIn('acid_drive_mL_min',machine.observation(frame.split()[1:]))
 
     def test_python_configuration_encoder_matches_documented_field_order(self):
         config=json.loads((ROOT/'scenarios/preparation_hd.json').read_text()); calls=[]
@@ -134,7 +145,7 @@ class WireWitnessTests(unittest.TestCase):
 
     def test_cpp_python_reject_every_documented_numeric_boundary_violation(self):
         from dialysislab.protocol import ProtocolError
-        ids = ['machine-state5','machine-state8','observation5','observation8','observation9','observation10','observation11']
+        ids = ['machine-state5','machine-state8','observation5','observation8','observation9','observation10','observation11','observation12']
         for ident, frame in zip(ids, self.frames):
             decoder = machine.metadata if ident.startswith('machine') else machine.observation
             for index, field in enumerate(self.schema[ident]['fields']):
