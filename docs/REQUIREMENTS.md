@@ -735,6 +735,16 @@ A reduced-motion toggle shall freeze decorative motion without hiding numerical 
 
 **Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [src/ui/flow_motion.hpp](../src/ui/flow_motion.hpp), [src/ui/vector.hpp](../src/ui/vector.hpp), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [tests/synoptic_motion.cpp](../tests/synoptic_motion.cpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/test_synoptic.py](../tests/test_synoptic.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tools/verify_synoptic.py](../tools/verify_synoptic.py).
 
+### SYN-REQ-009
+
+Dialysate outlet and bypass shall remain outside the venous chamber and lead to effluent. POST substitution shall enter a dedicated venous-chamber inlet; PRE enters before the filter. Blood enters above and leaves below. Non-joining crossings shall have visible clearance.
+
+**Acceptance:** Exact intended connector endpoints and no dialysate intersection with the venous-chamber rectangle in actual HD/PRE/POST, bypass and stale renders at all three test sizes. A separate POST tracer check uses an independent scalar mixing oracle with 1e-12 mmol/L tolerance and existing 1e-6 mmol residual limit. Proposed engineering criteria; no bubble-capture or independent usability acceptance.
+
+**Trace:** needs SYN-NEED-001; risks HAZ-004, HAZ-005; design SYN-DES-001; verification SYN-TEST-009.
+
+**Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/test_synoptic.py](../tests/test_synoptic.py), [src/dynamics.hpp](../src/dynamics.hpp), [python/dialysislab/distributed.py](../python/dialysislab/distributed.py).
+
 ## Experiments and inspection
 
 ### M7-REQ-001

@@ -1485,3 +1485,15 @@ A reduced-motion toggle shall freeze decorative motion without hiding numerical 
 **Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
 
 **Existing test:** `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`.
+
+## SYN-OBL-009 — SYN-REQ-009
+
+Dialysate outlet and bypass shall remain outside the venous chamber and lead to effluent. POST substitution shall enter a dedicated venous-chamber inlet; PRE enters before the filter. Blood enters above and leaves below. Non-joining crossings shall have visible clearance.
+
+**Acceptance:** Exact intended connector endpoints and no dialysate intersection with the venous-chamber rectangle in actual HD/PRE/POST, bypass and stale renders at all three test sizes. A separate POST tracer check uses an independent scalar mixing oracle with 1e-12 mmol/L tolerance and existing 1e-6 mmol residual limit. Proposed engineering criteria; no bubble-capture or independent usability acceptance.
+
+**Coverage:** Actual drawn segment endpoints and chamber exclusion in all fixture sizes, modes, bypass and stale states; additional POST tracer regression in test_synoptic. No bubble-trap validation.
+
+**Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
+
+**Existing test:** `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`.

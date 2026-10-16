@@ -38,6 +38,10 @@
     "assurance/evidence/animated-synoptic/development.json",
     "assurance/evidence/animated-synoptic/preparation.json",
     "assurance/evidence/animated-synoptic/report.json",
+    "assurance/evidence/animated-synoptic/topology-final-preparation.json",
+    "assurance/evidence/animated-synoptic/topology-final-report.json",
+    "assurance/evidence/animated-synoptic/topology-preparation.json",
+    "assurance/evidence/animated-synoptic/topology-report.json",
     "assurance/evidence/dynamic-model/calibration.json",
     "assurance/evidence/dynamic-model/report.json",
     "assurance/evidence/dynamic-model/review.md",
@@ -862,23 +866,23 @@
     },
     "docs/images/animated-synoptic.png": {
       "origin": "project-rendered-ui",
-      "sha256": "a05c321add1841b0f1ef2d494f02b38c829e24c77b8ab7d07ba6d2a749cba52b",
-      "source_artifact": "build/synoptic-captures/home-1100-mode-2.ppm",
-      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/synoptic-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/synoptic-captures/home-1100-mode-2.ppm docs/images/animated-synoptic.png",
+      "sha256": "f853ce72c29649165eac69f59472931cb54ff8a421866d67baf6b11767424843",
+      "source_artifact": "build/topology-final-captures/home-1100-mode-2.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/topology-final-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/topology-final-captures/home-1100-mode-2.ppm docs/images/animated-synoptic.png",
       "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
     },
     "docs/images/animated-synoptic-narrow.png": {
       "origin": "project-rendered-ui",
-      "sha256": "f9ee62b7bc877417ac280c39b7bf6307d74e087ad19418cb99b0d8c9dbe3de09",
-      "source_artifact": "build/synoptic-captures/home-800-mode-2.ppm",
-      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/synoptic-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/synoptic-captures/home-800-mode-2.ppm docs/images/animated-synoptic-narrow.png",
+      "sha256": "b1c1ee12c2abded6ecdc27d68d42d1571f4e937ffd1604402fdc3a478bfbcdc9",
+      "source_artifact": "build/topology-final-captures/home-800-mode-2.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/topology-final-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/topology-final-captures/home-800-mode-2.ppm docs/images/animated-synoptic-narrow.png",
       "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
     },
     "docs/images/animated-synoptic-bypass.png": {
       "origin": "project-rendered-ui",
-      "sha256": "5419316bcbe765e4f68d732e49ea6af7b70aa52bfeb65131d8542db5563ec405",
-      "source_artifact": "build/synoptic-captures/bypass-1100.ppm",
-      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/synoptic-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/synoptic-captures/bypass-1100.ppm docs/images/animated-synoptic-bypass.png",
+      "sha256": "fed01bad74f83878dbb38058ecaa0ac847253a634256e0859d8fcca00f55ecf1",
+      "source_artifact": "build/topology-final-captures/bypass-1100.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/topology-final-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/topology-final-captures/bypass-1100.ppm docs/images/animated-synoptic-bypass.png",
       "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
     }
   }

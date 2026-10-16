@@ -17,6 +17,39 @@ This is simulator presentation, not numerical verification or clinical validatio
 | SYN-REQ-006 | Filled icons shall accompany text on navigation and actions. Guided controls shall have at least 48 logical pixels height; STOP shall remain visible outside scrollable content. Reflow shall support 800x890, 1100x890 and 1440x1000 without scaling hit targets. Test bounds, non-overlap and real LVGL rendering. |
 | SYN-REQ-007 | Chamber fractions shall use measured fractions. Container bars shall be explicitly relative to first observed session inventory, with absolute quantities/units; missing baselines and unavailable telemetry shall not show fabricated capacity. Session changes reset presentation history. Test inventory depletion, stale data and reset. |
 | SYN-REQ-008 | A reduced-motion toggle shall freeze decorative motion without hiding numerical values, route, status or progress. Motion limits shall be visible and documented. Verify freeze and continued value updates. |
+| SYN-REQ-009 | The rendered dialysate outlet and bypass shall remain outside the venous chamber and lead only to the effluent circuit. POST substitution shall terminate at a dedicated venous-chamber inlet, PRE before the filter; blood shall enter the chamber from above and leave below. Non-joining crossings shall have visible clearance. Check production-drawn segment endpoints and exclusion regions in HD/PRE/POST, bypass and stale captures at every supported test size. |
+
+## Topology correction requested on 2026-10-16
+
+The maintainer identified that the spent-dialysate line crossed the venous chamber
+silhouette and that the POST connection was ambiguous in the demonstration video.
+This is a presentation defect under SYN-REQ-009 (HAZ-004, HAZ-005), not evidence of
+a fluid connection in the solver. The correction must show distinct ports and
+bridges at non-joining crossings. Proposed geometric acceptance is exact endpoint
+coincidence for intended ports and no dialysate-segment intersection with the closed
+venous-chamber rectangle; captures must confirm the bridges remain legible.
+
+The dynamic implementation already adds POST liquid and solute to compartment 14,
+the venous chamber, before compartment 15 and patient return
+(`python/dialysislab/distributed.py`). Its hydraulic continuity includes substitution
+in the chamber inflow (`src/dynamics.hpp`). The chamber is a well-mixed numerical
+volume with a gas pocket and level control. It does not model entrained-bubble
+transport, capture efficiency, degassing or a calibrated air detector. Therefore a
+correct inlet and level-alarm regression cannot establish bubble-trap performance
+or predict mixing-induced air alarms. Those need separately specified gas/liquid
+physics, detection thresholds and bench evidence. Legacy lumped patient mode still
+uses its documented direct-body POST approximation; this UI fix does not upgrade it.
+
+The intended POST inlet is consistent with the manufacturer's schematic in
+[Fresenius Medical Care, Annual Medical Report 2024, Figure 2](https://freseniusmedicalcare.com/content/dam/fresenius-medical-care/global/en/04_media/pdf/AMR_2024_Full_Final.pdf).
+This reference supports schematic topology only, not model validation.
+Status: implemented; the source-bound topology report records execution. Independent acceptance remains open.
+The model cross-check uses a 1 mL POST pulse containing a synthetic 1 mmol/L
+tracer, zero initial tracer and zero upstream transport/UF/membrane exchange.
+For fixed chamber volume V, implicit well-mixed concentration must be 1/(V+1)
+mmol/L, then pass through the venous-tube balance. Proposed algebraic tolerance
+is 1e-12 mmol/L (round-off for this small isolated balance); upstream tracer stays
+zero and whole-system residual remains below the existing 1e-6 mmol criterion.
 
 Acceptance limits are proposed engineering checks, not independently approved usability
 criteria. The 48 px target must still be assessed on actual display density and touch
@@ -36,7 +69,7 @@ hardware. Render fixtures do not establish task success or clinical usability.
 
 ## Verification status
 
-Requirements specified and implemented. Twelve selected UI/guided/protocol tests
+Requirements specified and implemented. Thirteen selected UI/guided/protocol tests
 and eighteen preparation regression tests executed successfully on the input hashes
 in the [verification record](../testing/SYNOPTIC.md). Independent acceptance remains
 open; Unix-socket integration is blocked locally. No prior pass is inherited.

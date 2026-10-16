@@ -10,6 +10,43 @@ static void capture(const std::string& dir,const std::string& name,int w,int h,c
     for(auto p:pixels){char bytes[]={static_cast<char>(p>>16),static_cast<char>(p>>8),static_cast<char>(p)};out.write(bytes,3);}
 }
 static lv_area_t area(lv_obj_t* obj){lv_area_t a;lv_obj_get_coords(obj,&a);return a;}
+static void topology(const flow_ui::View& view){
+    bool post=false,pre=false,blood_in=false,blood_out=false,drain=false;
+    for(const auto& s:view.rendered_segments){
+        // A spent/fresh/bypass connector must never touch the venous chamber.
+        if(s.fluid=='D'){
+            const bool intersects=std::max(s.x1,s.x2)>=470 && std::min(s.x1,s.x2)<=498 &&
+                std::max(s.y1,s.y2)>=78 && std::min(s.y1,s.y2)<=140;
+            assert(!intersects);
+            if(s.x2==610 && s.y2==309)drain=true;
+        }
+        if(s.fluid=='S'){
+            if(s.x2==470 && s.y2==110)post=true;
+            if(s.x2==250 && s.y2==110)pre=true;
+            // No substitution branch can terminate on the patient-return line.
+            assert(s.x1<484 && s.x2<484);
+        }
+        if(s.fluid=='B'){
+            if(s.x2==484 && s.y2==78)blood_in=true;
+            if(s.x1==484 && s.y1==140)blood_out=true;
+        }
+    }
+    assert(post && pre && blood_in && blood_out && drain);
+    // Every interior crossing of dialysate with blood/substitution must be bridged.
+    // Shared fresh-fluid endpoints are actual junctions, not interior crossings.
+    for(const auto& d:view.rendered_segments)if(d.fluid=='D'){
+        for(const auto& other:view.rendered_segments)if(other.fluid!='D'){
+            if((d.x1==d.x2)==(other.x1==other.x2))continue;
+            const auto& vertical=d.x1==d.x2?d:other;
+            const auto& horizontal=d.x1==d.x2?other:d;
+            double x=vertical.x1,y=horizontal.y1;
+            if(x>std::min(horizontal.x1,horizontal.x2) && x<std::max(horizontal.x1,horizontal.x2) &&
+               y>std::min(vertical.y1,vertical.y2) && y<std::max(vertical.y1,vertical.y2)){
+                assert(std::find(view.rendered_bridges.begin(),view.rendered_bridges.end(),std::make_pair(x,y))!=view.rendered_bridges.end());
+            }
+        }
+    }
+}
 int main(int argc,char** argv){
     lv_init();int w=1100,h=890;std::vector<uint32_t> pixels(w*h);auto* display=lv_display_create(w,h);
     lv_display_set_color_format(display,LV_COLOR_FORMAT_ARGB8888);lv_display_set_buffers(display,pixels.data(),nullptr,pixels.size()*4,LV_DISPLAY_RENDER_MODE_FULL);
@@ -23,7 +60,7 @@ int main(int argc,char** argv){
         o.q.blood={1,3600000,1,280,110,65};o.q.temperature=37;o.q.conductivity=14;o.q.integrity=1;
         o.physical=o.extended=o.dynamic=o.preparation=o.activity=o.concentrate_valid=true;o.acid_drive=12;o.bicarbonate_drive=18;o.acid_liquid=11.5;o.bicarbonate_liquid=17.4;
         o.arterial=-80;o.downstream=70;o.tmp=105;o.dialysate_flow=500;o.uf_pump=65;o.arterial_level=.48;o.venous_level=.53;o.acid_remaining=5000;o.bicarbonate_remaining=550;o.uf_total=800;o.sub_total=300;
-        auto refresh=[&](bool live=true,int mask=0){lv_tick_inc(50);ui.update(v,live,live?"LIVE":"STALE",mask);lv_timer_handler();lv_refr_now(display);};
+        auto refresh=[&](bool live=true,int mask=0){lv_tick_inc(50);ui.update(v,live,live?"LIVE":"STALE",mask);lv_timer_handler();lv_refr_now(display);if(ui.page==0)topology(*ui.overview);};
         auto click=[&](lv_obj_t* button){auto a=area(button);pointer.x=(a.x1+a.x2)/2;pointer.y=(a.y1+a.y2)/2;pointer.down=true;lv_tick_inc(40);lv_indev_read(input);pointer.down=false;lv_tick_inc(40);lv_indev_read(input);};
         const std::string directory=argc>1?argv[1]:"";
         for(auto dimensions:{std::pair<int,int>{1100,890},{800,890},{1440,1000}}){

@@ -746,6 +746,16 @@ rendered here. A method name proves that a test exists, not that it ran or fully
 
 **Current acceptance:** not independently approved; no historical result inherited.
 
+#### SYN-TEST-009
+
+**Requirements:** SYN-REQ-009.
+
+**Procedure:** test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; test_synoptic.SynopticTests.test_post_tracer_enters_venous_chamber_before_return; python3 tools/verify_synoptic.py --output <new-report.json>
+
+**Expected:** Dialysate outlet and bypass shall remain outside the venous chamber and lead to effluent. POST substitution shall enter a dedicated venous-chamber inlet; PRE enters before the filter. Blood enters above and leaves below. Non-joining crossings shall have visible clearance.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
 ### Experiments and inspection
 
 #### M7-TEST-001
@@ -1200,6 +1210,7 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 
 ### [tests/test_synoptic.py](../../tests/test_synoptic.py)
 
+- `test_synoptic.SynopticTests.test_post_tracer_enters_venous_chamber_before_return`
 - `test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory`
 - `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`
 - `test_synoptic.SynopticTests.test_sdl_resize_finger_input_and_focus_cancellation`

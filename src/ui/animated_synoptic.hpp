@@ -5,6 +5,9 @@
 namespace flow_ui {
 inline std::string number(double v,int digits=1){std::ostringstream s;s<<std::fixed<<std::setprecision(digits)<<v;return s.str();}
 struct View {
+    struct Segment {char fluid;double x1,y1,x2,y2;};
+    std::vector<Segment> rendered_segments; // Actual connector geometry, also inspected by LVGL regressions.
+    std::vector<std::pair<double,double>> rendered_bridges;
     lv_obj_t* root;
     State state;
     dl::ui::View view;
@@ -39,7 +42,8 @@ struct View {
     }
     void chamber(const vector_ui::Canvas& c,double x,double y,double level,const char* title) const {
         using namespace vector_ui;
-        c.text(x-29,y-31,95,title);c.box(x,y,28,62,ice,7,ink,2);
+        if(*title)c.text(x-29,y-31,95,title);
+        c.box(x,y,28,62,ice,7,ink,2);
         if(state.current && view.observation.dynamic){double h=std::clamp(level,0.0,1.0)*50;c.box(x+4,y+56-h,20,h,aqua,2);c.line(x+4,y+56-h,x+23,y+56-h,teal,2);}
         else c.text(x+4,y+18,25,"?");
         c.box(x-3,y,34,7,ink,3);c.box(x-3,y+55,34,7,ink,3);
@@ -69,24 +73,43 @@ struct View {
         c.box(0,0,640,390,0xffffff,12,edge,1);
         c.text(16,9,225,view.machine.mode==1?"HDF PRE / CIRCUIT":view.machine.mode==2?"HDF POST / CIRCUIT":"HD / CIRCUIT");
         c.text(270,9,350,!current?status:bypass?"BYPASS / dialyzer isolated":!route_known?"Dialysate route unavailable":feed>0?"DIALYZER / dialysate flowing":"DIALYZER / no dialysate flow",teal);
-        auto b=[&](double x,double y,double xx,double yy){path(c,x,y,xx,yy,current,blood,state.pumps[State::blood].phase,ink);};
+        rendered_segments.clear();rendered_bridges.clear();
+        auto b=[&](double x,double y,double xx,double yy){rendered_segments.push_back({'B',x,y,xx,yy});path(c,x,y,xx,yy,current,blood,state.pumps[State::blood].phase,ink);};
         b(42,110,115,110);b(115,110,216,110);b(216,110,265,110);b(265,110,265,63);b(265,63,335,63);b(335,63,335,76);
-        b(335,205,335,222);b(335,222,484,222);b(484,222,484,108);b(484,108,484,65);b(484,65,596,65);b(596,65,596,110);
-        auto d=[&](double x,double y,double xx,double yy,bool active){path(c,x,y,xx,yy,route_known,active?feed:0,state.liquid[0].phase,teal);};
-        d(325,333,435,333,true);d(435,333,435,175,true);d(435,175,369,175,!bypass);d(369,96,540,96,!bypass);d(540,96,540,175,!bypass);d(435,175,540,175,bypass);d(540,175,540,309,true);d(540,309,610,309,true);
-        auto s=[&](double x,double y,double xx,double yy,bool active){path(c,x,y,xx,yy,sub_known,active?sub:0,state.liquid[3].phase,teal);};
+        b(335,205,335,222);b(335,222,445,222);b(445,222,445,40);b(445,40,484,40);b(484,40,484,78);
+        b(484,140,484,145);b(484,145,596,145);b(596,145,596,110);
+        auto d=[&](double x,double y,double xx,double yy,bool active){rendered_segments.push_back({'D',x,y,xx,yy});path(c,x,y,xx,yy,route_known,active?feed:0,state.liquid[0].phase,teal);};
+        d(325,333,435,333,true);d(435,333,435,175,true);d(435,175,369,175,!bypass);d(369,96,420,96,!bypass);d(420,96,420,160,!bypass);d(420,160,540,160,!bypass);d(540,160,540,175,!bypass);d(435,175,540,175,bypass);d(540,175,540,309,true);d(540,309,610,309,true);
+        auto s=[&](double x,double y,double xx,double yy,bool active){rendered_segments.push_back({'S',x,y,xx,yy});path(c,x,y,xx,yy,sub_known,active?sub:0,state.liquid[3].phase,teal);};
         s(435,333,405,333,true);s(405,333,405,275,true);s(405,275,405,239,true);
-        s(405,239,265,239,o.q.route==1);s(265,239,250,239,o.q.route==1);s(250,239,250,110,o.q.route==1);s(405,239,405,222,o.q.route==2);
-        valve(c,315,239,sub>0&&o.q.route==1,sub_known);valve(c,405,224,sub>0&&o.q.route==2,sub_known);
+        s(405,239,265,239,o.q.route==1);s(265,239,250,239,o.q.route==1);s(250,239,250,110,o.q.route==1);s(405,239,460,239,o.q.route==2);s(460,239,460,110,o.q.route==2);s(460,110,470,110,o.q.route==2);
+        valve(c,315,239,sub>0&&o.q.route==1,sub_known);valve(c,460,207,sub>0&&o.q.route==2,sub_known);
         valve(c,396,175,!bypass,route_known);valve(c,511,175,bypass,route_known);
-        c.text(450,181,90,"Bypass",muted);
+        c.text(480,181,90,"Bypass",muted);
+        // White collars denote crossings without a fluid junction. Never bridge a port.
+        auto bridge=[&](double x,double y,bool vertical,bool known,double rate,uint32_t color){
+            rendered_bridges.emplace_back(x,y);
+            double dx=vertical?0:10,dy=vertical?10:0;
+            c.line(x-dx,y-dy,x+dx,y+dy,0xffffff,14);
+            c.line(x-dx,y-dy,x+dx,y+dy,edge,8,!known);
+            if(known)c.line(x-dx,y-dy,x+dx,y+dy,rate>0?color:muted,3);
+        };
+        bridge(445,160,true,current,blood,ink);
+        bridge(460,160,true,sub_known,o.q.route==2?sub:0,teal);
+        bridge(445,175,true,current,blood,ink);
+        bridge(460,175,true,sub_known,o.q.route==2?sub:0,teal);
+        bridge(435,222,false,current,blood,ink);
+        bridge(435,239,false,sub_known,o.q.route==2?sub:0,teal);
         // Exterior cartridge shell: end caps, opaque housing, highlight and ports.
         c.box(302,75,66,132,ice,13,ink,2);c.box(308,94,54,94,0xdce9ef,5);c.box(314,96,9,90,0xffffff,3);c.box(300,76,70,17,ink,6);c.box(300,190,70,17,ink,6);
         c.box(329,65,12,12,ink,3);c.box(329,205,12,12,ink,3);c.box(365,90,10,12,teal,3);c.box(365,169,10,12,teal,3);
         c.text(312,126,55,"Filter",ink);
         c.box(21,91,28,48,ice,9,ink,2);c.box(28,79,14,14,ink,7);c.text(10,145,90,"Patient");
         c.box(582,93,28,46,ice,9,ink,2);c.box(589,81,14,14,ink,7);c.text(559,143,78,"Return");
-        pump(c,115,109,State::blood,"Blood");chamber(c,202,78,o.arterial_level,"Arterial");chamber(c,470,78,o.venous_level,"Venous");
+        pump(c,115,109,State::blood,"Blood");chamber(c,202,78,o.arterial_level,"Arterial");chamber(c,470,78,o.venous_level,"");
+        c.text(502,63,125,"Venous");c.text(502,86,75,"POST",muted);
+        c.box(465,106,9,8,sub_known&&o.q.route==2&&sub>0?teal:muted,2);
+        c.box(246,106,8,8,sub_known&&o.q.route==1&&sub>0?teal:muted,4);
         path(c,70,292,113,292,state.concentrate_current,o.acid_liquid,state.liquid[1].phase,teal);
         path(c,113,292,150,292,state.concentrate_current,o.acid_liquid,state.liquid[1].phase,teal);
         path(c,150,292,150,333,state.concentrate_current,o.acid_liquid,state.liquid[1].phase,teal);

@@ -132,6 +132,7 @@ approval rules are in [closure protocols](CLOSURE.md).
 | SYN-OBL-006 / SYN-REQ-006 | [docs/design/ANIMATED_SYNOPTIC.md](../../docs/design/ANIMATED_SYNOPTIC.md) | `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale` | Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates. |
 | SYN-OBL-007 / SYN-REQ-007 | [docs/design/ANIMATED_SYNOPTIC.md](../../docs/design/ANIMATED_SYNOPTIC.md) | `test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory` | Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates. |
 | SYN-OBL-008 / SYN-REQ-008 | [docs/design/ANIMATED_SYNOPTIC.md](../../docs/design/ANIMATED_SYNOPTIC.md) | `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale` | Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates. |
+| SYN-OBL-009 / SYN-REQ-009 | [docs/design/ANIMATED_SYNOPTIC.md](../../docs/design/ANIMATED_SYNOPTIC.md) | `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale` | Actual drawn segment endpoints and chamber exclusion in all fixture sizes, modes, bypass and stale states; additional POST tracer regression in test_synoptic. No bubble-trap validation. |
 
 ## Parent obligations outside this supplemental decomposition
 
