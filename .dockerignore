@@ -96,3 +96,6 @@
 !src/ui/flow_motion.hpp
 !src/ui/vector.hpp
 !src/ui/animated_synoptic.hpp
+
+!src/control_service.hpp
+!src/protection_service.hpp

@@ -5,7 +5,9 @@ operated by separate control and protection services. The machine interface is
 for treatment operations; a second application is for experiments. This guide
 explains the current implementation without requiring its development history.
 
-To run it first, use [Quickstart](QUICKSTART.md). To assess or change it, read in
+To run it first, use [Quickstart](QUICKSTART.md). The optional
+[complete-browser candidate](testing/BROWSER.md) executes C++/LVGL and the Python
+patient locally, with its separate verification and dependency-review limits. To assess or change it, read in
 this order. The documents are written in English so that the public project has
 one maintained technical baseline.
 

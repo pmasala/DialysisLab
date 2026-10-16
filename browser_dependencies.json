@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "profile": "browser-candidate-1",
+  "emscripten": {
+    "version": "4.0.15",
+    "release_commit": "b412b6307e541b93dd93f01b61181e15c17302ec",
+    "license": "MIT OR NCSA",
+    "sdk_archive_sha256": "c0ed25c30e1d747072de0c9053cde27ca83a8d2424e8bc6b7d39dccf42fcba35",
+    "sdk_url": "https://storage.googleapis.com/webassembly/emscripten-releases-builds/linux/b412b6307e541b93dd93f01b61181e15c17302ec-wasm-binaries.tar.xz"
+  },
+  "pyodide": {
+    "version": "0.27.7",
+    "license": "MPL-2.0",
+    "python_version": "3.12.7",
+    "python_license": "PSF-2.0",
+    "source": "https://github.com/pyodide/pyodide/tree/0.27.7",
+    "artifacts": {
+      "pyodide.js": {
+        "url": "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js",
+        "sha256": "b4cb23a53aba19c221659b9fb40a2f18281d685691dc06647fb0afd0681baf98",
+        "bytes": 14913
+      },
+      "pyodide.asm.js": {
+        "url": "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.asm.js",
+        "sha256": "6b4c90de5b7172873f04f21884d0e9d2274e305fe32116558fe3e4fbe3618d51",
+        "bytes": 1255688
+      },
+      "pyodide.asm.wasm": {
+        "url": "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.asm.wasm",
+        "sha256": "a50dd1843f805a0b7c45b61037ee0d7b26dfe85efe0e18ef95a34ad24e401f5f",
+        "bytes": 10105545
+      },
+      "python_stdlib.zip": {
+        "url": "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/python_stdlib.zip",
+        "sha256": "16611534726e5d8ac2bd8f926410b2dcb8d6f49aa24913463533b457a2115c16",
+        "bytes": 2360737
+      },
+      "pyodide-lock.json": {
+        "url": "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide-lock.json",
+        "sha256": "9c45b916001a750f4102fc287494f3eab215909c7535c626a20db80fd6333e2c",
+        "bytes": 112205
+      }
+    }
+  },
+  "review_status": "Prototype candidate; MPL-2.0 / PSF-2.0 exception requires explicit maintainer review before merge under DEPENDENCY_POLICY.md",
+  "existing_gui": "gui_dependencies.json: same LVGL 9.6.0, SDL 2.32.10 and Roboto sources; browser backend differs"
+}

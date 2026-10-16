@@ -51,8 +51,8 @@ filter/extracorporeal view. Feed, drain, membrane UF and UF-pump observations ar
 independent; the regression fixture intentionally supplies different values.
 
 Current source-bound outcomes are recorded in
-[the UI report](../../assurance/evidence/animated-synoptic/overview-final-report.json) and
-[preparation regression report](../../assurance/evidence/animated-synoptic/overview-final-preparation.json).
+[the UI report](../../assurance/evidence/browser/synoptic-contract-reviewed.json) and
+[preparation regression report](../../assurance/evidence/browser/preparation-final.json).
 [Development checks](../../assurance/evidence/animated-synoptic/development.json)
 retain earlier failures and environmental blocks. These are synthetic technical
 checks, not a representative-user study or approval of the proposed visual limits.
@@ -83,3 +83,7 @@ precede the final bypass-label clearance fix.
 [Overview development findings](../../assurance/evidence/animated-synoptic/overview-development.json)
 preserve the compile, navigation and visual defects encountered and resolved.
 The previous topology-final reports remain unchanged and do not cover SYN-REQ-010.
+
+The browser target re-executes this native regression selection after extracting
+shared service handlers and adding the conditional browser client; its additional
+[portability and Chromium checks](BROWSER.md) are separate.

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "executed_at": "2026-10-16T12:43:18.921328+00:00",
+  "source_revision": "b0f0ba3860b5f5a9c317074ddf4cc535a577fb7c",
+  "worktree_dirty_at_execution": true,
+  "successful": true,
+  "tests_run": 4,
+  "skips": 0,
+  "command": "DIALYSISLAB_BROWSER_ACCEPTANCE=$PWD/build/browser-acceptance-2 DIALYSISLAB_CHROMIUM=<Chromium 155.0.8059.84> python3 -m unittest discover -s tests -p test_browser.py -v",
+  "output": "test_bad_sequence_stops_session_and_rejects_further_ticks (test_browser.BrowserRuntimeTests.test_bad_sequence_stops_session_and_rejects_further_ticks) ... ok\ntest_full_wasm_portability (test_browser.BrowserRuntimeTests.test_full_wasm_portability) ... ok\ntest_native_tick_stop_and_old_session (test_browser.BrowserRuntimeTests.test_native_tick_stop_and_old_session) ... ok\ntest_real_browser_ui (test_browser.BrowserRuntimeTests.test_real_browser_ui) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 77.632s\n\nOK\n",
+  "test_source_sha256": "4490ebb4a8f2a5b8400b270b504678353851007fb2b2cdd517c3a455f4584547",
+  "reports": {
+    "portability-final.json": "a415cc747d362195ba64ffcf53818cc8fe19e071e1eabaab483f9368c2420e15",
+    "ui-final.json": "6c85bb7d12da69a1ceded912a11e87aaca96fb9d85893a11891bfe368a447e8d"
+  },
+  "scope": "Source-bound browser/transport acceptance. Independent licensing, usability, native IPC and numerical closure remain open."
+}

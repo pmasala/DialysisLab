@@ -126,3 +126,15 @@ frames feed two PI dose trims and an availability supervisor; true source invent
 remain inspector-only data. Plant retains final delivery authority after every
 internal step. [Detailed design](design/PREPARATION.md) describes this opt-in profile,
 OBS11 integration, cold-start treatment guards and its verification boundary.
+
+## Optional complete-browser candidate
+
+The [browser target](design/BROWSER_RUNTIME.md) builds the production device UI
+and physical plant as WebAssembly and executes the Python patient through Pyodide.
+Its local worker replaces Unix RPC/process scheduling; control and protection reuse
+the extracted native handlers with injected local transport. All model computation
+runs on the client. The native architecture above remains the reference for process
+isolation and service watchdogs; those properties are not inherited by a single
+browser worker. [Browser verification](testing/BROWSER.md) and the separate
+[dependency exception candidate](dependencies/BROWSER_DEPENDENCIES.md) state the
+remaining release obligations.
