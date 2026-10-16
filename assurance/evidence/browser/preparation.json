@@ -1,0 +1,1351 @@
+{
+  "schema_version": 1,
+  "executed_at": "2026-10-16T12:37:25.933959+00:00",
+  "command": [
+    "python3",
+    "tools/verify_preparation.py",
+    "--output",
+    "assurance/evidence/browser/preparation.json"
+  ],
+  "source_revision": "b0f0ba3860b5f5a9c317074ddf4cc535a577fb7c",
+  "worktree_dirty_at_execution": true,
+  "verification_input_sha256": "6cd8c6b0770266665919b6b6dff9ebed89c29bad3c1b76a95fc8d76f0d54c45b",
+  "source_sha256": {
+    "docs/design/PREPARATION.md": "aab7774553874da6797dff1aec25808e6f4f22e7770e7ec5835fc19231c21140",
+    "docs/testing/PREPARATION.md": "a4a40498e93765e9ff96d0deedfd02800f510ebe0aa0dccfe857af558939f709",
+    "python/dialysislab/__init__.py": "8853753387369378228c4e02e62604131babea75556c4520a4cda6d5d2402727",
+    "python/dialysislab/browser.py": "df61748d5e17dc22ee7bfb476d9a2e76372f782683f9ed2f4963dd91fada2770",
+    "python/dialysislab/calibration.py": "cf120a8bc7c6aefb63e819bfe54ddecbeb4155c36b17e9d38b311b11545fe369",
+    "python/dialysislab/circuit.py": "6c7e9b2cfdddd606b531e27dd523ef4e0a09ca510f178f18c18a61675750be13",
+    "python/dialysislab/compartments.py": "52f2bc569406602fb02dc129a677142cc226fcfa7df9f1690baadcca558d2e75",
+    "python/dialysislab/distributed.py": "43d74201c654bd375c35e79e81298c5fada2e15562768c821e59a2bfba52f7d1",
+    "python/dialysislab/experiment_rpc.py": "0c2ec7fb3ce54a99a92af529b2a5e426dc76beb8d0ae6d29125f747f1d0d6a6f",
+    "python/dialysislab/experiments.py": "2c0288343722650b24f6728507346b0f4bb50e3c0c64fd45038487bc751fa290",
+    "python/dialysislab/machine.py": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3",
+    "python/dialysislab/patient.py": "bf01bbf1a8231b1e81e8c80e6b9e47f01b7d4df4be5f8395633916a57325934a",
+    "python/dialysislab/physical.py": "195851661259ef9227b2dbe228adbe6e38ebdc5bdbebac7ebaf49e31879d9637",
+    "python/dialysislab/protocol.py": "80cc249e00a98d3f7dbb3533b48c01e487cb36bbc5800b77cee940dcdf5d8cad",
+    "python/dialysislab/role_supervisor.py": "c16fa9935b51fff6cdd8f77a16ba57694015293c825cf3d95e46c07c6e3671f8",
+    "python/dialysislab/runner.py": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45",
+    "python/dialysislab/trajectory.py": "bec7e3ce0d42ffd88120fa7b3120dcb0ededeb9d1ac53c7208cb5ca3da2801ee",
+    "python/dialysislab/treatment.py": "4d6712cd02ac9004c4fc74885f26f15fd88e8df24d2fb7a18d85051e2612d79d",
+    "scenarios/circuit_large.json": "6bc5f19d4b07ab3c0d92c4b27a29cdd41590234ae70aa87ebef7e6af751c955f",
+    "scenarios/circuit_occlusion.json": "9eaccb91c6017cd6eb966dcbffcfa8d74728ad6be0dafd0457768acb22c7aedd",
+    "scenarios/circuit_small.json": "1549267898eb17015a5dbd70935c914261d004315965b77babbf0ddbdeda6e1c",
+    "scenarios/device_guided.json": "277381ea309540e50b6ef594e4554cf6be31d0c6a296738d11245bb67feab81c",
+    "scenarios/device_interactive.json": "322006eec8e59ae48874d56a4c8aeefcb89ac5cff5fc5fd6e2f50e3f7008dd3a",
+    "scenarios/device_ui_demo.json": "a26bb993fcc555887bbe7e97b81f7c815398047d506dd56675d107e343570d4f",
+    "scenarios/hd_100000.json": "3ce678516659fa419367533388245551f87e27b84e6962e6b24ecededbdf5729",
+    "scenarios/hd_nominal.json": "c65eae75e45722ae8c5317a679a1243684106c460a54e96681152f9da0230687",
+    "scenarios/hd_occlusion.json": "c4526e483c37993e6975dc55da4e88fd76941275805e65716911a09a70a7f85d",
+    "scenarios/machine_air.json": "4e547339d08ad45882a2b209bdb19b0961d9496ffd788be22cf951a902080392",
+    "scenarios/machine_balance.json": "472147f0e2deed445580ca4aeb3be5a38bbb33b5f716da486913fc54ee429aa1",
+    "scenarios/machine_hd.json": "0c3cbab928c7a1e264a219d822b53990ae6c3523fd297b01806be7d5dae5f0fc",
+    "scenarios/machine_hdf_post.json": "58ef53c5367f82bc2c8ccbe5a28b3b870b480c055606649e0b048019b669d310",
+    "scenarios/machine_hdf_pre.json": "747cd760f83dbab7c3fcf120720280db1052f14dbda1ad517a8a09c35b3c67e4",
+    "scenarios/machine_invalid.json": "907def5891bcacfc056dfcdaba3fc713e2034fed4eed02de976c5c7915ff1fa7",
+    "scenarios/machine_leak.json": "fa26d8b1dc2cb75deefb695db55d6a6a543db889f3abb2a4d4aa720dbf8afa53",
+    "scenarios/machine_pressure.json": "465a827d8f16bc179170ed04b2b718f866de2b7fccdc71b59c6d050c456aa15d",
+    "scenarios/machine_priming_100000.json": "3a1b839fdbd9d526b1d5652c6b710ccbd7f71634236ae6348e4a54978d298dce",
+    "scenarios/machine_quality.json": "2c7e865e8c80bf768c5d201c47dfed94b67c141374ab8ac5c6088baf05ed76b0",
+    "scenarios/machine_recovery.json": "8c9edb716157987a3a0b99d18ee2a6580e843d18dd312baf5b2eae33dde11082",
+    "scenarios/machine_stall.json": "70613f454c188b1835e46a7cf71a6110ccc0f522a8ae196112fa70465f2648e0",
+    "scenarios/patient_baseline.json": "064c6c8330c9670dbdf12bcbeda9f0713cccac8a60f3c262e5d011350150408b",
+    "scenarios/patient_imbalance.json": "c535f8be0102e0f86a5ddedc3140198a30a1db296825517b2ba95b684bc8293f",
+    "scenarios/patient_large.json": "93a1cb439a9445ea31ca62af8227d24777a61869d09ee1daf29b05d22739f3e2",
+    "scenarios/patient_overload.json": "5ea4c553906f2398090d3c065dfc434e5e192962f7a3f0412d1b5927793a05e4",
+    "scenarios/physical_hd.json": "20a3e048740e3630608cbd1742de6c1a7ab4593377348abc1794fdd4ba3ad9eb",
+    "scenarios/physical_hdf_post.json": "f7c15ff2e5e2bcaa80b4662bcf127e0c0da0d74b8b701637244bb07af7923e9f",
+    "scenarios/physical_hdf_pre.json": "1a06a94afa107f72b8498306c6dee156fed2df0da2831899859cd9fa278b38f2",
+    "scenarios/preparation_hd.json": "bde317a6067fdbde7d1287418cedc9c0ca611d9ed1291d5a77cd9e6a5d3577ff",
+    "scenarios/preparation_hdf_post.json": "4368b9a1c864a0f6af09ea3c4e5737c50495d314741a8a9adcf6189f770fde01",
+    "scenarios/preparation_hdf_pre.json": "31ce3bf9e2088c4d1b67025448646561640315add18104da09c47cd9423c6699",
+    "scenarios/treatment_100000.json": "5c4a733bf900997a46cf437927d8c22b60745038a23c4d19e8e423ec57e90ce3",
+    "scenarios/treatment_contaminant.json": "5df88290a30624889230420874b24dd6a29171f6c1359ce723a27b48ae1e2a4e",
+    "scenarios/treatment_filter1.json": "2a0430914ded7f7bc3df0d4688ab4040a1bbce0fea8d63c0173219882182fb23",
+    "scenarios/treatment_hd.json": "3d6a8c4c868ef27bd1f475b6d9586160a649d22b6f35ca7af580d89fd14f01e3",
+    "scenarios/treatment_hdf_imbalance.json": "2499519b4ea84d917f0ba21686936c13249eae5328987aa76bd9d20d5df83b01",
+    "scenarios/treatment_hdf_large.json": "387fe02337fb1e67c29666b05105946498139c6d59891b878486867ad6591698",
+    "scenarios/treatment_hdf_post.json": "de2895789acf5b57141dec31c0c5929a30a97f6fff48cfe508549ea295858c4c",
+    "scenarios/treatment_hdf_pre.json": "74291126931eb0c1be5493a4284d59a2026b67e0f5b7c2aa0aa49868d34d9369",
+    "scenarios/treatment_integrity.json": "6bd693997a440835bb2ea4eea98310aa5f913efbe889a7f2735be3a04777f941",
+    "scenarios/treatment_ratio.json": "8da7a12361406b15d42adf79d8a12bdeba97074b3480d66b12e467a9c1691f3d",
+    "scenarios/treatment_route.json": "143a57a204d5ef22865c28b3512ceafa12811c22327d2818017ff12032b213ae",
+    "scenarios/treatment_supply.json": "9e64ded46a423bc9ba2b7d446ddf5a02ddca77aec91b1b0916426c32838508ac",
+    "scenarios/treatment_temperature.json": "18a78efb9628b91498dbbcbe7dbd6280f25819302a8032ecc8f08ebe0cd52cd9",
+    "src/blood_physics.hpp": "a5ae40d3ef24ac42acffc8b0a984de60ad7d1063ea554f2e60ee1659c85c478b",
+    "src/browser/engine.cpp": "543b665a9b08d0c75c86e1af6372f7a5ee583f4caa191d42c07cfc309a3850ef",
+    "src/browser/ui.cpp": "0988bdd2d2b5a53453aded3ac7435d973dfd3353ea6d61f7a2d06521d6a77a4d",
+    "src/child_guard.cpp": "34a3ea2d93648d7436acc773cb8f3a78e43fb38d01c33cd34e864789a2243c94",
+    "src/circuit.hpp": "3104cf99dd4315615915172950d65e4611fc9594843de3e2883dab0d5eeab18b",
+    "src/console/client.hpp": "303f61a79d15c098713ce4ee2d9a179cfd9a61e6c254289429c783816d55d5d1",
+    "src/console/inspector.hpp": "6adc0c2a49d836af550dc0525e0a9adef82a7d543e85a81a6ce2a69997ebc751",
+    "src/console/sim_console.cpp": "35c3c8b77bd799b11a58382513117d092d655c12f94326e0582d2e4c4e6c9f22",
+    "src/console/telemetry.hpp": "634998b179ef689fe9c99c01980bdb4a451b1c80305b627fe1e37cfcf772a857",
+    "src/control.cpp": "d7252092c6d4e8b2e5b56bc7edd17764950b5195d2147f06dbc2bccc4f99f6ea",
+    "src/control_service.hpp": "1ff0f985749bf93096e4f35c95d9bc44ad11f94a56b8e1678659c3f3b4bfad4a",
+    "src/device_session.hpp": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd",
+    "src/dynamics.hpp": "f44dd6c7e6c2ddecd1cdfc466d28b26e60e70fb6869a184db85a1fbf94904993",
+    "src/machine.hpp": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c",
+    "src/model.hpp": "806ba835a5b8abf2d8daf3bd3c5b5a76d8a32e3c93d8dc00673615a0a2573b12",
+    "src/online.hpp": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d",
+    "src/plant.cpp": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca",
+    "src/preparation.hpp": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83",
+    "src/protection.cpp": "12c840ff211b3d38e189474117d0299c0bf5ce22fad985ca84acecb6a90e64c3",
+    "src/protection_service.hpp": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653",
+    "src/ui/animated_synoptic.hpp": "7f2d6df8b9263f2f9358aff23f15d573cc0f2d34abd0724427788b0181a62c82",
+    "src/ui/client.hpp": "1da5117d322dfb90de4dcbf35cc11f8d4ee41cd3409ed7b169739e11aafbcf35",
+    "src/ui/device_ui.cpp": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236",
+    "src/ui/flow_motion.hpp": "daa03d3db3f55a09fe2e4464dc1904edc41498727a505a8ee86ae52f548168ba",
+    "src/ui/font.cpp": "048efe01bd191d04427479b9b9e207a1546b215f2ff2954e4604a35d7791a2e2",
+    "src/ui/guided.hpp": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3",
+    "src/ui/lv_conf.h": "1620e7f40eb9cd5dbb33decae117b9a41a6e78349fe23a3c807731cb65215305",
+    "src/ui/synoptic.hpp": "3672976a677694542387fabe86155d37097ebffaf1b923b6b0207db44899a5a3",
+    "src/ui/vector.hpp": "45332099229c92ddddecdacf48448b507eaffa8118694615cd3a510a90b5c4b2",
+    "src/wire.hpp": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc",
+    "tests/guided_plant.cpp": "4c88d221d2177a63990b088f003c5b893c54b443babee5235dc8d0f6da058284",
+    "tests/preparation_model.cpp": "77295fd509c0d0951e9b84c1d788a8edda0f7b4b8c279fb6ea31e174b57b2b85",
+    "tests/test_preparation.py": "589b8fac6d4c4fbce082e83781ad4fb4715f22deac6f130426587c4a9f48e197",
+    "tools/verify_preparation.py": "1341d29af60aecfa4ac6149ae0478e1f6c5f6575777aecd897ea57c9134048ce"
+  },
+  "inputs_unchanged": true,
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0"
+  },
+  "tests_run": 18,
+  "cases": [
+    {
+      "test": "test_preparation.PreparationTests.test_acid_concentration_step_and_bag_depletion",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_actual_hd_pre_post_startup_and_complete_patient_cycles",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_cartridge_liquid_gas_and_solute_storage",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_compensating_errors_and_continuous_dwell",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_configuration_and_wire_reject_malformed_inputs",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_delayed_stale_invalid_sensors_and_control_input_boundary",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_distinct_pump_displacement_pressure_and_air_efficiency",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_eight_hours_depletion_and_boundary_balances",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_evidence_identity_changes_with_source_and_configuration",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_final_authority_blocks_unqualified_fluid_despite_forged_permits",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_line_air_water_and_concentrate_displacement",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_mixed_tank_matches_independent_exponential",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_pi_saturation_antiwindup_and_invalid_freeze",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_pressure_stop_and_bounded_startup_failures",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_saturation_and_finite_dissolution_with_solid_remaining",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_solid_exhaustion_preserves_dissolved_washout",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_startup_all_occupancies_and_independent_balances",
+      "result": "passed"
+    },
+    {
+      "test": "test_preparation.PreparationTests.test_time_refinement_against_predeclared_budget",
+      "result": "passed"
+    }
+  ],
+  "output": "test_acid_concentration_step_and_bag_depletion (test_preparation.PreparationTests.test_acid_concentration_step_and_bag_depletion) ... ok\ntest_actual_hd_pre_post_startup_and_complete_patient_cycles (test_preparation.PreparationTests.test_actual_hd_pre_post_startup_and_complete_patient_cycles) ... ok\ntest_cartridge_liquid_gas_and_solute_storage (test_preparation.PreparationTests.test_cartridge_liquid_gas_and_solute_storage) ... ok\ntest_compensating_errors_and_continuous_dwell (test_preparation.PreparationTests.test_compensating_errors_and_continuous_dwell) ... ok\ntest_configuration_and_wire_reject_malformed_inputs (test_preparation.PreparationTests.test_configuration_and_wire_reject_malformed_inputs) ... ok\ntest_delayed_stale_invalid_sensors_and_control_input_boundary (test_preparation.PreparationTests.test_delayed_stale_invalid_sensors_and_control_input_boundary) ... ok\ntest_distinct_pump_displacement_pressure_and_air_efficiency (test_preparation.PreparationTests.test_distinct_pump_displacement_pressure_and_air_efficiency) ... ok\ntest_eight_hours_depletion_and_boundary_balances (test_preparation.PreparationTests.test_eight_hours_depletion_and_boundary_balances) ... ok\ntest_evidence_identity_changes_with_source_and_configuration (test_preparation.PreparationTests.test_evidence_identity_changes_with_source_and_configuration) ... ok\ntest_final_authority_blocks_unqualified_fluid_despite_forged_permits (test_preparation.PreparationTests.test_final_authority_blocks_unqualified_fluid_despite_forged_permits) ... ok\ntest_line_air_water_and_concentrate_displacement (test_preparation.PreparationTests.test_line_air_water_and_concentrate_displacement) ... ok\ntest_mixed_tank_matches_independent_exponential (test_preparation.PreparationTests.test_mixed_tank_matches_independent_exponential) ... ok\ntest_pi_saturation_antiwindup_and_invalid_freeze (test_preparation.PreparationTests.test_pi_saturation_antiwindup_and_invalid_freeze) ... ok\ntest_pressure_stop_and_bounded_startup_failures (test_preparation.PreparationTests.test_pressure_stop_and_bounded_startup_failures) ... ok\ntest_saturation_and_finite_dissolution_with_solid_remaining (test_preparation.PreparationTests.test_saturation_and_finite_dissolution_with_solid_remaining) ... ok\ntest_solid_exhaustion_preserves_dissolved_washout (test_preparation.PreparationTests.test_solid_exhaustion_preserves_dissolved_washout) ... ok\ntest_startup_all_occupancies_and_independent_balances (test_preparation.PreparationTests.test_startup_all_occupancies_and_independent_balances) ... ok\ntest_time_refinement_against_predeclared_budget (test_preparation.PreparationTests.test_time_refinement_against_predeclared_budget) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 18.484s\n\nOK\n",
+  "successful": true,
+  "results": {
+    "HD.json": {
+      "mode": "HD",
+      "fault": false,
+      "first_ready_s": 380.5,
+      "stages": [
+        "CLEANED",
+        "CLEANING",
+        "CONFIGURATION",
+        "CONNECTED",
+        "DISCONNECTED",
+        "DISCONNECTING",
+        "FINISHED",
+        "PREPARATION",
+        "PRIMING",
+        "RETURNING",
+        "SELF_TEST",
+        "TREATMENT"
+      ],
+      "treatment_ticks": 120,
+      "peak_balance_residual": 4.044623302945638e-09,
+      "configuration": {
+        "schema_version": 5,
+        "model": "m5-device-1",
+        "seed": 42,
+        "ticks": 2200,
+        "dt_ms": 500,
+        "blood_mL_min": 300,
+        "uf_mL_min": 5,
+        "resistance_mmHg_min_mL": 0.5,
+        "pressure_limit_mmHg": 250,
+        "patient_volume_mL": 40000,
+        "faults": [],
+        "circuit": {
+          "compliance_mL_mmHg": [
+            0.001
+          ],
+          "edges": [
+            [
+              1,
+              0,
+              1,
+              "dialyzer",
+              false
+            ]
+          ],
+          "pump_node": 1,
+          "pump_head_mmHg": 600,
+          "sensor_node": 1,
+          "sensor_edge": 0,
+          "dialyzer_edge": 0,
+          "profile": {
+            "id": "synthetic-small",
+            "provenance": "synthetic",
+            "resistance_mmHg_min_mL": 1,
+            "kuf_mL_min_mmHg": 1,
+            "koa_mL_min": [
+              300,
+              200,
+              220,
+              200,
+              180,
+              100
+            ],
+            "sieving": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              0.7
+            ]
+          }
+        },
+        "transport": {
+          "blood_mmol_L": [
+            20,
+            140,
+            5,
+            105,
+            22,
+            2.4
+          ],
+          "dialysate_mmol_L": [
+            0,
+            138,
+            2,
+            105,
+            30,
+            1.5
+          ],
+          "dialysate_mL_min": 500
+        },
+        "patient": {
+          "id": "synthetic-baseline",
+          "provenance": "synthetic",
+          "volume_mL": [
+            14000,
+            26000
+          ],
+          "concentration_mmol_L": [
+            [
+              20,
+              140,
+              5,
+              105,
+              22,
+              2.4
+            ],
+            [
+              20,
+              14,
+              100,
+              10.5,
+              22,
+              2.4
+            ]
+          ],
+          "exchange_mL_min": [
+            600,
+            80,
+            200,
+            80,
+            100,
+            50
+          ],
+          "partition": [
+            1,
+            0.1,
+            20,
+            0.1,
+            1,
+            1
+          ],
+          "refill_mL_min": 500,
+          "prime_mL": 150.159289474462,
+          "initial_weight_kg": 70,
+          "pco2_mmHg": 40,
+          "external_in_mL_min": 0,
+          "external_out_mL_min": 0,
+          "external_mmol_L": [
+            0,
+            140,
+            4,
+            105,
+            24,
+            2.4
+          ],
+          "generation_mmol_min": [
+            0.05,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "hemodynamics": {
+            "initial_hematocrit": 0.35,
+            "vascular_mL": 5000,
+            "protein_g_dL": 7,
+            "temperature_C": 37,
+            "refill_mL_min": 500
+          }
+        },
+        "treatment": {
+          "mode": "HD",
+          "replacement_mL_min": 0,
+          "reservoir_mL": 50,
+          "ratio": 0.04,
+          "inlet_temperature_C": 20,
+          "setpoint_C": 37,
+          "heater_min_inverse": 30,
+          "initial_temperature_C": 37,
+          "head_mmHg": 600,
+          "filter1_R": 0.2,
+          "filter2_R": 0.2,
+          "line_R": 0.1,
+          "penetration1": 0.001,
+          "penetration2": 0.001,
+          "source_contaminant": 1,
+          "concentrate_mmol_L": [
+            0,
+            3500,
+            100,
+            2625,
+            600,
+            60
+          ]
+        },
+        "workflow": [],
+        "guided": {
+          "test_ms": 1000,
+          "treatment_ms": 60000,
+          "disinfection_ms": 1000,
+          "return_mL": 200
+        },
+        "physical": {
+          "blood": {
+            "arterial_diameter_mm": 1.3,
+            "arterial_length_mm": 25,
+            "venous_diameter_mm": 1.3,
+            "venous_length_mm": 25,
+            "tube_diameter_mm": 4,
+            "arterial_tube_mm": 1200,
+            "venous_tube_mm": 1200,
+            "arterial_chamber_mL": 20,
+            "venous_chamber_mL": 20,
+            "filter_mL": 80,
+            "filter_R": 0.3,
+            "kuf_mL_min_mmHg": 0.6,
+            "max_filter_hct": 0.6,
+            "max_plasma_filtration_fraction": 0.4,
+            "dialysate_min_mmHg": -350,
+            "dialysate_max_mmHg": 350,
+            "dialysate_R": 0.08,
+            "access_mmHg": 10,
+            "pump_head_mmHg": 600
+          },
+          "fluid": {
+            "acid_mL": 5000,
+            "bicarbonate_g": 550,
+            "acid_installed": true,
+            "bicarbonate_installed": true,
+            "acid_fraction": 0.022222222222222223,
+            "bicarbonate_fraction": 0.034,
+            "bicarbonate_stock_mmol_L": 1000,
+            "dissolution_g_min": 3,
+            "heater_max_W": 1500,
+            "heater_capacity_J_K": 100,
+            "heater_loss_W_K": 2,
+            "ambient_C": 22,
+            "heater_gain_W_K": 100,
+            "conductivity_factor": 0.8,
+            "temperature_coefficient": 0.02,
+            "acid_mmol_L": [
+              0,
+              4770,
+              90,
+              4995,
+              0,
+              67.5
+            ]
+          },
+          "dynamics": {
+            "arterial_air_mL": 20,
+            "venous_air_mL": 20,
+            "level_gain_mL_s_mL": 1,
+            "gas_max_mL_s": 1,
+            "dialysate_compliance_mL_mmHg": 0.05,
+            "pump_tau_s": 0.25,
+            "sensor_tau_s": 0.2,
+            "pressure_gain_mL_min_mmHg": 3,
+            "uf_pump_max_mL_min": 140,
+            "balance_chamber_mL": 30,
+            "dialysate_volume_mL": 100
+          },
+          "preparation": {
+            "acid_line_mL": 5,
+            "bicarbonate_line_mL": 5,
+            "cartridge_mL": 120,
+            "cartridge_target_mL": 100,
+            "fill_mL_min": 600,
+            "step_s": 0.05,
+            "sensor_latency_s": 0.2,
+            "dwell_s": 3,
+            "initial_line_occupancy": 0
+          }
+        }
+      }
+    },
+    "HDF_POST-fault.json": {
+      "mode": "HDF_POST",
+      "fault": true,
+      "first_ready_s": 411.0,
+      "stages": [
+        "CONFIGURATION",
+        "CONNECTED",
+        "PREPARATION",
+        "PRIMING",
+        "SELF_TEST",
+        "TREATMENT"
+      ],
+      "treatment_ticks": 13,
+      "peak_balance_residual": 4.538054376723721e-09,
+      "configuration": {
+        "schema_version": 5,
+        "model": "m5-device-1",
+        "seed": 42,
+        "ticks": 2200,
+        "dt_ms": 500,
+        "blood_mL_min": 300,
+        "uf_mL_min": 5,
+        "resistance_mmHg_min_mL": 0.5,
+        "pressure_limit_mmHg": 250,
+        "patient_volume_mL": 40000,
+        "faults": [],
+        "circuit": {
+          "compliance_mL_mmHg": [
+            0.001
+          ],
+          "edges": [
+            [
+              1,
+              0,
+              1,
+              "dialyzer",
+              false
+            ]
+          ],
+          "pump_node": 1,
+          "pump_head_mmHg": 600,
+          "sensor_node": 1,
+          "sensor_edge": 0,
+          "dialyzer_edge": 0,
+          "profile": {
+            "id": "synthetic-small",
+            "provenance": "synthetic",
+            "resistance_mmHg_min_mL": 1,
+            "kuf_mL_min_mmHg": 1,
+            "koa_mL_min": [
+              300,
+              200,
+              220,
+              200,
+              180,
+              100
+            ],
+            "sieving": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              0.7
+            ]
+          }
+        },
+        "transport": {
+          "blood_mmol_L": [
+            20,
+            140,
+            5,
+            105,
+            22,
+            2.4
+          ],
+          "dialysate_mmol_L": [
+            0,
+            138,
+            2,
+            105,
+            30,
+            1.5
+          ],
+          "dialysate_mL_min": 500
+        },
+        "patient": {
+          "id": "synthetic-baseline",
+          "provenance": "synthetic",
+          "volume_mL": [
+            14000,
+            26000
+          ],
+          "concentration_mmol_L": [
+            [
+              20,
+              140,
+              5,
+              105,
+              22,
+              2.4
+            ],
+            [
+              20,
+              14,
+              100,
+              10.5,
+              22,
+              2.4
+            ]
+          ],
+          "exchange_mL_min": [
+            600,
+            80,
+            200,
+            80,
+            100,
+            50
+          ],
+          "partition": [
+            1,
+            0.1,
+            20,
+            0.1,
+            1,
+            1
+          ],
+          "refill_mL_min": 500,
+          "prime_mL": 150.159289474462,
+          "initial_weight_kg": 70,
+          "pco2_mmHg": 40,
+          "external_in_mL_min": 0,
+          "external_out_mL_min": 0,
+          "external_mmol_L": [
+            0,
+            140,
+            4,
+            105,
+            24,
+            2.4
+          ],
+          "generation_mmol_min": [
+            0.05,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "hemodynamics": {
+            "initial_hematocrit": 0.35,
+            "vascular_mL": 5000,
+            "protein_g_dL": 7,
+            "temperature_C": 37,
+            "refill_mL_min": 500
+          }
+        },
+        "treatment": {
+          "mode": "HDF_POST",
+          "replacement_mL_min": 60,
+          "reservoir_mL": 50,
+          "ratio": 0.04,
+          "inlet_temperature_C": 20,
+          "setpoint_C": 37,
+          "heater_min_inverse": 30,
+          "initial_temperature_C": 37,
+          "head_mmHg": 600,
+          "filter1_R": 0.2,
+          "filter2_R": 0.2,
+          "line_R": 0.1,
+          "penetration1": 0.001,
+          "penetration2": 0.001,
+          "source_contaminant": 1,
+          "concentrate_mmol_L": [
+            0,
+            3500,
+            100,
+            2625,
+            600,
+            60
+          ]
+        },
+        "workflow": [],
+        "guided": {
+          "test_ms": 1000,
+          "treatment_ms": 60000,
+          "disinfection_ms": 1000,
+          "return_mL": 200
+        },
+        "physical": {
+          "blood": {
+            "arterial_diameter_mm": 1.3,
+            "arterial_length_mm": 25,
+            "venous_diameter_mm": 1.3,
+            "venous_length_mm": 25,
+            "tube_diameter_mm": 4,
+            "arterial_tube_mm": 1200,
+            "venous_tube_mm": 1200,
+            "arterial_chamber_mL": 20,
+            "venous_chamber_mL": 20,
+            "filter_mL": 80,
+            "filter_R": 0.3,
+            "kuf_mL_min_mmHg": 0.6,
+            "max_filter_hct": 0.6,
+            "max_plasma_filtration_fraction": 0.4,
+            "dialysate_min_mmHg": -350,
+            "dialysate_max_mmHg": 350,
+            "dialysate_R": 0.08,
+            "access_mmHg": 10,
+            "pump_head_mmHg": 600
+          },
+          "fluid": {
+            "acid_mL": 5000,
+            "bicarbonate_g": 550,
+            "acid_installed": true,
+            "bicarbonate_installed": true,
+            "acid_fraction": 0.022222222222222223,
+            "bicarbonate_fraction": 0.034,
+            "bicarbonate_stock_mmol_L": 1000,
+            "dissolution_g_min": 3,
+            "heater_max_W": 1500,
+            "heater_capacity_J_K": 100,
+            "heater_loss_W_K": 2,
+            "ambient_C": 22,
+            "heater_gain_W_K": 100,
+            "conductivity_factor": 0.8,
+            "temperature_coefficient": 0.02,
+            "acid_mmol_L": [
+              0,
+              4770,
+              90,
+              4995,
+              0,
+              67.5
+            ]
+          },
+          "dynamics": {
+            "arterial_air_mL": 20,
+            "venous_air_mL": 20,
+            "level_gain_mL_s_mL": 1,
+            "gas_max_mL_s": 1,
+            "dialysate_compliance_mL_mmHg": 0.05,
+            "pump_tau_s": 0.25,
+            "sensor_tau_s": 0.2,
+            "pressure_gain_mL_min_mmHg": 3,
+            "uf_pump_max_mL_min": 140,
+            "balance_chamber_mL": 30,
+            "dialysate_volume_mL": 100
+          },
+          "preparation": {
+            "acid_line_mL": 5,
+            "bicarbonate_line_mL": 5,
+            "cartridge_mL": 120,
+            "cartridge_target_mL": 100,
+            "fill_mL_min": 600,
+            "step_s": 0.05,
+            "sensor_latency_s": 0.2,
+            "dwell_s": 3,
+            "initial_line_occupancy": 0
+          }
+        }
+      }
+    },
+    "HDF_POST.json": {
+      "mode": "HDF_POST",
+      "fault": false,
+      "first_ready_s": 411.0,
+      "stages": [
+        "CLEANED",
+        "CLEANING",
+        "CONFIGURATION",
+        "CONNECTED",
+        "DISCONNECTED",
+        "DISCONNECTING",
+        "FINISHED",
+        "PREPARATION",
+        "PRIMING",
+        "RETURNING",
+        "SELF_TEST",
+        "TREATMENT"
+      ],
+      "treatment_ticks": 120,
+      "peak_balance_residual": 4.538054376723721e-09,
+      "configuration": {
+        "schema_version": 5,
+        "model": "m5-device-1",
+        "seed": 42,
+        "ticks": 2200,
+        "dt_ms": 500,
+        "blood_mL_min": 300,
+        "uf_mL_min": 5,
+        "resistance_mmHg_min_mL": 0.5,
+        "pressure_limit_mmHg": 250,
+        "patient_volume_mL": 40000,
+        "faults": [],
+        "circuit": {
+          "compliance_mL_mmHg": [
+            0.001
+          ],
+          "edges": [
+            [
+              1,
+              0,
+              1,
+              "dialyzer",
+              false
+            ]
+          ],
+          "pump_node": 1,
+          "pump_head_mmHg": 600,
+          "sensor_node": 1,
+          "sensor_edge": 0,
+          "dialyzer_edge": 0,
+          "profile": {
+            "id": "synthetic-small",
+            "provenance": "synthetic",
+            "resistance_mmHg_min_mL": 1,
+            "kuf_mL_min_mmHg": 1,
+            "koa_mL_min": [
+              300,
+              200,
+              220,
+              200,
+              180,
+              100
+            ],
+            "sieving": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              0.7
+            ]
+          }
+        },
+        "transport": {
+          "blood_mmol_L": [
+            20,
+            140,
+            5,
+            105,
+            22,
+            2.4
+          ],
+          "dialysate_mmol_L": [
+            0,
+            138,
+            2,
+            105,
+            30,
+            1.5
+          ],
+          "dialysate_mL_min": 500
+        },
+        "patient": {
+          "id": "synthetic-baseline",
+          "provenance": "synthetic",
+          "volume_mL": [
+            14000,
+            26000
+          ],
+          "concentration_mmol_L": [
+            [
+              20,
+              140,
+              5,
+              105,
+              22,
+              2.4
+            ],
+            [
+              20,
+              14,
+              100,
+              10.5,
+              22,
+              2.4
+            ]
+          ],
+          "exchange_mL_min": [
+            600,
+            80,
+            200,
+            80,
+            100,
+            50
+          ],
+          "partition": [
+            1,
+            0.1,
+            20,
+            0.1,
+            1,
+            1
+          ],
+          "refill_mL_min": 500,
+          "prime_mL": 150.159289474462,
+          "initial_weight_kg": 70,
+          "pco2_mmHg": 40,
+          "external_in_mL_min": 0,
+          "external_out_mL_min": 0,
+          "external_mmol_L": [
+            0,
+            140,
+            4,
+            105,
+            24,
+            2.4
+          ],
+          "generation_mmol_min": [
+            0.05,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "hemodynamics": {
+            "initial_hematocrit": 0.35,
+            "vascular_mL": 5000,
+            "protein_g_dL": 7,
+            "temperature_C": 37,
+            "refill_mL_min": 500
+          }
+        },
+        "treatment": {
+          "mode": "HDF_POST",
+          "replacement_mL_min": 60,
+          "reservoir_mL": 50,
+          "ratio": 0.04,
+          "inlet_temperature_C": 20,
+          "setpoint_C": 37,
+          "heater_min_inverse": 30,
+          "initial_temperature_C": 37,
+          "head_mmHg": 600,
+          "filter1_R": 0.2,
+          "filter2_R": 0.2,
+          "line_R": 0.1,
+          "penetration1": 0.001,
+          "penetration2": 0.001,
+          "source_contaminant": 1,
+          "concentrate_mmol_L": [
+            0,
+            3500,
+            100,
+            2625,
+            600,
+            60
+          ]
+        },
+        "workflow": [],
+        "guided": {
+          "test_ms": 1000,
+          "treatment_ms": 60000,
+          "disinfection_ms": 1000,
+          "return_mL": 200
+        },
+        "physical": {
+          "blood": {
+            "arterial_diameter_mm": 1.3,
+            "arterial_length_mm": 25,
+            "venous_diameter_mm": 1.3,
+            "venous_length_mm": 25,
+            "tube_diameter_mm": 4,
+            "arterial_tube_mm": 1200,
+            "venous_tube_mm": 1200,
+            "arterial_chamber_mL": 20,
+            "venous_chamber_mL": 20,
+            "filter_mL": 80,
+            "filter_R": 0.3,
+            "kuf_mL_min_mmHg": 0.6,
+            "max_filter_hct": 0.6,
+            "max_plasma_filtration_fraction": 0.4,
+            "dialysate_min_mmHg": -350,
+            "dialysate_max_mmHg": 350,
+            "dialysate_R": 0.08,
+            "access_mmHg": 10,
+            "pump_head_mmHg": 600
+          },
+          "fluid": {
+            "acid_mL": 5000,
+            "bicarbonate_g": 550,
+            "acid_installed": true,
+            "bicarbonate_installed": true,
+            "acid_fraction": 0.022222222222222223,
+            "bicarbonate_fraction": 0.034,
+            "bicarbonate_stock_mmol_L": 1000,
+            "dissolution_g_min": 3,
+            "heater_max_W": 1500,
+            "heater_capacity_J_K": 100,
+            "heater_loss_W_K": 2,
+            "ambient_C": 22,
+            "heater_gain_W_K": 100,
+            "conductivity_factor": 0.8,
+            "temperature_coefficient": 0.02,
+            "acid_mmol_L": [
+              0,
+              4770,
+              90,
+              4995,
+              0,
+              67.5
+            ]
+          },
+          "dynamics": {
+            "arterial_air_mL": 20,
+            "venous_air_mL": 20,
+            "level_gain_mL_s_mL": 1,
+            "gas_max_mL_s": 1,
+            "dialysate_compliance_mL_mmHg": 0.05,
+            "pump_tau_s": 0.25,
+            "sensor_tau_s": 0.2,
+            "pressure_gain_mL_min_mmHg": 3,
+            "uf_pump_max_mL_min": 140,
+            "balance_chamber_mL": 30,
+            "dialysate_volume_mL": 100
+          },
+          "preparation": {
+            "acid_line_mL": 5,
+            "bicarbonate_line_mL": 5,
+            "cartridge_mL": 120,
+            "cartridge_target_mL": 100,
+            "fill_mL_min": 600,
+            "step_s": 0.05,
+            "sensor_latency_s": 0.2,
+            "dwell_s": 3,
+            "initial_line_occupancy": 0
+          }
+        }
+      }
+    },
+    "HDF_PRE.json": {
+      "mode": "HDF_PRE",
+      "fault": false,
+      "first_ready_s": 411.0,
+      "stages": [
+        "CLEANED",
+        "CLEANING",
+        "CONFIGURATION",
+        "CONNECTED",
+        "DISCONNECTED",
+        "DISCONNECTING",
+        "FINISHED",
+        "PREPARATION",
+        "PRIMING",
+        "RETURNING",
+        "SELF_TEST",
+        "TREATMENT"
+      ],
+      "treatment_ticks": 120,
+      "peak_balance_residual": 4.538054376723721e-09,
+      "configuration": {
+        "schema_version": 5,
+        "model": "m5-device-1",
+        "seed": 42,
+        "ticks": 2200,
+        "dt_ms": 500,
+        "blood_mL_min": 300,
+        "uf_mL_min": 5,
+        "resistance_mmHg_min_mL": 0.5,
+        "pressure_limit_mmHg": 250,
+        "patient_volume_mL": 40000,
+        "faults": [],
+        "circuit": {
+          "compliance_mL_mmHg": [
+            0.001
+          ],
+          "edges": [
+            [
+              1,
+              0,
+              1,
+              "dialyzer",
+              false
+            ]
+          ],
+          "pump_node": 1,
+          "pump_head_mmHg": 600,
+          "sensor_node": 1,
+          "sensor_edge": 0,
+          "dialyzer_edge": 0,
+          "profile": {
+            "id": "synthetic-small",
+            "provenance": "synthetic",
+            "resistance_mmHg_min_mL": 1,
+            "kuf_mL_min_mmHg": 1,
+            "koa_mL_min": [
+              300,
+              200,
+              220,
+              200,
+              180,
+              100
+            ],
+            "sieving": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              0.7
+            ]
+          }
+        },
+        "transport": {
+          "blood_mmol_L": [
+            20,
+            140,
+            5,
+            105,
+            22,
+            2.4
+          ],
+          "dialysate_mmol_L": [
+            0,
+            138,
+            2,
+            105,
+            30,
+            1.5
+          ],
+          "dialysate_mL_min": 500
+        },
+        "patient": {
+          "id": "synthetic-baseline",
+          "provenance": "synthetic",
+          "volume_mL": [
+            14000,
+            26000
+          ],
+          "concentration_mmol_L": [
+            [
+              20,
+              140,
+              5,
+              105,
+              22,
+              2.4
+            ],
+            [
+              20,
+              14,
+              100,
+              10.5,
+              22,
+              2.4
+            ]
+          ],
+          "exchange_mL_min": [
+            600,
+            80,
+            200,
+            80,
+            100,
+            50
+          ],
+          "partition": [
+            1,
+            0.1,
+            20,
+            0.1,
+            1,
+            1
+          ],
+          "refill_mL_min": 500,
+          "prime_mL": 150.159289474462,
+          "initial_weight_kg": 70,
+          "pco2_mmHg": 40,
+          "external_in_mL_min": 0,
+          "external_out_mL_min": 0,
+          "external_mmol_L": [
+            0,
+            140,
+            4,
+            105,
+            24,
+            2.4
+          ],
+          "generation_mmol_min": [
+            0.05,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "hemodynamics": {
+            "initial_hematocrit": 0.35,
+            "vascular_mL": 5000,
+            "protein_g_dL": 7,
+            "temperature_C": 37,
+            "refill_mL_min": 500
+          }
+        },
+        "treatment": {
+          "mode": "HDF_PRE",
+          "replacement_mL_min": 60,
+          "reservoir_mL": 50,
+          "ratio": 0.04,
+          "inlet_temperature_C": 20,
+          "setpoint_C": 37,
+          "heater_min_inverse": 30,
+          "initial_temperature_C": 37,
+          "head_mmHg": 600,
+          "filter1_R": 0.2,
+          "filter2_R": 0.2,
+          "line_R": 0.1,
+          "penetration1": 0.001,
+          "penetration2": 0.001,
+          "source_contaminant": 1,
+          "concentrate_mmol_L": [
+            0,
+            3500,
+            100,
+            2625,
+            600,
+            60
+          ]
+        },
+        "workflow": [],
+        "guided": {
+          "test_ms": 1000,
+          "treatment_ms": 60000,
+          "disinfection_ms": 1000,
+          "return_mL": 200
+        },
+        "physical": {
+          "blood": {
+            "arterial_diameter_mm": 1.3,
+            "arterial_length_mm": 25,
+            "venous_diameter_mm": 1.3,
+            "venous_length_mm": 25,
+            "tube_diameter_mm": 4,
+            "arterial_tube_mm": 1200,
+            "venous_tube_mm": 1200,
+            "arterial_chamber_mL": 20,
+            "venous_chamber_mL": 20,
+            "filter_mL": 80,
+            "filter_R": 0.3,
+            "kuf_mL_min_mmHg": 0.6,
+            "max_filter_hct": 0.6,
+            "max_plasma_filtration_fraction": 0.4,
+            "dialysate_min_mmHg": -350,
+            "dialysate_max_mmHg": 350,
+            "dialysate_R": 0.08,
+            "access_mmHg": 10,
+            "pump_head_mmHg": 600
+          },
+          "fluid": {
+            "acid_mL": 5000,
+            "bicarbonate_g": 550,
+            "acid_installed": true,
+            "bicarbonate_installed": true,
+            "acid_fraction": 0.022222222222222223,
+            "bicarbonate_fraction": 0.034,
+            "bicarbonate_stock_mmol_L": 1000,
+            "dissolution_g_min": 3,
+            "heater_max_W": 1500,
+            "heater_capacity_J_K": 100,
+            "heater_loss_W_K": 2,
+            "ambient_C": 22,
+            "heater_gain_W_K": 100,
+            "conductivity_factor": 0.8,
+            "temperature_coefficient": 0.02,
+            "acid_mmol_L": [
+              0,
+              4770,
+              90,
+              4995,
+              0,
+              67.5
+            ]
+          },
+          "dynamics": {
+            "arterial_air_mL": 20,
+            "venous_air_mL": 20,
+            "level_gain_mL_s_mL": 1,
+            "gas_max_mL_s": 1,
+            "dialysate_compliance_mL_mmHg": 0.05,
+            "pump_tau_s": 0.25,
+            "sensor_tau_s": 0.2,
+            "pressure_gain_mL_min_mmHg": 3,
+            "uf_pump_max_mL_min": 140,
+            "balance_chamber_mL": 30,
+            "dialysate_volume_mL": 100
+          },
+          "preparation": {
+            "acid_line_mL": 5,
+            "bicarbonate_line_mL": 5,
+            "cartridge_mL": 120,
+            "cartridge_target_mL": 100,
+            "fill_mL_min": 600,
+            "step_s": 0.05,
+            "sensor_latency_s": 0.2,
+            "dwell_s": 3,
+            "initial_line_occupancy": 0
+          }
+        }
+      }
+    },
+    "acid_step.json": {
+      "case": "acid_step",
+      "returncode": 0,
+      "stdout": "requalified_s 78.5\nacid_step PASS\n",
+      "stderr": ""
+    },
+    "cartridge.json": {
+      "case": "cartridge",
+      "returncode": 0,
+      "stdout": "cartridge PASS\n",
+      "stderr": ""
+    },
+    "dissolution.json": {
+      "case": "dissolution",
+      "returncode": 0,
+      "stdout": "dissolution PASS\n",
+      "stderr": ""
+    },
+    "endurance.json": {
+      "case": "endurance",
+      "returncode": 0,
+      "stdout": "at_exhaustion 993.76105593682132 final 3.4267376793293781e-23 residual -1.8539934032446581e-09\nendurance PASS\n",
+      "stderr": ""
+    },
+    "faults.json": {
+      "case": "faults",
+      "returncode": 0,
+      "stdout": "faults PASS\n",
+      "stderr": ""
+    },
+    "line.json": {
+      "case": "line",
+      "returncode": 0,
+      "stdout": "line PASS\n",
+      "stderr": ""
+    },
+    "mixing.json": {
+      "case": "mixing",
+      "returncode": 0,
+      "stdout": "mixing PASS\n",
+      "stderr": ""
+    },
+    "pi.json": {
+      "case": "pi",
+      "returncode": 0,
+      "stdout": "pi PASS\n",
+      "stderr": ""
+    },
+    "pump.json": {
+      "case": "pump",
+      "returncode": 0,
+      "stdout": "pump PASS\n",
+      "stderr": ""
+    },
+    "qualification.json": {
+      "case": "qualification",
+      "returncode": 0,
+      "stdout": "qualification PASS\n",
+      "stderr": ""
+    },
+    "refinement.json": {
+      "case": "refinement",
+      "returncode": 0,
+      "stdout": "0.050000000000000003 140.71144092369491 0\n0.025000000000000001 140.7121541198066 0.00071319611168974006\n0.012500000000000001 140.71254027497969 0.00038615517308926428\nrefinement PASS\n",
+      "stderr": ""
+    },
+    "sensors.json": {
+      "case": "sensors",
+      "returncode": 0,
+      "stdout": "sensors PASS\n",
+      "stderr": ""
+    },
+    "startup.json": {
+      "case": "startup",
+      "returncode": 0,
+      "stdout": "occupancy 0 stable 222.6\noccupancy 1 stable 206\noccupancy 2 stable 222.4\nstartup PASS\n",
+      "stderr": ""
+    },
+    "washout.json": {
+      "case": "washout",
+      "returncode": 0,
+      "stdout": "washout PASS\n",
+      "stderr": ""
+    }
+  },
+  "scope": "Actual production Plant and patient over pipes; component eight-hour simulation; no clinical calibration or independent review."
+}

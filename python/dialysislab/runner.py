@@ -7,7 +7,6 @@ import math
 import os
 from pathlib import Path
 import platform
-import resource
 import signal
 import subprocess
 import sys
@@ -410,6 +409,7 @@ def simulate(config, runtime, build_dir, output=None, before_tick=None, wall_spe
     manifest['completed_ticks'] = len(records)
     manifest['trajectory_sha256'] = writer.hasher.hexdigest()
     manifest['trajectory_bytes'] = writer.bytes_written
+    import resource  # Native execution accounting; not required by configuration validation.
     manifest['memory'] = dict(peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024)
     for name in ('memory.peak', 'memory.max'):
         try:

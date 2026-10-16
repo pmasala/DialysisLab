@@ -87,7 +87,7 @@ Protection shall evaluate measurement validity and age and apply the approved ha
 
 **Trace:** needs NEED-004; risks HAZ-004; design DES-004; verification TEST-004.
 
-**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/SAFETY_SECURITY.md](../docs/design/SAFETY_SECURITY.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/protection.cpp](../src/protection.cpp), [src/wire.hpp](../src/wire.hpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/test_rpc_abort.py](../tests/test_rpc_abort.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/SAFETY_SECURITY.md](../docs/design/SAFETY_SECURITY.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/protection.cpp](../src/protection.cpp), [src/wire.hpp](../src/wire.hpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/test_rpc_abort.py](../tests/test_rpc_abort.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [src/protection_service.hpp](../src/protection_service.hpp).
 
 ### REQ-005
 
@@ -97,7 +97,7 @@ Alarm acknowledgment or permitted silence shall not by itself clear an active ha
 
 **Trace:** needs NEED-005; risks HAZ-005; design DES-005; verification TEST-005.
 
-**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/protection.cpp](../src/protection.cpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/protection.cpp](../src/protection.cpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [src/protection_service.hpp](../src/protection_service.hpp).
 
 ### REQ-006
 
@@ -107,7 +107,7 @@ Substitution delivery shall be conditioned on approved preparation and observabl
 
 **Trace:** needs NEED-006; risks HAZ-006; design DES-006; verification TEST-006.
 
-**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/testing/MEASUREMENTS.md](../docs/testing/MEASUREMENTS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [src/online.hpp](../src/online.hpp), [src/protection.cpp](../src/protection.cpp).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/testing/MEASUREMENTS.md](../docs/testing/MEASUREMENTS.md), [docs/testing/MODELS.md](../docs/testing/MODELS.md), [src/online.hpp](../src/online.hpp), [src/protection.cpp](../src/protection.cpp), [src/protection_service.hpp](../src/protection_service.hpp).
 
 ## Execution, failure handling and records
 
@@ -149,7 +149,7 @@ Detect synthetic occlusion and send a protective command directly to plant arbit
 
 **Trace:** needs M1-NEED-001; risks HAZ-002; design M1-DES-004; verification M1-TEST-004.
 
-**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [src/plant.cpp](../src/plant.cpp), [src/protection.cpp](../src/protection.cpp).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [src/plant.cpp](../src/plant.cpp), [src/protection.cpp](../src/protection.cpp), [src/protection_service.hpp](../src/protection_service.hpp).
 
 ### M1-REQ-005
 
@@ -159,7 +159,7 @@ Preserve an active protective latch against conflicting commands and subsequent 
 
 **Trace:** needs M1-NEED-001; risks HAZ-002; design M1-DES-005; verification M1-TEST-005.
 
-**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/control.cpp](../src/control.cpp), [src/plant.cpp](../src/plant.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/control.cpp](../src/control.cpp), [src/plant.cpp](../src/plant.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [src/control_service.hpp](../src/control_service.hpp).
 
 ### M1-REQ-006
 
@@ -169,7 +169,7 @@ Validate separate modeled control/protection observations before using them.
 
 **Trace:** needs M1-NEED-001; risks HAZ-004; design M1-DES-006; verification M1-TEST-006.
 
-**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/control.cpp](../src/control.cpp), [src/plant.cpp](../src/plant.cpp), [src/protection.cpp](../src/protection.cpp), [src/wire.hpp](../src/wire.hpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/control.cpp](../src/control.cpp), [src/plant.cpp](../src/plant.cpp), [src/protection.cpp](../src/protection.cpp), [src/wire.hpp](../src/wire.hpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [src/control_service.hpp](../src/control_service.hpp), [src/protection_service.hpp](../src/protection_service.hpp).
 
 ### M1-REQ-007
 
@@ -543,7 +543,7 @@ Enforce aggregate hazard-specific protective constraints
 
 **Trace:** needs M5-NEED-001; risks HAZ-002, HAZ-003, HAZ-004, HAZ-006; design M5-DES-003; verification M5-TEST-003.
 
-**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/SAFETY_SECURITY.md](../docs/design/SAFETY_SECURITY.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/plant.cpp](../src/plant.cpp), [src/protection.cpp](../src/protection.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
+**Implementation locations:** [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/SAFETY_SECURITY.md](../docs/design/SAFETY_SECURITY.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/plant.cpp](../src/plant.cpp), [src/protection.cpp](../src/protection.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [src/protection_service.hpp](../src/protection_service.hpp).
 
 ### M5-REQ-004
 
@@ -553,7 +553,7 @@ Separate alarm acknowledgment, silence, reset and restart
 
 **Trace:** needs M5-NEED-001; risks HAZ-002, HAZ-004, HAZ-005; design M5-DES-004; verification M5-TEST-004.
 
-**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/machine.hpp](../src/machine.hpp), [src/protection.cpp](../src/protection.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/design/JSON_FIELDS.md](../docs/design/JSON_FIELDS.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/design/WIRE_FIELDS.md](../docs/design/WIRE_FIELDS.md), [docs/design/WIRE_PROTOCOL.md](../docs/design/WIRE_PROTOCOL.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [docs/wire-contract.json](../docs/wire-contract.json), [src/machine.hpp](../src/machine.hpp), [src/protection.cpp](../src/protection.cpp), [tests/test_document_contracts.py](../tests/test_document_contracts.py), [tests/wire_contract_witness.cpp](../tests/wire_contract_witness.cpp), [src/protection_service.hpp](../src/protection_service.hpp).
 
 ### M5-REQ-005
 
@@ -563,7 +563,7 @@ Provide isolated device-facing authoritative interfaces
 
 **Trace:** needs M5-NEED-001; risks HAZ-001, HAZ-004, HAZ-005; design M5-DES-005; verification M5-TEST-005.
 
-**Implementation locations:** [compose.yaml](../compose.yaml), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [src/control.cpp](../src/control.cpp).
+**Implementation locations:** [compose.yaml](../compose.yaml), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [src/control.cpp](../src/control.cpp), [src/control_service.hpp](../src/control_service.hpp).
 
 ### M5-REQ-006
 
@@ -653,7 +653,7 @@ Guide the simulated treatment from initial checks through disinfection with stat
 
 **Trace:** needs M7-NEED-001; risks HAZ-001, HAZ-003, HAZ-004; design UI-DES-002; verification UI-TEST-003, UI-TEST-004.
 
-**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/GUIDED_TREATMENT.md](../docs/GUIDED_TREATMENT.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [scenarios/device_guided.json](../scenarios/device_guided.json), [src/control.cpp](../src/control.cpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/synoptic.hpp](../src/ui/synoptic.hpp), [tests/guided_plant.cpp](../tests/guided_plant.cpp), [tests/guided_view.cpp](../tests/guided_view.cpp), [tests/test_guided.py](../tests/test_guided.py), [tests/ui_regressions.py](../tests/ui_regressions.py), [tools/verify_models.py](../tools/verify_models.py).
+**Implementation locations:** [assurance/current-obligations.json](../assurance/current-obligations.json), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/ATOMIC_REQUIREMENTS.md](../docs/ATOMIC_REQUIREMENTS.md), [docs/GUIDED_TREATMENT.md](../docs/GUIDED_TREATMENT.md), [docs/design/TREATMENT.md](../docs/design/TREATMENT.md), [docs/testing/CLOSURE.md](../docs/testing/CLOSURE.md), [docs/testing/COVERAGE.md](../docs/testing/COVERAGE.md), [docs/testing/WORKFLOW.md](../docs/testing/WORKFLOW.md), [python/dialysislab/compartments.py](../python/dialysislab/compartments.py), [python/dialysislab/machine.py](../python/dialysislab/machine.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [scenarios/device_guided.json](../scenarios/device_guided.json), [src/control.cpp](../src/control.cpp), [src/machine.hpp](../src/machine.hpp), [src/plant.cpp](../src/plant.cpp), [src/ui/client.hpp](../src/ui/client.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/synoptic.hpp](../src/ui/synoptic.hpp), [tests/guided_plant.cpp](../tests/guided_plant.cpp), [tests/guided_view.cpp](../tests/guided_view.cpp), [tests/test_guided.py](../tests/test_guided.py), [tests/ui_regressions.py](../tests/ui_regressions.py), [tools/verify_models.py](../tools/verify_models.py), [src/control_service.hpp](../src/control_service.hpp).
 
 ### SYN-REQ-001
 
@@ -755,6 +755,58 @@ Home shall prioritize the filter and extracorporeal flow with a simplified overv
 
 **Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [src/ui/flow_motion.hpp](../src/ui/flow_motion.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/synoptic_motion.cpp](../tests/synoptic_motion.cpp), [tests/synoptic_app.cpp](../tests/synoptic_app.cpp).
 
+## Complete browser execution
+
+### WEB-REQ-001
+
+Run production C++ Plant, control/protection decisions and existing Python patient/physical coupling locally using WebAssembly and Pyodide. HD/PRE/POST must reach treatment with finite results and conserved water/solute inventories; no replacement physical equations or prerecorded telemetry.
+
+**Acceptance:** Prospective criteria in docs/design/BROWSER_RUNTIME.md; exact discrete state and declared mixed numerical budget. No independent approval is inferred.
+
+**Trace:** needs WEB-NEED-001; risks HAZ-004, HAZ-005; design WEB-DES-001; verification WEB-TEST-001.
+
+**Implementation locations:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md), [src/browser/engine.cpp](../src/browser/engine.cpp), [src/browser/ui.cpp](../src/browser/ui.cpp), [src/control_service.hpp](../src/control_service.hpp), [src/protection_service.hpp](../src/protection_service.hpp), [src/ui/client.hpp](../src/ui/client.hpp), [python/dialysislab/browser.py](../python/dialysislab/browser.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [web/app.js](../web/app.js), [web/worker.js](../web/worker.js), [web/index.html](../web/index.html), [cmake/browser/CMakeLists.txt](../cmake/browser/CMakeLists.txt), [browser_dependencies.json](../browser_dependencies.json), [tools/build_browser.py](../tools/build_browser.py), [tools/verify_browser.py](../tools/verify_browser.py), [tests/test_browser.py](../tests/test_browser.py), [tests/browser/campaign.py](../tests/browser/campaign.py), [tests/browser/run_wasm.cjs](../tests/browser/run_wasm.cjs), [tests/browser/ui.cjs](../tests/browser/ui.cjs).
+
+### WEB-REQ-002
+
+Render existing LVGL guided views in a browser canvas with touch/pointer input and working lifecycle actions, prescription, STOP, detail tabs and reduced motion. Keep simulation time independent of animation frame rate.
+
+**Acceptance:** Prospective criteria in docs/design/BROWSER_RUNTIME.md; exact discrete state and declared mixed numerical budget. No independent approval is inferred.
+
+**Trace:** needs WEB-NEED-001; risks HAZ-004, HAZ-005; design WEB-DES-001; verification WEB-TEST-002.
+
+**Implementation locations:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md), [src/browser/engine.cpp](../src/browser/engine.cpp), [src/browser/ui.cpp](../src/browser/ui.cpp), [src/control_service.hpp](../src/control_service.hpp), [src/protection_service.hpp](../src/protection_service.hpp), [src/ui/client.hpp](../src/ui/client.hpp), [python/dialysislab/browser.py](../python/dialysislab/browser.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [web/app.js](../web/app.js), [web/worker.js](../web/worker.js), [web/index.html](../web/index.html), [cmake/browser/CMakeLists.txt](../cmake/browser/CMakeLists.txt), [browser_dependencies.json](../browser_dependencies.json), [tools/build_browser.py](../tools/build_browser.py), [tools/verify_browser.py](../tools/verify_browser.py), [tests/test_browser.py](../tests/test_browser.py), [tests/browser/campaign.py](../tests/browser/campaign.py), [tests/browser/run_wasm.cjs](../tests/browser/run_wasm.cjs), [tests/browser/ui.cjs](../tests/browser/ui.cjs).
+
+### WEB-REQ-003
+
+Compare the same deterministic scenarios/commands and initial conditions in native and WebAssembly execution. Discrete stages/alarms must match exactly; finite numeric outputs use abs(a-b) <= 1e-8 + 1e-9*max(abs(a),abs(b)), in each field's documented units. Water and solute conservation retain existing 1e-6 mL/mmol bounds. These are proposed portability budgets, not global numerical accuracy approval.
+
+**Acceptance:** Prospective criteria in docs/design/BROWSER_RUNTIME.md; exact discrete state and declared mixed numerical budget. No independent approval is inferred.
+
+**Trace:** needs WEB-NEED-001; risks HAZ-004, HAZ-005; design WEB-DES-001; verification WEB-TEST-003.
+
+**Implementation locations:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md), [src/browser/engine.cpp](../src/browser/engine.cpp), [src/browser/ui.cpp](../src/browser/ui.cpp), [src/control_service.hpp](../src/control_service.hpp), [src/protection_service.hpp](../src/protection_service.hpp), [src/ui/client.hpp](../src/ui/client.hpp), [python/dialysislab/browser.py](../python/dialysislab/browser.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [web/app.js](../web/app.js), [web/worker.js](../web/worker.js), [web/index.html](../web/index.html), [cmake/browser/CMakeLists.txt](../cmake/browser/CMakeLists.txt), [browser_dependencies.json](../browser_dependencies.json), [tools/build_browser.py](../tools/build_browser.py), [tools/verify_browser.py](../tools/verify_browser.py), [tests/test_browser.py](../tests/test_browser.py), [tests/browser/campaign.py](../tests/browser/campaign.py), [tests/browser/run_wasm.cjs](../tests/browser/run_wasm.cjs), [tests/browser/ui.cjs](../tests/browser/ui.cjs).
+
+### WEB-REQ-004
+
+Serve static assets only; computation and patient state stay in the browser. Pause when hidden, do not catch up elapsed wall time, prevent overlapping ticks; stop advancing after runtime failure and report unavailable state. Reset must discard queued actions and old patient state.
+
+**Acceptance:** Prospective criteria in docs/design/BROWSER_RUNTIME.md; exact discrete state and declared mixed numerical budget. No independent approval is inferred.
+
+**Trace:** needs WEB-NEED-001; risks HAZ-004, HAZ-005; design WEB-DES-001; verification WEB-TEST-004.
+
+**Implementation locations:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md), [src/browser/engine.cpp](../src/browser/engine.cpp), [src/browser/ui.cpp](../src/browser/ui.cpp), [src/control_service.hpp](../src/control_service.hpp), [src/protection_service.hpp](../src/protection_service.hpp), [src/ui/client.hpp](../src/ui/client.hpp), [python/dialysislab/browser.py](../python/dialysislab/browser.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [web/app.js](../web/app.js), [web/worker.js](../web/worker.js), [web/index.html](../web/index.html), [cmake/browser/CMakeLists.txt](../cmake/browser/CMakeLists.txt), [browser_dependencies.json](../browser_dependencies.json), [tools/build_browser.py](../tools/build_browser.py), [tools/verify_browser.py](../tools/verify_browser.py), [tests/test_browser.py](../tests/test_browser.py), [tests/browser/campaign.py](../tests/browser/campaign.py), [tests/browser/run_wasm.cjs](../tests/browser/run_wasm.cjs), [tests/browser/ui.cjs](../tests/browser/ui.cjs).
+
+### WEB-REQ-005
+
+Pin toolchain/runtime dependencies, preserve source/configuration identifiers, build instructions and native/Wasm comparison results. Published build must identify its source and dependency artifacts.
+
+**Acceptance:** Prospective criteria in docs/design/BROWSER_RUNTIME.md; exact discrete state and declared mixed numerical budget. No independent approval is inferred.
+
+**Trace:** needs WEB-NEED-001; risks HAZ-004, HAZ-005; design WEB-DES-001; verification WEB-TEST-005.
+
+**Implementation locations:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md), [src/browser/engine.cpp](../src/browser/engine.cpp), [src/browser/ui.cpp](../src/browser/ui.cpp), [src/control_service.hpp](../src/control_service.hpp), [src/protection_service.hpp](../src/protection_service.hpp), [src/ui/client.hpp](../src/ui/client.hpp), [python/dialysislab/browser.py](../python/dialysislab/browser.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [web/app.js](../web/app.js), [web/worker.js](../web/worker.js), [web/index.html](../web/index.html), [cmake/browser/CMakeLists.txt](../cmake/browser/CMakeLists.txt), [browser_dependencies.json](../browser_dependencies.json), [tools/build_browser.py](../tools/build_browser.py), [tools/verify_browser.py](../tools/verify_browser.py), [tests/test_browser.py](../tests/test_browser.py), [tests/browser/campaign.py](../tests/browser/campaign.py), [tests/browser/run_wasm.cjs](../tests/browser/run_wasm.cjs), [tests/browser/ui.cjs](../tests/browser/ui.cjs).
+
 ## Experiments and inspection
 
 ### M7-REQ-001
@@ -827,7 +879,7 @@ Isolate writable device producers
 
 **Trace:** needs M8-NEED-001; risks HAZ-001, HAZ-004, HAZ-005; design M8-DES-001; verification M8-TEST-001.
 
-**Implementation locations:** [compose.experiments.yaml](../compose.experiments.yaml), [compose.yaml](../compose.yaml), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/control.cpp](../src/control.cpp), [src/protection.cpp](../src/protection.cpp), [tools/verify_compose.py](../tools/verify_compose.py).
+**Implementation locations:** [compose.experiments.yaml](../compose.experiments.yaml), [compose.yaml](../compose.yaml), [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md), [docs/design/INTERFACES.md](../docs/design/INTERFACES.md), [docs/testing/FAILURES.md](../docs/testing/FAILURES.md), [python/dialysislab/role_supervisor.py](../python/dialysislab/role_supervisor.py), [src/control.cpp](../src/control.cpp), [src/protection.cpp](../src/protection.cpp), [tools/verify_compose.py](../tools/verify_compose.py), [src/control_service.hpp](../src/control_service.hpp), [src/protection_service.hpp](../src/protection_service.hpp).
 
 ### M8-REQ-002
 

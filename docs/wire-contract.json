@@ -15,7 +15,9 @@
     "src/preparation.hpp",
     "src/protection.cpp",
     "src/ui/client.hpp",
-    "src/wire.hpp"
+    "src/wire.hpp",
+    "src/control_service.hpp",
+    "src/protection_service.hpp"
   ],
   "messages": [
     {
@@ -4984,17 +4986,19 @@
   "source_sha256": {
     "python/dialysislab/machine.py": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3",
     "python/dialysislab/physical.py": "195851661259ef9227b2dbe228adbe6e38ebdc5bdbebac7ebaf49e31879d9637",
-    "python/dialysislab/runner.py": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd",
+    "python/dialysislab/runner.py": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45",
     "src/blood_physics.hpp": "a5ae40d3ef24ac42acffc8b0a984de60ad7d1063ea554f2e60ee1659c85c478b",
-    "src/control.cpp": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6",
+    "src/control.cpp": "d7252092c6d4e8b2e5b56bc7edd17764950b5195d2147f06dbc2bccc4f99f6ea",
     "src/device_session.hpp": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd",
     "src/dynamics.hpp": "f44dd6c7e6c2ddecd1cdfc466d28b26e60e70fb6869a184db85a1fbf94904993",
     "src/machine.hpp": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c",
     "src/online.hpp": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d",
     "src/plant.cpp": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca",
     "src/preparation.hpp": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83",
-    "src/protection.cpp": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3",
-    "src/ui/client.hpp": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6",
-    "src/wire.hpp": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc"
+    "src/protection.cpp": "12c840ff211b3d38e189474117d0299c0bf5ce22fad985ca84acecb6a90e64c3",
+    "src/ui/client.hpp": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344",
+    "src/wire.hpp": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc",
+    "src/control_service.hpp": "1ff0f985749bf93096e4f35c95d9bc44ad11f94a56b8e1678659c3f3b4bfad4a",
+    "src/protection_service.hpp": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
   }
 }

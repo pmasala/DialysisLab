@@ -19,6 +19,7 @@ GROUPS = [
     ('Execution, failure handling and records', ['M1-REQ-']),
     ('Hydraulics, patient and prepared fluids', ['M2-REQ-', 'M3-REQ-', 'M4-REQ-', 'PHY-REQ-', 'DYN-REQ-', 'MIX-REQ-']),
     ('Treatment lifecycle and operator interface', ['M5-REQ-', 'M6-REQ-', 'UI-REQ-', 'SYN-REQ-']),
+    ('Complete browser execution', ['WEB-REQ-']),
     ('Experiments and inspection', ['M7-REQ-']),
     ('Security, dependencies and integration', ['M8-REQ-', 'M9-REQ-']),
 ]

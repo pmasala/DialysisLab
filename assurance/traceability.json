@@ -82,6 +82,11 @@
       "id": "SYN-NEED-001",
       "statement": "Understand simulated circuit activity, quantities and progress through detailed central graphics and touch/mouse controls without confusing commands with observations.",
       "status": "implemented"
+    },
+    {
+      "id": "WEB-NEED-001",
+      "statement": "Run the complete existing simulator and LVGL interface in a browser without a computation backend, preserving model equations and inspectable evidence.",
+      "status": "implemented"
     }
   ],
   "hazards": [
@@ -463,6 +468,11 @@
       "id": "SYN-DES-001",
       "description": "docs/design/ANIMATED_SYNOPTIC.md; OBS12 telemetry, presentation-only phase state, own LVGL vector graphics and responsive guided layout.",
       "status": "implemented"
+    },
+    {
+      "id": "WEB-DES-001",
+      "description": "docs/design/BROWSER_RUNTIME.md; WebAssembly C++/LVGL, Pyodide Python patient, local worker scheduling and native/Wasm comparison.",
+      "status": "implemented"
     }
   ],
   "requirements": [
@@ -491,7 +501,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -515,11 +525,11 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
+          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "tests/test_document_contracts.py",
@@ -560,15 +570,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -596,7 +606,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -604,7 +614,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
+          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
         },
         {
           "path": "src/machine.hpp",
@@ -653,15 +663,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -677,7 +687,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -730,15 +740,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -766,7 +776,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -774,11 +784,11 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
+          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+          "sha256": "12c840ff211b3d38e189474117d0299c0bf5ce22fad985ca84acecb6a90e64c3"
         },
         {
           "path": "src/wire.hpp",
@@ -795,6 +805,10 @@
         {
           "path": "tests/wire_contract_witness.cpp",
           "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
         }
       ],
       "unresolved": [
@@ -823,7 +837,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M5_MACHINE.md",
@@ -851,11 +865,11 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
+          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+          "sha256": "12c840ff211b3d38e189474117d0299c0bf5ce22fad985ca84acecb6a90e64c3"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -868,6 +882,10 @@
         {
           "path": "tests/wire_contract_witness.cpp",
           "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
         }
       ],
       "unresolved": [
@@ -896,15 +914,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/M4_TREATMENT.md",
@@ -924,7 +942,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -944,7 +962,11 @@
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+          "sha256": "12c840ff211b3d38e189474117d0299c0bf5ce22fad985ca84acecb6a90e64c3"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
         }
       ],
       "unresolved": [
@@ -981,7 +1003,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1022,7 +1044,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1034,7 +1056,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
         },
         {
           "path": "src/plant.cpp",
@@ -1067,7 +1089,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1116,7 +1138,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1132,7 +1154,11 @@
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+          "sha256": "12c840ff211b3d38e189474117d0299c0bf5ce22fad985ca84acecb6a90e64c3"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
         }
       ],
       "unresolved": [
@@ -1161,7 +1187,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1185,11 +1211,11 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
+          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
         },
         {
           "path": "src/control.cpp",
-          "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
+          "sha256": "d7252092c6d4e8b2e5b56bc7edd17764950b5195d2147f06dbc2bccc4f99f6ea"
         },
         {
           "path": "src/plant.cpp",
@@ -1202,6 +1228,10 @@
         {
           "path": "tests/wire_contract_witness.cpp",
           "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "src/control_service.hpp",
+          "sha256": "1ff0f985749bf93096e4f35c95d9bc44ad11f94a56b8e1678659c3f3b4bfad4a"
         }
       ],
       "unresolved": [
@@ -1230,7 +1260,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1254,11 +1284,11 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
+          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
         },
         {
           "path": "src/control.cpp",
-          "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
+          "sha256": "d7252092c6d4e8b2e5b56bc7edd17764950b5195d2147f06dbc2bccc4f99f6ea"
         },
         {
           "path": "src/plant.cpp",
@@ -1266,7 +1296,7 @@
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+          "sha256": "12c840ff211b3d38e189474117d0299c0bf5ce22fad985ca84acecb6a90e64c3"
         },
         {
           "path": "src/wire.hpp",
@@ -1279,6 +1309,14 @@
         {
           "path": "tests/wire_contract_witness.cpp",
           "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "src/control_service.hpp",
+          "sha256": "1ff0f985749bf93096e4f35c95d9bc44ad11f94a56b8e1678659c3f3b4bfad4a"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
         }
       ],
       "unresolved": [
@@ -1308,15 +1346,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1340,7 +1378,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -1348,11 +1386,11 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
+          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
         },
         {
           "path": "src/plant.cpp",
@@ -1398,7 +1436,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1410,7 +1448,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
         },
         {
           "path": "python/dialysislab/trajectory.py",
@@ -1446,15 +1484,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1466,7 +1504,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -1503,7 +1541,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1543,7 +1581,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1583,7 +1621,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1625,7 +1663,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1666,15 +1704,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1686,7 +1724,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1722,7 +1760,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1762,7 +1800,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1804,7 +1842,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1816,7 +1854,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
         }
       ],
       "unresolved": [
@@ -1844,7 +1882,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1885,7 +1923,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1927,7 +1965,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1970,7 +2008,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/MODELS.md",
@@ -1982,7 +2020,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
         }
       ],
       "unresolved": [
@@ -2012,7 +2050,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/TREATMENT.md",
@@ -2057,15 +2095,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/design/TREATMENT.md",
@@ -2077,7 +2115,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2120,7 +2158,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
@@ -2148,7 +2186,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
+          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
         },
         {
           "path": "src/plant.cpp",
@@ -2156,7 +2194,7 @@
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+          "sha256": "12c840ff211b3d38e189474117d0299c0bf5ce22fad985ca84acecb6a90e64c3"
         },
         {
           "path": "tests/test_document_contracts.py",
@@ -2165,6 +2203,10 @@
         {
           "path": "tests/wire_contract_witness.cpp",
           "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
         }
       ],
       "unresolved": [
@@ -2194,15 +2236,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
@@ -2226,7 +2268,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2234,7 +2276,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
+          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
         },
         {
           "path": "src/machine.hpp",
@@ -2242,7 +2284,7 @@
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+          "sha256": "12c840ff211b3d38e189474117d0299c0bf5ce22fad985ca84acecb6a90e64c3"
         },
         {
           "path": "tests/test_document_contracts.py",
@@ -2251,6 +2293,10 @@
         {
           "path": "tests/wire_contract_witness.cpp",
           "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
         }
       ],
       "unresolved": [
@@ -2284,7 +2330,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/TREATMENT.md",
@@ -2300,7 +2346,11 @@
         },
         {
           "path": "src/control.cpp",
-          "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
+          "sha256": "d7252092c6d4e8b2e5b56bc7edd17764950b5195d2147f06dbc2bccc4f99f6ea"
+        },
+        {
+          "path": "src/control_service.hpp",
+          "sha256": "1ff0f985749bf93096e4f35c95d9bc44ad11f94a56b8e1678659c3f3b4bfad4a"
         }
       ],
       "unresolved": [
@@ -2333,7 +2383,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/TREATMENT.md",
@@ -2378,7 +2428,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2398,7 +2448,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -2432,7 +2482,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2452,7 +2502,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -2486,7 +2536,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2506,7 +2556,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -2540,7 +2590,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2560,7 +2610,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -2594,15 +2644,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2618,7 +2668,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2630,7 +2680,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -2666,7 +2716,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2686,7 +2736,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -2720,7 +2770,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -2782,7 +2832,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -2844,15 +2894,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -2880,7 +2930,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2888,7 +2938,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
+          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -2946,15 +2996,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -2970,7 +3020,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -3024,7 +3074,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -3086,7 +3136,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -3156,7 +3206,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -3176,15 +3226,23 @@
         },
         {
           "path": "src/control.cpp",
-          "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
+          "sha256": "d7252092c6d4e8b2e5b56bc7edd17764950b5195d2147f06dbc2bccc4f99f6ea"
         },
         {
           "path": "src/protection.cpp",
-          "sha256": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3"
+          "sha256": "12c840ff211b3d38e189474117d0299c0bf5ce22fad985ca84acecb6a90e64c3"
         },
         {
           "path": "tools/verify_compose.py",
           "sha256": "c9449f28a98ce9863f38e58ff49f5823a807f5e0a64688e40337bd4ce8202ee4"
+        },
+        {
+          "path": "src/control_service.hpp",
+          "sha256": "1ff0f985749bf93096e4f35c95d9bc44ad11f94a56b8e1678659c3f3b4bfad4a"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
         }
       ],
       "unresolved": [
@@ -3214,7 +3272,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -3234,7 +3292,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
         },
         {
           "path": "src/child_guard.cpp",
@@ -3275,7 +3333,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -3340,7 +3398,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -3421,7 +3479,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M8_SECURITY_CI.md",
@@ -3478,15 +3536,15 @@
         },
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/DOCUMENT_CONTROL.md",
@@ -3510,7 +3568,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -3518,7 +3576,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "14ba978f0d4b6d0a7704045d881b4697b7c2c4c0303d74a318fded6435410220"
+          "sha256": "6932b63333b8d33b75902876f2cab67c441ee61cc30dd52e43491eb39bf03f37"
         },
         {
           "path": "tests/test_ci.py",
@@ -3550,7 +3608,7 @@
         },
         {
           "path": "tools/documentation.py",
-          "sha256": "de4f85f8381312468220edec35e795f625487f067be07090a21ad6bda88f6453"
+          "sha256": "cd1b220c648116bb268d7bab8db405c8c83d101da936329055e3b7fd4f8e94a3"
         }
       ],
       "unresolved": [
@@ -3581,7 +3639,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/M9_INTEGRATION.md",
@@ -3630,7 +3688,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -3681,7 +3739,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -3730,7 +3788,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -3742,11 +3800,11 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "14ba978f0d4b6d0a7704045d881b4697b7c2c4c0303d74a318fded6435410220"
+          "sha256": "6932b63333b8d33b75902876f2cab67c441ee61cc30dd52e43491eb39bf03f37"
         },
         {
           "path": "tools/package_release.py",
-          "sha256": "5e7a3ec6c86129467be162c7f4e169f6980c5d03871d53d03b9b947011a5f744"
+          "sha256": "e677782dbe917290078303a10827961cf2f1039af516c696f4644731c66bdffa"
         },
         {
           "path": "tools/verify_package.py",
@@ -3787,7 +3845,7 @@
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/DEVELOPMENT.md",
@@ -3799,7 +3857,7 @@
         },
         {
           "path": "docs/README.md",
-          "sha256": "9b9f9ba9ce53286ce8eb5918e4b826c8515f48d4a1b49f316138390ca6076542"
+          "sha256": "566b82ecd065a3b3696bb104c886172c605a9c40dca00ab1f0613ddbc5d56ce0"
         },
         {
           "path": "docs/SIMULATION.md",
@@ -3870,7 +3928,7 @@
       "implementation": [
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/UI_INSPECTION.md",
@@ -3937,15 +3995,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/GUIDED_TREATMENT.md",
@@ -3961,7 +4019,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -3977,7 +4035,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
         },
         {
           "path": "scenarios/device_guided.json",
@@ -3985,7 +4043,7 @@
         },
         {
           "path": "src/control.cpp",
-          "sha256": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6"
+          "sha256": "d7252092c6d4e8b2e5b56bc7edd17764950b5195d2147f06dbc2bccc4f99f6ea"
         },
         {
           "path": "src/machine.hpp",
@@ -3997,7 +4055,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -4030,6 +4088,10 @@
         {
           "path": "tools/verify_models.py",
           "sha256": "3e9522f695651f84a48e24a6ab84e5b8f7c87819c85aa357570a415ddf73b740"
+        },
+        {
+          "path": "src/control_service.hpp",
+          "sha256": "1ff0f985749bf93096e4f35c95d9bc44ad11f94a56b8e1678659c3f3b4bfad4a"
         }
       ],
       "unresolved": [
@@ -4062,15 +4124,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/PHYSICAL_MODEL.md",
@@ -4086,7 +4148,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/MEASUREMENTS.md",
@@ -4110,7 +4172,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
         },
         {
           "path": "src/blood_physics.hpp",
@@ -4134,7 +4196,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/ui/guided.hpp",
@@ -4183,15 +4245,15 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
+          "sha256": "6655cf1a327d7b88fefe19bd7ded7c15b8e03ca00778fa66bb97d17f5934bbf2"
         },
         {
           "path": "docs/ARCHITECTURE.md",
-          "sha256": "8988e1be7c62b0922c942979659199384c94acbe61f2c27b84c9c949195cdd07"
+          "sha256": "3cece883c0bdbe81af8a2310bd6b4bce29abe164f96dec0a2bd28039f589824c"
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
+          "sha256": "b5c4254b694271762c56288bb624d26a54bd65f9d637cfd143dca6df18fbb8fd"
         },
         {
           "path": "docs/DYNAMIC_MODEL.md",
@@ -4227,7 +4289,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
+          "sha256": "38c88f2b341ce86d6fb2506c8ac87bdfc5fe0043fb030596e835e6f94379adc1"
         },
         {
           "path": "docs/testing/MEASUREMENTS.md",
@@ -4267,7 +4329,7 @@
         },
         {
           "path": "python/dialysislab/runner.py",
-          "sha256": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd"
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
         },
         {
           "path": "python/dialysislab/trajectory.py",
@@ -4319,7 +4381,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/ui/device_ui.cpp",
@@ -5342,7 +5404,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/machine.hpp",
@@ -5431,7 +5493,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/machine.hpp",
@@ -5520,7 +5582,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/machine.hpp",
@@ -5609,7 +5671,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/machine.hpp",
@@ -5698,7 +5760,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/machine.hpp",
@@ -5787,7 +5849,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/machine.hpp",
@@ -5880,7 +5942,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/machine.hpp",
@@ -5969,7 +6031,7 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
         },
         {
           "path": "src/machine.hpp",
@@ -6121,6 +6183,516 @@
       ],
       "unresolved": [
         "Representative-user tasks, actual touch hardware/display-density assessment and independent review remain open."
+      ]
+    },
+    {
+      "id": "WEB-REQ-001",
+      "statement": "Run production C++ Plant, control/protection decisions and existing Python patient/physical coupling locally using WebAssembly and Pyodide. HD/PRE/POST must reach treatment with finite results and conserved water/solute inventories; no replacement physical equations or prerecorded telemetry.",
+      "acceptance": "Prospective criteria in docs/design/BROWSER_RUNTIME.md; exact discrete state and declared mixed numerical budget. No independent approval is inferred.",
+      "needs": [
+        "WEB-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "WEB-DES-001"
+      ],
+      "tests": [
+        "WEB-TEST-001"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/BROWSER_RUNTIME.md",
+          "sha256": "a9528a5ece3d045080baec2b14575d2564c053bb456bb2ec16713fccf02d64ca"
+        },
+        {
+          "path": "src/browser/engine.cpp",
+          "sha256": "543b665a9b08d0c75c86e1af6372f7a5ee583f4caa191d42c07cfc309a3850ef"
+        },
+        {
+          "path": "src/browser/ui.cpp",
+          "sha256": "d5ebbb4b8f5a97b9b4a084be320c044aa8829583d0085cd2b111b50e631487d2"
+        },
+        {
+          "path": "src/control_service.hpp",
+          "sha256": "1ff0f985749bf93096e4f35c95d9bc44ad11f94a56b8e1678659c3f3b4bfad4a"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
+        },
+        {
+          "path": "python/dialysislab/browser.py",
+          "sha256": "df61748d5e17dc22ee7bfb476d9a2e76372f782683f9ed2f4963dd91fada2770"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
+        },
+        {
+          "path": "web/app.js",
+          "sha256": "806d2204106623cd3f725fd365dc09ba79c214784976d1b3cd336c7d5c1054e9"
+        },
+        {
+          "path": "web/worker.js",
+          "sha256": "4116282851aaf38347d477eae190d1d8110e9eb9afd1809fff9b430df03d55d7"
+        },
+        {
+          "path": "web/index.html",
+          "sha256": "a52fb9d0d86a292f4d95a265ae7cb9f30b9ba9095e215ebae4efd807dfa7ad52"
+        },
+        {
+          "path": "cmake/browser/CMakeLists.txt",
+          "sha256": "22d71a5e901ad85547ba2f336e65b368ef3ac1fe60eaf135a16eccfee7a57562"
+        },
+        {
+          "path": "browser_dependencies.json",
+          "sha256": "a93abdc58a8245e93e63e299aa53f14329c22818bc1a86c1ff0a32094c8b5c66"
+        },
+        {
+          "path": "tools/build_browser.py",
+          "sha256": "eb38db0bf501a9569bdaaf094d8d91c92f4e355ea202c7144255b6943d823735"
+        },
+        {
+          "path": "tools/verify_browser.py",
+          "sha256": "6b1e7a0d44991d133d929798d8e9b9b2b795a52743405dd8a666db5beeed760c"
+        },
+        {
+          "path": "tests/test_browser.py",
+          "sha256": "4490ebb4a8f2a5b8400b270b504678353851007fb2b2cdd517c3a455f4584547"
+        },
+        {
+          "path": "tests/browser/campaign.py",
+          "sha256": "0b72245caefd5a677e77b24714fa4f76ca75f5641816e8540411957ec7f041e9"
+        },
+        {
+          "path": "tests/browser/run_wasm.cjs",
+          "sha256": "e56965e97722b4c45abea00949cc57b277efe071e6ffae46e4088a53111c156f"
+        },
+        {
+          "path": "tests/browser/ui.cjs",
+          "sha256": "1f7ff1f30b144fafba3e744f9179d528373ee458c09a3475231f6984d64adadc"
+        }
+      ],
+      "unresolved": [
+        "Independent acceptance, actual mobile/background behavior and native process integration remain separate.",
+        "Pyodide MPL-2.0 / CPython terms require explicit maintainer exception review and complete runtime inventory before merge/release."
+      ]
+    },
+    {
+      "id": "WEB-REQ-002",
+      "statement": "Render existing LVGL guided views in a browser canvas with touch/pointer input and working lifecycle actions, prescription, STOP, detail tabs and reduced motion. Keep simulation time independent of animation frame rate.",
+      "acceptance": "Prospective criteria in docs/design/BROWSER_RUNTIME.md; exact discrete state and declared mixed numerical budget. No independent approval is inferred.",
+      "needs": [
+        "WEB-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "WEB-DES-001"
+      ],
+      "tests": [
+        "WEB-TEST-002"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/BROWSER_RUNTIME.md",
+          "sha256": "a9528a5ece3d045080baec2b14575d2564c053bb456bb2ec16713fccf02d64ca"
+        },
+        {
+          "path": "src/browser/engine.cpp",
+          "sha256": "543b665a9b08d0c75c86e1af6372f7a5ee583f4caa191d42c07cfc309a3850ef"
+        },
+        {
+          "path": "src/browser/ui.cpp",
+          "sha256": "d5ebbb4b8f5a97b9b4a084be320c044aa8829583d0085cd2b111b50e631487d2"
+        },
+        {
+          "path": "src/control_service.hpp",
+          "sha256": "1ff0f985749bf93096e4f35c95d9bc44ad11f94a56b8e1678659c3f3b4bfad4a"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
+        },
+        {
+          "path": "python/dialysislab/browser.py",
+          "sha256": "df61748d5e17dc22ee7bfb476d9a2e76372f782683f9ed2f4963dd91fada2770"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
+        },
+        {
+          "path": "web/app.js",
+          "sha256": "806d2204106623cd3f725fd365dc09ba79c214784976d1b3cd336c7d5c1054e9"
+        },
+        {
+          "path": "web/worker.js",
+          "sha256": "4116282851aaf38347d477eae190d1d8110e9eb9afd1809fff9b430df03d55d7"
+        },
+        {
+          "path": "web/index.html",
+          "sha256": "a52fb9d0d86a292f4d95a265ae7cb9f30b9ba9095e215ebae4efd807dfa7ad52"
+        },
+        {
+          "path": "cmake/browser/CMakeLists.txt",
+          "sha256": "22d71a5e901ad85547ba2f336e65b368ef3ac1fe60eaf135a16eccfee7a57562"
+        },
+        {
+          "path": "browser_dependencies.json",
+          "sha256": "a93abdc58a8245e93e63e299aa53f14329c22818bc1a86c1ff0a32094c8b5c66"
+        },
+        {
+          "path": "tools/build_browser.py",
+          "sha256": "eb38db0bf501a9569bdaaf094d8d91c92f4e355ea202c7144255b6943d823735"
+        },
+        {
+          "path": "tools/verify_browser.py",
+          "sha256": "6b1e7a0d44991d133d929798d8e9b9b2b795a52743405dd8a666db5beeed760c"
+        },
+        {
+          "path": "tests/test_browser.py",
+          "sha256": "4490ebb4a8f2a5b8400b270b504678353851007fb2b2cdd517c3a455f4584547"
+        },
+        {
+          "path": "tests/browser/campaign.py",
+          "sha256": "0b72245caefd5a677e77b24714fa4f76ca75f5641816e8540411957ec7f041e9"
+        },
+        {
+          "path": "tests/browser/run_wasm.cjs",
+          "sha256": "e56965e97722b4c45abea00949cc57b277efe071e6ffae46e4088a53111c156f"
+        },
+        {
+          "path": "tests/browser/ui.cjs",
+          "sha256": "1f7ff1f30b144fafba3e744f9179d528373ee458c09a3475231f6984d64adadc"
+        }
+      ],
+      "unresolved": [
+        "Independent acceptance, actual mobile/background behavior and native process integration remain separate.",
+        "Pyodide MPL-2.0 / CPython terms require explicit maintainer exception review and complete runtime inventory before merge/release."
+      ]
+    },
+    {
+      "id": "WEB-REQ-003",
+      "statement": "Compare the same deterministic scenarios/commands and initial conditions in native and WebAssembly execution. Discrete stages/alarms must match exactly; finite numeric outputs use abs(a-b) <= 1e-8 + 1e-9*max(abs(a),abs(b)), in each field's documented units. Water and solute conservation retain existing 1e-6 mL/mmol bounds. These are proposed portability budgets, not global numerical accuracy approval.",
+      "acceptance": "Prospective criteria in docs/design/BROWSER_RUNTIME.md; exact discrete state and declared mixed numerical budget. No independent approval is inferred.",
+      "needs": [
+        "WEB-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "WEB-DES-001"
+      ],
+      "tests": [
+        "WEB-TEST-003"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/BROWSER_RUNTIME.md",
+          "sha256": "a9528a5ece3d045080baec2b14575d2564c053bb456bb2ec16713fccf02d64ca"
+        },
+        {
+          "path": "src/browser/engine.cpp",
+          "sha256": "543b665a9b08d0c75c86e1af6372f7a5ee583f4caa191d42c07cfc309a3850ef"
+        },
+        {
+          "path": "src/browser/ui.cpp",
+          "sha256": "d5ebbb4b8f5a97b9b4a084be320c044aa8829583d0085cd2b111b50e631487d2"
+        },
+        {
+          "path": "src/control_service.hpp",
+          "sha256": "1ff0f985749bf93096e4f35c95d9bc44ad11f94a56b8e1678659c3f3b4bfad4a"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
+        },
+        {
+          "path": "python/dialysislab/browser.py",
+          "sha256": "df61748d5e17dc22ee7bfb476d9a2e76372f782683f9ed2f4963dd91fada2770"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
+        },
+        {
+          "path": "web/app.js",
+          "sha256": "806d2204106623cd3f725fd365dc09ba79c214784976d1b3cd336c7d5c1054e9"
+        },
+        {
+          "path": "web/worker.js",
+          "sha256": "4116282851aaf38347d477eae190d1d8110e9eb9afd1809fff9b430df03d55d7"
+        },
+        {
+          "path": "web/index.html",
+          "sha256": "a52fb9d0d86a292f4d95a265ae7cb9f30b9ba9095e215ebae4efd807dfa7ad52"
+        },
+        {
+          "path": "cmake/browser/CMakeLists.txt",
+          "sha256": "22d71a5e901ad85547ba2f336e65b368ef3ac1fe60eaf135a16eccfee7a57562"
+        },
+        {
+          "path": "browser_dependencies.json",
+          "sha256": "a93abdc58a8245e93e63e299aa53f14329c22818bc1a86c1ff0a32094c8b5c66"
+        },
+        {
+          "path": "tools/build_browser.py",
+          "sha256": "eb38db0bf501a9569bdaaf094d8d91c92f4e355ea202c7144255b6943d823735"
+        },
+        {
+          "path": "tools/verify_browser.py",
+          "sha256": "6b1e7a0d44991d133d929798d8e9b9b2b795a52743405dd8a666db5beeed760c"
+        },
+        {
+          "path": "tests/test_browser.py",
+          "sha256": "4490ebb4a8f2a5b8400b270b504678353851007fb2b2cdd517c3a455f4584547"
+        },
+        {
+          "path": "tests/browser/campaign.py",
+          "sha256": "0b72245caefd5a677e77b24714fa4f76ca75f5641816e8540411957ec7f041e9"
+        },
+        {
+          "path": "tests/browser/run_wasm.cjs",
+          "sha256": "e56965e97722b4c45abea00949cc57b277efe071e6ffae46e4088a53111c156f"
+        },
+        {
+          "path": "tests/browser/ui.cjs",
+          "sha256": "1f7ff1f30b144fafba3e744f9179d528373ee458c09a3475231f6984d64adadc"
+        }
+      ],
+      "unresolved": [
+        "Independent acceptance, actual mobile/background behavior and native process integration remain separate.",
+        "Pyodide MPL-2.0 / CPython terms require explicit maintainer exception review and complete runtime inventory before merge/release."
+      ]
+    },
+    {
+      "id": "WEB-REQ-004",
+      "statement": "Serve static assets only; computation and patient state stay in the browser. Pause when hidden, do not catch up elapsed wall time, prevent overlapping ticks; stop advancing after runtime failure and report unavailable state. Reset must discard queued actions and old patient state.",
+      "acceptance": "Prospective criteria in docs/design/BROWSER_RUNTIME.md; exact discrete state and declared mixed numerical budget. No independent approval is inferred.",
+      "needs": [
+        "WEB-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "WEB-DES-001"
+      ],
+      "tests": [
+        "WEB-TEST-004"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/BROWSER_RUNTIME.md",
+          "sha256": "a9528a5ece3d045080baec2b14575d2564c053bb456bb2ec16713fccf02d64ca"
+        },
+        {
+          "path": "src/browser/engine.cpp",
+          "sha256": "543b665a9b08d0c75c86e1af6372f7a5ee583f4caa191d42c07cfc309a3850ef"
+        },
+        {
+          "path": "src/browser/ui.cpp",
+          "sha256": "d5ebbb4b8f5a97b9b4a084be320c044aa8829583d0085cd2b111b50e631487d2"
+        },
+        {
+          "path": "src/control_service.hpp",
+          "sha256": "1ff0f985749bf93096e4f35c95d9bc44ad11f94a56b8e1678659c3f3b4bfad4a"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
+        },
+        {
+          "path": "python/dialysislab/browser.py",
+          "sha256": "df61748d5e17dc22ee7bfb476d9a2e76372f782683f9ed2f4963dd91fada2770"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
+        },
+        {
+          "path": "web/app.js",
+          "sha256": "806d2204106623cd3f725fd365dc09ba79c214784976d1b3cd336c7d5c1054e9"
+        },
+        {
+          "path": "web/worker.js",
+          "sha256": "4116282851aaf38347d477eae190d1d8110e9eb9afd1809fff9b430df03d55d7"
+        },
+        {
+          "path": "web/index.html",
+          "sha256": "a52fb9d0d86a292f4d95a265ae7cb9f30b9ba9095e215ebae4efd807dfa7ad52"
+        },
+        {
+          "path": "cmake/browser/CMakeLists.txt",
+          "sha256": "22d71a5e901ad85547ba2f336e65b368ef3ac1fe60eaf135a16eccfee7a57562"
+        },
+        {
+          "path": "browser_dependencies.json",
+          "sha256": "a93abdc58a8245e93e63e299aa53f14329c22818bc1a86c1ff0a32094c8b5c66"
+        },
+        {
+          "path": "tools/build_browser.py",
+          "sha256": "eb38db0bf501a9569bdaaf094d8d91c92f4e355ea202c7144255b6943d823735"
+        },
+        {
+          "path": "tools/verify_browser.py",
+          "sha256": "6b1e7a0d44991d133d929798d8e9b9b2b795a52743405dd8a666db5beeed760c"
+        },
+        {
+          "path": "tests/test_browser.py",
+          "sha256": "4490ebb4a8f2a5b8400b270b504678353851007fb2b2cdd517c3a455f4584547"
+        },
+        {
+          "path": "tests/browser/campaign.py",
+          "sha256": "0b72245caefd5a677e77b24714fa4f76ca75f5641816e8540411957ec7f041e9"
+        },
+        {
+          "path": "tests/browser/run_wasm.cjs",
+          "sha256": "e56965e97722b4c45abea00949cc57b277efe071e6ffae46e4088a53111c156f"
+        },
+        {
+          "path": "tests/browser/ui.cjs",
+          "sha256": "1f7ff1f30b144fafba3e744f9179d528373ee458c09a3475231f6984d64adadc"
+        }
+      ],
+      "unresolved": [
+        "Independent acceptance, actual mobile/background behavior and native process integration remain separate.",
+        "Pyodide MPL-2.0 / CPython terms require explicit maintainer exception review and complete runtime inventory before merge/release."
+      ]
+    },
+    {
+      "id": "WEB-REQ-005",
+      "statement": "Pin toolchain/runtime dependencies, preserve source/configuration identifiers, build instructions and native/Wasm comparison results. Published build must identify its source and dependency artifacts.",
+      "acceptance": "Prospective criteria in docs/design/BROWSER_RUNTIME.md; exact discrete state and declared mixed numerical budget. No independent approval is inferred.",
+      "needs": [
+        "WEB-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "WEB-DES-001"
+      ],
+      "tests": [
+        "WEB-TEST-005"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/BROWSER_RUNTIME.md",
+          "sha256": "a9528a5ece3d045080baec2b14575d2564c053bb456bb2ec16713fccf02d64ca"
+        },
+        {
+          "path": "src/browser/engine.cpp",
+          "sha256": "543b665a9b08d0c75c86e1af6372f7a5ee583f4caa191d42c07cfc309a3850ef"
+        },
+        {
+          "path": "src/browser/ui.cpp",
+          "sha256": "d5ebbb4b8f5a97b9b4a084be320c044aa8829583d0085cd2b111b50e631487d2"
+        },
+        {
+          "path": "src/control_service.hpp",
+          "sha256": "1ff0f985749bf93096e4f35c95d9bc44ad11f94a56b8e1678659c3f3b4bfad4a"
+        },
+        {
+          "path": "src/protection_service.hpp",
+          "sha256": "0aafa64ef82e08298fde08950a50a2e8af2f4f0ea203520bdd864cc99ddef653"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "1269518cf42830a6c5f88ec280f696329a05e1209ec0fd44735f2a449190e344"
+        },
+        {
+          "path": "python/dialysislab/browser.py",
+          "sha256": "df61748d5e17dc22ee7bfb476d9a2e76372f782683f9ed2f4963dd91fada2770"
+        },
+        {
+          "path": "python/dialysislab/runner.py",
+          "sha256": "6e1a91f33660296afa682de4c8b6985171cb8417ba72e29cefab3be5d7e75f45"
+        },
+        {
+          "path": "web/app.js",
+          "sha256": "806d2204106623cd3f725fd365dc09ba79c214784976d1b3cd336c7d5c1054e9"
+        },
+        {
+          "path": "web/worker.js",
+          "sha256": "4116282851aaf38347d477eae190d1d8110e9eb9afd1809fff9b430df03d55d7"
+        },
+        {
+          "path": "web/index.html",
+          "sha256": "a52fb9d0d86a292f4d95a265ae7cb9f30b9ba9095e215ebae4efd807dfa7ad52"
+        },
+        {
+          "path": "cmake/browser/CMakeLists.txt",
+          "sha256": "22d71a5e901ad85547ba2f336e65b368ef3ac1fe60eaf135a16eccfee7a57562"
+        },
+        {
+          "path": "browser_dependencies.json",
+          "sha256": "a93abdc58a8245e93e63e299aa53f14329c22818bc1a86c1ff0a32094c8b5c66"
+        },
+        {
+          "path": "tools/build_browser.py",
+          "sha256": "eb38db0bf501a9569bdaaf094d8d91c92f4e355ea202c7144255b6943d823735"
+        },
+        {
+          "path": "tools/verify_browser.py",
+          "sha256": "6b1e7a0d44991d133d929798d8e9b9b2b795a52743405dd8a666db5beeed760c"
+        },
+        {
+          "path": "tests/test_browser.py",
+          "sha256": "4490ebb4a8f2a5b8400b270b504678353851007fb2b2cdd517c3a455f4584547"
+        },
+        {
+          "path": "tests/browser/campaign.py",
+          "sha256": "0b72245caefd5a677e77b24714fa4f76ca75f5641816e8540411957ec7f041e9"
+        },
+        {
+          "path": "tests/browser/run_wasm.cjs",
+          "sha256": "e56965e97722b4c45abea00949cc57b277efe071e6ffae46e4088a53111c156f"
+        },
+        {
+          "path": "tests/browser/ui.cjs",
+          "sha256": "1f7ff1f30b144fafba3e744f9179d528373ee458c09a3475231f6984d64adadc"
+        }
+      ],
+      "unresolved": [
+        "Independent acceptance, actual mobile/background behavior and native process integration remain separate.",
+        "Pyodide MPL-2.0 / CPython terms require explicit maintainer exception review and complete runtime inventory before merge/release."
       ]
     }
   ],
@@ -9124,14 +9696,14 @@
       "expected": "Treatment home shall show a large simplified external dialyzer and extracorporeal circuit with directional flow and explicit HD / HDF PRE / HDF POST routing. Roller pumps, chamber detail, containers and full plumbing shall be available in dedicated Blood circuit and Hydraulics tabs. Render each mode and assert active branches and view allocation.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
-        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "path": "assurance/evidence/browser/synoptic-contract-reviewed.json",
+        "sha256": "f5232c1afe7de4e8f0c09c9afe5d4a007a372e593a945612fd5ae251d76ad3c2",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
-        "run_id": "overview-final-fb58c49756a14ebf",
-        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "run_id": "browser-synoptic-9be4273b40dfc83b",
+        "executed_at": "2026-10-16T12:45:11.880202+00:00",
         "reviewer": "Automated execution; independent acceptance pending",
         "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
-        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+        "verification_input_sha256": "9be4273b40dfc83b9f2d84e1c21cc46a842638e5cd66e08e7ceed4e3e6e9ce5a"
       }
     },
     {
@@ -9143,14 +9715,14 @@
       "expected": "Motion shall use current valid observed/model telemetry, never prescribed flow. Zero flow freezes phase; stale/invalid telemetry freezes motion and displays its status, without portraying unknown as zero. Changing flow preserves phase. Unit checks exercise zero, restart, rate changes and loss/recovery of freshness.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
-        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "path": "assurance/evidence/browser/synoptic-contract-reviewed.json",
+        "sha256": "f5232c1afe7de4e8f0c09c9afe5d4a007a372e593a945612fd5ae251d76ad3c2",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
-        "run_id": "overview-final-fb58c49756a14ebf",
-        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "run_id": "browser-synoptic-9be4273b40dfc83b",
+        "executed_at": "2026-10-16T12:45:11.880202+00:00",
         "reviewer": "Automated execution; independent acceptance pending",
         "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
-        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+        "verification_input_sha256": "9be4273b40dfc83b9f2d84e1c21cc46a842638e5cd66e08e7ceed4e3e6e9ce5a"
       }
     },
     {
@@ -9162,14 +9734,14 @@
       "expected": "Pump activity and fluid passage shall be distinguished. Concentrate drive and delivered liquid require separate versioned observations; older observations show unavailable fields. No mechanical RPM shall be claimed. Test C++/Python round trips and a dry-line fixture.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
-        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "path": "assurance/evidence/browser/synoptic-contract-reviewed.json",
+        "sha256": "f5232c1afe7de4e8f0c09c9afe5d4a007a372e593a945612fd5ae251d76ad3c2",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
-        "run_id": "overview-final-fb58c49756a14ebf",
-        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "run_id": "browser-synoptic-9be4273b40dfc83b",
+        "executed_at": "2026-10-16T12:45:11.880202+00:00",
         "reviewer": "Automated execution; independent acceptance pending",
         "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
-        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+        "verification_input_sha256": "9be4273b40dfc83b9f2d84e1c21cc46a842638e5cd66e08e7ceed4e3e6e9ce5a"
       }
     },
     {
@@ -9181,14 +9753,14 @@
       "expected": "Dialysate traversal, bypass and unknown route shall be distinguished with labels and valve/path geometry. Motion in a bypass shall not imply membrane traversal. Test bypass with positive feed and zero/unknown feed.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
-        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "path": "assurance/evidence/browser/synoptic-contract-reviewed.json",
+        "sha256": "f5232c1afe7de4e8f0c09c9afe5d4a007a372e593a945612fd5ae251d76ad3c2",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
-        "run_id": "overview-final-fb58c49756a14ebf",
-        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "run_id": "browser-synoptic-9be4273b40dfc83b",
+        "executed_at": "2026-10-16T12:45:11.880202+00:00",
         "reviewer": "Automated execution; independent acceptance pending",
         "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
-        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+        "verification_input_sha256": "9be4273b40dfc83b9f2d84e1c21cc46a842638e5cd66e08e7ceed4e3e6e9ce5a"
       }
     },
     {
@@ -9200,14 +9772,14 @@
       "expected": "Phase progress, phase/session time, net UF and substitution totals versus explicitly labelled current-prescription goals shall remain visible on home. Totals come from authoritative meters and survive pause/resume; no UI integration or invented target history. Test paused totals, HD, changed prescriptions and unavailable observations.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
-        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "path": "assurance/evidence/browser/synoptic-contract-reviewed.json",
+        "sha256": "f5232c1afe7de4e8f0c09c9afe5d4a007a372e593a945612fd5ae251d76ad3c2",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
-        "run_id": "overview-final-fb58c49756a14ebf",
-        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "run_id": "browser-synoptic-9be4273b40dfc83b",
+        "executed_at": "2026-10-16T12:45:11.880202+00:00",
         "reviewer": "Automated execution; independent acceptance pending",
         "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
-        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+        "verification_input_sha256": "9be4273b40dfc83b9f2d84e1c21cc46a842638e5cd66e08e7ceed4e3e6e9ce5a"
       }
     },
     {
@@ -9219,14 +9791,14 @@
       "expected": "Filled icons shall accompany text on navigation and actions. Guided controls shall have at least 48 logical pixels height; STOP shall remain visible outside scrollable content. Reflow shall support 800x890, 1100x890 and 1440x1000 without scaling hit targets. Test bounds, non-overlap and real LVGL rendering.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
-        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "path": "assurance/evidence/browser/synoptic-contract-reviewed.json",
+        "sha256": "f5232c1afe7de4e8f0c09c9afe5d4a007a372e593a945612fd5ae251d76ad3c2",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
-        "run_id": "overview-final-fb58c49756a14ebf",
-        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "run_id": "browser-synoptic-9be4273b40dfc83b",
+        "executed_at": "2026-10-16T12:45:11.880202+00:00",
         "reviewer": "Automated execution; independent acceptance pending",
         "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
-        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+        "verification_input_sha256": "9be4273b40dfc83b9f2d84e1c21cc46a842638e5cd66e08e7ceed4e3e6e9ce5a"
       }
     },
     {
@@ -9238,14 +9810,14 @@
       "expected": "Chamber fractions shall use measured fractions. Container bars shall be explicitly relative to first observed session inventory, with absolute quantities/units; missing baselines and unavailable telemetry shall not show fabricated capacity. Session changes reset presentation history. Test inventory depletion, stale data and reset.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
-        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "path": "assurance/evidence/browser/synoptic-contract-reviewed.json",
+        "sha256": "f5232c1afe7de4e8f0c09c9afe5d4a007a372e593a945612fd5ae251d76ad3c2",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
-        "run_id": "overview-final-fb58c49756a14ebf",
-        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "run_id": "browser-synoptic-9be4273b40dfc83b",
+        "executed_at": "2026-10-16T12:45:11.880202+00:00",
         "reviewer": "Automated execution; independent acceptance pending",
         "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
-        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+        "verification_input_sha256": "9be4273b40dfc83b9f2d84e1c21cc46a842638e5cd66e08e7ceed4e3e6e9ce5a"
       }
     },
     {
@@ -9257,14 +9829,14 @@
       "expected": "A reduced-motion toggle shall freeze decorative motion without hiding numerical values, route, status or progress. Motion limits shall be visible and documented. Verify freeze and continued value updates.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
-        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "path": "assurance/evidence/browser/synoptic-contract-reviewed.json",
+        "sha256": "f5232c1afe7de4e8f0c09c9afe5d4a007a372e593a945612fd5ae251d76ad3c2",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
-        "run_id": "overview-final-fb58c49756a14ebf",
-        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "run_id": "browser-synoptic-9be4273b40dfc83b",
+        "executed_at": "2026-10-16T12:45:11.880202+00:00",
         "reviewer": "Automated execution; independent acceptance pending",
         "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
-        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+        "verification_input_sha256": "9be4273b40dfc83b9f2d84e1c21cc46a842638e5cd66e08e7ceed4e3e6e9ce5a"
       }
     },
     {
@@ -9276,14 +9848,14 @@
       "expected": "Dialysate outlet and bypass shall remain outside the venous chamber and lead to effluent. POST substitution shall enter a dedicated venous-chamber inlet; PRE enters before the filter. Blood enters above and leaves below. Non-joining crossings shall have visible clearance.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
-        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "path": "assurance/evidence/browser/synoptic-contract-reviewed.json",
+        "sha256": "f5232c1afe7de4e8f0c09c9afe5d4a007a372e593a945612fd5ae251d76ad3c2",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
-        "run_id": "overview-final-fb58c49756a14ebf",
-        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "run_id": "browser-synoptic-9be4273b40dfc83b",
+        "executed_at": "2026-10-16T12:45:11.880202+00:00",
         "reviewer": "Automated execution; independent acceptance pending",
         "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
-        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+        "verification_input_sha256": "9be4273b40dfc83b9f2d84e1c21cc46a842638e5cd66e08e7ceed4e3e6e9ce5a"
       }
     },
     {
@@ -9295,14 +9867,109 @@
       "expected": "Home shall prioritize the filter and extracorporeal flow with a simplified overview, animated fluid-direction cues and measured acid/bicarbonate liquid, dialysate feed, drain, membrane UF and substitution quantities in mL/min. Mechanical roller motion, tanks and full valve plumbing shall be confined to the Blood circuit and Hydraulics tabs. PRE/POST destination, bypass, zero/unknown flow, freshness and reduced motion remain explicit. Test distinct render modes, actual tab events, source-to-value mapping and simplified topology at all three fixture sizes.",
       "result": "passed",
       "evidence": {
-        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
-        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "path": "assurance/evidence/browser/synoptic-contract-reviewed.json",
+        "sha256": "f5232c1afe7de4e8f0c09c9afe5d4a007a372e593a945612fd5ae251d76ad3c2",
         "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
-        "run_id": "overview-final-fb58c49756a14ebf",
-        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "run_id": "browser-synoptic-9be4273b40dfc83b",
+        "executed_at": "2026-10-16T12:45:11.880202+00:00",
         "reviewer": "Automated execution; independent acceptance pending",
         "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
-        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+        "verification_input_sha256": "9be4273b40dfc83b9f2d84e1c21cc46a842638e5cd66e08e7ceed4e3e6e9ce5a"
+      }
+    },
+    {
+      "id": "WEB-TEST-001",
+      "requirements": [
+        "WEB-REQ-001"
+      ],
+      "procedure": "test_browser.BrowserRuntimeTests.test_full_wasm_portability; DIALYSISLAB_BROWSER_ACCEPTANCE=<new-directory> python3 -m unittest discover -s tests -p test_browser.py -v",
+      "expected": "Run production C++ Plant, control/protection decisions and existing Python patient/physical coupling locally using WebAssembly and Pyodide. HD/PRE/POST must reach treatment with finite results and conserved water/solute inventories; no replacement physical equations or prerecorded telemetry.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/browser/acceptance.json",
+        "sha256": "ba08cc6b3e0207f81da87ef0d2f6d473f24314a99a40d3c867a41791661f3d9d",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "browser-ba08cc6b3e0207f8",
+        "executed_at": "2026-10-16T12:43:18.921328+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "Native g++ / Emscripten 4.0.15 / Pyodide 0.27.7 / Chromium 155.0.8059.84",
+        "verification_input_sha256": "0cb304320f6780a3917958cef1584111e8d6a1b4a8c4e7905c5556106594f911"
+      }
+    },
+    {
+      "id": "WEB-TEST-002",
+      "requirements": [
+        "WEB-REQ-002"
+      ],
+      "procedure": "test_browser.BrowserRuntimeTests.test_real_browser_ui; DIALYSISLAB_BROWSER_ACCEPTANCE=<new-directory> python3 -m unittest discover -s tests -p test_browser.py -v",
+      "expected": "Render existing LVGL guided views in a browser canvas with touch/pointer input and working lifecycle actions, prescription, STOP, detail tabs and reduced motion. Keep simulation time independent of animation frame rate.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/browser/acceptance.json",
+        "sha256": "ba08cc6b3e0207f81da87ef0d2f6d473f24314a99a40d3c867a41791661f3d9d",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "browser-ba08cc6b3e0207f8",
+        "executed_at": "2026-10-16T12:43:18.921328+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "Native g++ / Emscripten 4.0.15 / Pyodide 0.27.7 / Chromium 155.0.8059.84",
+        "verification_input_sha256": "0cb304320f6780a3917958cef1584111e8d6a1b4a8c4e7905c5556106594f911"
+      }
+    },
+    {
+      "id": "WEB-TEST-003",
+      "requirements": [
+        "WEB-REQ-003"
+      ],
+      "procedure": "test_browser.BrowserRuntimeTests.test_full_wasm_portability; DIALYSISLAB_BROWSER_ACCEPTANCE=<new-directory> python3 -m unittest discover -s tests -p test_browser.py -v",
+      "expected": "Compare the same deterministic scenarios/commands and initial conditions in native and WebAssembly execution. Discrete stages/alarms must match exactly; finite numeric outputs use abs(a-b) <= 1e-8 + 1e-9*max(abs(a),abs(b)), in each field's documented units. Water and solute conservation retain existing 1e-6 mL/mmol bounds. These are proposed portability budgets, not global numerical accuracy approval.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/browser/acceptance.json",
+        "sha256": "ba08cc6b3e0207f81da87ef0d2f6d473f24314a99a40d3c867a41791661f3d9d",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "browser-ba08cc6b3e0207f8",
+        "executed_at": "2026-10-16T12:43:18.921328+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "Native g++ / Emscripten 4.0.15 / Pyodide 0.27.7 / Chromium 155.0.8059.84",
+        "verification_input_sha256": "0cb304320f6780a3917958cef1584111e8d6a1b4a8c4e7905c5556106594f911"
+      }
+    },
+    {
+      "id": "WEB-TEST-004",
+      "requirements": [
+        "WEB-REQ-004"
+      ],
+      "procedure": "test_browser.BrowserRuntimeTests.test_real_browser_ui; DIALYSISLAB_BROWSER_ACCEPTANCE=<new-directory> python3 -m unittest discover -s tests -p test_browser.py -v",
+      "expected": "Serve static assets only; computation and patient state stay in the browser. Pause when hidden, do not catch up elapsed wall time, prevent overlapping ticks; stop advancing after runtime failure and report unavailable state. Reset must discard queued actions and old patient state.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/browser/acceptance.json",
+        "sha256": "ba08cc6b3e0207f81da87ef0d2f6d473f24314a99a40d3c867a41791661f3d9d",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "browser-ba08cc6b3e0207f8",
+        "executed_at": "2026-10-16T12:43:18.921328+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "Native g++ / Emscripten 4.0.15 / Pyodide 0.27.7 / Chromium 155.0.8059.84",
+        "verification_input_sha256": "0cb304320f6780a3917958cef1584111e8d6a1b4a8c4e7905c5556106594f911"
+      }
+    },
+    {
+      "id": "WEB-TEST-005",
+      "requirements": [
+        "WEB-REQ-005"
+      ],
+      "procedure": "test_browser.BrowserRuntimeTests.test_full_wasm_portability; DIALYSISLAB_BROWSER_ACCEPTANCE=<new-directory> python3 -m unittest discover -s tests -p test_browser.py -v",
+      "expected": "Pin toolchain/runtime dependencies, preserve source/configuration identifiers, build instructions and native/Wasm comparison results. Published build must identify its source and dependency artifacts.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/browser/acceptance.json",
+        "sha256": "ba08cc6b3e0207f81da87ef0d2f6d473f24314a99a40d3c867a41791661f3d9d",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "browser-ba08cc6b3e0207f8",
+        "executed_at": "2026-10-16T12:43:18.921328+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "Native g++ / Emscripten 4.0.15 / Pyodide 0.27.7 / Chromium 155.0.8059.84",
+        "verification_input_sha256": "0cb304320f6780a3917958cef1584111e8d6a1b4a8c4e7905c5556106594f911"
       }
     }
   ],

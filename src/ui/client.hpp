@@ -43,6 +43,7 @@ struct Snapshot {
     bool busy=false;
 };
 struct Job { int role=0; std::string action, session, values; };
+#ifndef DIALYSISLAB_BROWSER_UI
 class Client {
     std::string root;
     std::mutex mutex;
@@ -118,6 +119,27 @@ public:
         queued=job; state.busy=true; state.command=job.action; state.result="requested"; wake.notify_one(); return true;
     }
 };
+#else
+// The browser worker owns simulation state; this client never creates a thread.
+class Client {
+    Snapshot state;
+public:
+    explicit Client(std::string) {}
+    Snapshot snapshot(){return state;}
+    bool submit(const Job& job);
+    void receive(const std::string& epoch,const std::string& a,const std::string& b) {
+        const auto now=Clock::now();
+        for(int i=0;i<2;++i){
+            auto view=parse_view(i?b:a,epoch);auto& c=state.channels[i];
+            if(c.session!=epoch){++state.generation;c=Channel{};state.command=state.result="none";state.busy=false;}
+            if(!c.have_view || view.machine.sequence!=c.view.machine.sequence)c.last_sample=now;
+            c.connected=c.have_view=true;c.session=epoch;c.view=std::move(view);c.last_reply=now;
+        }
+    }
+    void result(const std::string& value){state.busy=false;state.result=value;++state.action_serial;}
+    void disconnect(){for(auto& c:state.channels)c.connected=false;++state.generation;state.busy=false;}
+};
+#endif
 inline std::string freshness(const Channel& channel,Clock::time_point now) {
     if(!channel.connected) return "DISCONNECTED";
     if(!channel.have_view || !channel.view.valid) return "INVALID";

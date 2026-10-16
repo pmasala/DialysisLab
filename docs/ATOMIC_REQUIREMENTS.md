@@ -1509,3 +1509,63 @@ Home shall prioritize the filter and extracorporeal flow with a simplified overv
 **Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
 
 **Existing test:** `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`.
+
+## WEB-OBL-001 — WEB-REQ-001
+
+Run production C++ Plant, control/protection decisions and existing Python patient/physical coupling locally using WebAssembly and Pyodide. HD/PRE/POST must reach treatment with finite results and conserved water/solute inventories; no replacement physical equations or prerecorded telemetry.
+
+**Acceptance:** Criteria declared before execution; native/Wasm comparison and real Chromium UI gates.
+
+**Coverage:** Selected synthetic full cycles and browser interactions; no process isolation, independent usability approval, long-duration/mobile qualification or global numerical closure.
+
+**Design:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md).
+
+**Existing test:** `test_browser.BrowserRuntimeTests.test_full_wasm_portability`.
+
+## WEB-OBL-002 — WEB-REQ-002
+
+Render existing LVGL guided views in a browser canvas with touch/pointer input and working lifecycle actions, prescription, STOP, detail tabs and reduced motion. Keep simulation time independent of animation frame rate.
+
+**Acceptance:** Criteria declared before execution; native/Wasm comparison and real Chromium UI gates.
+
+**Coverage:** Selected synthetic full cycles and browser interactions; no process isolation, independent usability approval, long-duration/mobile qualification or global numerical closure.
+
+**Design:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md).
+
+**Existing test:** `test_browser.BrowserRuntimeTests.test_real_browser_ui`.
+
+## WEB-OBL-003 — WEB-REQ-003
+
+Compare the same deterministic scenarios/commands and initial conditions in native and WebAssembly execution. Discrete stages/alarms must match exactly; finite numeric outputs use abs(a-b) <= 1e-8 + 1e-9*max(abs(a),abs(b)), in each field's documented units. Water and solute conservation retain existing 1e-6 mL/mmol bounds. These are proposed portability budgets, not global numerical accuracy approval.
+
+**Acceptance:** Criteria declared before execution; native/Wasm comparison and real Chromium UI gates.
+
+**Coverage:** Selected synthetic full cycles and browser interactions; no process isolation, independent usability approval, long-duration/mobile qualification or global numerical closure.
+
+**Design:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md).
+
+**Existing test:** `test_browser.BrowserRuntimeTests.test_full_wasm_portability`.
+
+## WEB-OBL-004 — WEB-REQ-004
+
+Serve static assets only; computation and patient state stay in the browser. Pause when hidden, do not catch up elapsed wall time, prevent overlapping ticks; stop advancing after runtime failure and report unavailable state. Reset must discard queued actions and old patient state.
+
+**Acceptance:** Criteria declared before execution; native/Wasm comparison and real Chromium UI gates.
+
+**Coverage:** Selected synthetic full cycles and browser interactions; no process isolation, independent usability approval, long-duration/mobile qualification or global numerical closure.
+
+**Design:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md).
+
+**Existing test:** `test_browser.BrowserRuntimeTests.test_real_browser_ui`.
+
+## WEB-OBL-005 — WEB-REQ-005
+
+Pin toolchain/runtime dependencies, preserve source/configuration identifiers, build instructions and native/Wasm comparison results. Published build must identify its source and dependency artifacts.
+
+**Acceptance:** Criteria declared before execution; native/Wasm comparison and real Chromium UI gates.
+
+**Coverage:** Selected synthetic full cycles and browser interactions; no process isolation, independent usability approval, long-duration/mobile qualification or global numerical closure.
+
+**Design:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md).
+
+**Existing test:** `test_browser.BrowserRuntimeTests.test_full_wasm_portability`.

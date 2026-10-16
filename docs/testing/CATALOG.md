@@ -766,6 +766,58 @@ rendered here. A method name proves that a test exists, not that it ran or fully
 
 **Current acceptance:** not independently approved; no historical result inherited.
 
+### Complete browser execution
+
+#### WEB-TEST-001
+
+**Requirements:** WEB-REQ-001.
+
+**Procedure:** test_browser.BrowserRuntimeTests.test_full_wasm_portability; DIALYSISLAB_BROWSER_ACCEPTANCE=<new-directory> python3 -m unittest discover -s tests -p test_browser.py -v
+
+**Expected:** Run production C++ Plant, control/protection decisions and existing Python patient/physical coupling locally using WebAssembly and Pyodide. HD/PRE/POST must reach treatment with finite results and conserved water/solute inventories; no replacement physical equations or prerecorded telemetry.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### WEB-TEST-002
+
+**Requirements:** WEB-REQ-002.
+
+**Procedure:** test_browser.BrowserRuntimeTests.test_real_browser_ui; DIALYSISLAB_BROWSER_ACCEPTANCE=<new-directory> python3 -m unittest discover -s tests -p test_browser.py -v
+
+**Expected:** Render existing LVGL guided views in a browser canvas with touch/pointer input and working lifecycle actions, prescription, STOP, detail tabs and reduced motion. Keep simulation time independent of animation frame rate.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### WEB-TEST-003
+
+**Requirements:** WEB-REQ-003.
+
+**Procedure:** test_browser.BrowserRuntimeTests.test_full_wasm_portability; DIALYSISLAB_BROWSER_ACCEPTANCE=<new-directory> python3 -m unittest discover -s tests -p test_browser.py -v
+
+**Expected:** Compare the same deterministic scenarios/commands and initial conditions in native and WebAssembly execution. Discrete stages/alarms must match exactly; finite numeric outputs use abs(a-b) <= 1e-8 + 1e-9*max(abs(a),abs(b)), in each field's documented units. Water and solute conservation retain existing 1e-6 mL/mmol bounds. These are proposed portability budgets, not global numerical accuracy approval.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### WEB-TEST-004
+
+**Requirements:** WEB-REQ-004.
+
+**Procedure:** test_browser.BrowserRuntimeTests.test_real_browser_ui; DIALYSISLAB_BROWSER_ACCEPTANCE=<new-directory> python3 -m unittest discover -s tests -p test_browser.py -v
+
+**Expected:** Serve static assets only; computation and patient state stay in the browser. Pause when hidden, do not catch up elapsed wall time, prevent overlapping ticks; stop advancing after runtime failure and report unavailable state. Reset must discard queued actions and old patient state.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### WEB-TEST-005
+
+**Requirements:** WEB-REQ-005.
+
+**Procedure:** test_browser.BrowserRuntimeTests.test_full_wasm_portability; DIALYSISLAB_BROWSER_ACCEPTANCE=<new-directory> python3 -m unittest discover -s tests -p test_browser.py -v
+
+**Expected:** Pin toolchain/runtime dependencies, preserve source/configuration identifiers, build instructions and native/Wasm comparison results. Published build must identify its source and dependency artifacts.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
 ### Experiments and inspection
 
 #### M7-TEST-001
@@ -955,6 +1007,13 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 - `test_audit_closure.GuidedPresetTests.test_catalog_default_and_loading_validate_complete_scheduled_guided_profiles`
 - `test_audit_closure.GuidedPresetTests.test_distributed_long_fixture_is_valid_and_has_no_early_return`
 - `test_audit_closure.GuidedPresetTests.test_dynamic_resource_retention_keeps_failed_run_evidence`
+
+### [tests/test_browser.py](../../tests/test_browser.py)
+
+- `test_browser.BrowserRuntimeTests.test_native_tick_stop_and_old_session`
+- `test_browser.BrowserRuntimeTests.test_bad_sequence_stops_session_and_rejects_further_ticks`
+- `test_browser.BrowserRuntimeTests.test_full_wasm_portability`
+- `test_browser.BrowserRuntimeTests.test_real_browser_ui`
 
 ### [tests/test_ci.py](../../tests/test_ci.py)
 
