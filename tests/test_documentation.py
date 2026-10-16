@@ -55,6 +55,20 @@ class DocumentationTests(unittest.TestCase):
         (self.root / 'docs/manual.md').write_text('[Escape](../../outside.md)\n')
         self.assertTrue(any('outside-root' in e for e in documentation.check(self.root)))
 
+    def test_current_report_selection_preserves_history_and_rejects_drift(self):
+        from verify_preparation import inputs
+        register=self.root/'docs/document-set.json';data=json.loads(register.read_text())
+        data['current_preparation_evidence']='assurance/current-preparation.json'
+        register.write_text(json.dumps(data))
+        self.assertIn('missing current preparation evidence',documentation.check(self.root))
+        report=self.root/data['current_preparation_evidence']
+        report.write_text(json.dumps(dict(schema_version=1,source_sha256=inputs(self.root),successful=True,tests_run=1,cases=[dict(result='passed')])))
+        self.assertEqual(documentation.check(self.root),[])
+        source=self.root/'src/new.hpp';source.parent.mkdir();source.write_text('// changed input')
+        self.assertTrue(any('not applicable' in e for e in documentation.check(self.root)))
+        data['current_preparation_evidence']='../outside.json';register.write_text(json.dumps(data))
+        self.assertIn('preparation evidence outside project root',documentation.check(self.root))
+
     def test_unallocated_or_duplicate_requirements_cannot_disappear(self):
         self.data['requirements'][0]['id'] = 'UNKNOWN-001'
         self.save()

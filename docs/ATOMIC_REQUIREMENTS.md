@@ -1389,3 +1389,123 @@ Preparation evidence shall identify requirements, implementation revision, param
 **Design:** [docs/design/PREPARATION.md](../docs/design/PREPARATION.md).
 
 **Existing test:** `test_preparation.PreparationTests.test_evidence_identity_changes_with_source_and_configuration`.
+
+## SYN-OBL-001 — SYN-REQ-001
+
+Treatment home shall show a large simplified external dialyzer and extracorporeal circuit with directional flow and explicit HD / HDF PRE / HDF POST routing. Roller pumps, chamber detail, containers and full plumbing shall be available in dedicated Blood circuit and Hydraulics tabs. Render each mode and assert active branches and view allocation.
+
+**Acceptance:** Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.
+
+**Coverage:** Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.
+
+**Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
+
+**Existing test:** `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`.
+
+## SYN-OBL-002 — SYN-REQ-002
+
+Motion shall use current valid observed/model telemetry, never prescribed flow. Zero flow freezes phase; stale/invalid telemetry freezes motion and displays its status, without portraying unknown as zero. Changing flow preserves phase. Unit checks exercise zero, restart, rate changes and loss/recovery of freshness.
+
+**Acceptance:** Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.
+
+**Coverage:** Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.
+
+**Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
+
+**Existing test:** `test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory`.
+
+## SYN-OBL-003 — SYN-REQ-003
+
+Pump activity and fluid passage shall be distinguished. Concentrate drive and delivered liquid require separate versioned observations; older observations show unavailable fields. No mechanical RPM shall be claimed. Test C++/Python round trips and a dry-line fixture.
+
+**Acceptance:** Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.
+
+**Coverage:** Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.
+
+**Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
+
+**Existing test:** `test_document_contracts.WireWitnessTests.test_concentrate_drive_is_distinct_from_dry_liquid_and_legacy_is_absent`.
+
+## SYN-OBL-004 — SYN-REQ-004
+
+Dialysate traversal, bypass and unknown route shall be distinguished with labels and valve/path geometry. Motion in a bypass shall not imply membrane traversal. Test bypass with positive feed and zero/unknown feed.
+
+**Acceptance:** Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.
+
+**Coverage:** Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.
+
+**Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
+
+**Existing test:** `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`.
+
+## SYN-OBL-005 — SYN-REQ-005
+
+Phase progress, phase/session time, net UF and substitution totals versus explicitly labelled current-prescription goals shall remain visible on home. Totals come from authoritative meters and survive pause/resume; no UI integration or invented target history. Test paused totals, HD, changed prescriptions and unavailable observations.
+
+**Acceptance:** Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.
+
+**Coverage:** Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.
+
+**Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
+
+**Existing test:** `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`.
+
+## SYN-OBL-006 — SYN-REQ-006
+
+Filled icons shall accompany text on navigation and actions. Guided controls shall have at least 48 logical pixels height; STOP shall remain visible outside scrollable content. Reflow shall support 800x890, 1100x890 and 1440x1000 without scaling hit targets. Test bounds, non-overlap and real LVGL rendering.
+
+**Acceptance:** Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.
+
+**Coverage:** Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.
+
+**Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
+
+**Existing test:** `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`.
+
+## SYN-OBL-007 — SYN-REQ-007
+
+Chamber fractions shall use measured fractions. Container bars shall be explicitly relative to first observed session inventory, with absolute quantities/units; missing baselines and unavailable telemetry shall not show fabricated capacity. Session changes reset presentation history. Test inventory depletion, stale data and reset.
+
+**Acceptance:** Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.
+
+**Coverage:** Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.
+
+**Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
+
+**Existing test:** `test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory`.
+
+## SYN-OBL-008 — SYN-REQ-008
+
+A reduced-motion toggle shall freeze decorative motion without hiding numerical values, route, status or progress. Motion limits shall be visible and documented. Verify freeze and continued value updates.
+
+**Acceptance:** Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.
+
+**Coverage:** Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.
+
+**Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
+
+**Existing test:** `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`.
+
+## SYN-OBL-009 — SYN-REQ-009
+
+Dialysate outlet and bypass shall remain outside the venous chamber and lead to effluent. POST substitution shall enter a dedicated venous-chamber inlet; PRE enters before the filter. Blood enters above and leaves below. Non-joining crossings shall have visible clearance.
+
+**Acceptance:** Exact intended connector endpoints and no dialysate intersection with the venous-chamber rectangle in actual HD/PRE/POST, bypass and stale renders at all three test sizes. A separate POST tracer check uses an independent scalar mixing oracle with 1e-12 mmol/L tolerance and existing 1e-6 mmol residual limit. Proposed engineering criteria; no bubble-capture or independent usability acceptance.
+
+**Coverage:** Actual drawn segment endpoints and chamber exclusion in all fixture sizes, modes, bypass and stale states; additional POST tracer regression in test_synoptic. No bubble-trap validation.
+
+**Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
+
+**Existing test:** `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`.
+
+## SYN-OBL-010 — SYN-REQ-010
+
+Home shall prioritize the filter and extracorporeal flow with a simplified overview, animated fluid-direction cues and measured acid/bicarbonate liquid, dialysate feed, drain, membrane UF and substitution quantities in mL/min. Mechanical roller motion, tanks and full valve plumbing shall be confined to the Blood circuit and Hydraulics tabs. PRE/POST destination, bypass, zero/unknown flow, freshness and reduced motion remain explicit. Test distinct render modes, actual tab events, source-to-value mapping and simplified topology at all three fixture sizes.
+
+**Acceptance:** Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.
+
+**Coverage:** Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.
+
+**Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
+
+**Existing test:** `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`.

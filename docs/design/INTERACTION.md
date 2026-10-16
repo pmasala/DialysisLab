@@ -24,7 +24,7 @@ run. Active experiments cannot be changed by later draft edits.
 
 ## Device information hierarchy
 
-The [guided view](../../src/ui/guided.hpp) has a persistent phase sequence,
+The [guided view](../../src/ui/guided.hpp) has a persistent current-phase heading,
 progress bar, percentage, elapsed time, remaining-time estimate and contextual next
 operation. [Treatment design](TREATMENT.md) specifies their exact meaning.
 
@@ -42,6 +42,15 @@ movement. The net UF meter is not patient weight. Patient composition and initia
 hematocrit remain outside the device UI. Missing/invalid/stale observations require
 a visible unavailable/held indication, not fabricated current zero values.
 
+## Animated central circuit
+
+The [animated synoptic change](ANIMATED_SYNOPTIC.md) specifies the detailed circuit,
+OBS12 drive/liquid distinction, declared visual speed limits, responsive layouts,
+filled icons and permanent net UF/substitution meters. The [test protocol](../testing/SYNOPTIC.md)
+links current source-bound execution and remaining usability/integration gates.
+The Blood circuit and Hydraulics tabs use the same complete diagram, retaining
+route context; Trends supplies numerical detail.
+
 ## Trama / Atlantico visual system
 
 The guided LVGL screen uses an original two-register tile: the left register
@@ -53,7 +62,7 @@ models the arterial tile explicitly identifies its pre-filter source. The net
 meter is gross UF minus substitution, not body-weight loss.
 
 Six tiles expose blood/dialysate flow, net UF, arterial/venous pressure and TMP.
-The persistent home strip adds PRE/POST infusion with effective prescription,
+The scrollable home detail strip adds PRE/POST infusion with effective prescription,
 temperature, conductivity and patient connection. Current, stale/held and unavailable
 values have textual labels. Stale or invalid tile values and prescription
 references are suppressed; the chart retains historical observations. The separate
@@ -77,15 +86,12 @@ No new runtime font or dependency is introduced. Selected tabs have a border as
 well as a color change. Circuit path colors identify fluids; they do not encode
 alarm priority. The theme does not change phase eligibility, prescription
 confirmation, protection authority or the independent experiment console.
-![Trama guided home with synthetic renderer data](../images/trama-atlantico.png)
+![Trama guided home with synthetic renderer data](../images/animated-synoptic.png)
 
 The image above comes from the actual LVGL synthetic renderer fixture, not live
-services. Candidate verification: GUI build and four guided unit/in-process tests
-passed, including all-phase eligibility, observed/prescribed registers, stale and
-invalid values, alarm layout and five-tab rendering. Thirty-one dependency,
-publication and documentation tests passed. Process UI regressions could not
-complete in the editing environment because Unix sockets return `EPERM`; rerun
-`PYTHONPATH=tests python3 -m unittest ui_regressions -v` on a supported host.
+services. Current source-bound results and remaining gates are in the
+[animated synoptic protocol](../testing/SYNOPTIC.md). Prior Trama passes apply to
+their original source, not automatically to the current diagram and telemetry.
 
 Historical screenshots remain evidence of their original revision, not of this
 visual system. Current renderer and process tests are required for each candidate.

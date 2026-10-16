@@ -35,6 +35,13 @@
     "assurance/audits/resource-native.json",
     "assurance/audits/static-analysis.json",
     "assurance/current-obligations.json",
+    "assurance/evidence/animated-synoptic/development.json",
+    "assurance/evidence/animated-synoptic/preparation.json",
+    "assurance/evidence/animated-synoptic/report.json",
+    "assurance/evidence/animated-synoptic/topology-final-preparation.json",
+    "assurance/evidence/animated-synoptic/topology-final-report.json",
+    "assurance/evidence/animated-synoptic/topology-preparation.json",
+    "assurance/evidence/animated-synoptic/topology-report.json",
     "assurance/evidence/dynamic-model/calibration.json",
     "assurance/evidence/dynamic-model/report.json",
     "assurance/evidence/dynamic-model/review.md",
@@ -477,6 +484,7 @@
     "docs/dependencies/M7.md",
     "docs/dependencies/M8.md",
     "docs/dependencies/ROBOTO_NOTICE.md",
+    "docs/design/ANIMATED_SYNOPTIC.md",
     "docs/design/DIALYSATE_PREPARATION_CHANGE.md",
     "docs/design/INTERACTION.md",
     "docs/design/INTERFACES.md",
@@ -493,6 +501,9 @@
     "docs/diagrams/fluid-preparation.svg",
     "docs/diagrams/hydraulic-equivalent.svg",
     "docs/document-set.json",
+    "docs/images/animated-synoptic-bypass.png",
+    "docs/images/animated-synoptic-narrow.png",
+    "docs/images/animated-synoptic.png",
     "docs/images/physical-circuit.svg",
     "docs/images/trama-atlantico.png",
     "docs/templates/DEPENDENCY_EXCEPTION.md",
@@ -509,6 +520,7 @@
     "docs/testing/PLAN.md",
     "docs/testing/PREPARATION.md",
     "docs/testing/STATUS.md",
+    "docs/testing/SYNOPTIC.md",
     "docs/testing/WORKFLOW.md",
     "docs/wire-contract.json",
     "gui_dependencies.json",
@@ -597,12 +609,15 @@
     "src/plant.cpp",
     "src/preparation.hpp",
     "src/protection.cpp",
+    "src/ui/animated_synoptic.hpp",
     "src/ui/client.hpp",
     "src/ui/device_ui.cpp",
+    "src/ui/flow_motion.hpp",
     "src/ui/font.cpp",
     "src/ui/guided.hpp",
     "src/ui/lv_conf.h",
     "src/ui/synoptic.hpp",
+    "src/ui/vector.hpp",
     "src/wire.hpp",
     "tests/audit_fixture.py",
     "tests/audit_machine.cpp",
@@ -615,6 +630,9 @@
     "tests/patient_memory_probe.py",
     "tests/physical_model.cpp",
     "tests/preparation_model.cpp",
+    "tests/synoptic_app.cpp",
+    "tests/synoptic_motion.cpp",
+    "tests/synoptic_view.cpp",
     "tests/test_audit_closure.py",
     "tests/test_ci.py",
     "tests/test_ci_lifecycle.py",
@@ -639,6 +657,7 @@
     "tests/test_publication.py",
     "tests/test_rpc_abort.py",
     "tests/test_security.py",
+    "tests/test_synoptic.py",
     "tests/test_traceability.py",
     "tests/test_trajectory.py",
     "tests/test_treatment.py",
@@ -680,7 +699,15 @@
     "tools/verify_package.py",
     "tools/verify_preparation.py",
     "tools/verify_reproducibility.py",
-    "tools/verify_ui_compose.py"
+    "tools/verify_synoptic.py",
+    "tools/verify_ui_compose.py",
+    "docs/images/animated-synoptic-blood.png",
+    "docs/images/animated-synoptic-hydraulics.png",
+    "assurance/evidence/animated-synoptic/overview-development.json",
+    "assurance/evidence/animated-synoptic/overview-report.json",
+    "assurance/evidence/animated-synoptic/overview-preparation.json",
+    "assurance/evidence/animated-synoptic/overview-final-report.json",
+    "assurance/evidence/animated-synoptic/overview-final-preparation.json"
   ],
   "owned_assets": {
     "assurance/evidence/m6/captures/hd.png": {
@@ -843,6 +870,41 @@
       "source_artifact": "build/trama-captures/guided-0.ppm",
       "command": "PYTHONPATH=tests DIALYSISLAB_GUIDED_CAPTURES=build/trama-captures python3 -m unittest test_guided.GuidedUnitTests -v; python3 tools/capture_png.py build/trama-captures/guided-0.ppm docs/images/trama-atlantico.png",
       "rights": "Original DialysisLab LVGL framebuffer with synthetic test data and Apache-2.0 Roboto; attribution retained in docs/dependencies/ROBOTO_NOTICE.md. No manufacturer artwork."
+    },
+    "docs/images/animated-synoptic.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "796c2308889ac74f8b4630926f9e26ed2b14e8f4d94426019a0094f818facb48",
+      "source_artifact": "build/overview-reviewed-captures/home-1100-mode-2.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/overview-reviewed-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/overview-reviewed-captures/home-1100-mode-2.ppm docs/images/animated-synoptic.png",
+      "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
+    },
+    "docs/images/animated-synoptic-narrow.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "21c25b38b534b2aa24fe1a874f373ebe3667b94eb661655392dd1fd6964c1ef8",
+      "source_artifact": "build/overview-reviewed-captures/home-800-mode-2.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/overview-reviewed-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/overview-reviewed-captures/home-800-mode-2.ppm docs/images/animated-synoptic-narrow.png",
+      "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
+    },
+    "docs/images/animated-synoptic-bypass.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "a43722d7d8e20bdaa633aaee0d95ed417d761f9418b5a0451f5b8c39f16824c7",
+      "source_artifact": "build/overview-reviewed-captures/bypass-1100.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/overview-reviewed-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/overview-reviewed-captures/bypass-1100.ppm docs/images/animated-synoptic-bypass.png",
+      "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
+    },
+    "docs/images/animated-synoptic-blood.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "a8c4424e7b154135bd8b322c35b1adab4bfcfb3d6b9d0ca13bb3e2241b17eebe",
+      "source_artifact": "build/overview-reviewed-captures/blood-1100-mode-2.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/overview-reviewed-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/overview-reviewed-captures/blood-1100-mode-2.ppm docs/images/animated-synoptic-blood.png",
+      "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
+    },
+    "docs/images/animated-synoptic-hydraulics.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "0a20ea62fb61b4c88247bf2f884ca829247cf1e40cd7aad02f3a7062195b8c3f",
+      "source_artifact": "build/overview-reviewed-captures/hydraulics-1100-mode-2.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/overview-reviewed-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/overview-reviewed-captures/hydraulics-1100-mode-2.ppm docs/images/animated-synoptic-hydraulics.png",
+      "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
     }
   }
 }

@@ -4594,22 +4594,407 @@
       ],
       "condition": "Appended after PHYSICS9/DYNAMICS10 only when preparation enabled; inspector truth, not a controller input.",
       "reply": "Retained source/mixer ledgers and state; qualified volume is a preparation-manifold output, not patient delivery."
+    },
+    {
+      "id": "observation12",
+      "tag": "OBS12",
+      "endpoint": "control/protection plant replies",
+      "direction": "response",
+      "fields": [
+        {
+          "name": "sequence",
+          "type": "integer",
+          "unit": "tick",
+          "bounds": [
+            0,
+            99999
+          ]
+        },
+        {
+          "name": "time_ms",
+          "type": "integer",
+          "unit": "ms",
+          "bounds": [
+            0,
+            100000000
+          ]
+        },
+        {
+          "name": "valid",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "blood_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            500
+          ]
+        },
+        {
+          "name": "pressure_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            1000
+          ]
+        },
+        {
+          "name": "uf_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            140
+          ]
+        },
+        {
+          "name": "temperature_C",
+          "type": "real",
+          "unit": "degC",
+          "bounds": [
+            0,
+            100
+          ]
+        },
+        {
+          "name": "conductivity_mS_cm",
+          "type": "real",
+          "unit": "mS/cm",
+          "bounds": [
+            0,
+            6250
+          ]
+        },
+        {
+          "name": "replacement_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            120
+          ]
+        },
+        {
+          "name": "filter_pressure_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            24000
+          ]
+        },
+        {
+          "name": "integrity",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "route",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            3
+          ]
+        },
+        {
+          "name": "downstream_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            0,
+            1000
+          ]
+        },
+        {
+          "name": "air_signal",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "leak_signal",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "measured_uf_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "measured_substitution_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            1000000000.0
+          ]
+        },
+        {
+          "name": "supply_ready",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "dialysate_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            2000
+          ]
+        },
+        {
+          "name": "tmp_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000,
+            1000
+          ]
+        },
+        {
+          "name": "arterial_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000,
+            1000
+          ]
+        },
+        {
+          "name": "limitation",
+          "type": "atom",
+          "unit": "code",
+          "bounds": null
+        },
+        {
+          "name": "dialysate_mmHg",
+          "type": "real",
+          "unit": "mmHg",
+          "bounds": [
+            -1000,
+            1000
+          ]
+        },
+        {
+          "name": "heater_W",
+          "type": "real",
+          "unit": "W",
+          "bounds": [
+            0,
+            5000
+          ]
+        },
+        {
+          "name": "acid_remaining_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            20000
+          ]
+        },
+        {
+          "name": "bicarbonate_remaining_g",
+          "type": "real",
+          "unit": "g",
+          "bounds": [
+            0,
+            2000
+          ]
+        },
+        {
+          "name": "conductivity_raw_mS_cm",
+          "type": "real",
+          "unit": "mS/cm",
+          "bounds": [
+            0,
+            1000
+          ]
+        },
+        {
+          "name": "arterial_level",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "venous_level",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "dialysate_drain_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            2000
+          ]
+        },
+        {
+          "name": "uf_pump_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            200
+          ]
+        },
+        {
+          "name": "balance_position_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            0,
+            100
+          ]
+        },
+        {
+          "name": "bypass",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "balance_capacity_mL",
+          "type": "real",
+          "unit": "mL",
+          "bounds": [
+            5,
+            100
+          ]
+        },
+        {
+          "name": "balance_phase",
+          "type": "real",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "preparation_ready",
+          "type": "integer",
+          "unit": "flag",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "preparation_fault",
+          "type": "integer",
+          "unit": "flag",
+          "bounds": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "acid_drive_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            60
+          ]
+        },
+        {
+          "name": "bicarbonate_drive_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            60
+          ]
+        },
+        {
+          "name": "acid_liquid_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            60
+          ]
+        },
+        {
+          "name": "bicarbonate_liquid_mL_min",
+          "type": "real",
+          "unit": "mL/min",
+          "bounds": [
+            0,
+            60
+          ]
+        },
+        {
+          "name": "concentrate_valid",
+          "type": "integer",
+          "unit": "1",
+          "bounds": [
+            0,
+            1
+          ]
+        }
+      ],
+      "condition": "Guided model with preparation enabled; OBS11 prefix plus modeled drive and sensed liquid telemetry. Previous versions remain accepted.",
+      "reply": "Drive is model mL/min equivalent, not RPM. Liquid flows are delayed/filtered outlet observations and are unavailable unless concentrate_valid is 1. Freshness uses the existing preparation 0.5 s guard. This observation adds no actuator authority."
     }
   ],
   "source_sha256": {
-    "python/dialysislab/machine.py": "62511592aacb7029dcc6962c14a67d0302a41c2668bb2cfffa0f88c63d1a8824",
+    "python/dialysislab/machine.py": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3",
     "python/dialysislab/physical.py": "195851661259ef9227b2dbe228adbe6e38ebdc5bdbebac7ebaf49e31879d9637",
     "python/dialysislab/runner.py": "d73b33b30099c0d077ac829b530a73f5868ba03243f99c0b0e127e817e0bb5fd",
     "src/blood_physics.hpp": "a5ae40d3ef24ac42acffc8b0a984de60ad7d1063ea554f2e60ee1659c85c478b",
     "src/control.cpp": "67c67ecda6438e96ce67eb0f87b80c4f3f7d41909b5931bc17c93ecdaa3ecee6",
     "src/device_session.hpp": "ad18ee8311eb7061afe081ce22dabc72795cb7e7cec8f9d46389c7467949cbbd",
     "src/dynamics.hpp": "f44dd6c7e6c2ddecd1cdfc466d28b26e60e70fb6869a184db85a1fbf94904993",
-    "src/machine.hpp": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025",
+    "src/machine.hpp": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c",
     "src/online.hpp": "dd90feb25f2028a1b6fcdf33b90a81d86ad01989dd12f35d88e201f6b310329d",
-    "src/plant.cpp": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177",
+    "src/plant.cpp": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca",
     "src/preparation.hpp": "cce1465279093454b1e33f7b9b805b300df888812b74c9e7a27f35fb4ae32f83",
     "src/protection.cpp": "9e381df9eec6f90d24e9b4fd4b2fbeb208d38f819ba9df7a57a197d28b6c74f3",
-    "src/ui/client.hpp": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10",
+    "src/ui/client.hpp": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6",
     "src/wire.hpp": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc"
   }
 }

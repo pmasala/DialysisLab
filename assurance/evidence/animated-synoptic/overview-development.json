@@ -1,0 +1,24 @@
+{
+  "scope": "Initial development build, not acceptance evidence",
+  "result": "failed",
+  "reason": "Missing standard <map> include in new quantity renderer",
+  "source_sha256": {
+    "src/ui/animated_synoptic.hpp": "fe10f7e6758e6cf9d8ade0e6696db959461f88f00d9a9c3d08331e20b4faa8a8"
+  },
+  "diagnostic": "In file included from src/ui/guided.hpp:5,\n                 from tests/synoptic_view.cpp:2:\nsrc/ui/animated_synoptic.hpp:14:10: error: \u2018map\u2019 in namespace \u2018std\u2019 does not name a template type\n   14 |     std::map<std::string,std::string> quantities;\n      |          ^~~\nsrc/ui/animated_synoptic.hpp:4:1: note: \u2018std::map\u2019 is defined in header \u2018<map>\u2019; did you forget to \u2018#include <map>\u2019?\n    3 | #include \"vector.hpp\"\n  +++ |+#include <map>\n    4 | #include <iomanip>\nsrc/ui/animated_synoptic.hpp: In lambda function:\nsrc/ui/animated_synoptic.hpp:76:127: error: \u2018quantities\u2019 was not declared in this scope\n   76 |         auto value=[&](const char* name,double amount,bool known){std::string text=known?number(amount)+\" mL/min\":\"-- mL/min\";quantities[name]=text;return text;};\n      |                                                                                                                               ^~~~~~~~~~\nsrc/ui/animated_synoptic.hpp: In member function \u2018void flow_ui::View::draw(lv_event_t*)\u2019:\nsrc/ui/animated_synoptic.hpp:140:26: error: \u2018quantities\u2019 was not declared in this scope\n  140 |         rendered_pumps=0;quantities.clear();\n      |                          ^~~~~~~~~~\ntests/synoptic_view.cpp: In function \u2018int main(int, char**)\u2019:\ntests/synoptic_view.cpp:72:53: error: \u2018struct flow_ui::View\u2019 has no member named \u2018quantities\u2019\n   72 |                 const auto& quantities=ui.overview->quantities;\n      |                                                     ^~~~~~~~~~\ntests/synoptic_view.cpp:110:47: error: \u2018struct flow_ui::View\u2019 has no member named \u2018quantities\u2019\n  110 |             for(const auto& pair:ui.overview->quantities)assert(pair.second==\"-- mL/min\");\n      |                                               ^~~~~~~~~~\n",
+  "navigation_failure": {
+    "result": "failed",
+    "test": "test_sdl_resize_finger_input_and_focus_cancellation",
+    "assertion": "app.guided->page==tab.second",
+    "cause": "Default disconnected display shows guided view while guided_active is false; existing tab dispatch was incorrectly gated by that session flag.",
+    "source_sha256": {
+      "src/ui/device_ui.cpp": "790f76f66dad46e4b7c6f3184af0810e82f1175f6f6e029c7faa729c7b286a9f",
+      "tests/synoptic_app.cpp": "6211a27b80998b24a9fc2a7b8ecfa69455b4e44dcbb6bc9b81e9265ada9e9c3e"
+    }
+  },
+  "visual_review": {
+    "finding": "Bypass line at logical y=278 overlapped membrane UF value in the successful overview-report captures.",
+    "correction": "Move bypass to y=306 below UF units and above preparation boundary; rerun source-bound checks.",
+    "prior_report": "assurance/evidence/animated-synoptic/overview-report.json"
+  }
+}

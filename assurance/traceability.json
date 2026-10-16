@@ -77,6 +77,11 @@
       "id": "M9-NEED-001",
       "statement": "Integrate the implemented simulator and lifecycle template with actual deployment and reproducible source-package evidence.",
       "status": "implemented"
+    },
+    {
+      "id": "SYN-NEED-001",
+      "statement": "Understand simulated circuit activity, quantities and progress through detailed central graphics and touch/mouse controls without confusing commands with observations.",
+      "status": "implemented"
     }
   ],
   "hazards": [
@@ -453,6 +458,11 @@
       "id": "MIX-DES-005",
       "description": "SDD-MIX-01 D5; docs/design/PREPARATION.md and src/preparation.hpp",
       "status": "implemented"
+    },
+    {
+      "id": "SYN-DES-001",
+      "description": "docs/design/ANIMATED_SYNOPTIC.md; OBS12 telemetry, presentation-only phase state, own LVGL vector graphics and responsive guided layout.",
+      "status": "implemented"
     }
   ],
   "requirements": [
@@ -493,11 +503,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
+          "sha256": "87178422bc514a74c10c8b00f12b372d5fed7d8461816fdd3f9e82094b65e259"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
+          "sha256": "cfb7ccccee44cd3fa2f975e556b61ff52e91bf72cef7820a1bc72ab1f3a3e56e"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -505,19 +515,19 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
+          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
         },
         {
           "path": "tools/verify_experiments_compose.py",
@@ -550,7 +560,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -558,7 +568,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -574,11 +584,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
+          "sha256": "87178422bc514a74c10c8b00f12b372d5fed7d8461816fdd3f9e82094b65e259"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
+          "sha256": "cfb7ccccee44cd3fa2f975e556b61ff52e91bf72cef7820a1bc72ab1f3a3e56e"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -586,7 +596,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -594,19 +604,19 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
+          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025"
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
         },
         {
           "path": "tests/test_machine.py",
@@ -614,7 +624,7 @@
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
         }
       ],
       "unresolved": [
@@ -643,7 +653,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -651,7 +661,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -659,7 +669,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -667,7 +677,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -720,7 +730,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -728,7 +738,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -744,11 +754,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
+          "sha256": "87178422bc514a74c10c8b00f12b372d5fed7d8461816fdd3f9e82094b65e259"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
+          "sha256": "cfb7ccccee44cd3fa2f975e556b61ff52e91bf72cef7820a1bc72ab1f3a3e56e"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -756,7 +766,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -764,7 +774,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
+          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
         },
         {
           "path": "src/protection.cpp",
@@ -776,7 +786,7 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
         },
         {
           "path": "tests/test_rpc_abort.py",
@@ -784,7 +794,7 @@
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
         }
       ],
       "unresolved": [
@@ -829,11 +839,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
+          "sha256": "87178422bc514a74c10c8b00f12b372d5fed7d8461816fdd3f9e82094b65e259"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
+          "sha256": "cfb7ccccee44cd3fa2f975e556b61ff52e91bf72cef7820a1bc72ab1f3a3e56e"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -841,7 +851,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
+          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
         },
         {
           "path": "src/protection.cpp",
@@ -849,15 +859,15 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
         }
       ],
       "unresolved": [
@@ -886,7 +896,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -894,7 +904,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/M4_TREATMENT.md",
@@ -906,7 +916,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -914,7 +924,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -1028,7 +1038,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         }
       ],
       "unresolved": [
@@ -1077,7 +1087,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         }
       ],
       "unresolved": [
@@ -1118,7 +1128,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "src/protection.cpp",
@@ -1163,11 +1173,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
+          "sha256": "87178422bc514a74c10c8b00f12b372d5fed7d8461816fdd3f9e82094b65e259"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
+          "sha256": "cfb7ccccee44cd3fa2f975e556b61ff52e91bf72cef7820a1bc72ab1f3a3e56e"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -1175,7 +1185,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
+          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
         },
         {
           "path": "src/control.cpp",
@@ -1183,15 +1193,15 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
         }
       ],
       "unresolved": [
@@ -1232,11 +1242,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
+          "sha256": "87178422bc514a74c10c8b00f12b372d5fed7d8461816fdd3f9e82094b65e259"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
+          "sha256": "cfb7ccccee44cd3fa2f975e556b61ff52e91bf72cef7820a1bc72ab1f3a3e56e"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -1244,7 +1254,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
+          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
         },
         {
           "path": "src/control.cpp",
@@ -1252,7 +1262,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "src/protection.cpp",
@@ -1264,11 +1274,11 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
         }
       ],
       "unresolved": [
@@ -1298,7 +1308,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -1306,7 +1316,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1318,11 +1328,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
+          "sha256": "87178422bc514a74c10c8b00f12b372d5fed7d8461816fdd3f9e82094b65e259"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
+          "sha256": "cfb7ccccee44cd3fa2f975e556b61ff52e91bf72cef7820a1bc72ab1f3a3e56e"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -1330,7 +1340,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -1338,7 +1348,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
+          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
         },
         {
           "path": "python/dialysislab/runner.py",
@@ -1346,7 +1356,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "src/wire.hpp",
@@ -1354,11 +1364,11 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
         }
       ],
       "unresolved": [
@@ -1436,7 +1446,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -1444,7 +1454,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/design/INTERFACES.md",
@@ -1456,7 +1466,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -1497,7 +1507,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1537,7 +1547,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1577,7 +1587,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1619,7 +1629,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1656,7 +1666,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -1664,11 +1674,11 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -1676,7 +1686,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1716,7 +1726,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1756,7 +1766,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1798,7 +1808,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1838,7 +1848,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1879,7 +1889,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1921,7 +1931,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -1929,7 +1939,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         }
       ],
       "unresolved": [
@@ -1964,7 +1974,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/MODELS.md",
@@ -2014,11 +2024,11 @@
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025"
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         }
       ],
       "unresolved": [
@@ -2047,7 +2057,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -2055,7 +2065,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/design/TREATMENT.md",
@@ -2067,7 +2077,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2126,11 +2136,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
+          "sha256": "87178422bc514a74c10c8b00f12b372d5fed7d8461816fdd3f9e82094b65e259"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
+          "sha256": "cfb7ccccee44cd3fa2f975e556b61ff52e91bf72cef7820a1bc72ab1f3a3e56e"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2138,11 +2148,11 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
+          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "src/protection.cpp",
@@ -2150,11 +2160,11 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
         }
       ],
       "unresolved": [
@@ -2184,7 +2194,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -2192,7 +2202,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
@@ -2204,11 +2214,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
+          "sha256": "87178422bc514a74c10c8b00f12b372d5fed7d8461816fdd3f9e82094b65e259"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
+          "sha256": "cfb7ccccee44cd3fa2f975e556b61ff52e91bf72cef7820a1bc72ab1f3a3e56e"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -2216,7 +2226,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2224,11 +2234,11 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
+          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025"
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
         },
         {
           "path": "src/protection.cpp",
@@ -2236,11 +2246,11 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
         }
       ],
       "unresolved": [
@@ -2286,7 +2296,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "62511592aacb7029dcc6962c14a67d0302a41c2668bb2cfffa0f88c63d1a8824"
+          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
         },
         {
           "path": "src/control.cpp",
@@ -2376,7 +2386,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2388,11 +2398,11 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
         }
       ],
       "unresolved": [
@@ -2430,7 +2440,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2442,11 +2452,11 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
         }
       ],
       "unresolved": [
@@ -2484,7 +2494,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2496,11 +2506,11 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
         }
       ],
       "unresolved": [
@@ -2538,7 +2548,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2550,11 +2560,11 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
         }
       ],
       "unresolved": [
@@ -2584,7 +2594,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -2592,7 +2602,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/M6_DEVICE_UI.md",
@@ -2600,7 +2610,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -2608,7 +2618,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2620,11 +2630,11 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
         }
       ],
       "unresolved": [
@@ -2664,7 +2674,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2676,11 +2686,11 @@
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
         }
       ],
       "unresolved": [
@@ -2718,7 +2728,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2780,7 +2790,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2834,7 +2844,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -2842,7 +2852,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -2850,7 +2860,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/design/JSON_FIELDS.md",
@@ -2858,11 +2868,11 @@
         },
         {
           "path": "docs/design/WIRE_FIELDS.md",
-          "sha256": "ddca675d0576d81bf7cd700ea72b8d24d5a1ac8ed59de8310e81adf8615182ad"
+          "sha256": "87178422bc514a74c10c8b00f12b372d5fed7d8461816fdd3f9e82094b65e259"
         },
         {
           "path": "docs/design/WIRE_PROTOCOL.md",
-          "sha256": "e0bdd9fa5513ea8de5962292d761f9d69bbdd7a3a35c6b064aebeeb8cf49dcc9"
+          "sha256": "cfb7ccccee44cd3fa2f975e556b61ff52e91bf72cef7820a1bc72ab1f3a3e56e"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -2870,7 +2880,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -2878,7 +2888,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "061faaff5afd2e04b9cc6e4538d489ffbd3a2d80245cfa1551f932f82f04e4ff"
+          "sha256": "574bfd6d7c7ed3bbea2dcc9eeff775e89c555097bc0b4d43770bc38fcf7d165b"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -2902,11 +2912,11 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
-          "sha256": "636a34d3db9be4fa2c06158eebe423a5b218249e0a7767869d6000f7fa079338"
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
         }
       ],
       "unresolved": [
@@ -2936,7 +2946,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -2944,7 +2954,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/M7_EXPERIMENTS.md",
@@ -2952,7 +2962,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -2960,7 +2970,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -3022,7 +3032,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -3084,7 +3094,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -3293,7 +3303,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_security.py",
@@ -3468,7 +3478,7 @@
         },
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -3476,7 +3486,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/DOCUMENT_CONTROL.md",
@@ -3500,7 +3510,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/FAILURES.md",
@@ -3508,7 +3518,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "95b3645460483bcbaaefb96a4f009dbd41a5bd3248a0a1392173119decccd2c8"
+          "sha256": "14ba978f0d4b6d0a7704045d881b4697b7c2c4c0303d74a318fded6435410220"
         },
         {
           "path": "tests/test_ci.py",
@@ -3516,11 +3526,11 @@
         },
         {
           "path": "tests/test_document_contracts.py",
-          "sha256": "0228787a1ed999915ccdf28f8bc3c3373044c259d694917ed8ab828499d43409"
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
         },
         {
           "path": "tests/test_documentation.py",
-          "sha256": "a5888a26df9b7fc6eb73a16d7475bc0e55c1695933e4dc2761e9546805d73de7"
+          "sha256": "94bb8416fcc1c06ef17ba49704c4d65fa331edb656f38a72c7aabe7dbfc1c04f"
         },
         {
           "path": "tools/check_publication.py",
@@ -3540,7 +3550,7 @@
         },
         {
           "path": "tools/documentation.py",
-          "sha256": "069883f7fdcba23277dff8ae8f840faa00067a16732feece3574d0756c0abc8a"
+          "sha256": "de4f85f8381312468220edec35e795f625487f067be07090a21ad6bda88f6453"
         }
       ],
       "unresolved": [
@@ -3732,7 +3742,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "95b3645460483bcbaaefb96a4f009dbd41a5bd3248a0a1392173119decccd2c8"
+          "sha256": "14ba978f0d4b6d0a7704045d881b4697b7c2c4c0303d74a318fded6435410220"
         },
         {
           "path": "tools/package_release.py",
@@ -3868,7 +3878,7 @@
         },
         {
           "path": "docs/design/INTERACTION.md",
-          "sha256": "1c42545ab86e49298e4fb5d5082647627d63ff3874727392b28eb9743e9e9edc"
+          "sha256": "acd762e746b12d1549b0e7b465153407982ab0f41e3330f20d41c87c162ac113"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -3888,7 +3898,7 @@
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
         },
         {
           "path": "src/ui/synoptic.hpp",
@@ -3927,7 +3937,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -3935,7 +3945,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/GUIDED_TREATMENT.md",
@@ -3951,7 +3961,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/WORKFLOW.md",
@@ -3963,7 +3973,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "62511592aacb7029dcc6962c14a67d0302a41c2668bb2cfffa0f88c63d1a8824"
+          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
         },
         {
           "path": "python/dialysislab/runner.py",
@@ -3979,23 +3989,23 @@
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025"
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
         },
         {
           "path": "src/ui/guided.hpp",
-          "sha256": "6bdddd66b8bdd87b6e5fe984fc89fdcb002abaede3bd1bc7a0f463d336490d86"
+          "sha256": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3"
         },
         {
           "path": "src/ui/synoptic.hpp",
@@ -4007,7 +4017,7 @@
         },
         {
           "path": "tests/guided_view.cpp",
-          "sha256": "754b97fb6c1b4562e48d0c6c22e325dc05d20b90f875c44aa5b660c4155095f8"
+          "sha256": "505ff2dbc7bb653716f4cca2cefc9828a1c8ddc51f727fc5bf1d3c5aaa32d815"
         },
         {
           "path": "tests/test_guided.py",
@@ -4052,7 +4062,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -4060,7 +4070,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/PHYSICAL_MODEL.md",
@@ -4068,7 +4078,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/testing/CLOSURE.md",
@@ -4076,7 +4086,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/MEASUREMENTS.md",
@@ -4092,7 +4102,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "62511592aacb7029dcc6962c14a67d0302a41c2668bb2cfffa0f88c63d1a8824"
+          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
         },
         {
           "path": "python/dialysislab/physical.py",
@@ -4112,7 +4122,7 @@
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025"
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
         },
         {
           "path": "src/online.hpp",
@@ -4120,15 +4130,15 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
         },
         {
           "path": "src/ui/guided.hpp",
-          "sha256": "6bdddd66b8bdd87b6e5fe984fc89fdcb002abaede3bd1bc7a0f463d336490d86"
+          "sha256": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3"
         },
         {
           "path": "tests/physical_model.cpp",
@@ -4173,7 +4183,7 @@
       "implementation": [
         {
           "path": "assurance/current-obligations.json",
-          "sha256": "27ed4d420f1ebe46d487ca897acb3cbb9c68b034f4753158d812fd0210c93aa9"
+          "sha256": "fccdaf7730a423405d3546ee89ea1995b35ae2074bd17a3d62ef3e8bbbea7674"
         },
         {
           "path": "docs/ARCHITECTURE.md",
@@ -4181,7 +4191,7 @@
         },
         {
           "path": "docs/ATOMIC_REQUIREMENTS.md",
-          "sha256": "667fa1e25caf87a3b339eb04e296d95204e0def805c1f9f1cce4595c4bc22603"
+          "sha256": "212e4f35d9d701de32405cbb518a4f24b9185812718dac6bd567a86bb30d3371"
         },
         {
           "path": "docs/DYNAMIC_MODEL.md",
@@ -4205,7 +4215,7 @@
         },
         {
           "path": "docs/design/MODELS.md",
-          "sha256": "dfe24c6bccc522deff27e63160a3f312011bcf99eaec46c92785903d4de79c15"
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
         },
         {
           "path": "docs/images/physical-circuit.svg",
@@ -4217,7 +4227,7 @@
         },
         {
           "path": "docs/testing/COVERAGE.md",
-          "sha256": "6a3735cb993c418f9f7b72ddc397ae8f18d4aa0244b590c7636b9e31879e233b"
+          "sha256": "a830a9d286fe32fa068acca4eefa7e91893559c00be76377a040d666960f81c4"
         },
         {
           "path": "docs/testing/MEASUREMENTS.md",
@@ -4245,7 +4255,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "62511592aacb7029dcc6962c14a67d0302a41c2668bb2cfffa0f88c63d1a8824"
+          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
         },
         {
           "path": "python/dialysislab/physical.py",
@@ -4301,23 +4311,23 @@
         },
         {
           "path": "src/machine.hpp",
-          "sha256": "4ae7336b5213231e86adc27fc000c6225ec7eda186f7c71089305222733f0025"
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "src/ui/client.hpp",
-          "sha256": "061db6316c9672f0ba08c0b096e9a85a8be49c7755ed10b1c0982c1d7120ed10"
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
         },
         {
           "path": "src/ui/device_ui.cpp",
-          "sha256": "6849839c4fc6d188468e047090495fc1bdeccb27b695003f484413b34250bb3f"
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
         },
         {
           "path": "src/ui/guided.hpp",
-          "sha256": "6bdddd66b8bdd87b6e5fe984fc89fdcb002abaede3bd1bc7a0f463d336490d86"
+          "sha256": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3"
         },
         {
           "path": "src/ui/synoptic.hpp",
@@ -4329,7 +4339,7 @@
         },
         {
           "path": "tests/guided_view.cpp",
-          "sha256": "754b97fb6c1b4562e48d0c6c22e325dc05d20b90f875c44aa5b660c4155095f8"
+          "sha256": "505ff2dbc7bb653716f4cca2cefc9828a1c8ddc51f727fc5bf1d3c5aaa32d815"
         },
         {
           "path": "tests/test_ci.py",
@@ -4420,7 +4430,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -4474,7 +4484,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -4528,7 +4538,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -4583,7 +4593,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -4637,7 +4647,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -4691,7 +4701,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -4745,7 +4755,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -4799,7 +4809,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -4853,7 +4863,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -4907,7 +4917,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -4961,7 +4971,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -5015,7 +5025,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -5069,7 +5079,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -5123,7 +5133,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -5179,7 +5189,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -5237,7 +5247,7 @@
         },
         {
           "path": "src/plant.cpp",
-          "sha256": "375eb69defbd0b27f6761e196f3e03864403a59ab27105715a35c4db34055177"
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
         },
         {
           "path": "tests/test_preparation.py",
@@ -5284,6 +5294,833 @@
       ],
       "unresolved": [
         "Replacement procedure deferred; isolation, relief, reconnection and requalification not implemented."
+      ]
+    },
+    {
+      "id": "SYN-REQ-001",
+      "statement": "Treatment home shall show a large simplified external dialyzer and extracorporeal circuit with directional flow and explicit HD / HDF PRE / HDF POST routing. Roller pumps, chamber detail, containers and full plumbing shall be available in dedicated Blood circuit and Hydraulics tabs. Render each mode and assert active branches and view allocation.",
+      "acceptance": "Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.",
+      "needs": [
+        "SYN-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "SYN-DES-001"
+      ],
+      "tests": [
+        "SYN-TEST-001"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/ANIMATED_SYNOPTIC.md",
+          "sha256": "4e55873aa55ff06c16a15be0e7f047898f084d20b03a5b205e2d57a7280ad3c1"
+        },
+        {
+          "path": "src/ui/flow_motion.hpp",
+          "sha256": "daa03d3db3f55a09fe2e4464dc1904edc41498727a505a8ee86ae52f548168ba"
+        },
+        {
+          "path": "src/ui/vector.hpp",
+          "sha256": "45332099229c92ddddecdacf48448b507eaffa8118694615cd3a510a90b5c4b2"
+        },
+        {
+          "path": "src/ui/animated_synoptic.hpp",
+          "sha256": "7f2d6df8b9263f2f9358aff23f15d573cc0f2d34abd0724427788b0181a62c82"
+        },
+        {
+          "path": "src/ui/guided.hpp",
+          "sha256": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+        },
+        {
+          "path": "src/machine.hpp",
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
+        },
+        {
+          "path": "python/dialysislab/machine.py",
+          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+        },
+        {
+          "path": "tests/synoptic_motion.cpp",
+          "sha256": "0cb1bf867b6a26b2b2c3db24196020cdbd002fa438b9373909dab4110dce7dd0"
+        },
+        {
+          "path": "tests/synoptic_view.cpp",
+          "sha256": "b7adbeb6d423396b0630f2d35cd1d01ebf158cd13353e0adda37bcd489090333"
+        },
+        {
+          "path": "tests/test_synoptic.py",
+          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+        },
+        {
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
+        },
+        {
+          "path": "tools/verify_synoptic.py",
+          "sha256": "19250af14e806081e25e3b8ef8b56f8c0584c8ff26ff1b0d3448453c7a923245"
+        }
+      ],
+      "unresolved": [
+        "Representative-user tasks, actual touch hardware/display-density assessment and independent review remain open."
+      ]
+    },
+    {
+      "id": "SYN-REQ-002",
+      "statement": "Motion shall use current valid observed/model telemetry, never prescribed flow. Zero flow freezes phase; stale/invalid telemetry freezes motion and displays its status, without portraying unknown as zero. Changing flow preserves phase. Unit checks exercise zero, restart, rate changes and loss/recovery of freshness.",
+      "acceptance": "Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.",
+      "needs": [
+        "SYN-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "SYN-DES-001"
+      ],
+      "tests": [
+        "SYN-TEST-002"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/ANIMATED_SYNOPTIC.md",
+          "sha256": "4e55873aa55ff06c16a15be0e7f047898f084d20b03a5b205e2d57a7280ad3c1"
+        },
+        {
+          "path": "src/ui/flow_motion.hpp",
+          "sha256": "daa03d3db3f55a09fe2e4464dc1904edc41498727a505a8ee86ae52f548168ba"
+        },
+        {
+          "path": "src/ui/vector.hpp",
+          "sha256": "45332099229c92ddddecdacf48448b507eaffa8118694615cd3a510a90b5c4b2"
+        },
+        {
+          "path": "src/ui/animated_synoptic.hpp",
+          "sha256": "7f2d6df8b9263f2f9358aff23f15d573cc0f2d34abd0724427788b0181a62c82"
+        },
+        {
+          "path": "src/ui/guided.hpp",
+          "sha256": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+        },
+        {
+          "path": "src/machine.hpp",
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
+        },
+        {
+          "path": "python/dialysislab/machine.py",
+          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+        },
+        {
+          "path": "tests/synoptic_motion.cpp",
+          "sha256": "0cb1bf867b6a26b2b2c3db24196020cdbd002fa438b9373909dab4110dce7dd0"
+        },
+        {
+          "path": "tests/synoptic_view.cpp",
+          "sha256": "b7adbeb6d423396b0630f2d35cd1d01ebf158cd13353e0adda37bcd489090333"
+        },
+        {
+          "path": "tests/test_synoptic.py",
+          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+        },
+        {
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
+        },
+        {
+          "path": "tools/verify_synoptic.py",
+          "sha256": "19250af14e806081e25e3b8ef8b56f8c0584c8ff26ff1b0d3448453c7a923245"
+        }
+      ],
+      "unresolved": [
+        "Representative-user tasks, actual touch hardware/display-density assessment and independent review remain open."
+      ]
+    },
+    {
+      "id": "SYN-REQ-003",
+      "statement": "Pump activity and fluid passage shall be distinguished. Concentrate drive and delivered liquid require separate versioned observations; older observations show unavailable fields. No mechanical RPM shall be claimed. Test C++/Python round trips and a dry-line fixture.",
+      "acceptance": "Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.",
+      "needs": [
+        "SYN-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "SYN-DES-001"
+      ],
+      "tests": [
+        "SYN-TEST-003"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/ANIMATED_SYNOPTIC.md",
+          "sha256": "4e55873aa55ff06c16a15be0e7f047898f084d20b03a5b205e2d57a7280ad3c1"
+        },
+        {
+          "path": "src/ui/flow_motion.hpp",
+          "sha256": "daa03d3db3f55a09fe2e4464dc1904edc41498727a505a8ee86ae52f548168ba"
+        },
+        {
+          "path": "src/ui/vector.hpp",
+          "sha256": "45332099229c92ddddecdacf48448b507eaffa8118694615cd3a510a90b5c4b2"
+        },
+        {
+          "path": "src/ui/animated_synoptic.hpp",
+          "sha256": "7f2d6df8b9263f2f9358aff23f15d573cc0f2d34abd0724427788b0181a62c82"
+        },
+        {
+          "path": "src/ui/guided.hpp",
+          "sha256": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+        },
+        {
+          "path": "src/machine.hpp",
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
+        },
+        {
+          "path": "python/dialysislab/machine.py",
+          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+        },
+        {
+          "path": "tests/synoptic_motion.cpp",
+          "sha256": "0cb1bf867b6a26b2b2c3db24196020cdbd002fa438b9373909dab4110dce7dd0"
+        },
+        {
+          "path": "tests/synoptic_view.cpp",
+          "sha256": "b7adbeb6d423396b0630f2d35cd1d01ebf158cd13353e0adda37bcd489090333"
+        },
+        {
+          "path": "tests/test_synoptic.py",
+          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+        },
+        {
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
+        },
+        {
+          "path": "tools/verify_synoptic.py",
+          "sha256": "19250af14e806081e25e3b8ef8b56f8c0584c8ff26ff1b0d3448453c7a923245"
+        }
+      ],
+      "unresolved": [
+        "Representative-user tasks, actual touch hardware/display-density assessment and independent review remain open."
+      ]
+    },
+    {
+      "id": "SYN-REQ-004",
+      "statement": "Dialysate traversal, bypass and unknown route shall be distinguished with labels and valve/path geometry. Motion in a bypass shall not imply membrane traversal. Test bypass with positive feed and zero/unknown feed.",
+      "acceptance": "Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.",
+      "needs": [
+        "SYN-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "SYN-DES-001"
+      ],
+      "tests": [
+        "SYN-TEST-004"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/ANIMATED_SYNOPTIC.md",
+          "sha256": "4e55873aa55ff06c16a15be0e7f047898f084d20b03a5b205e2d57a7280ad3c1"
+        },
+        {
+          "path": "src/ui/flow_motion.hpp",
+          "sha256": "daa03d3db3f55a09fe2e4464dc1904edc41498727a505a8ee86ae52f548168ba"
+        },
+        {
+          "path": "src/ui/vector.hpp",
+          "sha256": "45332099229c92ddddecdacf48448b507eaffa8118694615cd3a510a90b5c4b2"
+        },
+        {
+          "path": "src/ui/animated_synoptic.hpp",
+          "sha256": "7f2d6df8b9263f2f9358aff23f15d573cc0f2d34abd0724427788b0181a62c82"
+        },
+        {
+          "path": "src/ui/guided.hpp",
+          "sha256": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+        },
+        {
+          "path": "src/machine.hpp",
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
+        },
+        {
+          "path": "python/dialysislab/machine.py",
+          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+        },
+        {
+          "path": "tests/synoptic_motion.cpp",
+          "sha256": "0cb1bf867b6a26b2b2c3db24196020cdbd002fa438b9373909dab4110dce7dd0"
+        },
+        {
+          "path": "tests/synoptic_view.cpp",
+          "sha256": "b7adbeb6d423396b0630f2d35cd1d01ebf158cd13353e0adda37bcd489090333"
+        },
+        {
+          "path": "tests/test_synoptic.py",
+          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+        },
+        {
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
+        },
+        {
+          "path": "tools/verify_synoptic.py",
+          "sha256": "19250af14e806081e25e3b8ef8b56f8c0584c8ff26ff1b0d3448453c7a923245"
+        }
+      ],
+      "unresolved": [
+        "Representative-user tasks, actual touch hardware/display-density assessment and independent review remain open."
+      ]
+    },
+    {
+      "id": "SYN-REQ-005",
+      "statement": "Phase progress, phase/session time, net UF and substitution totals versus explicitly labelled current-prescription goals shall remain visible on home. Totals come from authoritative meters and survive pause/resume; no UI integration or invented target history. Test paused totals, HD, changed prescriptions and unavailable observations.",
+      "acceptance": "Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.",
+      "needs": [
+        "SYN-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "SYN-DES-001"
+      ],
+      "tests": [
+        "SYN-TEST-005"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/ANIMATED_SYNOPTIC.md",
+          "sha256": "4e55873aa55ff06c16a15be0e7f047898f084d20b03a5b205e2d57a7280ad3c1"
+        },
+        {
+          "path": "src/ui/flow_motion.hpp",
+          "sha256": "daa03d3db3f55a09fe2e4464dc1904edc41498727a505a8ee86ae52f548168ba"
+        },
+        {
+          "path": "src/ui/vector.hpp",
+          "sha256": "45332099229c92ddddecdacf48448b507eaffa8118694615cd3a510a90b5c4b2"
+        },
+        {
+          "path": "src/ui/animated_synoptic.hpp",
+          "sha256": "7f2d6df8b9263f2f9358aff23f15d573cc0f2d34abd0724427788b0181a62c82"
+        },
+        {
+          "path": "src/ui/guided.hpp",
+          "sha256": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+        },
+        {
+          "path": "src/machine.hpp",
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
+        },
+        {
+          "path": "python/dialysislab/machine.py",
+          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+        },
+        {
+          "path": "tests/synoptic_motion.cpp",
+          "sha256": "0cb1bf867b6a26b2b2c3db24196020cdbd002fa438b9373909dab4110dce7dd0"
+        },
+        {
+          "path": "tests/synoptic_view.cpp",
+          "sha256": "b7adbeb6d423396b0630f2d35cd1d01ebf158cd13353e0adda37bcd489090333"
+        },
+        {
+          "path": "tests/test_synoptic.py",
+          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+        },
+        {
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
+        },
+        {
+          "path": "tools/verify_synoptic.py",
+          "sha256": "19250af14e806081e25e3b8ef8b56f8c0584c8ff26ff1b0d3448453c7a923245"
+        }
+      ],
+      "unresolved": [
+        "Representative-user tasks, actual touch hardware/display-density assessment and independent review remain open."
+      ]
+    },
+    {
+      "id": "SYN-REQ-006",
+      "statement": "Filled icons shall accompany text on navigation and actions. Guided controls shall have at least 48 logical pixels height; STOP shall remain visible outside scrollable content. Reflow shall support 800x890, 1100x890 and 1440x1000 without scaling hit targets. Test bounds, non-overlap and real LVGL rendering.",
+      "acceptance": "Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.",
+      "needs": [
+        "SYN-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "SYN-DES-001"
+      ],
+      "tests": [
+        "SYN-TEST-006"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/ANIMATED_SYNOPTIC.md",
+          "sha256": "4e55873aa55ff06c16a15be0e7f047898f084d20b03a5b205e2d57a7280ad3c1"
+        },
+        {
+          "path": "src/ui/flow_motion.hpp",
+          "sha256": "daa03d3db3f55a09fe2e4464dc1904edc41498727a505a8ee86ae52f548168ba"
+        },
+        {
+          "path": "src/ui/vector.hpp",
+          "sha256": "45332099229c92ddddecdacf48448b507eaffa8118694615cd3a510a90b5c4b2"
+        },
+        {
+          "path": "src/ui/animated_synoptic.hpp",
+          "sha256": "7f2d6df8b9263f2f9358aff23f15d573cc0f2d34abd0724427788b0181a62c82"
+        },
+        {
+          "path": "src/ui/guided.hpp",
+          "sha256": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+        },
+        {
+          "path": "src/machine.hpp",
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
+        },
+        {
+          "path": "python/dialysislab/machine.py",
+          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+        },
+        {
+          "path": "tests/synoptic_motion.cpp",
+          "sha256": "0cb1bf867b6a26b2b2c3db24196020cdbd002fa438b9373909dab4110dce7dd0"
+        },
+        {
+          "path": "tests/synoptic_view.cpp",
+          "sha256": "b7adbeb6d423396b0630f2d35cd1d01ebf158cd13353e0adda37bcd489090333"
+        },
+        {
+          "path": "tests/test_synoptic.py",
+          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+        },
+        {
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
+        },
+        {
+          "path": "tools/verify_synoptic.py",
+          "sha256": "19250af14e806081e25e3b8ef8b56f8c0584c8ff26ff1b0d3448453c7a923245"
+        },
+        {
+          "path": "tests/synoptic_app.cpp",
+          "sha256": "6211a27b80998b24a9fc2a7b8ecfa69455b4e44dcbb6bc9b81e9265ada9e9c3e"
+        }
+      ],
+      "unresolved": [
+        "Representative-user tasks, actual touch hardware/display-density assessment and independent review remain open."
+      ]
+    },
+    {
+      "id": "SYN-REQ-007",
+      "statement": "Chamber fractions shall use measured fractions. Container bars shall be explicitly relative to first observed session inventory, with absolute quantities/units; missing baselines and unavailable telemetry shall not show fabricated capacity. Session changes reset presentation history. Test inventory depletion, stale data and reset.",
+      "acceptance": "Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.",
+      "needs": [
+        "SYN-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "SYN-DES-001"
+      ],
+      "tests": [
+        "SYN-TEST-007"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/ANIMATED_SYNOPTIC.md",
+          "sha256": "4e55873aa55ff06c16a15be0e7f047898f084d20b03a5b205e2d57a7280ad3c1"
+        },
+        {
+          "path": "src/ui/flow_motion.hpp",
+          "sha256": "daa03d3db3f55a09fe2e4464dc1904edc41498727a505a8ee86ae52f548168ba"
+        },
+        {
+          "path": "src/ui/vector.hpp",
+          "sha256": "45332099229c92ddddecdacf48448b507eaffa8118694615cd3a510a90b5c4b2"
+        },
+        {
+          "path": "src/ui/animated_synoptic.hpp",
+          "sha256": "7f2d6df8b9263f2f9358aff23f15d573cc0f2d34abd0724427788b0181a62c82"
+        },
+        {
+          "path": "src/ui/guided.hpp",
+          "sha256": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+        },
+        {
+          "path": "src/machine.hpp",
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
+        },
+        {
+          "path": "python/dialysislab/machine.py",
+          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+        },
+        {
+          "path": "tests/synoptic_motion.cpp",
+          "sha256": "0cb1bf867b6a26b2b2c3db24196020cdbd002fa438b9373909dab4110dce7dd0"
+        },
+        {
+          "path": "tests/synoptic_view.cpp",
+          "sha256": "b7adbeb6d423396b0630f2d35cd1d01ebf158cd13353e0adda37bcd489090333"
+        },
+        {
+          "path": "tests/test_synoptic.py",
+          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+        },
+        {
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
+        },
+        {
+          "path": "tools/verify_synoptic.py",
+          "sha256": "19250af14e806081e25e3b8ef8b56f8c0584c8ff26ff1b0d3448453c7a923245"
+        }
+      ],
+      "unresolved": [
+        "Representative-user tasks, actual touch hardware/display-density assessment and independent review remain open."
+      ]
+    },
+    {
+      "id": "SYN-REQ-008",
+      "statement": "A reduced-motion toggle shall freeze decorative motion without hiding numerical values, route, status or progress. Motion limits shall be visible and documented. Verify freeze and continued value updates.",
+      "acceptance": "Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.",
+      "needs": [
+        "SYN-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "SYN-DES-001"
+      ],
+      "tests": [
+        "SYN-TEST-008"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/ANIMATED_SYNOPTIC.md",
+          "sha256": "4e55873aa55ff06c16a15be0e7f047898f084d20b03a5b205e2d57a7280ad3c1"
+        },
+        {
+          "path": "src/ui/flow_motion.hpp",
+          "sha256": "daa03d3db3f55a09fe2e4464dc1904edc41498727a505a8ee86ae52f548168ba"
+        },
+        {
+          "path": "src/ui/vector.hpp",
+          "sha256": "45332099229c92ddddecdacf48448b507eaffa8118694615cd3a510a90b5c4b2"
+        },
+        {
+          "path": "src/ui/animated_synoptic.hpp",
+          "sha256": "7f2d6df8b9263f2f9358aff23f15d573cc0f2d34abd0724427788b0181a62c82"
+        },
+        {
+          "path": "src/ui/guided.hpp",
+          "sha256": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
+        },
+        {
+          "path": "src/ui/client.hpp",
+          "sha256": "4f1bc34fe8a9301d83be11ea8eb6397930aa67e194c3ffe52efd1773fb0963e6"
+        },
+        {
+          "path": "src/machine.hpp",
+          "sha256": "8161d8852adfc584c0c53c4aa85d9b2993f392b6a07667d34851d10b1049414c"
+        },
+        {
+          "path": "src/plant.cpp",
+          "sha256": "1cae64672e917fd54b1bb39763ef49ec198ee27ea8dc5f1be327556aa2b7afca"
+        },
+        {
+          "path": "python/dialysislab/machine.py",
+          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+        },
+        {
+          "path": "tests/synoptic_motion.cpp",
+          "sha256": "0cb1bf867b6a26b2b2c3db24196020cdbd002fa438b9373909dab4110dce7dd0"
+        },
+        {
+          "path": "tests/synoptic_view.cpp",
+          "sha256": "b7adbeb6d423396b0630f2d35cd1d01ebf158cd13353e0adda37bcd489090333"
+        },
+        {
+          "path": "tests/test_synoptic.py",
+          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+        },
+        {
+          "path": "tests/wire_contract_witness.cpp",
+          "sha256": "58ad8fd2664ebdb536c3d227c18fe960eb2d48200ad088463ce3f1ded6a07343"
+        },
+        {
+          "path": "tests/test_document_contracts.py",
+          "sha256": "34375a63e9395c9db7bd57ae89a11513d4c5435f9b89bfc23acb2c9889a0bce8"
+        },
+        {
+          "path": "tools/verify_synoptic.py",
+          "sha256": "19250af14e806081e25e3b8ef8b56f8c0584c8ff26ff1b0d3448453c7a923245"
+        }
+      ],
+      "unresolved": [
+        "Representative-user tasks, actual touch hardware/display-density assessment and independent review remain open."
+      ]
+    },
+    {
+      "id": "SYN-REQ-009",
+      "statement": "Dialysate outlet and bypass shall remain outside the venous chamber and lead to effluent. POST substitution shall enter a dedicated venous-chamber inlet; PRE enters before the filter. Blood enters above and leaves below. Non-joining crossings shall have visible clearance.",
+      "acceptance": "Exact intended connector endpoints and no dialysate intersection with the venous-chamber rectangle in actual HD/PRE/POST, bypass and stale renders at all three test sizes. A separate POST tracer check uses an independent scalar mixing oracle with 1e-12 mmol/L tolerance and existing 1e-6 mmol residual limit. Proposed engineering criteria; no bubble-capture or independent usability acceptance.",
+      "needs": [
+        "SYN-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "SYN-DES-001"
+      ],
+      "tests": [
+        "SYN-TEST-009"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/ANIMATED_SYNOPTIC.md",
+          "sha256": "4e55873aa55ff06c16a15be0e7f047898f084d20b03a5b205e2d57a7280ad3c1"
+        },
+        {
+          "path": "docs/design/MODELS.md",
+          "sha256": "06e38743b73dc08cf575d5eb4cccd91e25500e4a926b2fcf5b35b6ce64b1234a"
+        },
+        {
+          "path": "src/ui/animated_synoptic.hpp",
+          "sha256": "7f2d6df8b9263f2f9358aff23f15d573cc0f2d34abd0724427788b0181a62c82"
+        },
+        {
+          "path": "tests/synoptic_view.cpp",
+          "sha256": "b7adbeb6d423396b0630f2d35cd1d01ebf158cd13353e0adda37bcd489090333"
+        },
+        {
+          "path": "tests/test_synoptic.py",
+          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+        },
+        {
+          "path": "src/dynamics.hpp",
+          "sha256": "f44dd6c7e6c2ddecd1cdfc466d28b26e60e70fb6869a184db85a1fbf94904993"
+        },
+        {
+          "path": "python/dialysislab/distributed.py",
+          "sha256": "43d74201c654bd375c35e79e81298c5fada2e15562768c821e59a2bfba52f7d1"
+        }
+      ],
+      "unresolved": [
+        "Representative-user tasks, actual touch hardware/display-density assessment and independent review remain open.",
+        "Entrained-bubble transport, capture efficiency and calibrated air-detector response are not modeled or validated."
+      ]
+    },
+    {
+      "id": "SYN-REQ-010",
+      "statement": "Home shall prioritize the filter and extracorporeal flow with a simplified overview, animated fluid-direction cues and measured acid/bicarbonate liquid, dialysate feed, drain, membrane UF and substitution quantities in mL/min. Mechanical roller motion, tanks and full valve plumbing shall be confined to the Blood circuit and Hydraulics tabs. PRE/POST destination, bypass, zero/unknown flow, freshness and reduced motion remain explicit. Test distinct render modes, actual tab events, source-to-value mapping and simplified topology at all three fixture sizes.",
+      "acceptance": "Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.",
+      "needs": [
+        "SYN-NEED-001"
+      ],
+      "hazards": [
+        "HAZ-004",
+        "HAZ-005"
+      ],
+      "designs": [
+        "SYN-DES-001"
+      ],
+      "tests": [
+        "SYN-TEST-010"
+      ],
+      "status": "implemented",
+      "reviewer": null,
+      "implementation": [
+        {
+          "path": "docs/design/ANIMATED_SYNOPTIC.md",
+          "sha256": "4e55873aa55ff06c16a15be0e7f047898f084d20b03a5b205e2d57a7280ad3c1"
+        },
+        {
+          "path": "src/ui/animated_synoptic.hpp",
+          "sha256": "7f2d6df8b9263f2f9358aff23f15d573cc0f2d34abd0724427788b0181a62c82"
+        },
+        {
+          "path": "src/ui/flow_motion.hpp",
+          "sha256": "daa03d3db3f55a09fe2e4464dc1904edc41498727a505a8ee86ae52f548168ba"
+        },
+        {
+          "path": "src/ui/guided.hpp",
+          "sha256": "dd5902b66f4bc74b5f708ef0bd3c10e9e52f6054d72bdb1233268ad8c904e1f3"
+        },
+        {
+          "path": "src/ui/device_ui.cpp",
+          "sha256": "83b1bc0d5041c5d06f98f9d956f9aaff3c0a8eef85ee3cef9eb3e3e8e9234236"
+        },
+        {
+          "path": "tests/synoptic_view.cpp",
+          "sha256": "b7adbeb6d423396b0630f2d35cd1d01ebf158cd13353e0adda37bcd489090333"
+        },
+        {
+          "path": "tests/synoptic_motion.cpp",
+          "sha256": "0cb1bf867b6a26b2b2c3db24196020cdbd002fa438b9373909dab4110dce7dd0"
+        },
+        {
+          "path": "tests/synoptic_app.cpp",
+          "sha256": "6211a27b80998b24a9fc2a7b8ecfa69455b4e44dcbb6bc9b81e9265ada9e9c3e"
+        }
+      ],
+      "unresolved": [
+        "Representative-user tasks, actual touch hardware/display-density assessment and independent review remain open."
       ]
     }
   ],
@@ -8277,6 +9114,196 @@
       "procedure": "Deferred replacement protocol MIX-TEST-017; no executable method or execution claim.",
       "expected": "Deferred protocol; blocked pending replacement design. No replacement implementation or successful test is claimed.",
       "result": "planned"
+    },
+    {
+      "id": "SYN-TEST-001",
+      "requirements": [
+        "SYN-REQ-001"
+      ],
+      "procedure": "test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; python3 tools/verify_synoptic.py --output <new-report.json>",
+      "expected": "Treatment home shall show a large simplified external dialyzer and extracorporeal circuit with directional flow and explicit HD / HDF PRE / HDF POST routing. Roller pumps, chamber detail, containers and full plumbing shall be available in dedicated Blood circuit and Hydraulics tabs. Render each mode and assert active branches and view allocation.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
+        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "overview-final-fb58c49756a14ebf",
+        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
+        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+      }
+    },
+    {
+      "id": "SYN-TEST-002",
+      "requirements": [
+        "SYN-REQ-002"
+      ],
+      "procedure": "test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory; python3 tools/verify_synoptic.py --output <new-report.json>",
+      "expected": "Motion shall use current valid observed/model telemetry, never prescribed flow. Zero flow freezes phase; stale/invalid telemetry freezes motion and displays its status, without portraying unknown as zero. Changing flow preserves phase. Unit checks exercise zero, restart, rate changes and loss/recovery of freshness.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
+        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "overview-final-fb58c49756a14ebf",
+        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
+        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+      }
+    },
+    {
+      "id": "SYN-TEST-003",
+      "requirements": [
+        "SYN-REQ-003"
+      ],
+      "procedure": "test_document_contracts.WireWitnessTests.test_concentrate_drive_is_distinct_from_dry_liquid_and_legacy_is_absent; python3 tools/verify_synoptic.py --output <new-report.json>",
+      "expected": "Pump activity and fluid passage shall be distinguished. Concentrate drive and delivered liquid require separate versioned observations; older observations show unavailable fields. No mechanical RPM shall be claimed. Test C++/Python round trips and a dry-line fixture.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
+        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "overview-final-fb58c49756a14ebf",
+        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
+        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+      }
+    },
+    {
+      "id": "SYN-TEST-004",
+      "requirements": [
+        "SYN-REQ-004"
+      ],
+      "procedure": "test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; python3 tools/verify_synoptic.py --output <new-report.json>",
+      "expected": "Dialysate traversal, bypass and unknown route shall be distinguished with labels and valve/path geometry. Motion in a bypass shall not imply membrane traversal. Test bypass with positive feed and zero/unknown feed.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
+        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "overview-final-fb58c49756a14ebf",
+        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
+        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+      }
+    },
+    {
+      "id": "SYN-TEST-005",
+      "requirements": [
+        "SYN-REQ-005"
+      ],
+      "procedure": "test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; python3 tools/verify_synoptic.py --output <new-report.json>",
+      "expected": "Phase progress, phase/session time, net UF and substitution totals versus explicitly labelled current-prescription goals shall remain visible on home. Totals come from authoritative meters and survive pause/resume; no UI integration or invented target history. Test paused totals, HD, changed prescriptions and unavailable observations.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
+        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "overview-final-fb58c49756a14ebf",
+        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
+        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+      }
+    },
+    {
+      "id": "SYN-TEST-006",
+      "requirements": [
+        "SYN-REQ-006"
+      ],
+      "procedure": "test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; python3 tools/verify_synoptic.py --output <new-report.json>; test_synoptic.SynopticTests.test_sdl_resize_finger_input_and_focus_cancellation",
+      "expected": "Filled icons shall accompany text on navigation and actions. Guided controls shall have at least 48 logical pixels height; STOP shall remain visible outside scrollable content. Reflow shall support 800x890, 1100x890 and 1440x1000 without scaling hit targets. Test bounds, non-overlap and real LVGL rendering.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
+        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "overview-final-fb58c49756a14ebf",
+        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
+        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+      }
+    },
+    {
+      "id": "SYN-TEST-007",
+      "requirements": [
+        "SYN-REQ-007"
+      ],
+      "procedure": "test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory; python3 tools/verify_synoptic.py --output <new-report.json>",
+      "expected": "Chamber fractions shall use measured fractions. Container bars shall be explicitly relative to first observed session inventory, with absolute quantities/units; missing baselines and unavailable telemetry shall not show fabricated capacity. Session changes reset presentation history. Test inventory depletion, stale data and reset.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
+        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "overview-final-fb58c49756a14ebf",
+        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
+        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+      }
+    },
+    {
+      "id": "SYN-TEST-008",
+      "requirements": [
+        "SYN-REQ-008"
+      ],
+      "procedure": "test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; python3 tools/verify_synoptic.py --output <new-report.json>",
+      "expected": "A reduced-motion toggle shall freeze decorative motion without hiding numerical values, route, status or progress. Motion limits shall be visible and documented. Verify freeze and continued value updates.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
+        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "overview-final-fb58c49756a14ebf",
+        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
+        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+      }
+    },
+    {
+      "id": "SYN-TEST-009",
+      "requirements": [
+        "SYN-REQ-009"
+      ],
+      "procedure": "test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; test_synoptic.SynopticTests.test_post_tracer_enters_venous_chamber_before_return; python3 tools/verify_synoptic.py --output <new-report.json>",
+      "expected": "Dialysate outlet and bypass shall remain outside the venous chamber and lead to effluent. POST substitution shall enter a dedicated venous-chamber inlet; PRE enters before the filter. Blood enters above and leaves below. Non-joining crossings shall have visible clearance.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
+        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "overview-final-fb58c49756a14ebf",
+        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
+        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+      }
+    },
+    {
+      "id": "SYN-TEST-010",
+      "requirements": [
+        "SYN-REQ-010"
+      ],
+      "procedure": "test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; test_synoptic.SynopticTests.test_sdl_resize_finger_input_and_focus_cancellation; test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory; python3 tools/verify_synoptic.py --output <new-report.json>",
+      "expected": "Home shall prioritize the filter and extracorporeal flow with a simplified overview, animated fluid-direction cues and measured acid/bicarbonate liquid, dialysate feed, drain, membrane UF and substitution quantities in mL/min. Mechanical roller motion, tanks and full valve plumbing shall be confined to the Blood circuit and Hydraulics tabs. PRE/POST destination, bypass, zero/unknown flow, freshness and reduced motion remain explicit. Test distinct render modes, actual tab events, source-to-value mapping and simplified topology at all three fixture sizes.",
+      "result": "passed",
+      "evidence": {
+        "path": "assurance/evidence/animated-synoptic/overview-final-report.json",
+        "sha256": "b00bcf764c59c444a1e39a60e8806131a7ef0a9ac843ba27871c8f15d9955799",
+        "baseline": "dialysislab-integrated-m8-e8c497c-2026-10-08",
+        "run_id": "overview-final-fb58c49756a14ebf",
+        "executed_at": "2026-10-16T05:03:55.668691+00:00",
+        "reviewer": "Automated execution; independent acceptance pending",
+        "environment": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0; LVGL 9.6.0",
+        "verification_input_sha256": "fb58c49756a14ebfd3ce3126c70cbddba7e41041a7302b255ce17ba67de24ead"
+      }
     }
   ],
   "prerequisites": [

@@ -1,6 +1,14 @@
 # Current baseline: verification and acceptance
 
-Document ID SVR-01; revision 7; prepared 2026-10-14; approval pending.
+Document ID SVR-01; revision 8; prepared 2026-10-15; approval pending.
+
+The animated Trama change is an implemented review candidate. Its [protocol](SYNOPTIC.md)
+records source-bound LVGL, motion, protocol and preparation regression outcomes,
+with Unix IPC/hosted CI and representative-user acceptance explicitly separate.
+It adds observation fields and presentation behavior, not a new solver-accuracy claim.
+The earlier preparation and numerical records below remain historical unless their
+input-bound applicability checks pass on the current code.
+
 The first concentrate-preparation increment is an implemented review candidate.
 MIX-REQ-001–016 are allocated to production code and executable tests; replacement
 MIX-REQ-017 remains deferred. Use the [preparation protocol](PREPARATION.md) and

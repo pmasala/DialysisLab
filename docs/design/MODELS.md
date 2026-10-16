@@ -76,6 +76,13 @@ inventory to regulate liquid level. Liquid continuity and pressure are solved
 implicitly, so arterial draw, pump flow and venous return can differ while chamber
 volumes change. Isolation freezes retained volumes in this simulator.
 
+In dynamic transport, POST substitution enters the venous chamber before the
+venous tubing and patient return. The chamber assumes perfect mixing of its liquid;
+its gas pocket is not an entrained-bubble transport or separation model. Bubble
+capture efficiency, degassing and mixing-induced air-detector signals are absent.
+Level-alarm tests therefore do not verify bubble-trap performance. See the
+[topology correction and scoped tracer check](ANIMATED_SYNOPTIC.md).
+
 Pump and pressure sensor responses have finite time constants. Two ideal matched
 balancing chambers displace equal fresh and spent volumes; changeover holds flow
 for 30 ms. An extra UF pump controls dialysate removal. Dialysate storage is

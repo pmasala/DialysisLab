@@ -666,6 +666,106 @@ rendered here. A method name proves that a test exists, not that it ran or fully
 
 **Current acceptance:** not independently approved; no historical result inherited.
 
+#### SYN-TEST-001
+
+**Requirements:** SYN-REQ-001.
+
+**Procedure:** test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; python3 tools/verify_synoptic.py --output <new-report.json>
+
+**Expected:** Treatment home shall show a large simplified external dialyzer and extracorporeal circuit with directional flow and explicit HD / HDF PRE / HDF POST routing. Roller pumps, chamber detail, containers and full plumbing shall be available in dedicated Blood circuit and Hydraulics tabs. Render each mode and assert active branches and view allocation.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### SYN-TEST-002
+
+**Requirements:** SYN-REQ-002.
+
+**Procedure:** test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory; python3 tools/verify_synoptic.py --output <new-report.json>
+
+**Expected:** Motion shall use current valid observed/model telemetry, never prescribed flow. Zero flow freezes phase; stale/invalid telemetry freezes motion and displays its status, without portraying unknown as zero. Changing flow preserves phase. Unit checks exercise zero, restart, rate changes and loss/recovery of freshness.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### SYN-TEST-003
+
+**Requirements:** SYN-REQ-003.
+
+**Procedure:** test_document_contracts.WireWitnessTests.test_concentrate_drive_is_distinct_from_dry_liquid_and_legacy_is_absent; python3 tools/verify_synoptic.py --output <new-report.json>
+
+**Expected:** Pump activity and fluid passage shall be distinguished. Concentrate drive and delivered liquid require separate versioned observations; older observations show unavailable fields. No mechanical RPM shall be claimed. Test C++/Python round trips and a dry-line fixture.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### SYN-TEST-004
+
+**Requirements:** SYN-REQ-004.
+
+**Procedure:** test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; python3 tools/verify_synoptic.py --output <new-report.json>
+
+**Expected:** Dialysate traversal, bypass and unknown route shall be distinguished with labels and valve/path geometry. Motion in a bypass shall not imply membrane traversal. Test bypass with positive feed and zero/unknown feed.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### SYN-TEST-005
+
+**Requirements:** SYN-REQ-005.
+
+**Procedure:** test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; python3 tools/verify_synoptic.py --output <new-report.json>
+
+**Expected:** Phase progress, phase/session time, net UF and substitution totals versus explicitly labelled current-prescription goals shall remain visible on home. Totals come from authoritative meters and survive pause/resume; no UI integration or invented target history. Test paused totals, HD, changed prescriptions and unavailable observations.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### SYN-TEST-006
+
+**Requirements:** SYN-REQ-006.
+
+**Procedure:** test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; python3 tools/verify_synoptic.py --output <new-report.json>; test_synoptic.SynopticTests.test_sdl_resize_finger_input_and_focus_cancellation
+
+**Expected:** Filled icons shall accompany text on navigation and actions. Guided controls shall have at least 48 logical pixels height; STOP shall remain visible outside scrollable content. Reflow shall support 800x890, 1100x890 and 1440x1000 without scaling hit targets. Test bounds, non-overlap and real LVGL rendering.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### SYN-TEST-007
+
+**Requirements:** SYN-REQ-007.
+
+**Procedure:** test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory; python3 tools/verify_synoptic.py --output <new-report.json>
+
+**Expected:** Chamber fractions shall use measured fractions. Container bars shall be explicitly relative to first observed session inventory, with absolute quantities/units; missing baselines and unavailable telemetry shall not show fabricated capacity. Session changes reset presentation history. Test inventory depletion, stale data and reset.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### SYN-TEST-008
+
+**Requirements:** SYN-REQ-008.
+
+**Procedure:** test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; python3 tools/verify_synoptic.py --output <new-report.json>
+
+**Expected:** A reduced-motion toggle shall freeze decorative motion without hiding numerical values, route, status or progress. Motion limits shall be visible and documented. Verify freeze and continued value updates.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### SYN-TEST-009
+
+**Requirements:** SYN-REQ-009.
+
+**Procedure:** test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; test_synoptic.SynopticTests.test_post_tracer_enters_venous_chamber_before_return; python3 tools/verify_synoptic.py --output <new-report.json>
+
+**Expected:** Dialysate outlet and bypass shall remain outside the venous chamber and lead to effluent. POST substitution shall enter a dedicated venous-chamber inlet; PRE enters before the filter. Blood enters above and leaves below. Non-joining crossings shall have visible clearance.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### SYN-TEST-010
+
+**Requirements:** SYN-REQ-010.
+
+**Procedure:** test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; test_synoptic.SynopticTests.test_sdl_resize_finger_input_and_focus_cancellation; test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory; python3 tools/verify_synoptic.py --output <new-report.json>
+
+**Expected:** Home shall prioritize the filter and extracorporeal flow with a simplified overview, animated fluid-direction cues and measured acid/bicarbonate liquid, dialysate feed, drain, membrane UF and substitution quantities in mL/min. Mechanical roller motion, tanks and full valve plumbing shall be confined to the Blood circuit and Hydraulics tabs. PRE/POST destination, bypass, zero/unknown flow, freshness and reduced motion remain explicit. Test distinct render modes, actual tab events, source-to-value mapping and simplified topology at all three fixture sizes.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
 ### Experiments and inspection
 
 #### M7-TEST-001
@@ -936,6 +1036,7 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 - `test_document_contracts.ContractRegisterTests.test_bad_wire_bounds_and_duplicate_fields_are_rejected`
 - `test_document_contracts.ContractRegisterTests.test_unallocated_parent_and_partial_scope_remain_visible`
 - `test_document_contracts.WireWitnessTests.test_actual_cpp_serializers_match_documented_positions_and_python_decoders`
+- `test_document_contracts.WireWitnessTests.test_concentrate_drive_is_distinct_from_dry_liquid_and_legacy_is_absent`
 - `test_document_contracts.WireWitnessTests.test_python_configuration_encoder_matches_documented_field_order`
 - `test_document_contracts.WireWitnessTests.test_cpp_python_reject_every_documented_numeric_boundary_violation`
 - `test_document_contracts.WireWitnessTests.test_all_current_configuration_fields_reject_outside_bounds_in_actual_plant`
@@ -945,6 +1046,7 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 - `test_documentation.DocumentationTests.test_historical_pass_does_not_become_current_acceptance`
 - `test_documentation.DocumentationTests.test_last_requirement_edit_invalidates_generated_candidate`
 - `test_documentation.DocumentationTests.test_missing_and_outside_root_links_are_rejected`
+- `test_documentation.DocumentationTests.test_current_report_selection_preserves_history_and_rejects_drift`
 - `test_documentation.DocumentationTests.test_unallocated_or_duplicate_requirements_cannot_disappear`
 
 ### [tests/test_dynamics.py](../../tests/test_dynamics.py)
@@ -1115,6 +1217,13 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 - `test_security.SecurityTests.test_broker_four_slow_clients_are_bounded_and_recover`
 - `test_security.SecurityTests.test_partial_device_request_cannot_extend_plant_liveness`
 - `test_security.SecurityTests.test_killed_broker_terminates_actual_children_preserves_unknown_stop`
+
+### [tests/test_synoptic.py](../../tests/test_synoptic.py)
+
+- `test_synoptic.SynopticTests.test_post_tracer_enters_venous_chamber_before_return`
+- `test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory`
+- `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`
+- `test_synoptic.SynopticTests.test_sdl_resize_finger_input_and_focus_cancellation`
 
 ### [tests/test_traceability.py](../../tests/test_traceability.py)
 

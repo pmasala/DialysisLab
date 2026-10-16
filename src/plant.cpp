@@ -402,7 +402,10 @@ public:
                     device_samples[i].dialysate_pressure=circuit.physical.dialysate_pressure;
                     device_samples[i].heater_power=online.heater_power;device_samples[i].acid_remaining=online.acid_remaining;
                     device_samples[i].bicarbonate_remaining=online.bicarbonate_remaining;device_samples[i].raw_conductivity=online.conductivity_raw();
-                    if(online.preparation.enabled){auto& o=device_samples[i];o.preparation=true;o.preparation_ready=online.preparation.ready;o.preparation_fault=online.preparation.fault;}
+                    if(online.preparation.enabled){auto& o=device_samples[i];o.preparation=true;o.preparation_ready=online.preparation.ready;o.preparation_fault=online.preparation.fault;
+                        const auto& p=online.preparation;o.activity=true;o.acid_drive=p.acid_pump.drive;o.bicarbonate_drive=p.bicarbonate_pump.drive;
+                        o.acid_liquid=p.sensors.observed.acid_flow;o.bicarbonate_liquid=p.sensors.observed.bicarbonate_flow;
+                        o.concentrate_valid=dl::PrepController::fresh(p.sensors.observed,p.time);}
                 }
             }
             if (machine_set) { machine.sequence=n; machine.time=t; }

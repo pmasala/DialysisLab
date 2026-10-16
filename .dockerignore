@@ -93,3 +93,6 @@
 !scenarios/preparation_hd.json
 !scenarios/preparation_hdf_pre.json
 !scenarios/preparation_hdf_post.json
+!src/ui/flow_motion.hpp
+!src/ui/vector.hpp
+!src/ui/animated_synoptic.hpp
