@@ -71,7 +71,7 @@ struct View {
     explicit View(lv_obj_t* screen,std::function<void(const std::string&)> cb):callback(std::move(cb)){
         root=panel(screen,0,0,1100,890);lv_obj_set_style_pad_all(root,0,0);lv_obj_set_style_bg_color(root,lv_color_hex(ice),0);lv_obj_set_style_text_font(root,&dialysis_font,0);lv_obj_set_style_text_color(root,lv_color_hex(ink),0);
         masthead=panel(root,0,0,1100,44);lv_obj_set_style_radius(masthead,0,0);lv_obj_set_style_bg_color(masthead,lv_color_hex(ink),0);lv_obj_set_style_text_color(masthead,lv_color_hex(0xffffff),0);label(masthead,10,-2,1020,"DIALYSISLAB   /   TRAMA                                              SIMULATION ONLY");
-        const char* ids[]={"HOME","BLOOD_TAB","FLUID_TAB","TRENDS_TAB","RX_TAB"};const char* captions[]={"Treatment","Blood circuit","Hydraulics","Trends","Prescription"};
+        const char* ids[]={"HOME","BLOOD_TAB","FLUID_TAB","TRENDS_TAB","RX_TAB"};const char* captions[]={"Overview","Blood circuit","Hydraulics","Trends","Prescription"};
         for(int i=0;i<5;++i)button(root,ids[i],captions[i],20+i*214,54,204);
         const char* steps[]={"1 Tests","2 Priming","3 Connect","4 Therapy","5 Return","6 Disconnect","7 Disinfect","8 Ready"};
         for(int i=0;i<8;++i)milestones[i]=label(root,22+i*134,110,132,steps[i]);
@@ -91,11 +91,11 @@ struct View {
             t.origin=label(t.root,14,96,178,"UNAVAILABLE");lv_obj_set_style_text_color(t.origin,lv_color_hex(muted),0);
         }
         infusion=label(home,12,270,1036,"");
-        overview=std::make_unique<flow_ui::View>(home);
+        overview=std::make_unique<flow_ui::View>(home,flow_ui::Presentation::overview);
         button(root,"MOTION","Motion on",870,98,210);
         for(int i=0;i<2;++i){total_cards[i]=panel(root,20+i*535,582,525,70);lv_obj_set_style_pad_all(total_cards[i],8,0);total_labels[i]=label(total_cards[i],0,0,500,"");total_bars[i]=lv_bar_create(total_cards[i]);lv_obj_set_pos(total_bars[i],0,48);lv_obj_set_size(total_bars[i],500,6);lv_bar_set_range(total_bars[i],0,1000);lv_obj_set_style_bg_color(total_bars[i],lv_color_hex(aqua),0);lv_obj_set_style_bg_color(total_bars[i],lv_color_hex(accent),LV_PART_INDICATOR);}
         blood_page=panel(root,20,250,1060,318);fluid_page=panel(root,20,250,1060,318);
-        blood_circuit=std::make_unique<flow_ui::View>(blood_page);
+        blood_circuit=std::make_unique<flow_ui::View>(blood_page,flow_ui::Presentation::blood);
         fluid_circuit=std::make_unique<flow_ui::View>(fluid_page);
         blood_info=label(blood_page,16,405,1000,"");fluid_info=label(fluid_page,16,405,1000,"");
         trends_page=panel(root,20,250,1060,318);button(trends_page,"GUIDED_TREND","Next quantity",840,5,180);

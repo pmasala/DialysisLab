@@ -212,9 +212,12 @@ struct App {
         return guided_ui::allowed(m,action);
     }
     void click(const std::string& id) {
-        if(guided_active){
+        // Read-only tabs follow the visible view, including before the first sample.
+        if(!lv_obj_is_hidden(guided->root)){
             const char* tabs[]={"HOME","BLOOD_TAB","FLUID_TAB","TRENDS_TAB","RX_TAB"};
             for(int i=0;i<5;++i)if(id==tabs[i]){guided->switch_page(i);return;}
+        }
+        if(guided_active){
             if(id=="GUIDED_TREND"){guided->metric=(guided->metric+1)%(selected && selected->view.observation.dynamic?24:selected && selected->view.observation.physical?18:12);return;}
             if(id!="CONFIRM" && id!="CANCEL" && id!="STOP" && (!selected || !guided_live() || !action_allowed(id))){local_feedback="Operation unavailable in this phase";return;}
         }

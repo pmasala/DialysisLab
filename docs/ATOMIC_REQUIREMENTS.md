@@ -1392,7 +1392,7 @@ Preparation evidence shall identify requirements, implementation revision, param
 
 ## SYN-OBL-001 — SYN-REQ-001
 
-Treatment home shall show a large central circuit with an external dialyzer, roller pumps, chamber levels, containers, directional connectors and explicit HD / HDF PRE / HDF POST routing. Render each mode and assert active branches.
+Treatment home shall show a large simplified external dialyzer and extracorporeal circuit with directional flow and explicit HD / HDF PRE / HDF POST routing. Roller pumps, chamber detail, containers and full plumbing shall be available in dedicated Blood circuit and Hydraulics tabs. Render each mode and assert active branches and view allocation.
 
 **Acceptance:** Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.
 
@@ -1493,6 +1493,18 @@ Dialysate outlet and bypass shall remain outside the venous chamber and lead to 
 **Acceptance:** Exact intended connector endpoints and no dialysate intersection with the venous-chamber rectangle in actual HD/PRE/POST, bypass and stale renders at all three test sizes. A separate POST tracer check uses an independent scalar mixing oracle with 1e-12 mmol/L tolerance and existing 1e-6 mmol residual limit. Proposed engineering criteria; no bubble-capture or independent usability acceptance.
 
 **Coverage:** Actual drawn segment endpoints and chamber exclusion in all fixture sizes, modes, bypass and stale states; additional POST tracer regression in test_synoptic. No bubble-trap validation.
+
+**Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
+
+**Existing test:** `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale`.
+
+## SYN-OBL-010 — SYN-REQ-010
+
+Home shall prioritize the filter and extracorporeal flow with a simplified overview, animated fluid-direction cues and measured acid/bicarbonate liquid, dialysate feed, drain, membrane UF and substitution quantities in mL/min. Mechanical roller motion, tanks and full valve plumbing shall be confined to the Blood circuit and Hydraulics tabs. PRE/POST destination, bypass, zero/unknown flow, freshness and reduced motion remain explicit. Test distinct render modes, actual tab events, source-to-value mapping and simplified topology at all three fixture sizes.
+
+**Acceptance:** Proposed engineering criteria recorded before implementation in the design. No independent acceptance is inferred from execution.
+
+**Coverage:** Synthetic telemetry and real LVGL rendering/pointer checks; Unix IPC and physical touch hardware are separate gates.
 
 **Design:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md).
 

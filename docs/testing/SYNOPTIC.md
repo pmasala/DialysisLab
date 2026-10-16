@@ -1,7 +1,7 @@
 # Animated synoptic verification
 
 Document ID STP-SYN-01; 2026-10-16; engineering review candidate.
-Requirements and predeclared checks: [SYN-REQ-001–009](../design/ANIMATED_SYNOPTIC.md).
+Requirements and predeclared checks: [SYN-REQ-001–010](../design/ANIMATED_SYNOPTIC.md).
 
 ## Reproduction
 
@@ -26,8 +26,8 @@ identifies the published documentation and evidence as well.
 | Procedure | Coverage |
 |---|---|
 | `test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory` | Linear range/clamps; zero/restart; phase continuity; bounded frame gap; stale/recovery; modeled drive vs dry output; route unknown/bypass; reduced motion; inventory/session reset and same-epoch reconnect |
-| `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale` | Actual drawn connectors exclude dialysate from the venous chamber and terminate POST at its inlet; blood enters above and exits below; LVGL pixels change with motion; HD/PRE/POST at 800x890, 1100x890, 1440x1000; bounds, icon plus text, target height, STOP hit-test; pause totals; stale, bypass, old telemetry, reduced motion and reset |
-| `test_synoptic.SynopticTests.test_sdl_resize_finger_input_and_focus_cancellation` | Actual SDL dummy-window resize, single-finger ownership, duplicate mouse suppression, focus-loss cancellation and confirmation label dimensions |
+| `test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale` | Home/Blood/Hydraulics render allocations (0/1/5 mechanical pumps), independent displayed liquid/feed/drain/membrane-UF values, real pointer tab events; actual drawn connectors exclude dialysate from the venous chamber and terminate POST at its inlet; blood enters above and exits below; LVGL pixels change with motion; HD/PRE/POST at 800x890, 1100x890, 1440x1000; bounds, icon plus text, target height, STOP hit-test; pause totals; stale, bypass, old telemetry, reduced motion and reset |
+| `test_synoptic.SynopticTests.test_sdl_resize_finger_input_and_focus_cancellation` | Actual tab navigation through production callbacks before the first telemetry sample; SDL dummy-window resize, single-finger ownership, duplicate mouse suppression, focus-loss cancellation and confirmation label dimensions |
 | `test_guided.GuidedUnitTests` | Existing lifecycle/interlocks, observed-vs-prescribed rendering, three real Plant/patient cycles over pipes and fluid balances |
 | `test_document_contracts.WireWitnessTests` | Actual C++ serializers and Python decoder; all numeric boundaries, non-finite/truncated/extra frames; OBS5–12 compatibility; drive vs dry liquid |
 | `test_synoptic.SynopticTests.test_post_tracer_enters_venous_chamber_before_return` | Independent scalar mixing oracle: POST tracer enters the dynamic venous compartment, then venous tubing; upstream compartments remain tracer-free; no bubble-capture claim |
@@ -44,10 +44,15 @@ were visually inspected, including alarm, stale, bypass and prescription states.
 
 [Narrow layout](../images/animated-synoptic-narrow.png) and
 [bypass state](../images/animated-synoptic-bypass.png) are project-rendered synthetic fixtures.
+[Blood circuit detail](../images/animated-synoptic-blood.png) and
+[Hydraulics detail](../images/animated-synoptic-hydraulics.png) contain mechanical motion
+and component detail. Home preserves phase/time/volume meters around the simpler
+filter/extracorporeal view. Feed, drain, membrane UF and UF-pump observations are
+independent; the regression fixture intentionally supplies different values.
 
 Current source-bound outcomes are recorded in
-[the UI report](../../assurance/evidence/animated-synoptic/topology-final-report.json) and
-[preparation regression report](../../assurance/evidence/animated-synoptic/topology-final-preparation.json).
+[the UI report](../../assurance/evidence/animated-synoptic/overview-final-report.json) and
+[preparation regression report](../../assurance/evidence/animated-synoptic/overview-final-preparation.json).
 [Development checks](../../assurance/evidence/animated-synoptic/development.json)
 retain earlier failures and environmental blocks. These are synthetic technical
 checks, not a representative-user study or approval of the proposed visual limits.
@@ -71,3 +76,10 @@ the ambiguous geometry and is superseded for topology review by these captures.
 Intermediate [topology checks](../../assurance/evidence/animated-synoptic/topology-report.json)
 and [preparation checks](../../assurance/evidence/animated-synoptic/topology-preparation.json)
 precede the final non-joining bypass-crossing collars and remain source-bound history.
+
+The [initial overview run](../../assurance/evidence/animated-synoptic/overview-report.json)
+and [preparation recheck](../../assurance/evidence/animated-synoptic/overview-preparation.json)
+precede the final bypass-label clearance fix.
+[Overview development findings](../../assurance/evidence/animated-synoptic/overview-development.json)
+preserve the compile, navigation and visual defects encountered and resolved.
+The previous topology-final reports remain unchanged and do not cover SYN-REQ-010.

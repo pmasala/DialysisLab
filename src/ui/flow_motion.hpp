@@ -35,6 +35,7 @@ struct Epochs {
 struct State {
     enum Pump {blood,acid,bicarbonate,uf,sub,count};
     std::array<Motion,count> pumps{};
+    std::array<Motion,2> outlets{}; // observed drain and membrane UF, independent of feed/pump
     std::array<Motion,4> liquid{}; // dialysate, acid, bicarbonate, substitution
     std::array<double,count> rates{};
     std::array<bool,count> available{};
@@ -62,6 +63,8 @@ struct State {
         liquid[1].advance(o.acid_liquid,30,seconds,concentrate_current&&was_current&&!reduced);
         liquid[2].advance(o.bicarbonate_liquid,30,seconds,concentrate_current&&was_current&&!reduced);
         liquid[3].advance(o.q.replacement,60,seconds,current&&was_current&&!reduced);
+        outlets[0].advance(o.dialysate_drain,500,seconds,current&&was_current&&o.dynamic&&!reduced);
+        outlets[1].advance(o.q.blood.uf,10,seconds,current&&was_current&&!reduced);
         acid_inventory.sample(o.acid_remaining,current&&o.physical);
         bicarbonate_inventory.sample(o.bicarbonate_remaining,current&&o.physical);
     }

@@ -657,7 +657,7 @@ Guide the simulated treatment from initial checks through disinfection with stat
 
 ### SYN-REQ-001
 
-Treatment home shall show a large central circuit with an external dialyzer, roller pumps, chamber levels, containers, directional connectors and explicit HD / HDF PRE / HDF POST routing. Render each mode and assert active branches.
+Treatment home shall show a large simplified external dialyzer and extracorporeal circuit with directional flow and explicit HD / HDF PRE / HDF POST routing. Roller pumps, chamber detail, containers and full plumbing shall be available in dedicated Blood circuit and Hydraulics tabs. Render each mode and assert active branches and view allocation.
 
 **Acceptance:** Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.
 
@@ -744,6 +744,16 @@ Dialysate outlet and bypass shall remain outside the venous chamber and lead to 
 **Trace:** needs SYN-NEED-001; risks HAZ-004, HAZ-005; design SYN-DES-001; verification SYN-TEST-009.
 
 **Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [docs/design/MODELS.md](../docs/design/MODELS.md), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/test_synoptic.py](../tests/test_synoptic.py), [src/dynamics.hpp](../src/dynamics.hpp), [python/dialysislab/distributed.py](../python/dialysislab/distributed.py).
+
+### SYN-REQ-010
+
+Home shall prioritize the filter and extracorporeal flow with a simplified overview, animated fluid-direction cues and measured acid/bicarbonate liquid, dialysate feed, drain, membrane UF and substitution quantities in mL/min. Mechanical roller motion, tanks and full valve plumbing shall be confined to the Blood circuit and Hydraulics tabs. PRE/POST destination, bypass, zero/unknown flow, freshness and reduced motion remain explicit. Test distinct render modes, actual tab events, source-to-value mapping and simplified topology at all three fixture sizes.
+
+**Acceptance:** Execute the allocated synthetic checks and inspect actual LVGL captures. Thresholds and independent usability acceptance remain proposed. See docs/design/ANIMATED_SYNOPTIC.md.
+
+**Trace:** needs SYN-NEED-001; risks HAZ-004, HAZ-005; design SYN-DES-001; verification SYN-TEST-010.
+
+**Implementation locations:** [docs/design/ANIMATED_SYNOPTIC.md](../docs/design/ANIMATED_SYNOPTIC.md), [src/ui/animated_synoptic.hpp](../src/ui/animated_synoptic.hpp), [src/ui/flow_motion.hpp](../src/ui/flow_motion.hpp), [src/ui/guided.hpp](../src/ui/guided.hpp), [src/ui/device_ui.cpp](../src/ui/device_ui.cpp), [tests/synoptic_view.cpp](../tests/synoptic_view.cpp), [tests/synoptic_motion.cpp](../tests/synoptic_motion.cpp), [tests/synoptic_app.cpp](../tests/synoptic_app.cpp).
 
 ## Experiments and inspection
 

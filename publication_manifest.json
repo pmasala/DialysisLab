@@ -700,7 +700,14 @@
     "tools/verify_preparation.py",
     "tools/verify_reproducibility.py",
     "tools/verify_synoptic.py",
-    "tools/verify_ui_compose.py"
+    "tools/verify_ui_compose.py",
+    "docs/images/animated-synoptic-blood.png",
+    "docs/images/animated-synoptic-hydraulics.png",
+    "assurance/evidence/animated-synoptic/overview-development.json",
+    "assurance/evidence/animated-synoptic/overview-report.json",
+    "assurance/evidence/animated-synoptic/overview-preparation.json",
+    "assurance/evidence/animated-synoptic/overview-final-report.json",
+    "assurance/evidence/animated-synoptic/overview-final-preparation.json"
   ],
   "owned_assets": {
     "assurance/evidence/m6/captures/hd.png": {
@@ -866,23 +873,37 @@
     },
     "docs/images/animated-synoptic.png": {
       "origin": "project-rendered-ui",
-      "sha256": "f853ce72c29649165eac69f59472931cb54ff8a421866d67baf6b11767424843",
-      "source_artifact": "build/topology-final-captures/home-1100-mode-2.ppm",
-      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/topology-final-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/topology-final-captures/home-1100-mode-2.ppm docs/images/animated-synoptic.png",
+      "sha256": "796c2308889ac74f8b4630926f9e26ed2b14e8f4d94426019a0094f818facb48",
+      "source_artifact": "build/overview-reviewed-captures/home-1100-mode-2.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/overview-reviewed-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/overview-reviewed-captures/home-1100-mode-2.ppm docs/images/animated-synoptic.png",
       "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
     },
     "docs/images/animated-synoptic-narrow.png": {
       "origin": "project-rendered-ui",
-      "sha256": "b1c1ee12c2abded6ecdc27d68d42d1571f4e937ffd1604402fdc3a478bfbcdc9",
-      "source_artifact": "build/topology-final-captures/home-800-mode-2.ppm",
-      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/topology-final-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/topology-final-captures/home-800-mode-2.ppm docs/images/animated-synoptic-narrow.png",
+      "sha256": "21c25b38b534b2aa24fe1a874f373ebe3667b94eb661655392dd1fd6964c1ef8",
+      "source_artifact": "build/overview-reviewed-captures/home-800-mode-2.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/overview-reviewed-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/overview-reviewed-captures/home-800-mode-2.ppm docs/images/animated-synoptic-narrow.png",
       "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
     },
     "docs/images/animated-synoptic-bypass.png": {
       "origin": "project-rendered-ui",
-      "sha256": "fed01bad74f83878dbb38058ecaa0ac847253a634256e0859d8fcca00f55ecf1",
-      "source_artifact": "build/topology-final-captures/bypass-1100.ppm",
-      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/topology-final-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/topology-final-captures/bypass-1100.ppm docs/images/animated-synoptic-bypass.png",
+      "sha256": "a43722d7d8e20bdaa633aaee0d95ed417d761f9418b5a0451f5b8c39f16824c7",
+      "source_artifact": "build/overview-reviewed-captures/bypass-1100.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/overview-reviewed-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/overview-reviewed-captures/bypass-1100.ppm docs/images/animated-synoptic-bypass.png",
+      "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
+    },
+    "docs/images/animated-synoptic-blood.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "a8c4424e7b154135bd8b322c35b1adab4bfcfb3d6b9d0ca13bb3e2241b17eebe",
+      "source_artifact": "build/overview-reviewed-captures/blood-1100-mode-2.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/overview-reviewed-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/overview-reviewed-captures/blood-1100-mode-2.ppm docs/images/animated-synoptic-blood.png",
+      "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
+    },
+    "docs/images/animated-synoptic-hydraulics.png": {
+      "origin": "project-rendered-ui",
+      "sha256": "0a20ea62fb61b4c88247bf2f884ca829247cf1e40cd7aad02f3a7062195b8c3f",
+      "source_artifact": "build/overview-reviewed-captures/hydraulics-1100-mode-2.ppm",
+      "command": "DIALYSISLAB_SYNOPTIC_CAPTURES=build/overview-reviewed-captures python3 tools/verify_synoptic.py --output <new-report.json>; python3 tools/capture_png.py build/overview-reviewed-captures/hydraulics-1100-mode-2.ppm docs/images/animated-synoptic-hydraulics.png",
       "rights": "Original DialysisLab LVGL vectors and synthetic fixture. Existing Apache-2.0 Roboto attribution retained; no third-party artwork."
     }
   }

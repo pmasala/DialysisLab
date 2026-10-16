@@ -14,6 +14,12 @@ int main(int argc,char** argv){
     }
     lv_area_t bounds;lv_obj_get_coords(app.guided->widgets.at("MOTION"),&bounds);
     auto finger=[&](uint32_t type,SDL_FingerID id){SDL_Event e{};e.type=type;e.tfinger.fingerId=id;e.tfinger.x=((bounds.x1+bounds.x2)/2.0f)/app.width;e.tfinger.y=((bounds.y1+bounds.y2)/2.0f)/app.height;assert(SDL_PushEvent(&e)==1);app.events();lv_indev_read(app.input_device);};
+    for(auto tab:{std::pair<const char*,int>{"BLOOD_TAB",1},{"FLUID_TAB",2},{"HOME",0}}){
+        lv_obj_get_coords(app.guided->widgets.at(tab.first),&bounds);
+        finger(SDL_FINGERDOWN,10);finger(SDL_FINGERUP,10);
+        assert(app.guided->page==tab.second);
+    }
+    lv_obj_get_coords(app.guided->widgets.at("MOTION"),&bounds);
     finger(SDL_FINGERDOWN,10);finger(SDL_FINGERDOWN,20);assert(app.touch && *app.touch==10);
     finger(SDL_FINGERUP,20);assert(app.touch && *app.touch==10);
     finger(SDL_FINGERUP,10);assert(!app.touch && app.guided->overview->state.reduced);

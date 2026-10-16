@@ -9,7 +9,7 @@ This is simulator presentation, not numerical verification or clinical validatio
 
 | ID | Requirement and proposed acceptance check |
 |---|---|
-| SYN-REQ-001 | Treatment home shall show a large central circuit with an external dialyzer, roller pumps, chamber levels, containers, directional connectors and explicit HD / HDF PRE / HDF POST routing. Render each mode and assert active branches. |
+| SYN-REQ-001 | Treatment home shall show a large simplified external dialyzer and extracorporeal circuit with directional flow and explicit HD / HDF PRE / HDF POST routing. Roller pumps, chamber detail, containers and full plumbing shall be available in dedicated Blood circuit and Hydraulics tabs. Render each mode and assert active branches and view allocation. |
 | SYN-REQ-002 | Motion shall use current valid observed/model telemetry, never prescribed flow. Zero flow freezes phase; stale/invalid telemetry freezes motion and displays its status, without portraying unknown as zero. Changing flow preserves phase. Unit checks exercise zero, restart, rate changes and loss/recovery of freshness. |
 | SYN-REQ-003 | Pump activity and fluid passage shall be distinguished. Concentrate drive and delivered liquid require separate versioned observations; older observations show unavailable fields. No mechanical RPM shall be claimed. Test C++/Python round trips and a dry-line fixture. |
 | SYN-REQ-004 | Dialysate traversal, bypass and unknown route shall be distinguished with labels and valve/path geometry. Motion in a bypass shall not imply membrane traversal. Test bypass with positive feed and zero/unknown feed. |
@@ -18,6 +18,38 @@ This is simulator presentation, not numerical verification or clinical validatio
 | SYN-REQ-007 | Chamber fractions shall use measured fractions. Container bars shall be explicitly relative to first observed session inventory, with absolute quantities/units; missing baselines and unavailable telemetry shall not show fabricated capacity. Session changes reset presentation history. Test inventory depletion, stale data and reset. |
 | SYN-REQ-008 | A reduced-motion toggle shall freeze decorative motion without hiding numerical values, route, status or progress. Motion limits shall be visible and documented. Verify freeze and continued value updates. |
 | SYN-REQ-009 | The rendered dialysate outlet and bypass shall remain outside the venous chamber and lead only to the effluent circuit. POST substitution shall terminate at a dedicated venous-chamber inlet, PRE before the filter; blood shall enter the chamber from above and leave below. Non-joining crossings shall have visible clearance. Check production-drawn segment endpoints and exclusion regions in HD/PRE/POST, bypass and stale captures at every supported test size. |
+| SYN-REQ-010 | Home shall prioritize the filter and extracorporeal flow with a simplified overview, animated fluid-direction cues and measured acid/bicarbonate liquid, dialysate feed, drain, membrane UF and substitution quantities in mL/min. Mechanical roller motion, tanks and full valve plumbing shall be confined to the Blood circuit and Hydraulics tabs. PRE/POST destination, bypass, zero/unknown flow, freshness and reduced motion remain explicit. Test distinct render modes, actual tab events, source-to-value mapping and simplified topology at all three fixture sizes. |
+
+## Progressive detail requested on 2026-10-16
+
+The maintainer found the home circuit too complex. SYN-REQ-010 refines the visual
+allocation of SYN-REQ-001: the realistic mechanical assembly belongs in detail
+tabs; home retains a simplified external filter, blood path and venous chamber.
+The existing Blood circuit and Hydraulics tabs are the dedicated synoptic views,
+with the same persistent phase/time/meters and STOP outside their content.
+Concentrates feed a labeled preparation boundary, never the blood side. Only the
+selected PRE or POST infusion connection is shown on home; HD shows infusion off.
+
+Quantities are observed liquid outputs (not concentrate drive), observed dialysate
+feed and drain, membrane UF (`q.blood.uf`), and substitution (`q.replacement`).
+UF-pump flow remains separately named in Hydraulics. Drain must never be inferred
+as feed plus UF: transient storage can change that equality. No new integration,
+sensor, controller or physical equation is introduced. Visual flow speed keeps
+the existing declared clamps and unavailable signals display `--`.
+
+Proposed acceptance before implementation: home draws no mechanical rollers,
+valves or stock containers; each requested quantity is independently mapped to
+telemetry with units and availability; HD/PRE/POST and bypass endpoints remain
+unambiguous; existing touch sizes and permanent meters still pass. Detail-tab
+navigation must be exercised through real LVGL pointer events. This is an
+engineering candidate, not independent usability acceptance.
+
+Execution: the final overview report records 13 passing UI/guided/protocol checks,
+including actual SDL finger navigation even before the first telemetry sample.
+Home draws zero mechanical pumps, Blood circuit one, and Hydraulics five. The
+quantity fixture deliberately separates feed 500, drain 543, membrane UF 65 and
+UF-pump 72 mL/min. Final captures were checked after moving the bypass line below
+the UF value. Earlier successful captures and development defects remain history.
 
 ## Topology correction requested on 2026-10-16
 
@@ -85,7 +117,7 @@ its original layout; the new responsive contract applies to guided operation.
 
 For positive flow, display speed is `clamp(Q / Qref, 0.12, 1.5)` cycles per wall
 second; at zero it is exactly zero. Reference rates (mL/min) are blood 300,
-dialysate 500, concentrate drive/liquid 30, UF pump 10 and substitution 60.
+dialysate 500, concentrate drive/liquid 30, UF pump and membrane UF 10, observed drain 500 and substitution 60.
 Consequently speed ratios are proportional only between the clamps. The live
 legend declares the range and explicitly says this is not RPM. Phase increments
 are capped at 100 ms per frame, are accumulated rather than recomputed from
@@ -103,11 +135,11 @@ modeled. Dialysate routing uses observed bypass, never the prescribed state.
 
 Blood and dialysate paths remain separate at the opaque dialyzer shell. Motion is
 shown in connectors; valve barriers and text distinguish bypass from traversal.
-HDF PRE and POST use the observed infusion route. Thin inactive paths retain
-context; unknown paths are dashed. Detailed geometry is an educational diagram,
+HDF PRE and POST use the observed infusion route. The hydraulic detail retains thin inactive paths for
+context; home shows only the selected infusion branch. Unknown paths are dashed. Detailed geometry is an educational diagram,
 not a manufacturer drawing or a physical hydraulic assembly specification.
 
-Container bars are remaining quantity divided by the first valid session reading,
+Container bars in Hydraulics are remaining quantity divided by the first valid session reading,
 clamped to [0,1]. Absolute acid mL and bicarbonate g stay visible. This is neither
 nominal container capacity nor an estimate of remaining treatment time. Fractions
 in the blood chambers come directly from dynamic observations. Session change

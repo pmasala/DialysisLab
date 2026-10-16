@@ -17,7 +17,10 @@ int main(){
     dl::ui::View v;v.valid=true;auto& o=v.observation;o.q.blood={1,500,1,300,100,5};o.dynamic=o.physical=o.activity=o.preparation=true;
     o.q.replacement=60;o.dialysate_flow=500;o.acid_drive=12;o.bicarbonate_drive=18;o.acid_liquid=0;o.bicarbonate_liquid=15;o.concentrate_valid=true;
     o.acid_remaining=1000;o.bicarbonate_remaining=500;
+    o.dialysate_drain=250;o.uf_pump=70;
     State s;s.update(v,true,100);s.update(v,true,200);
+    assert(std::abs(s.outlets[0].phase-.05)<1e-12 && std::abs(s.outlets[1].phase-.05)<1e-12);
+    assert(s.outlets[0].phase!=s.liquid[0].phase && s.outlets[1].phase!=s.pumps[State::uf].phase);
     assert(s.pumps[State::acid].phase>0 && s.liquid[1].phase==0); // dry output despite drive
     assert(s.route==Route::dialyzer && s.acid_inventory.initial==1000);
     auto phase=s.pumps[State::blood].phase;s.update(v,false,300);assert(s.pumps[State::blood].phase==phase && s.route==Route::unknown);

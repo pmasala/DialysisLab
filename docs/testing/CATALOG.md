@@ -672,7 +672,7 @@ rendered here. A method name proves that a test exists, not that it ran or fully
 
 **Procedure:** test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; python3 tools/verify_synoptic.py --output <new-report.json>
 
-**Expected:** Treatment home shall show a large central circuit with an external dialyzer, roller pumps, chamber levels, containers, directional connectors and explicit HD / HDF PRE / HDF POST routing. Render each mode and assert active branches.
+**Expected:** Treatment home shall show a large simplified external dialyzer and extracorporeal circuit with directional flow and explicit HD / HDF PRE / HDF POST routing. Roller pumps, chamber detail, containers and full plumbing shall be available in dedicated Blood circuit and Hydraulics tabs. Render each mode and assert active branches and view allocation.
 
 **Current acceptance:** not independently approved; no historical result inherited.
 
@@ -753,6 +753,16 @@ rendered here. A method name proves that a test exists, not that it ran or fully
 **Procedure:** test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; test_synoptic.SynopticTests.test_post_tracer_enters_venous_chamber_before_return; python3 tools/verify_synoptic.py --output <new-report.json>
 
 **Expected:** Dialysate outlet and bypass shall remain outside the venous chamber and lead to effluent. POST substitution shall enter a dedicated venous-chamber inlet; PRE enters before the filter. Blood enters above and leaves below. Non-joining crossings shall have visible clearance.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### SYN-TEST-010
+
+**Requirements:** SYN-REQ-010.
+
+**Procedure:** test_synoptic.SynopticTests.test_actual_lvgl_modes_responsive_touch_and_stale; test_synoptic.SynopticTests.test_sdl_resize_finger_input_and_focus_cancellation; test_synoptic.SynopticTests.test_motion_freshness_routes_and_inventory; python3 tools/verify_synoptic.py --output <new-report.json>
+
+**Expected:** Home shall prioritize the filter and extracorporeal flow with a simplified overview, animated fluid-direction cues and measured acid/bicarbonate liquid, dialysate feed, drain, membrane UF and substitution quantities in mL/min. Mechanical roller motion, tanks and full valve plumbing shall be confined to the Blood circuit and Hydraulics tabs. PRE/POST destination, bypass, zero/unknown flow, freshness and reduced motion remain explicit. Test distinct render modes, actual tab events, source-to-value mapping and simplified topology at all three fixture sizes.
 
 **Current acceptance:** not independently approved; no historical result inherited.
 

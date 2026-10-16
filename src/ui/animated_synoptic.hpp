@@ -2,17 +2,22 @@
 #include "flow_motion.hpp"
 #include "vector.hpp"
 #include <iomanip>
+#include <map>
 namespace flow_ui {
 inline std::string number(double v,int digits=1){std::ostringstream s;s<<std::fixed<<std::setprecision(digits)<<v;return s.str();}
+enum class Presentation {overview,blood,hydraulics};
 struct View {
     struct Segment {char fluid;double x1,y1,x2,y2;};
     std::vector<Segment> rendered_segments; // Actual connector geometry, also inspected by LVGL regressions.
     std::vector<std::pair<double,double>> rendered_bridges;
+    Presentation presentation;
+    int rendered_pumps=0;
+    std::map<std::string,std::string> quantities;
     lv_obj_t* root;
     State state;
     dl::ui::View view;
     std::string status="UNAVAILABLE";
-    explicit View(lv_obj_t* parent){
+    explicit View(lv_obj_t* parent,Presentation mode=Presentation::hydraulics):presentation(mode){
         root=lv_obj_create(parent);lv_obj_remove_style_all(root);lv_obj_set_size(root,640,390);lv_obj_set_scrollable(root,false);lv_obj_set_clickable(root,false);
         lv_obj_add_event_cb(root,[](lv_event_t* e){static_cast<View*>(lv_event_get_user_data(e))->draw(e);},LV_EVENT_DRAW_MAIN,this);
     }
@@ -30,14 +35,15 @@ struct View {
         if(state.reduced)return;
         for(int i=0;i<2;++i){double p=std::fmod(phase+i*.5,1.0);c.box(x1+(x2-x1)*p-3,y1+(y2-y1)*p-3,6,6,color,3);}
     }
-    void pump(const vector_ui::Canvas& c,double x,double y,int id,const char* title) const {
+    void pump(const vector_ui::Canvas& c,double x,double y,int id,const char* title) {
         using namespace vector_ui;
         c.box(x-31,y-31,62,62,ice,16,edge,1);c.box(x-25,y-25,50,50,0xffffff,25,ink,2);c.box(x-18,y-18,36,36,aqua,18);
+        ++rendered_pumps;
         double a=state.pumps[id].phase*6.283185307179586;
         for(int i=0;i<3;++i){double theta=a+i*2.0943951023931953;double px=x+13*std::cos(theta),py=y+13*std::sin(theta);c.line(x,y,px,py,ink,5);c.box(px-6,py-6,12,12,ink,6);c.box(px-3,py-3,6,6,0xffffff,3);}
         c.box(x-5,y-5,10,10,teal,5);
         const double tx=x-(id==State::acid || id==State::bicarbonate?18:44);
-        const double ty=id==State::sub?y-47:y-59;c.box(tx,ty,48,23,0xffffff);c.text(tx,ty,100,title);
+        const double ty=id==State::sub?y-47:y-59;if(*title){c.box(tx,ty,48,23,0xffffff);c.text(tx,ty,100,title);}
         if(id!=State::blood){double vx=x-(id==State::acid || id==State::bicarbonate?10:29);c.box(vx,y+32,62,23,0xffffff);c.text(vx,y+32,85,state.available[id]?number(state.rates[id]):"--",muted);}
     }
     void chamber(const vector_ui::Canvas& c,double x,double y,double level,const char* title) const {
@@ -61,9 +67,79 @@ struct View {
         else c.text(x+17,y+22,24,"?");
         c.box(x-3,y+69,78,23,0xffffff);c.text(x-3,y+69,165,state.current&&view.observation.physical?number(value,0)+unit:"--");
     }
+    void draw_overview(const vector_ui::Canvas& c){
+        using namespace vector_ui;
+        const auto& o=view.observation;const bool live=state.current,detail=presentation==Presentation::blood;
+        const bool route_known=state.route!=Route::unknown,bypass=state.route==Route::bypass;
+        const bool pre=live&&o.q.route==1,post=live&&o.q.route==2;
+        const bool sub_known=live&&(pre||post||o.q.replacement==0);
+        const double qb=live?o.q.blood.blood:0,qd=live&&o.dynamic?o.dialysate_flow:0;
+        auto value=[&](const char* name,double amount,bool known){std::string text=known?number(amount)+" mL/min":"-- mL/min";quantities[name]=text;return text;};
+        rendered_segments.clear();rendered_bridges.clear();
+        auto line=[&](char type,double x,double y,double xx,double yy,bool known,double rate,double phase,uint32_t color){
+            rendered_segments.push_back({type,x,y,xx,yy});path(c,x,y,xx,yy,known,rate,phase,color);
+        };
+        auto b=[&](double x,double y,double xx,double yy){line('B',x,y,xx,yy,live,qb,state.pumps[State::blood].phase,ink);};
+        c.box(0,0,640,390,0xffffff,12,edge,1);
+        c.text(16,9,240,detail?"BLOOD / DETAIL":view.machine.mode==1?"HDF PRE / OVERVIEW":view.machine.mode==2?"HDF POST / OVERVIEW":"HD / OVERVIEW");
+        c.text(285,9,340,!live?status:!route_known?"Dialysate route unknown":bypass?"BYPASS / filter isolated":qd>0?"Dialysate through filter":"No dialysate flow",teal);
+        c.text(16,44,225,"Blood  "+value("blood",o.q.blood.blood,live));
+        b(40,115,100,115);b(100,115,260,115);
+        b(396,115,435,115);b(435,115,435,65);b(435,65,484,65);b(484,65,484,80);
+        b(484,142,484,165);b(484,165,600,165);
+        c.box(18,94,26,43,ice,8,ink,2);c.box(24,82,14,14,ink,7);c.text(16,139,95,"Patient");
+        c.box(586,143,28,40,ice,8,ink,2);c.text(542,184,85,"Return");
+        if(detail){pump(c,100,115,State::blood,"");chamber(c,170,85,o.arterial_level,"Arterial");}
+        else {c.box(84,99,32,32,ice,16,ink,2);c.triangle(95,105,107,115,95,125,ink);}
+        // Functional exterior cartridge: blood end ports; fluid ports below.
+        c.box(260,80,136,100,ice,18,ink,2);c.box(274,89,108,80,0xdce9ef,8);
+        c.box(280,94,94,8,0xffffff,4);c.box(260,81,14,98,ink,6);c.box(382,81,14,98,ink,6);
+        c.text(289,117,95,"Dialyzer");
+        chamber(c,470,80,o.venous_level,"");c.text(462,43,105,"Venous");
+        // Show only the selected substitution destination; no inactive plumbing.
+        if(pre){
+            c.text(16,171,165,"Infusion PRE");c.text(16,194,175,value("infusion",o.q.replacement,sub_known));
+            line('S',200,205,200,115,sub_known,o.q.replacement,state.liquid[3].phase,teal);c.box(196,111,8,8,teal,4);
+        } else {
+            c.text(514,72,120,post?"Infusion POST":sub_known?"Infusion off":"Infusion --");
+            c.text(514,118,125,value("infusion",o.q.replacement,sub_known));
+            if(post){line('S',540,112,498,112,sub_known,o.q.replacement,state.liquid[3].phase,teal);c.box(494,108,8,8,teal,2);}
+        }
+        if(detail){
+            c.text(16,252,290,"Arterial level  "+(live&&o.dynamic?number(o.arterial_level*100)+" %":"--"));
+            c.text(338,252,290,"Venous level  "+(live&&o.dynamic?number(o.venous_level*100)+" %":"--"));
+            c.text(16,294,600,"Roller motion = flow cue; pressure and volume remain measured values.",muted);
+            c.text(16,337,600,"Prepared-fluid pumps and valves: Hydraulics tab",muted);
+        } else {
+            c.text(16,234,195,"Dialysate feed");c.text(16,257,195,value("dialysate",o.dialysate_flow,live&&o.dynamic));
+            c.text(424,216,205,"Drain total");c.text(424,239,205,value("drain",o.dialysate_drain,live&&o.dynamic));
+            if(route_known&&bypass){
+                line('D',215,306,410,306,true,qd,state.liquid[0].phase,teal);
+                line('D',410,306,605,306,true,o.dialysate_drain,state.outlets[0].phase,teal);
+            }else{
+                line('D',215,250,280,250,route_known,qd,state.liquid[0].phase,teal);
+                line('D',280,250,280,180,route_known,qd,state.liquid[0].phase,teal);
+                line('D',375,180,375,278,route_known,o.dialysate_drain,state.outlets[0].phase,teal);
+                line('D',375,278,605,278,route_known,o.dialysate_drain,state.outlets[0].phase,teal);
+            }
+            // Membrane UF is a functional transfer marker, not the UF-pump reading.
+            line('U',328,180,328,226,live,o.q.blood.uf,state.outlets[1].phase,teal);
+            value("uf",o.q.blood.uf,live);c.text(287,235,90,"UF filter");
+            c.text(297,258,75,live?number(o.q.blood.uf):"--");c.text(287,282,90,"mL/min",muted);
+            c.box(16,310,608,45,ice,8);
+            c.text(25,318,175,"Preparation inputs",muted);
+            c.text(235,318,165,"Acid "+value("acid",o.acid_liquid,state.concentrate_current));
+            c.text(429,318,190,"Bicarb "+value("bicarbonate",o.bicarbonate_liquid,state.concentrate_current));
+            path(c,215,343,215,319,state.concentrate_current,o.acid_liquid,state.liquid[1].phase,teal);
+            path(c,411,343,411,319,state.concentrate_current,o.bicarbonate_liquid,state.liquid[2].phase,teal);
+        }
+        c.text(16,363,620,!live?status+" / motion held":state.reduced?"Reduced motion / values remain live":"Flows: mL/min | motion 0.12-1.5 cycles/s, not RPM",muted);
+    }
     void draw(lv_event_t* e){
         using namespace vector_ui;
         lv_area_t area;lv_obj_get_coords(root,&area);Canvas c{lv_event_get_layer(e),area.x1,area.y1,lv_obj_get_width(root)/640.0,lv_obj_get_height(root)/390.0};
+        rendered_pumps=0;quantities.clear();
+        if(presentation!=Presentation::hydraulics){draw_overview(c);return;}
         const auto& o=view.observation;const bool current=state.current;
         const double blood=current?o.q.blood.blood:0;
         const bool route_known=state.route!=Route::unknown,bypass=state.route==Route::bypass;

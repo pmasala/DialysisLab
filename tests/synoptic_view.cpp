@@ -59,8 +59,8 @@ int main(int argc,char** argv){
         m.guided=true;m.stage=dl::treatment;m.safe=3;m.primed=m.patient_connected=true;m.treatment_elapsed=3600000;m.phase_elapsed=600000;m.time=3600000;
         o.q.blood={1,3600000,1,280,110,65};o.q.temperature=37;o.q.conductivity=14;o.q.integrity=1;
         o.physical=o.extended=o.dynamic=o.preparation=o.activity=o.concentrate_valid=true;o.acid_drive=12;o.bicarbonate_drive=18;o.acid_liquid=11.5;o.bicarbonate_liquid=17.4;
-        o.arterial=-80;o.downstream=70;o.tmp=105;o.dialysate_flow=500;o.uf_pump=65;o.arterial_level=.48;o.venous_level=.53;o.acid_remaining=5000;o.bicarbonate_remaining=550;o.uf_total=800;o.sub_total=300;
-        auto refresh=[&](bool live=true,int mask=0){lv_tick_inc(50);ui.update(v,live,live?"LIVE":"STALE",mask);lv_timer_handler();lv_refr_now(display);if(ui.page==0)topology(*ui.overview);};
+        o.arterial=-80;o.downstream=70;o.tmp=105;o.dialysate_flow=500;o.dialysate_drain=543;o.uf_pump=72;o.arterial_level=.48;o.venous_level=.53;o.acid_remaining=5000;o.bicarbonate_remaining=550;o.uf_total=800;o.sub_total=300;
+        auto refresh=[&](bool live=true,int mask=0){lv_tick_inc(50);ui.update(v,live,live?"LIVE":"STALE",mask);lv_timer_handler();lv_refr_now(display);if(ui.page==2)topology(*ui.fluid_circuit);};
         auto click=[&](lv_obj_t* button){auto a=area(button);pointer.x=(a.x1+a.x2)/2;pointer.y=(a.y1+a.y2)/2;pointer.down=true;lv_tick_inc(40);lv_indev_read(input);pointer.down=false;lv_tick_inc(40);lv_indev_read(input);};
         const std::string directory=argc>1?argv[1]:"";
         for(auto dimensions:{std::pair<int,int>{1100,890},{800,890},{1440,1000}}){
@@ -68,6 +68,21 @@ int main(int argc,char** argv){
             for(int mode=0;mode<3;++mode){
                 m.mode=o.q.route=mode;m.replacement=o.q.replacement=mode?60:0;refresh();
                 assert(ui.overview->state.route==flow_ui::Route::dialyzer);
+                assert(ui.overview->presentation==flow_ui::Presentation::overview && ui.overview->rendered_pumps==0);
+                const auto& quantities=ui.overview->quantities;
+                assert(quantities.at("acid")=="11.5 mL/min" && quantities.at("bicarbonate")=="17.4 mL/min");
+                assert(quantities.at("dialysate")=="500.0 mL/min" && quantities.at("drain")=="543.0 mL/min");
+                assert(quantities.at("uf")=="65.0 mL/min");
+                assert(quantities.at("infusion")==std::string(mode?"60.0":"0.0")+" mL/min");
+                bool infusion_port=false;
+                for(const auto& segment:ui.overview->rendered_segments){
+                    if(segment.fluid=='D')assert(!(std::max(segment.x1,segment.x2)>=470 && std::min(segment.x1,segment.x2)<=498 && std::max(segment.y1,segment.y2)>=80 && std::min(segment.y1,segment.y2)<=142));
+                    if(segment.fluid=='S'){
+                        assert(mode!=0);infusion_port=true;
+                        assert(mode==1?(segment.x2==200 && segment.y2==115):(segment.x2==498 && segment.y2==112));
+                    }
+                }
+                assert(infusion_port==(mode!=0));
                 auto moving=pixels;refresh();assert(pixels!=moving);
                 for(const char* id:{"HOME","BLOOD_TAB","FLUID_TAB","TRENDS_TAB","RX_TAB","MOTION","STOP","PAUSE","FINISH"}){
                     auto* obj=ui.widgets.at(id);auto a=area(obj);assert(a.x1>=0 && a.y1>=0 && a.x2<w && a.y2<h && a.y2-a.y1+1>=48);
@@ -78,13 +93,22 @@ int main(int argc,char** argv){
                 auto totals=std::string(lv_label_get_text(ui.total_labels[0]));assert(totals.find("500.0 mL")!=std::string::npos);
                 m.stage=dl::paused;refresh();assert(std::string(lv_label_get_text(ui.total_labels[0]))==totals);m.stage=dl::treatment;refresh();
                 capture(directory,"home-"+std::to_string(w)+"-mode-"+std::to_string(mode),w,h,pixels);
+                click(ui.widgets.at("BLOOD_TAB"));assert(action=="BLOOD_TAB");ui.switch_page(1);refresh();
+                assert(ui.blood_circuit->rendered_pumps==1);
+                capture(directory,"blood-"+std::to_string(w)+"-mode-"+std::to_string(mode),w,h,pixels);
+                click(ui.widgets.at("FLUID_TAB"));assert(action=="FLUID_TAB");ui.switch_page(2);refresh();
+                assert(ui.fluid_circuit->rendered_pumps==5);
+                capture(directory,"hydraulics-"+std::to_string(w)+"-mode-"+std::to_string(mode),w,h,pixels);
+                click(ui.widgets.at("HOME"));assert(action=="HOME");ui.switch_page(0);refresh();
             }
             refresh(true,8191);auto alarm=area(ui.alarm),next=area(ui.next_step),intent=area(ui.intent);assert(alarm.y2<next.y1 && next.y2<intent.y1);
             capture(directory,"alarms-"+std::to_string(w),w,h,pixels);
             refresh();auto before=ui.overview->state.pumps[0].phase;click(ui.widgets.at("MOTION"));refresh();assert(ui.overview->state.reduced && ui.overview->state.pumps[0].phase==before);
             o.uf_total=900;refresh();assert(std::string(lv_label_get_text(ui.total_labels[0])).find("600.0 mL")!=std::string::npos);click(ui.widgets.at("MOTION"));refresh();assert(!ui.overview->state.reduced);
             o.bypass=1;refresh();assert(ui.overview->state.route==flow_ui::Route::bypass);capture(directory,"bypass-"+std::to_string(w),w,h,pixels);
+            ui.switch_page(2);refresh();refresh(false);ui.switch_page(0);refresh();
             before=ui.overview->state.pumps[0].phase;refresh(false);assert(ui.overview->state.pumps[0].phase==before && ui.overview->state.route==flow_ui::Route::unknown);
+            for(const auto& pair:ui.overview->quantities)assert(pair.second=="-- mL/min");
             assert(std::string(lv_label_get_text(ui.total_labels[0])).find("--")!=std::string::npos);capture(directory,"stale-"+std::to_string(w),w,h,pixels);
             o.bypass=0;o.uf_total=800;
         }
