@@ -1,0 +1,33 @@
+DialysisLab — prototipo interamente nel browser
+
+1. Estrai questo archivio in una cartella.
+2. Da quella cartella esegui: python3 -m http.server 8000
+   (su Windows puoi usare: py -m http.server 8000)
+3. Apri http://localhost:8000 nel browser.
+4. Seleziona HD/HDF_PRE/HDF_POST, premi Nuova simulazione.
+5. Per vedere il ciclo completo, seleziona Ciclo automatico e premi Avvia tempo.
+   Oppure usa i comandi LVGL con le conferme interattive.
+
+Il processo HTTP serve soltanto i file statici. Tutti i calcoli C++, il paziente
+Python e la grafica LVGL girano nel browser: nessun backend di simulazione.
+Non aprire index.html direttamente come file, perché il browser limita i worker.
+Il ciclo dimostrativo include preparazione reale e 60 secondi di trattamento.
+Esporta stato scarica configurazione e stato finale; chiudere la pagina perde
+la sessione. 1x/20x/100x sono velocità richieste; il calcolo può rallentarle.
+
+Verificato con Chromium 155.0.8059.84. Safari e dispositivi mobili non qualificati.
+Larghezza minima UI 800 px: sui telefoni è necessario lo scorrimento orizzontale.
+
+Evidenze: 3383 passi HD/PRE/POST, 1945225 confronti numerici nativo/Wasm;
+4 test browser/trasporto, 13 UI/protocollo e 18 preparazione superati.
+Il confronto verifica la portabilità, non chiude CLOSE-NUM-01.
+
+Prototipo didattico. Nessun uso clinico. La separazione nativa dei processi
+non è preservata nel singolo worker del browser.
+Pyodide MPL-2.0 e condizioni Python richiedono la revisione esplicita prevista
+in DEPENDENCY_POLICY.md prima del merge; inventario transitivo da completare
+prima di un rilascio pubblico. Vedi notices/BROWSER_DEPENDENCIES.md.
+
+build-identity.json registra base Git, stato dirty durante la build, hash esatti
+dei sorgenti e degli artefatti effettivamente verificati. Il commit finale locale
+con gli stessi sorgenti applicativi è 6d505b4c730cb3f889d042e81b013b93a71387a0.
