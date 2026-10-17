@@ -10,6 +10,7 @@ const fs=require('fs'),path=require('path');
  py.globals.set('configuration',fs.readFileSync(root+'/scenario.json','utf8'));
  py.runPython("import sys,json\nsys.path.insert(0,'/app')");
  py.runPython(fs.readFileSync('tests/browser/campaign.py','utf8'));
- py.runPython('campaign(json.loads(configuration),transport,reset_engine,emit)');
+ py.globals.set('manual_delay_ticks',Number(process.argv[4]||0));
+ py.runPython('campaign(json.loads(configuration),transport,reset_engine,emit,manual_delay_ticks)');
  fs.closeSync(output);console.log('Wasm/Pyodide complete HD/PRE/POST campaign passed');
 })().catch(e=>{console.error(String(e.stack||e));process.exit(1)});

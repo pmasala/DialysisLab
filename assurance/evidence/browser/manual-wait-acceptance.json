@@ -1,0 +1,85 @@
+{
+  "status": "passed; independent review pending",
+  "reported_error": "User reports error at Start priming; exact error text not supplied",
+  "reproduced": {
+    "url": "https://pmasala.github.io/DialysisLab/",
+    "pages_commit": "628be88c929c2167106627152ec753b5bafed8b4",
+    "mode": "HD",
+    "automatic": false,
+    "speed": 100,
+    "ticks": 2200,
+    "error": "RuntimeError: configured tick limit reached"
+  },
+  "portability_report": "assurance/evidence/browser/manual-wait-final.json",
+  "browser_ui": {
+    "passed": true,
+    "method": "Actual hosted Chromium UI through canvas pointer input; no test actuator",
+    "mode": "HD",
+    "build_display": "147cb6365c0e / 4f5424c19ad412d9",
+    "preparation_observed_ticks": 5310,
+    "priming_observed_ticks": 5333,
+    "manual_steps": [
+      "Ciclo automatico unchecked, speed 100x, start clock",
+      "Wait beyond 5200 ticks; change to 1x",
+      "Click Start priming and Confirm in LVGL canvas",
+      "Observe PRIMING, alarm 0; enable automatic cycle at 100x",
+      "Observe CLEANED, 5634 ticks, alarm 0; export interactive session"
+    ],
+    "export": {
+      "path": "assurance/evidence/browser/manual-wait-export.json",
+      "sha256": "2d6317e390656e61c6f57d429845469c9ba21e37569434102a53c64fefc5e7a1"
+    },
+    "limitations": [
+      "Only HD exercised manually in hosted browser; all three delayed full cycles compared native/Wasm separately.",
+      "Short synthesized pointer clicks sometimes did not register; held 300 ms click delivered confirmation. Touch/interaction timing is not qualified.",
+      "Terminal wrapper status retains tempo in avanzamento although clock button is Riprendi tempo; cosmetic status ordering issue remains."
+    ]
+  },
+  "reuse_rejection": {
+    "passed": true,
+    "check": "Reject altered compiled source identity before copying binaries",
+    "returncode": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"/workspace/scratch/e824c0ed1b7e/DialysisLab-ui/tools/build_browser.py\", line 72, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/workspace/scratch/e824c0ed1b7e/DialysisLab-ui/tools/build_browser.py\", line 28, in main\n    if compiled_inputs != recorded:raise ValueError('Compiled inputs changed; full rebuild required')\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Compiled inputs changed; full rebuild required\n"
+  },
+  "executed_at": "2026-10-17T04:33:57.620399+00:00",
+  "source_revision": "147cb6365c0ee94be9ae47696959a8c36efd01c9",
+  "source_input_sha256": "4f5424c19ad412d9b54173970e30f286ca463a8ef951e13083fab9148c1d7ee8",
+  "unit_tests": {
+    "passed": 4,
+    "skipped": 2,
+    "output": "test_bad_sequence_stops_session_and_rejects_further_ticks (test_browser.BrowserRuntimeTests.test_bad_sequence_stops_session_and_rejects_further_ticks) ... ok\ntest_bounded_session_retains_tick_limit (test_browser.BrowserRuntimeTests.test_bounded_session_retains_tick_limit) ... ok\ntest_delayed_manual_prime (test_browser.BrowserRuntimeTests.test_delayed_manual_prime) ... ok\ntest_full_wasm_portability (test_browser.BrowserRuntimeTests.test_full_wasm_portability) ... skipped 'explicit browser build/runtime acceptance required'\ntest_native_tick_stop_and_old_session (test_browser.BrowserRuntimeTests.test_native_tick_stop_and_old_session) ... ok\ntest_real_browser_ui (test_browser.BrowserRuntimeTests.test_real_browser_ui) ... skipped 'explicit Chromium/Wasm acceptance required'\n\n----------------------------------------------------------------------\nRan 6 tests in 17.401s\n\nOK (skipped=2)\n",
+    "source_sha256": {
+      "tests/test_browser.py": "a688d9b059cc1df7a468c7adf893b5f00a72093f72297c2e3b1623c78fc5531b",
+      "python/dialysislab/browser.py": "404c7f300aa8eb587544d641a104c6e6d9b3c7e1c27b12e495de09021bb79f6b",
+      "src/browser/engine.cpp": "543b665a9b08d0c75c86e1af6372f7a5ee583f4caa191d42c07cfc309a3850ef"
+    }
+  },
+  "bounded_portability_report": "assurance/evidence/browser/bounded-session-portability.json",
+  "initial_structural_checks": {
+    "documentation": "failed: prior preparation execution did not cover changed Python input; requires fresh execution",
+    "traceability": "failed: generated atomic requirements/coverage implementation hashes changed; requires reviewed updates",
+    "dependency": "passed",
+    "standards": "passed",
+    "publication": "passed"
+  },
+  "initial_deployment": {
+    "commit": "a62c632a29fb499ad2d81dc6d4f2684e44cd6924",
+    "tree": "2d6d43aec7ba5bfe853adf499405efd4d8b4e6d7",
+    "workflow_run": 39002617040,
+    "url": "https://pmasala.github.io/DialysisLab/",
+    "changed_assets": [
+      "python-sources.json",
+      "worker.js",
+      "build-identity.json"
+    ],
+    "observation": "Normal reload retained prior identity; added shared scripting asset version query before final deployment"
+  },
+  "deployment": {
+    "commit": "fc70847271e6ddfa6900c7662fc1b6b2c076f0a2",
+    "tree": "d2f04fc2f6df3083e9dfea2d208f7c00089cb471",
+    "workflow_run": 39002834559,
+    "conclusion": "success",
+    "runtime_bytes_match": true,
+    "url": "https://pmasala.github.io/DialysisLab/?v=20261017-manual1"
+  }
+}

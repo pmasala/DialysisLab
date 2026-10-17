@@ -22,7 +22,7 @@ add_executable(ui "${ROOT}/src/browser/ui.cpp" "${ROOT}/src/ui/font.cpp")
 target_include_directories(ui PRIVATE "${ROOT}/src" "${DEPS}/lvgl-9.6.0/include")
 target_link_libraries(ui PRIVATE lvgl SDL2-static)
 target_compile_options(ui PRIVATE -O2 -fexceptions -fno-fast-math)
-target_link_options(ui PRIVATE -O2 -fexceptions -sDISABLE_EXCEPTION_CATCHING=0 -sMODULARIZE=1 -sEXPORT_NAME=createUI -sALLOW_MEMORY_GROWTH=1 -sENVIRONMENT=web "-sEXPORTED_FUNCTIONS=['_main','_browser_view','_browser_result','_browser_disconnected','_browser_page','_browser_resize']" "-sEXPORTED_RUNTIME_METHODS=['ccall','cwrap']")
+target_link_options(ui PRIVATE -O2 -fexceptions -sDISABLE_EXCEPTION_CATCHING=0 -sMODULARIZE=1 -sEXPORT_NAME=createUI -sALLOW_MEMORY_GROWTH=1 -sENVIRONMENT=web "-sEXPORTED_FUNCTIONS=['_main','_browser_view','_browser_result','_browser_disconnected','_browser_page','_browser_resize','_browser_click','_browser_primary','_browser_primary_label','_browser_dialog','_browser_rx_value','_browser_rx_enabled','_browser_review_rx']" "-sEXPORTED_RUNTIME_METHODS=['ccall','cwrap']")
 
 add_executable(engine "${ROOT}/src/browser/engine.cpp")
 target_compile_options(engine PRIVATE -O2 -fexceptions -fno-fast-math)

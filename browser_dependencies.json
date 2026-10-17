@@ -6,7 +6,7 @@
     "release_commit": "b412b6307e541b93dd93f01b61181e15c17302ec",
     "license": "MIT OR NCSA",
     "sdk_archive_sha256": "c0ed25c30e1d747072de0c9053cde27ca83a8d2424e8bc6b7d39dccf42fcba35",
-    "sdk_url": "https://storage.googleapis.com/webassembly/emscripten-releases-builds/linux/b412b6307e541b93dd93f01b61181e15c17302ec-wasm-binaries.tar.xz"
+    "sdk_url": "https://storage.googleapis.com/webassembly/emscripten-releases-builds/linux/b412b6307e541b93dd93f01b61181e15c17302ec/wasm-binaries.tar.xz"
   },
   "pyodide": {
     "version": "0.27.7",

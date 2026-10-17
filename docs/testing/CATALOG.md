@@ -818,6 +818,36 @@ rendered here. A method name proves that a test exists, not that it ran or fully
 
 **Current acceptance:** not independently approved; no historical result inherited.
 
+#### WEB-TEST-006
+
+**Requirements:** WEB-REQ-006.
+
+**Procedure:** test_browser.BrowserRuntimeTests.test_delayed_manual_prime; tools/verify_browser.py --manual-delay-ticks 2400; live browser manual PRIME
+
+**Expected:** Interactive sessions must permit delayed manual PRIME beyond the batch tick limit, preserving physical time and protection behavior; bounded sessions retain their limit and export identifies the profile.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### WEB-TEST-007
+
+**Requirements:** WEB-REQ-007.
+
+**Procedure:** test_mobile.MobileTests.test_lvgl_phone_layout
+
+**Expected:** Reflow the production LVGL guided interface for phone and landscape widths with readable controls, retained actions, scrolling and resize confirmation cancellation.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
+#### WEB-TEST-008
+
+**Requirements:** WEB-REQ-008.
+
+**Procedure:** test_mobile.MobileTests.test_fluid_quality_and_identity
+
+**Expected:** Show arterial red, venous blue and fresh dialysate quality green only for all three valid in-range measurements; orange for known out-of-range and neutral for incomplete quality.
+
+**Current acceptance:** not independently approved; no historical result inherited.
+
 ### Experiments and inspection
 
 #### M7-TEST-001
@@ -1012,6 +1042,8 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 
 - `test_browser.BrowserRuntimeTests.test_native_tick_stop_and_old_session`
 - `test_browser.BrowserRuntimeTests.test_bad_sequence_stops_session_and_rejects_further_ticks`
+- `test_browser.BrowserRuntimeTests.test_delayed_manual_prime`
+- `test_browser.BrowserRuntimeTests.test_bounded_session_retains_tick_limit`
 - `test_browser.BrowserRuntimeTests.test_full_wasm_portability`
 - `test_browser.BrowserRuntimeTests.test_real_browser_ui`
 
@@ -1216,6 +1248,12 @@ Inspect each fixture for process, display and Docker prerequisites; report skipp
 - `test_machine.MachineTests.test_m5_wall_watchdog_terminal_state_and_observation_remain_separate`
 - `test_machine.MachineTests.test_evidence_rejects_forged_flush_water_and_solute`
 - `test_machine.MachineTests.test_configuration_bounds_and_exact_replay`
+
+### [tests/test_mobile.py](../../tests/test_mobile.py)
+
+- `test_mobile.MobileTests.test_fluid_quality_and_identity`
+- `test_mobile.MobileTests.test_lvgl_phone_layout`
+- `test_mobile.MobileTests.test_sdl_mobile_window_dimensions`
 
 ### [tests/test_physical.py](../../tests/test_physical.py)
 
