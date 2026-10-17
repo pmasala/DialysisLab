@@ -1581,3 +1581,27 @@ Delayed manual PRIME must remain usable beyond the batch horizon in an explicitl
 **Design:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md).
 
 **Existing test:** `test_browser.BrowserRuntimeTests.test_delayed_manual_prime`.
+
+## WEB-OBL-007 — WEB-REQ-007
+
+Reflow the production LVGL guided interface for phone and landscape widths with readable controls, retained actions, scrolling and resize confirmation cancellation.
+
+**Acceptance:** Prospective criteria in docs/design/BROWSER_RUNTIME.md; pH availability and actual iPhone hardware qualification remain explicit.
+
+**Coverage:** Synthetic native LVGL plus browser viewport; no physical iPhone/Safari qualification. pH absent from live contract.
+
+**Design:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md).
+
+**Existing test:** `test_mobile.MobileTests.test_lvgl_phone_layout`.
+
+## WEB-OBL-008 — WEB-REQ-008
+
+Show arterial red, venous blue and fresh dialysate quality green only for all three valid in-range measurements; orange for known out-of-range and neutral for incomplete quality.
+
+**Acceptance:** Prospective criteria in docs/design/BROWSER_RUNTIME.md; pH availability and actual iPhone hardware qualification remain explicit.
+
+**Coverage:** Synthetic native LVGL plus browser viewport; no physical iPhone/Safari qualification. pH absent from live contract.
+
+**Design:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md).
+
+**Existing test:** `test_mobile.MobileTests.test_fluid_quality_and_identity`.

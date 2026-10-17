@@ -1,0 +1,63 @@
+{
+  "status": "passed scoped software verification; independent review and physical iPhone qualification pending",
+  "source_revision": "292f2e4242ed6506d2a105fdf4aaa616cf33dc3c",
+  "requirements": [
+    "WEB-REQ-007",
+    "WEB-REQ-008"
+  ],
+  "native_tests": {
+    "passed": 3,
+    "skipped": 0,
+    "output": "test_fluid_quality_and_identity (test_mobile.MobileTests.test_fluid_quality_and_identity) ... ok\ntest_lvgl_phone_layout (test_mobile.MobileTests.test_lvgl_phone_layout) ... ok\ntest_sdl_mobile_window_dimensions (test_mobile.MobileTests.test_sdl_mobile_window_dimensions) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 7.368s\n\nOK\n",
+    "source_sha256": {
+      "tests/test_mobile.py": "e210263edb8d4af7a54d7a461d99c048fddd6ac5b80a9b727f34cca48ff6fa34",
+      "tests/mobile_colors.cpp": "a26b316f1587505070a4977555fc84ff262ebad116005d6a899e528b7eef22b1",
+      "tests/mobile_view.cpp": "2d72fc4e208d6854ced1ac36e18f1dceb7b4a3a928735cad71bda038f4031792",
+      "src/ui/guided.hpp": "83b259571fc73c4f8de6835fcdc7857207e28e043f7ad92953bc460e1953e1b7",
+      "src/ui/fluid_colors.hpp": "379ca1cce0cb75cfec7e50a122444af0bf51c54912bef74ccfe329ed23e26b0f",
+      "src/ui/animated_synoptic.hpp": "2bd65f8c191c6936da5b343a3f43f5db762ee4d07d3380ed0051684dbfe9ba35",
+      "src/ui/device_ui.cpp": "8981e5f42cb78b60ccf8b4dd6b8aeedb2ee0e24da478ef8e5e177b0f8b3d7f53",
+      "src/browser/ui.cpp": "2178b38be953375cfe4c19704d41766032ca245bef0e9b844ae8aec93782e8c3",
+      "web/app.js": "c59b052a5187dcafe951e10efb09a994860529db9de6cea84e44bd5c88d4999b",
+      "web/index.html": "d9d3281d8cc642155c5d08355946201f3807a3dc4f717818d88618739853ff2e",
+      "web/worker.js": "7b3234fe60a536481bddb397f1916e987d7e2f6a9db5cc5db5f1adbb9f38c4c7"
+    }
+  },
+  "regressions": {
+    "synoptic": "assurance/evidence/browser/mobile-synoptic.json",
+    "preparation": "assurance/evidence/browser/mobile-preparation.json"
+  },
+  "development_findings": [
+    "Pinned SDK URL returned 404; corrected to official emsdk manifest path, existing archive SHA256 matched.",
+    "Initial renderer compilation rejected an unused bridge rate parameter; retained idle path width distinction and reran successfully.",
+    "First hosted viewport test found SDL retained minimum width 800 / maximum height 1600, shifting canvas click coordinates. Corrected window bounds to 320 / 2320; added real SDL dummy-driver resize regression. Forwarded mobile wheel to document scrolling. Earlier deployment b7505cc is superseded."
+  ],
+  "scope": "Synthetic software UI verification. No physical iPhone/Safari execution or clinical validation. Live pH is unavailable; light-green complete-quality state not claimed by current protocol.",
+  "portability": "assurance/evidence/browser/mobile-portability.json",
+  "executed_at": "2026-10-17T05:06:27.877346+00:00",
+  "hosted": {
+    "pages_commit": "9c4c9f03ccca3c1ca3d1f959d970ee78ca450a5e",
+    "deployment_run": 39004795936,
+    "deployment_conclusion": "success",
+    "build_input_sha256": "113e22a79d22453d563ec073327424af68a2b764943537ea69478d2ebdb711a6",
+    "preview_url": "https://pmasala.github.io/DialysisLab/mobile-preview.html",
+    "application_url": "https://pmasala.github.io/DialysisLab/?v=20261017-mobile2",
+    "browser": "Chromium, iframe at 390 CSS pixels; selected 320 and 844 layouts also inspected",
+    "observations": [
+      "HD preparation stayed healthy beyond 2400 ticks; actual mobile Start priming and canvas Confirm proceeded to CONFIGURATION with zero alarms.",
+      "Phone inputs retained blood 280 and net UF 4,5 across edits; confirmation showed Blood 280 mL/min and net UF 4.5 mL/min; applied prescription later displayed blood 280.0.",
+      "Changing from 390 to 844 while CONNECT confirmation was open removed it and displayed Layout changed; review the request again.",
+      "After returning to 390, CONNECT and START confirmations reached TREATMENT with zero alarms.",
+      "Live overview showed red arterial path, blue venous chamber/return, feed and drain separate; pH unavailable and neutral dialysate.",
+      "Document wheel scroll over canvas reached metric cards and UF/substitution accumulators; sticky controls stayed visible.",
+      "Sticky STOP reached STOPPED at tick 7212 and displayed Last operation: STOP / acknowledged; fields disabled and outputs unavailable after freshness timeout."
+    ],
+    "limitations": [
+      "No physical iPhone, Safari, OS keyboard or touch-gesture qualification.",
+      "At a 320 px iframe including a classic 15 px desktop scrollbar, available width is below the 320 logical px supported minimum; edge clipping is not a passed 320 px content-viewport test. Native 320 px content layout passed.",
+      "pH unavailable in OBS12: actual live green not asserted. Synthetic quality reducer covers valid green, orange, incomplete and stale.",
+      "Pre-existing terminal status text can still say tempo in avanzamento while STOPPED and Riprendi tempo correctly indicate stopped execution; retained cosmetic limitation."
+    ],
+    "screenshot_sha256": "39e054e98f45f168ff465bbf08da8f251794c92d050dc5e31946b400fbf12d45"
+  }
+}

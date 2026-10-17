@@ -1311,6 +1311,26 @@
       "test": "test_browser.BrowserRuntimeTests.test_delayed_manual_prime",
       "coverage": "Finite synthetic delayed-start regression; independent review, arbitrary duration and cross-browser/device qualification remain open.",
       "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "WEB-OBL-007",
+      "parent": "WEB-REQ-007",
+      "statement": "Reflow the production LVGL guided interface for phone and landscape widths with readable controls, retained actions, scrolling and resize confirmation cancellation.",
+      "acceptance": "Prospective criteria in docs/design/BROWSER_RUNTIME.md; pH availability and actual iPhone hardware qualification remain explicit.",
+      "design": "docs/design/BROWSER_RUNTIME.md",
+      "test": "test_mobile.MobileTests.test_lvgl_phone_layout",
+      "coverage": "Synthetic native LVGL plus browser viewport; no physical iPhone/Safari qualification. pH absent from live contract.",
+      "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "WEB-OBL-008",
+      "parent": "WEB-REQ-008",
+      "statement": "Show arterial red, venous blue and fresh dialysate quality green only for all three valid in-range measurements; orange for known out-of-range and neutral for incomplete quality.",
+      "acceptance": "Prospective criteria in docs/design/BROWSER_RUNTIME.md; pH availability and actual iPhone hardware qualification remain explicit.",
+      "design": "docs/design/BROWSER_RUNTIME.md",
+      "test": "test_mobile.MobileTests.test_fluid_quality_and_identity",
+      "coverage": "Synthetic native LVGL plus browser viewport; no physical iPhone/Safari qualification. pH absent from live contract.",
+      "approval": "proposed; independent approval pending"
     }
   ]
 }

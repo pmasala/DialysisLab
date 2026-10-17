@@ -18,7 +18,26 @@ EMSCRIPTEN_KEEPALIVE void browser_view(const char* epoch,const char* a,const cha
 }
 EMSCRIPTEN_KEEPALIVE void browser_result(const char* result){app->client.result(result);}
 EMSCRIPTEN_KEEPALIVE void browser_disconnected(){app->dismiss();app->client.disconnect();app->local_feedback="Browser simulation unavailable / time held";}
-EMSCRIPTEN_KEEPALIVE void browser_resize(int width){app->resize(std::clamp(width,800,2560),890);}
+EMSCRIPTEN_KEEPALIVE void browser_resize(int width){const int w=std::clamp(width,320,2560),h=w<700?2320:890;if(app->window)SDL_SetWindowSize(app->window,w,h);app->resize(w,h);}
+EMSCRIPTEN_KEEPALIVE void browser_click(const char* id){
+    if(app->guided->widgets.count(id) || std::string(id)=="CANCEL" || std::string(id)=="CONFIRM")app->click(id);
+}
+EMSCRIPTEN_KEEPALIVE const char* browser_primary(){
+    for(const char* id:{"PRIME","CONNECT","START","PAUSE","FINISH","RETURN","DISCONNECT","CLEAN","RECOVER","RESET","RESUME"}){
+        auto* b=app->guided->widgets.at(id);
+        if(!lv_obj_is_hidden(b) && !lv_obj_has_state(b,LV_STATE_DISABLED))return id;
+    }
+    return "";
+}
+EMSCRIPTEN_KEEPALIVE const char* browser_primary_label(){const char* id=browser_primary();return *id?lv_label_get_text(lv_obj_get_child(app->guided->widgets.at(id),0)):"Phase in progress";}
+EMSCRIPTEN_KEEPALIVE int browser_dialog(){return app->dialog?1:0;}
+EMSCRIPTEN_KEEPALIVE const char* browser_rx_value(const char* id){if(std::string(id)!="blood"&&std::string(id)!="uf"&&std::string(id)!="sub")return "";auto it=app->guided->widgets.find(id);if(it==app->guided->widgets.end())return "";return lv_textarea_get_text(it->second);}
+EMSCRIPTEN_KEEPALIVE int browser_rx_enabled(const char* id){auto it=app->guided->widgets.find(id);return app->guided_active && app->guided_live() && it!=app->guided->widgets.end() && !lv_obj_has_state(it->second,LV_STATE_DISABLED);}
+EMSCRIPTEN_KEEPALIVE void browser_review_rx(const char* blood,const char* uf,const char* sub){
+    const char* ids[]={"blood","uf","sub"};const char* values[]={blood,uf,sub};
+    for(int i=0;i<3;++i)if(browser_rx_enabled(ids[i]))lv_textarea_set_text(app->guided->widgets.at(ids[i]),values[i]);
+    app->click("PRESCRIBE");
+}
 EMSCRIPTEN_KEEPALIVE int browser_page(){return app->guided->page;}
 }
 int main(){

@@ -83,7 +83,7 @@ struct App {
             if(SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER)!=0) throw std::runtime_error(SDL_GetError());
             window=SDL_CreateWindow("DialysisLab | SIMULATION",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,width,height,SDL_WINDOW_RESIZABLE);
             if(!window) throw std::runtime_error(SDL_GetError());
-            SDL_SetWindowMinimumSize(window,800,890);SDL_SetWindowMaximumSize(window,2560,1600);
+            SDL_SetWindowMinimumSize(window,320,890);SDL_SetWindowMaximumSize(window,2560,2320);
             renderer=SDL_CreateRenderer(window,-1,SDL_RENDERER_SOFTWARE);
             if(!renderer) throw std::runtime_error(SDL_GetError());
             texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,width,height);
@@ -259,11 +259,12 @@ struct App {
         }
         if(id=="STOP" || id=="ACK") {dismiss();local_feedback=client.submit(job)?"Request sent; verify observed state":"Request not sent: busy";return;}
         dismiss();local_feedback="Review the exact request before confirming";pending=job;pending_generation=snapshot.generation;pending_revision=selected?selected->view.machine.revision:-1;pending_mask=mask;
-        dialog=lv_obj_create(lv_screen_active());lv_obj_set_pos(dialog,(width-std::min(780,width-40))/2,260);lv_obj_set_size(dialog,std::min(780,width-40),270);
+        const bool mobile=width<700;const int dw=std::min(780,width-24);
+        dialog=lv_obj_create(lv_screen_active());lv_obj_set_pos(dialog,(width-dw)/2,mobile?410:260);lv_obj_set_size(dialog,dw,mobile?440:270);
         lv_obj_set_style_bg_color(dialog,lv_color_hex(0xffffff),0);lv_obj_set_style_text_color(dialog,lv_color_hex(0x142d4e),0);lv_obj_set_scrollable(dialog,false);
-        label(dialog,12,8,std::min(720,width-96),"CONFIRM SIMULATED DEVICE REQUEST");label(dialog,12,46,std::min(720,width-96),detail);
-        label(dialog,12,113,std::min(720,width-96),"The services validate and apply this request.\nConfirmation does not release protection.");
-        button("CONFIRM","Confirm",12,172,220,dialog);button("CANCEL","Cancel",250,172,220,dialog);
+        label(dialog,8,8,dw-48,"CONFIRM SIMULATED DEVICE REQUEST");label(dialog,8,mobile?70:46,dw-48,detail);
+        label(dialog,8,mobile?192:113,dw-48,"The services validate and apply this request.\nConfirmation does not release protection.");
+        button("CONFIRM","Confirm",8,mobile?300:172,mobile?dw-48:220,dialog);button("CANCEL","Cancel",mobile?8:250,mobile?362:172,mobile?dw-48:220,dialog);
     }
     void update() {
         snapshot=client.snapshot();auto now=dl::Clock::now();selected=nullptr;mask=0;
@@ -348,8 +349,9 @@ struct App {
         pointer_events.push_back({x,y,pressed});
     }
     void resize(int w,int h) {
-        w=std::clamp(w,800,2560);h=std::clamp(h,890,1600);
+        w=std::clamp(w,320,2560);h=w<700?2320:std::clamp(h,890,1600);
         if(w==width && h==height)return;
+        if(dialog){dismiss();local_feedback="Layout changed; review the request again";}
         lv_indev_reset(input_device,nullptr);physical_pressed=false;touch.reset();pointer_events.clear();mouse_pressed=false;pointer(mouse_x,mouse_y,false);
         lv_refr_now(display);width=w;height=h;framebuffer.resize(static_cast<size_t>(w)*h);
         lv_display_set_resolution(display,w,h);lv_display_set_buffers(display,framebuffer.data(),nullptr,framebuffer.size()*4,LV_DISPLAY_RENDER_MODE_FULL);

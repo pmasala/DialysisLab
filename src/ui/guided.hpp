@@ -117,17 +117,57 @@ struct View {
     void reset_session(){overview->reset();blood_circuit->reset();fluid_circuit->reset();history.clear();last_sequence=-1;}
     static void place(lv_obj_t* obj,int x,int y,int w,int h=-1){lv_obj_set_pos(obj,x,y);lv_obj_set_width(obj,w);if(h>=0)lv_obj_set_height(obj,h);}
     void arrange_actions(){
-        int column=0;const int w=(layout_width-64)/4;
+        int column=0;const bool mobile=layout_width<700;const int w=mobile?(layout_width-32)/2:(layout_width-64)/4;
         for(const char* id:{"PRIME","CONNECT","START","PAUSE","FINISH","RETURN","DISCONNECT","CLEAN","RECOVER","RESET","RESUME","STOP","ACK","SILENCE"}){
             auto* obj=widgets.at(id);if(lv_obj_is_hidden(obj))continue;
-            const int x=std::string(id)=="STOP"?layout_width-20-w:20+column++*(w+8);
-            place(obj,x,layout_height-88,w,52);lv_obj_set_width(lv_obj_get_child(obj,0),w-46);
+            int x,y;
+            if(mobile){x=12+(column%2)*(w+8);y=2060+(column/2)*68;++column;}
+            else{x=std::string(id)=="STOP"?layout_width-20-w:20+column++*(w+8);y=layout_height-88;}
+            place(obj,x,y,w,mobile?60:52);lv_obj_set_width(lv_obj_get_child(obj,0),w-46);
         }
     }
+    void resize_mobile(int w,int h){
+        layout_width=w;layout_height=h;place(root,0,0,w,h);place(masthead,0,0,w,34);
+        text(lv_obj_get_child(masthead,0),"DIALYSISLAB / SIMULATION");place(lv_obj_get_child(masthead,0),4,-6,w-32);
+        const char* tabs[]={"HOME","BLOOD_TAB","FLUID_TAB","TRENDS_TAB","RX_TAB","MOTION"};
+        const char* names[]={"Overview","Blood","Hydraulics","Trends","Prescription",nullptr};
+        const int bw=(w-32)/2;
+        for(int i=0;i<6;++i){auto* b=widgets.at(tabs[i]);place(b,12+(i%2)*(bw+8),42+(i/2)*60,bw,54);lv_obj_set_style_pad_all(b,4,0);auto* title=lv_obj_get_child(b,0);lv_obj_set_width(title,bw-38);if(names[i])text(title,names[i]);}
+        for(auto* item:milestones)lv_obj_set_hidden(item,true);
+        place(phase,14,228,w-28,46);place(progress_bar,14,279,w-28,8);place(phase_detail,14,295,w-28,46);place(time_label,14,342,w-28,46);
+        for(auto* page:{home,blood_page,fluid_page,trends_page,rx_page})place(page,12,398,w-24,1260);
+        lv_obj_set_scrollable(home,false);
+        overview->mobile=true;blood_circuit->mobile=true;
+        place(overview->root,0,0,w-24,620);
+        const int tw=(w-32)/2;
+        for(int i=0;i<6;++i){auto& t=tiles[i];place(t.root,(i%2)*(tw+8),632+(i/2)*172,tw,164);
+            place(t.title,8,4,tw-16,46);place(t.value,8,48,tw-16,38);place(t.unit,8,84,tw-16,23);lv_obj_set_hidden(t.origin,true);
+            auto* ref=lv_obj_get_parent(t.reference);place(ref,8,110,tw-16,46);place(t.reference,0,0,tw-26,46);
+        }
+        place(infusion,8,1154,w-40,100);
+        for(int i=0;i<2;++i){place(total_cards[i],12,1670+i*86,w-24,78);place(total_labels[i],0,0,w-44,52);place(total_bars[i],0,56,w-44,6);}
+        place(safety,12,1842,w-24,206);place(alarm,24,1852,w-48,69);place(next_step,24,1924,w-48,92);place(intent,24,2018,w-48,46);place(feedback,14,2272,w-28,46);
+        for(auto* page:{blood_page,fluid_page}){lv_obj_set_style_pad_all(page,0,0);lv_obj_set_scrollable(page,true);}
+        lv_obj_set_scroll_dir(blood_page,LV_DIR_VER);lv_obj_set_scroll_dir(fluid_page,LV_DIR_ALL);
+        place(blood_circuit->root,0,0,w-24,620);place(blood_info,8,640,w-40,184);
+        place(fluid_circuit->root,0,40,640,390);place(fluid_info,8,448,w-40,230);
+        place(chart,0,72,w-52,300);place(widgets.at("GUIDED_TREND"),0,0,w-52,54);place(trend_label,0,388,w-52,92);
+        place(prescription,0,0,w-52,92);place(widgets.at("MODE"),0,100,w-52,54);
+        const char* fields[]={"blood","uf","sub"};
+        for(int i=0;i<3;++i){place(rx_titles[i],0,174+i*116,w-52,46);place(widgets.at(fields[i]),0,218+i*116,w-52,54);}
+        place(widgets.at("PRESCRIBE"),0,538,w-52,60);place(rx_note,0,612,w-52,138);
+        for(auto& item:widgets)if(item.first!="blood"&&item.first!="uf"&&item.first!="sub"){lv_obj_set_style_pad_all(item.second,4,0);lv_obj_set_width(lv_obj_get_child(item.second,0),lv_obj_get_width(item.second)-42);}
+        arrange_actions();
+    }
     void resize(int w,int h){
+        if(w<700){resize_mobile(w,h);return;}
+        overview->mobile=blood_circuit->mobile=false;
+        for(auto& t:tiles)lv_obj_set_hidden(t.origin,false);
         layout_width=w;layout_height=h;place(root,0,0,w,h);place(masthead,0,0,w,34);
         place(lv_obj_get_child(masthead,0),8,-6,w-40);text(lv_obj_get_child(masthead,0),"DIALYSISLAB / TRAMA                         SIMULATION ONLY");
         const char* tabs[]={"HOME","BLOOD_TAB","FLUID_TAB","TRENDS_TAB","RX_TAB"};
+        const char* captions[]={"Overview","Blood circuit","Hydraulics","Trends","Prescription"};
+        for(int i=0;i<5;++i)text(lv_obj_get_child(widgets.at(tabs[i]),0),captions[i]);
         const int tabw=(w-56)/5;
         for(int i=0;i<5;++i){place(widgets.at(tabs[i]),20+i*(tabw+4),42,tabw,52);lv_obj_set_width(lv_obj_get_child(widgets.at(tabs[i]),0),tabw-44);}
         for(auto* item:milestones)lv_obj_set_hidden(item,true);
@@ -168,6 +208,7 @@ struct View {
         const bool current=v.valid && live;
         overview->update(v,live,status,lv_tick_get());
         auto val=[&](double x){return current?fixed(x):std::string("--");};
+        for(int i:{0,3,4}){auto color=lv_color_hex(i==4?fluid_ui::venous:fluid_ui::arterial);lv_obj_set_style_text_color(tiles[i].title,color,0);lv_obj_set_style_text_color(tiles[i].value,color,0);}
         text(tiles[3].title,o.physical?"ARTERIAL PRESSURE":"PRE-FILTER PRESSURE");
         const double numbers[]={q.blood.blood,o.dialysate_flow,o.uf_total-o.sub_total,o.physical?o.arterial:q.blood.pressure,o.downstream,o.tmp};
         const std::string references[]={"Rx\n"+val(m.blood)+"\nmL/min",
@@ -182,12 +223,13 @@ struct View {
             std::string why=o.limitation=="hemoconcentration_or_tmp"?"filter concentration / TMP":o.limitation=="net_uf_unattainable"?"net UF target unattainable":o.limitation=="pump_head"?"pump pressure capacity":o.limitation=="inlet_hematocrit"?"inlet hematocrit bound":"dialysate pressure capacity";
             text(next_step,"Flow limited: "+why+". Inspect pressures and delivered flows.");
         }
-        text(infusion,std::string(m.mode==0?"HD / infusion off":m.mode==1?"HDF PRE":"HDF POST")+"  |  Infusion "+val(q.replacement)+" / Rx "+val(m.replacement)+" mL/min\nDialysate "+val(q.temperature)+" C  /  "+val(q.conductivity)+" mS/cm   |   "+(m.patient_connected?"Patient connected":"Patient isolated"));
+        text(infusion,std::string(m.mode==0?"HD / infusion off":m.mode==1?"HDF PRE":"HDF POST")+"  |  Infusion "+val(q.replacement)+" / Rx "+val(m.replacement)+" mL/min\nDialysate "+val(q.temperature)+" C  /  "+val(q.conductivity)+" mS/cm | pH unavailable\n"+(m.patient_connected?"Patient connected":"Patient isolated"));
+        lv_obj_set_style_text_color(tiles[1].value,lv_color_hex(fluid_ui::color(fluid_ui::observed(current,q.temperature,q.conductivity))),0);
         text(prescription,"Effective prescription: "+std::string(m.mode==0?"HD":m.mode==1?"HDF PRE":"HDF POST")+" | Blood "+fixed(m.blood)+" | Net UF "+fixed(m.net_uf)+" | Sub "+fixed(m.replacement)+" mL/min");
         blood_circuit->state.reduced=fluid_circuit->state.reduced=overview->state.reduced;
         blood_circuit->update(v,live,status,lv_tick_get());fluid_circuit->update(v,live,status,lv_tick_get());
         text(blood_info,o.physical?"Arterial "+val(o.arterial)+" | Pre-filter "+val(q.blood.pressure)+" | Venous "+val(o.downstream)+" mmHg\nChamber levels "+(o.dynamic?val(o.arterial_level*100)+" / "+val(o.venous_level*100)+" %":"unavailable"):"Physical pressure/chamber detail unavailable");
-        text(fluid_info,"Dialysate "+val(q.temperature)+" C | "+val(q.conductivity)+" mS/cm\n"+(o.physical?"Heater "+val(o.heater_power)+" W | Dialysate pressure "+val(o.dialysate_pressure)+" mmHg":"Physical detail unavailable")+"\n"+(o.dynamic?"Balance displacement "+val(o.balance_position)+" / "+val(o.balance_capacity)+" mL | Phase "+val(o.balance_phase):"Balance detail unavailable"));
+        text(fluid_info,"Dialysate "+val(q.temperature)+" C | "+val(q.conductivity)+" mS/cm | pH unavailable\n"+(o.physical?"Heater "+val(o.heater_power)+" W | Dialysate pressure "+val(o.dialysate_pressure)+" mmHg":"Physical detail unavailable")+"\n"+(o.dynamic?"Balance displacement "+val(o.balance_position)+" / "+val(o.balance_capacity)+" mL | Phase "+val(o.balance_phase):"Balance detail unavailable"));
         const double goals[]={m.net_uf*m.duration/60000.0,m.replacement*m.duration/60000.0};
         const double totals[]={o.uf_total-o.sub_total,o.sub_total};
         for(int i=0;i<2;++i){

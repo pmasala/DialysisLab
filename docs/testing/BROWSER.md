@@ -160,3 +160,52 @@ alarms. Automatic continuation then reached CLEANED at tick 5,634. The retained
 interactive profile. PRE/POST delayed full cycles are covered by the paired model
 campaign, not an additional hosted manual UI claim. Pointer timing and a cosmetic
 terminal clock-status label remain recorded limitations in the acceptance record.
+
+## Mobile reflow and fluid identity (WEB-REQ-007/008)
+
+At widths below 700 logical pixels, the existing LVGL view reflows into a vertical
+filter view, two-column metric cards, stacked accumulators and large actions.
+The page scrolls vertically; Hydraulics retains its readable engineering diagram
+inside a separate horizontally scrollable panel. A sticky phone toolbar mirrors
+the eligible phase action and STOP through App::click. Phone prescription inputs
+use the OS keyboard (decimal comma is normalized) and open the same LVGL review
+and confirmation. A resize cancels a pending request. The mobile-preview.html
+page embeds the actual application at selectable viewport widths; it does not
+emulate iOS. Actual iPhone Safari performance and keyboard/touch qualification
+remain pending.
+
+Arterial paths/components are red, venous blue. The stopped paths retain identity
+without animation. Fresh dialysate quality is orange when a known temperature or
+conductivity measurement is outside the existing model limits. Gray means stale,
+invalid or incomplete quality. The live OBS12 contract has no pH; this is shown
+explicitly, so green is not claimed by the current live model. A pure reducer tests
+light green only when all three readings and their explicit limits are present
+and satisfied. Its synthetic pH fixture is not a proposed clinical pH threshold.
+Spent drain fluid is distinguished from qualified fresh fluid.
+
+Reproduce with the pinned full native GUI and browser builds, then:
+
+```sh
+DIALYSISLAB_MOBILE_CAPTURES="$PWD/build/mobile-captures-new" python3 -m unittest discover -s tests -p test_mobile.py -v
+python3 tools/verify_synoptic.py --output build/mobile-synoptic-new.json
+python3 tools/verify_preparation.py --output build/mobile-preparation-new.json
+python3 tools/verify_browser.py --manual-delay-ticks 2400 --output build/mobile-portability-new
+```
+
+The SDK download URL in the lock was corrected to the official emsdk manifest
+layout; its version and archive SHA256 are unchanged. No new shipped dependency
+was added. Execution results and viewport interaction are recorded in
+[mobile acceptance](../../assurance/evidence/browser/mobile-acceptance.json).
+
+Executed on 2026-10-17: 3 mobile/color/SDL tests, 13 synoptic regressions and
+18 preparation regressions passed without skips. The delayed 2400-tick native/Wasm
+HD/PRE/POST campaign passed 4,698,900 numeric comparisons; this is portability
+evidence, not CLOSE-NUM-01 closure. Hosted Pages commit
+`9c4c9f03ccca3c1ca3d1f959d970ee78ca450a5e` (build input
+`113e22a79d22453d…`) passed the manual HD flow through priming and treatment,
+phone prescription edits and confirmation cancellation on resize. The initial
+viewport trial found legacy SDL window bounds shifting pointer coordinates; the
+bounds were corrected and a real SDL resize regression added before retesting.
+At least 320 logical content pixels are required: a desktop 320 px iframe with
+a classic scrollbar provides less usable width and can clip the edge. This is
+recorded separately from native 320 px layout and hosted 390 px interaction.

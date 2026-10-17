@@ -43,5 +43,5 @@
     "docs/wire-contract.json"
   ],
   "baseline_scope": "baseline_commit is the main change base. Current corrective implementation/document hashes are in assurance/audits/checks.json; the containing Git commit identifies the complete candidate.",
-  "current_preparation_evidence": "assurance/evidence/browser/manual-wait-preparation.json"
+  "current_preparation_evidence": "assurance/evidence/browser/mobile-preparation.json"
 }
