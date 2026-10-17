@@ -8,6 +8,8 @@ function fail(message){ready=running=false;$('run').disabled=true;$('error').tex
 function setRunning(value){running=value;worker.postMessage({type:'run',running,auto:$('auto').checked,speed:Number($('speed').value)});$('run').textContent=running?'Ferma tempo':'Riprendi tempo';}
 function resize(){if(!ui)return;const width=Math.max(320,Math.min(1100,document.documentElement.clientWidth));ui.ccall("browser_resize",null,["number"],[width]);$("canvas").style.width=width+"px";$("canvas").style.height=(width<700?2320:890)+"px";}
 window.addEventListener("resize",resize);
+// SDL captures wheel events; phones use the document as the vertical viewport.
+$("canvas").addEventListener("wheel",event=>{if(document.documentElement.clientWidth<700&&Math.abs(event.deltaY)>=Math.abs(event.deltaX)){event.preventDefault();event.stopImmediatePropagation();window.scrollBy(0,event.deltaY);}},{capture:true,passive:false});
 async function reset(){
     mobileDirty.clear();const current=++generation;ready=running=false;lastState=null;$("patient").textContent="";if(worker)worker.terminate();disconnect();$('run').disabled=$('export').disabled=true;$('error').textContent='';$('status').textContent='Caricamento motore e paziente nel browser…';
     const config=await (await fetch('scenario.json'+assetVersion)).json();config.workflow=[];config.treatment.mode=$('mode').value;config.treatment.replacement_mL_min=$('mode').value==='HD'?0:60;
