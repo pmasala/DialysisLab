@@ -1,5 +1,5 @@
 /* One worker owns one coupled simulation. No remote computation or sockets. */
-importScripts('engine.js', 'vendor/pyodide/pyodide.js');
+importScripts('engine.js'+self.location.search, 'vendor/pyodide/pyodide.js');
 let engine, python, session, epoch, running=false, timer=null, auto=false, speed=20, failed=false,dt=500;
 function emit(type, data={}) { postMessage({type,...data}); }
 function status() {
@@ -28,7 +28,7 @@ onmessage=async ({data})=>{
     try {
         if(data.type==='init'){
             epoch=data.epoch;dt=data.config.dt_ms;
-            [engine,python]=await Promise.all([createEngine(),loadPyodide({indexURL:'vendor/pyodide/'})]);
+            [engine,python]=await Promise.all([createEngine({locateFile:name=>name+self.location.search}),loadPyodide({indexURL:'vendor/pyodide/'})]);
             engine.ccall('browser_reset',null,['string'],[epoch]);
             const files=await (await fetch('python-sources.json'+self.location.search)).json();python.FS.mkdirTree('/app/dialysislab');
             for(const [name,source] of Object.entries(files))python.FS.writeFile('/app/dialysislab/'+name,source);
