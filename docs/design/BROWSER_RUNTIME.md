@@ -50,3 +50,40 @@ Build identity records the base Git revision, dirty state, exact source hashes,
 dependency lock and all static-asset hashes. Execution evidence binds the actual
 compiled artifacts, not only a branch name. See [verification](../testing/BROWSER.md)
 and [dependency decision](../dependencies/BROWSER_DEPENDENCIES.md).
+
+## Manual session lifetime correction — 2026-10-17
+
+WEB-REQ-006 (recorded before implementation): an explicitly interactive browser
+session shall allow the operator to wait in PREPARATION beyond the scenario's
+batch tick count, then complete the confirmed PRIME and subsequent lifecycle
+commands. Batch sessions retain the configured finite tick limit. Export shall
+identify the execution profile. Physical time, consumable inventories, conservation
+checks, STOP, stale-session rejection and fail-stop protections remain active.
+
+Rationale: the supplied 2,200-tick experiment horizon is not an operator deadline.
+At dt = 500 ms it represents 1,100 simulated seconds; accelerated manual operation
+can exhaust it while the operator is deciding what to press. Freezing physical
+time silently or changing the physical equations would conceal simulated behavior.
+The user can pause the virtual clock explicitly.
+
+Prospective acceptance: in HD, HDF PRE and HDF POST, hold PREPARATION until
+2,400 ticks (1,200 simulated seconds), issue PRIME through the existing confirmed
+command API, observe PRIMING, and reach CLEANED with zero alarms and existing
+1e-6 mL/mmol conservation bounds. Compare native/Wasm trajectories using WEB-REQ-003
+budgets, with identical commands and tick times. A bounded session must still
+reject the first step beyond its configured count; malformed sequence must still
+stop and reject further ticks. Exercise delayed manual PRIME in the actual browser.
+This is a session-lifecycle regression, not long-duration physical qualification.
+
+For a scripting-only repair, compiled assets may be reused only after checking
+all recorded source and CMake inputs used by C++ and the dependency lock against
+the candidate, plus verifying the base artifact hashes. Record the base build
+identity and unchanged binary hashes in the new identity; otherwise rebuild.
+Independent review and numerical/clinical validation are not inferred.
+
+Deployment follow-up, recorded before implementation: after a successful Pages
+deployment, normal reload still displayed the previous build identity. For this
+repair WEB-REQ-006 also requires the wrapper to request the corrected app, worker,
+Python bundle and displayed identity using a shared version query. Unchanged C++
+binaries keep their verified hashes. Acceptance: a fresh page load displays the
+new source input identifier and passes the delayed manual PRIME interaction.

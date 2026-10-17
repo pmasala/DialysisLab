@@ -1301,6 +1301,16 @@
       "test": "test_browser.BrowserRuntimeTests.test_full_wasm_portability",
       "coverage": "Selected synthetic full cycles and browser interactions; no process isolation, independent usability approval, long-duration/mobile qualification or global numerical closure.",
       "approval": "proposed; independent approval pending"
+    },
+    {
+      "id": "WEB-OBL-006",
+      "parent": "WEB-REQ-006",
+      "statement": "Delayed manual PRIME must remain usable beyond the batch horizon in an explicitly interactive session.",
+      "acceptance": "HD/PRE/POST wait 2400 ticks then confirmed PRIME and complete lifecycle, zero alarms, conservation and native/Wasm budgets retained; batch limit and STOP retained.",
+      "design": "docs/design/BROWSER_RUNTIME.md",
+      "test": "test_browser.BrowserRuntimeTests.test_delayed_manual_prime",
+      "coverage": "Finite synthetic delayed-start regression; independent review, arbitrary duration and cross-browser/device qualification remain open.",
+      "approval": "proposed; independent approval pending"
     }
   ]
 }

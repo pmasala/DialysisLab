@@ -740,7 +740,13 @@
     "web/index.html",
     "web/worker.js",
     "assurance/evidence/browser/synoptic-reviewed.json",
-    "assurance/evidence/browser/synoptic-contract-reviewed.json"
+    "assurance/evidence/browser/synoptic-contract-reviewed.json",
+    "assurance/evidence/browser/bounded-session-portability.json",
+    "assurance/evidence/browser/manual-wait-acceptance.json",
+    "assurance/evidence/browser/manual-wait-portability.json",
+    "assurance/evidence/browser/manual-wait-preparation.json",
+    "assurance/evidence/browser/manual-wait-final.json",
+    "assurance/evidence/browser/manual-wait-export.json"
   ],
   "owned_assets": {
     "assurance/evidence/m6/captures/hd.png": {
