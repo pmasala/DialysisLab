@@ -34,7 +34,7 @@ onmessage=async ({data})=>{
             for(const [name,source] of Object.entries(files))python.FS.writeFile('/app/dialysislab/'+name,source);
             python.globals.set('transport',engine.cwrap('browser_rpc','string',['number','string']));
             python.globals.set('configuration',JSON.stringify(data.config));python.globals.set('epoch',epoch);
-            python.runPython("import sys,json\nsys.path.insert(0,'/app')\nfrom dialysislab.browser import BrowserSession\nsession=BrowserSession(json.loads(configuration),transport,epoch)");
+            python.runPython("import sys,json\nsys.path.insert(0,'/app')\nfrom dialysislab.browser import BrowserSession\nsession=BrowserSession(json.loads(configuration),transport,epoch,interactive=True)");
             session=python.globals.get('session');emit('ready');status();
         }else if(data.type==='run'){if(failed)throw Error('Reset required');running=data.running;auto=!!data.auto;speed=data.speed||20;schedule();emit('running',{running});}
         else if(data.type==='command'){
