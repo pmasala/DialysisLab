@@ -30,7 +30,7 @@ onmessage=async ({data})=>{
             epoch=data.epoch;dt=data.config.dt_ms;
             [engine,python]=await Promise.all([createEngine(),loadPyodide({indexURL:'vendor/pyodide/'})]);
             engine.ccall('browser_reset',null,['string'],[epoch]);
-            const files=await (await fetch('python-sources.json')).json();python.FS.mkdirTree('/app/dialysislab');
+            const files=await (await fetch('python-sources.json'+self.location.search)).json();python.FS.mkdirTree('/app/dialysislab');
             for(const [name,source] of Object.entries(files))python.FS.writeFile('/app/dialysislab/'+name,source);
             python.globals.set('transport',engine.cwrap('browser_rpc','string',['number','string']));
             python.globals.set('configuration',JSON.stringify(data.config));python.globals.set('epoch',epoch);

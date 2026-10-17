@@ -1,7 +1,7 @@
 {
   "source_revision": "147cb6365c0ee94be9ae47696959a8c36efd01c9",
   "dirty": true,
-  "source_input_sha256": "114e8da586494c5456ada6a5f45a789a24a352691d89f7c86e268441dfe84e2a",
+  "source_input_sha256": "4f5424c19ad412d9b54173970e30f286ca463a8ef951e13083fab9148c1d7ee8",
   "source_sha256": {
     "browser_dependencies.json": "a93abdc58a8245e93e63e299aa53f14329c22818bc1a86c1ff0a32094c8b5c66",
     "cmake/browser/CMakeLists.txt": "22d71a5e901ad85547ba2f336e65b368ef3ac1fe60eaf135a16eccfee7a57562",
@@ -54,9 +54,9 @@
     "src/ui/vector.hpp": "45332099229c92ddddecdacf48448b507eaffa8118694615cd3a510a90b5c4b2",
     "src/wire.hpp": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc",
     "tools/build_browser.py": "365ef91132d150d4ecfaf112174f173832ddfca8687cd3f2723f06732094584e",
-    "web/app.js": "806d2204106623cd3f725fd365dc09ba79c214784976d1b3cd336c7d5c1054e9",
-    "web/index.html": "a52fb9d0d86a292f4d95a265ae7cb9f30b9ba9095e215ebae4efd807dfa7ad52",
-    "web/worker.js": "401d9cc89b34e231d332ff0489f3112e04ce5c81d5def52689f267b3bb69377e"
+    "web/app.js": "c1b6795891286697c34f0eb2437d9ba0421c0127d58737ef56f64434099678eb",
+    "web/index.html": "5806e3cb1e4f013758000c5a5ffe8489e6d22bf0673995779da111382b53ad7c",
+    "web/worker.js": "55df413e4e7ac64dc9817cf2bc775ea02d8b9972c9ae49042262fd0793bdf375"
   },
   "emscripten": "4.0.15",
   "pyodide": "0.27.7",
@@ -73,10 +73,10 @@
     "gui_lock_sha256": "886a77186e6f77bacf9cb68d00e2c85aa78eddff313bdc4f3afef9e507f72595"
   },
   "artifacts": {
-    "app.js": "806d2204106623cd3f725fd365dc09ba79c214784976d1b3cd336c7d5c1054e9",
+    "app.js": "c1b6795891286697c34f0eb2437d9ba0421c0127d58737ef56f64434099678eb",
     "engine.js": "10c801f1615be8ac84087fbfdd9a68e3882ca56b1e97bacf7040fb37eb0adc09",
     "engine.wasm": "c9dddeb91a3d21b6ad97c45283cd9ed9a4612872d4be03e111e4ce695ae281df",
-    "index.html": "a52fb9d0d86a292f4d95a265ae7cb9f30b9ba9095e215ebae4efd807dfa7ad52",
+    "index.html": "5806e3cb1e4f013758000c5a5ffe8489e6d22bf0673995779da111382b53ad7c",
     "notices/BROWSER_DEPENDENCIES.md": "04244d565f5fea7efd50e28250365af0e280e6d8d77b0fd4cae071e9e46e9755",
     "notices/CPYTHON_LICENSE.md": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
     "notices/DIALYSISLAB_LICENSE.txt": "4d1c9354d0f1a111fb83b35f800edb1fcfe25c3baf45301bf74e700749f787c2",
@@ -92,6 +92,6 @@
     "vendor/pyodide/pyodide.asm.wasm": "a50dd1843f805a0b7c45b61037ee0d7b26dfe85efe0e18ef95a34ad24e401f5f",
     "vendor/pyodide/pyodide.js": "b4cb23a53aba19c221659b9fb40a2f18281d685691dc06647fb0afd0681baf98",
     "vendor/pyodide/python_stdlib.zip": "16611534726e5d8ac2bd8f926410b2dcb8d6f49aa24913463533b457a2115c16",
-    "worker.js": "401d9cc89b34e231d332ff0489f3112e04ce5c81d5def52689f267b3bb69377e"
+    "worker.js": "55df413e4e7ac64dc9817cf2bc775ea02d8b9972c9ae49042262fd0793bdf375"
   }
 }
