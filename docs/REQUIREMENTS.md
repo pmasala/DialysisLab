@@ -807,6 +807,16 @@ Pin toolchain/runtime dependencies, preserve source/configuration identifiers, b
 
 **Implementation locations:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md), [src/browser/engine.cpp](../src/browser/engine.cpp), [src/browser/ui.cpp](../src/browser/ui.cpp), [src/control_service.hpp](../src/control_service.hpp), [src/protection_service.hpp](../src/protection_service.hpp), [src/ui/client.hpp](../src/ui/client.hpp), [python/dialysislab/browser.py](../python/dialysislab/browser.py), [python/dialysislab/runner.py](../python/dialysislab/runner.py), [web/app.js](../web/app.js), [web/worker.js](../web/worker.js), [web/index.html](../web/index.html), [cmake/browser/CMakeLists.txt](../cmake/browser/CMakeLists.txt), [browser_dependencies.json](../browser_dependencies.json), [tools/build_browser.py](../tools/build_browser.py), [tools/verify_browser.py](../tools/verify_browser.py), [tests/test_browser.py](../tests/test_browser.py), [tests/browser/campaign.py](../tests/browser/campaign.py), [tests/browser/run_wasm.cjs](../tests/browser/run_wasm.cjs), [tests/browser/ui.cjs](../tests/browser/ui.cjs).
 
+### WEB-REQ-006
+
+Interactive sessions must permit delayed manual PRIME beyond the batch tick limit, preserving physical time and protection behavior; bounded sessions retain their limit and export identifies the profile.
+
+**Acceptance:** Prospective delayed 2400-tick HD/PRE/POST lifecycle, conservation and native/Wasm criteria in docs/design/BROWSER_RUNTIME.md.
+
+**Trace:** needs WEB-NEED-001; risks HAZ-004, HAZ-005; design WEB-DES-001; verification WEB-TEST-006.
+
+**Implementation locations:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md), [python/dialysislab/browser.py](../python/dialysislab/browser.py), [web/worker.js](../web/worker.js), [tests/test_browser.py](../tests/test_browser.py), [tests/browser/campaign.py](../tests/browser/campaign.py), [tests/browser/run_wasm.cjs](../tests/browser/run_wasm.cjs), [tools/verify_browser.py](../tools/verify_browser.py), [tools/build_browser.py](../tools/build_browser.py), [web/app.js](../web/app.js), [web/index.html](../web/index.html).
+
 ## Experiments and inspection
 
 ### M7-REQ-001

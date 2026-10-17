@@ -13,7 +13,8 @@ sys.path.insert(0,str(ROOT/'python'));sys.path.insert(0,str(ROOT/'tests/browser'
 from campaign import campaign
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--output',required=True);args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--output',required=True);parser.add_argument('--manual-delay-ticks',type=int,default=0);args=parser.parse_args()
+    if args.manual_delay_ticks < 0:parser.error('manual delay must be nonnegative')
     output=Path(args.output);output.mkdir(parents=True,exist_ok=False)
     inputs={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for base in ['src','python/dialysislab','tests/browser','web','cmake/browser'] for p in sorted((ROOT/base).rglob('*')) if p.is_file() and '__pycache__' not in str(p)}
     report=dict(executed_at=datetime.now(timezone.utc).isoformat(),source_revision=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),source_sha256=inputs,successful=False,criteria='abs(a-b) <= 1e-8 + 1e-9*max(abs(a),abs(b)); discrete values exact; existing 1e-6 inventory bounds',scope='Portability of coupled models, not numerical closure or clinical validation')
@@ -35,10 +36,11 @@ def main():
     start=time.monotonic()
     try:
         config=json.loads((ROOT/'build/browser/scenario.json').read_text())
+        report['manual_delay_ticks']=args.manual_delay_ticks
         report['configuration_sha256']=hashlib.sha256(json.dumps(config,sort_keys=True).encode()).hexdigest()
-        with (output/'native.jsonl').open('x') as stream:campaign(config,transport,reset,lambda value:stream.write(value+'\n'))
+        with (output/'native.jsonl').open('x') as stream:campaign(config,transport,reset,lambda value:stream.write(value+'\n'),args.manual_delay_ticks)
         p=processes[-1];p.stdin.close();p.wait(timeout=10)
-        execution=subprocess.run(['node','tests/browser/run_wasm.cjs','build/browser',str(output/'wasm.jsonl')],text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+        execution=subprocess.run(['node','tests/browser/run_wasm.cjs','build/browser',str(output/'wasm.jsonl'),str(args.manual_delay_ticks)],text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
         report['wasm_output']=execution.stdout
         if execution.returncode:raise RuntimeError(execution.stdout)
         counts={};peak=0.;worst='';fields=0

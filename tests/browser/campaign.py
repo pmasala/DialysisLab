@@ -4,19 +4,21 @@ import json
 from dialysislab.browser import BrowserSession
 
 
-def campaign(config, transport, reset, emit):
+def campaign(config, transport, reset, emit, manual_delay_ticks=0):
     epoch='0123456789abcdef0123456789abcdef'
     for mode in ('HD','HDF_PRE','HDF_POST'):
         reset(epoch)
         c=copy.deepcopy(config);c['workflow']=[]
         c['treatment'].update(mode=mode,replacement_mL_min=0 if mode=='HD' else 60)
-        s=BrowserSession(c,transport,epoch)
+        s=BrowserSession(c,transport,epoch,interactive=bool(manual_delay_ticks))
         assert s.command(0,'START','f'*32)=='rejected_old_session'
         stages=set()
-        for i in range(2200):
+        for i in range(2200 + manual_delay_ticks):
             if s.record:
                 stage=s.record['machine']['stage']
                 action={'PREPARATION':'PRIME','CONFIGURATION':'CONNECT','CONNECTED':'START','FINISHED':'RETURN','DISCONNECTING':'DISCONNECT','DISCONNECTED':'CLEAN'}.get(stage)
+                if stage == 'PREPARATION' and i < manual_delay_ticks:action=None
+                if i == manual_delay_ticks and manual_delay_ticks:assert stage == 'PREPARATION'
                 if action:assert s.command(0,action,epoch)=='queued'
             record=s.step();stages.add(record['machine']['stage'])
             assert record['machine']['alarm_mask']==0

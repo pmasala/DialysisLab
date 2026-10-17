@@ -139,6 +139,7 @@ approval rules are in [closure protocols](CLOSURE.md).
 | WEB-OBL-003 / WEB-REQ-003 | [docs/design/BROWSER_RUNTIME.md](../../docs/design/BROWSER_RUNTIME.md) | `test_browser.BrowserRuntimeTests.test_full_wasm_portability` | Selected synthetic full cycles and browser interactions; no process isolation, independent usability approval, long-duration/mobile qualification or global numerical closure. |
 | WEB-OBL-004 / WEB-REQ-004 | [docs/design/BROWSER_RUNTIME.md](../../docs/design/BROWSER_RUNTIME.md) | `test_browser.BrowserRuntimeTests.test_real_browser_ui` | Selected synthetic full cycles and browser interactions; no process isolation, independent usability approval, long-duration/mobile qualification or global numerical closure. |
 | WEB-OBL-005 / WEB-REQ-005 | [docs/design/BROWSER_RUNTIME.md](../../docs/design/BROWSER_RUNTIME.md) | `test_browser.BrowserRuntimeTests.test_full_wasm_portability` | Selected synthetic full cycles and browser interactions; no process isolation, independent usability approval, long-duration/mobile qualification or global numerical closure. |
+| WEB-OBL-006 / WEB-REQ-006 | [docs/design/BROWSER_RUNTIME.md](../../docs/design/BROWSER_RUNTIME.md) | `test_browser.BrowserRuntimeTests.test_delayed_manual_prime` | Finite synthetic delayed-start regression; independent review, arbitrary duration and cross-browser/device qualification remain open. |
 
 ## Parent obligations outside this supplemental decomposition
 

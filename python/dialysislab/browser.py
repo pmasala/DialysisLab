@@ -8,12 +8,13 @@ from .runner import validate
 
 
 class BrowserSession:
-    def __init__(self, config, transport, epoch):
+    def __init__(self, config, transport, epoch, *, interactive=False):
         self.config = validate(copy.deepcopy(config))
         if self.config['schema_version'] != 5 or 'physical' not in self.config:
             raise ValueError('browser requires coupled physical schema 5')
         if self.config['faults'] or self.config['workflow']:
             raise ValueError('browser interactive profile requires empty timelines')
+        self.interactive = bool(interactive)
         self.raw = transport
         self.epoch = epoch
         self.n = 0
@@ -56,7 +57,7 @@ class BrowserSession:
     def step(self):
         if self.failed:
             raise RuntimeError('session failed; reset required')
-        if self.n >= self.config['ticks']:
+        if not self.interactive and self.n >= self.config['ticks']:
             raise RuntimeError('configured tick limit reached')
         try:
             return self._step()
@@ -96,4 +97,4 @@ class BrowserSession:
         return r
 
     def export(self):
-        return json.dumps(dict(config=self.config, ticks=self.n, record=self.record), allow_nan=False)
+        return json.dumps(dict(config=self.config, execution_profile='interactive' if self.interactive else 'bounded', ticks=self.n, record=self.record), allow_nan=False)

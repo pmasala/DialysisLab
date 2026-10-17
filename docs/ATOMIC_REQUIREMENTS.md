@@ -1569,3 +1569,15 @@ Pin toolchain/runtime dependencies, preserve source/configuration identifiers, b
 **Design:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md).
 
 **Existing test:** `test_browser.BrowserRuntimeTests.test_full_wasm_portability`.
+
+## WEB-OBL-006 — WEB-REQ-006
+
+Delayed manual PRIME must remain usable beyond the batch horizon in an explicitly interactive session.
+
+**Acceptance:** HD/PRE/POST wait 2400 ticks then confirmed PRIME and complete lifecycle, zero alarms, conservation and native/Wasm budgets retained; batch limit and STOP retained.
+
+**Coverage:** Finite synthetic delayed-start regression; independent review, arbitrary duration and cross-browser/device qualification remain open.
+
+**Design:** [docs/design/BROWSER_RUNTIME.md](../docs/design/BROWSER_RUNTIME.md).
+
+**Existing test:** `test_browser.BrowserRuntimeTests.test_delayed_manual_prime`.
