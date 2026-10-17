@@ -1,7 +1,7 @@
 {
   "source_revision": "c1e55bd9c807bec1e8236bc2e58ab22cc8d18f4d",
   "dirty": true,
-  "source_input_sha256": "6412af9db46f5fc00abb2b6b24d04c75a01cda8bfb19fb1a0af9e01e4b3c9606",
+  "source_input_sha256": "d52eabed43ab635b903db98236b2754f3adcf12b5b3aa45742ac3e50457aeb8d",
   "source_sha256": {
     "browser_dependencies.json": "66ddb091cf05d4894ccf7088417d479d683e163fbcb90062a393a836e21a21eb",
     "cmake/browser/CMakeLists.txt": "b020a9b7e314f744a2abf336945ac4206f5ddca5199f06d28f0693c950d53b29",
@@ -55,9 +55,9 @@
     "src/ui/vector.hpp": "45332099229c92ddddecdacf48448b507eaffa8118694615cd3a510a90b5c4b2",
     "src/wire.hpp": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc",
     "tools/build_browser.py": "365ef91132d150d4ecfaf112174f173832ddfca8687cd3f2723f06732094584e",
-    "web/app.js": "cecbc706312c42c5327d12d7948ffe47af189e3e7e1d1387eb62538285d87ee8",
-    "web/index.html": "01c4d3491013a3faed8677dafeea6c63176d5ca5d2b2d0d264ca6ac4350f89db",
-    "web/mobile-preview.html": "5dfe51b8e289ca203bd9440d8f873283a1836bd4ef15b5ca69b344f60b126c9a",
+    "web/app.js": "d5e6eda51c600bb6682b79fdf2bf38b9694af43f74b6a169df0a68cfd30a2784",
+    "web/index.html": "ab2d341c224d3cb406dded2c12b369774597e04f547f3e338251ff6b43b2b245",
+    "web/mobile-preview.html": "d577ec16358c646ef48a2fb8c19239ea72af08ad33c017596c42b078ccd49d6d",
     "web/worker.js": "7b3234fe60a536481bddb397f1916e987d7e2f6a9db5cc5db5f1adbb9f38c4c7"
   },
   "emscripten": "4.0.15",
@@ -75,11 +75,11 @@
     "gui_lock_sha256": "886a77186e6f77bacf9cb68d00e2c85aa78eddff313bdc4f3afef9e507f72595"
   },
   "artifacts": {
-    "app.js": "cecbc706312c42c5327d12d7948ffe47af189e3e7e1d1387eb62538285d87ee8",
+    "app.js": "d5e6eda51c600bb6682b79fdf2bf38b9694af43f74b6a169df0a68cfd30a2784",
     "engine.js": "10c801f1615be8ac84087fbfdd9a68e3882ca56b1e97bacf7040fb37eb0adc09",
     "engine.wasm": "c9dddeb91a3d21b6ad97c45283cd9ed9a4612872d4be03e111e4ce695ae281df",
-    "index.html": "01c4d3491013a3faed8677dafeea6c63176d5ca5d2b2d0d264ca6ac4350f89db",
-    "mobile-preview.html": "5dfe51b8e289ca203bd9440d8f873283a1836bd4ef15b5ca69b344f60b126c9a",
+    "index.html": "ab2d341c224d3cb406dded2c12b369774597e04f547f3e338251ff6b43b2b245",
+    "mobile-preview.html": "d577ec16358c646ef48a2fb8c19239ea72af08ad33c017596c42b078ccd49d6d",
     "notices/BROWSER_DEPENDENCIES.md": "04244d565f5fea7efd50e28250365af0e280e6d8d77b0fd4cae071e9e46e9755",
     "notices/CPYTHON_LICENSE.md": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
     "notices/DIALYSISLAB_LICENSE.txt": "4d1c9354d0f1a111fb83b35f800edb1fcfe25c3baf45301bf74e700749f787c2",

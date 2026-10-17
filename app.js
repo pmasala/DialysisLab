@@ -17,7 +17,8 @@ function resize(){
     ui.ccall("browser_resize",null,["number"],[logical]);
     $("canvas").style.width=available+"px";$("canvas").style.height=((logical<700?2320:890)*scale)+"px";
 }
-window.addEventListener("resize",resize);
+// Run after SDL's resize listener, which otherwise replaces the logical canvas size with CSS pixels.
+window.addEventListener("resize",()=>requestAnimationFrame(resize));
 // SDL captures wheel events; phones use the document as the vertical viewport.
 $("canvas").addEventListener("wheel",event=>{if(document.documentElement.clientWidth<700&&Math.abs(event.deltaY)>=Math.abs(event.deltaX)){event.preventDefault();event.stopImmediatePropagation();window.scrollBy(0,event.deltaY);}},{capture:true,passive:false});
 async function reset(){
