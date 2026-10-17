@@ -5,8 +5,18 @@ let ui,worker,running=false,ready=false,generation=0,lastState=null;
 function download(content,name){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:'application/json'}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
 function disconnect(){if(ui)ui.ccall('browser_disconnected',null,[],[]);}
 function fail(message){ready=running=false;$('run').disabled=true;$('error').textContent=message;$('status').textContent='Simulazione arrestata: creare una nuova sessione.';disconnect();if(worker)worker.terminate();}
-function setRunning(value){running=value;worker.postMessage({type:'run',running,auto:$('auto').checked,speed:Number($('speed').value)});$('run').textContent=running?'Ferma tempo':'Riprendi tempo';}
-function resize(){if(!ui)return;const width=Math.max(320,Math.min(1100,document.documentElement.clientWidth));ui.ccall("browser_resize",null,["number"],[width]);$("canvas").style.width=width+"px";$("canvas").style.height=(width<700?2320:890)+"px";}
+function renderClock(){
+    $('run').textContent=running?'Ferma tempo':'Riprendi tempo';
+    if(lastState)$('status').textContent=`${lastState.stage} · ${lastState.ticks} passi · ${running?'tempo in avanzamento':'tempo fermo'} · allarmi ${lastState.alarm}`;
+}
+function setRunning(value){running=value;worker.postMessage({type:'run',running,auto:$('auto').checked,speed:Number($('speed').value)});renderClock();}
+function resize(){
+    if(!ui)return;
+    const available=Math.max(1,Math.min(1100,document.documentElement.clientWidth));
+    const logical=Math.max(320,available), scale=available/logical;
+    ui.ccall("browser_resize",null,["number"],[logical]);
+    $("canvas").style.width=available+"px";$("canvas").style.height=((logical<700?2320:890)*scale)+"px";
+}
 window.addEventListener("resize",resize);
 // SDL captures wheel events; phones use the document as the vertical viewport.
 $("canvas").addEventListener("wheel",event=>{if(document.documentElement.clientWidth<700&&Math.abs(event.deltaY)>=Math.abs(event.deltaX)){event.preventDefault();event.stopImmediatePropagation();window.scrollBy(0,event.deltaY);}},{capture:true,passive:false});
@@ -19,10 +29,10 @@ async function reset(){
         if(current!==generation)return;
         if(data.type==='error')return fail(data.message);
         if(data.type==='ready'){ready=true;$('run').disabled=$('export').disabled=false;$('run').textContent='Avvia tempo';$('status').textContent='Pronto. Avvia il tempo; usa i comandi LVGL o il ciclo automatico.';}
-        if(data.type==='running'){running=data.running;$('run').textContent=running?'Ferma tempo':'Riprendi tempo';}
+        if(data.type==='running'){running=data.running;renderClock();}
         if(data.type==='state'){
             lastState=data;ui.ccall('browser_view',null,['string','string','string'],[data.epoch,...data.views]);
-            $('status').textContent=`${data.stage} · ${data.ticks} passi · ${running?'tempo in avanzamento':'tempo fermo'} · allarmi ${data.alarm}`;
+            renderClock();
             if(data.patient){const residual=Math.max(...data.patient.mass_residual_mmol.map(Math.abs));$('patient').textContent=`Paziente accoppiato · residuo massimo soluti ${residual.toExponential(2)} mmol`;}
         }
         if(data.type==='result')ui.ccall('browser_result',null,['string'],[data.result]);
@@ -56,6 +66,6 @@ setInterval(()=>{
     for(const id of ['blood','uf','sub']){const input=$('mobile_'+id);input.disabled=!ready||!ui.ccall('browser_rx_enabled','number',['string'],[id]);if(input.disabled)mobileDirty.delete(id);if(!mobileDirty.has(id)&&document.activeElement!==input)input.value=ui.ccall('browser_rx_value','string',['string'],[id]);}
     $('mobileReview').disabled=!ready||$('mobile_blood').disabled;
     const dialog=!!ui.ccall('browser_dialog','number',[],[]);
-    if(dialog&&!previousDialog){const y=$('canvas').getBoundingClientRect().top+window.scrollY+400;window.scrollTo({top:y,behavior:'auto'});}
+    if(dialog&&!previousDialog){const canvas=$('canvas'), bounds=canvas.getBoundingClientRect();const y=bounds.top+window.scrollY+400*bounds.width/canvas.width;window.scrollTo({top:y,behavior:'auto'});}
     previousDialog=dialog;
 },200);

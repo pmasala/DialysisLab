@@ -1,7 +1,7 @@
 {
-  "source_revision": "292f2e4242ed6506d2a105fdf4aaa616cf33dc3c",
+  "source_revision": "c1e55bd9c807bec1e8236bc2e58ab22cc8d18f4d",
   "dirty": true,
-  "source_input_sha256": "113e22a79d22453d563ec073327424af68a2b764943537ea69478d2ebdb711a6",
+  "source_input_sha256": "6412af9db46f5fc00abb2b6b24d04c75a01cda8bfb19fb1a0af9e01e4b3c9606",
   "source_sha256": {
     "browser_dependencies.json": "66ddb091cf05d4894ccf7088417d479d683e163fbcb90062a393a836e21a21eb",
     "cmake/browser/CMakeLists.txt": "b020a9b7e314f744a2abf336945ac4206f5ddca5199f06d28f0693c950d53b29",
@@ -55,20 +55,31 @@
     "src/ui/vector.hpp": "45332099229c92ddddecdacf48448b507eaffa8118694615cd3a510a90b5c4b2",
     "src/wire.hpp": "3bc7beb47fb482a27650f62c5a42c6f01ccd23d0a8f65f0eb13c068998a0decc",
     "tools/build_browser.py": "365ef91132d150d4ecfaf112174f173832ddfca8687cd3f2723f06732094584e",
-    "web/app.js": "c59b052a5187dcafe951e10efb09a994860529db9de6cea84e44bd5c88d4999b",
-    "web/index.html": "d9d3281d8cc642155c5d08355946201f3807a3dc4f717818d88618739853ff2e",
-    "web/mobile-preview.html": "2e32eb9efa4b04803ed51322c61eb711b4066b01a017720013d946c2d8f0c63d",
+    "web/app.js": "cecbc706312c42c5327d12d7948ffe47af189e3e7e1d1387eb62538285d87ee8",
+    "web/index.html": "01c4d3491013a3faed8677dafeea6c63176d5ca5d2b2d0d264ca6ac4350f89db",
+    "web/mobile-preview.html": "5dfe51b8e289ca203bd9440d8f873283a1836bd4ef15b5ca69b344f60b126c9a",
     "web/worker.js": "7b3234fe60a536481bddb397f1916e987d7e2f6a9db5cc5db5f1adbb9f38c4c7"
   },
   "emscripten": "4.0.15",
   "pyodide": "0.27.7",
   "dependency_lock_sha256": "66ddb091cf05d4894ccf7088417d479d683e163fbcb90062a393a836e21a21eb",
+  "reused_compilation": {
+    "base_identity_sha256": "47beae4f948a7f959779081ed6ff12ec65a3b7c0af5f68449ddebc6027873d7e",
+    "base_source_revision": "292f2e4242ed6506d2a105fdf4aaa616cf33dc3c",
+    "compiled_artifacts": {
+      "engine.js": "10c801f1615be8ac84087fbfdd9a68e3882ca56b1e97bacf7040fb37eb0adc09",
+      "engine.wasm": "c9dddeb91a3d21b6ad97c45283cd9ed9a4612872d4be03e111e4ce695ae281df",
+      "ui.js": "1361a79226bfda7ee0716efe57ba6b9aa2868e2a0c7755ff76ec0c45faaaa1a2",
+      "ui.wasm": "b2a2774c80db76ffee783676d2f2121f6301e4d7c2c95d3a126abb74b8b517c6"
+    },
+    "gui_lock_sha256": "886a77186e6f77bacf9cb68d00e2c85aa78eddff313bdc4f3afef9e507f72595"
+  },
   "artifacts": {
-    "app.js": "c59b052a5187dcafe951e10efb09a994860529db9de6cea84e44bd5c88d4999b",
+    "app.js": "cecbc706312c42c5327d12d7948ffe47af189e3e7e1d1387eb62538285d87ee8",
     "engine.js": "10c801f1615be8ac84087fbfdd9a68e3882ca56b1e97bacf7040fb37eb0adc09",
     "engine.wasm": "c9dddeb91a3d21b6ad97c45283cd9ed9a4612872d4be03e111e4ce695ae281df",
-    "index.html": "d9d3281d8cc642155c5d08355946201f3807a3dc4f717818d88618739853ff2e",
-    "mobile-preview.html": "2e32eb9efa4b04803ed51322c61eb711b4066b01a017720013d946c2d8f0c63d",
+    "index.html": "01c4d3491013a3faed8677dafeea6c63176d5ca5d2b2d0d264ca6ac4350f89db",
+    "mobile-preview.html": "5dfe51b8e289ca203bd9440d8f873283a1836bd4ef15b5ca69b344f60b126c9a",
     "notices/BROWSER_DEPENDENCIES.md": "04244d565f5fea7efd50e28250365af0e280e6d8d77b0fd4cae071e9e46e9755",
     "notices/CPYTHON_LICENSE.md": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
     "notices/DIALYSISLAB_LICENSE.txt": "4d1c9354d0f1a111fb83b35f800edb1fcfe25c3baf45301bf74e700749f787c2",
