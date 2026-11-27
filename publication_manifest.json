@@ -421,6 +421,7 @@
     "assurance/evidence/m9/targeted/m9-review-targeted.json",
     "assurance/evidence/m9/targeted/storage-regressions.json",
     "assurance/evidence/physical-model/report.json",
+    "assurance/evidence/preparation/ci-rpc-isolation.json",
     "assurance/evidence/preparation/regressions.json",
     "assurance/evidence/preparation/report.json",
     "assurance/evidence/ui-inspection/README.md",

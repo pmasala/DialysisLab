@@ -60,7 +60,10 @@ class SynopticTests(unittest.TestCase):
             self.assertIn('passed',result.stdout)
 
     def test_sdl_resize_finger_input_and_focus_cancellation(self):
-        library=BUILD/'gui-lvgl/liblvgl.a';sdl=BUILD/'gui-sdl/libSDL2.a'
+        library = BUILD/'gui-lvgl/liblvgl.a'
+        cache = BUILD/'CMakeCache.txt'
+        debug = cache.exists() and 'CMAKE_BUILD_TYPE:STRING=Debug' in cache.read_text().splitlines()
+        sdl = BUILD/'gui-sdl'/('libSDL2d.a' if debug else 'libSDL2.a')
         if not library.exists() or not sdl.exists():self.skipTest('actual GUI build unavailable')
         deps=ROOT/'build/gui-deps/lvgl-9.6.0'
         with tempfile.TemporaryDirectory() as tmp:

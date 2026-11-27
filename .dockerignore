@@ -99,3 +99,6 @@
 
 !src/control_service.hpp
 !src/protection_service.hpp
+!python/dialysislab/browser.py
+!src/browser/engine.cpp
+!src/browser/ui.cpp

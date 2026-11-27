@@ -50,21 +50,23 @@ def validate(config):
     if f['acid_fraction']+f['bicarbonate_fraction']>=1:raise ValueError('water mixing ratio')
     return p
 
-def configure(admin,config):
+def configure(admin,config, *, rpc_call=None):
+    rpc_call = rpc if rpc_call is None else rpc_call
     p=validate(config);h=config['patient']['hemodynamics']
     fields=[p['blood'][k] for k in BLOOD_FIELDS.split()]
-    expect(rpc(admin,'PHYSICAL9',*fields,h['initial_hematocrit'],h['protein_g_dL'],h['temperature_C']),'OK',1)
+    expect(rpc_call(admin,'PHYSICAL9',*fields,h['initial_hematocrit'],h['protein_g_dL'],h['temperature_C']),'OK',1)
     fields=[int(p['fluid'][k]) if type(p['fluid'][k]) is bool else p['fluid'][k] for k in FLUID_FIELDS.split()]
-    expect(rpc(admin,'FLUID9',*fields,*p['fluid']['acid_mmol_L']),'OK',1)
-    if 'dynamics' in p:expect(rpc(admin,'DYNAMICS10',*[p['dynamics'][k] for k in DYNAMIC_FIELDS.split()]),'OK',1)
-    if 'preparation' in p:expect(rpc(admin,'PREPARATION11',*[p['preparation'][k] for k in PREPARATION_FIELDS.split()]),'OK',1)
+    expect(rpc_call(admin,'FLUID9',*fields,*p['fluid']['acid_mmol_L']),'OK',1)
+    if 'dynamics' in p:expect(rpc_call(admin,'DYNAMICS10',*[p['dynamics'][k] for k in DYNAMIC_FIELDS.split()]),'OK',1)
+    if 'preparation' in p:expect(rpc_call(admin,'PREPARATION11',*[p['preparation'][k] for k in PREPARATION_FIELDS.split()]),'OK',1)
 
-def update_blood(admin,snapshot):
+def update_blood(admin,snapshot, *, rpc_call=None):
+    rpc_call = rpc if rpc_call is None else rpc_call
     h=snapshot['hemodynamics']
     if 'distributed' in snapshot:
         values=[x for c in snapshot['distributed']['compartments'][2:14] for x in (c['hematocrit'],c['protein_g_dL'])]
-        expect(rpc(admin,'INVENTORY10',snapshot['sequence']+1,snapshot['time_ms'],*values),'OK',1)
-    expect(rpc(admin,'BLOOD9',snapshot['sequence']+1,snapshot['time_ms'],h['hematocrit'],h['protein_g_dL'],h['temperature_C'],h['circuit_hematocrit'],h['circuit_protein_g_dL']),'OK',1)
+        expect(rpc_call(admin,'INVENTORY10',snapshot['sequence']+1,snapshot['time_ms'],*values),'OK',1)
+    expect(rpc_call(admin,'BLOOD9',snapshot['sequence']+1,snapshot['time_ms'],h['hematocrit'],h['protein_g_dL'],h['temperature_C'],h['circuit_hematocrit'],h['circuit_protein_g_dL']),'OK',1)
 
 DIAGNOSTICS=('arterial_mmHg venous_mmHg prefilter_mmHg postfilter_mmHg dialysate_mmHg tmp_mmHg '
              'inlet_hematocrit outlet_hematocrit return_hematocrit plasma_filtration_fraction '

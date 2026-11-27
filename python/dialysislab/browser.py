@@ -20,13 +20,9 @@ class BrowserSession:
         self.snapshot = None
         self.record = None
         self.failed = False
-        # These modules use the same configuration encoders as the native runner.
-        # One session owns each worker/interpreter; no concurrent global patching.
-        for module in (circuit, treatment, machine, physical):
-            module.rpc = self.call
-        circuit.configure(0, self.config)
-        treatment.configure(0, self.config)
-        machine.configure(0, self.config)
+        circuit.configure(0, self.config, rpc_call=self.call)
+        treatment.configure(0, self.config, rpc_call=self.call)
+        machine.configure(0, self.config, rpc_call=self.call)
         self.patient = Compartments(physical.patient_configuration(self.config), True, True)
 
     def call(self, role, *fields):
@@ -70,8 +66,8 @@ class BrowserSession:
         n, dt = self.n, c['dt_ms']
         t = n * dt
         if self.snapshot is not None:
-            circuit.transport(0, c, self.snapshot['concentration_mmol_L'][2])
-            physical.update_blood(0, self.snapshot)
+            circuit.transport(0, c, self.snapshot['concentration_mmol_L'][2], rpc_call=self.call)
+            physical.update_blood(0, self.snapshot, rpc_call=self.call)
         expect(self.call(0, 'PREPARE', n, t, dt, c['resistance_mmHg_min_mL'], 'none', 'none'), 'OK', 1)
         expect(self.call(3, 'STEP5', n, t), 'OK', 1)
         expect(self.call(4, 'STEP5', n, t), 'DECISION', 2)
