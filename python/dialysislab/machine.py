@@ -70,16 +70,17 @@ def validate(config, validate_treatment):
     return config
 
 
-def configure(admin, config):
+def configure(admin, config, *, rpc_call=None):
     if 'physical' in config:
         from . import physical
-        physical.configure(admin,config)
-    expect(rpc(admin, 'MACHINE5', config['blood_mL_min'], config['uf_mL_min'],
+        physical.configure(admin, config, rpc_call=rpc_call)
+    rpc_call = rpc if rpc_call is None else rpc_call
+    expect(rpc_call(admin, 'MACHINE5', config['blood_mL_min'], config['uf_mL_min'],
                config['treatment']['replacement_mL_min'], config['pressure_limit_mmHg'],
                config['patient']['prime_mL']), 'OK', 1)
     if 'guided' in config:
         g=config['guided']
-        expect(rpc(admin,'GUIDED8',g['test_ms'],g['treatment_ms'],g['disinfection_ms'],g['return_mL']),'OK',1)
+        expect(rpc_call(admin,'GUIDED8',g['test_ms'],g['treatment_ms'],g['disinfection_ms'],g['return_mL']),'OK',1)
 
 
 def request(runtime, event, scheduled=False):

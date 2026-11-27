@@ -40,3 +40,25 @@ Regression: `tests/test_ci.py::CITests.test_actual_manifest_drift_stops_before_b
 mutates a real manifest copy, invokes the production trace checker and checks that
 CI stops with both offending requirement IDs and a recoverable diagnostic artifact.
 It must not repair the mutated hash or relax the checker.
+
+## Browser integration and hosted verification
+
+PR #14 added native browser tests that replaced module-level simulator RPC
+functions for the lifetime of the Python process. In main run 38913819534,
+subsequent Unix-socket tests sent paths to the browser integer-role transport.
+The same PR omitted three browser files from the Docker context even though
+the build identity inventories them. The first distributed HDF repetition
+completed all 1440 ticks and then failed source identity verification.
+
+For future browser or native source changes, compare the host and image
+`source_sha256` maps after a fresh Compose build. Review new headers and Python
+modules against the deny-by-default Docker context. The later mobile-colors
+branch also omitted a new UI header, causing its GUI image build to fail.
+Keep transport overrides scoped to the session, and run browser and native
+service tests together in discovery order to catch cross-test state.
+
+Check both Release and Debug/sanitizer test reports. The SDL archive differs
+by configuration. In the native job, only the two named opt-in Wasm/Chromium
+cases may be skipped when browser acceptance is disabled. An unexpected skip
+still fails the job. Use the hosted verification results for the exact candidate
+when reporting a full pass.

@@ -9,7 +9,7 @@ import unittest
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'python'))
 from dialysislab.browser import BrowserSession
-from dialysislab import machine
+from dialysislab import circuit, machine, physical, treatment
 
 class BrowserRuntimeTests(unittest.TestCase):
     @classmethod
@@ -29,6 +29,8 @@ class BrowserRuntimeTests(unittest.TestCase):
         return BrowserSession(c,transport,'0123456789abcdef0123456789abcdef')
 
     def test_native_tick_stop_and_old_session(self):
+        modules = (circuit, machine, physical, treatment)
+        native_transports = [module.rpc for module in modules]
         s=self.session()
         self.assertEqual(s.command(0,'STOP','f'*32),'rejected_old_session')
         for _ in range(3):record=s.step()
@@ -37,6 +39,7 @@ class BrowserRuntimeTests(unittest.TestCase):
         self.assertEqual(s.command(0,'STOP',s.epoch),'acknowledged')
         view=machine.view(['VIEW5',*s.views()[0].split()[3:]])
         self.assertEqual(view['machine']['stage'],'STOPPED')
+        self.assertEqual([module.rpc for module in modules], native_transports)
 
     def test_bad_sequence_stops_session_and_rejects_further_ticks(self):
         s=self.session();s.step();s.n=0

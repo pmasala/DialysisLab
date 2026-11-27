@@ -15,6 +15,13 @@ sys.path.insert(0, str(ROOT / 'python'))
 from dialysislab.runner import build_identity
 
 
+# These gates run through the explicit Wasm/Chromium acceptance entry point.
+BROWSER_ACCEPTANCE_TESTS = {
+    'test_browser.BrowserRuntimeTests.test_full_wasm_portability',
+    'test_browser.BrowserRuntimeTests.test_real_browser_ui',
+}
+
+
 class RecordedResults(unittest.TextTestResult):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -51,10 +58,12 @@ def main():
     suite = unittest.defaultTestLoader.discover(str(ROOT / 'tests'))
     stream = io.StringIO()
     result = unittest.TextTestRunner(stream=stream, verbosity=2, resultclass=RecordedResults).run(suite)
+    expected_skips = set() if os.environ.get('DIALYSISLAB_BROWSER_ACCEPTANCE') else BROWSER_ACCEPTANCE_TESTS
+    unexpected_skips = [test.id() for test, _ in result.skipped if test.id() not in expected_skips]
     document = dict(schema_version=1, executed_at=datetime.now(timezone.utc).isoformat(),
                     command='python3 tools/verify_m1.py --build-dir ' + str(args.build_dir) + ' --output ' + str(args.output),
                     build=build_identity(args.build_dir), tests_run=result.testsRun,
-                    successful=result.wasSuccessful() and not result.skipped, cases=result.cases,
+                    successful=result.wasSuccessful() and not unexpected_skips, cases=result.cases,
                     output=stream.getvalue(), scope='Synthetic simulator regression and assurance tooling; no calibration or independent assurance approval',
                     test_source_sha256={str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                                         for p in sorted((ROOT / 'tests').glob('test_*.py'))},

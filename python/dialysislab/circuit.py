@@ -108,7 +108,8 @@ def validate(config, validate_m1):
     return config
 
 
-def configure(admin, config):
+def configure(admin, config, *, rpc_call=None):
+    rpc_call = rpc if rpc_call is None else rpc_call
     c, tr = config['circuit'], config['transport']
     p = c['profile']
     fields = ['CONFIG2', len(c['compliance_mL_mmHg']), len(c['edges']), c['pump_node'], c['pump_head_mmHg'],
@@ -116,13 +117,14 @@ def configure(admin, config):
     fields.extend(c['compliance_mL_mmHg'])
     for a, b, r, kind, closed in c['edges']:
         fields.extend((a, b, r, KINDS.index(kind), int(closed)))
-    expect(rpc(admin, *fields), 'OK', 1)
-    transport(admin, config, tr['blood_mmol_L'])
+    expect(rpc_call(admin, *fields), 'OK', 1)
+    transport(admin, config, tr['blood_mmol_L'], rpc_call=rpc_call)
 
 
-def transport(admin, config, blood):
+def transport(admin, config, blood, *, rpc_call=None):
+    rpc_call = rpc if rpc_call is None else rpc_call
     p, tr = config['circuit']['profile'], config['transport']
-    expect(rpc(admin, 'TRANSPORT3' if config['schema_version'] >= 3 else 'TRANSPORT2',
+    expect(rpc_call(admin, 'TRANSPORT3' if config['schema_version'] >= 3 else 'TRANSPORT2',
                tr['dialysate_mL_min'], *p['koa_mL_min'], *p['sieving'], *blood, *tr['dialysate_mmol_L']), 'OK', 1)
 
 

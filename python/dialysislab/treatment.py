@@ -55,12 +55,13 @@ def validate(config, validate_patient):
     return config
 
 
-def configure(admin, config):
+def configure(admin, config, *, rpc_call=None):
+    rpc_call = rpc if rpc_call is None else rpc_call
     t = config['treatment']
     fields = ['ONLINE4', MODES.index(t['mode'])]
     fields.extend(t[k] for k in FIELDS.split()[2:-1])
     fields.extend(t['concentrate_mmol_L'])
-    expect(rpc(admin, *fields), 'OK', 1)
+    expect(rpc_call(admin, *fields), 'OK', 1)
 
 
 def observation(response):

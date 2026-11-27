@@ -525,7 +525,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
+          "sha256": "a1d5527551d0ab2e43cc2bf8a9fa2f545010b322f01dfaeddbc82001552be214"
         },
         {
           "path": "src/ui/client.hpp",
@@ -614,7 +614,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
+          "sha256": "a1d5527551d0ab2e43cc2bf8a9fa2f545010b322f01dfaeddbc82001552be214"
         },
         {
           "path": "src/machine.hpp",
@@ -784,7 +784,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
+          "sha256": "a1d5527551d0ab2e43cc2bf8a9fa2f545010b322f01dfaeddbc82001552be214"
         },
         {
           "path": "src/protection.cpp",
@@ -865,7 +865,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
+          "sha256": "a1d5527551d0ab2e43cc2bf8a9fa2f545010b322f01dfaeddbc82001552be214"
         },
         {
           "path": "src/protection.cpp",
@@ -1211,7 +1211,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
+          "sha256": "a1d5527551d0ab2e43cc2bf8a9fa2f545010b322f01dfaeddbc82001552be214"
         },
         {
           "path": "src/control.cpp",
@@ -1284,7 +1284,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
+          "sha256": "a1d5527551d0ab2e43cc2bf8a9fa2f545010b322f01dfaeddbc82001552be214"
         },
         {
           "path": "src/control.cpp",
@@ -1386,7 +1386,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
+          "sha256": "a1d5527551d0ab2e43cc2bf8a9fa2f545010b322f01dfaeddbc82001552be214"
         },
         {
           "path": "python/dialysislab/runner.py",
@@ -1675,7 +1675,7 @@
         },
         {
           "path": "python/dialysislab/circuit.py",
-          "sha256": "6c7e9b2cfdddd606b531e27dd523ef4e0a09ca510f178f18c18a61675750be13"
+          "sha256": "0fc5be079f20a03f453540a1ae1a37b9ace50fd6f612823bd9904af9d9be49bd"
         }
       ],
       "unresolved": [
@@ -2186,7 +2186,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
+          "sha256": "a1d5527551d0ab2e43cc2bf8a9fa2f545010b322f01dfaeddbc82001552be214"
         },
         {
           "path": "src/plant.cpp",
@@ -2276,7 +2276,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
+          "sha256": "a1d5527551d0ab2e43cc2bf8a9fa2f545010b322f01dfaeddbc82001552be214"
         },
         {
           "path": "src/machine.hpp",
@@ -2342,7 +2342,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+          "sha256": "b046d2edddaf2ec65c1ed981c65660acee6f65571b931d9f524adbb6ddc8eaec"
         },
         {
           "path": "src/control.cpp",
@@ -2938,7 +2938,7 @@
         },
         {
           "path": "docs/wire-contract.json",
-          "sha256": "b4a2e0d6147fe6780635392dc8d0d8d515747e0ee754ad66cf0d846ec220c5e8"
+          "sha256": "a1d5527551d0ab2e43cc2bf8a9fa2f545010b322f01dfaeddbc82001552be214"
         },
         {
           "path": "python/dialysislab/experiment_rpc.py",
@@ -3576,7 +3576,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "6932b63333b8d33b75902876f2cab67c441ee61cc30dd52e43491eb39bf03f37"
+          "sha256": "53d4de1fa5f6c39c3f25f86ff0db11f0e1a3aa2e228813f2983dddec3ce48cd6"
         },
         {
           "path": "tests/test_ci.py",
@@ -3800,7 +3800,7 @@
         },
         {
           "path": "publication_manifest.json",
-          "sha256": "6932b63333b8d33b75902876f2cab67c441ee61cc30dd52e43491eb39bf03f37"
+          "sha256": "53d4de1fa5f6c39c3f25f86ff0db11f0e1a3aa2e228813f2983dddec3ce48cd6"
         },
         {
           "path": "tools/package_release.py",
@@ -4031,7 +4031,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+          "sha256": "b046d2edddaf2ec65c1ed981c65660acee6f65571b931d9f524adbb6ddc8eaec"
         },
         {
           "path": "python/dialysislab/runner.py",
@@ -4164,11 +4164,11 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+          "sha256": "b046d2edddaf2ec65c1ed981c65660acee6f65571b931d9f524adbb6ddc8eaec"
         },
         {
           "path": "python/dialysislab/physical.py",
-          "sha256": "195851661259ef9227b2dbe228adbe6e38ebdc5bdbebac7ebaf49e31879d9637"
+          "sha256": "bb83e0b80feaa39f1d63272c14a274ce9faf97cc234c3587c544a878a4bee4a7"
         },
         {
           "path": "python/dialysislab/runner.py",
@@ -4305,7 +4305,7 @@
         },
         {
           "path": "python/dialysislab/circuit.py",
-          "sha256": "6c7e9b2cfdddd606b531e27dd523ef4e0a09ca510f178f18c18a61675750be13"
+          "sha256": "0fc5be079f20a03f453540a1ae1a37b9ace50fd6f612823bd9904af9d9be49bd"
         },
         {
           "path": "python/dialysislab/compartments.py",
@@ -4317,11 +4317,11 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+          "sha256": "b046d2edddaf2ec65c1ed981c65660acee6f65571b931d9f524adbb6ddc8eaec"
         },
         {
           "path": "python/dialysislab/physical.py",
-          "sha256": "195851661259ef9227b2dbe228adbe6e38ebdc5bdbebac7ebaf49e31879d9637"
+          "sha256": "bb83e0b80feaa39f1d63272c14a274ce9faf97cc234c3587c544a878a4bee4a7"
         },
         {
           "path": "python/dialysislab/protocol.py",
@@ -5416,7 +5416,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+          "sha256": "b046d2edddaf2ec65c1ed981c65660acee6f65571b931d9f524adbb6ddc8eaec"
         },
         {
           "path": "tests/synoptic_motion.cpp",
@@ -5428,7 +5428,7 @@
         },
         {
           "path": "tests/test_synoptic.py",
-          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+          "sha256": "d73866d0936db6f948a7fbc2235d2949e7e55808dff0c11403d233368fa08a42"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
@@ -5505,7 +5505,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+          "sha256": "b046d2edddaf2ec65c1ed981c65660acee6f65571b931d9f524adbb6ddc8eaec"
         },
         {
           "path": "tests/synoptic_motion.cpp",
@@ -5517,7 +5517,7 @@
         },
         {
           "path": "tests/test_synoptic.py",
-          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+          "sha256": "d73866d0936db6f948a7fbc2235d2949e7e55808dff0c11403d233368fa08a42"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
@@ -5594,7 +5594,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+          "sha256": "b046d2edddaf2ec65c1ed981c65660acee6f65571b931d9f524adbb6ddc8eaec"
         },
         {
           "path": "tests/synoptic_motion.cpp",
@@ -5606,7 +5606,7 @@
         },
         {
           "path": "tests/test_synoptic.py",
-          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+          "sha256": "d73866d0936db6f948a7fbc2235d2949e7e55808dff0c11403d233368fa08a42"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
@@ -5683,7 +5683,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+          "sha256": "b046d2edddaf2ec65c1ed981c65660acee6f65571b931d9f524adbb6ddc8eaec"
         },
         {
           "path": "tests/synoptic_motion.cpp",
@@ -5695,7 +5695,7 @@
         },
         {
           "path": "tests/test_synoptic.py",
-          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+          "sha256": "d73866d0936db6f948a7fbc2235d2949e7e55808dff0c11403d233368fa08a42"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
@@ -5772,7 +5772,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+          "sha256": "b046d2edddaf2ec65c1ed981c65660acee6f65571b931d9f524adbb6ddc8eaec"
         },
         {
           "path": "tests/synoptic_motion.cpp",
@@ -5784,7 +5784,7 @@
         },
         {
           "path": "tests/test_synoptic.py",
-          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+          "sha256": "d73866d0936db6f948a7fbc2235d2949e7e55808dff0c11403d233368fa08a42"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
@@ -5861,7 +5861,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+          "sha256": "b046d2edddaf2ec65c1ed981c65660acee6f65571b931d9f524adbb6ddc8eaec"
         },
         {
           "path": "tests/synoptic_motion.cpp",
@@ -5873,7 +5873,7 @@
         },
         {
           "path": "tests/test_synoptic.py",
-          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+          "sha256": "d73866d0936db6f948a7fbc2235d2949e7e55808dff0c11403d233368fa08a42"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
@@ -5954,7 +5954,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+          "sha256": "b046d2edddaf2ec65c1ed981c65660acee6f65571b931d9f524adbb6ddc8eaec"
         },
         {
           "path": "tests/synoptic_motion.cpp",
@@ -5966,7 +5966,7 @@
         },
         {
           "path": "tests/test_synoptic.py",
-          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+          "sha256": "d73866d0936db6f948a7fbc2235d2949e7e55808dff0c11403d233368fa08a42"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
@@ -6043,7 +6043,7 @@
         },
         {
           "path": "python/dialysislab/machine.py",
-          "sha256": "c93008417373c0bc94ea1d6d59ffd4dbd8eabc323fc1d90ad5d896eb407fdeb3"
+          "sha256": "b046d2edddaf2ec65c1ed981c65660acee6f65571b931d9f524adbb6ddc8eaec"
         },
         {
           "path": "tests/synoptic_motion.cpp",
@@ -6055,7 +6055,7 @@
         },
         {
           "path": "tests/test_synoptic.py",
-          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+          "sha256": "d73866d0936db6f948a7fbc2235d2949e7e55808dff0c11403d233368fa08a42"
         },
         {
           "path": "tests/wire_contract_witness.cpp",
@@ -6112,7 +6112,7 @@
         },
         {
           "path": "tests/test_synoptic.py",
-          "sha256": "1132a5cd306bc7b2988c368041acba760575339129ba3282f46b9cb83453f578"
+          "sha256": "d73866d0936db6f948a7fbc2235d2949e7e55808dff0c11403d233368fa08a42"
         },
         {
           "path": "src/dynamics.hpp",
@@ -6231,7 +6231,7 @@
         },
         {
           "path": "python/dialysislab/browser.py",
-          "sha256": "df61748d5e17dc22ee7bfb476d9a2e76372f782683f9ed2f4963dd91fada2770"
+          "sha256": "bde42beaae34c0cbf9b7ba09d707fc66cac806bdcd1eb6a2d952dec9081bd2e1"
         },
         {
           "path": "python/dialysislab/runner.py",
@@ -6267,7 +6267,7 @@
         },
         {
           "path": "tests/test_browser.py",
-          "sha256": "4490ebb4a8f2a5b8400b270b504678353851007fb2b2cdd517c3a455f4584547"
+          "sha256": "121b8cf53d30ab960f2d0b90b741436d806d2a88f3d8acb3426ae0ea9d7433a1"
         },
         {
           "path": "tests/browser/campaign.py",
@@ -6333,7 +6333,7 @@
         },
         {
           "path": "python/dialysislab/browser.py",
-          "sha256": "df61748d5e17dc22ee7bfb476d9a2e76372f782683f9ed2f4963dd91fada2770"
+          "sha256": "bde42beaae34c0cbf9b7ba09d707fc66cac806bdcd1eb6a2d952dec9081bd2e1"
         },
         {
           "path": "python/dialysislab/runner.py",
@@ -6369,7 +6369,7 @@
         },
         {
           "path": "tests/test_browser.py",
-          "sha256": "4490ebb4a8f2a5b8400b270b504678353851007fb2b2cdd517c3a455f4584547"
+          "sha256": "121b8cf53d30ab960f2d0b90b741436d806d2a88f3d8acb3426ae0ea9d7433a1"
         },
         {
           "path": "tests/browser/campaign.py",
@@ -6435,7 +6435,7 @@
         },
         {
           "path": "python/dialysislab/browser.py",
-          "sha256": "df61748d5e17dc22ee7bfb476d9a2e76372f782683f9ed2f4963dd91fada2770"
+          "sha256": "bde42beaae34c0cbf9b7ba09d707fc66cac806bdcd1eb6a2d952dec9081bd2e1"
         },
         {
           "path": "python/dialysislab/runner.py",
@@ -6471,7 +6471,7 @@
         },
         {
           "path": "tests/test_browser.py",
-          "sha256": "4490ebb4a8f2a5b8400b270b504678353851007fb2b2cdd517c3a455f4584547"
+          "sha256": "121b8cf53d30ab960f2d0b90b741436d806d2a88f3d8acb3426ae0ea9d7433a1"
         },
         {
           "path": "tests/browser/campaign.py",
@@ -6537,7 +6537,7 @@
         },
         {
           "path": "python/dialysislab/browser.py",
-          "sha256": "df61748d5e17dc22ee7bfb476d9a2e76372f782683f9ed2f4963dd91fada2770"
+          "sha256": "bde42beaae34c0cbf9b7ba09d707fc66cac806bdcd1eb6a2d952dec9081bd2e1"
         },
         {
           "path": "python/dialysislab/runner.py",
@@ -6573,7 +6573,7 @@
         },
         {
           "path": "tests/test_browser.py",
-          "sha256": "4490ebb4a8f2a5b8400b270b504678353851007fb2b2cdd517c3a455f4584547"
+          "sha256": "121b8cf53d30ab960f2d0b90b741436d806d2a88f3d8acb3426ae0ea9d7433a1"
         },
         {
           "path": "tests/browser/campaign.py",
@@ -6639,7 +6639,7 @@
         },
         {
           "path": "python/dialysislab/browser.py",
-          "sha256": "df61748d5e17dc22ee7bfb476d9a2e76372f782683f9ed2f4963dd91fada2770"
+          "sha256": "bde42beaae34c0cbf9b7ba09d707fc66cac806bdcd1eb6a2d952dec9081bd2e1"
         },
         {
           "path": "python/dialysislab/runner.py",
@@ -6675,7 +6675,7 @@
         },
         {
           "path": "tests/test_browser.py",
-          "sha256": "4490ebb4a8f2a5b8400b270b504678353851007fb2b2cdd517c3a455f4584547"
+          "sha256": "121b8cf53d30ab960f2d0b90b741436d806d2a88f3d8acb3426ae0ea9d7433a1"
         },
         {
           "path": "tests/browser/campaign.py",
